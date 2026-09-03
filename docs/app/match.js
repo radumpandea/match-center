@@ -164,9 +164,38 @@
   }
   function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
 
-  // Drag-to-reposition. Below a small movement threshold the gesture is treated
-  // as a click (opens the player card); past it, the drop position is saved.
-  function makeDraggable(node, shell, onMove, onDrop, onClick) {
+  /* ---------- who is on the pitch (lineup overrides) ---------- */
+  function sameP(a, b) {
+    if (!a || !b) return false;
+    if (a.number != null && b.number != null) return a.number === b.number;
+    return a.name === b.name;
+  }
+  function keyOf(p) { return p && p.number != null ? 'n' + p.number : 's' + (p && p.name); }
+  // predicted XI for a side with the user's manual swaps applied
+  function effXI(d, side) {
+    var pred = (d.teams[side].predictedXI || []).slice();
+    var ov = (store.xi && store.xi[side]) || {};
+    return pred.map(function (slot, i) { return ov[i] || slot; });
+  }
+  function applySub(d, side, idx, player) {
+    var pred = d.teams[side].predictedXI || [];
+    store.xi = store.xi || {};
+    store.xi[side] = store.xi[side] || {};
+    store.xi[side][idx] = {
+      number: player.number != null ? player.number : null,
+      name: player.name,
+      pos: pred[idx] ? pred[idx].pos : player.pos
+    };
+    save();
+    rerenderPitch(d);
+  }
+  function clearSub(d, side, idx) {
+    if (store.xi && store.xi[side]) { delete store.xi[side][idx]; save(); rerenderPitch(d); }
+  }
+
+  // Drag-to-reposition. The trailing native `click` is handled separately by the
+  // caller; after a real drag we set node._dragged so that click is swallowed.
+  function makeDraggable(node, shell, onDrop) {
     node.addEventListener('pointerdown', function (e) {
       if (e.button != null && e.button !== 0) return;
       var rect = shell.getBoundingClientRect();
@@ -183,15 +212,17 @@
         last = { left: left, top: top };
         node.style.left = left.toFixed(2) + '%';
         node.style.top = top.toFixed(2) + '%';
-        if (onMove) onMove(last);
       }
       function end() {
         node.removeEventListener('pointermove', move);
         node.removeEventListener('pointerup', end);
         node.removeEventListener('pointercancel', end);
         node.classList.remove('dragging');
-        if (moved && last) onDrop(last);
-        else onClick();
+        if (moved && last) {
+          node._dragged = true;
+          setTimeout(function () { node._dragged = false; }, 350);
+          onDrop(last);
+        }
       }
       node.addEventListener('pointermove', move);
       node.addEventListener('pointerup', end);
@@ -284,7 +315,7 @@
     ['home', 'away'].forEach(function (side) {
       var t = d.teams[side];
       var isNear = side === nearKey;
-      var xi = t.predictedXI && t.predictedXI.length ? t.predictedXI : [];
+      var xi = effXI(d, side);
       var pts = layout(t.formation);
       xi.forEach(function (slot, i) {
         var full = playerByNameOrNum(t, slot);
@@ -295,18 +326,22 @@
         var node = el('div', {
           class: 'node ' + side + (stat && stat !== 'available' ? ' status-' + stat : '') + (override ? ' moved' : ''),
           style: 'left:' + pos.left.toFixed(2) + '%;top:' + pos.top.toFixed(2) + '%',
-          title: 'Trage pentru a repoziționa'
+          title: 'Trage pentru a repoziționa · click pentru fișă și schimbări',
+          onclick: function () {
+            if (node._dragged) { node._dragged = false; return; }
+            if (full) openPlayer(d, side, full);
+          }
         }, [
           el('div', { class: 'disc', text: slot.number != null ? String(slot.number) : (slot.pos || '') }),
           el('div', { class: 'lbl', text: shortName(slot.name) })
         ]);
-        makeDraggable(node, shell, null, function (p) {
+        makeDraggable(node, shell, function (p) {
           store.lineup = store.lineup || {};
           store.lineup[side] = store.lineup[side] || {};
           store.lineup[side][pkey] = unplace(p.left, p.top, isNear);
           save();
           node.classList.add('moved');
-        }, function () { if (full) openPlayer(d, side, full); });
+        });
         shell.appendChild(node);
       });
       // coach mini-card — near team's coach sits at the near end, far team's at the far end
@@ -334,7 +369,34 @@
         ])
       ]));
     }
-    return shell;
+
+    return el('div', { class: 'pitch-wrap' }, [shell, subsStrip(d)]);
+  }
+
+  // Below the pitch: one line per team listing the manual swaps, each removable.
+  function subsStrip(d) {
+    var strip = el('div', { class: 'subs-strip' });
+    ['home', 'away'].forEach(function (side) {
+      var pred = d.teams[side].predictedXI || [];
+      var ov = (store.xi && store.xi[side]) || {};
+      var made = [];
+      pred.forEach(function (orig, i) {
+        var cur = ov[i];
+        if (cur && !sameP(cur, orig)) made.push({ i: i, out: orig, inn: cur });
+      });
+      if (!made.length) return;
+      var row = el('div', { class: 'subs-team' }, [
+        el('span', { class: 'subs-label', text: d.teams[side].name })
+      ]);
+      made.forEach(function (m) {
+        row.appendChild(el('span', { class: 'sub-chip' }, [
+          el('span', { text: shortName(m.out.name) + '  ↦  ' + shortName(m.inn.name) }),
+          el('button', { text: '✕', title: 'Anulează schimbarea', onclick: function () { clearSub(d, side, m.i); } })
+        ]));
+      });
+      strip.appendChild(row);
+    });
+    return strip;
   }
 
   function shortName(name) {
@@ -540,7 +602,7 @@
     var tabBar = el('div', { class: 'modal-tabs' });
     var names = Object.keys(tabs);
     function show(name) {
-      body.innerHTML = ''; body.appendChild(tabs[name]());
+      body.innerHTML = ''; body.appendChild(tabs[name](close));
       [].forEach.call(tabBar.children, function (b) { b.classList.toggle('active', b.textContent === name); });
     }
     names.forEach(function (name) { tabBar.appendChild(el('button', { text: name, onclick: function () { show(name); } })); });
@@ -586,8 +648,66 @@
       'Status': function () {
         return el('div', {}, [el('p', { text: (p.status || 'available') + (has(p.statusNote) ? ' — ' + p.statusNote : '') })]);
       },
+      'Schimbă': function (close) { return subTab(d, side, p, close); },
       'Notițe': function () { return notesBlock(id, p.name); }
     });
+  }
+
+  // The "Schimbă" tab: send this player on/off the pitch. Works both from an
+  // on-pitch player (pick a replacement from the bench) and from a bench player
+  // opened via the squad panel (pick which starter they replace).
+  function subTab(d, side, p, close) {
+    var wrap = el('div', { class: 'sub-tab' });
+    var eff = effXI(d, side);
+    var pred = d.teams[side].predictedXI || [];
+    var squad = d.teams[side].squad || [];
+    var slotIdx = -1;
+    eff.forEach(function (s, i) { if (slotIdx < 0 && sameP(s, p)) slotIdx = i; });
+
+    function line(pl, onClick) {
+      return el('button', {
+        class: 'pick' + (pl.status && pl.status !== 'available' ? ' warn' : ''),
+        onclick: onClick,
+        text: (pl.number != null ? '#' + pl.number + '  ' : '') + pl.name +
+          (has(pl.pos) ? '  ·  ' + pl.pos : has(pl.role) ? '  ·  ' + pl.role : '') +
+          (pl.status && pl.status !== 'available' ? '  ·  ' + pl.status : '')
+      });
+    }
+
+    if (slotIdx >= 0) {
+      var origName = pred[slotIdx] ? pred[slotIdx].name : null;
+      var swapped = !!(store.xi && store.xi[side] && store.xi[side][slotIdx]);
+      wrap.appendChild(el('p', { class: 'sub-head', text: 'Îl scoate pe ' + p.name + '. Cine intră?' }));
+      if (swapped && origName) {
+        wrap.appendChild(line({ name: '↩ Revino la ' + origName + ' (din predicție)' },
+          function () { clearSub(d, side, slotIdx); close(); }));
+      }
+      var onKeys = eff.map(keyOf);
+      var bench = squad.filter(function (x) { return onKeys.indexOf(keyOf(x)) < 0; });
+      groupPick(bench).forEach(function (grp) {
+        wrap.appendChild(el('h4', { text: grp.label }));
+        grp.items.forEach(function (b) {
+          wrap.appendChild(line(b, function () { applySub(d, side, slotIdx, b); close(); }));
+        });
+      });
+      if (!bench.length) wrap.appendChild(el('p', { text: 'Nu există jucători de rezervă în date.' }));
+    } else {
+      wrap.appendChild(el('p', { class: 'sub-head', text: p.name + ' e pe bancă. Pe cine înlocuiește?' }));
+      eff.forEach(function (s, i) {
+        var full = playerByNameOrNum(d.teams[side], s);
+        wrap.appendChild(line(full, function () { applySub(d, side, i, p); close(); }));
+      });
+    }
+    wrap.appendChild(el('p', { class: 'sub-note', text: 'Se salvează local, în acest browser — pentru schimbări în timpul meciului, fără să aștepți actualizarea datelor.' }));
+    return wrap;
+  }
+
+  function groupPick(list) {
+    var g = { GK: [], DEF: [], MID: [], ATT: [] };
+    list.forEach(function (p) { (g[p.role] || g.MID).push(p); });
+    var labels = { GK: 'Portari', DEF: 'Fundași', MID: 'Mijlocași', ATT: 'Atacanți' };
+    return ['GK', 'DEF', 'MID', 'ATT'].filter(function (k) { return g[k].length; })
+      .map(function (k) { return { label: labels[k], items: g[k] }; });
   }
 
   function openCoach(d, side) {

@@ -102,6 +102,30 @@ button{font-family:inherit}
 .node.status-out .disc{opacity:.4}
 .node.status-doubt .disc{border-style:dashed}
 
+/* ---- substitutions strip (below the pitch) ---- */
+.subs-strip{display:flex;flex-direction:column;gap:var(--space-2);margin-top:var(--space-3)}
+.subs-strip:empty{display:none}
+.subs-team{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2);font-size:11.5px}
+.subs-label{color:var(--color-neutral-500);letter-spacing:.04em;text-transform:uppercase;font-size:10px}
+.sub-chip{
+  display:inline-flex;align-items:center;gap:6px;padding:3px 4px 3px 9px;border-radius:999px;
+  background:var(--color-surface);border:1px solid var(--color-divider);color:var(--color-text)
+}
+.sub-chip button{background:none;border:none;color:var(--color-neutral-500);cursor:pointer;font-size:11px;line-height:1;padding:2px 4px;border-radius:999px}
+.sub-chip button:hover{color:var(--color-text);background:var(--color-surface-2)}
+
+/* ---- "Schimbă" tab in the player modal ---- */
+.sub-tab .sub-head{margin:0 0 var(--space-3);font-size:13px}
+.sub-tab h4{margin:var(--space-3) 0 var(--space-1);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-500)}
+.sub-tab .sub-note{margin:var(--space-4) 0 0;font-size:11px;color:var(--color-neutral-600);text-wrap:pretty}
+button.pick{
+  display:block;width:100%;text-align:left;margin-top:4px;padding:7px 10px;font:inherit;font-size:12.5px;
+  color:var(--color-text);background:var(--color-surface-2);border:1px solid var(--color-divider);
+  border-radius:var(--radius-sm);cursor:pointer
+}
+button.pick:hover{border-color:var(--color-accent);color:var(--color-accent-200)}
+button.pick.warn{color:var(--color-neutral-400)}
+
 .card-slot{position:absolute;display:flex;flex-direction:column;gap:4px;font-size:10.5px;z-index:4}
 .card-slot.tl{top:8px;left:8px}
 .card-slot.tr{top:8px;right:8px;text-align:right;align-items:flex-end}
