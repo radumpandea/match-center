@@ -154,6 +154,50 @@
     }
     return isNear ? { left: d * 100, top: w * 100 } : { left: (1 - d) * 100, top: w * 100 };
   }
+  // inverse of place(): left/top % (0..100) back to orientation-independent (d, w)
+  function unplace(left, top, isNear) {
+    var L = left / 100, T = top / 100;
+    if (view.orientation === 'v') {
+      return isNear ? { d: 1 - T, w: L } : { d: T, w: L };
+    }
+    return isNear ? { d: L, w: T } : { d: 1 - L, w: T };
+  }
+  function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+
+  // Drag-to-reposition. Below a small movement threshold the gesture is treated
+  // as a click (opens the player card); past it, the drop position is saved.
+  function makeDraggable(node, shell, onMove, onDrop, onClick) {
+    node.addEventListener('pointerdown', function (e) {
+      if (e.button != null && e.button !== 0) return;
+      var rect = shell.getBoundingClientRect();
+      var sx = e.clientX, sy = e.clientY, moved = false, last = null;
+      try { node.setPointerCapture(e.pointerId); } catch (err) {}
+      function move(ev) {
+        if (!moved && Math.abs(ev.clientX - sx) + Math.abs(ev.clientY - sy) > 4) {
+          moved = true;
+          node.classList.add('dragging');
+        }
+        if (!moved) return;
+        var left = clamp(((ev.clientX - rect.left) / rect.width) * 100, 2, 98);
+        var top = clamp(((ev.clientY - rect.top) / rect.height) * 100, 3, 97);
+        last = { left: left, top: top };
+        node.style.left = left.toFixed(2) + '%';
+        node.style.top = top.toFixed(2) + '%';
+        if (onMove) onMove(last);
+      }
+      function end() {
+        node.removeEventListener('pointermove', move);
+        node.removeEventListener('pointerup', end);
+        node.removeEventListener('pointercancel', end);
+        node.classList.remove('dragging');
+        if (moved && last) onDrop(last);
+        else onClick();
+      }
+      node.addEventListener('pointermove', move);
+      node.addEventListener('pointerup', end);
+      node.addEventListener('pointercancel', end);
+    });
+  }
 
   /* ---------- render ---------- */
   var pitchEl = null;
@@ -181,6 +225,12 @@
       text: '⇄ Schimbă părțile',
       onclick: function () { view.swapped = !view.swapped; saveView(); rerenderPitch(data); }
     });
+    var resetPosBtn = el('button', {
+      text: '↺ Resetează pozițiile',
+      onclick: function () {
+        if (store.lineup) { delete store.lineup; save(); rerenderPitch(data); }
+      }
+    });
 
     // header
     var head = el('div', { class: 'mc-head' }, [
@@ -194,11 +244,12 @@
       el('div', { class: 'mc-toolbar' }, [
         swapBtn,
         orientBtn,
+        resetPosBtn,
         el('button', { text: '🖨 Print', onclick: function () { window.print(); } }),
         el('button', { text: '⭳ Export notițe', onclick: function () { exportNotes(data); } }),
         el('button', { text: '⇕ Extinde / restrânge', onclick: toggleAll }),
         el('button', { text: '🗑 Șterge notițele acestui meci', onclick: function () {
-          if (confirm('Ștergi toate notițele pentru acest meci?')) { store = {}; save(); render(data); }
+          if (confirm('Ștergi toate notițele pentru acest meci?')) { delete store.notes; save(); render(data); }
         } })
       ])
     ]);
@@ -236,17 +287,26 @@
       var xi = t.predictedXI && t.predictedXI.length ? t.predictedXI : [];
       var pts = layout(t.formation);
       xi.forEach(function (slot, i) {
-        var pos = place(pts[i] || { d: 0.03, w: 0.05 + i * 0.08 }, isNear);
         var full = playerByNameOrNum(t, slot);
+        var pkey = slot.number != null ? String(slot.number) : slot.name;
+        var override = store.lineup && store.lineup[side] && store.lineup[side][pkey];
+        var pos = place(override || pts[i] || { d: 0.03, w: 0.05 + i * 0.08 }, isNear);
         var stat = full && full.status;
         var node = el('div', {
-          class: 'node ' + side + (stat && stat !== 'available' ? ' status-' + stat : ''),
+          class: 'node ' + side + (stat && stat !== 'available' ? ' status-' + stat : '') + (override ? ' moved' : ''),
           style: 'left:' + pos.left.toFixed(2) + '%;top:' + pos.top.toFixed(2) + '%',
-          onclick: function () { if (full) openPlayer(d, side, full); }
+          title: 'Trage pentru a repoziționa'
         }, [
           el('div', { class: 'disc', text: slot.number != null ? String(slot.number) : (slot.pos || '') }),
           el('div', { class: 'lbl', text: shortName(slot.name) })
         ]);
+        makeDraggable(node, shell, null, function (p) {
+          store.lineup = store.lineup || {};
+          store.lineup[side] = store.lineup[side] || {};
+          store.lineup[side][pkey] = unplace(p.left, p.top, isNear);
+          save();
+          node.classList.add('moved');
+        }, function () { if (full) openPlayer(d, side, full); });
         shell.appendChild(node);
       });
       // coach mini-card — near team's coach sits at the near end, far team's at the far end

@@ -73,9 +73,17 @@ button{font-family:inherit}
 
 .node{
   position:absolute;transform:translate(-50%,-50%);width:74px;z-index:2;
-  display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  cursor:grab;touch-action:none;user-select:none;
 }
 .node:hover .disc{outline:2px solid #fff;outline-offset:1px}
+.node.dragging{z-index:20;cursor:grabbing}
+.node.dragging .disc{outline:2px solid #fff;outline-offset:1px;box-shadow:0 6px 16px rgba(0,0,0,.5)}
+.node.moved .disc::after{
+  content:"";position:absolute;top:-3px;right:-3px;width:7px;height:7px;border-radius:50%;
+  background:var(--color-accent-200);border:1px solid rgba(0,0,0,.4)
+}
+.node .disc{position:relative}
 .node .disc{
   width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   font-size:12px;font-weight:600;color:#fff;border:2px solid rgba(255,255,255,.75);
