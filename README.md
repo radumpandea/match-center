@@ -41,8 +41,9 @@ cd docs && python -m http.server 8000
 | Secret | Used by | Notes |
 |---|---|---|
 | `RAPIDAPI_KEY` | refresh-fixtures.yml | free-api-live-football-data key (same as the `comentarii` repo) |
-| `ANTHROPIC_API_KEY` | build-match-data.yml | research run |
-| `CLAUDE_CODE_OAUTH_TOKEN` | claude.yml, claude-code-review.yml | optional `@claude` / PR review |
+| `ANTHROPIC_API_KEY` | build-match-data.yml | research run — an Anthropic Console API key |
+| `ANTHROPIC_WORKSPACE_ID` | build-match-data.yml | **only if** `ANTHROPIC_API_KEY` is an identity-linked key (error: `anthropic-workspace-id is required`). Value looks like `wrkspc_...`, from the Anthropic Console. Not needed for a plain workspace-scoped key. |
+| `CLAUDE_CODE_OAUTH_TOKEN` | build-match-data.yml (alt), claude.yml, claude-code-review.yml | `claude setup-token` output; use instead of `ANTHROPIC_API_KEY` if you have a Claude subscription, and for `@claude` / PR review |
 
 ## Status
 

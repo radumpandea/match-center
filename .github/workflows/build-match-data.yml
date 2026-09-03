@@ -25,8 +25,18 @@ jobs:
         run: npm install --no-audit --no-fund
 
       - uses: anthropics/claude-code-action@v1
+        env:
+          # An identity-linked Anthropic API key (the newer default for keys created
+          # via personal login) rejects requests unless the acting workspace is named.
+          # Set the ANTHROPIC_WORKSPACE_ID repo secret (format: wrkspc_...) and it is
+          # sent as a header; leave it unset for a plain workspace-scoped key.
+          ANTHROPIC_CUSTOM_HEADERS: ${{ secrets.ANTHROPIC_WORKSPACE_ID && format('anthropic-workspace-id: {0}', secrets.ANTHROPIC_WORKSPACE_ID) || '' }}
         with:
+          # Provide ONE of these two secrets. anthropic_api_key: an API key from the
+          # Anthropic Console. claude_code_oauth_token: `claude setup-token` output
+          # for a Claude subscription. Whichever is empty is ignored.
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           show_full_output: true
           prompt: |
             You are building one structured match-data JSON file for a small
