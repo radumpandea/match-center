@@ -1,0 +1,39 @@
+name: Refresh Fixtures
+
+on:
+  schedule:
+    - cron: "10 5 * * *"   # 05:10 UTC daily (07:10 Europe/Bucharest)
+  workflow_dispatch: {}    # run on demand from the Actions tab
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Refresh docs/data/fixtures.json from the football feed
+        env:
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+        run: node scripts/refresh-fixtures.mjs
+
+      - name: Commit if changed
+        run: |
+          git config user.name "fixture-refresh-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/data/fixtures.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Refresh fixtures ($(date -u +%Y-%m-%d))"
+            git push
+          fi

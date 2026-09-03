@@ -1,0 +1,15 @@
+{
+  "name": "match-center",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Interactive pre-match Match Center for football commentators",
+  "scripts": {
+    "fixtures": "node scripts/refresh-fixtures.mjs",
+    "validate": "node scripts/validate-match.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

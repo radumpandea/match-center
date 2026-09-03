@@ -1,0 +1,105 @@
+name: Build Match Data
+
+on:
+  schedule:
+    - cron: "0 6 * * *"    # 06:00 UTC daily (08:00 Europe/Bucharest) — after fixture refresh
+  workflow_dispatch: {}    # run on demand from the Actions tab (e.g. for a first test)
+
+jobs:
+  build-match:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install validator dependencies
+        run: npm install --no-audit --no-fund
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          show_full_output: true
+          prompt: |
+            You are building one structured match-data JSON file for a small
+            football Match Center site (radumpandea.github.io/match-center). You
+            run once a day, unattended, with no memory of any previous run and no
+            one reviewing the output before it goes live — everything you need is
+            in this repo and this prompt, and the accuracy rules below are not
+            optional.
+
+            ## Critical: do the work yourself, now — there is no "later"
+            This process is a single one-shot run. The moment your final response
+            is produced, this job exits immediately — nothing keeps running after
+            that. Do NOT use the Task tool or any background/async agent to do the
+            research and "report back once it completes" — there is no "later" for
+            it to report into; delegated work like that is abandoned mid-way and
+            nothing gets built, committed, or pushed, even though your own turn
+            will look like it succeeded. Do every step yourself, directly,
+            synchronously, in this same turn: the research, the JSON file, the
+            fixtures.json update, and the git commit and push, all before you give
+            your final answer. Take as many tool calls and as long as you need.
+
+            ## Repo layout
+            - `docs/data/fixtures.json` — an array of fixture entries:
+              { slug, comp, country, round, date, ko, kickoff, home, away, venue, ready }
+              GitHub Pages serves the site from `docs/`.
+            - `docs/data/schema.json` — the JSON Schema every match-data file must
+              satisfy (`additionalProperties: false` throughout).
+            - `docs/data/matches/<slug>.json` — where each match's data belongs.
+            - `.claude/skills/match-data-json/SKILL.md` — the full spec for how to
+              research and assemble the file. Follow it exactly, at its default
+              maximum scope (full squads, full detail per player, all sections) —
+              do not reduce scope or ask; there is no one here to ask.
+            - `scripts/validate-match.mjs` — run this on your output file.
+
+            ## Your job today
+            1. Read `docs/data/fixtures.json`. Among entries with `ready: false`,
+               find the one with the earliest `date` that is today or in the next
+               2 days (Europe/Bucharest time). If there is none, stop here — do
+               nothing else, make no commit. This is the expected outcome most days.
+            2. Build that match's data by following
+               `.claude/skills/match-data-json/SKILL.md` from Pasul 0 through
+               Pasul 3, in full. Write the file at
+               `docs/data/matches/<slug>.json` (create `docs/data/matches/` if
+               needed), conforming exactly to `docs/data/schema.json`.
+            3. Run `node scripts/validate-match.mjs docs/data/matches/<slug>.json`.
+               It must exit 0. Fix every `✗`. Treat `!` warnings (e.g. "lists 1
+               goalkeeper") as a signal to re-verify that part against the official
+               source.
+            4. Set that one entry's `ready: true` in `docs/data/fixtures.json`, and
+               correct its `round`, `ko`, `kickoff` or `venue` if your research
+               shows the fixture feed's value was wrong. Leave every other entry
+               untouched.
+
+            ## Accuracy — read this twice, no one will catch a mistake before it's live
+            - Never invent a fact, a statistic, or a height/career detail. Use
+              `null` / `"n/d"` exactly as the schema and skill say.
+            - Never write a "first time", "record", or "return to" claim unless a
+              source states that exact thing. When unsure, state the plain fact.
+            - Any news item must be dated within 2-3 days of today — check the
+              article's own date; drop anything older or undated.
+            - If two sources disagree on a squad, a lineup, or a stat, prefer the
+              official source (club site, league site, UEFA squad list for European
+              games) and note the discrepancy rather than silently picking one.
+            - This research is intentionally large (the skill notes 40-90+ lookups
+              just for squad details) — that volume is expected, not a signal to
+              cut corners.
+
+            ## Finishing up
+            - Only commit and push if you actually produced a schema-valid JSON and
+              updated `fixtures.json` for that one match. Commit message: which
+              match, competition, round.
+            - Push directly to `main`.
+            - Never touch any other match's fixtures entry or data file.
+          claude_args: |
+            --model claude-sonnet-5
+            --allowedTools "Read,Write,Edit,Bash,Glob,Grep,WebSearch,WebFetch"

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Match Center — ecrane de meci pentru comentariu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --color-bg:#161826;
+    --color-surface:#232532;
+    --color-text:#e9e9ed;
+    --color-accent:#9184d9;
+    --color-divider:color-mix(in srgb,#e9e9ed 16%,transparent);
+    --color-neutral-400:#b2b6ca;
+    --color-neutral-500:#9397ab;
+    --color-neutral-600:#75798c;
+    --color-accent-200:#e7e5fe;
+    --color-accent-300:#d2cefd;
+    --color-accent-700:#5d5294;
+    --color-accent-900:#2b2741;
+    --space-1:2.8px;--space-2:5.6px;--space-3:8.4px;--space-4:11.2px;--space-6:16.8px;--space-8:22.4px;
+    --radius-sm:4px;--radius-md:8px;--radius-lg:14px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:"Inter",system-ui,sans-serif;font-size:15px;line-height:1.55}
+  a{color:var(--color-accent-300);text-decoration:none}
+  a:hover{color:var(--color-accent-200)}
+  .input{
+    width:100%;min-height:36px;padding:6px 10px;font:inherit;font-size:14px;color:var(--color-text);
+    caret-color:var(--color-accent);background:var(--color-surface);
+    border:1px solid var(--color-divider);border-radius:var(--radius-md)
+  }
+  .input:hover{border-color:color-mix(in srgb,var(--color-text) 45%,transparent)}
+  .input:focus-visible{border-color:var(--color-accent);outline:none}
+  .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 var(--space-6)}
+  .wrap{width:100%;max-width:860px;display:flex;flex-direction:column;gap:var(--space-8);padding:var(--space-8) 0}
+  .kicker{font:600 12.5px/1 "Inter",sans-serif;letter-spacing:.18em;color:var(--color-accent-300)}
+  .kicker .dot{color:var(--color-accent)}
+  .title{font:600 30px/1.15 "Inter",sans-serif;letter-spacing:-.01em;max-width:20ch}
+  .intro{font-size:14px;line-height:1.6;color:var(--color-neutral-400);max-width:56ch;text-wrap:pretty}
+  .filters{display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center}
+  .chip{
+    font-family:inherit;font-size:11.5px;padding:var(--space-2) var(--space-4);border-radius:999px;
+    cursor:pointer;background:transparent;color:var(--color-neutral-400);border:1px solid var(--color-divider)
+  }
+  .chip.active{background:color-mix(in srgb,var(--color-accent) 18%,transparent);color:var(--color-accent-200);border-color:var(--color-accent)}
+  .search{width:200px;font-size:12px;padding:var(--space-2) var(--space-4);margin-left:auto}
+  .groups{display:flex;flex-direction:column;gap:var(--space-8)}
+  .group{display:flex;flex-direction:column;gap:var(--space-3)}
+  .group-head{display:flex;align-items:baseline;gap:var(--space-3);padding-bottom:var(--space-2);border-bottom:1px solid var(--color-divider)}
+  .group-label{font:600 11px/1 "Inter",sans-serif;letter-spacing:.16em;color:var(--color-neutral-400)}
+  .group-count{font-size:11px;color:var(--color-neutral-600)}
+  .row{
+    display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:var(--space-4);
+    padding:var(--space-4);border-radius:var(--radius-md);border:1px solid var(--color-divider);
+    color:inherit;text-decoration:none;transition:background .12s
+  }
+  .row:hover{background:var(--color-surface)}
+  .row.pending{opacity:.62}
+  .row-ko{font-size:12px;color:var(--color-neutral-600);font-variant-numeric:tabular-nums}
+  .row-mid{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .row-title{font-size:14px;color:var(--color-text)}
+  .row-sub{font-size:11.5px;color:var(--color-neutral-600);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .row-tag{font-size:10.5px;letter-spacing:.1em;padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .row-tag.ready{background:color-mix(in srgb,var(--color-accent) 18%,transparent);color:var(--color-accent-200)}
+  .row-tag.pending{background:transparent;color:var(--color-neutral-600);border:1px solid var(--color-divider)}
+  .empty{padding:var(--space-8);text-align:center;font-size:13px;color:var(--color-neutral-600);border:1px dashed var(--color-divider);border-radius:var(--radius-md)}
+  .foot{font-size:11.5px;line-height:1.7;color:var(--color-neutral-600);border-top:1px solid var(--color-divider);padding-top:var(--space-4);text-wrap:pretty}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="wrap">
+
+    <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+      <div class="kicker">MATCH<span class="dot">·</span>CENTER</div>
+      <div class="title">Ecrane de meci pentru comentariu</div>
+      <div class="intro">Un ecran interactiv pre-meci pentru fiecare partidă: teren cu primul 11 probabil, carduri de jucător, antrenor și arbitru, panouri de formă, cap la cap, absențe și fire narative, plus un strat de notițe salvate local. Datele sunt culese automat înainte de start.</div>
+    </div>
+
+    <div class="filters">
+      <div id="chips" style="display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center"></div>
+      <input id="query" class="input search" type="text" placeholder="Caută echipă">
+    </div>
+
+    <div id="groups" class="groups"></div>
+    <div id="empty" class="empty" hidden>Niciun meci pentru filtrele alese.</div>
+
+    <div class="foot">Fixture-le vin din feedul live de rezultate; datele fiecărui ecran (formă, cap la cap, loturi, absențe, brigadă, fire narative) sunt culese din presă și din surse oficiale de un job zilnic, cu sursa și data notate în fișier. Notițele tale se salvează în acest browser.</div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  var MONTHS = ['ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
+  var DAYS = ['duminică','luni','marți','miercuri','joi','vineri','sâmbătă'];
+
+  var state = { comp: null, query: '' };
+  var all = [];
+
+  function dateLabel(iso){
+    var d = new Date(iso + 'T12:00:00');
+    if (isNaN(d)) return iso;
+    return DAYS[d.getDay()] + ', ' + d.getDate() + ' ' + MONTHS[d.getMonth()];
+  }
+
+  function render(){
+    var comps = [];
+    all.forEach(function(m){ if (comps.indexOf(m.comp) < 0) comps.push(m.comp); });
+
+    var chipsEl = document.getElementById('chips');
+    chipsEl.innerHTML = '';
+    var allChip = document.createElement('button');
+    allChip.className = 'chip' + (state.comp === null ? ' active' : '');
+    allChip.textContent = 'Toate';
+    allChip.onclick = function(){ state.comp = null; render(); };
+    chipsEl.appendChild(allChip);
+    comps.forEach(function(c){
+      var b = document.createElement('button');
+      b.className = 'chip' + (state.comp === c ? ' active' : '');
+      b.textContent = c;
+      b.onclick = function(){ state.comp = c; render(); };
+      chipsEl.appendChild(b);
+    });
+
+    var q = state.query.trim().toLowerCase();
+    var vis = all.filter(function(m){
+      return (state.comp === null || m.comp === state.comp) &&
+        (!q || (m.home + ' ' + m.away).toLowerCase().indexOf(q) >= 0);
+    });
+
+    var byDate = {}, order = [];
+    vis.forEach(function(m){
+      if (!byDate[m.date]) { byDate[m.date] = []; order.push(m.date); }
+      byDate[m.date].push(m);
+    });
+
+    var groupsEl = document.getElementById('groups');
+    groupsEl.innerHTML = '';
+    order.forEach(function(date){
+      var items = byDate[date];
+      var group = document.createElement('div');
+      group.className = 'group';
+
+      var head = document.createElement('div');
+      head.className = 'group-head';
+      head.innerHTML =
+        '<div class="group-label">' + dateLabel(date).toUpperCase() + '</div>' +
+        '<div class="group-count">' + items.length + (items.length === 1 ? ' meci' : ' meciuri') + '</div>';
+      group.appendChild(head);
+
+      items.forEach(function(m){
+        var el;
+        if (m.ready) {
+          el = document.createElement('a');
+          el.href = 'match.html?m=' + encodeURIComponent(m.slug);
+        } else {
+          el = document.createElement('div');
+        }
+        el.className = 'row' + (m.ready ? '' : ' pending');
+        el.innerHTML =
+          '<span class="row-ko">' + (m.ko || 'n/d') + '</span>' +
+          '<span class="row-mid"><span class="row-title">' + m.home + ' – ' + m.away + '</span>' +
+          '<span class="row-sub">' + m.comp + ' · ' + m.round + (m.venue && m.venue !== 'n/d' ? ' · ' + m.venue : '') + '</span></span>' +
+          '<span class="row-tag ' + (m.ready ? 'ready' : 'pending') + '">' + (m.ready ? 'ECRAN' : 'în pregătire') + '</span>';
+        group.appendChild(el);
+      });
+
+      groupsEl.appendChild(group);
+    });
+
+    document.getElementById('empty').hidden = order.length !== 0;
+  }
+
+  document.getElementById('query').addEventListener('input', function(e){
+    state.query = e.target.value;
+    render();
+  });
+
+  fetch('data/fixtures.json', { cache: 'no-cache' })
+    .then(function(r){ return r.ok ? r.json() : []; })
+    .then(function(list){
+      all = (list || []).slice().sort(function(a, b){
+        return (a.date + (a.ko || '')).localeCompare(b.date + (b.ko || ''));
+      });
+      render();
+    })
+    .catch(function(){ render(); });
+})();
+</script>
+</body>
+</html>
