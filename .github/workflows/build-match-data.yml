@@ -32,11 +32,11 @@ jobs:
           # sent as a header; leave it unset for a plain workspace-scoped key.
           ANTHROPIC_CUSTOM_HEADERS: "${{ secrets.ANTHROPIC_WORKSPACE_ID && format('anthropic-workspace-id: {0}', secrets.ANTHROPIC_WORKSPACE_ID) || '' }}"
         with:
-          # Provide ONE of these two secrets. anthropic_api_key: an API key from the
-          # Anthropic Console. claude_code_oauth_token: `claude setup-token` output
-          # for a Claude subscription. Whichever is empty is ignored.
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Provide ONE of these two secrets. claude_code_oauth_token (`claude
+          # setup-token`, for a Claude subscription) wins when both are set, so the
+          # API key is only forwarded when the OAuth token is absent.
+          anthropic_api_key: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN == '' && secrets.ANTHROPIC_API_KEY || '' }}"
+          claude_code_oauth_token: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}"
           show_full_output: true
           prompt: |
             You are building one structured match-data JSON file for a small
