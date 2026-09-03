@@ -121,30 +121,66 @@
     document.body.appendChild(a); a.click(); a.remove();
   }
 
-  /* ---------- pitch layout ---------- */
-  function layout(formation, side) {
+  /* ---------- pitch view (orientation + which team is nearest the viewer) ---------- */
+  var view = (store.view && typeof store.view === 'object')
+    ? { orientation: store.view.orientation === 'v' ? 'v' : 'h', swapped: !!store.view.swapped }
+    : { orientation: 'h', swapped: false };
+  function saveView() { store.view = { orientation: view.orientation, swapped: view.swapped }; save(); }
+
+  /* Each player is placed by (d, w): d = depth from own goal-line (0.05) to just
+     short of halfway (~0.45); w = position across the pitch width (0..1). The
+     view transform below turns (d, w) into left/top % for the chosen orientation
+     and near/far end. */
+  function layout(formation) {
     var counts = [1].concat(String(formation || '4-4-2').split('-')
       .map(function (x) { return parseInt(x, 10) || 0; }).filter(Boolean));
     var rows = counts.length, pts = [];
-    // x = depth from own goal-line (0.05) to just short of halfway (0.47)
     counts.forEach(function (nn, ri) {
-      var fx = rows === 1 ? 0.24 : (0.05 + (ri / (rows - 1)) * 0.40);
+      var d = rows === 1 ? 0.24 : (0.05 + (ri / (rows - 1)) * 0.40);
       for (var i = 0; i < nn; i++) {
-        // y spread across the pitch width, tighter for busier lines;
-        // capped so the widest line clears the coach cards in the corners
         var span = nn >= 5 ? 0.66 : nn === 4 ? 0.60 : nn === 3 ? 0.52 : 0.36;
-        var fy = nn === 1 ? 0.5 : (0.5 - span / 2 + (i / (nn - 1)) * span);
-        pts.push({ x: fx, y: fy });
+        var w = nn === 1 ? 0.5 : (0.5 - span / 2 + (i / (nn - 1)) * span);
+        pts.push({ d: d, w: w });
       }
     });
-    if (side === 'away') pts = pts.map(function (p) { return { x: 1 - p.x, y: p.y }; });
     return pts;
   }
 
+  // (d, w) + near/far end -> {left, top} in %
+  function place(pt, isNear) {
+    var d = pt.d, w = pt.w;
+    if (view.orientation === 'v') {
+      return isNear ? { left: w * 100, top: (1 - d) * 100 } : { left: w * 100, top: d * 100 };
+    }
+    return isNear ? { left: d * 100, top: w * 100 } : { left: (1 - d) * 100, top: w * 100 };
+  }
+
   /* ---------- render ---------- */
+  var pitchEl = null;
+  function rerenderPitch(data) {
+    var next = pitch(data);
+    if (pitchEl) pitchEl.replaceWith(next);
+    pitchEl = next;
+  }
+
   function render(data) {
     document.title = data.teams.home.name + ' – ' + data.teams.away.name + ' · Match Center';
     root.innerHTML = '';
+    pitchEl = null;
+
+    var orientBtn = el('button', {
+      text: view.orientation === 'v' ? '⤢ Vedere orizontală' : '⤢ Vedere verticală',
+      onclick: function () {
+        view.orientation = view.orientation === 'v' ? 'h' : 'v';
+        orientBtn.textContent = view.orientation === 'v' ? '⤢ Vedere orizontală' : '⤢ Vedere verticală';
+        saveView();
+        rerenderPitch(data);
+      }
+    });
+    var swapBtn = el('button', {
+      text: '⇄ Schimbă părțile',
+      onclick: function () { view.swapped = !view.swapped; saveView(); rerenderPitch(data); }
+    });
 
     // header
     var head = el('div', { class: 'mc-head' }, [
@@ -156,6 +192,8 @@
       ]),
       el('div', { class: 'mc-meta', text: metaLine(data) }),
       el('div', { class: 'mc-toolbar' }, [
+        swapBtn,
+        orientBtn,
         el('button', { text: '🖨 Print', onclick: function () { window.print(); } }),
         el('button', { text: '⭳ Export notițe', onclick: function () { exportNotes(data); } }),
         el('button', { text: '⇕ Extinde / restrânge', onclick: toggleAll }),
@@ -166,7 +204,8 @@
     ]);
     root.appendChild(head);
 
-    root.appendChild(pitch(data));
+    pitchEl = pitch(data);
+    root.appendChild(pitchEl);
     root.appendChild(panels(data));
   }
 
@@ -183,23 +222,26 @@
   }
 
   function pitch(d) {
-    var shell = el('div', { class: 'pitch-shell' }, [
+    var vert = view.orientation === 'v';
+    var nearKey = view.swapped ? 'away' : 'home';
+    var shell = el('div', { class: 'pitch-shell' + (vert ? ' vertical' : '') }, [
       el('div', { class: 'pitch-lines' }),
-      el('div', { class: 'pitch-box left' }),
-      el('div', { class: 'pitch-box right' })
+      el('div', { class: 'pitch-box a' }),
+      el('div', { class: 'pitch-box b' })
     ]);
 
     ['home', 'away'].forEach(function (side) {
       var t = d.teams[side];
+      var isNear = side === nearKey;
       var xi = t.predictedXI && t.predictedXI.length ? t.predictedXI : [];
-      var pts = layout(t.formation, side);
+      var pts = layout(t.formation);
       xi.forEach(function (slot, i) {
-        var p = pts[i] || { x: side === 'home' ? 0.03 : 0.97, y: 0.05 + i * 0.08 };
+        var pos = place(pts[i] || { d: 0.03, w: 0.05 + i * 0.08 }, isNear);
         var full = playerByNameOrNum(t, slot);
         var stat = full && full.status;
         var node = el('div', {
           class: 'node ' + side + (stat && stat !== 'available' ? ' status-' + stat : ''),
-          style: 'left:' + (p.x * 100).toFixed(2) + '%;top:' + (p.y * 100).toFixed(2) + '%',
+          style: 'left:' + pos.left.toFixed(2) + '%;top:' + pos.top.toFixed(2) + '%',
           onclick: function () { if (full) openPlayer(d, side, full); }
         }, [
           el('div', { class: 'disc', text: slot.number != null ? String(slot.number) : (slot.pos || '') }),
@@ -207,9 +249,12 @@
         ]);
         shell.appendChild(node);
       });
-      // coach mini-card
+      // coach mini-card — near team's coach sits at the near end, far team's at the far end
       if (t.coach && has(t.coach.name)) {
-        shell.appendChild(el('div', { class: 'card-slot ' + side }, [
+        var corner = vert
+          ? (isNear ? 'bl' : 'tr')
+          : (isNear ? 'tl' : 'tr');
+        shell.appendChild(el('div', { class: 'card-slot ' + corner }, [
           el('div', { class: 'mini-card', onclick: function () { openCoach(d, side); } }, [
             el('div', { class: 'mc-role', text: 'Antrenor' }),
             el('div', { class: 'mc-name', text: t.coach.name }),
@@ -219,9 +264,9 @@
       }
     });
 
-    // referee
+    // referee — on the halfway line
     if (d.referee && has(d.referee.name)) {
-      shell.appendChild(el('div', { class: 'card-slot ref-card' }, [
+      shell.appendChild(el('div', { class: 'card-slot ref ' + (vert ? 'cr' : 'bc') }, [
         el('div', { class: 'mini-card', onclick: function () { openRef(d); } }, [
           el('div', { class: 'mc-role', text: 'Arbitru' }),
           el('div', { class: 'mc-name', text: d.referee.name }),
