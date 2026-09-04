@@ -32,11 +32,14 @@ jobs:
           # sent as a header; leave it unset for a plain workspace-scoped key.
           ANTHROPIC_CUSTOM_HEADERS: "${{ secrets.ANTHROPIC_WORKSPACE_ID && format('anthropic-workspace-id: {0}', secrets.ANTHROPIC_WORKSPACE_ID) || '' }}"
         with:
-          # Provide ONE of these two secrets. claude_code_oauth_token (`claude
-          # setup-token`, for a Claude subscription) wins when both are set, so the
-          # API key is only forwarded when the OAuth token is absent.
-          anthropic_api_key: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN == '' && secrets.ANTHROPIC_API_KEY || '' }}"
-          claude_code_oauth_token: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}"
+          # Provide ONE of these two secrets. Prefer ANTHROPIC_API_KEY: it is
+          # billed per token and has no session cap, which a daily unattended
+          # run needs. CLAUDE_CODE_OAUTH_TOKEN (`claude setup-token`) uses the
+          # Claude subscription, whose rolling 5-hour session limit this job hit
+          # on 2026-09-04 ("You've hit your session limit"); it is only used here
+          # when ANTHROPIC_API_KEY is unset.
+          anthropic_api_key: "${{ secrets.ANTHROPIC_API_KEY }}"
+          claude_code_oauth_token: "${{ secrets.ANTHROPIC_API_KEY == '' && secrets.CLAUDE_CODE_OAUTH_TOKEN || '' }}"
           show_full_output: true
           prompt: |
             You are building one structured match-data JSON file for a small
