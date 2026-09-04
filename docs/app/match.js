@@ -123,9 +123,9 @@
 
   /* ---------- pitch view (orientation + which team is nearest the viewer) ---------- */
   var view = (store.view && typeof store.view === 'object')
-    ? { orientation: store.view.orientation === 'v' ? 'v' : 'h', swapped: !!store.view.swapped }
-    : { orientation: 'h', swapped: false };
-  function saveView() { store.view = { orientation: view.orientation, swapped: view.swapped }; save(); }
+    ? { orientation: store.view.orientation === 'v' ? 'v' : 'h', swapped: !!store.view.swapped, fullNames: !!store.view.fullNames }
+    : { orientation: 'h', swapped: false, fullNames: false };
+  function saveView() { store.view = { orientation: view.orientation, swapped: view.swapped, fullNames: view.fullNames }; save(); }
 
   /* Each player is placed by (d, w): d = depth from own goal-line (0.05) to just
      short of halfway (~0.45); w = position across the pitch width (0..1). The
@@ -262,6 +262,15 @@
         if (store.lineup) { delete store.lineup; save(); rerenderPitch(data); }
       }
     });
+    var namesBtn = el('button', {
+      text: view.fullNames ? '🔤 Nume scurte' : '🔤 Nume complete',
+      onclick: function () {
+        view.fullNames = !view.fullNames;
+        namesBtn.textContent = view.fullNames ? '🔤 Nume scurte' : '🔤 Nume complete';
+        saveView();
+        rerenderPitch(data);
+      }
+    });
 
     // header
     var head = el('div', { class: 'mc-head' }, [
@@ -275,6 +284,7 @@
       el('div', { class: 'mc-toolbar' }, [
         swapBtn,
         orientBtn,
+        namesBtn,
         resetPosBtn,
         el('button', { text: '🖨 Print', onclick: function () { window.print(); } }),
         el('button', { text: '⭳ Export notițe', onclick: function () { exportNotes(data); } }),
@@ -306,7 +316,7 @@
   function pitch(d) {
     var vert = view.orientation === 'v';
     var nearKey = view.swapped ? 'away' : 'home';
-    var shell = el('div', { class: 'pitch-shell' + (vert ? ' vertical' : '') }, [
+    var shell = el('div', { class: 'pitch-shell' + (vert ? ' vertical' : '') + (view.fullNames ? ' full-names' : '') }, [
       el('div', { class: 'pitch-lines' }),
       el('div', { class: 'pitch-box a' }),
       el('div', { class: 'pitch-box b' })
@@ -333,7 +343,7 @@
           }
         }, [
           el('div', { class: 'disc', text: slot.number != null ? String(slot.number) : (slot.pos || '') }),
-          el('div', { class: 'lbl', text: shortName(slot.name) })
+          el('div', { class: 'lbl', text: view.fullNames ? (slot.name || '') : shortName(slot.name) })
         ]);
         makeDraggable(node, shell, function (p) {
           store.lineup = store.lineup || {};
