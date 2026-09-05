@@ -159,6 +159,10 @@ Reguli de mapare:
 - `confirmedXI` = `null` dacă alinierea oficială nu era publică la momentul build-ului.
 - `squad[]` = tot lotul. `role` ∈ GK/DEF/MID/ATT (obligatoriu). `foot` ∈ L/R/B/null.
   Coduri de țară cu 3 litere (DNK, FRA, ITA...).
+- `squad[].stats` (opțional) = agregate pe sezonul curent: `goals`, `assists`, `minutes`,
+  `apps`, `yellow`, `red`, `rating` — toate nullable. Pune-le doar dacă le găsești la o
+  sursă (FBref / SoccerStats / Transfermarkt); altfel omite tot obiectul. Ecranul le
+  completează oricum din feedul live acolo unde lipsesc.
 - `colors` = culorile principale ale echipei (hex), pentru tricourile de pe teren. Dacă nu
   ești sigur, `null` — ecranul are un fallback.
 - `absences[].reason` ∈ injury/suspension/doubt/other.

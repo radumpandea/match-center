@@ -279,7 +279,21 @@
         "funfact": { "type": ["string", "null"] },
         "linkLine": { "type": ["string", "null"], "description": "verified direct history vs this opponent" },
         "status": { "type": ["string", "null"], "enum": ["available", "doubt", "out", "suspended", null] },
-        "statusNote": { "type": ["string", "null"] }
+        "statusNote": { "type": ["string", "null"] },
+        "stats": {
+          "type": ["object", "null"],
+          "description": "current-season aggregates (from the live feed or research); every field nullable",
+          "additionalProperties": false,
+          "properties": {
+            "goals": { "type": ["integer", "null"] },
+            "assists": { "type": ["integer", "null"] },
+            "minutes": { "type": ["integer", "null"] },
+            "apps": { "type": ["integer", "null"], "description": "appearances / matches" },
+            "yellow": { "type": ["integer", "null"] },
+            "red": { "type": ["integer", "null"] },
+            "rating": { "type": ["number", "null"] }
+          }
+        }
       }
     }
   }

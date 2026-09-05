@@ -41,11 +41,22 @@ finished pack (tag "PREGĂTIT" vs "LIVE / MANUAL"). Opening a match without a
    a client-side call to the same football feed for lineups, referee and venue, and fills
    in whatever comes back. A banner under the team names says what happened (live data
    found / empty / no key configured / no event id yet).
-3. Anything still missing is fillable by hand: click any empty pitch slot to add a player
-   (number, name, position — they're also added to the squad and become available as a
-   future substitute); click "+ Adaugă antrenor" / "+ Adaugă arbitru" / "+ adaugă stadion"
-   next to the coach cards, referee card, or header meta line. All of it saves to
-   `localStorage`, same as notes and substitutions.
+3. In parallel it loads the **full squad for both teams** from the feed
+   (`football-get-list-player?teamid=`), using the `homeId` / `awayId` that
+   `refresh-fixtures.mjs` stores on each `fixtures.json` entry (falling back to a
+   name match against `football-get-list-all-team?leagueid=` when those are absent —
+   older entries get the ids at the next refresh). Each squad member arrives with shirt
+   number, age, nationality (3-letter code), height, detailed position and current-season
+   aggregates — goals, assists, yellow/red cards, rating — shown in the player card's
+   Profil tab and in the "Lot" panels. Opening a player card also lazy-loads
+   `football-get-player-detail?playerid=` for preferred foot and, when present, minutes /
+   appearances.
+4. Anything still missing is fillable by hand: click any empty pitch slot to **pick the
+   player for that position from the loaded squad** (searchable), or expand "Adaugă manual
+   un jucător nou" for one not in the feed (number, name, position — added to the squad and
+   available as a future substitute); click "+ Adaugă antrenor" / "+ Adaugă arbitru" /
+   "+ adaugă stadion" next to the coach cards, referee card, or header meta line. All of it
+   saves to `localStorage`, same as notes and substitutions.
 
 Once the real research pack lands (daily, or triggered on demand — see `match-data-json`),
 opening the match again uses that instead; nothing manual is lost from local storage, but
@@ -66,12 +77,15 @@ place to skip live lookups entirely (the skeleton + manual-entry flow still work
 If this public copy is ever scraped and abused, rotate it: generate a new key in the
 RapidAPI dashboard, update it in `docs/app/config.js` and in the `RAPIDAPI_KEY` repo secret.
 
-**The exact response shape of the lineup/referee/venue endpoints hasn't been verified
-against a real API key yet** — `enrichFromLiveApi()` in `docs/app/match.js` is a best-effort
-parser with a few fallback shapes. Once the key above is live, open a match without a prep
-pack and check whether the banner says "Date live găsite" and the pitch actually fills in;
-if not, the field-mapping needs a fix against a real response (inspect it in the browser's
-network tab and adjust `applyLiveLineup` / `applyLiveReferee` / `applyLiveLocation`).
+**The exact response shape of these endpoints hasn't been verified against a real API key
+yet** — `enrichFromLiveApi()` (lineups/referee/venue), `enrichSquadsFromLiveApi()` (squads,
+via `applyLiveSquad` / `mapSquadMember`) and `loadPlayerDetail()` in `docs/app/match.js`
+are best-effort parsers with a few fallback shapes. The squad parser is modelled on the
+FotMob-style `response.list.squad[].members[]` layout (`shirtNumber`, `age`, `ccode`,
+`cname`, `height`, `positionIdsDesc`, `goals`, `assists`, `ycards`, `rcards`, `rating`,
+`injury`). Once the key above is live, open a match without a prep pack and check the
+banner ("Loturile complete au fost încărcate…") and the "Lot" panels; if a field is wrong,
+inspect a real response in the browser's network tab and adjust the mappers named above.
 
 ## Local preview
 

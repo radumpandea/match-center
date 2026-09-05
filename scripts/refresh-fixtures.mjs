@@ -40,6 +40,8 @@ const COMPS = [
 ];
 const DAYS_AHEAD = 21; // scan window when a competition's round has finished
 
+const LEAGUE_ID_BY_COMP = COMPS.reduce((o, c) => (o[c.comp] = c.id, o), {});
+
 const OUT_FILE = fileURLToPath(new URL('../docs/data/fixtures.json', import.meta.url));
 
 function slugify(s) {
@@ -126,13 +128,18 @@ function makeSlug(abbr, roundN, home, away) {
   return `${abbr}-e${roundN}-${slugify(home)}-${slugify(away)}`;
 }
 
-// Fills in `eventId` (the football feed's per-match id, used by match.html for
-// client-side live lookups — lineups, referee, venue) on entries that don't
-// have one yet. Only entries carried over as-is skip the id assignment that
-// freshly-scanned entries get inline, so this backfills those by re-fetching
-// each distinct date and matching on team names.
+// Fills in `eventId` / `leagueId` / `homeId` / `awayId` (the football feed's
+// per-match and per-team ids, used by match.html for client-side live lookups —
+// lineups, referee, venue, and now full squads with per-player season stats) on
+// entries that don't have them yet. Freshly-scanned entries get these inline, so
+// this backfills the ones carried over as-is by re-fetching each distinct date
+// and matching on team names.
 async function backfillEventIds(entries) {
-  const missing = entries.filter((e) => e.eventId == null && e.date && e.date !== 'n/d');
+  const missing = entries.filter((e) =>
+    (e.eventId == null || e.homeId == null || e.awayId == null || e.leagueId == null) &&
+    e.date && e.date !== 'n/d');
+  // leagueId needs no network call — derive it from the competition name.
+  entries.forEach((e) => { if (e.leagueId == null && LEAGUE_ID_BY_COMP[e.comp] != null) e.leagueId = LEAGUE_ID_BY_COMP[e.comp]; });
   if (!missing.length) return;
   const byDate = new Map();
   missing.forEach((e) => {
@@ -144,12 +151,16 @@ async function backfillEventIds(entries) {
     try {
       matches = await fetchDay(new Date(dateStr + 'T00:00:00'));
     } catch (e) {
-      console.error(`Backfill eventId skip ${dateStr}: ${e.message}`);
+      console.error(`Backfill ids skip ${dateStr}: ${e.message}`);
       continue;
     }
     list.forEach((e) => {
       const m = matches.find((x) => x.home && x.away && x.home.name === e.home && x.away.name === e.away);
-      if (m) e.eventId = m.id != null ? m.id : (m.eventId != null ? m.eventId : null);
+      if (!m) return;
+      if (e.eventId == null) e.eventId = m.id != null ? m.id : (m.eventId != null ? m.eventId : null);
+      if (e.homeId == null) e.homeId = (m.home && m.home.id != null) ? m.home.id : null;
+      if (e.awayId == null) e.awayId = (m.away && m.away.id != null) ? m.away.id : null;
+      if (e.leagueId == null) e.leagueId = m.leagueId != null ? m.leagueId : (LEAGUE_ID_BY_COMP[e.comp] ?? null);
     });
   }
 }
@@ -206,6 +217,9 @@ async function mergeRoundMatches(c, current, venueByTeam) {
           comp: c.comp, country: c.country, round, date, ko, kickoff, home, away,
           venue: venueByTeam[home] || 'n/d',
           eventId: m.id != null ? m.id : (m.eventId != null ? m.eventId : null),
+          leagueId: c.id,
+          homeId: (m.home && m.home.id != null) ? m.home.id : null,
+          awayId: (m.away && m.away.id != null) ? m.away.id : null,
           ready: false,
         });
       });
@@ -288,6 +302,9 @@ async function main() {
         away,
         venue: venueByTeam[home] || (existing ? existing.venue : 'n/d'),
         eventId: m.id ?? m.eventId ?? (existing && existing.eventId) ?? null,
+        leagueId: c.id,
+        homeId: (m.home && m.home.id != null) ? m.home.id : ((existing && existing.homeId) ?? null),
+        awayId: (m.away && m.away.id != null) ? m.away.id : ((existing && existing.awayId) ?? null),
         ready: existing ? !!existing.ready : false,
       };
     });

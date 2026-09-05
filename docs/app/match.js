@@ -27,12 +27,21 @@
     var data = prep || skeletonFromFixture(fixture, slug);
     data._skeleton = !prep;
     data._liveStatus = null;
-    if (!prep && fixture && fixture.eventId != null) {
-      enrichFromLiveApi(data, fixture.eventId)
-        .then(function (status) { data._liveStatus = status; render(data); })
-        .catch(function () { data._liveStatus = 'error'; render(data); });
+    data._squadStatus = null;
+    if (!prep && fixture) {
+      var jobs = [];
+      if (fixture.eventId != null) {
+        jobs.push(enrichFromLiveApi(data, fixture.eventId)
+          .then(function (s) { data._liveStatus = s; })
+          .catch(function () { data._liveStatus = 'error'; }));
+      } else {
+        data._liveStatus = 'no-event-id';
+      }
+      jobs.push(enrichSquadsFromLiveApi(data, fixture)
+        .then(function (s) { data._squadStatus = s; })
+        .catch(function () { data._squadStatus = 'error'; }));
+      Promise.all(jobs).then(function () { render(data); });
     } else {
-      if (!prep) data._liveStatus = 'no-event-id';
       render(data);
     }
   });
@@ -154,6 +163,186 @@
       var gotVenue = has(d.venue.name) || applyLiveLocation(d, r[3]);
       return (gotHome || gotAway || gotRef || gotVenue) ? 'ok' : 'empty';
     });
+  }
+
+  /* ---------- live squads (client-side) ----------
+     football-get-list-player?teamid=<id> returns a FotMob-style squad grouped
+     by role, each member carrying shirt number, age, country, height and
+     current-season aggregates (goals, assists, yellow/red cards, rating). Team
+     ids come from the fixture (added by refresh-fixtures.mjs); when they're
+     missing we resolve them by name from football-get-list-all-team. Every
+     lookup degrades to "leave it unfilled" on a shape mismatch. */
+  function liveGet(path, params) {
+    var key = liveKey();
+    if (!key) return Promise.resolve(null);
+    var qs = Object.keys(params || {}).map(function (k) {
+      return encodeURIComponent(k) + '=' + encodeURIComponent(params[k]);
+    }).join('&');
+    return fetch('https://' + LIVE_HOST + '/' + path + (qs ? '?' + qs : ''), {
+      headers: { 'x-rapidapi-host': LIVE_HOST, 'x-rapidapi-key': key }
+    }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+  }
+  function num(v) { var n = parseInt(v, 10); return isNaN(n) ? null : n; }
+  function fnum(v) { var n = parseFloat(v); return isNaN(n) ? null : n; }
+  function norm(s) {
+    return String(s || '').toLowerCase().normalize('NFD')
+      .replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '');
+  }
+  function digList(j) {
+    var r = j && (j.response || j);
+    if (!r) return null;
+    if (Array.isArray(r)) return r;
+    if (Array.isArray(r.list)) return r.list;
+    if (r.list && Array.isArray(r.list.teams)) return r.list.teams;
+    if (Array.isArray(r.teams)) return r.teams;
+    return null;
+  }
+  var ROLE_WORDS = { goalkeeper: 'GK', keeper: 'GK', defender: 'DEF', 'defence': 'DEF', midfield: 'MID', midfielder: 'MID', attacker: 'ATT', forward: 'ATT', striker: 'ATT' };
+  function roleFrom(groupTitle, member) {
+    var k = ((member && member.role && (member.role.key || member.role.fallback)) || groupTitle || '').toLowerCase();
+    var hit = Object.keys(ROLE_WORDS).filter(function (w) { return k.indexOf(w) >= 0; })[0];
+    return hit ? ROLE_WORDS[hit] : null;
+  }
+  function isCoachEntry(groupTitle, member) {
+    var k = ((member && member.role && (member.role.key || member.role.fallback)) || groupTitle || '').toLowerCase();
+    return k.indexOf('coach') >= 0 || k.indexOf('manager') >= 0 || k.indexOf('staff') >= 0;
+  }
+  function mapSquadMember(m, groupTitle) {
+    var name = m.name || m.cname || (m.player && m.player.name) || null;
+    if (!name) return null;
+    var posDesc = (m.positionIdsDesc || m.positionDesc || m.position || '').toString();
+    var pos = posDesc ? posDesc.split(',')[0].trim() : null;
+    var injured = m.injured === true || (m.injury != null && m.injury !== false);
+    var stats = {
+      goals: num(m.goals),
+      assists: num(m.assists),
+      minutes: num(m.minutesPlayed != null ? m.minutesPlayed : m.minutes),
+      apps: num(m.appearances != null ? m.appearances : m.matches),
+      yellow: num(m.ycards != null ? m.ycards : m.yellowCards),
+      red: num(m.rcards != null ? m.rcards : m.redCards),
+      rating: fnum(m.rating)
+    };
+    var hasStat = Object.keys(stats).some(function (k) { return stats[k] != null; });
+    var ret = (m.injury && (m.injury.expectedReturn || m.injury.returnDate)) || null;
+    return {
+      number: num(m.shirtNumber != null ? m.shirtNumber : m.jerseyNumber),
+      name: name, pos: pos, role: roleFrom(groupTitle, m) || 'MID',
+      age: num(m.age), height: num(m.height),
+      nat: (m.ccode || m.countryCode || null),
+      natTeam: null,
+      birthCountry: (m.cname || m.country || null),
+      foot: null,
+      status: injured ? 'out' : 'available',
+      statusNote: injured ? ('Accidentat' + (ret ? ' — revenire estimată ' + ret : '')) : null,
+      stats: hasStat ? stats : null,
+      _pid: (m.id != null ? m.id : null)
+    };
+  }
+  function applyLiveSquad(team, json) {
+    var r = json && (json.response || json);
+    var groups = (r && r.list && Array.isArray(r.list.squad)) ? r.list.squad
+      : (r && Array.isArray(r.squad)) ? r.squad
+      : (Array.isArray(r) ? r : null);
+    if (!groups) return false;
+    var players = [], coachName = null;
+    groups.forEach(function (g) {
+      var title = (g && (g.title || g.name)) || '';
+      var members = (g && (g.members || g.players)) || (Array.isArray(g) ? g : []);
+      members.forEach(function (m) {
+        if (isCoachEntry(title, m)) { if (!coachName) coachName = m.name || null; return; }
+        var p = mapSquadMember(m, title);
+        if (p) players.push(p);
+      });
+    });
+    if (!players.length) return false;
+    // for a skeleton match, prefer the fullest list we've seen (a lineup call
+    // may have already seeded ~11 names into squad)
+    if (!team.squad || players.length > team.squad.length) team.squad = players;
+    if (coachName && (!team.coach || !has(team.coach.name))) team.coach = { name: coachName };
+    return true;
+  }
+  function resolveTeamIds(fixture) {
+    var ids = {
+      home: fixture.homeId != null ? fixture.homeId : null,
+      away: fixture.awayId != null ? fixture.awayId : null
+    };
+    if (ids.home != null && ids.away != null) return Promise.resolve(ids);
+    if (fixture.leagueId == null) return Promise.resolve(ids);
+    return liveGet('football-get-list-all-team', { leagueid: fixture.leagueId }).then(function (j) {
+      var list = digList(j);
+      if (!list) return ids;
+      function findId(teamName) {
+        var want = norm(teamName);
+        if (!want) return null;
+        var hit = list.filter(function (t) {
+          var n = norm(t.name || t.teamName || t.shortName || '');
+          return n && (n === want || n.indexOf(want) >= 0 || want.indexOf(n) >= 0);
+        })[0];
+        return hit ? (hit.id != null ? hit.id : (hit.teamId != null ? hit.teamId : null)) : null;
+      }
+      if (ids.home == null) ids.home = findId(fixture.home);
+      if (ids.away == null) ids.away = findId(fixture.away);
+      return ids;
+    });
+  }
+  function enrichSquadsFromLiveApi(d, fixture) {
+    if (!liveKey()) return Promise.resolve('no-key');
+    return resolveTeamIds(fixture).then(function (ids) {
+      if (ids.home == null && ids.away == null) return 'no-team-id';
+      return Promise.all([
+        ids.home != null ? liveGet('football-get-list-player', { teamid: ids.home }) : Promise.resolve(null),
+        ids.away != null ? liveGet('football-get-list-player', { teamid: ids.away }) : Promise.resolve(null)
+      ]).then(function (r) {
+        var a = r[0] ? applyLiveSquad(d.teams.home, r[0]) : false;
+        var b = r[1] ? applyLiveSquad(d.teams.away, r[1]) : false;
+        return (a || b) ? 'ok' : 'empty';
+      });
+    });
+  }
+
+  /* lazy, per-player: football-get-player-detail?playerid=<id> fills preferred
+     foot, birth country and (when present) minutes / appearances. Cached; a
+     shape mismatch just leaves those fields as they were. */
+  var _pdCache = {};
+  function loadPlayerDetail(p) {
+    if (!p || p._pid == null || !liveKey()) return Promise.resolve(null);
+    if (_pdCache[p._pid]) return _pdCache[p._pid];
+    var pr = liveGet('football-get-player-detail', { playerid: p._pid }).then(function (j) {
+      var r = j && (j.response || j);
+      if (!r) return null;
+      var info = r.playerInformation || r.playerInfo || (r.data && r.data.playerInformation) || [];
+      (Array.isArray(info) ? info : []).forEach(function (it) {
+        var t = (it.title || it.translationKey || it.key || '').toString().toLowerCase();
+        var v = it.value;
+        if (v && typeof v === 'object') v = (v.fallback != null ? v.fallback : (v.numberValue != null ? v.numberValue : v.key));
+        if (v == null) return;
+        if (/foot/.test(t) && !p.foot) {
+          var f = String(v).toLowerCase();
+          p.foot = f[0] === 'l' ? 'L' : f[0] === 'r' ? 'R' : (f[0] === 'b' ? 'B' : null);
+        } else if (/(country|nationalit)/.test(t) && !has(p.birthCountry)) {
+          p.birthCountry = String(v);
+        } else if (/height/.test(t) && p.height == null) {
+          p.height = num(String(v).replace(/[^0-9]/g, ''));
+        }
+      });
+      var ml = r.mainLeague || (r.data && r.data.mainLeague) || null;
+      var st = ml && (ml.stats || ml.statsSection);
+      var acc = p.stats || {};
+      (Array.isArray(st) ? st : []).forEach(function (s) {
+        var t = (s.title || s.name || s.localizedTitleId || '').toString().toLowerCase();
+        var v = s.value != null ? s.value : s.statValue;
+        if (v && typeof v === 'object') v = v.value != null ? v.value : v.fallback;
+        if (/minutes/.test(t)) acc.minutes = num(v);
+        else if (/(matches|appearance)/.test(t)) acc.apps = num(v);
+        else if (/goals/.test(t) && acc.goals == null) acc.goals = num(v);
+        else if (/assists/.test(t) && acc.assists == null) acc.assists = num(v);
+        else if (/rating/.test(t) && acc.rating == null) acc.rating = fnum(v);
+      });
+      if (Object.keys(acc).some(function (k) { return acc[k] != null; })) p.stats = acc;
+      return r;
+    });
+    _pdCache[p._pid] = pr;
+    return pr;
   }
 
   /* ---------- notes (localStorage) ---------- */
@@ -521,8 +710,15 @@
       'no-event-id': 'Acest fixture nu are încă un id de eveniment pentru datele live.',
       loading: 'Se încarcă datele live…'
     }[d._liveStatus] || 'Fără date live.';
+    var squadMsg = {
+      ok: ' Loturile complete au fost încărcate din feed (vârstă, naționalitate, goluri, pase decisive, cartonașe) — click pe un slot gol de pe teren ca să alegi primul 11 din lot.',
+      empty: ' Feedul nu a întors loturile pentru acest meci.',
+      error: ' Nu am putut încărca loturile din feed.',
+      'no-team-id': ' Fixture-ul nu are încă id-uri de echipă pentru loturi (se completează la următorul refresh).',
+      'no-key': ''
+    }[d._squadStatus] || '';
     return el('div', { class: 'skeleton-banner' }, [
-      el('span', { text: '⚠ Fără pachet de pregătire pentru acest meci încă. ' + msg + ' Completează manual ce lipsește: click pe un slot gol de pe teren, sau pe „+ adaugă…” de lângă antrenor / arbitru / stadion.' })
+      el('span', { text: '⚠ Fără pachet de pregătire pentru acest meci încă. ' + msg + squadMsg + ' Completează manual ce lipsește: click pe un slot gol de pe teren, sau pe „+ adaugă…” de lângă antrenor / arbitru / stadion.' })
     ]);
   }
 
@@ -816,7 +1012,9 @@
           var li = el('li', {}, [
             el('a', { href: '#', onclick: function (e) { e.preventDefault(); openPlayer(d, side, p); },
               text: (p.number != null ? p.number + '. ' : '') + p.name +
-                (has(p.age) ? ' · ' + p.age : '') + (has(p.nat) ? ' · ' + p.nat : '') +
+                (has(p.age) ? ' · ' + p.age + ' ani' : '') + (has(p.nat) ? ' · ' + p.nat : '') +
+                (p.stats && (p.stats.goals || p.stats.assists)
+                  ? ' · ' + (p.stats.goals || 0) + 'G/' + (p.stats.assists || 0) + 'A' : '') +
                 (p.status && p.status !== 'available' ? ' · ' + p.status : '') })
           ]);
           list.appendChild(li);
@@ -968,14 +1166,41 @@
     }, {
       'Profil': function () {
         var wrap = el('div');
-        var kv = el('div', { class: 'kv' });
-        if (has(p.pronunciation)) kv.appendChild(el('span', { html: '<b>Pronunție</b>' + esc(p.pronunciation) }));
-        if (has(p.nat)) kv.appendChild(el('span', { html: '<b>Cetățenie</b>' + esc(p.nat) }));
-        if (has(p.natTeam)) kv.appendChild(el('span', { html: '<b>Națională</b>' + esc(p.natTeam) }));
-        if (has(p.birthCountry)) kv.appendChild(el('span', { html: '<b>Născut în</b>' + esc(p.birthCountry) }));
-        if (kv.childNodes.length) wrap.appendChild(kv);
-        if (has(p.lastSeason)) wrap.appendChild(el('p', { html: '<b style="color:var(--color-neutral-500)">Sezonul trecut:</b> ' + esc(p.lastSeason) }));
-        if (!wrap.childNodes.length) wrap.appendChild(el('p', { text: 'Fără detalii suplimentare.' }));
+        function fill() {
+          wrap.innerHTML = '';
+          var kv = el('div', { class: 'kv' });
+          if (has(p.pronunciation)) kv.appendChild(el('span', { html: '<b>Pronunție</b>' + esc(p.pronunciation) }));
+          if (has(p.nat)) kv.appendChild(el('span', { html: '<b>Cetățenie</b>' + esc(p.nat) }));
+          if (has(p.natTeam)) kv.appendChild(el('span', { html: '<b>Națională</b>' + esc(p.natTeam) }));
+          if (has(p.birthCountry)) kv.appendChild(el('span', { html: '<b>Născut în</b>' + esc(p.birthCountry) }));
+          if (has(p.age)) kv.appendChild(el('span', { html: '<b>Vârstă</b>' + esc(p.age + ' ani') }));
+          if (has(p.height)) kv.appendChild(el('span', { html: '<b>Înălțime</b>' + esc(p.height + ' cm') }));
+          if (footLabel(p.foot)) kv.appendChild(el('span', { html: '<b>Picior</b>' + esc(footLabel(p.foot)) }));
+          if (kv.childNodes.length) wrap.appendChild(kv);
+          var s = p.stats || {};
+          var rows = [
+            ['Meciuri', s.apps], ['Minute', s.minutes], ['Goluri', s.goals],
+            ['Pase decisive', s.assists], ['Galbene', s.yellow], ['Roșii', s.red],
+            ['Rating', s.rating]
+          ].filter(function (r) { return r[1] != null; });
+          if (rows.length) {
+            wrap.appendChild(el('h4', { class: 'stat-h', text: 'Sezonul curent' }));
+            var g = el('div', { class: 'stat-grid' });
+            rows.forEach(function (r) {
+              g.appendChild(el('div', { class: 'stat-cell' }, [
+                el('span', { class: 'sc-n', text: String(r[1]) }),
+                el('span', { class: 'sc-l', text: r[0] })
+              ]));
+            });
+            wrap.appendChild(g);
+          }
+          if (has(p.lastSeason)) wrap.appendChild(el('p', { html: '<b style="color:var(--color-neutral-500)">Sezonul trecut:</b> ' + esc(p.lastSeason) }));
+          if (!wrap.childNodes.length) wrap.appendChild(el('p', { text: 'Fără detalii suplimentare.' }));
+        }
+        fill();
+        if (p._pid != null && !_pdCache[p._pid]) {
+          loadPlayerDetail(p).then(function () { fill(); }).catch(function () {});
+        }
         return wrap;
       },
       'Carieră': function () { return el('div', {}, [el('p', { text: has(p.career) ? p.career : 'n/d' })]); },
@@ -1098,6 +1323,35 @@
     function onKey(e) { if (e.key === 'Escape') close(); }
     document.addEventListener('keydown', onKey);
 
+    // players available to drop into this slot: the full squad minus whoever is
+    // already on the pitch (so the live-loaded lot feeds the XI directly)
+    var onKeys = effXI(d, side).map(keyOf);
+    var avail = effSquad(d, side).filter(function (x) { return onKeys.indexOf(keyOf(x)) < 0; });
+
+    var searchIn = el('input', { class: 'field', type: 'search', placeholder: 'Caută în lot…' });
+    var pickList = el('div', { class: 'pick-list' });
+    function drawPicks() {
+      var q = searchIn.value.trim().toLowerCase();
+      pickList.innerHTML = '';
+      var rows = avail.filter(function (p) { return !q || String(p.name).toLowerCase().indexOf(q) >= 0; });
+      groupPick(rows).forEach(function (grp) {
+        pickList.appendChild(el('h4', { text: grp.label }));
+        grp.items.forEach(function (p) {
+          pickList.appendChild(el('button', {
+            class: 'pick',
+            onclick: function () { applySub(d, side, idx, p); close(); },
+            text: (p.number != null ? '#' + p.number + '  ' : '') + p.name +
+              (has(p.pos) ? '  ·  ' + p.pos : has(p.role) ? '  ·  ' + p.role : '') +
+              (has(p.age) ? '  ·  ' + p.age + ' ani' : '') +
+              (p.stats && (p.stats.goals || p.stats.assists) ? '  ·  ' + (p.stats.goals || 0) + 'G/' + (p.stats.assists || 0) + 'A' : '') +
+              (p.status && p.status !== 'available' ? '  ·  ' + p.status : '')
+          }));
+        });
+      });
+      if (!rows.length) pickList.appendChild(el('p', { class: 'sub-note', text: avail.length ? 'Nimeni nu se potrivește căutării.' : 'Lotul nu e încărcat încă — adaugă jucătorul manual mai jos.' }));
+    }
+    searchIn.addEventListener('input', drawPicks);
+
     var numIn = el('input', { class: 'field', type: 'number', min: '1', max: '99', placeholder: 'Număr (opțional)' });
     var nameIn = el('input', { class: 'field', placeholder: 'Nume jucător' });
     var roleSel = el('select', { class: 'field' }, ['GK', 'DEF', 'MID', 'ATT'].map(function (r) {
@@ -1116,19 +1370,28 @@
       close();
     }
     nameIn.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
-    var m = el('div', { class: 'modal', style: 'max-width:340px' }, [
-      el('div', { class: 'modal-head' }, [
-        el('h3', { text: 'Adaugă jucător' }),
-        el('button', { class: 'modal-close', text: '✕', onclick: close })
-      ]),
-      el('div', { class: 'modal-body' }, [
+    var manual = el('details', { class: 'add-manual' }, [
+      el('summary', { text: 'Adaugă manual un jucător nou' }),
+      el('div', {}, [
         numIn, nameIn, roleSel, posIn,
         el('div', { class: 'notes-row' }, [el('button', { class: 'pick', text: 'Adaugă pe teren', onclick: submit })])
       ])
     ]);
+    var m = el('div', { class: 'modal', style: 'max-width:380px' }, [
+      el('div', { class: 'modal-head' }, [
+        el('h3', { text: 'Alege jucătorul pentru acest post' }),
+        el('button', { class: 'modal-close', text: '✕', onclick: close })
+      ]),
+      el('div', { class: 'modal-body' }, [
+        avail.length ? searchIn : null,
+        pickList,
+        manual
+      ])
+    ]);
     back.appendChild(m);
     document.body.appendChild(back);
-    nameIn.focus();
+    drawPicks();
+    if (avail.length) searchIn.focus(); else { manual.open = true; nameIn.focus(); }
   }
 
   // Small "fill in by hand" forms for the fields the live feed doesn't cover
