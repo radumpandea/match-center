@@ -996,10 +996,31 @@
       })));
     }
 
-    // News
-    if ((d.teams.home.news || []).length || (d.teams.away.news || []).length) {
+    // News — curated news[] when present, otherwise the raw RSS newsCandidates[]
+    // that the prefetch drops in (shown as links, flagged as un-triaged)
+    var anyNews = ['home', 'away'].some(function (s) {
+      return (d.teams[s].news || []).length || (d.teams[s].newsCandidates || []).length;
+    });
+    if (anyNews) {
       add('news', panel('Top știri', twoCol(d, function (t) {
-        return ul((t.news || []).map(function (n) { return (has(n.date) ? '[' + n.date + '] ' : '') + n.text; }));
+        if ((t.news || []).length) {
+          return ul(t.news.map(function (n) { return (has(n.date) ? '[' + n.date + '] ' : '') + n.text; }));
+        }
+        var cands = t.newsCandidates || [];
+        if (!cands.length) return el('div', { text: 'n/d' });
+        var wrap = el('div');
+        var list = el('ul', { class: 'news-cand' });
+        cands.forEach(function (n) {
+          list.appendChild(el('li', {}, [
+            el('a', { href: n.url || '#', target: '_blank', rel: 'noopener noreferrer', text: n.title }),
+            (n.source || n.published)
+              ? el('span', { class: 'nc-meta', text: '  ' + [n.published, n.source].filter(Boolean).join(' · ') })
+              : null
+          ]));
+        });
+        wrap.appendChild(list);
+        wrap.appendChild(el('p', { class: 'nc-note', text: 'Titluri brute din RSS — încă netriate.' }));
+        return wrap;
       })));
     }
 

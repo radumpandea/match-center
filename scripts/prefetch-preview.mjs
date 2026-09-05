@@ -213,6 +213,75 @@ function venueFrom(json) {
   return { name, capacity: num(r.capacity), city: (r.city || null), notes: null };
 }
 
+/* ---------- RSS news candidates (Google News) ----------
+   Raw, dated headlines only — the match-data-json skill triages them into news[]
+   and paraphrases into Romanian. No key, no library; Google News RSS is simple
+   well-formed XML so a regex extract is enough. Best-effort: a failed feed just
+   contributes nothing. */
+const RSS_DAYS = 4;         // drop anything older than this
+const NEWS_PER_TEAM = 8;
+
+function decodeEntities(s) {
+  return String(s || '')
+    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
+    .replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
+    .replace(/<[^>]+>/g, '').trim();
+}
+function isoDay(d) {
+  const dt = new Date(d);
+  return Number.isNaN(dt.getTime()) ? null : dt.toISOString().slice(0, 10);
+}
+async function fetchRss(query) {
+  const url = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`;
+  let xml;
+  try {
+    const r = await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 (match-center prefetch)' } });
+    if (!r.ok) { console.error(`  rss "${query}": HTTP ${r.status}`); return []; }
+    xml = await r.text();
+  } catch (e) {
+    console.error(`  rss "${query}": ${e.message}`);
+    return [];
+  }
+  const items = [];
+  for (const m of xml.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
+    const block = m[1];
+    const rawTitle = (block.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '';
+    const link = (block.match(/<link>([\s\S]*?)<\/link>/) || [])[1] || '';
+    const pub = (block.match(/<pubDate>([\s\S]*?)<\/pubDate>/) || [])[1] || '';
+    const src = (block.match(/<source[^>]*>([\s\S]*?)<\/source>/) || [])[1] || '';
+    let title = decodeEntities(rawTitle);
+    const source = decodeEntities(src) || null;
+    // Google News appends " - <source>" to titles
+    if (source && title.endsWith(' - ' + source)) title = title.slice(0, -(source.length + 3)).trim();
+    if (!title) continue;
+    items.push({ title, url: link.trim() || null, source, published: isoDay(pub) });
+  }
+  return items;
+}
+async function teamNews(teamName, oppName) {
+  const cutoff = new Date(Date.now() - RSS_DAYS * 86400000).toISOString().slice(0, 10);
+  const queries = [
+    `"${teamName}" when:${RSS_DAYS}d`,
+    `"${teamName}" "${oppName}" when:7d`,
+  ];
+  const seen = new Set();
+  const out = [];
+  for (const q of queries) {
+    for (const it of await fetchRss(q)) {
+      const k = norm(it.title);
+      if (!k || seen.has(k)) continue;
+      if (it.published && it.published < cutoff) continue;
+      seen.add(k);
+      out.push(it);
+    }
+  }
+  out.sort((a, b) => (b.published || '').localeCompare(a.published || ''));
+  return out.slice(0, NEWS_PER_TEAM);
+}
+
 /* ---------- per-team squad cache ---------- */
 async function getSquad(teamId, teamName) {
   const cachePath = `${TEAMS_DIR}/${teamId}.json`;
@@ -264,19 +333,22 @@ function emptyTeamBlock(name) {
     name, shortName: null, colors: null,
     coach: { name: 'n/d' },
     formation: 'n/d', predictedXI: [], confirmedXI: null, squad: [],
-    form: null, absences: [], mercatoIn: [], mercatoOut: [], preseason: [], news: [], stories: [],
+    form: null, absences: [], mercatoIn: [], mercatoOut: [], preseason: [],
+    news: [], newsCandidates: [], stories: [],
   };
 }
 
 async function buildMatch(fx) {
   const eventId = fx.eventId;
-  const [homeSquad, awaySquad, refJson, venJson, homeLine, awayLine] = await Promise.all([
+  const [homeSquad, awaySquad, refJson, venJson, homeLine, awayLine, homeNews, awayNews] = await Promise.all([
     fx._homeId != null ? getSquad(fx._homeId, fx.home) : Promise.resolve(null),
     fx._awayId != null ? getSquad(fx._awayId, fx.away) : Promise.resolve(null),
     eventId != null ? api('football-get-match-referee', { eventid: eventId }) : Promise.resolve(null),
     eventId != null ? api('football-get-match-location', { eventid: eventId }) : Promise.resolve(null),
     eventId != null ? api('football-get-hometeam-lineup', { eventid: eventId }) : Promise.resolve(null),
     eventId != null ? api('football-get-awayteam-lineup', { eventid: eventId }) : Promise.resolve(null),
+    teamNews(fx.home, fx.away),
+    teamNews(fx.away, fx.home),
   ]);
 
   const out = {
@@ -293,8 +365,13 @@ async function buildMatch(fx) {
     teams: { home: emptyTeamBlock(fx.home), away: emptyTeamBlock(fx.away) },
   };
 
-  for (const [side, cache, line] of [['home', homeSquad, homeLine], ['away', awaySquad, awayLine]]) {
+  const bySide = {
+    home: { cache: homeSquad, line: homeLine, news: homeNews },
+    away: { cache: awaySquad, line: awayLine, news: awayNews },
+  };
+  for (const side of ['home', 'away']) {
     const t = out.teams[side];
+    const { cache, line, news } = bySide[side];
     if (cache && cache.squad && cache.squad.length) {
       t.squad = cache.squad.map(stripInternal);
       if (cache.coach && cache.coach.name) t.coach = { name: cache.coach.name };
@@ -302,6 +379,7 @@ async function buildMatch(fx) {
         .filter((p) => p._injury)
         .map((p) => ({ name: p.name, reason: 'injury', detail: p._injury.detail || null, since: null }));
     }
+    if (news && news.length) t.newsCandidates = news;
     const parsedLine = lineupFrom(line);
     if (parsedLine) {
       t.confirmedXI = parsedLine.xi;

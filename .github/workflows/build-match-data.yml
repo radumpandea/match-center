@@ -87,10 +87,13 @@ jobs:
                If that file already exists with `"partial": true`, it was
                pre-filled deterministically by `scripts/prefetch-preview.mjs`
                (full squads with per-player season stats, coach name, injuries,
-               referee name, venue, and the confirmed lineup when it was public).
+               referee name, venue, the confirmed lineup when it was public, and
+               `teams.<side>.newsCandidates[]` — raw dated RSS headlines).
                Build ON TOP of it: keep those fields (verify, don't blindly
-               rewrite), fill every empty section, and REMOVE the `"partial"`
-               flag — see the "Dacă fișierul există deja" section in the skill.
+               rewrite), fill every empty section, triage `newsCandidates` into
+               `news[]`, and REMOVE both the `"partial"` flag and the
+               `newsCandidates` arrays from the final file — see the skill's
+               "Pipeline în două niveluri" and "Pornire de la fișierul partial".
             3. Run `node scripts/validate-match.mjs docs/data/matches/<slug>.json`.
                It must exit 0. Fix every `✗`. Treat `!` warnings (e.g. "lists 1
                goalkeeper") as a signal to re-verify that part against the official

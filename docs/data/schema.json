@@ -233,6 +233,21 @@
             }
           }
         },
+        "newsCandidates": {
+          "type": "array",
+          "description": "raw dated RSS headlines gathered by scripts/prefetch-preview.mjs, for the match-data-json skill to triage and paraphrase into news[]. Removed from the final full pack.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["title"],
+            "properties": {
+              "title": { "type": "string" },
+              "url": { "type": ["string", "null"] },
+              "source": { "type": ["string", "null"] },
+              "published": { "type": ["string", "null"], "description": "ISO date (YYYY-MM-DD)" }
+            }
+          }
+        },
         "stories": {
           "type": "array",
           "description": "dedicated per-team story bars (Sky/Opta style)",

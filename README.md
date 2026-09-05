@@ -77,14 +77,17 @@ football feed can give for free:
   assists / cards / rating) — fetched once per team into `docs/data/teams/<teamId>.json`
   and reused across every fixture that team plays, refreshed when older than 3 days;
 - head coach name; injuries → `absences[]`; referee name; venue;
-- the confirmed lineup + formation, once the feed publishes it (usually only near kickoff).
+- the confirmed lineup + formation, once the feed publishes it (usually only near kickoff);
+- `teams.<side>.newsCandidates[]` — raw dated headlines from Google News RSS (no key, no
+  library), for the editorial step to triage and paraphrase into `news[]`.
 
 `match.html` treats a partial file as a rich skeleton: it renders the squads and lets you
 pick the XI from them, shows an amber "Date parțiale" banner, and still runs the
 client-side live calls for what's missing. `index.html` tags these fixtures "DATE PARȚIALE"
 (from `docs/data/previews.json`). `build-match-data.yml` / the `match-data-json` skill then
 **upgrade the same file** with the editorial layer (form, H2H, probable XI, story bars,
-funfacts, coach careers, mercato, news) and remove the `partial` flag.
+funfacts, coach careers, mercato) computed largely from the numbers already in the file,
+triage `newsCandidates` into `news[]`, and remove the `partial` flag and the raw candidates.
 
 This tier needs only the `RAPIDAPI_KEY` repo secret (server-side, in the Action) — it does
 **not** need the public key in `docs/app/config.js`.
