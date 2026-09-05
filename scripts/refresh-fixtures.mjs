@@ -290,9 +290,16 @@ async function main() {
         eventId: m.id ?? m.eventId ?? (existing && existing.eventId) ?? null,
         ready: existing ? !!existing.ready : false,
       };
-    }).sort((a, b) => (a.date + a.ko).localeCompare(b.date + b.ko));
+    });
 
-    out.push(...entries);
+    // A match already marked ready has a published pack (and a live screen
+    // linked from it) — never let a fresh round scan silently drop it just
+    // because the feed no longer lists it as upcoming (it's finished by now).
+    const haveMatch = new Set(entries.map((e) => e.home + '|' + e.away));
+    const keepPublished = current.filter((e) => e.ready && !haveMatch.has(e.home + '|' + e.away));
+    const merged = entries.concat(keepPublished).sort((a, b) => (a.date + a.ko).localeCompare(b.date + b.ko));
+
+    out.push(...merged);
   }
 
   const rendered = JSON.stringify(out, null, 2) + '\n';
