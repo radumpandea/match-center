@@ -311,14 +311,16 @@
     var ov = (store.xi && store.xi[side]) || {};
     return pred.map(function (slot, i) { return ov[i] || slot; });
   }
-  function applySub(d, side, idx, player) {
+  function applySub(d, side, idx, player, minute) {
     var pred = d.teams[side].predictedXI || [];
+    var m = parseInt(minute, 10);
     store.xi = store.xi || {};
     store.xi[side] = store.xi[side] || {};
     store.xi[side][idx] = {
       number: player.number != null ? player.number : null,
       name: player.name,
-      pos: pred[idx] ? pred[idx].pos : player.pos
+      pos: pred[idx] ? pred[idx].pos : player.pos,
+      minute: isNaN(m) ? null : m
     };
     save();
     rerenderPitch(d);
@@ -377,6 +379,7 @@
     document.title = data.teams.home.name + ' – ' + data.teams.away.name + ' · Match Center';
     root.innerHTML = '';
     pitchEl = null;
+    panelsEl = null;
 
     var orientBtn = el('button', {
       text: view.orientation === 'v' ? '⤢ Vedere orizontală' : '⤢ Vedere verticală',
@@ -406,6 +409,12 @@
         rerenderPitch(data);
       }
     });
+    var resetOrderBtn = el('button', {
+      text: '↕ Ordine implicită',
+      onclick: function () {
+        if (store.panelOrder) { delete store.panelOrder; save(); rerenderPanels(data); }
+      }
+    });
 
     // header
     var metaWrap = el('div', { class: 'mc-meta' }, [document.createTextNode(metaLine(data))]);
@@ -426,6 +435,7 @@
         orientBtn,
         namesBtn,
         resetPosBtn,
+        resetOrderBtn,
         el('button', { text: '🖨 Print', onclick: function () { window.print(); } }),
         el('button', { text: '⭳ Export notițe', onclick: function () { exportNotes(data); } }),
         el('button', { text: '⇕ Extinde / restrânge', onclick: toggleAll }),
@@ -437,8 +447,12 @@
     root.appendChild(head);
 
     pitchEl = pitch(data);
-    root.appendChild(pitchEl);
-    root.appendChild(panels(data));
+    var asideH = teamAside(data, 'home');
+    var asideA = teamAside(data, 'away');
+    root.appendChild(el('div', { class: 'pitch-row' + ((asideH || asideA) ? ' has-aside' : '') }, [asideH, pitchEl, asideA]));
+
+    panelsEl = panels(data);
+    root.appendChild(panelsEl);
   }
 
   function skeletonBanner(d) {
@@ -566,7 +580,9 @@
         el('span', { class: 'subs-label', text: d.teams[side].name })
       ]);
       made.forEach(function (m) {
+        var mm = m.inn && m.inn.minute;
         row.appendChild(el('span', { class: 'sub-chip' }, [
+          mm != null ? el('span', { class: 'sub-min-badge', text: mm + "'" }) : null,
           el('span', { text: shortName(m.out.name) + '  ↦  ' + shortName(m.inn.name) }),
           el('button', { text: '✕', title: 'Anulează schimbarea', onclick: function () { clearSub(d, side, m.i); } })
         ]));
@@ -609,27 +625,27 @@
     return el('ul', {}, (items || []).filter(has).map(function (t) { return el('li', { text: t }); }));
   }
 
+  // Per-team "Informații echipă" — the old FIRE bars, moved to a column on that
+  // team's flank of the pitch (see render()). null when the team has no stories.
+  function teamAside(d, side) {
+    var t = d.teams[side];
+    if (!t.stories || !t.stories.length) return null;
+    var box = el('div', { class: 'team-aside ' + side }, [
+      el('div', { class: 'team-aside-title', text: (t.shortName || t.name) + ' · informații echipă' })
+    ]);
+    t.stories.forEach(function (s) {
+      box.appendChild(el('div', { class: 'story-bar' }, [el('h4', { text: s.title }), ul(s.bullets)]));
+    });
+    return box;
+  }
+
   function panels(d) {
-    var box = el('div', { class: 'panels' });
+    var defs = [];
+    function add(key, node) { if (node) defs.push({ key: key, node: node }); }
 
     if (d.storyOfTheMatch && d.storyOfTheMatch.length) {
-      box.appendChild(panel('Story of the match', ul(d.storyOfTheMatch), { lead: true, open: true }));
+      add('story', panel('Story of the match', ul(d.storyOfTheMatch), { lead: true, open: true }));
     }
-
-    // per-team stories
-    ['home', 'away'].forEach(function (side) {
-      var t = d.teams[side];
-      if (t.stories && t.stories.length) {
-        var wrap = el('div');
-        t.stories.forEach(function (s) {
-          wrap.appendChild(el('div', { class: 'story-bar' }, [
-            el('h4', { text: s.title }),
-            ul(s.bullets)
-          ]));
-        });
-        box.appendChild(panel('Fire — ' + t.name, wrap));
-      }
-    });
 
     // H2H
     if (d.h2h && ((d.h2h.recent && d.h2h.recent.length) || has(d.h2h.summary))) {
@@ -644,12 +660,12 @@
         h.appendChild(tb);
       }
       if (has(d.h2h.summary)) h.appendChild(el('p', { text: d.h2h.summary }));
-      box.appendChild(panel('Cap la cap', h, { open: true }));
+      add('h2h', panel('Cap la cap', h, { open: true }));
     }
 
     // Form (two-col)
     if (d.teams.home.form || d.teams.away.form) {
-      box.appendChild(panel('Formă', twoCol(d, function (t) {
+      add('form', panel('Formă', twoCol(d, function (t) {
         var wrap = el('div');
         var f = t.form || {};
         if (f.last5 && f.last5.length) {
@@ -665,7 +681,7 @@
     }
 
     // Absences + probable XI
-    box.appendChild(panel('Absențe și primul 11 probabil', twoCol(d, function (t) {
+    add('absences', panel('Absențe și primul 11 probabil', twoCol(d, function (t) {
       var wrap = el('div');
       wrap.appendChild(el('h4', { text: 'Absenți' }));
       if (t.absences && t.absences.length) {
@@ -682,7 +698,7 @@
 
     // Mercato
     if (hasMercato(d)) {
-      box.appendChild(panel('Mercato — vară', twoCol(d, function (t) {
+      add('mercato', panel('Mercato — vară', twoCol(d, function (t) {
         var wrap = el('div');
         wrap.appendChild(el('h4', { text: 'Veniri' }));
         wrap.appendChild(ul((t.mercatoIn || []).map(function (m) { return m.name + (has(m.from) ? ' ← ' + m.from : '') + (has(m.fee) ? ' (' + m.fee + ')' : ''); })));
@@ -694,14 +710,14 @@
 
     // Pre-season
     if ((d.teams.home.preseason || []).length || (d.teams.away.preseason || []).length) {
-      box.appendChild(panel('Pregătirea de vară', twoCol(d, function (t) {
+      add('preseason', panel('Pregătirea de vară', twoCol(d, function (t) {
         return ul((t.preseason || []).map(function (p) { return (has(p.date) ? p.date + ' · ' : '') + p.opp + ' ' + p.score; }));
       })));
     }
 
     // News
     if ((d.teams.home.news || []).length || (d.teams.away.news || []).length) {
-      box.appendChild(panel('Top știri', twoCol(d, function (t) {
+      add('news', panel('Top știri', twoCol(d, function (t) {
         return ul((t.news || []).map(function (n) { return (has(n.date) ? '[' + n.date + '] ' : '') + n.text; }));
       })));
     }
@@ -714,7 +730,7 @@
       if (has(d.venue.capacity)) v.appendChild(el('span', { html: '<b>Capacitate</b>' + esc(d.venue.capacity) }));
       var vb = el('div', {}, [v]);
       if (has(d.venue.notes)) vb.appendChild(el('p', { text: d.venue.notes }));
-      box.appendChild(panel('Stadion', vb));
+      add('venue', panel('Stadion', vb));
     }
 
     // Squads
@@ -740,20 +756,87 @@
         });
         wrap.appendChild(list);
       });
-      box.appendChild(panel('Lot — ' + t.name, wrap));
+      add('squad-' + side, panel('Lot — ' + t.name, wrap));
     });
 
     // sources
     if (d.sources && d.sources.length) {
-      box.appendChild(panel('Surse', ul(d.sources.map(function (s) {
+      add('sources', panel('Surse', ul(d.sources.map(function (s) {
         return s.name + (has(s.url) ? ' — ' + s.url : '') + (has(s.accessed) ? ' (' + s.accessed + ')' : '');
       }))));
     }
 
     // match-level notes
-    box.appendChild(panel('Notițe — general meci', notesBlock('match', 'general meci'), { lead: true, open: true }));
+    add('notes', panel('Notițe — general meci', notesBlock('match', 'general meci'), { lead: true, open: true }));
 
+    // apply the user's saved order (unknown keys keep their natural spot at the end)
+    var saved = (store.panelOrder || []).filter(function (k) {
+      return defs.some(function (dd) { return dd.key === k; });
+    });
+    defs.sort(function (a, b) {
+      var ia = saved.indexOf(a.key), ib = saved.indexOf(b.key);
+      if (ia < 0) ia = 1e6; if (ib < 0) ib = 1e6;
+      return ia - ib;
+    });
+
+    var box = el('div', { class: 'panels' });
+    defs.forEach(function (def) {
+      makePanelDraggable(def.node, def.key, d, defs);
+      box.appendChild(def.node);
+    });
     return box;
+  }
+
+  /* ---------- drag panels to reorder ---------- */
+  var panelsEl = null;
+  var _pdrag = null;
+  function rerenderPanels(d) {
+    var next = panels(d);
+    if (panelsEl) panelsEl.replaceWith(next);
+    panelsEl = next;
+  }
+  function makePanelDraggable(node, key, d, defs) {
+    var grip = el('span', { class: 'pgrip', text: '⠿', title: 'Trage pentru a reordona' });
+    grip.setAttribute('draggable', 'true');
+    grip.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); });
+    grip.addEventListener('dragstart', function (e) {
+      _pdrag = key;
+      node.classList.add('pdragging');
+      try { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', key); } catch (err) {}
+    });
+    grip.addEventListener('dragend', function () {
+      _pdrag = null;
+      var pd = document.querySelectorAll('.panel');
+      [].forEach.call(pd, function (x) { x.classList.remove('pdragging', 'drop-before', 'drop-after'); });
+    });
+    node.addEventListener('dragover', function (e) {
+      if (_pdrag == null || _pdrag === key) return;
+      e.preventDefault();
+      try { e.dataTransfer.dropEffect = 'move'; } catch (err) {}
+      var r = node.getBoundingClientRect();
+      var after = e.clientY > r.top + r.height / 2;
+      node.classList.toggle('drop-after', after);
+      node.classList.toggle('drop-before', !after);
+    });
+    node.addEventListener('dragleave', function () {
+      node.classList.remove('drop-before', 'drop-after');
+    });
+    node.addEventListener('drop', function (e) {
+      if (_pdrag == null || _pdrag === key) return;
+      e.preventDefault();
+      var r = node.getBoundingClientRect();
+      var after = e.clientY > r.top + r.height / 2;
+      var order = defs.map(function (x) { return x.key; });
+      var src = _pdrag;
+      order = order.filter(function (k) { return k !== src; });
+      var ti = order.indexOf(key);
+      order.splice(after ? ti + 1 : ti, 0, src);
+      store.panelOrder = order;
+      save();
+      rerenderPanels(d);
+    });
+    var sum = node.querySelector('summary');
+    if (sum) sum.insertBefore(grip, sum.firstChild);
   }
 
   function twoCol(d, fn) {
@@ -851,10 +934,14 @@
       });
     }
 
+    // optional minute of the substitution — read at click time
+    var minIn = el('input', { class: 'field sub-min', type: 'number', min: '1', max: '120', placeholder: "Minut (opțional)" });
+
     if (slotIdx >= 0) {
       var origName = pred[slotIdx] ? pred[slotIdx].name : null;
       var swapped = !!(store.xi && store.xi[side] && store.xi[side][slotIdx]);
       wrap.appendChild(el('p', { class: 'sub-head', text: 'Îl scoate pe ' + p.name + '. Cine intră?' }));
+      wrap.appendChild(minIn);
       if (swapped && origName) {
         wrap.appendChild(line({ name: '↩ Revino la ' + origName + ' (din predicție)' },
           function () { clearSub(d, side, slotIdx); close(); }));
@@ -864,16 +951,17 @@
       groupPick(bench).forEach(function (grp) {
         wrap.appendChild(el('h4', { text: grp.label }));
         grp.items.forEach(function (b) {
-          wrap.appendChild(line(b, function () { applySub(d, side, slotIdx, b); close(); }));
+          wrap.appendChild(line(b, function () { applySub(d, side, slotIdx, b, minIn.value); close(); }));
         });
       });
       if (!bench.length) wrap.appendChild(el('p', { text: 'Nu există jucători de rezervă în date.' }));
     } else {
       wrap.appendChild(el('p', { class: 'sub-head', text: p.name + ' e pe bancă. Pe cine înlocuiește?' }));
+      wrap.appendChild(minIn);
       eff.forEach(function (s, i) {
         if (!has(s.name)) return; // empty slot — fill it directly via the pitch, not from here
         var full = playerByNameOrNum(squad, s);
-        wrap.appendChild(line(full, function () { applySub(d, side, i, p); close(); }));
+        wrap.appendChild(line(full, function () { applySub(d, side, i, p, minIn.value); close(); }));
       });
     }
     wrap.appendChild(el('p', { class: 'sub-note', text: 'Se salvează local, în acest browser — pentru schimbări în timpul meciului, fără să aștepți actualizarea datelor.' }));

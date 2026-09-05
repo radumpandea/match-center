@@ -194,6 +194,44 @@ table.mc th{color:var(--color-neutral-500);font-weight:500;letter-spacing:.06em}
 .story-bar{margin-bottom:var(--space-4)}
 .story-bar h4{margin:0 0 var(--space-1);font-size:11.5px;letter-spacing:.06em;color:var(--color-accent-200)}
 
+/* ---- pitch row: team info columns flanking the pitch ---- */
+.pitch-row{display:flex;gap:var(--space-4);align-items:flex-start}
+.pitch-row > .pitch-wrap{flex:1 1 auto;min-width:0}
+.team-aside{
+  flex:0 0 210px;align-self:stretch;overflow-y:auto;max-height:none;
+  border:1px solid var(--color-divider);border-radius:var(--radius-md);background:var(--color-surface);
+  padding:var(--space-3) var(--space-4);font-size:12px;color:var(--color-neutral-400)
+}
+.team-aside-title{
+  font:600 10px/1.3 "Inter",sans-serif;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--color-accent-300);margin-bottom:var(--space-3);padding-bottom:var(--space-2);
+  border-bottom:1px solid var(--color-divider)
+}
+.team-aside .story-bar:last-child{margin-bottom:0}
+.team-aside .body ul,.team-aside ul{margin:0;padding-left:1.05em;display:flex;flex-direction:column;gap:3px}
+@media (max-width:1000px){
+  .pitch-row{flex-direction:column}
+  .team-aside{flex:none;width:100%;max-height:none;order:3}
+  .pitch-row > .pitch-wrap{order:2;width:100%}
+}
+
+/* ---- reorder panels by dragging the grip ---- */
+.pgrip{
+  cursor:grab;color:var(--color-neutral-600);font-size:12px;margin-right:6px;
+  padding:0 2px;user-select:none;flex:none
+}
+.pgrip:active{cursor:grabbing}
+.panel.pdragging{opacity:.5}
+.panel.drop-before{box-shadow:0 -3px 0 0 var(--color-accent)}
+.panel.drop-after{box-shadow:0 3px 0 0 var(--color-accent)}
+
+/* ---- substitution minute ---- */
+.sub-min{max-width:170px}
+.sub-min-badge{
+  font-size:9.5px;font-weight:700;color:var(--color-accent-200);background:color-mix(in srgb,var(--color-accent) 22%,transparent);
+  border-radius:999px;padding:1px 5px;font-variant-numeric:tabular-nums
+}
+
 /* ---- modal (player / coach / ref) ---- */
 .modal-back{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:flex-start;justify-content:center;padding:5vh var(--space-4);z-index:50}
 .modal{background:var(--color-bg);border:1px solid var(--color-divider);border-radius:var(--radius-lg);max-width:640px;width:100%;max-height:90vh;overflow:auto}
@@ -231,7 +269,9 @@ table.mc th{color:var(--color-neutral-500);font-weight:500;letter-spacing:.06em}
 /* ---- print ---- */
 @media print{
   body{background:#fff;color:#000;font-size:11px}
-  .mc-toolbar,.modal-back,.notes textarea,.notes-row{display:none!important}
+  .mc-toolbar,.modal-back,.notes textarea,.notes-row,.pgrip{display:none!important}
+  .pitch-row{flex-direction:column}
+  .team-aside{flex:none;width:100%;border-color:#bbb;background:#fff;color:#222;break-inside:avoid}
   .pitch-shell{aspect-ratio:auto;height:420px;background:#e8efe8;border:1px solid #999}
   .node .disc{color:#000;background:#ddd!important;border-color:#333}
   .panels{grid-template-columns:1fr 1fr}
