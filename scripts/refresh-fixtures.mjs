@@ -126,6 +126,93 @@ function makeSlug(abbr, roundN, home, away) {
   return `${abbr}-e${roundN}-${slugify(home)}-${slugify(away)}`;
 }
 
+// Fills in `eventId` (the football feed's per-match id, used by match.html for
+// client-side live lookups — lineups, referee, venue) on entries that don't
+// have one yet. Only entries carried over as-is skip the id assignment that
+// freshly-scanned entries get inline, so this backfills those by re-fetching
+// each distinct date and matching on team names.
+async function backfillEventIds(entries) {
+  const missing = entries.filter((e) => e.eventId == null && e.date && e.date !== 'n/d');
+  if (!missing.length) return;
+  const byDate = new Map();
+  missing.forEach((e) => {
+    if (!byDate.has(e.date)) byDate.set(e.date, []);
+    byDate.get(e.date).push(e);
+  });
+  for (const [dateStr, list] of byDate) {
+    let matches;
+    try {
+      matches = await fetchDay(new Date(dateStr + 'T00:00:00'));
+    } catch (e) {
+      console.error(`Backfill eventId skip ${dateStr}: ${e.message}`);
+      continue;
+    }
+    list.forEach((e) => {
+      const m = matches.find((x) => x.home && x.away && x.home.name === e.home && x.away.name === e.away);
+      if (m) e.eventId = m.id != null ? m.id : (m.eventId != null ? m.eventId : null);
+    });
+  }
+}
+
+function mode(values) {
+  const counts = {};
+  let best = null, bestN = 0;
+  values.forEach((v) => {
+    if (v == null) return;
+    counts[v] = (counts[v] || 0) + 1;
+    if (counts[v] > bestN) { bestN = counts[v]; best = v; }
+  });
+  return best;
+}
+
+// A competition's "current round" is normally left untouched once it has any
+// future match (see main()) so we never overwrite packs mid-build. But if the
+// manifest was ever seeded or refreshed with only part of that round (as
+// happened once: 3 of 9 Ligue 1 fixtures got tracked, the rest silently never
+// appeared), it would otherwise stay incomplete forever. This re-scans the
+// exact date span the current entries already cover and adds any same-round
+// match for this competition that isn't listed yet — it never removes or
+// reorders anything already there.
+async function mergeRoundMatches(c, current, venueByTeam) {
+  const dates = current.map((e) => e.date).filter((d) => d && d !== 'n/d').sort();
+  if (!dates.length) return current;
+  const dominantRound = mode(current.map((e) => e.round));
+  const known = new Set(current.map((e) => e.home + '|' + e.away));
+  const out = current.slice();
+  const start = new Date(dates[0] + 'T00:00:00');
+  const end = new Date(dates[dates.length - 1] + 'T00:00:00');
+  for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+    let matches;
+    try {
+      matches = await fetchDay(d);
+    } catch (e) {
+      console.error(`Round-merge skip ${key(d)}: ${e.message}`);
+      continue;
+    }
+    matches
+      .filter((m) => m.leagueId === c.id)
+      .forEach((m) => {
+        const home = m.home.name, away = m.away.name;
+        if (known.has(home + '|' + away)) return;
+        const round = roundLabel(m.tournamentStage);
+        if (dominantRound && round !== dominantRound) return; // a different round — not this one
+        known.add(home + '|' + away);
+        const date = m.status && m.status.utcTime ? localDate(m.status.utcTime) : 'n/d';
+        const ko = m.status && m.status.utcTime ? localTime(m.status.utcTime) : 'n/d';
+        const kickoff = m.status && m.status.utcTime ? localIso(m.status.utcTime) : 'n/d';
+        console.log(`Round-merge: adding missing ${c.comp} fixture ${home} vs ${away} (${date})`);
+        out.push({
+          slug: makeSlug(c.abbr, roundNumber(round), home, away),
+          comp: c.comp, country: c.country, round, date, ko, kickoff, home, away,
+          venue: venueByTeam[home] || 'n/d',
+          eventId: m.id != null ? m.id : (m.eventId != null ? m.eventId : null),
+          ready: false,
+        });
+      });
+  }
+  return out.sort((a, b) => (a.date + a.ko).localeCompare(b.date + b.ko));
+}
+
 async function main() {
   const manifest = loadManifest(OUT_FILE);
   const today = new Date();
@@ -142,8 +229,11 @@ async function main() {
     const current = manifest.filter((e) => e.comp === c.comp);
     const stillUpcoming = current.some((e) => e.date >= todayDate);
     if (current.length && stillUpcoming) {
-      // Current round isn't finished yet — leave this competition alone.
-      out.push(...current);
+      // Current round isn't finished yet — leave it alone otherwise, but still
+      // backfill missing eventIds and pick up any same-round match that isn't
+      // tracked yet (see mergeRoundMatches).
+      await backfillEventIds(current);
+      out.push(...(await mergeRoundMatches(c, current, venueByTeam)));
       continue;
     }
 
@@ -171,6 +261,7 @@ async function main() {
 
     if (!found.length) {
       console.log(`No upcoming ${c.comp} fixtures found in the next ${DAYS_AHEAD} days — leaving as-is.`);
+      await backfillEventIds(current);
       out.push(...current);
       continue;
     }
@@ -196,6 +287,7 @@ async function main() {
         home,
         away,
         venue: venueByTeam[home] || (existing ? existing.venue : 'n/d'),
+        eventId: m.id ?? m.eventId ?? (existing && existing.eventId) ?? null,
         ready: existing ? !!existing.ready : false,
       };
     }).sort((a, b) => (a.date + a.ko).localeCompare(b.date + b.ko));

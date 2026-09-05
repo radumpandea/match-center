@@ -1,6 +1,7 @@
-/* Match Center — read-only render of docs/data/matches/<slug>.json + a local notes layer.
-   Vanilla JS, no build step. Interactivity (pitch drag, formation switch, prep
-   checklist) is deliberately out of scope for this pass. */
+/* Match Center — render of docs/data/matches/<slug>.json when it exists;
+   otherwise a skeleton built from docs/data/fixtures.json, best-effort filled
+   from a client-side call to the live football feed, with the rest fillable
+   by hand. Vanilla JS, no build step. */
 (function () {
   'use strict';
 
@@ -11,16 +12,30 @@
   var slug = (params.get('m') || '').trim();
   if (!slug) { fail('Lipsește parametrul ?m=<slug>. Deschide un meci din <a href="index.html">listă</a>.'); return; }
 
-  fetch('data/matches/' + encodeURIComponent(slug) + '.json', { cache: 'no-cache' })
-    .then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
-    })
-    .then(function (data) { render(data); })
-    .catch(function (e) {
-      fail('Nu am putut încărca datele pentru <code>' + esc(slug) + '</code> (' + esc(e.message) +
-        ').<br>Poate ecranul nu e încă generat. Înapoi la <a href="index.html">listă</a>.');
-    });
+  Promise.all([
+    fetch('data/fixtures.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; }),
+    fetch('data/matches/' + encodeURIComponent(slug) + '.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
+  ]).then(function (results) {
+    var fixtures = results[0] || [];
+    var prep = results[1];
+    var fixture = fixtures.filter(function (f) { return f.slug === slug; })[0];
+    if (!prep && !fixture) {
+      fail('Nu găsesc meciul <code>' + esc(slug) + '</code> — nici date pregătite, nici în fixtures.<br>Înapoi la <a href="index.html">listă</a>.');
+      return;
+    }
+    var data = prep || skeletonFromFixture(fixture, slug);
+    data._skeleton = !prep;
+    data._liveStatus = null;
+    if (!prep && fixture && fixture.eventId != null) {
+      enrichFromLiveApi(data, fixture.eventId)
+        .then(function (status) { data._liveStatus = status; render(data); })
+        .catch(function () { data._liveStatus = 'error'; render(data); });
+    } else {
+      if (!prep) data._liveStatus = 'no-event-id';
+      render(data);
+    }
+  });
 
   function fail(html) { root.innerHTML = '<div class="errbox">' + html + '</div>'; }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -41,6 +56,104 @@
   function has(v) { return v != null && v !== '' && v !== 'n/d'; }
   function initials(name) {
     return String(name || '?').split(/\s+/).map(function (w) { return w[0]; }).slice(0, 2).join('').toUpperCase();
+  }
+
+  /* ---------- skeleton (no prep JSON yet) ---------- */
+  function emptyTeam(name) {
+    return {
+      name: name, shortName: null, colors: null,
+      coach: { name: null }, formation: 'n/d',
+      predictedXI: Array.from({ length: 11 }, function () { return { number: null, name: null, pos: null }; }),
+      confirmedXI: null, squad: [],
+      form: null, absences: [], mercatoIn: [], mercatoOut: [], preseason: [], news: [], stories: []
+    };
+  }
+  function skeletonFromFixture(f) {
+    return {
+      slug: f.slug, generatedAt: null, sources: [],
+      competition: { name: f.comp, round: f.round, country: f.country },
+      kickoff: f.kickoff || 'n/d',
+      venue: { name: has(f.venue) ? f.venue : null, capacity: null, city: null, notes: null },
+      referee: { name: null },
+      h2h: { recent: [], summary: null },
+      storyOfTheMatch: [],
+      teams: { home: emptyTeam(f.home), away: emptyTeam(f.away) }
+    };
+  }
+
+  /* ---------- live enrichment (client-side call to the football feed) ----------
+     Best-effort: the exact response shape hasn't been verified against a real
+     API key yet (see README "Live data"). Every lookup is wrapped so a wrong
+     guess just leaves that field unfilled rather than breaking the page. */
+  var LIVE_HOST = 'free-api-live-football-data.p.rapidapi.com';
+  function liveKey() {
+    var k = window.PM_CONFIG && window.PM_CONFIG.rapidApiKey;
+    return (k && !/REPLACE/.test(k)) ? k : null;
+  }
+  function liveCall(path, eventId) {
+    var key = liveKey();
+    if (!key) return Promise.resolve(null);
+    return fetch('https://' + LIVE_HOST + '/' + path + '?eventid=' + encodeURIComponent(eventId), {
+      headers: { 'x-rapidapi-host': LIVE_HOST, 'x-rapidapi-key': key }
+    }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+  }
+  // Dig through a few plausible response shapes for a flat list of players.
+  function digPlayerList(j) {
+    var cands = [j, j && j.response, j && j.response && j.response.lineup,
+      j && j.response && j.response.starters, j && j.lineup, j && j.players];
+    for (var i = 0; i < cands.length; i++) {
+      var c = cands[i];
+      if (Array.isArray(c) && c.length && (c[0].name || c[0].playerName)) return c;
+      if (c && Array.isArray(c.starters)) return c.starters;
+      if (c && Array.isArray(c.players)) return c.players;
+    }
+    return null;
+  }
+  function mapLivePlayer(p) {
+    var name = p.name || p.playerName || (p.player && p.player.name) || null;
+    if (!name) return null;
+    var posRaw = (p.position || p.pos || '').toString().toUpperCase();
+    var role = /^(GK|G)$/.test(posRaw) ? 'GK' : /^(DF|DEF|D)/.test(posRaw) ? 'DEF' : /^(MF|MID|M)/.test(posRaw) ? 'MID' : /^(FW|ATT|F|ST)/.test(posRaw) ? 'ATT' : 'MID';
+    return { number: p.shirtNumber != null ? p.shirtNumber : (p.number != null ? p.number : null), name: name, pos: posRaw || null, role: role, status: 'available' };
+  }
+  function applyLiveLineup(team, json) {
+    var list = digPlayerList(json);
+    if (!list || !list.length) return false;
+    var players = list.map(mapLivePlayer).filter(Boolean);
+    if (!players.length) return false;
+    team.squad = players;
+    team.predictedXI = players.slice(0, 11).map(function (p) { return { number: p.number, name: p.name, pos: p.pos }; });
+    while (team.predictedXI.length < 11) team.predictedXI.push({ number: null, name: null, pos: null });
+    return true;
+  }
+  function applyLiveReferee(d, json) {
+    var r = json && (json.response || json);
+    var name = r && (r.name || r.refereeName || (r.referee && r.referee.name));
+    if (!name) return false;
+    d.referee = { name: name, country: (r.country || r.nationality || null), age: r.age || null, apps: null, ycPerMatch: null, rcPerMatch: null, history: null };
+    return true;
+  }
+  function applyLiveLocation(d, json) {
+    var r = json && (json.response || json);
+    var name = r && (r.name || r.venueName || (r.venue && r.venue.name) || (r.stadium && r.stadium.name));
+    if (!name) return false;
+    d.venue = { name: name, capacity: r.capacity || null, city: r.city || null, notes: null };
+    return true;
+  }
+  function enrichFromLiveApi(d, eventId) {
+    if (!liveKey()) return Promise.resolve('no-key');
+    return Promise.all([
+      liveCall('football-get-hometeam-lineup', eventId),
+      liveCall('football-get-awayteam-lineup', eventId),
+      liveCall('football-get-match-referee', eventId),
+      liveCall('football-get-match-location', eventId)
+    ]).then(function (r) {
+      var gotHome = applyLiveLineup(d.teams.home, r[0]);
+      var gotAway = applyLiveLineup(d.teams.away, r[1]);
+      var gotRef = applyLiveReferee(d, r[2]);
+      var gotVenue = has(d.venue.name) || applyLiveLocation(d, r[3]);
+      return (gotHome || gotAway || gotRef || gotVenue) ? 'ok' : 'empty';
+    });
   }
 
   /* ---------- notes (localStorage) ---------- */
@@ -101,7 +214,7 @@
       if (p[0] === 'match') return 'General meci';
       if (p[0] === 'team') return data.teams[p[1]] ? data.teams[p[1]].name : p[1];
       if (p[0] === 'player') {
-        var t = data.teams[p[1]]; var pl = t && (t.squad || []).filter(function (x) { return String(x.number) === p[2] || x.name === p[2]; })[0];
+        var t = data.teams[p[1]]; var pl = t && effSquad(data, p[1]).filter(function (x) { return String(x.number) === p[2] || x.name === p[2]; })[0];
         return (pl ? pl.name : p[2]) + ' (' + (t ? t.name : p[1]) + ')';
       }
       if (p[0] === 'coach') return 'Antrenor ' + (data.teams[p[1]] ? data.teams[p[1]].name : p[1]);
@@ -171,6 +284,27 @@
     return a.name === b.name;
   }
   function keyOf(p) { return p && p.number != null ? 'n' + p.number : 's' + (p && p.name); }
+  // squad plus any players added by hand (see openAddPlayer)
+  function effSquad(d, side) {
+    return (d.teams[side].squad || []).concat((store.manualSquad && store.manualSquad[side]) || []);
+  }
+  function addManualPlayer(side, player) {
+    store.manualSquad = store.manualSquad || {};
+    store.manualSquad[side] = store.manualSquad[side] || [];
+    store.manualSquad[side].push(player);
+    save();
+  }
+  // Manually-entered referee/coach/venue (store.manual) win over whatever the
+  // skeleton/prep/live data has — applied fresh on every render() call.
+  function applyManualOverlay(d) {
+    var man = store.manual;
+    if (!man) return;
+    if (man.referee) d.referee = man.referee;
+    if (man.venue) d.venue = man.venue;
+    ['home', 'away'].forEach(function (side) {
+      if (man.coach && man.coach[side]) d.teams[side].coach = man.coach[side];
+    });
+  }
   // predicted XI for a side with the user's manual swaps applied
   function effXI(d, side) {
     var pred = (d.teams[side].predictedXI || []).slice();
@@ -239,6 +373,7 @@
   }
 
   function render(data) {
+    applyManualOverlay(data);
     document.title = data.teams.home.name + ' – ' + data.teams.away.name + ' · Match Center';
     root.innerHTML = '';
     pitchEl = null;
@@ -273,6 +408,10 @@
     });
 
     // header
+    var metaWrap = el('div', { class: 'mc-meta' }, [document.createTextNode(metaLine(data))]);
+    if (!has(data.venue && data.venue.name)) {
+      metaWrap.appendChild(el('button', { class: 'meta-add', text: '+ adaugă stadion', onclick: function () { openEditVenue(data); } }));
+    }
     var head = el('div', { class: 'mc-head' }, [
       el('a', { class: 'mc-back', href: 'index.html', text: '← toate meciurile' }),
       el('div', { class: 'mc-teams' }, [
@@ -280,7 +419,8 @@
         el('span', { class: 'vs', text: 'vs' }),
         el('span', { text: data.teams.away.name })
       ]),
-      el('div', { class: 'mc-meta', text: metaLine(data) }),
+      metaWrap,
+      data._skeleton ? skeletonBanner(data) : null,
       el('div', { class: 'mc-toolbar' }, [
         swapBtn,
         orientBtn,
@@ -299,6 +439,20 @@
     pitchEl = pitch(data);
     root.appendChild(pitchEl);
     root.appendChild(panels(data));
+  }
+
+  function skeletonBanner(d) {
+    var msg = {
+      ok: 'Date live găsite (lot/arbitru/stadion) — verifică-le, s-ar putea să lipsească detalii.',
+      empty: 'Datele live nu au întors nimic pentru acest meci încă.',
+      error: 'Nu am putut contacta feedul live.',
+      'no-key': 'Fără cheie API configurată — vezi docs/app/config.js.',
+      'no-event-id': 'Acest fixture nu are încă un id de eveniment pentru datele live.',
+      loading: 'Se încarcă datele live…'
+    }[d._liveStatus] || 'Fără date live.';
+    return el('div', { class: 'skeleton-banner' }, [
+      el('span', { text: '⚠ Fără pachet de pregătire pentru acest meci încă. ' + msg + ' Completează manual ce lipsește: click pe un slot gol de pe teren, sau pe „+ adaugă…” de lângă antrenor / arbitru / stadion.' })
+    ]);
   }
 
   function metaLine(d) {
@@ -327,23 +481,26 @@
       var isNear = side === nearKey;
       var xi = effXI(d, side);
       var pts = layout(t.formation);
+      var squad = effSquad(d, side);
       xi.forEach(function (slot, i) {
-        var full = playerByNameOrNum(t, slot);
+        var isEmpty = !has(slot.name);
+        var full = isEmpty ? null : playerByNameOrNum(squad, slot);
         var pkey = slot.number != null ? String(slot.number) : slot.name;
-        var override = store.lineup && store.lineup[side] && store.lineup[side][pkey];
+        var override = pkey && store.lineup && store.lineup[side] && store.lineup[side][pkey];
         var pos = place(override || pts[i] || { d: 0.03, w: 0.05 + i * 0.08 }, isNear);
         var stat = full && full.status;
         var node = el('div', {
-          class: 'node ' + side + (stat && stat !== 'available' ? ' status-' + stat : '') + (override ? ' moved' : ''),
+          class: 'node ' + side + (isEmpty ? ' empty' : (stat && stat !== 'available' ? ' status-' + stat : '')) + (override ? ' moved' : ''),
           style: 'left:' + pos.left.toFixed(2) + '%;top:' + pos.top.toFixed(2) + '%',
-          title: 'Trage pentru a repoziționa · click pentru fișă și schimbări',
+          title: isEmpty ? 'Click pentru a adăuga un jucător aici' : 'Trage pentru a repoziționa · click pentru fișă și schimbări',
           onclick: function () {
             if (node._dragged) { node._dragged = false; return; }
-            if (full) openPlayer(d, side, full);
+            if (isEmpty) openAddPlayer(d, side, i);
+            else if (full) openPlayer(d, side, full);
           }
         }, [
-          el('div', { class: 'disc', text: slot.number != null ? String(slot.number) : (slot.pos || '') }),
-          el('div', { class: 'lbl', text: view.fullNames ? (slot.name || '') : shortName(slot.name) })
+          el('div', { class: 'disc', text: isEmpty ? '+' : (slot.number != null ? String(slot.number) : (slot.pos || '')) }),
+          el('div', { class: 'lbl', text: isEmpty ? 'Adaugă' : (view.fullNames ? (slot.name || '') : shortName(slot.name)) })
         ]);
         makeDraggable(node, shell, function (p) {
           store.lineup = store.lineup || {};
@@ -355,15 +512,19 @@
         shell.appendChild(node);
       });
       // coach mini-card — near team's coach sits at the near end, far team's at the far end
+      var coachCorner = vert ? (isNear ? 'bl' : 'tr') : (isNear ? 'tl' : 'tr');
       if (t.coach && has(t.coach.name)) {
-        var corner = vert
-          ? (isNear ? 'bl' : 'tr')
-          : (isNear ? 'tl' : 'tr');
-        shell.appendChild(el('div', { class: 'card-slot ' + corner }, [
+        shell.appendChild(el('div', { class: 'card-slot ' + coachCorner }, [
           el('div', { class: 'mini-card', onclick: function () { openCoach(d, side); } }, [
             el('div', { class: 'mc-role', text: 'Antrenor' }),
             el('div', { class: 'mc-name', text: t.coach.name }),
             el('div', { class: 'mc-line', text: [has(t.coach.country) ? t.coach.country : null, has(t.coach.age) ? t.coach.age + ' ani' : null, has(t.formation) ? t.formation : null].filter(Boolean).join(' · ') })
+          ])
+        ]));
+      } else {
+        shell.appendChild(el('div', { class: 'card-slot ' + coachCorner }, [
+          el('div', { class: 'mini-card add-card', onclick: function () { openEditCoach(d, side); } }, [
+            el('div', { class: 'mc-name', text: '+ Adaugă antrenor' })
           ])
         ]));
       }
@@ -376,6 +537,12 @@
           el('div', { class: 'mc-role', text: 'Arbitru' }),
           el('div', { class: 'mc-name', text: d.referee.name }),
           el('div', { class: 'mc-line', text: [has(d.referee.country) ? d.referee.country : null, has(d.referee.ycPerMatch) ? d.referee.ycPerMatch + ' galbene/meci' : null].filter(Boolean).join(' · ') })
+        ])
+      ]));
+    } else {
+      shell.appendChild(el('div', { class: 'card-slot ref ' + (vert ? 'cr' : 'bc') }, [
+        el('div', { class: 'mini-card add-card', onclick: function () { openEditReferee(d); } }, [
+          el('div', { class: 'mc-name', text: '+ Adaugă arbitru' })
         ])
       ]));
     }
@@ -417,9 +584,8 @@
     var last = parts[parts.length - 1];
     return parts.length > 1 ? parts[0].charAt(0) + '. ' + last : last;
   }
-  function playerByNameOrNum(team, slot) {
-    var sq = team.squad || [];
-    return sq.filter(function (p) {
+  function playerByNameOrNum(squad, slot) {
+    return (squad || []).filter(function (p) {
       return (slot.number != null && p.number === slot.number) || p.name === slot.name;
     })[0] || { name: slot.name, number: slot.number, pos: slot.pos, role: 'MID' };
   }
@@ -554,9 +720,10 @@
     // Squads
     ['home', 'away'].forEach(function (side) {
       var t = d.teams[side];
-      if (!t.squad || !t.squad.length) return;
+      var sq = effSquad(d, side);
+      if (!sq.length) return;
       var groups = { GK: [], DEF: [], MID: [], ATT: [] };
-      t.squad.forEach(function (p) { (groups[p.role] || groups.MID).push(p); });
+      sq.forEach(function (p) { (groups[p.role] || groups.MID).push(p); });
       var wrap = el('div');
       ['GK', 'DEF', 'MID', 'ATT'].forEach(function (g) {
         if (!groups[g].length) return;
@@ -670,7 +837,7 @@
     var wrap = el('div', { class: 'sub-tab' });
     var eff = effXI(d, side);
     var pred = d.teams[side].predictedXI || [];
-    var squad = d.teams[side].squad || [];
+    var squad = effSquad(d, side);
     var slotIdx = -1;
     eff.forEach(function (s, i) { if (slotIdx < 0 && sameP(s, p)) slotIdx = i; });
 
@@ -704,7 +871,8 @@
     } else {
       wrap.appendChild(el('p', { class: 'sub-head', text: p.name + ' e pe bancă. Pe cine înlocuiește?' }));
       eff.forEach(function (s, i) {
-        var full = playerByNameOrNum(d.teams[side], s);
+        if (!has(s.name)) return; // empty slot — fill it directly via the pitch, not from here
+        var full = playerByNameOrNum(squad, s);
         wrap.appendChild(line(full, function () { applySub(d, side, i, p); close(); }));
       });
     }
@@ -718,6 +886,102 @@
     var labels = { GK: 'Portari', DEF: 'Fundași', MID: 'Mijlocași', ATT: 'Atacanți' };
     return ['GK', 'DEF', 'MID', 'ATT'].filter(function (k) { return g[k].length; })
       .map(function (k) { return { label: labels[k], items: g[k] }; });
+  }
+
+  // Fill an empty pitch slot by hand: creates the player (added to the manual
+  // squad, so they also show up in the squad panel and as a future substitute)
+  // and places them straight into that slot.
+  function openAddPlayer(d, side, idx) {
+    var back = el('div', { class: 'modal-back', onclick: function (e) { if (e.target === back) close(); } });
+    function close() { back.remove(); document.removeEventListener('keydown', onKey); }
+    function onKey(e) { if (e.key === 'Escape') close(); }
+    document.addEventListener('keydown', onKey);
+
+    var numIn = el('input', { class: 'field', type: 'number', min: '1', max: '99', placeholder: 'Număr (opțional)' });
+    var nameIn = el('input', { class: 'field', placeholder: 'Nume jucător' });
+    var roleSel = el('select', { class: 'field' }, ['GK', 'DEF', 'MID', 'ATT'].map(function (r) {
+      return el('option', { value: r, text: ({ GK: 'Portar', DEF: 'Fundaș', MID: 'Mijlocaș', ATT: 'Atacant' })[r] });
+    }));
+    var posIn = el('input', { class: 'field', placeholder: 'Poziție (ex. CB, CAM) — opțional' });
+    function submit() {
+      var name = nameIn.value.trim();
+      if (!name) { nameIn.focus(); return; }
+      var player = {
+        number: numIn.value ? parseInt(numIn.value, 10) : null,
+        name: name, role: roleSel.value, pos: posIn.value.trim() || null, status: 'available'
+      };
+      addManualPlayer(side, player);
+      applySub(d, side, idx, player);
+      close();
+    }
+    nameIn.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
+    var m = el('div', { class: 'modal', style: 'max-width:340px' }, [
+      el('div', { class: 'modal-head' }, [
+        el('h3', { text: 'Adaugă jucător' }),
+        el('button', { class: 'modal-close', text: '✕', onclick: close })
+      ]),
+      el('div', { class: 'modal-body' }, [
+        numIn, nameIn, roleSel, posIn,
+        el('div', { class: 'notes-row' }, [el('button', { class: 'pick', text: 'Adaugă pe teren', onclick: submit })])
+      ])
+    ]);
+    back.appendChild(m);
+    document.body.appendChild(back);
+    nameIn.focus();
+  }
+
+  // Small "fill in by hand" forms for the fields the live feed doesn't cover
+  // (coach, referee, venue). Each saves to store.manual and re-renders.
+  function quickForm(title, fields, onSave) {
+    var back = el('div', { class: 'modal-back', onclick: function (e) { if (e.target === back) close(); } });
+    function close() { back.remove(); document.removeEventListener('keydown', onKey); }
+    function onKey(e) { if (e.key === 'Escape') close(); }
+    document.addEventListener('keydown', onKey);
+    var inputs = fields.map(function (f) {
+      return el('input', { class: 'field', type: f.type || 'text', placeholder: f.label });
+    });
+    function submit() {
+      var vals = inputs.map(function (inp) { return inp.value.trim(); });
+      if (!vals[0]) { inputs[0].focus(); return; }
+      onSave(vals);
+      close();
+    }
+    inputs[0].addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
+    back.appendChild(el('div', { class: 'modal', style: 'max-width:320px' }, [
+      el('div', { class: 'modal-head' }, [el('h3', { text: title }), el('button', { class: 'modal-close', text: '✕', onclick: close })]),
+      el('div', { class: 'modal-body' }, inputs.concat([
+        el('div', { class: 'notes-row' }, [el('button', { class: 'pick', text: 'Salvează', onclick: submit })])
+      ]))
+    ]));
+    document.body.appendChild(back);
+    inputs[0].focus();
+  }
+  function openEditCoach(d, side) {
+    quickForm('Adaugă antrenor — ' + d.teams[side].name,
+      [{ label: 'Nume antrenor' }, { label: 'Țară (opțional)' }, { label: 'Vârstă (opțional)', type: 'number' }],
+      function (v) {
+        store.manual = store.manual || {}; store.manual.coach = store.manual.coach || {};
+        store.manual.coach[side] = { name: v[0], country: v[1] || null, age: v[2] ? parseInt(v[2], 10) : null, tenureFrom: null, career: [] };
+        save(); render(d);
+      });
+  }
+  function openEditReferee(d) {
+    quickForm('Adaugă arbitru',
+      [{ label: 'Nume arbitru' }, { label: 'Țară (opțional)' }],
+      function (v) {
+        store.manual = store.manual || {};
+        store.manual.referee = { name: v[0], country: v[1] || null, age: null, apps: null, ycPerMatch: null, rcPerMatch: null, history: null };
+        save(); render(d);
+      });
+  }
+  function openEditVenue(d) {
+    quickForm('Adaugă stadion',
+      [{ label: 'Nume stadion' }, { label: 'Oraș (opțional)' }, { label: 'Capacitate (opțional)', type: 'number' }],
+      function (v) {
+        store.manual = store.manual || {};
+        store.manual.venue = { name: v[0], city: v[1] || null, capacity: v[2] ? parseInt(v[2], 10) : null, notes: null };
+        save(); render(d);
+      });
   }
 
   function openCoach(d, side) {

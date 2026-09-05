@@ -39,6 +39,16 @@ button{font-family:inherit}
   background:transparent;color:var(--color-neutral-400);border:1px solid var(--color-divider)
 }
 .mc-toolbar button:hover{color:var(--color-accent-200);border-color:var(--color-accent)}
+.meta-add{
+  margin-left:8px;font-size:11px;background:none;border:none;color:var(--color-accent-300);
+  cursor:pointer;text-decoration:underline;text-underline-offset:2px
+}
+.meta-add:hover{color:var(--color-accent-200)}
+.skeleton-banner{
+  margin-top:var(--space-2);padding:var(--space-3) var(--space-4);border-radius:var(--radius-sm);
+  background:color-mix(in srgb,#e8b04b 14%,transparent);border:1px solid color-mix(in srgb,#e8b04b 40%,transparent);
+  color:#f1cd8a;font-size:12px;line-height:1.5;text-wrap:pretty
+}
 
 /* ---- pitch ---- */
 .pitch-shell{
@@ -103,6 +113,9 @@ button{font-family:inherit}
 }
 .node.status-out .disc{opacity:.4}
 .node.status-doubt .disc{border-style:dashed}
+.node.empty .disc{background:transparent;border:2px dashed rgba(255,255,255,.55);color:rgba(255,255,255,.75)}
+.node.empty .lbl{color:rgba(255,255,255,.55);font-style:italic}
+.node.empty:hover .disc{border-color:#fff;color:#fff}
 
 /* ---- substitutions strip (below the pitch) ---- */
 .subs-strip{display:flex;flex-direction:column;gap:var(--space-2);margin-top:var(--space-3)}
@@ -142,6 +155,18 @@ button.pick.warn{color:var(--color-neutral-400)}
 .mini-card .mc-role{font-size:8.5px;letter-spacing:.12em;color:var(--color-neutral-500);text-transform:uppercase}
 .mini-card .mc-name{font-size:11px;font-weight:600}
 .mini-card .mc-line{font-size:9.5px;color:var(--color-neutral-400)}
+.mini-card.add-card{background:rgba(20,22,34,.5);border-style:dashed;border-color:rgba(255,255,255,.4)}
+.mini-card.add-card .mc-name{color:rgba(255,255,255,.8);font-weight:500}
+.mini-card.add-card:hover{border-color:#fff}
+
+/* ---- generic form fields (add-player / edit modals) ---- */
+.field{
+  display:block;width:100%;margin-top:8px;padding:7px 10px;font:inherit;font-size:12.5px;
+  color:var(--color-text);background:var(--color-surface-2);border:1px solid var(--color-divider);
+  border-radius:var(--radius-sm)
+}
+.field:first-child{margin-top:0}
+.field:focus-visible{outline:none;border-color:var(--color-accent)}
 
 /* ---- panels ---- */
 .panels{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--space-4);margin-top:var(--space-6)}
