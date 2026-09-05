@@ -346,9 +346,16 @@ async function sfiStandings(champId, cache) {
   const hit = cache.standings[champId];
   if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < SFI_STANDINGS_TTL) return hit;
   const res = await sfi('championships/view/', { i: champId });
-  const season = res && res[0] && res[0].seasons && res[0].seasons[0];
-  const table = season && season.groups && season.groups[0] && season.groups[0].table;
-  if (!table || !table.length) return hit || null;
+  const seasons = (res && res[0] && Array.isArray(res[0].seasons)) ? res[0].seasons.slice() : [];
+  // newest first (they come oldest-first; sort by `to` to be safe), then take the
+  // most recent season that actually has a populated table
+  seasons.sort((x, y) => String(y.to || y.from || '').localeCompare(String(x.to || x.from || '')));
+  let season = null, table = null;
+  for (const s of seasons) {
+    const tb = s && s.groups && s.groups[0] && s.groups[0].table;
+    if (tb && tb.length && tb.some((r) => num(r.points) != null)) { season = s; table = tb; break; }
+  }
+  if (!table) return hit || null;
   const byName = {};
   for (const row of table) {
     const t = row.team || {};
@@ -369,10 +376,14 @@ async function sfiStandings(champId, cache) {
 function sfiFindTeam(standings, teamName) {
   if (!standings || !standings.byName) return null;
   const want = norm(teamName);
+  if (!want) return null;
   if (standings.byName[want]) return standings.byName[want];
-  const keys = Object.keys(standings.byName);
-  const k = keys.find((n) => n && (n.indexOf(want) >= 0 || want.indexOf(n) >= 0));
-  return k ? standings.byName[k] : null;
+  // substring both ways, but pick the closest by length so "milan" prefers
+  // "acmilan" over "intermilan"
+  const cands = Object.keys(standings.byName)
+    .filter((n) => n && (n.indexOf(want) >= 0 || want.indexOf(n) >= 0))
+    .sort((a, b) => Math.abs(a.length - want.length) - Math.abs(b.length - want.length));
+  return cands.length ? standings.byName[cands[0]] : null;
 }
 
 async function sfiH2H(a, b, nameA, nameB, cache) {
@@ -384,15 +395,23 @@ async function sfiH2H(a, b, nameA, nameB, cache) {
   const v = res && res[0];
   if (!v || !Array.isArray(v.matches)) return hit || null;
   const xId = v.teamX && v.teamX.id;
-  const recent = v.matches.slice(0, 5).map((m) => {
-    const ta = m.teamA || {}, tb = m.teamB || {};
-    const sa = m.teamA && m.teamA.score, sb = m.teamB && m.teamB.score;
-    return {
-      date: (m.date || '').slice(0, 10),
-      comp: (m.championship && m.championship.name) || null,
-      score: `${ta.name} ${sa == null ? '?' : sa}-${sb == null ? '?' : sb} ${tb.name}`,
-    };
-  });
+  const skipComp = /friendl|amical|\btest\b|club friendlies|trophy|soccer aid/i;
+  const recent = v.matches
+    .filter((m) => {
+      const cn = (m.championship && m.championship.name) || '';
+      if (skipComp.test(cn)) return false;
+      const sa = m.teamA && m.teamA.score, sb = m.teamB && m.teamB.score;
+      return sa != null && sb != null;   // drop fixtures with no recorded score
+    })
+    .slice(0, 5)
+    .map((m) => {
+      const ta = m.teamA || {}, tb = m.teamB || {};
+      return {
+        date: (m.date || '').slice(0, 10),
+        comp: (m.championship && m.championship.name) || null,
+        score: `${ta.name} ${m.teamA.score}-${m.teamB.score} ${tb.name}`,
+      };
+    });
   const r = v.results || {};
   const xWins = xId === a ? r.teamX : r.teamY;
   const yWins = xId === a ? r.teamY : r.teamX;
