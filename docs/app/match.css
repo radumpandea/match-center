@@ -25,7 +25,7 @@ body{
 }
 a{color:var(--color-accent-300);text-decoration:none}
 button{font-family:inherit}
-.wrap{max-width:1180px;margin:0 auto;padding:var(--space-6)}
+.wrap{width:100%;max-width:2000px;margin:0 auto;padding:var(--space-6) clamp(12px,3.5vw,44px)}
 
 /* ---- header ---- */
 .mc-head{display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-6)}
@@ -52,7 +52,7 @@ button{font-family:inherit}
 
 /* ---- pitch ---- */
 .pitch-shell{
-  position:relative;width:100%;height:clamp(340px,42vw,470px);
+  position:relative;width:100%;height:clamp(340px,38vw,600px);
   border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-divider);
   background:
     repeating-linear-gradient(90deg,var(--pitch-green) 0 8%,var(--pitch-green-2) 8% 16%);
@@ -71,7 +71,7 @@ button{font-family:inherit}
 
 /* ---- vertical orientation ---- */
 .pitch-shell.vertical{
-  height:clamp(520px,118vw,760px);max-width:460px;margin-inline:auto;
+  height:clamp(520px,70vw,880px);max-width:clamp(420px,38vw,600px);margin-inline:auto;
   background:repeating-linear-gradient(0deg,var(--pitch-green) 0 8%,var(--pitch-green-2) 8% 16%);
 }
 .pitch-shell.vertical .pitch-lines::before{/* halfway line, now horizontal */
@@ -169,7 +169,7 @@ button.pick.warn{color:var(--color-neutral-400)}
 .field:focus-visible{outline:none;border-color:var(--color-accent)}
 
 /* ---- panels ---- */
-.panels{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--space-4);margin-top:var(--space-6)}
+.panels{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:var(--space-4);margin-top:var(--space-6)}
 .panel{border:1px solid var(--color-divider);border-radius:var(--radius-md);background:var(--color-surface);overflow:hidden}
 .panel.lead{grid-column:1/-1}
 .panel > summary{
@@ -198,7 +198,7 @@ table.mc th{color:var(--color-neutral-500);font-weight:500;letter-spacing:.06em}
 .pitch-row{display:flex;gap:var(--space-4);align-items:flex-start}
 .pitch-row > .pitch-wrap{flex:1 1 auto;min-width:0}
 .team-aside{
-  flex:0 0 210px;align-self:stretch;overflow-y:auto;max-height:none;
+  flex:0 0 clamp(200px,17vw,300px);align-self:stretch;overflow-y:auto;max-height:none;
   border:1px solid var(--color-divider);border-radius:var(--radius-md);background:var(--color-surface);
   padding:var(--space-3) var(--space-4);font-size:12px;color:var(--color-neutral-400)
 }
