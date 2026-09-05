@@ -1,11 +1,16 @@
 {
   "slug": "seriea-e3-parma-monza",
-  "generatedAt": "2026-09-05T23:38:48.332Z",
+  "generatedAt": "2026-09-05T23:50:07.307Z",
   "partial": true,
   "sources": [
     {
       "name": "free-api-live-football-data (RapidAPI)",
       "url": "https://rapidapi.com/Creativesdev/api/free-api-live-football-data",
+      "accessed": "2026-09-06"
+    },
+    {
+      "name": "soccer-football-info (RapidAPI)",
+      "url": "https://rapidapi.com/soccerfootball/api/soccer-football-info",
       "accessed": "2026-09-06"
     }
   ],
@@ -972,7 +977,13 @@
           }
         }
       ],
-      "form": null,
+      "form": {
+        "last5": [],
+        "ppg": null,
+        "homeAway": null,
+        "position": 20,
+        "note": "Clasament Serie A 20/21: locul 20, 20p (39-83)"
+      },
       "absences": [
         {
           "name": "Hans Nicolussi Caviglia",
@@ -987,27 +998,27 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Parma 0-1 Cagliari (Aug 22, 2026) Player Stats",
-          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9sSVRkUms0YVVYc09TUXpiRFhWRXRWSkhudi0tY0ppU1dIQnVscWczd1dEa1BpRllDVkJRV2ltampvaUt2cGlCWWpsRzNOQm9CQ0lVQ3dpVmUxcGFJVk1yZU1WVWs1U0xycUVN?oc=5",
+          "title": "Juventus 2-0 Parma (Aug 29, 2026) Final Score",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5BS3hudmoxcXA4Unh0SGhpaGpVMC03Tk40ZV9ncTM5RFNqVVhCdjJjY180US1SQURpbHB5N1Zqenc2ZG14MEE2ZGxxYkVfc3RwbTNESTh4VWtKM08wVy1fdENLMk5NMkpsdmRnOXBOYnZMaVMxMGc?oc=5",
           "source": "ESPN",
           "published": "2026-09-05"
         },
         {
           "title": "Joanne M. Jancik",
           "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQRi1vb19Bb3MybklUdUVLcU1kaWYxTUVYRzQ0RWtVUGpLOWZ2NXB4QXdlZkxHZEVwbG9IVjhWS1p5Q0FoZHFtbldmOWdadm16d1ZVZ2FZckloTFpRUnBQX0xKVGo4R0JiaFNYd1IwbW44cElsREpuSlF0WWtyWmJCZ2YyQzR3cXVZOHhFWFJNRDVVWXFUWmc?oc=5",
-          "source": "Cleveland.com",
+          "source": "obits.cleveland.com",
           "published": "2026-09-05"
         },
         {
           "title": "Parma Girls Freshman Volleyball @ Weiser",
           "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNNmdteUdmSTQ3bWM2YzRRVTAySW5JZWF1eXdoWUxCdFJRNXFXN2s2V2FPRUR4ejVPZ1dIbkZhaEJabVp2bGJqVkZTdXNrZFo3ejZyZVdfVjBhR3dXUjRJWWN3LURTOXZOa2xvZmNtelNlczlJdmZmN0NGaHdhTkxGVGJVTS1QX0ZtanBackFkYnlKRGlrUUFKMzBWWmZYSXgxZzFwdEtuVDFqemhUdlVFSnYwaFZBcUxmYS1n?oc=5",
-          "source": "maxpreps.com",
+          "source": "MaxPreps",
           "published": "2026-09-05"
         },
         {
           "title": "Nancy Ann Sasala Obituary (2026) - Parma, OH - Ripepi Funeral Home - Parma",
           "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQYy1ja0VOSVNqWFNXOVM0dG9icTJDNGpnbVdJbGVfSTJmbk1FbGxqbWRUUWFKSWM2TVRnVHcwejRWRzE4OWNndmpFSFluVGNfaTVpUVJTMkZ6U3RUeWpmRmhRZVNCXzJRcXJGTjB5MUZNYlpYT21ia1F1VW5XSU9PRg?oc=5",
-          "source": "legacy.com",
+          "source": "Legacy obituary",
           "published": "2026-09-05"
         },
         {
@@ -1023,15 +1034,15 @@
           "published": "2026-09-05"
         },
         {
-          "title": "Juventus 2-0 Parma (Aug 29, 2026) Final Score",
-          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5BS3hudmoxcXA4Unh0SGhpaGpVMC03Tk40ZV9ncTM5RFNqVVhCdjJjY180US1SQURpbHB5N1Zqenc2ZG14MEE2ZGxxYkVfc3RwbTNESTh4VWtKM08wVy1fdENLMk5NMkpsdmRnOXBOYnZMaVMxMGc?oc=5",
-          "source": "ESPN",
+          "title": "Parma vs Monza: Italian Serie A stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5vVHBndkpLWXRUWTIwdUI0aWJhbmVxVHhHQ1BxTzF1Ri1ETzFoZlBiQ2JpTDNleXFnMTQ0eFR2VXM3cDdyOHFMQzhxXzVJRkQzSVZiYVM1TUxicDJUeGNxVi1rNA?oc=5",
+          "source": "bbc.com",
           "published": "2026-09-05"
         },
         {
-          "title": "Parma vs Monza: Italian Serie A stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5vVHBndkpLWXRUWTIwdUI0aWJhbmVxVHhHQ1BxTzF1Ri1ETzFoZlBiQ2JpTDNleXFnMTQ0eFR2VXM3cDdyOHFMQzhxXzVJRkQzSVZiYVM1TUxicDJUeGNxVi1rNA?oc=5",
-          "source": "BBC",
+          "title": "Catania vs. Parma: live game updates, stats, play-by-play",
+          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBqdnowWUdyb093Y0NBc1lpOW1QWFREdVJENllyQnZ3TTFrWDlHbS1OVlJWVjh2LUJ0a2M3Ri1zcnhDZnhfcDRyX1BNMnBPbGVlM3F6OW44SFplS3VMQkVqaE9EYXFwdU0wTWxIRDlucGsyazEtSWNqLUxNdw?oc=5",
+          "source": "Yahoo Sports Canada",
           "published": "2026-09-05"
         }
       ],
@@ -2113,7 +2124,7 @@
         {
           "title": "Pierre Gasly Stuns F1 with Maiden Pole at Monza",
           "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQLTItMXRZWGFqaTBjbXozSzRMWTYtOFc0TTlJWV93UjlldnhvcnpNZzhwZk9vWmpjOTN1SWJYMnhXeWtnR1lpeHhiRlpfS3JXcGdBYk14MG1YTURhMG1pR28tS3Q0dVNCQVpsNzJ4el90bHdOb1pvdUFNc3ZEbDNFc283Q3JIZnJNRTQxMExNREdJbFE3ekJpTw?oc=5",
-          "source": "autoweek.com",
+          "source": "Autoweek",
           "published": "2026-09-05"
         },
         {
@@ -2131,7 +2142,7 @@
         {
           "title": "Italian GP: Can Pierre Gasly win Monza race for Alpine just days after losing Monaco podium?",
           "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQNmhzWnVIWmpfcDRRaU9qT01YWF9QeXZDMmVBOFlSWV9zVTZpV2RlRTExbU1vSzFYbk9yVGh3VHlEV0RSN25LTm1oa09iQTJyalFNdDVHbEJxMERyUlpPdFpBZlZTN2pJdVh2ZlhXWGVHMXhtZXhoNUV6b3NxWUs0QUJ5a2Y5bXMxME51UGNHdU1fUHdKX0RxWGNPMkVTSmhKR2YxbUZHRHN6YnYxaVBpa1V4YzNsR21QRFctNzBqMEhfcDE3VnFfUXE2T3FXTUVGMkxtSEdB?oc=5",
-          "source": "skysports.com",
+          "source": "Sky Sports",
           "published": "2026-09-05"
         },
         {
