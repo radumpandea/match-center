@@ -1,0 +1,53 @@
+name: Prefetch Preview Data
+
+on:
+  schedule:
+    - cron: "30 5 * * *"   # 05:30 UTC daily — 20 min after Refresh Fixtures
+  workflow_dispatch: {}    # run on demand from the Actions tab
+
+jobs:
+  prefetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install validator dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Pre-fill docs/data/matches/*.json + docs/data/teams/*.json from the football feed
+        env:
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+        run: node scripts/prefetch-preview.mjs
+
+      - name: Validate every partial pack against the schema
+        run: |
+          shopt -s nullglob
+          files=(docs/data/matches/*.json)
+          if [ ${#files[@]} -gt 0 ]; then
+            node scripts/validate-match.mjs "${files[@]}"
+          else
+            echo "No match files to validate."
+          fi
+
+      - name: Commit if changed
+        run: |
+          git config user.name "preview-prefetch-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/data/teams docs/data/matches docs/data/previews.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Prefetch preview data ($(date -u +%Y-%m-%d))"
+            git pull --rebase --autostash origin main || true
+            git push
+          fi

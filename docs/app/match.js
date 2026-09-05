@@ -24,11 +24,17 @@
       fail('Nu găsesc meciul <code>' + esc(slug) + '</code> — nici date pregătite, nici în fixtures.<br>Înapoi la <a href="index.html">listă</a>.');
       return;
     }
+    // A file with "partial": true is the deterministic prefetch (squads / coach /
+    // injuries / referee / venue only) — treat it like a rich skeleton: use its
+    // data, but still run the client-side live enrichment for the editorial-free
+    // gaps (lineups near kickoff, a fresher referee/venue).
+    var partial = !!(prep && prep.partial);
     var data = prep || skeletonFromFixture(fixture, slug);
     data._skeleton = !prep;
+    data._partial = partial;
     data._liveStatus = null;
     data._squadStatus = null;
-    if (!prep && fixture) {
+    if ((!prep || partial) && fixture) {
       var jobs = [];
       if (fixture.eventId != null) {
         jobs.push(enrichFromLiveApi(data, fixture.eventId)
@@ -37,9 +43,14 @@
       } else {
         data._liveStatus = 'no-event-id';
       }
-      jobs.push(enrichSquadsFromLiveApi(data, fixture)
-        .then(function (s) { data._squadStatus = s; })
-        .catch(function () { data._squadStatus = 'error'; }));
+      var haveSquads = (data.teams.home.squad || []).length && (data.teams.away.squad || []).length;
+      if (!haveSquads) {
+        jobs.push(enrichSquadsFromLiveApi(data, fixture)
+          .then(function (s) { data._squadStatus = s; })
+          .catch(function () { data._squadStatus = 'error'; }));
+      } else {
+        data._squadStatus = 'prefetch';
+      }
       Promise.all(jobs).then(function () { render(data); });
     } else {
       render(data);
@@ -494,9 +505,12 @@
       if (man.coach && man.coach[side]) d.teams[side].coach = man.coach[side];
     });
   }
-  // predicted XI for a side with the user's manual swaps applied
+  // predicted XI for a side with the user's manual swaps applied. Padded to 11
+  // blank slots so a skeleton / partial-prefetch match still shows a full pitch
+  // to build the lineup on (real packs already carry exactly 11).
   function effXI(d, side) {
     var pred = (d.teams[side].predictedXI || []).slice();
+    while (pred.length < 11) pred.push({ number: null, name: null, pos: null });
     var ov = (store.xi && store.xi[side]) || {};
     return pred.map(function (slot, i) { return ov[i] || slot; });
   }
@@ -675,7 +689,7 @@
         el('span', { text: data.teams.away.name })
       ]),
       metaWrap,
-      data._skeleton ? skeletonBanner(data) : null,
+      (data._skeleton || data._partial) ? skeletonBanner(data) : null,
       el('div', { class: 'mc-toolbar' }, [
         swapBtn,
         orientBtn,
@@ -712,13 +726,17 @@
     }[d._liveStatus] || 'Fără date live.';
     var squadMsg = {
       ok: ' Loturile complete au fost încărcate din feed (vârstă, naționalitate, goluri, pase decisive, cartonașe) — click pe un slot gol de pe teren ca să alegi primul 11 din lot.',
+      prefetch: ' Loturile complete sunt deja în fișierul de preview (vârstă, naționalitate, goluri, pase decisive, cartonașe) — click pe un slot gol de pe teren ca să alegi primul 11 din lot.',
       empty: ' Feedul nu a întors loturile pentru acest meci.',
       error: ' Nu am putut încărca loturile din feed.',
       'no-team-id': ' Fixture-ul nu are încă id-uri de echipă pentru loturi (se completează la următorul refresh).',
       'no-key': ''
     }[d._squadStatus] || '';
+    var lead = d._partial
+      ? '⚠ Date parțiale (preîncărcare automată): loturi, antrenor, accidentări, arbitru și stadion din feed. Formă, cap la cap, primul 11, fire narative și funfacts vin cu pachetul editorial complet.'
+      : '⚠ Fără pachet de pregătire pentru acest meci încă. ' + msg;
     return el('div', { class: 'skeleton-banner' }, [
-      el('span', { text: '⚠ Fără pachet de pregătire pentru acest meci încă. ' + msg + squadMsg + ' Completează manual ce lipsește: click pe un slot gol de pe teren, sau pe „+ adaugă…” de lângă antrenor / arbitru / stadion.' })
+      el('span', { text: lead + squadMsg + ' Completează manual ce lipsește: click pe un slot gol de pe teren, sau pe „+ adaugă…” de lângă antrenor / arbitru / stadion.' })
     ]);
   }
 

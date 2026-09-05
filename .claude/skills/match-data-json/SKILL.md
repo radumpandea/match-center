@@ -145,6 +145,27 @@ preferat și statistici stil Opta.
 Scrie **un singur fișier** la `docs/data/matches/<slug>.json`, unde `<slug>` e câmpul `slug`
 al fixtureului din `docs/data/fixtures.json` (ex. `l1-e4-toulouse-lille`).
 
+### Dacă fișierul există deja cu `"partial": true`
+
+`scripts/prefetch-preview.mjs` preîncarcă determinist, din feedul RapidAPI, un schelet
+factual: `squad[]` complet pe ambele echipe (număr, vârstă, `nat`, înălțime, `pos`, plus
+`stats` pe sezonul curent — goluri, pase, cartonașe, rating), `coach.name`, `absences[]` din
+accidentări, `referee.name`, `venue`, și `confirmedXI` + `formation` dacă alinierea era deja
+publică. Fișierul e marcat `"partial": true`.
+
+**Construiește PESTE el, nu de la zero:**
+- Păstrează `squad[]`, `coach.name`, `absences[]`, `venue`, `referee.name` deja completate.
+  Verifică-le rapid contra sursei oficiale (Pasul 0), dar nu le rescrie fără un motiv concret;
+  completează doar ce lipsește (înălțimi `null`, `foot`, `funfact`/`linkLine`, `career`,
+  `pronunciation`, `natTeam`, arbitru vârstă/medii, capacitate stadion).
+- Completează tot ce prefetch-ul lasă gol: `form`, `h2h`, `predictedXI` (dacă nu e deja
+  `confirmedXI`), `storyOfTheMatch`, `teams.<side>.stories`, `mercatoIn/Out`, `preseason`,
+  `news`, `coach.career`, `coach.country`, `coach.age`, `colors`, `shortName`.
+- **Șterge câmpul `partial`** din obiectul final (pachetul devine complet).
+- Adaugă sursele tale în `sources[]` pe lângă cea a feedului.
+
+Dacă fișierul NU există sau nu are `"partial": true`, scrie-l de la zero ca de obicei.
+
 Reguli de mapare:
 - Respectă **exact** `docs/data/schema.json` (`additionalProperties: false` peste tot — nu
   adăuga câmpuri).

@@ -66,6 +66,7 @@
   .row-sub{font-size:11.5px;color:var(--color-neutral-600);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .row-tag{font-size:10.5px;letter-spacing:.1em;padding:3px 9px;border-radius:999px;white-space:nowrap}
   .row-tag.ready{background:color-mix(in srgb,var(--color-accent) 18%,transparent);color:var(--color-accent-200)}
+  .row-tag.partial{background:color-mix(in srgb,#e8b04b 16%,transparent);color:#f1cd8a;border:1px solid color-mix(in srgb,#e8b04b 38%,transparent)}
   .row-tag.pending{background:transparent;color:var(--color-neutral-600);border:1px solid var(--color-divider)}
   .empty{padding:var(--space-8);text-align:center;font-size:13px;color:var(--color-neutral-600);border:1px dashed var(--color-divider);border-radius:var(--radius-md)}
   .foot{font-size:11.5px;line-height:1.7;color:var(--color-neutral-600);border-top:1px solid var(--color-divider);padding-top:var(--space-4);text-wrap:pretty}
@@ -102,6 +103,7 @@
 
   var state = { comp: null, query: '' };
   var all = [];
+  var partials = {};   // slug -> true, from data/previews.json (deterministic prefetch)
 
   function dateLabel(iso){
     var d = new Date(iso + 'T12:00:00');
@@ -160,11 +162,13 @@
         var el = document.createElement('a');
         el.href = 'match.html?m=' + encodeURIComponent(m.slug);
         el.className = 'row' + (m.ready ? '' : ' pending');
+        var tagClass = m.ready ? 'ready' : (partials[m.slug] ? 'partial' : 'pending');
+        var tagText = m.ready ? 'PREGĂTIT' : (partials[m.slug] ? 'DATE PARȚIALE' : 'LIVE / MANUAL');
         el.innerHTML =
           '<span class="row-ko">' + (m.ko || 'n/d') + '</span>' +
           '<span class="row-mid"><span class="row-title">' + m.home + ' – ' + m.away + '</span>' +
           '<span class="row-sub">' + m.comp + ' · ' + m.round + (m.venue && m.venue !== 'n/d' ? ' · ' + m.venue : '') + '</span></span>' +
-          '<span class="row-tag ' + (m.ready ? 'ready' : 'pending') + '">' + (m.ready ? 'PREGĂTIT' : 'LIVE / MANUAL') + '</span>';
+          '<span class="row-tag ' + tagClass + '">' + tagText + '</span>';
         group.appendChild(el);
       });
 
@@ -179,15 +183,16 @@
     render();
   });
 
-  fetch('data/fixtures.json', { cache: 'no-cache' })
-    .then(function(r){ return r.ok ? r.json() : []; })
-    .then(function(list){
-      all = (list || []).slice().sort(function(a, b){
-        return (a.date + (a.ko || '')).localeCompare(b.date + (b.ko || ''));
-      });
-      render();
-    })
-    .catch(function(){ render(); });
+  Promise.all([
+    fetch('data/fixtures.json', { cache: 'no-cache' }).then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; }),
+    fetch('data/previews.json', { cache: 'no-cache' }).then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; })
+  ]).then(function(res){
+    (res[1] || []).forEach(function(s){ partials[s] = true; });
+    all = (res[0] || []).slice().sort(function(a, b){
+      return (a.date + (a.ko || '')).localeCompare(b.date + (b.ko || ''));
+    });
+    render();
+  }).catch(function(){ render(); });
 })();
 </script>
 </body>

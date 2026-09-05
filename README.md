@@ -1,7 +1,7 @@
 # Match Center
 
 An interactive pre-match screen for football commentators, pre-loaded with researched
-match intelligence. Static site on GitHub Pages; data fed by two daily GitHub Actions.
+match intelligence. Static site on GitHub Pages; data fed by three daily GitHub Actions.
 
 Live: https://radumpandea.github.io/match-center/
 
@@ -9,7 +9,11 @@ Live: https://radumpandea.github.io/match-center/
 
 ```
 refresh-fixtures.yml   →  docs/data/fixtures.json      (deterministic, RapidAPI football feed)
-build-match-data.yml   →  docs/data/matches/<slug>.json (Claude + .claude/skills/match-data-json)
+prefetch-preview.yml   →  docs/data/teams/<id>.json    (deterministic squad cache, RapidAPI)
+                          docs/data/matches/<slug>.json ("partial": true — factual skeleton)
+                          docs/data/previews.json      (slugs that have a partial pack)
+build-match-data.yml   →  docs/data/matches/<slug>.json (Claude — upgrades the partial pack
+                                                         with the editorial layer, drops the flag)
 docs/index.html        →  fixture list
 docs/match.html?m=<slug>  →  the Match Center: pitch + predicted XI, player/coach/referee
                              cards, story / H2H / form / absences / mercato / news panels,
@@ -62,6 +66,29 @@ Once the real research pack lands (daily, or triggered on demand — see `match-
 opening the match again uses that instead; nothing manual is lost from local storage, but
 the richer prep data takes priority over the skeleton/live/manual layers for any field it has.
 
+### Prefetch tier — `prefetch-preview.yml` + `scripts/prefetch-preview.mjs`
+
+A deterministic step (no AI, no token cost) that runs daily after `refresh-fixtures` and,
+for every not-`ready` fixture kicking off in the next 6 days, writes
+`docs/data/matches/<slug>.json` marked **`"partial": true`** with the factual skeleton the
+football feed can give for free:
+
+- full squad for both teams (shirt number, age, country, height, position, season goals /
+  assists / cards / rating) — fetched once per team into `docs/data/teams/<teamId>.json`
+  and reused across every fixture that team plays, refreshed when older than 3 days;
+- head coach name; injuries → `absences[]`; referee name; venue;
+- the confirmed lineup + formation, once the feed publishes it (usually only near kickoff).
+
+`match.html` treats a partial file as a rich skeleton: it renders the squads and lets you
+pick the XI from them, shows an amber "Date parțiale" banner, and still runs the
+client-side live calls for what's missing. `index.html` tags these fixtures "DATE PARȚIALE"
+(from `docs/data/previews.json`). `build-match-data.yml` / the `match-data-json` skill then
+**upgrade the same file** with the editorial layer (form, H2H, probable XI, story bars,
+funfacts, coach careers, mercato, news) and remove the `partial` flag.
+
+This tier needs only the `RAPIDAPI_KEY` repo secret (server-side, in the Action) — it does
+**not** need the public key in `docs/app/config.js`.
+
 ### Live data (client-side) — read this before touching `docs/app/config.js`
 
 `match.html` can call `free-api-live-football-data` directly from the browser (no backend),
@@ -98,7 +125,7 @@ cd docs && python -m http.server 8000
 
 | Secret | Used by | Notes |
 |---|---|---|
-| `RAPIDAPI_KEY` | refresh-fixtures.yml | free-api-live-football-data key (same as the `comentarii` repo). A copy of this value also lives **publicly** in `docs/app/config.js` for client-side live lookups — see "Live data" below. |
+| `RAPIDAPI_KEY` | refresh-fixtures.yml, prefetch-preview.yml | free-api-live-football-data key (same as the `comentarii` repo). Used server-side by both deterministic Actions. A copy of this value also lives **publicly** in `docs/app/config.js` for client-side live lookups — see "Live data" below. |
 | `ANTHROPIC_API_KEY` | build-match-data.yml | research run — an Anthropic Console API key. **Preferred**: billed per token, no session cap. A daily unattended run needs this; the subscription token below hits its rolling 5-hour session limit. |
 | `ANTHROPIC_WORKSPACE_ID` | build-match-data.yml | **only if** `ANTHROPIC_API_KEY` is an identity-linked key (error: `anthropic-workspace-id is required`). Value looks like `wrkspc_...`, from the Anthropic Console. Not needed for a plain workspace-scoped key. |
 | `CLAUDE_CODE_OAUTH_TOKEN` | build-match-data.yml (fallback), claude.yml, claude-code-review.yml | `claude setup-token` output. Only used by build-match-data when `ANTHROPIC_API_KEY` is unset — the Claude subscription's 5-hour session limit makes it unreliable for the cron. Still fine for `@claude` / PR review. |

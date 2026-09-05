@@ -84,6 +84,13 @@ jobs:
                Pasul 3, in full. Write the file at
                `docs/data/matches/<slug>.json` (create `docs/data/matches/` if
                needed), conforming exactly to `docs/data/schema.json`.
+               If that file already exists with `"partial": true`, it was
+               pre-filled deterministically by `scripts/prefetch-preview.mjs`
+               (full squads with per-player season stats, coach name, injuries,
+               referee name, venue, and the confirmed lineup when it was public).
+               Build ON TOP of it: keep those fields (verify, don't blindly
+               rewrite), fill every empty section, and REMOVE the `"partial"`
+               flag — see the "Dacă fișierul există deja" section in the skill.
             3. Run `node scripts/validate-match.mjs docs/data/matches/<slug>.json`.
                It must exit 0. Fix every `✗`. Treat `!` warnings (e.g. "lists 1
                goalkeeper") as a signal to re-verify that part against the official
