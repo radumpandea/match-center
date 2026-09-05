@@ -329,6 +329,63 @@
     if (store.xi && store.xi[side]) { delete store.xi[side][idx]; save(); rerenderPitch(d); }
   }
 
+  /* ---------- goals & cards per player (store.events) ---------- */
+  var EV_META = {
+    goal: { icon: '⚽', label: 'Gol' },
+    yellow: { icon: '🟨', label: 'Cartonaș galben' },
+    red: { icon: '🟥', label: 'Cartonaș roșu' }
+  };
+  function evKey(side, p) { return side + ':' + (p && p.number != null ? p.number : (p && p.name)); }
+  function eventsFor(side, p) { return (store.events && store.events[evKey(side, p)]) || []; }
+  function addEvent(side, p, type, minute) {
+    if (!EV_META[type]) return;
+    var m = parseInt(minute, 10);
+    store.events = store.events || {};
+    var k = evKey(side, p);
+    (store.events[k] = store.events[k] || []).push({
+      id: Date.now() + '' + Math.random().toString(36).slice(2, 6),
+      type: type, minute: isNaN(m) ? null : m
+    });
+    save();
+  }
+  function delEvent(side, p, eventId) {
+    var k = evKey(side, p);
+    if (!store.events || !store.events[k]) return;
+    store.events[k] = store.events[k].filter(function (e) { return e.id !== eventId; });
+    if (!store.events[k].length) delete store.events[k];
+    save();
+  }
+  function evCounts(side, p) {
+    var e = eventsFor(side, p), c = { goal: 0, yellow: 0, red: 0 };
+    e.forEach(function (x) { if (c[x.type] != null) c[x.type]++; });
+    return c;
+  }
+  // Flatten store.events into a minute-sorted match log, resolving player names.
+  function collectEvents(d) {
+    var rows = [];
+    var ev = store.events || {};
+    Object.keys(ev).forEach(function (k) {
+      var ci = k.indexOf(':');
+      var side = k.slice(0, ci), ref = k.slice(ci + 1);
+      if (side !== 'home' && side !== 'away') return;
+      var num = parseInt(ref, 10);
+      var pl = effSquad(d, side).filter(function (x) {
+        return (!isNaN(num) && x.number === num) || x.name === ref;
+      })[0] || { name: ref, number: isNaN(num) ? null : num };
+      (ev[k] || []).forEach(function (e) {
+        rows.push({
+          minute: e.minute, type: e.type, id: e.id, side: side, player: pl,
+          playerName: (pl.number != null ? pl.number + '. ' : '') + pl.name,
+          teamName: d.teams[side].name
+        });
+      });
+    });
+    rows.sort(function (a, b) {
+      return (a.minute == null ? 999 : a.minute) - (b.minute == null ? 999 : b.minute);
+    });
+    return rows;
+  }
+
   // Drag-to-reposition. The trailing native `click` is handled separately by the
   // caller; after a real drag we set node._dragged so that click is swallowed.
   function makeDraggable(node, shell, onDrop) {
@@ -503,10 +560,19 @@
         var override = pkey && store.lineup && store.lineup[side] && store.lineup[side][pkey];
         var pos = place(override || pts[i] || { d: 0.03, w: 0.05 + i * 0.08 }, isNear);
         var stat = full && full.status;
+        var ec = full ? evCounts(side, full) : { goal: 0, yellow: 0, red: 0 };
+        var badges = null;
+        if (ec.goal || ec.yellow || ec.red) {
+          badges = el('div', { class: 'node-badges' }, [
+            ec.goal ? el('span', { class: 'nb goal', text: '⚽' + (ec.goal > 1 ? '×' + ec.goal : '') }) : null,
+            ec.yellow ? el('span', { class: 'nb yc', text: ec.yellow > 1 ? String(ec.yellow) : '' }) : null,
+            ec.red ? el('span', { class: 'nb rc' }) : null
+          ]);
+        }
         var node = el('div', {
-          class: 'node ' + side + (isEmpty ? ' empty' : (stat && stat !== 'available' ? ' status-' + stat : '')) + (override ? ' moved' : ''),
+          class: 'node ' + side + (isEmpty ? ' empty' : (stat && stat !== 'available' ? ' status-' + stat : '')) + (override ? ' moved' : '') + (ec.red ? ' sent-off' : ''),
           style: 'left:' + pos.left.toFixed(2) + '%;top:' + pos.top.toFixed(2) + '%',
-          title: isEmpty ? 'Click pentru a adăuga un jucător aici' : 'Trage pentru a repoziționa · click pentru fișă și schimbări',
+          title: isEmpty ? 'Click pentru a adăuga un jucător aici' : 'Trage pentru a repoziționa · click pentru fișă, schimbări, goluri/cartonașe',
           onclick: function () {
             if (node._dragged) { node._dragged = false; return; }
             if (isEmpty) openAddPlayer(d, side, i);
@@ -514,6 +580,7 @@
           }
         }, [
           el('div', { class: 'disc', text: isEmpty ? '+' : (slot.number != null ? String(slot.number) : (slot.pos || '')) }),
+          badges,
           el('div', { class: 'lbl', text: isEmpty ? 'Adaugă' : (view.fullNames ? (slot.name || '') : shortName(slot.name)) })
         ]);
         makeDraggable(node, shell, function (p) {
@@ -766,6 +833,19 @@
       }))));
     }
 
+    // match events log (goals & cards added on players) — only when non-empty
+    var evLog = collectEvents(d);
+    if (evLog.length) {
+      var evBody = el('div');
+      evLog.forEach(function (row) {
+        evBody.appendChild(el('div', { class: 'ev-row' }, [
+          el('span', { text: (row.minute != null ? row.minute + "'  " : "—  ") + EV_META[row.type].icon + '  ' + row.playerName + '  (' + row.teamName + ')' }),
+          el('button', { text: '✕', title: 'Șterge', onclick: function () { delEvent(row.side, row.player, row.id); rerenderPanels(d); rerenderPitch(d); } })
+        ]));
+      });
+      add('events', panel('Evenimente meci', evBody, { open: true }));
+    }
+
     // match-level notes
     add('notes', panel('Notițe — general meci', notesBlock('match', 'general meci'), { lead: true, open: true }));
 
@@ -909,8 +989,41 @@
         return el('div', {}, [el('p', { text: (p.status || 'available') + (has(p.statusNote) ? ' — ' + p.statusNote : '') })]);
       },
       'Schimbă': function (close) { return subTab(d, side, p, close); },
+      'Goluri / cartonașe': function () { return eventsTab(d, side, p); },
       'Notițe': function () { return notesBlock(id, p.name); }
     });
+  }
+
+  // Record goals and yellow/red cards for a player (with optional minute).
+  // Updates the pitch badges live.
+  function eventsTab(d, side, p) {
+    var wrap = el('div', { class: 'ev-tab' });
+    var minIn = el('input', { class: 'field ev-min', type: 'number', min: '1', max: '120', placeholder: 'Minut (opțional)' });
+    var list = el('div', { class: 'ev-list' });
+    function redraw() {
+      list.innerHTML = '';
+      var evs = eventsFor(side, p).slice().sort(function (a, b) {
+        return (a.minute == null ? 999 : a.minute) - (b.minute == null ? 999 : b.minute);
+      });
+      if (!evs.length) { list.appendChild(el('p', { class: 'ev-empty', text: 'Niciun eveniment.' })); return; }
+      evs.forEach(function (e) {
+        list.appendChild(el('div', { class: 'ev-row' }, [
+          el('span', { text: (e.minute != null ? e.minute + "'  " : '') + EV_META[e.type].icon + ' ' + EV_META[e.type].label }),
+          el('button', { text: '✕', title: 'Șterge', onclick: function () { delEvent(side, p, e.id); redraw(); rerenderPitch(d); rerenderPanels(d); } })
+        ]));
+      });
+    }
+    var btns = el('div', { class: 'ev-btns' }, ['goal', 'yellow', 'red'].map(function (type) {
+      return el('button', {
+        class: 'ev-add ' + type, text: EV_META[type].icon + ' ' + EV_META[type].label,
+        onclick: function () { addEvent(side, p, type, minIn.value); minIn.value = ''; redraw(); rerenderPitch(d); rerenderPanels(d); }
+      });
+    }));
+    wrap.appendChild(minIn);
+    wrap.appendChild(btns);
+    wrap.appendChild(list);
+    redraw();
+    return wrap;
   }
 
   // The "Schimbă" tab: send this player on/off the pitch. Works both from an
