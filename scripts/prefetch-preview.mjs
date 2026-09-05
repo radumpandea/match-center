@@ -54,6 +54,27 @@ const SOURCE = {
   url: 'https://rapidapi.com/Creativesdev/api/free-api-live-football-data',
 };
 
+// Second RapidAPI source: soccer-football-info (free tier ~200 calls/day, so
+// SERVER-SIDE ONLY — never the public docs/app/config.js key). Same RapidAPI
+// account key as RAPIDAPI_KEY; the account must be subscribed to this API.
+// Used for head-to-head and league-table context that the primary feed lacks.
+const SFI_HOST = 'https://soccer-football-info.p.rapidapi.com';
+const SFI_HEADERS = { 'x-rapidapi-host': 'soccer-football-info.p.rapidapi.com', 'x-rapidapi-key': API_KEY };
+const SFI_FILE = `${TEAMS_DIR}/_sfi.json`;   // shared cache: championship ids, standings, h2h
+const SFI_STANDINGS_TTL = 2;
+const SFI_H2H_TTL = 14;
+const SFI_CALL_BUDGET = 150;                 // hard stop well under the 200/day tier
+const SFI_SOURCE = { name: 'soccer-football-info (RapidAPI)', url: 'https://rapidapi.com/soccerfootball/api/soccer-football-info' };
+const SFI_LEAGUE = {
+  'Premier League': { cc: 'GB', re: /premier league/i },
+  'Ligue 1':        { cc: 'FR', re: /\bligue 1\b/i },
+  'LaLiga':         { cc: 'ES', re: /primera liga/i },
+  'Serie A':        { cc: 'IT', re: /\bserie a\b/i },
+  'Bundesliga':     { cc: 'DE', re: /\bbundesliga\b/i },
+  'Superliga':      { cc: 'RO', re: /liga i\b/i },
+};
+const SFI_EXCLUDE = /women|femin|u1[6-9]|u2[0-3]|youth|reserve|primavera|play-?off|segunda|serie b|serie d|ligue 2|2\.\s*bundesliga|\bii\b/i;
+
 /* ---------- small helpers ---------- */
 function todayISO() { return new Date().toISOString(); }
 function todayDate() { return new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Bucharest' }); }
@@ -282,6 +303,148 @@ async function teamNews(teamName, oppName) {
   return out.slice(0, NEWS_PER_TEAM);
 }
 
+/* ---------- soccer-football-info: h2h + league-table context ----------
+   All results are cached in docs/data/teams/_sfi.json so repeat runs cost
+   almost nothing. A per-run call budget guards the 200/day free tier. */
+let _sfiCalls = 0;
+async function sfi(path, params) {
+  if (_sfiCalls >= SFI_CALL_BUDGET) { console.error('  sfi: call budget reached, skipping ' + path); return null; }
+  const qs = Object.entries({ f: 'json', l: 'en_US', ...params })
+    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&');
+  _sfiCalls++;
+  let r;
+  try {
+    r = await fetch(`${SFI_HOST}/${path}?${qs}`, { headers: SFI_HEADERS });
+  } catch (e) { console.error(`  sfi ${path}: ${e.message}`); return null; }
+  if (!r.ok) { console.error(`  sfi ${path}: HTTP ${r.status}`); return null; }
+  let j;
+  try { j = await r.json(); } catch { return null; }
+  return (j && Array.isArray(j.result)) ? j.result : null;
+}
+
+async function sfiChampionshipId(comp, cc, cache) {
+  cache.championships = cache.championships || {};
+  if (comp in cache.championships) return cache.championships[comp];   // may be null (known miss)
+  const spec = SFI_LEAGUE[comp];
+  let found = null;
+  if (spec) {
+    for (let p = 1; p <= 5 && !found; p++) {
+      const rows = await sfi('championships/list/', { c: cc, p });
+      if (!rows || !rows.length) break;
+      const hits = rows.filter((x) => x.name && spec.re.test(x.name) && !SFI_EXCLUDE.test(x.name));
+      found = (hits.find((x) => x.important) || hits[0]) || null;
+      if (rows.length < 25) break;
+    }
+  }
+  cache.championships[comp] = found ? found.id : null;
+  if (found) console.log(`  sfi league ${comp} -> ${found.name} [${found.id}]`);
+  return cache.championships[comp];
+}
+
+async function sfiStandings(champId, cache) {
+  cache.standings = cache.standings || {};
+  const hit = cache.standings[champId];
+  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < SFI_STANDINGS_TTL) return hit;
+  const res = await sfi('championships/view/', { i: champId });
+  const season = res && res[0] && res[0].seasons && res[0].seasons[0];
+  const table = season && season.groups && season.groups[0] && season.groups[0].table;
+  if (!table || !table.length) return hit || null;
+  const byName = {};
+  for (const row of table) {
+    const t = row.team || {};
+    if (!t.name) continue;
+    const played = (num(row.win) || 0) + (num(row.draw) || 0) + (num(row.loss) || 0);
+    byName[norm(t.name)] = {
+      id: t.id || null, name: t.name,
+      position: num(row.position), points: num(row.points), played,
+      win: num(row.win), draw: num(row.draw), loss: num(row.loss),
+      gf: num(row.goals_scored), ga: num(row.goals_conceded),
+    };
+  }
+  const rec = { fetchedAt: todayISO(), season: season.name || null, byName };
+  cache.standings[champId] = rec;
+  return rec;
+}
+
+function sfiFindTeam(standings, teamName) {
+  if (!standings || !standings.byName) return null;
+  const want = norm(teamName);
+  if (standings.byName[want]) return standings.byName[want];
+  const keys = Object.keys(standings.byName);
+  const k = keys.find((n) => n && (n.indexOf(want) >= 0 || want.indexOf(n) >= 0));
+  return k ? standings.byName[k] : null;
+}
+
+async function sfiH2H(a, b, nameA, nameB, cache) {
+  cache.h2h = cache.h2h || {};
+  const key = [a, b].sort().join('_');
+  const hit = cache.h2h[key];
+  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < SFI_H2H_TTL) return hit;
+  const res = await sfi('teams/versus/', { x: a, y: b, w: 'all' });
+  const v = res && res[0];
+  if (!v || !Array.isArray(v.matches)) return hit || null;
+  const xId = v.teamX && v.teamX.id;
+  const recent = v.matches.slice(0, 5).map((m) => {
+    const ta = m.teamA || {}, tb = m.teamB || {};
+    const sa = m.teamA && m.teamA.score, sb = m.teamB && m.teamB.score;
+    return {
+      date: (m.date || '').slice(0, 10),
+      comp: (m.championship && m.championship.name) || null,
+      score: `${ta.name} ${sa == null ? '?' : sa}-${sb == null ? '?' : sb} ${tb.name}`,
+    };
+  });
+  const r = v.results || {};
+  const xWins = xId === a ? r.teamX : r.teamY;
+  const yWins = xId === a ? r.teamY : r.teamX;
+  const summary = (r.teamX != null)
+    ? `Cap la cap (toate competițiile): ${nameA} ${xWins ?? '?'} - ${r.draw ?? '?'} - ${yWins ?? '?'} ${nameB}.`
+    : null;
+  const rec = { fetchedAt: todayISO(), recent, summary };
+  cache.h2h[key] = rec;
+  return rec;
+}
+
+// Fill h2h + form.position/note on a partial pack from soccer-football-info.
+// Only touches fields the primary feed left empty.
+async function applySfi(doc, fx, cache) {
+  const champId = await sfiChampionshipId(fx.comp, fx.country, cache);
+  if (!champId) return;
+  const standings = await sfiStandings(champId, cache);
+  if (!standings) return;
+
+  const sides = [['home', fx.home], ['away', fx.away]];
+  const ids = {};
+  for (const [side, name] of sides) {
+    const row = sfiFindTeam(standings, name);
+    if (!row) continue;
+    ids[side] = row.id;
+    const t = doc.teams[side];
+    const f = t.form || { last5: [], ppg: null, homeAway: null, position: null, note: null };
+    if (f.position == null && row.position != null) f.position = row.position;
+    if (!has(f.note) && row.points != null && row.played) {
+      f.note = `Clasament ${standings.season || 'sezon precedent'}: locul ${row.position}, ${row.points}p` +
+        (row.gf != null ? ` (${row.gf}-${row.ga})` : '');
+    }
+    t.form = f;
+  }
+
+  const noH2H = !doc.h2h || !doc.h2h.recent || !doc.h2h.recent.length;
+  if (noH2H && ids.home && ids.away) {
+    const h = await sfiH2H(ids.home, ids.away, fx.home, fx.away, cache);
+    if (h && (h.recent.length || h.summary)) {
+      doc.h2h = { recent: h.recent, summary: h.summary };
+      if (!doc.sources.some((s) => s.url === SFI_SOURCE.url)) {
+        doc.sources.push({ ...SFI_SOURCE, accessed: todayDate() });
+      }
+    }
+  } else if ((doc.teams.home.form && doc.teams.home.form.position != null) ||
+             (doc.teams.away.form && doc.teams.away.form.position != null)) {
+    if (!doc.sources.some((s) => s.url === SFI_SOURCE.url)) {
+      doc.sources.push({ ...SFI_SOURCE, accessed: todayDate() });
+    }
+  }
+}
+
 /* ---------- per-team squad cache ---------- */
 async function getSquad(teamId, teamName) {
   const cachePath = `${TEAMS_DIR}/${teamId}.json`;
@@ -412,6 +575,7 @@ async function main() {
   console.log(`${due.length} fixture(s) in the next ${DAYS_AHEAD} days:`);
 
   const partialSlugs = new Set(existingPartialSlugs());
+  const sfiCache = readJSON(SFI_FILE) || {};
 
   for (const f of due) {
     const existing = readJSON(`${MATCHES_DIR}/${f.slug}.json`);
@@ -437,13 +601,19 @@ async function main() {
       console.log('  nothing usable from the feed and no file yet — skipping');
       continue;
     }
+    try {
+      await applySfi(doc, f, sfiCache);
+    } catch (e) {
+      console.error(`  sfi enrich failed: ${e.message}`);
+    }
     writeJSON(`${MATCHES_DIR}/${f.slug}.json`, doc);
     partialSlugs.add(f.slug);
-    console.log(`  wrote docs/data/matches/${f.slug}.json (partial)`);
+    console.log(`  wrote docs/data/matches/${f.slug}.json (partial${doc.h2h.recent.length ? ', +h2h' : ''})`);
   }
 
+  writeJSON(SFI_FILE, sfiCache);
   writeJSON(PREVIEWS, [...partialSlugs].sort());
-  console.log(`previews.json: ${partialSlugs.size} partial pack(s)`);
+  console.log(`previews.json: ${partialSlugs.size} partial pack(s); soccer-football-info calls: ${_sfiCalls}`);
 }
 
 function existingPartialSlugs() {

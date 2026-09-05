@@ -165,7 +165,9 @@
               "items": { "type": "string", "enum": ["W", "D", "L"] }
             },
             "ppg": { "type": ["number", "null"] },
-            "homeAway": { "type": ["string", "null"], "description": "free-text home/away split" }
+            "homeAway": { "type": ["string", "null"], "description": "free-text home/away split" },
+            "position": { "type": ["integer", "null"], "description": "league standing (most recent completed table when live position is unknown)" },
+            "note": { "type": ["string", "null"], "description": "free-text standing context, e.g. \"Sezonul trecut: locul 3 (76p, 72-41)\"" }
           }
         },
         "absences": {

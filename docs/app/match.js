@@ -954,8 +954,10 @@
           f.last5.forEach(function (r) { badges.appendChild(el('span', { class: 'fb-' + r, text: r })); });
           wrap.appendChild(badges);
         }
+        if (has(f.position)) wrap.appendChild(el('div', { text: 'Loc: ' + f.position }));
         if (has(f.ppg)) wrap.appendChild(el('div', { text: 'PPG: ' + f.ppg }));
         if (has(f.homeAway)) wrap.appendChild(el('div', { text: f.homeAway }));
+        if (has(f.note)) wrap.appendChild(el('div', { class: 'form-note', text: f.note }));
         if (!wrap.childNodes.length) wrap.appendChild(el('div', { text: 'n/d' }));
         return wrap;
       })));

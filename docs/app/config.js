@@ -5,6 +5,10 @@
 // the RAPIDAPI_KEY repo secret (used server-side by refresh-fixtures.yml); if
 // this public copy is ever abused, rotate it in the RapidAPI dashboard, here,
 // and in the repo secret.
+// Only the free-api-live-football-data key goes here. The second RapidAPI source
+// (soccer-football-info, ~200 calls/day) is used SERVER-SIDE ONLY by
+// scripts/prefetch-preview.mjs — its low quota can't survive public exposure, so
+// it must never appear in this file.
 window.PM_CONFIG = {
   rapidApiKey: 'REPLACE_WITH_RAPIDAPI_KEY'
 };

@@ -80,11 +80,14 @@ Ordinea de mai jos merge de la structurat (rapid, o pagină) spre editorial. Nu 
 disponibil — nu inventa. Ce a pus deja Nivelul 1 (stadion, arbitru nume, lot, accidentări,
 `confirmedXI`) doar verifici, nu re-cauți.
 
-1. **SoccerStats — o singură vizită acoperă mult.** `soccerstats.com/latest.asp?league={liga}`
-   dă clasament + formă + PPG + split acasă/deplasare + statistici de goluri pentru toată
-   liga; `soccerstats.com/h2h.asp?league={liga}&t1id={id1}&t2id={id2}` dă cap la cap
-   structurat. De aici umpli `teams.<side>.form` (`last5` W/D/L, `ppg`, `homeAway`) și
-   `h2h.recent[]` (dată, competiție, scor ca „Echipa A x-y Echipa B") + `h2h.summary`.
+1. **Cap la cap + clasament — verifică ce a pus Nivelul 1, apoi SoccerStats pentru rest.**
+   Nivelul 1 pune deja `h2h.recent[]` + `h2h.summary` (istoric all-time din
+   soccer-football-info) și `form.position` + `form.note` (clasamentul ultimului sezon
+   închis). Verifică-le și **completează forma curentă**: `soccerstats.com/latest.asp?league={liga}`
+   dă clasament la zi + `last5` W/D/L + PPG + split acasă/deplasare + statistici de goluri
+   pentru toată liga; `soccerstats.com/h2h.asp?league={liga}&t1id={id1}&t2id={id2}` dă cap la
+   cap structurat dacă vrei să confirmi. Umple `teams.<side>.form.last5`, `.ppg`, `.homeAway`
+   (Nivelul 1 le lasă goale — sunt forma curentă, nu clasamentul sezonului trecut).
 2. **Primul 11 probabil** → `predictedXI` (11, ordonat GK→ATT) + `formation`. Surse: maxifoot,
    VAVEL, Sports Mole, footmercato. Dacă `confirmedXI` e deja pus de Nivelul 1, folosește-l
    ca `predictedXI` și lasă `confirmedXI` cum e. Dacă meciul s-a jucat, caută alinierea reală.
