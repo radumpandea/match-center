@@ -642,6 +642,7 @@
   /* ---------- goals & cards per player (store.events) ---------- */
   var EV_META = {
     goal: { icon: '⚽', label: 'Gol' },
+    owngoal: { icon: '⚽', label: 'Autogol' },
     yellow: { icon: '🟨', label: 'Cartonaș galben' },
     red: { icon: '🟥', label: 'Cartonaș roșu' },
     sub: { icon: '🔄', label: 'Schimbare' }
@@ -667,7 +668,7 @@
     save();
   }
   function evCounts(side, p) {
-    var e = eventsFor(side, p), c = { goal: 0, yellow: 0, red: 0 };
+    var e = eventsFor(side, p), c = { goal: 0, owngoal: 0, yellow: 0, red: 0 };
     e.forEach(function (x) { if (c[x.type] != null) c[x.type]++; });
     return c;
   }
@@ -942,11 +943,12 @@
         var pos = place(override || pts[i] || { d: 0.03, w: 0.05 + i * 0.08 }, isNear);
         var stat = full && full.status;
         var cap = !isEmpty && isCaptain(side, full || slot);
-        var ec = full ? evCounts(side, full) : { goal: 0, yellow: 0, red: 0 };
+        var ec = full ? evCounts(side, full) : { goal: 0, owngoal: 0, yellow: 0, red: 0 };
         var badges = null;
-        if (ec.goal || ec.yellow || ec.red) {
+        if (ec.goal || ec.owngoal || ec.yellow || ec.red) {
           badges = el('div', { class: 'node-badges' }, [
             ec.goal ? el('span', { class: 'nb goal', text: '⚽' + (ec.goal > 1 ? '×' + ec.goal : '') }) : null,
+            ec.owngoal ? el('span', { class: 'nb og', text: 'AG' + (ec.owngoal > 1 ? '×' + ec.owngoal : '') }) : null,
             ec.yellow ? el('span', { class: 'nb yc', text: ec.yellow > 1 ? String(ec.yellow) : '' }) : null,
             ec.red ? el('span', { class: 'nb rc' }) : null
           ]);
@@ -1369,7 +1371,7 @@
       var evBody = el('div');
       evLog.forEach(function (row) {
         evBody.appendChild(el('div', { class: 'ev-row' }, [
-          el('span', { text: (row.minute != null ? row.minute + "'  " : "—  ") + EV_META[row.type].icon + '  ' + row.playerName + '  (' + row.teamName + ')' }),
+          el('span', { text: (row.minute != null ? row.minute + "'  " : "—  ") + EV_META[row.type].icon + (row.type === 'owngoal' ? ' (autogol)' : '') + '  ' + row.playerName + '  (' + row.teamName + ')' }),
           el('button', { text: '✕', title: 'Șterge', onclick: row.onDel || function () { delEvent(row.side, row.player, row.id); rerenderPanels(d); rerenderPitch(d); } })
         ]));
       });
@@ -1655,7 +1657,7 @@
         ]));
       });
     }
-    var btns = el('div', { class: 'ev-btns' }, ['goal', 'yellow', 'red'].map(function (type) {
+    var btns = el('div', { class: 'ev-btns' }, ['goal', 'owngoal', 'yellow', 'red'].map(function (type) {
       return el('button', {
         class: 'ev-add ' + type, text: EV_META[type].icon + ' ' + EV_META[type].label,
         onclick: function () { addEvent(side, p, type, minIn.value); minIn.value = ''; redraw(); rerenderPitch(d); rerenderPanels(d); }
