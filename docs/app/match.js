@@ -522,6 +522,58 @@
       if (man.coach && man.coach[side]) d.teams[side].coach = man.coach[side];
     });
   }
+  // Per-player shirt-number overrides (store.pnum[side][name]) — for numbers that
+  // are missing or have changed. Keyed by name (stable), applied every render().
+  function applyPnum(d) {
+    var pn = store.pnum;
+    if (!pn) return;
+    ['home', 'away'].forEach(function (side) {
+      var map = pn[side];
+      if (!map) return;
+      var set = function (o) {
+        if (!o || o.name == null || !Object.prototype.hasOwnProperty.call(map, o.name)) return;
+        if (o._num0 === undefined) o._num0 = o.number;   // remember the pristine number
+        o.number = map[o.name];
+      };
+      (d.teams[side].squad || []).forEach(set);
+      (d.teams[side].predictedXI || []).forEach(set);
+      (d.teams[side].confirmedXI || []).forEach(set);
+      (store.manualSquad && store.manualSquad[side] || []).forEach(set);
+      var xi = store.xi && store.xi[side];
+      if (xi) Object.keys(xi).forEach(function (k) { set(xi[k]); });
+    });
+  }
+  function setPlayerNumber(d, side, p, n) {
+    var oldKey = keyOf(p);
+    var newKey = (n != null && !isNaN(n)) ? 'n' + n : 's' + p.name;
+    n = (n != null && !isNaN(n)) ? n : null;
+    var orig = (d.teams[side].squad || []).filter(function (x) { return x.name === p.name; })[0];
+    var origNum = orig ? (orig._num0 !== undefined ? orig._num0 : orig.number) : (p._num0 !== undefined ? p._num0 : null);
+    store.pnum = store.pnum || {};
+    store.pnum[side] = store.pnum[side] || {};
+    if (n === origNum) delete store.pnum[side][p.name];
+    else store.pnum[side][p.name] = n;
+    if (!Object.keys(store.pnum[side]).length) delete store.pnum[side];
+    if (oldKey !== newKey) {
+      if (store.bench && store.bench[side]) {
+        store.bench[side] = store.bench[side].map(function (k) { return k === oldKey ? newKey : k; });
+      }
+      if (store.events) {
+        var oe = side + ':' + (p.number != null ? p.number : p.name);
+        var ne = side + ':' + (n != null ? n : p.name);
+        if (oe !== ne && store.events[oe]) {
+          store.events[ne] = (store.events[ne] || []).concat(store.events[oe]);
+          delete store.events[oe];
+        }
+      }
+    }
+    if (p._num0 === undefined) p._num0 = p.number;   // keep pristine before mutating
+    p.number = n;
+    save();
+    var back = document.querySelector('.modal-back');
+    if (back) back.remove();
+    render(d);
+  }
   // predicted XI for a side with the user's manual swaps applied. Padded to 11
   // blank slots so a skeleton / partial-prefetch match still shows a full pitch
   // to build the lineup on (real packs already carry exactly 11).
@@ -696,6 +748,7 @@
 
   function render(data) {
     applyManualOverlay(data);
+    applyPnum(data);
     applyDiscColors(data);
     document.title = data.teams.home.name + ' – ' + data.teams.away.name + ' · Match Center';
     root.innerHTML = '';
@@ -1442,8 +1495,21 @@
     }, {
       'Profil': function () {
         var wrap = el('div');
+        var body = el('div');
+        // shirt number — editable, for when it's missing or has changed
+        var numIn = el('input', { class: 'field pnum-in', type: 'number', min: '1', max: '99',
+          placeholder: '—', value: p.number != null ? p.number : '' });
+        var numSave = el('button', { class: 'pick pnum-save', text: 'Salvează', onclick: function () {
+          var v = numIn.value.trim();
+          setPlayerNumber(d, side, p, v === '' ? null : parseInt(v, 10));
+        } });
+        wrap.appendChild(el('div', { class: 'pnum-edit' }, [
+          el('label', { text: 'Număr tricou' }),
+          el('div', { class: 'pnum-row' }, [numIn, numSave])
+        ]));
+        wrap.appendChild(body);
         function fill() {
-          wrap.innerHTML = '';
+          body.innerHTML = '';
           var kv = el('div', { class: 'kv' });
           if (has(p.pronunciation)) kv.appendChild(el('span', { html: '<b>Pronunție</b>' + esc(p.pronunciation) }));
           if (has(p.nat)) kv.appendChild(el('span', { html: '<b>Cetățenie</b>' + esc(p.nat) }));
@@ -1452,7 +1518,7 @@
           if (has(p.age)) kv.appendChild(el('span', { html: '<b>Vârstă</b>' + esc(p.age + ' ani') }));
           if (has(p.height)) kv.appendChild(el('span', { html: '<b>Înălțime</b>' + esc(p.height + ' cm') }));
           if (footLabel(p.foot)) kv.appendChild(el('span', { html: '<b>Picior</b>' + esc(footLabel(p.foot)) }));
-          if (kv.childNodes.length) wrap.appendChild(kv);
+          if (kv.childNodes.length) body.appendChild(kv);
           var s = p.stats || {};
           var rows = [
             ['Meciuri', s.apps], ['Minute', s.minutes], ['Goluri', s.goals],
@@ -1460,7 +1526,7 @@
             ['Rating', s.rating]
           ].filter(function (r) { return r[1] != null; });
           if (rows.length) {
-            wrap.appendChild(el('h4', { class: 'stat-h', text: 'Sezonul curent' }));
+            body.appendChild(el('h4', { class: 'stat-h', text: 'Sezonul curent' }));
             var g = el('div', { class: 'stat-grid' });
             rows.forEach(function (r) {
               g.appendChild(el('div', { class: 'stat-cell' }, [
@@ -1468,10 +1534,9 @@
                 el('span', { class: 'sc-l', text: r[0] })
               ]));
             });
-            wrap.appendChild(g);
+            body.appendChild(g);
           }
-          if (has(p.lastSeason)) wrap.appendChild(el('p', { html: '<b style="color:var(--color-neutral-500)">Sezonul trecut:</b> ' + esc(p.lastSeason) }));
-          if (!wrap.childNodes.length) wrap.appendChild(el('p', { text: 'Fără detalii suplimentare.' }));
+          if (has(p.lastSeason)) body.appendChild(el('p', { html: '<b style="color:var(--color-neutral-500)">Sezonul trecut:</b> ' + esc(p.lastSeason) }));
         }
         fill();
         if (p._pid != null && !_pdCache[p._pid]) {
