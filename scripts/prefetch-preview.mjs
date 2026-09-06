@@ -438,8 +438,8 @@ const SFI_HISTORY_TTL = 2;
 async function sfiHistory(teamId, teamName, cache) {
   cache.history = cache.history || {};
   const hit = cache.history[teamId];
-  // re-fetch a stale entry, or one written before recentMatchId was tracked
-  if (hit && hit.fetchedAt && 'recentMatchId' in hit &&
+  // re-fetch a stale entry, or one from an older cache layout (v bump)
+  if (hit && hit.fetchedAt && hit.v === 2 &&
       daysBetween(todayISO(), hit.fetchedAt) < SFI_HISTORY_TTL) return hit;
   const res = await sfi('teams/history/', { i: teamId, w: '6m' });
   const matches = res && res[0] && Array.isArray(res[0].matches) ? res[0].matches : null;
@@ -460,8 +460,11 @@ async function sfiHistory(teamId, teamName, cache) {
       result: us > them ? 'W' : us < them ? 'L' : 'D',
     };
   }).filter(Boolean);
-  const firstReal = matches.find((m) => num((m.teamA || {}).score) != null && num((m.teamB || {}).score) != null);
-  const rec = { fetchedAt: todayISO(), recent, recentMatchId: firstReal ? firstReal.id : null };
+  const fr = /friendl|amical|\btest\b|club friendly|club friendlies|trophy|soccer aid/i;
+  const firstReal = matches.find((m) =>
+    num((m.teamA || {}).score) != null && num((m.teamB || {}).score) != null &&
+    !fr.test((m.championship && m.championship.name) || ''));
+  const rec = { fetchedAt: todayISO(), v: 2, recent, recentMatchId: firstReal ? firstReal.id : null };
   cache.history[teamId] = rec;
   return rec;
 }
@@ -764,6 +767,24 @@ async function main() {
   const partialSlugs = new Set(existingPartialSlugs());
   const sfiCache = readJSON(SFI_FILE) || {};
 
+  // full (non-partial) packs for upcoming fixtures first: top up squad[].career
+  // for players still missing it (idempotent — settles once the 30-day player
+  // cache fills). Done before the partial passes so a published pack the user is
+  // looking at isn't starved by the daily call budget.
+  for (const f of readyUpcoming) {
+    const path = `${MATCHES_DIR}/${f.slug}.json`;
+    const doc = readJSON(path);
+    if (!doc || doc.partial) continue;
+    const need = ['home', 'away'].some((s) => (doc.teams[s].squad || []).some((p) => !has(p.career)));
+    if (!need) continue;
+    try {
+      if (await applySfiCareers(doc, f, sfiCache)) {
+        writeJSON(path, doc);
+        console.log(`- ${f.slug}: careers topped up`);
+      }
+    } catch (e) { console.error(`  ${f.slug} careers: ${e.message}`); }
+  }
+
   for (const f of due) {
     const existing = readJSON(`${MATCHES_DIR}/${f.slug}.json`);
     if (existing && !existing.partial) {
@@ -796,22 +817,6 @@ async function main() {
     writeJSON(`${MATCHES_DIR}/${f.slug}.json`, doc);
     partialSlugs.add(f.slug);
     console.log(`  wrote docs/data/matches/${f.slug}.json (partial${doc.h2h.recent.length ? ', +h2h' : ''})`);
-  }
-
-  // full (non-partial) packs for upcoming fixtures: top up squad[].career only,
-  // for players still missing it — idempotent, so it settles after a run or two
-  for (const f of readyUpcoming) {
-    const path = `${MATCHES_DIR}/${f.slug}.json`;
-    const doc = readJSON(path);
-    if (!doc || doc.partial) continue;
-    const need = ['home', 'away'].some((s) => (doc.teams[s].squad || []).some((p) => !has(p.career)));
-    if (!need) continue;
-    try {
-      if (await applySfiCareers(doc, f, sfiCache)) {
-        writeJSON(path, doc);
-        console.log(`- ${f.slug}: careers topped up`);
-      }
-    } catch (e) { console.error(`  ${f.slug} careers: ${e.message}`); }
   }
 
   writeJSON(SFI_FILE, sfiCache);
