@@ -111,6 +111,15 @@
     return DAYS[d.getDay()] + ', ' + d.getDate() + ' ' + MONTHS[d.getMonth()];
   }
 
+  // keep only upcoming (or currently-live) fixtures — a match started more than
+  // ~3h ago is over and drops off the list
+  function isUpcoming(m){
+    var ko = m.kickoff && m.kickoff !== 'n/d' ? new Date(m.kickoff) : null;
+    if (ko && !isNaN(ko)) return ko.getTime() > Date.now() - 3*3600*1000;
+    var today = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD, local
+    return (m.date || '') >= today;
+  }
+
   function render(){
     var comps = [];
     all.forEach(function(m){ if (comps.indexOf(m.comp) < 0) comps.push(m.comp); });
@@ -188,7 +197,7 @@
     fetch('data/previews.json', { cache: 'no-cache' }).then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; })
   ]).then(function(res){
     (res[1] || []).forEach(function(s){ partials[s] = true; });
-    all = (res[0] || []).slice().sort(function(a, b){
+    all = (res[0] || []).filter(isUpcoming).sort(function(a, b){
       return (a.date + (a.ko || '')).localeCompare(b.date + (b.ko || ''));
     });
     render();
