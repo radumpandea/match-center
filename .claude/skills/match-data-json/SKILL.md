@@ -47,12 +47,20 @@ de la zero, ci:
    din team news din preziua/ziua meciului. Feedul a marcat unele accidentări; suspendările
    (cumul de galbene, roșu) le pui tu.
 3. **Adâncire — doar unde contează.** Detaliile grele (înălțime lipsă, `career`,
-   `pronunciation`, `foot`, `funfact`, `linkLine`) se cercetează pentru: **primul 11 probabil
-   al fiecărei echipe + orice jucător pe care îl atinge o poveste** (linkLine cu adversarul,
-   revenire, bornă). Pentru restul lotului lasă câmpurile pe `null` — e normal, nu un eșec.
-   Wikipedia (pagina individuală) e sursa unică cea mai eficientă: infobox cu înălțime +
-   carieră + națională dintr-un fetch. Transfermarkt doar din fragmente de căutare.
-   Academici tineri: `null`, nu inventa.
+   `pronunciation`, `foot`, `funfact`, `linkLine`, plus `stats.minutes` / `stats.apps`) se
+   cercetează pentru: **primul 11 probabil al fiecărei echipe + orice jucător pe care îl
+   atinge o poveste** (linkLine cu adversarul, revenire, bornă). Pentru restul lotului lasă
+   câmpurile pe `null` — e normal, nu un eșec.
+   - `career`: Nivelul 1 pune deja un istoric scurt de cluburi din `soccer-football-info`
+     pentru jucătorii din alinierea recentă — verifică-l și extinde-l (roluri, realizări,
+     goluri per club). Wikipedia (pagina individuală) e sursa unică cea mai eficientă:
+     infobox cu înălțime + carieră + națională dintr-un fetch. Transfermarkt doar din
+     fragmente.
+   - `stats.minutes` / `stats.apps`: **NU sunt în feed** (nici Nivelul 1 nu le poate lua).
+     Ia-le pentru primul 11 de pe **FBref** — pagina „{Club} Stats — {sezon}, All
+     Competitions" listează minute și meciuri per jucător. Restul `stats` (goluri, pase,
+     cartonașe) vin din feed.
+   - Academici tineri: `null`, nu inventa.
 
 Dacă utilizatorul semnalează o lipsă, tratează asta ca semnal că verificarea a fost
 incompletă și re-verifică integral posturile.
@@ -184,9 +192,10 @@ Reguli de mapare:
 - `squad[]` = tot lotul. `role` ∈ GK/DEF/MID/ATT (obligatoriu). `foot` ∈ L/R/B/null.
   Coduri de țară cu 3 litere (DNK, FRA, ITA...).
 - `squad[].stats` (opțional) = agregate pe sezonul curent: `goals`, `assists`, `minutes`,
-  `apps`, `yellow`, `red`, `rating` — toate nullable. Pune-le doar dacă le găsești la o
-  sursă (FBref / SoccerStats / Transfermarkt); altfel omite tot obiectul. Ecranul le
-  completează oricum din feedul live acolo unde lipsesc.
+  `apps`, `yellow`, `red`, `rating` — toate nullable. Nivelul 1 umple `goals`/`assists`/
+  `yellow`/`red`/`rating` din feed; `minutes`/`apps` le adaugi tu din FBref pentru primul 11
+  (vezi Pasul 0). `career` (istoric de cluburi) e completat parțial de Nivelul 1 din
+  soccer-football-info — verifică și extinde pentru primul 11.
 - `colors` = culorile principale ale echipei (hex), pentru tricourile de pe teren. Dacă nu
   ești sigur, `null` — ecranul are un fallback.
 - `absences[].reason` ∈ injury/suspension/doubt/other.

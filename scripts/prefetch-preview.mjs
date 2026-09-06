@@ -63,7 +63,7 @@ const SFI_HEADERS = { 'x-rapidapi-host': 'soccer-football-info.p.rapidapi.com', 
 const SFI_FILE = `${TEAMS_DIR}/_sfi.json`;   // shared cache: championship ids, standings, h2h
 const SFI_STANDINGS_TTL = 2;
 const SFI_H2H_TTL = 14;
-const SFI_CALL_BUDGET = 150;                 // hard stop well under the 200/day tier
+const SFI_CALL_BUDGET = 190;                 // hard stop just under the 200/day tier
 const SFI_SOURCE = { name: 'soccer-football-info (RapidAPI)', url: 'https://rapidapi.com/soccerfootball/api/soccer-football-info' };
 const SFI_LEAGUE = {
   'Premier League': { cc: 'GB', re: /premier league/i },
@@ -449,8 +449,79 @@ async function sfiHistory(teamId, teamName, cache) {
       result: us > them ? 'W' : us < them ? 'L' : 'D',
     };
   }).filter(Boolean);
-  const rec = { fetchedAt: todayISO(), recent };
+  const firstReal = matches.find((m) => num((m.teamA || {}).score) != null && num((m.teamB || {}).score) != null);
+  const rec = { fetchedAt: todayISO(), recent, recentMatchId: firstReal ? firstReal.id : null };
   cache.history[teamId] = rec;
+  return rec;
+}
+
+/* ---------- player careers (soccer-football-info) ----------
+   players/view gives a `trasfers` club history (no season stats). We resolve
+   player ids from the most recent match lineup (matches/view/full) and match
+   them to the FotMob squad by name. Everything is cached hard in _sfi.json:
+   lineups 7 days, player careers 30 days. */
+const SFI_LINEUP_TTL = 7;
+const SFI_PLAYER_TTL = 30;
+function sfiYear(s) { const m = /^(\d{4})/.exec(s || ''); return m ? m[1] : null; }
+function buildCareer(trasfers) {
+  if (!Array.isArray(trasfers) || !trasfers.length) return null;
+  const rows = trasfers.slice().reverse();   // oldest first
+  const out = [];
+  let lastId = null;
+  for (const r of rows) {
+    const tm = r.team || {};
+    if (!tm.name) continue;
+    if (tm.id && tm.id === lastId) continue;             // collapse consecutive dupes
+    lastId = tm.id || null;
+    const y1 = sfiYear(r.from), y2 = r.to == null ? 'prezent' : sfiYear(r.to);
+    if (!y1 && out.some((x) => x.indexOf(tm.name + ' ') === 0 || x === tm.name)) continue; // national-team noise
+    out.push(tm.name + (y1 ? ` (${y1}${y2 && y2 !== y1 ? '–' + y2 : ''})` : ''));
+  }
+  const seen = new Set(), final = [];
+  for (const l of out) {
+    const nm = l.replace(/\s*\(.*/, '');
+    if (seen.has(nm)) continue;
+    seen.add(nm); final.push(l);
+  }
+  return final.length ? final.slice(0, 10).join(' · ') : null;
+}
+async function sfiRecentLineup(matchId, teamName, cache) {
+  cache.lineups = cache.lineups || {};
+  const key = matchId + ':' + norm(teamName);
+  const hit = cache.lineups[key];
+  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < SFI_LINEUP_TTL) return hit.players;
+  const res = await sfi('matches/view/full/', { i: matchId });
+  const r = res && res[0];
+  if (!r) return (hit && hit.players) || [];
+  const want = norm(teamName);
+  const side = [r.teamA, r.teamB].find((tt) => {
+    const n = tt && norm(tt.name);
+    return n && (n.indexOf(want) >= 0 || want.indexOf(n) >= 0);
+  });
+  const lu = side && side.lineup;
+  const players = lu
+    ? (lu.start || []).concat(lu.substitutions || [])
+        .map((p) => ({ id: p.id, name: p.name, sn: num(p.s_n) }))
+        .filter((p) => p.id && p.name)
+    : [];
+  cache.lineups[key] = { fetchedAt: todayISO(), players };
+  return players;
+}
+async function sfiPlayerCareer(pid, cache) {
+  cache.players = cache.players || {};
+  const hit = cache.players[pid];
+  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < SFI_PLAYER_TTL) return hit;
+  const res = await sfi('players/view/', { i: pid });
+  const p = res && res[0];
+  if (!p) return hit || null;
+  const foot = /^l/i.test(p.foot || '') ? 'L' : /^r/i.test(p.foot || '') ? 'R' : (/both|ambi/i.test(p.foot || '') ? 'B' : null);
+  const rec = {
+    fetchedAt: todayISO(),
+    career: buildCareer(p.trasfers),
+    foot: foot,
+    height: num(String(p.height || '').replace(/[^0-9]/g, '')),
+  };
+  cache.players[pid] = rec;
   return rec;
 }
 
@@ -484,6 +555,33 @@ async function applySfi(doc, fx, cache) {
     const hist = await sfiHistory(row.id, name, cache);
     if (hist && hist.recent.length && (!f.recent || !f.recent.length)) f.recent = hist.recent;
     t.form = f;
+  }
+
+  // player careers, matched to the FotMob squad by name — only for the players
+  // in the most recent match lineup, to bound the number of players/view calls
+  for (const [side, name] of sides) {
+    if (!ids[side]) continue;
+    const hist = cache.history && cache.history[ids[side]];
+    const mid = hist && hist.recentMatchId;
+    if (!mid) continue;
+    const lineup = await sfiRecentLineup(mid, name, cache);
+    if (!lineup.length) continue;
+    const squad = doc.teams[side].squad || [];
+    let filled = 0;
+    for (const lp of lineup) {
+      const want = norm(lp.name);
+      const p = squad.find((x) => {
+        const n = norm(x.name);
+        return n && (n === want || n.indexOf(want) >= 0 || want.indexOf(n) >= 0 || (lp.sn != null && x.number === lp.sn));
+      });
+      if (!p || has(p.career)) continue;
+      const pc = await sfiPlayerCareer(lp.id, cache);
+      if (!pc) continue;
+      if (pc.career) { p.career = pc.career; filled++; }
+      if (!p.foot && pc.foot) p.foot = pc.foot;
+      if (p.height == null && pc.height != null) p.height = pc.height;
+    }
+    if (filled) console.log(`  sfi careers ${side}: ${filled}`);
   }
 
   const noH2H = !doc.h2h || !doc.h2h.recent || !doc.h2h.recent.length;

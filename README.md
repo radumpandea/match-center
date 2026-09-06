@@ -85,9 +85,13 @@ football feed can give for free:
   form guide** (`form.recent[]` — each side's last ~5 matches, competitive and friendly, with
   scores) from a second RapidAPI source, **soccer-football-info** (free tier ~200 calls/day →
   server-side only, same account key as `RAPIDAPI_KEY`, the account must be subscribed to it).
-  Championship ids, standings, H2H and per-team match history are cached in
-  `docs/data/teams/_sfi.json` (standings/history 2 days, H2H per pair 14 days) and a per-run
-  call budget of 150 guards the quota. This key must NOT go in `docs/app/config.js`.
+  It also fills `squad[].career` (a short club history) for the players in each team's most
+  recent match lineup, matched to the FotMob squad by name — from soccer-football-info
+  `players/view`. (`stats.minutes` / `stats.apps` are in neither feed; the `match-data-json`
+  skill adds those for the likely XI from FBref.) Championship ids, standings, H2H, per-team
+  match history, recent lineups and player careers are cached in `docs/data/teams/_sfi.json`
+  (standings/history 2 days, lineups 7, careers 30, H2H per pair 14) and a per-run call
+  budget of 190 guards the quota. This key must NOT go in `docs/app/config.js`.
 
 `match.html` treats a partial file as a rich skeleton: it renders the squads and lets you
 pick the XI from them, shows an amber "Date parțiale" banner, and still runs the
