@@ -30,6 +30,10 @@ const HEADERS = {
 };
 
 // Tracked competitions: RapidAPI leagueId -> label + file-slug prefix.
+// NOTE: the two Romanian leagues use SEASON-specific ids in this feed
+// (938428 / 942122 for 2026-27), not the stable FotMob league ids (189 / 9113).
+// Re-check them each August with football-get-matches-by-date (filter by a known
+// Romanian club) — the stable ids return only the previous season here.
 const COMPS = [
   { id: 47, comp: 'Premier League', abbr: 'pl', country: 'GB' },
   { id: 53, comp: 'Ligue 1', abbr: 'l1', country: 'FR' },
@@ -37,8 +41,8 @@ const COMPS = [
   { id: 55, comp: 'Serie A', abbr: 'seriea', country: 'IT' },
   { id: 54, comp: 'Bundesliga', abbr: 'bundesliga', country: 'DE' },
   { id: 146, comp: '2. Bundesliga', abbr: 'bl2', country: 'DE' },
-  { id: 189, comp: 'Superliga', abbr: 'sl', country: 'RO' },
-  { id: 9113, comp: 'Liga 2', abbr: 'ro2', country: 'RO' },
+  { id: 938428, comp: 'Superliga', abbr: 'sl', country: 'RO' },
+  { id: 942122, comp: 'Liga 2', abbr: 'ro2', country: 'RO' },
 ];
 const DAYS_AHEAD = 21; // scan window when a competition's round has finished
 
