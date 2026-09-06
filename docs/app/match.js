@@ -436,9 +436,9 @@
 
   /* ---------- pitch view (orientation + which team is nearest the viewer) ---------- */
   var view = (store.view && typeof store.view === 'object')
-    ? { orientation: store.view.orientation === 'v' ? 'v' : 'h', swapped: !!store.view.swapped, fullNames: !!store.view.fullNames }
-    : { orientation: 'h', swapped: false, fullNames: false };
-  function saveView() { store.view = { orientation: view.orientation, swapped: view.swapped, fullNames: view.fullNames }; save(); }
+    ? { orientation: store.view.orientation === 'v' ? 'v' : 'h', swapped: !!store.view.swapped, fullNames: !!store.view.fullNames, labelSize: [0, 1, 2].indexOf(store.view.labelSize) >= 0 ? store.view.labelSize : 0 }
+    : { orientation: 'h', swapped: false, fullNames: false, labelSize: 0 };
+  function saveView() { store.view = { orientation: view.orientation, swapped: view.swapped, fullNames: view.fullNames, labelSize: view.labelSize }; save(); }
 
   /* ---------- disc (player node) colours per team ----------
      user override (store.discColors) wins; then the pack's colors.primary;
@@ -558,6 +558,7 @@
       if (store.bench && store.bench[side]) {
         store.bench[side] = store.bench[side].map(function (k) { return k === oldKey ? newKey : k; });
       }
+      if (store.captain && store.captain[side] === oldKey) store.captain[side] = newKey;
       if (store.events) {
         var oe = side + ':' + (p.number != null ? p.number : p.name);
         var ne = side + ':' + (n != null ? n : p.name);
@@ -602,6 +603,18 @@
     if (keys && keys.length) store.bench[side] = keys; else delete store.bench[side];
     save();
     rerenderPitch(d);
+  }
+  // one captain per team, keyed by keyOf() like the bench
+  function isCaptain(side, p) { return !!p && !!(store.captain && store.captain[side] === keyOf(p)); }
+  function setCaptain(d, side, p) {
+    store.captain = store.captain || {};
+    var k = keyOf(p);
+    if (store.captain[side] === k) delete store.captain[side]; else store.captain[side] = k;
+    if (!Object.keys(store.captain).length) delete store.captain;
+    save();
+    var back = document.querySelector('.modal-back');
+    if (back) back.remove();
+    render(d);
   }
   // kind: 'xi' = a correction to the announced first XI (this player actually
   // starts); 'sub' = an in-match substitution (has a minute, shows in the match
@@ -783,6 +796,16 @@
         rerenderPitch(data);
       }
     });
+    var SIZE_LABELS = ['M', 'L', 'XL'];
+    var fontBtn = el('button', {
+      text: '🔠 Text jucători: ' + SIZE_LABELS[view.labelSize],
+      onclick: function () {
+        view.labelSize = (view.labelSize + 1) % 3;
+        fontBtn.textContent = '🔠 Text jucători: ' + SIZE_LABELS[view.labelSize];
+        saveView();
+        rerenderPitch(data);
+      }
+    });
     var resetOrderBtn = el('button', {
       text: '↕ Aspect implicit panouri',
       title: 'Resetează ordinea și lățimea panourilor',
@@ -833,6 +856,7 @@
         swapBtn,
         orientBtn,
         namesBtn,
+        fontBtn,
         discSwatch('home'),
         discSwatch('away'),
         discReset,
@@ -898,7 +922,7 @@
   function pitch(d) {
     var vert = view.orientation === 'v';
     var nearKey = view.swapped ? 'away' : 'home';
-    var shell = el('div', { class: 'pitch-shell' + (vert ? ' vertical' : '') + (view.fullNames ? ' full-names' : '') }, [
+    var shell = el('div', { class: 'pitch-shell' + (vert ? ' vertical' : '') + (view.fullNames ? ' full-names' : '') + (view.labelSize === 1 ? ' lbl-1' : view.labelSize === 2 ? ' lbl-2' : '') }, [
       el('div', { class: 'pitch-lines' }),
       el('div', { class: 'pitch-box a' }),
       el('div', { class: 'pitch-box b' })
@@ -917,6 +941,7 @@
         var override = pkey && store.lineup && store.lineup[side] && store.lineup[side][pkey];
         var pos = place(override || pts[i] || { d: 0.03, w: 0.05 + i * 0.08 }, isNear);
         var stat = full && full.status;
+        var cap = !isEmpty && isCaptain(side, full || slot);
         var ec = full ? evCounts(side, full) : { goal: 0, yellow: 0, red: 0 };
         var badges = null;
         if (ec.goal || ec.yellow || ec.red) {
@@ -927,7 +952,7 @@
           ]);
         }
         var node = el('div', {
-          class: 'node ' + side + (isEmpty ? ' empty' : (stat && stat !== 'available' ? ' status-' + stat : '')) + (override ? ' moved' : '') + (ec.red ? ' sent-off' : ''),
+          class: 'node ' + side + (isEmpty ? ' empty' : (stat && stat !== 'available' ? ' status-' + stat : '')) + (override ? ' moved' : '') + (ec.red ? ' sent-off' : '') + (cap ? ' is-captain' : ''),
           style: 'left:' + pos.left.toFixed(2) + '%;top:' + pos.top.toFixed(2) + '%',
           title: isEmpty ? 'Click pentru a adăuga un jucător aici' : 'Trage pentru a repoziționa · click pentru fișă, schimbări, goluri/cartonașe',
           onclick: function () {
@@ -936,7 +961,10 @@
             else if (full) openPlayer(d, side, full);
           }
         }, [
-          el('div', { class: 'disc', text: isEmpty ? '+' : (slot.number != null ? String(slot.number) : (slot.pos || '')) }),
+          el('div', { class: 'disc' }, [
+            el('span', { text: isEmpty ? '+' : (slot.number != null ? String(slot.number) : (slot.pos || '')) }),
+            cap ? el('span', { class: 'cap-mark', text: 'C' }) : null
+          ]),
           badges,
           el('div', { class: 'lbl', text: isEmpty ? 'Adaugă' : (view.fullNames ? (slot.name || '') : shortName(slot.name)) })
         ]);
@@ -1011,8 +1039,8 @@
         var full = playerByNameOrNum(squad, p);
         var st = full && full.status;
         row.appendChild(el('button', {
-          class: 'bench-chip' + (st && st !== 'available' ? ' status-' + st : ''),
-          title: p.name + (st && st !== 'available' ? ' · ' + st : '') + ' — click pentru fișă / schimbare',
+          class: 'bench-chip' + (st && st !== 'available' ? ' status-' + st : '') + (isCaptain(side, p) ? ' is-captain' : ''),
+          title: p.name + (isCaptain(side, p) ? ' · căpitan' : '') + (st && st !== 'available' ? ' · ' + st : '') + ' — click pentru fișă / schimbare',
           onclick: function () { openPlayer(d, side, full); }
         }, [
           el('span', { class: 'bench-num', text: p.number != null ? String(p.number) : '' }),
@@ -1365,9 +1393,49 @@
     defs.forEach(function (def) {
       makePanelDraggable(def.node, def.key, d, defs);
       addPanelWiden(def.node, def.key, d);
+      addPanelExtras(def.node, def.key, d);
       box.appendChild(def.node);
     });
     return box;
+  }
+
+  // Lets the user append their own lines to any existing panel/category. Stored
+  // per panel key in store.panelExtra[key]; rendered at the bottom of the body.
+  function addPanelExtras(node, key, d) {
+    if (key === 'notes') return;   // that panel is already a free-text notes area
+    var body = node.querySelector('.body');
+    if (!body) return;
+    var box = el('div', { class: 'panel-extra' });
+    function redraw() {
+      box.innerHTML = '';
+      var list = (store.panelExtra && store.panelExtra[key]) || [];
+      list.forEach(function (it) {
+        box.appendChild(el('div', { class: 'px-row' }, [
+          el('span', { text: it.text }),
+          el('button', { text: '✕', title: 'Șterge', onclick: function () {
+            store.panelExtra[key] = (store.panelExtra[key] || []).filter(function (x) { return x.id !== it.id; });
+            if (!store.panelExtra[key].length) delete store.panelExtra[key];
+            if (store.panelExtra && !Object.keys(store.panelExtra).length) delete store.panelExtra;
+            save(); redraw();
+          } })
+        ]));
+      });
+      var inp = el('input', { class: 'field px-in', placeholder: '＋ adaugă o informație aici' });
+      function add() {
+        var v = inp.value.trim();
+        if (!v) return;
+        store.panelExtra = store.panelExtra || {};
+        (store.panelExtra[key] = store.panelExtra[key] || []).push({
+          id: Date.now() + '' + Math.random().toString(36).slice(2, 5), text: v, ts: Date.now()
+        });
+        save();
+        redraw();
+      }
+      inp.addEventListener('keydown', function (e) { if (e.key === 'Enter') add(); });
+      box.appendChild(el('div', { class: 'px-add' }, [inp, el('button', { class: 'pick', text: 'Adaugă', onclick: add })]));
+    }
+    redraw();
+    body.appendChild(box);
   }
 
   // Per-panel "widen" toggle: makes the panel span the full width of the grid,
@@ -1486,7 +1554,7 @@
       return el('div', { class: 'modal-head' }, [
         el('div', { class: 'avatar', style: 'background:' + (side === 'home' ? 'var(--home)' : 'var(--away)'), text: initials(p.name) }),
         el('div', {}, [
-          el('h3', { text: (p.number != null ? '#' + p.number + '  ' : '') + p.name }),
+          el('h3', { text: (p.number != null ? '#' + p.number + '  ' : '') + p.name + (isCaptain(side, p) ? '  (C)' : '') }),
           el('div', { class: 'sub', text: [pos(p), has(p.age) ? p.age + ' ani' : null, has(p.height) ? p.height + ' cm' : null, has(p.weight) ? p.weight + ' kg' : null, footLabel(p.foot)].filter(Boolean).join('  ·  ') }),
           el('div', { class: 'sub', text: [natLabel(p), d.teams[side].name].filter(Boolean).join('  ·  ') })
         ]),
@@ -1496,16 +1564,24 @@
       'Profil': function () {
         var wrap = el('div');
         var body = el('div');
-        // shirt number — editable, for when it's missing or has changed
+        // shirt number — editable, for when it's missing or has changed;
+        // plus a captain toggle
         var numIn = el('input', { class: 'field pnum-in', type: 'number', min: '1', max: '99',
           placeholder: '—', value: p.number != null ? p.number : '' });
         var numSave = el('button', { class: 'pick pnum-save', text: 'Salvează', onclick: function () {
           var v = numIn.value.trim();
           setPlayerNumber(d, side, p, v === '' ? null : parseInt(v, 10));
         } });
-        wrap.appendChild(el('div', { class: 'pnum-edit' }, [
-          el('label', { text: 'Număr tricou' }),
-          el('div', { class: 'pnum-row' }, [numIn, numSave])
+        var capOn = isCaptain(side, p);
+        var capBtn = el('button', {
+          class: 'cap-toggle' + (capOn ? ' on' : ''),
+          text: capOn ? '★ Căpitan' : '☆ Fă căpitan',
+          onclick: function () { setCaptain(d, side, p); }
+        });
+        wrap.appendChild(el('div', { class: 'pcard-edit' }, [
+          el('label', { text: 'Număr' }),
+          el('div', { class: 'pnum-row' }, [numIn, numSave]),
+          capBtn
         ]));
         wrap.appendChild(body);
         function fill() {
