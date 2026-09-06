@@ -36,7 +36,9 @@ const COMPS = [
   { id: 87, comp: 'LaLiga', abbr: 'laliga', country: 'ES' },
   { id: 55, comp: 'Serie A', abbr: 'seriea', country: 'IT' },
   { id: 54, comp: 'Bundesliga', abbr: 'bundesliga', country: 'DE' },
+  { id: 146, comp: '2. Bundesliga', abbr: 'bl2', country: 'DE' },
   { id: 189, comp: 'Superliga', abbr: 'sl', country: 'RO' },
+  { id: 9113, comp: 'Liga 2', abbr: 'ro2', country: 'RO' },
 ];
 const DAYS_AHEAD = 21; // scan window when a competition's round has finished
 

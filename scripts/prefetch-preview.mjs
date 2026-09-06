@@ -71,7 +71,9 @@ const SFI_LEAGUE = {
   'LaLiga':         { cc: 'ES', re: /primera liga/i },
   'Serie A':        { cc: 'IT', re: /\bserie a\b/i },
   'Bundesliga':     { cc: 'DE', re: /\bbundesliga\b/i },
+  '2. Bundesliga':  { cc: 'DE', re: /2\.?\s*bundesliga|zweite bundesliga|bundesliga 2/i, noExclude: true },
   'Superliga':      { cc: 'RO', re: /liga i\b/i },
+  'Liga 2':         { cc: 'RO', re: /liga (ii|2)\b/i, noExclude: true },
 };
 const SFI_EXCLUDE = /women|femin|u1[6-9]|u2[0-3]|youth|reserve|primavera|play-?off|segunda|serie b|serie d|ligue 2|2\.\s*bundesliga|\bii\b/i;
 
@@ -340,7 +342,7 @@ async function sfiChampionshipId(comp, cc, cache) {
     for (let p = 1; p <= 5 && !found; p++) {
       const rows = await sfi('championships/list/', { c: cc, p });
       if (!rows || !rows.length) break;
-      const hits = rows.filter((x) => x.name && spec.re.test(x.name) && !SFI_EXCLUDE.test(x.name));
+      const hits = rows.filter((x) => x.name && spec.re.test(x.name) && (spec.noExclude || !SFI_EXCLUDE.test(x.name)));
       found = (hits.find((x) => x.important) || hits[0]) || null;
       if (rows.length < 25) break;
     }
