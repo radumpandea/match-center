@@ -117,6 +117,42 @@ button{font-family:inherit}
 .node.empty .lbl{color:rgba(255,255,255,.55);font-style:italic}
 .node.empty:hover .disc{border-color:#fff;color:#fff}
 
+/* ---- substitutes' bench (touchline, below the pitch) ---- */
+.bench-strip{display:flex;flex-direction:column;gap:var(--space-2);margin-top:var(--space-3)}
+.bench-team{
+  display:flex;align-items:center;gap:6px;overflow-x:auto;padding:6px 8px;
+  border:1px solid var(--color-divider);border-left:3px solid var(--color-divider);
+  border-radius:var(--radius-sm);background:var(--color-surface);scrollbar-width:thin
+}
+.bench-team.home{border-left-color:var(--home)}
+.bench-team.away{border-left-color:var(--away)}
+.bench-label{flex:none;color:var(--color-neutral-500);letter-spacing:.04em;text-transform:uppercase;font-size:9.5px}
+.bench-add{flex:none;background:none;border:1px solid var(--color-divider);border-radius:var(--radius-sm);color:var(--color-neutral-400);cursor:pointer;font-size:11px;line-height:1;padding:3px 6px}
+.bench-add:hover{color:var(--color-accent-200);border-color:var(--color-accent)}
+.bench-empty{color:var(--color-neutral-600);font-size:11px}
+.bench-chip{
+  flex:none;display:inline-flex;align-items:center;gap:5px;padding:3px 8px 3px 4px;border-radius:999px;
+  background:var(--color-surface-2);border:1px solid var(--color-divider);color:var(--color-text);
+  font-size:11px;cursor:pointer
+}
+.bench-chip:hover{border-color:var(--color-accent)}
+.bench-chip .bench-num{
+  min-width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+  font-size:9px;font-weight:700;background:var(--color-bg);color:var(--color-neutral-400)
+}
+.bench-chip.status-out{opacity:.55}
+.bench-chip.status-out .bench-nm{text-decoration:line-through}
+.bench-chip.status-doubt{border-style:dashed}
+.bench-pick-list{display:flex;flex-direction:column;gap:4px;max-height:52vh;overflow:auto;margin:var(--space-2) 0}
+.bench-pick-list h4{margin:var(--space-3) 0 2px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-500)}
+.bench-pick{
+  text-align:left;font-size:12px;padding:6px 10px;border-radius:var(--radius-sm);cursor:pointer;
+  border:1px solid var(--color-divider);background:var(--color-surface-2);color:var(--color-neutral-400)
+}
+.bench-pick.on{border-color:var(--color-accent);color:var(--color-accent-200);background:var(--color-accent-900)}
+.bench-pick::before{content:"☐  ";opacity:.6}
+.bench-pick.on::before{content:"☑  ";opacity:1}
+
 /* ---- substitutions strip (below the pitch) ---- */
 .subs-strip{display:flex;flex-direction:column;gap:var(--space-2);margin-top:var(--space-3)}
 .subs-strip:empty{display:none}
@@ -338,7 +374,7 @@ table.mc th{color:var(--color-neutral-500);font-weight:500;letter-spacing:.06em}
 /* ---- print ---- */
 @media print{
   body{background:#fff;color:#000;font-size:11px}
-  .mc-toolbar,.modal-back,.notes textarea,.notes-row,.pgrip,.pwiden{display:none!important}
+  .mc-toolbar,.modal-back,.notes textarea,.notes-row,.pgrip,.pwiden,.bench-add{display:none!important}
   .panel.wide{grid-column:auto}
   .pitch-row{flex-direction:column}
   .team-aside{flex:none;width:100%;border-color:#bbb;background:#fff;color:#222;break-inside:avoid}

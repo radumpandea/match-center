@@ -531,6 +531,26 @@
     var ov = (store.xi && store.xi[side]) || {};
     return pred.map(function (slot, i) { return ov[i] || slot; });
   }
+  // matchday bench: an explicit list of squad keys in store.bench[side]; when
+  // unset, the implicit bench is everyone in the squad not in the XI.
+  function benchList(d, side) {
+    var xiKeys = effXI(d, side).map(keyOf);
+    var squad = effSquad(d, side);
+    var offPitch = function (p) { return xiKeys.indexOf(keyOf(p)) < 0; };
+    var explicit = store.bench && store.bench[side];
+    if (explicit && explicit.length) {
+      return explicit
+        .map(function (k) { return squad.filter(function (p) { return keyOf(p) === k; })[0]; })
+        .filter(function (p) { return p && offPitch(p); });
+    }
+    return squad.filter(offPitch);
+  }
+  function setBench(d, side, keys) {
+    store.bench = store.bench || {};
+    if (keys && keys.length) store.bench[side] = keys; else delete store.bench[side];
+    save();
+    rerenderPitch(d);
+  }
   // kind: 'xi' = a correction to the announced first XI (this player actually
   // starts); 'sub' = an in-match substitution (has a minute, shows in the match
   // log). Legacy entries with no `kind` are treated as 'xi'.
@@ -912,7 +932,90 @@
       ]));
     }
 
-    return el('div', { class: 'pitch-wrap' }, [shell, subsStrip(d)]);
+    return el('div', { class: 'pitch-wrap' }, [shell, benchStrip(d), subsStrip(d)]);
+  }
+
+  // The substitutes' bench, drawn on the touchline below the pitch — one row per
+  // team. Chips open the player card (Schimbă tab to send them on). "＋/✎" picks
+  // which squad players sit on the bench; "↺" returns to the full implicit bench.
+  function benchStrip(d) {
+    var wrap = el('div', { class: 'bench-strip' });
+    ['home', 'away'].forEach(function (side) {
+      var players = benchList(d, side);
+      var explicit = !!(store.bench && store.bench[side] && store.bench[side].length);
+      var squad = effSquad(d, side);
+      var row = el('div', { class: 'bench-team ' + side }, [
+        el('span', { class: 'bench-label', text: (d.teams[side].shortName || d.teams[side].name) + ' · rezerve' }),
+        el('button', { class: 'bench-add', title: 'Alege rezervele', text: explicit ? '✎' : '＋', onclick: function () { openBenchPicker(d, side); } })
+      ]);
+      if (explicit) {
+        row.appendChild(el('button', { class: 'bench-add', title: 'Toate rezervele', text: '↺', onclick: function () { setBench(d, side, null); } }));
+      }
+      if (!players.length) {
+        row.appendChild(el('span', { class: 'bench-empty', text: explicit ? 'nicio rezervă aleasă' : '—' }));
+      }
+      players.forEach(function (p) {
+        var full = playerByNameOrNum(squad, p);
+        var st = full && full.status;
+        row.appendChild(el('button', {
+          class: 'bench-chip' + (st && st !== 'available' ? ' status-' + st : ''),
+          title: p.name + (st && st !== 'available' ? ' · ' + st : '') + ' — click pentru fișă / schimbare',
+          onclick: function () { openPlayer(d, side, full); }
+        }, [
+          el('span', { class: 'bench-num', text: p.number != null ? String(p.number) : '' }),
+          el('span', { class: 'bench-nm', text: shortName(p.name) })
+        ]));
+      });
+      wrap.appendChild(row);
+    });
+    return wrap;
+  }
+
+  function openBenchPicker(d, side) {
+    var back = el('div', { class: 'modal-back', onclick: function (e) { if (e.target === back) close(); } });
+    function close() { back.remove(); document.removeEventListener('keydown', onKey); }
+    function onKey(e) { if (e.key === 'Escape') close(); }
+    document.addEventListener('keydown', onKey);
+
+    var xiKeys = effXI(d, side).map(keyOf);
+    var cand = effSquad(d, side).filter(function (p) { return xiKeys.indexOf(keyOf(p)) < 0; });
+    var cur = (store.bench && store.bench[side]) || null;
+    var chosen = {};
+    (cur || cand.map(keyOf)).forEach(function (k) { chosen[k] = true; });
+
+    var list = el('div', { class: 'bench-pick-list' });
+    groupPick(cand).forEach(function (grp) {
+      list.appendChild(el('h4', { text: grp.label }));
+      grp.items.forEach(function (p) {
+        var k = keyOf(p);
+        var b = el('button', {
+          class: 'bench-pick' + (chosen[k] ? ' on' : ''),
+          text: (p.number != null ? '#' + p.number + '  ' : '') + p.name + (p.status && p.status !== 'available' ? '  ·  ' + p.status : ''),
+          onclick: function () { chosen[k] = !chosen[k]; b.classList.toggle('on', !!chosen[k]); }
+        });
+        list.appendChild(b);
+      });
+    });
+    if (!cand.length) list.appendChild(el('p', { class: 'sub-note', text: 'Nu există jucători în afara primului 11.' }));
+
+    back.appendChild(el('div', { class: 'modal', style: 'max-width:400px' }, [
+      el('div', { class: 'modal-head' }, [
+        el('h3', { text: 'Rezerve — ' + d.teams[side].name }),
+        el('button', { class: 'modal-close', text: '✕', onclick: close })
+      ]),
+      el('div', { class: 'modal-body' }, [
+        el('p', { class: 'sub-note', text: 'Bifează cine stă pe bancă. Toți bifați = bancă implicită (tot lotul din afara primului 11).' }),
+        list,
+        el('div', { class: 'notes-row' }, [
+          el('button', { class: 'pick', text: 'Salvează', onclick: function () {
+            var keys = Object.keys(chosen).filter(function (k) { return chosen[k]; });
+            setBench(d, side, keys.length === cand.length ? null : keys);
+            close();
+          } })
+        ])
+      ])
+    ]));
+    document.body.appendChild(back);
   }
 
   // Below the pitch: one line per team listing the manual swaps, each removable.
