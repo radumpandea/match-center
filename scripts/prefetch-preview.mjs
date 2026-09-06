@@ -429,7 +429,9 @@ const SFI_HISTORY_TTL = 2;
 async function sfiHistory(teamId, teamName, cache) {
   cache.history = cache.history || {};
   const hit = cache.history[teamId];
-  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < SFI_HISTORY_TTL) return hit;
+  // re-fetch a stale entry, or one written before recentMatchId was tracked
+  if (hit && hit.fetchedAt && 'recentMatchId' in hit &&
+      daysBetween(todayISO(), hit.fetchedAt) < SFI_HISTORY_TTL) return hit;
   const res = await sfi('teams/history/', { i: teamId, w: '6m' });
   const matches = res && res[0] && Array.isArray(res[0].matches) ? res[0].matches : null;
   if (!matches) return hit || null;
