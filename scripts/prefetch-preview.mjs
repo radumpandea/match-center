@@ -749,7 +749,8 @@ async function buildMatch(fx) {
 // editorial pass, and that pass only has to polish + add a few researched
 // angles. Only runs when storyOfTheMatch is still empty.
 function computeStorySeeds(doc) {
-  if (doc.storyOfTheMatch && doc.storyOfTheMatch.length) return;
+  // called only on partial packs, whose story is only ever seeds — so regenerate
+  // each run to pick up form/h2h data that arrived after the first pass
   const out = [];
   for (const side of ['home', 'away']) {
     const t = doc.teams[side], nm = t.name;
