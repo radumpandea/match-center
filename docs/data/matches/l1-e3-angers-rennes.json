@@ -1,7 +1,6 @@
 {
   "slug": "l1-e3-angers-rennes",
-  "generatedAt": "2026-09-05T23:52:56.415Z",
-  "partial": true,
+  "generatedAt": "2026-09-06T09:00:00.000Z",
   "sources": [
     {
       "name": "free-api-live-football-data (RapidAPI)",
@@ -12,6 +11,36 @@
       "name": "soccer-football-info (RapidAPI)",
       "url": "https://rapidapi.com/soccerfootball/api/soccer-football-info",
       "accessed": "2026-09-06"
+    },
+    {
+      "name": "SoccerStats — Ligue 1",
+      "url": "https://www.soccerstats.com/latest.asp?league=france",
+      "accessed": "2026-09-06"
+    },
+    {
+      "name": "Angers SCO — site oficial (arbitri, analiza adversarului)",
+      "url": "https://angers-sco.fr/",
+      "accessed": "2026-09-06"
+    },
+    {
+      "name": "Yahoo Sports — preview Angers vs Rennes (06/09)",
+      "url": "https://sports.yahoo.com/articles/preview-angers-vs-rennes-team-152000058.html",
+      "accessed": "2026-09-06"
+    },
+    {
+      "name": "Get French Football News — Gilli / Anthony Lopes",
+      "url": "https://www.getfootballnewsfrance.com/",
+      "accessed": "2026-09-06"
+    },
+    {
+      "name": "Wikipedia — Franck Haise / Stéphane Gilli / Anthony Lopes",
+      "url": "https://en.wikipedia.org/wiki/Franck_Haise",
+      "accessed": "2026-09-06"
+    },
+    {
+      "name": "footmercato — tablouri de transferuri Rennes & Angers",
+      "url": "https://www.footmercato.net/club/stade-rennais-fc/tableau/",
+      "accessed": "2026-09-06"
     }
   ],
   "competition": {
@@ -21,19 +50,19 @@
   },
   "kickoff": "2026-09-06T18:15:00+03:00",
   "venue": {
-    "name": "n/d",
-    "capacity": null,
-    "city": null,
-    "notes": null
+    "name": "Stade Raymond Kopa",
+    "capacity": 18752,
+    "city": "Angers",
+    "notes": "Construit în 1912; redenumit în 2017 după Raymond Kopa, care și-a început cariera la Angers SCO."
   },
   "referee": {
-    "name": "n/d",
-    "country": null,
+    "name": "Geoffrey Kübler",
+    "country": "FRA",
     "age": null,
     "apps": null,
     "ycPerMatch": null,
     "rcPerMatch": null,
-    "history": null
+    "history": "Asistenți: Cyril Mugnier și Julien Aublé. Al patrulea oficial: Bastien Dechepy. VAR: Willy Delajod și Ludovic Rémy."
   },
   "h2h": {
     "recent": [
@@ -63,132 +92,114 @@
         "score": "Rennes 4-2 Angers"
       }
     ],
-    "summary": "Cap la cap (toate competițiile): Angers 3 - 3 - 14 Rennes."
+    "summary": "Bilanț all-time în toate competițiile: Angers 3 - 3 - 14 Rennes. Angers nu a învins-o pe Rennes în niciunul dintre ultimele 5 meciuri directe (2 egaluri, 3 înfrângeri); ultima, 2-1 pentru Rennes în aprilie 2026."
   },
-  "storyOfTheMatch": [],
+  "storyOfTheMatch": [
+    "Estéban Lepaul revine la Angers, clubul pe care l-a părăsit, în cea mai bună formă a carierei: 3 goluri în primele 2 etape.",
+    "Lepaul a marcat în fiecare dintre ultimele 7 meciuri de Ligue 1 — cea mai lungă serie din primele 5 campionate europene în acest sezon; a înscris cu PSG și a dat o dublă cu Le Mans.",
+    "Rennes are 4 puncte din 2 meciuri (2-2 cu PSG, 3-2 cu Le Mans) și e pe locul 6, dar a primit deja 4 goluri — fragilitate defensivă vizibilă.",
+    "Angers e pe 11, cu 3 puncte: victorie 3-1 la Auxerre după înfrângerea din prima etapă, pe teren propriu, cu Lille. Caută primele puncte acasă.",
+    "Duel de antrenori la început de mandat: Stéphane Gilli (Angers, din vara 2026, după ce a promovat Paris FC în Ligue 1) vs Franck Haise (Rennes, din februarie 2026, fost Lens și Nice, Antrenorul anului 2022-23).",
+    "Rennes a cheltuit ~37 mil. € vara aceasta (Mayenda ~22 mil., Reynolds, Oliveira, Cresswell, Nordin, Dia) și a încasat ~97 mil. € din vânzări (Embolo, Jacquet, Brassier), cu profit net ~60 mil.",
+    "Angers a construit ieftin: Anthony Lopes (35 de ani, liber de la Nantes retrogradată, peste 427 de meciuri în Ligue 1), Branco van den Boomen și Anthony Bermont — toți liberi de contract.",
+    "Poarta lui Rennes e incertă: Brice Samba a acuzat o accidentare ușoară, Nicolas Lemaître e pregătit să înceapă.",
+    "Start de sezon prolific în Ligue 1: 2,83 goluri pe meci, 58% dintre partide cu peste 2,5 goluri și cu ambele echipe marcând."
+  ],
   "teams": {
     "home": {
       "name": "Angers",
-      "shortName": null,
-      "colors": null,
-      "coach": {
-        "name": "Stéphane Gilli"
+      "shortName": "ANG",
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#ffffff"
       },
-      "formation": "n/d",
+      "coach": {
+        "name": "Stéphane Gilli",
+        "country": "FRA",
+        "age": 52,
+        "tenureFrom": "2026",
+        "career": [
+          {
+            "club": "Paris FC",
+            "period": "2019–2020",
+            "note": "antrenor secund (și interimar)"
+          },
+          {
+            "club": "Maroc (națională)",
+            "period": "2020–2022",
+            "note": "secundul lui Vahid Halilhodžić"
+          },
+          {
+            "club": "Paris FC",
+            "period": "2023–2026",
+            "note": "promovare în Ligue 1 (locul 2 în Ligue 2), prima revenire a clubului în elită după 46 de ani"
+          },
+          {
+            "club": "Angers",
+            "period": "2026–",
+            "note": "contract până în 2028"
+          }
+        ]
+      },
+      "formation": "4-4-2",
       "predictedXI": [
         {
           "number": 1,
           "name": "Anthony Lopes",
-          "pos": "n/d"
+          "pos": "GK"
         },
         {
-          "number": 27,
-          "name": "Lilian Rao-Lisoa",
-          "pos": "n/d"
-        },
-        {
-          "number": 4,
-          "name": "Ousmane Camara",
-          "pos": "n/d"
+          "number": 2,
+          "name": "Carlens Arcus",
+          "pos": "RB"
         },
         {
           "number": 21,
           "name": "Jordan Lefort",
-          "pos": "n/d"
-        },
-        {
-          "number": 17,
-          "name": "Joseph Kalulu",
-          "pos": "n/d"
-        },
-        {
-          "number": 14,
-          "name": "Yassin Belkhdim",
-          "pos": "n/d"
-        },
-        {
-          "number": 8,
-          "name": "Branco van den Boomen",
-          "pos": "n/d"
-        },
-        {
-          "number": 18,
-          "name": "Jim Allevinah",
-          "pos": "n/d"
-        },
-        {
-          "number": 26,
-          "name": "Anthony Bermont",
-          "pos": "n/d"
-        },
-        {
-          "number": 7,
-          "name": "Amine Sbaï",
-          "pos": "n/d"
-        },
-        {
-          "number": 19,
-          "name": "Amine El Ouazzani",
-          "pos": "n/d"
-        }
-      ],
-      "confirmedXI": [
-        {
-          "number": 1,
-          "name": "Anthony Lopes",
-          "pos": "n/d"
-        },
-        {
-          "number": 27,
-          "name": "Lilian Rao-Lisoa",
-          "pos": "n/d"
+          "pos": "RCB"
         },
         {
           "number": 4,
           "name": "Ousmane Camara",
-          "pos": "n/d"
-        },
-        {
-          "number": 21,
-          "name": "Jordan Lefort",
-          "pos": "n/d"
+          "pos": "LCB"
         },
         {
           "number": 17,
           "name": "Joseph Kalulu",
-          "pos": "n/d"
-        },
-        {
-          "number": 14,
-          "name": "Yassin Belkhdim",
-          "pos": "n/d"
-        },
-        {
-          "number": 8,
-          "name": "Branco van den Boomen",
-          "pos": "n/d"
+          "pos": "LB"
         },
         {
           "number": 18,
           "name": "Jim Allevinah",
-          "pos": "n/d"
+          "pos": "RM"
+        },
+        {
+          "number": 14,
+          "name": "Yassin Belkhdim",
+          "pos": "RCM"
+        },
+        {
+          "number": 8,
+          "name": "Branco van den Boomen",
+          "pos": "LCM"
         },
         {
           "number": 26,
           "name": "Anthony Bermont",
-          "pos": "n/d"
-        },
-        {
-          "number": 7,
-          "name": "Amine Sbaï",
-          "pos": "n/d"
+          "pos": "LM"
         },
         {
           "number": 19,
           "name": "Amine El Ouazzani",
-          "pos": "n/d"
+          "pos": "RST"
+        },
+        {
+          "number": 7,
+          "name": "Amine Sbaï",
+          "pos": "LST"
         }
       ],
+      "confirmedXI": null,
       "squad": [
         {
           "number": 1,
@@ -198,14 +209,14 @@
           "age": 35,
           "height": 184,
           "weight": null,
-          "foot": null,
+          "foot": "R",
           "nat": "POR",
           "natTeam": null,
           "birthCountry": "Portugal",
           "pronunciation": null,
-          "career": null,
+          "career": "Format la Lyon, unde a jucat aproape toată cariera; liber la Nantes în 2025 (retrogradare în Ligue 2), apoi la Angers din vara 2026.",
           "lastSeason": null,
-          "funfact": null,
+          "funfact": "Peste 427 de meciuri în Ligue 1; portar internațional al Portugaliei.",
           "linkLine": null,
           "status": "available",
           "statusNote": null,
@@ -498,7 +509,7 @@
           "funfact": null,
           "linkLine": null,
           "status": "out",
-          "statusNote": "Accidentat — revenire estimată About 1-2 weeks",
+          "statusNote": "Accidentare musculară — revenire estimată în 1-2 săptămâni",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -522,7 +533,7 @@
           "natTeam": null,
           "birthCountry": "Netherlands",
           "pronunciation": null,
-          "career": null,
+          "career": "Mijlocaș olandez de construcție, cunoscut din perioada de la Toulouse; adus liber de contract în vara 2026.",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -643,7 +654,7 @@
           "funfact": null,
           "linkLine": null,
           "status": "out",
-          "statusNote": "Accidentat — revenire estimată Mid September 2026",
+          "statusNote": "Accidentat — revenire estimată pe la mijlocul lunii septembrie 2026",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -684,7 +695,7 @@
           }
         },
         {
-          "number": 17,
+          "number": null,
           "name": "Usman Simbakoli",
           "pos": "ST",
           "role": "ATT",
@@ -754,9 +765,9 @@
           "natTeam": null,
           "birthCountry": "Morocco",
           "pronunciation": null,
-          "career": null,
+          "career": "Împrumutat de la SC Braga pentru sezonul 2026-27, fără opțiune de cumpărare.",
           "lastSeason": null,
-          "funfact": null,
+          "funfact": "Atacant franco-marocan, 25 de ani.",
           "linkLine": null,
           "status": "available",
           "statusNote": null,
@@ -888,204 +899,200 @@
         }
       ],
       "form": {
-        "last5": [],
-        "ppg": null,
-        "homeAway": null,
-        "position": 10,
-        "note": "Clasament Ligue 1 26/27: locul 10, 3p (3-3)"
+        "last5": [
+          "W",
+          "L"
+        ],
+        "ppg": 1.5,
+        "homeAway": "Acasă: 0 puncte din 1 meci (înfrângere cu Lille în etapa 1).",
+        "position": 11,
+        "note": "Ligue 1 2026-27, după 2 etape: 3 puncte, golaveraj 3-3."
       },
       "absences": [
         {
           "name": "Louis Mouton",
           "reason": "injury",
-          "detail": null,
+          "detail": "accidentare musculară — revenire estimată în 1-2 săptămâni",
           "since": null
         },
         {
           "name": "Haris Belkebla",
           "reason": "injury",
-          "detail": null,
+          "detail": "revenire estimată pe la mijlocul lunii septembrie 2026",
           "since": null
         }
       ],
-      "mercatoIn": [],
-      "mercatoOut": [],
-      "preseason": [],
-      "news": [],
-      "newsCandidates": [
+      "mercatoIn": [
         {
-          "title": "Column | Carolyn Hax: Daughter is mad she isn’t acting like a ‘real’ mother of the bride",
-          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOZnQ0bC1XYkVPNVdXQXVDSzRkcjE2TmVHaEliR3JUZ1RlOUhrSkRtdmY4MXdoR1dfZjdKcFg3dVRrbHdQUlRoa0hBNWF2THJWNVNfSFpUZU9UVjdaOWEyZTZrVFBVc3FGejdYaGo3OC00SHdXdVhoOGI1RU5iZjhqWTdCSHI0ZE1BcmgwZUhzbk52NHdJd2ZSclZRa2Z4TE05NXczaGJTSHpIUnN6THc?oc=5",
-          "source": "The Washington Post",
-          "published": "2026-09-05"
+          "name": "Anthony Lopes",
+          "from": "Nantes",
+          "fee": "liber de contract"
         },
         {
-          "title": "Lyon - Angers",
-          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBTU3pvMmQ4X3pOelJUNUZmS0Vtc19FVFhJamV6YUZNWEZkUTg2NWxUTmh6akFHX0hRV0xVX2ItYncxUG1HNGJTUWIxaElLbUhlaDI1Z01VSTVJSXo1TTdfck5zY0pZM0JVajRSU1d6RmhFRUptRnY1SF9jbnQ?oc=5",
-          "source": "Flashscore.com",
-          "published": "2026-09-05"
+          "name": "Branco van den Boomen",
+          "from": "liber de contract",
+          "fee": "liber"
         },
         {
-          "title": "Angers vs Stade Rennais: First Half Total",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNX0IwRExIeDRwc1VhQ19tbDJmSzQzR3g3cU15WnpBRkZhZDVDeG04ckNNLU1JVzdNemxvZElVUG9MRzh4dE1TbVhyQ1Y4MnNGcEc5X21uR3h1TThsMjQxa3VIZEFzNWxpMGhWSkY3QUxaRm5McGhfRjhoa18tOVRONmVUdEk?oc=5",
-          "source": "Coinbase",
-          "published": "2026-09-05"
+          "name": "Anthony Bermont",
+          "from": "liber de contract",
+          "fee": "liber"
         },
         {
-          "title": "Democrat Cynthia Moore Chestnut’s support for Byron Donalds angers some Democrats",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPQllYSllhMGczb1pCYVhmSl81YzZDakcwZ1JmTFVCSTg0WEdRVE8yamUwVnJKcTRlM3owYUJQalM4VVZnX21lSndRUmJXWjliZWQ1cDRBXzJvQ3VBYnBpcUxOOXc4a0RpNFBCZ3oyV3Y5NDA5OGxrdWJyb2pEckxpSGJhYktsa0J6WFJ6eGdwdGVySG9fU0RTY01rSkR2R1ZHQlMwbnFGbldUODhZMk4zUGhONmtZMkoydTZOM1dzMmVzbUU?oc=5",
-          "source": "Florida Politics",
-          "published": "2026-09-05"
+          "name": "Usman Simbakoli",
+          "from": null,
+          "fee": null
         },
         {
-          "title": "Drama over Monaco GP verdict: Briatore angers McLaren team principal Stella",
-          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPT0Z2VTRGcTdUYTdUbFgzOVVDSHYtNFF0eVllRWRKQzlsbk91dHBzYlFOV3o4S185SkY5VFk1OUZ2LXo1c051LXc4eTV5eFZ6b2ZZM1FFdXRYV3ZEVnVBSXNWQi1KckhxNGZZU1d5ZmJvY1o3VUg1T2s2WUdNUlZJWUVUdVFjcjU1YUJaallQWGJuQ0VXZWVfY3hzLU9iZWM2WmMtTXpNTlZuQTJkRU10Y2dpNmhseDhOZEp4SGdVMDRNODg1U2xUV0pIaVFBZw?oc=5",
-          "source": "SPEEDWEEK.com",
-          "published": "2026-09-05"
-        },
-        {
-          "title": "Angers vs Rennes: French Ligue 1 stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5RcW55aEViZm5xdU5fZERwdXIyV1BlTlc1WnBOYzlfcnNEdHJGcTBxX3QwRm5WcG5oNmIyLVBvajhsdkVJRjRWUmpwTXhwSW5hczhLaV9WY2lfbGlZWjV6a2lQSjlWQQ?oc=5",
-          "source": "BBC",
-          "published": "2026-09-05"
-        },
-        {
-          "title": "Angers vs Stade Rennais: First Half Winner",
-          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBla0thNGJXcDhCOHJLMGhFVDRYTjFzd3FuWUNkQlBSRVRfS3pubjUycENkMzMxYkNnb0RMRjRBTWR6M2lseElnMzdfZXFZZE9BZ19xekVweEZhMzZfS2tramZCc1BRLTdkUERnVU1SZnJ1V1o0VzE5UUNrSlR0Zw?oc=5",
-          "source": "Coinbase",
-          "published": "2026-09-05"
-        },
-        {
-          "title": "Angers SCO vs Stade Rennais Lineups - Ligue 1 2026/27",
-          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBFRHMzNTRkM1RGRUJjaE5sRTJuaUViTk9oMktXek9mdTlYbnlxV0gyVUZGajQ2U2Vqb0I5Mk9uenk5c3RUa1U4TWJ1VzVkMDRCR2txdG5QSWszdndxMndkMDNiNFZZSTFBNnVBZGV4aUQxaFF1V3oyejBMOA?oc=5",
-          "source": "BeSoccer Livescore",
-          "published": "2026-09-05"
+          "name": "Amine El Ouazzani",
+          "from": "SC Braga",
+          "fee": "împrumut fără opțiune (un sezon)"
         }
       ],
-      "stories": []
+      "mercatoOut": [],
+      "preseason": [],
+      "news": [
+        {
+          "date": "2026-09-05",
+          "text": "Angers vine după 3-1 la Auxerre, dar caută primele puncte pe teren propriu după înfrângerea cu Lille din etapa 1."
+        },
+        {
+          "date": "2026-09-05",
+          "text": "Brigada lui Geoffrey Kübler a fost desemnată pentru meci; VAR-ul e asigurat de Willy Delajod și Ludovic Rémy."
+        },
+        {
+          "date": "2026-07-20",
+          "text": "Amine El Ouazzani, atacant franco-marocan de 25 de ani, a fost împrumutat de la SC Braga pentru tot sezonul, fără opțiune de cumpărare."
+        }
+      ],
+      "stories": [
+        {
+          "title": "Prima victorie acasă, obiectivul lui Gilli",
+          "bullets": [
+            "3 puncte în 2 etape, toate din 3-1 la Auxerre.",
+            "Înfrângere în etapa 1, pe teren propriu, cu Lille.",
+            "Stéphane Gilli, pe bancă din vara 2026, după ce a promovat Paris FC în Ligue 1."
+          ]
+        },
+        {
+          "title": "Lot reconstruit cu jucători liberi",
+          "bullets": [
+            "Anthony Lopes (35 de ani), liber de la Nantes retrogradată, peste 427 de meciuri în Ligue 1.",
+            "Branco van den Boomen și Anthony Bermont, tot liberi de contract.",
+            "Amine El Ouazzani, împrumutat de la SC Braga fără opțiune de cumpărare."
+          ]
+        }
+      ]
     },
     "away": {
       "name": "Rennes",
-      "shortName": null,
-      "colors": null,
-      "coach": {
-        "name": "Franck Haise"
+      "shortName": "REN",
+      "colors": {
+        "primary": "#e2001a",
+        "secondary": "#000000"
       },
-      "formation": "n/d",
+      "coach": {
+        "name": "Franck Haise",
+        "country": "FRA",
+        "age": 55,
+        "tenureFrom": "2026-02",
+        "career": [
+          {
+            "club": "Mayenne",
+            "period": "2003–2006",
+            "note": null
+          },
+          {
+            "club": "Changé",
+            "period": "2012–2013",
+            "note": null
+          },
+          {
+            "club": "Lorient (rezerve, apoi secund și interimar)",
+            "period": "2013–2016",
+            "note": null
+          },
+          {
+            "club": "RC Lens (rezerve)",
+            "period": "2017–2020",
+            "note": null
+          },
+          {
+            "club": "RC Lens",
+            "period": "2020–2024",
+            "note": "locul 2 și calificare în Liga Campionilor în 2023 (84 de puncte); Antrenorul anului în Ligue 1 2022–23"
+          },
+          {
+            "club": "OGC Nice",
+            "period": "2024–2025",
+            "note": "demis în decembrie, după rezultate slabe și tensiuni cu galeria"
+          },
+          {
+            "club": "Rennes",
+            "period": "2026–",
+            "note": "numit în februarie 2026, contract până în 2027"
+          }
+        ]
+      },
+      "formation": "4-4-2",
       "predictedXI": [
         {
-          "number": 30,
-          "name": "Brice Samba",
-          "pos": "n/d"
+          "number": 16,
+          "name": "Nicolas Lemaître",
+          "pos": "GK"
         },
         {
           "number": 95,
           "name": "Przemyslaw Frankowski",
-          "pos": "n/d"
+          "pos": "RB"
         },
         {
           "number": 4,
           "name": "Charlie Cresswell",
-          "pos": "n/d"
+          "pos": "RCB"
         },
         {
           "number": 48,
           "name": "Abdelhamid Aït Boudlal",
-          "pos": "n/d"
+          "pos": "LCB"
         },
         {
           "number": 26,
           "name": "Quentin Merlin",
-          "pos": "n/d"
+          "pos": "LB"
         },
         {
           "number": 17,
           "name": "Sebastian Szymanski",
-          "pos": "n/d"
+          "pos": "RM"
         },
         {
           "number": 21,
           "name": "Valentin Rongier",
-          "pos": "n/d"
+          "pos": "RCM"
         },
         {
           "number": 28,
           "name": "Adrien Thomasson",
-          "pos": "n/d"
+          "pos": "LCM"
         },
         {
           "number": 11,
           "name": "Mousa Tamari",
-          "pos": "n/d"
+          "pos": "LM"
         },
         {
           "number": 9,
           "name": "Estéban Lepaul",
-          "pos": "n/d"
+          "pos": "RST"
         },
         {
           "number": 90,
           "name": "Issa Soumaré",
-          "pos": "n/d"
+          "pos": "LST"
         }
       ],
-      "confirmedXI": [
-        {
-          "number": 30,
-          "name": "Brice Samba",
-          "pos": "n/d"
-        },
-        {
-          "number": 95,
-          "name": "Przemyslaw Frankowski",
-          "pos": "n/d"
-        },
-        {
-          "number": 4,
-          "name": "Charlie Cresswell",
-          "pos": "n/d"
-        },
-        {
-          "number": 48,
-          "name": "Abdelhamid Aït Boudlal",
-          "pos": "n/d"
-        },
-        {
-          "number": 26,
-          "name": "Quentin Merlin",
-          "pos": "n/d"
-        },
-        {
-          "number": 17,
-          "name": "Sebastian Szymanski",
-          "pos": "n/d"
-        },
-        {
-          "number": 21,
-          "name": "Valentin Rongier",
-          "pos": "n/d"
-        },
-        {
-          "number": 28,
-          "name": "Adrien Thomasson",
-          "pos": "n/d"
-        },
-        {
-          "number": 11,
-          "name": "Mousa Tamari",
-          "pos": "n/d"
-        },
-        {
-          "number": 9,
-          "name": "Estéban Lepaul",
-          "pos": "n/d"
-        },
-        {
-          "number": 90,
-          "name": "Issa Soumaré",
-          "pos": "n/d"
-        }
-      ],
+      "confirmedXI": null,
       "squad": [
         {
           "number": 16,
@@ -1100,7 +1107,7 @@
           "natTeam": null,
           "birthCountry": "France",
           "pronunciation": null,
-          "career": null,
+          "career": "Portar adus liber de contract în vara 2026; titular cât timp Brice Samba e indisponibil.",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1133,8 +1140,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "out",
-          "statusNote": "Accidentat — revenire estimată About 1-2 weeks",
+          "status": "doubt",
+          "statusNote": "Accidentare ușoară; incert pentru acest meci",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -1187,7 +1194,7 @@
           "natTeam": null,
           "birthCountry": "England",
           "pronunciation": null,
-          "career": null,
+          "career": "Fundaș central englez, adus în vara 2026 sub formă de împrumut plătit (~2,5 mil. €).",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1680,10 +1687,10 @@
           "natTeam": null,
           "birthCountry": "France",
           "pronunciation": null,
-          "career": null,
+          "career": "Trecut pe la Angers înainte de mutarea la Rennes; prelungit până în 2030.",
           "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
+          "funfact": "A marcat în fiecare dintre ultimele 7 meciuri de Ligue 1 — cea mai lungă serie din primele 5 campionate europene în acest sezon.",
+          "linkLine": "Fost atacant al lui Angers; de la începutul sezonului a marcat 3 goluri în 2 etape, inclusiv cu PSG.",
           "status": "available",
           "statusNote": null,
           "stats": {
@@ -1709,7 +1716,7 @@
           "natTeam": null,
           "birthCountry": "Spain",
           "pronunciation": null,
-          "career": null,
+          "career": "Achiziția-record a verii lui Rennes (~22 mil. €).",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1854,7 +1861,7 @@
           "natTeam": null,
           "birthCountry": "Senegal",
           "pronunciation": null,
-          "career": null,
+          "career": "Adus liber de la Le Havre în vara 2026.",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1872,75 +1879,128 @@
         }
       ],
       "form": {
-        "last5": [],
-        "ppg": null,
-        "homeAway": null,
-        "position": 5,
-        "note": "Clasament Ligue 1 26/27: locul 5, 4p (5-4)"
+        "last5": [
+          "W",
+          "D"
+        ],
+        "ppg": 2.0,
+        "homeAway": "În deplasare: primul meci din acest sezon (ambele anterioare, acasă).",
+        "position": 6,
+        "note": "Ligue 1 2026-27, după 2 etape: 4 puncte, golaveraj 5-4."
       },
       "absences": [
         {
           "name": "Brice Samba",
-          "reason": "injury",
-          "detail": null,
+          "reason": "doubt",
+          "detail": "accidentare ușoară; Nicolas Lemaître pregătit să înceapă",
           "since": null
         }
       ],
-      "mercatoIn": [],
-      "mercatoOut": [],
-      "preseason": [],
-      "news": [],
-      "newsCandidates": [
+      "mercatoIn": [
         {
-          "title": "Spurs and Chelsea lead race for Rennes' French wonderkid Doue",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNZW1OdW14LWJkNnZpNVBMZ0psc0d5N1FkV1RRY3pRNTJMX0dGT0Y5bkEzRUFMaUFsbUg5MmdlaEl0ZG9pRm5ya014cjlHVUtWREFab3Y0RTRFYnNsOHluUjFMV2J2b2prcU9WM2dnSnlFZ1ZPX0FNQ0diaFFxa2Q4UzBpOG44MDVSY0lqdDR3aGpycnc1ZWFJamxVZjdSaDlsQjBiWDJodUNwZlNwOS1LMFFwQnNsTE1vWVptM1VrN01hQ3Jn?oc=5",
-          "source": "Flashscore.com",
-          "published": "2026-09-05"
+          "name": "Eliezer Mayenda",
+          "from": null,
+          "fee": "≈22 mil. €"
         },
         {
-          "title": "Théo Lorant",
-          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9FS01HR0ZvanZFQWhnMTVFVXdrR0lCWUJnMXNCR1RTS1VnWXduVTNNdEg2Q3RxSnNhSmpRc3g0clNVVVFjdnJJcUpUYXh1LWhYbEZDVms3Ry0yZDA4Tm5yZF9CN09yR0VXbFdUTGtyY3g4dw?oc=5",
-          "source": "Transfermarkt",
-          "published": "2026-09-05"
+          "name": "Bryan Reynolds",
+          "from": null,
+          "fee": "≈4,6 mil. €"
         },
         {
-          "title": "Angers vs Rennes: French Ligue 1 stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5RcW55aEViZm5xdU5fZERwdXIyV1BlTlc1WnBOYzlfcnNEdHJGcTBxX3QwRm5WcG5oNmIyLVBvajhsdkVJRjRWUmpwTXhwSW5hczhLaV9WY2lfbGlZWjV6a2lQSjlWQQ?oc=5",
-          "source": "BBC",
-          "published": "2026-09-05"
+          "name": "Gonçalo Oliveira",
+          "from": null,
+          "fee": "≈3,5 mil. €"
         },
         {
-          "title": "Marseille vs. Rennes: live game updates, stats, play-by-play",
-          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFAzQmJEUzVPc242VkJzVmxzOVdXLVE4MkRYNTlWOS1hRGU1T0tkU2dhejVTalB0SlptUzY3RGNzYzVwV1FsNV9USVM0ZURTTnVabUhoZDZmQ0hacThPbGRBNDFpaHFXWldRUHU3dWJqVDBseU9kUWtlSkVHUQ?oc=5",
-          "source": "Yahoo Sports UK",
-          "published": "2026-09-05"
+          "name": "Charlie Cresswell",
+          "from": null,
+          "fee": "împrumut plătit (≈2,5 mil. €)"
         },
         {
-          "title": "Angers vs Rennes Prediction and Betting Tips | September 6th 2026",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxObUtEdzU3M1lHMDhPbHdRdzBRYk1pMDhEZWxLdlJDaVgtLVp2ODctZFF0VVloZk80cUlUSG1sRzh0TmlVVVpfOVlWSVlEck15V3c4MDNOUnhoZ0p2ai1pSVNzNEdfS1VjLUVaazVBSm9EQU1UdHVwX21FODFnSFBLTEZhTmdCVmpfcUEtOUxyanBhb3IxSTQxaDVQZDk?oc=5",
-          "source": "Sportskeeda",
-          "published": "2026-09-05"
+          "name": "Arnaud Nordin",
+          "from": null,
+          "fee": "≈2,2 mil. €"
         },
         {
-          "title": "Angers vs Rennes prediction and betting tips 06 September 2026",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNS3FzQXZHSWRGbTNmdVZFdWlJYjJfUWM0VlN2eU9mbTJXOGZqTG1yX3hiSG1XNE9lMjhWYmdFb2hqZm1PeHJwUXJ4M1pNOU9xQ0phb2tKMjBMUzdjVC1wSk1KMVJfX0gyOThQcXlQN2xFcXpqZmJrMHkzRE1CUXhpd2x4WHI0OUtKeC1lcTFmazBqcmlQaWJLSXc0MG5oLXRkT090Sm5mS2djSjU3OENabE1qZmpNVEtz?oc=5",
-          "source": "Dailysports",
-          "published": "2026-09-05"
+          "name": "Boulaye Dia",
+          "from": null,
+          "fee": "împrumut plătit (≈2 mil. €)"
         },
         {
-          "title": "Angers - Rennes: betting tip (cf 2.30) for the French Championship match on September 6, 2026",
-          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPb3BYc1FUZU1PUHQ0TFZvSVNJNmJidnFVM2lhdFJ5ZGtZcHJoTFJwQ3JDTkxYcmt0TTlGVm0wZEVVUTFzRjgzd19hM2FGU2xxVzNWWC1INlBMamI3MHl2d2JWeHBmU1dqcUxaM0huSENyNVFXYVhNaV9iWDd6YVFtSFU1TWdCU3hHcVRyMXVUY2FxUl9Ydi1BV0NZMExqYkpPYkhTVWdkTXJoVUdLSlBUcmx0NE9taUdsN25BdUEyRnlRczFfVG9pU3ZRWHdBUQ?oc=5",
-          "source": "Liontips",
-          "published": "2026-09-05"
+          "name": "Issa Soumaré",
+          "from": "Le Havre",
+          "fee": "liber"
         },
         {
-          "title": "Rennes: Estéban Lepaul’s regrets after the draw against PSG",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNczItOGpDTFZzMS1aZG9sdHZVWnJmNnp2SkZKZkxQVEJCajNOYng0UU5fZ1g0VjREZXhDRUVZc1hSX3FXNFNHMlJhNWkxVHI0MUVDT2VYR2VoQ0JzVlZ1aTNtc0RXZzhrZTY0TnRzbzdEUVI2SHZ2bks1ZVN6N05Sc3FTOGhVNjFwWk5WbXJDMXhZSUhqWDFnc2htdEFmNTJTZVd2QQ?oc=5",
-          "source": "French Football Weekly",
-          "published": "2026-09-05"
+          "name": "Adrien Thomasson",
+          "from": "liber de contract",
+          "fee": "liber"
+        },
+        {
+          "name": "Nicolas Lemaître",
+          "from": "liber de contract",
+          "fee": "liber"
         }
       ],
-      "stories": []
+      "mercatoOut": [
+        {
+          "name": "Breel Embolo",
+          "to": null,
+          "fee": null
+        },
+        {
+          "name": "Jérémy Jacquet",
+          "to": null,
+          "fee": null
+        },
+        {
+          "name": "Lilian Brassier",
+          "to": null,
+          "fee": null
+        }
+      ],
+      "preseason": [],
+      "news": [
+        {
+          "date": "2026-09-05",
+          "text": "Estéban Lepaul, fost jucător al lui Angers, are 3 goluri în primele 2 etape și a marcat în fiecare dintre ultimele 7 meciuri de Ligue 1."
+        },
+        {
+          "date": "2026-09-05",
+          "text": "Brice Samba a acuzat o accidentare ușoară; Nicolas Lemaître e gata să apere poarta."
+        },
+        {
+          "date": "2026-09-05",
+          "text": "Rennes a început sezonul cu 2-2 acasă cu PSG și 3-2 cu Le Mans; 4 puncte, dar 4 goluri primite."
+        }
+      ],
+      "stories": [
+        {
+          "title": "Lepaul, fenomenul momentului",
+          "bullets": [
+            "3 goluri în primele 2 etape ale sezonului.",
+            "Gol în fiecare dintre ultimele 7 meciuri de Ligue 1 — cea mai lungă serie din primele 5 campionate europene în acest sezon.",
+            "Fost jucător al lui Angers; prelungit la Rennes până în 2030."
+          ]
+        },
+        {
+          "title": "Vară de aproape 100 de milioane încasate",
+          "bullets": [
+            "Plecări: Breel Embolo, Jérémy Jacquet, Lilian Brassier.",
+            "Sosiri de ~37 mil. €: Eliezer Mayenda (~22 mil.), Reynolds, Oliveira, Cresswell, Nordin, Dia.",
+            "Profit net din transferuri estimat la ~60 mil. €."
+          ]
+        },
+        {
+          "title": "Apărare de reparat",
+          "bullets": [
+            "4 goluri primite în primele 2 meciuri.",
+            "Brice Samba, incert (accidentare ușoară).",
+            "Charlie Cresswell și Abdelhamid Aït Boudlal, cuplul central de perspectivă."
+          ]
+        }
+      ]
     }
   }
 }
