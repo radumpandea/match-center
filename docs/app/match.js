@@ -440,6 +440,23 @@
     : { orientation: 'h', swapped: false, fullNames: false };
   function saveView() { store.view = { orientation: view.orientation, swapped: view.swapped, fullNames: view.fullNames }; save(); }
 
+  /* ---------- disc (player node) colours per team ----------
+     user override (store.discColors) wins; then the pack's colors.primary;
+     then a default. Applied to the --home / --away CSS vars on <html>. */
+  var DISC_DEFAULT = { home: '#6d28d9', away: '#b91c1c' };
+  function hex6(v) { return /^#[0-9a-fA-F]{6}$/.test(v || '') ? v : null; }
+  function resolveDisc(d, side) {
+    var ov = store.discColors && store.discColors[side];
+    if (hex6(ov)) return ov;
+    var c = d.teams[side] && d.teams[side].colors;
+    if (c && hex6(c.primary)) return c.primary;
+    return DISC_DEFAULT[side];
+  }
+  function applyDiscColors(d) {
+    document.documentElement.style.setProperty('--home', resolveDisc(d, 'home'));
+    document.documentElement.style.setProperty('--away', resolveDisc(d, 'away'));
+  }
+
   /* Each player is placed by (d, w): d = depth from own goal-line (0.05) to just
      short of halfway (~0.45); w = position across the pitch width (0..1). The
      view transform below turns (d, w) into left/top % for the chosen orientation
@@ -514,7 +531,10 @@
     var ov = (store.xi && store.xi[side]) || {};
     return pred.map(function (slot, i) { return ov[i] || slot; });
   }
-  function applySub(d, side, idx, player, minute) {
+  // kind: 'xi' = a correction to the announced first XI (this player actually
+  // starts); 'sub' = an in-match substitution (has a minute, shows in the match
+  // log). Legacy entries with no `kind` are treated as 'xi'.
+  function applySub(d, side, idx, player, minute, kind) {
     var pred = d.teams[side].predictedXI || [];
     var m = parseInt(minute, 10);
     store.xi = store.xi || {};
@@ -523,20 +543,23 @@
       number: player.number != null ? player.number : null,
       name: player.name,
       pos: pred[idx] ? pred[idx].pos : player.pos,
-      minute: isNaN(m) ? null : m
+      minute: isNaN(m) ? null : m,
+      kind: kind === 'sub' ? 'sub' : 'xi'
     };
     save();
     rerenderPitch(d);
+    rerenderPanels(d);
   }
   function clearSub(d, side, idx) {
-    if (store.xi && store.xi[side]) { delete store.xi[side][idx]; save(); rerenderPitch(d); }
+    if (store.xi && store.xi[side]) { delete store.xi[side][idx]; save(); rerenderPitch(d); rerenderPanels(d); }
   }
 
   /* ---------- goals & cards per player (store.events) ---------- */
   var EV_META = {
     goal: { icon: '⚽', label: 'Gol' },
     yellow: { icon: '🟨', label: 'Cartonaș galben' },
-    red: { icon: '🟥', label: 'Cartonaș roșu' }
+    red: { icon: '🟥', label: 'Cartonaș roșu' },
+    sub: { icon: '🔄', label: 'Schimbare' }
   };
   function evKey(side, p) { return side + ':' + (p && p.number != null ? p.number : (p && p.name)); }
   function eventsFor(side, p) { return (store.events && store.events[evKey(side, p)]) || []; }
@@ -580,6 +603,23 @@
           minute: e.minute, type: e.type, id: e.id, side: side, player: pl,
           playerName: (pl.number != null ? pl.number + '. ' : '') + pl.name,
           teamName: d.teams[side].name
+        });
+      });
+    });
+    // in-match substitutions (store.xi entries flagged kind === 'sub')
+    var xi = store.xi || {};
+    ['home', 'away'].forEach(function (side) {
+      var pred = d.teams[side].predictedXI || [];
+      var ov = xi[side] || {};
+      Object.keys(ov).forEach(function (i) {
+        var cur = ov[i], orig = pred[i];
+        if (!cur || cur.kind !== 'sub') return;
+        if (orig && sameP(cur, orig)) return;
+        rows.push({
+          minute: cur.minute, type: 'sub', id: 'xi:' + side + ':' + i, side: side, player: null,
+          playerName: (orig && has(orig.name) ? shortName(orig.name) : '—') + ' → ' + shortName(cur.name),
+          teamName: d.teams[side].name,
+          onDel: (function (s, idx) { return function () { clearSub(d, s, idx); }; })(side, parseInt(i, 10))
         });
       });
     });
@@ -636,6 +676,7 @@
 
   function render(data) {
     applyManualOverlay(data);
+    applyDiscColors(data);
     document.title = data.teams.home.name + ' – ' + data.teams.away.name + ' · Match Center';
     root.innerHTML = '';
     pitchEl = null;
@@ -670,9 +711,34 @@
       }
     });
     var resetOrderBtn = el('button', {
-      text: '↕ Ordine implicită',
+      text: '↕ Aspect implicit panouri',
+      title: 'Resetează ordinea și lățimea panourilor',
       onclick: function () {
-        if (store.panelOrder) { delete store.panelOrder; save(); rerenderPanels(data); }
+        var ch = false;
+        if (store.panelOrder) { delete store.panelOrder; ch = true; }
+        if (store.panelWide) { delete store.panelWide; ch = true; }
+        if (ch) { save(); rerenderPanels(data); }
+      }
+    });
+    function discSwatch(side) {
+      var inp = el('input', {
+        type: 'color', class: 'ds-input', value: resolveDisc(data, side),
+        title: 'Culoarea bulinelor — ' + data.teams[side].name,
+        oninput: function () {
+          store.discColors = store.discColors || {};
+          store.discColors[side] = inp.value;
+          save(); applyDiscColors(data); rerenderPitch(data);
+        }
+      });
+      return el('label', { class: 'disc-swatch' }, [
+        el('span', { text: (data.teams[side].shortName || data.teams[side].name).slice(0, 3).toUpperCase() }),
+        inp
+      ]);
+    }
+    var discReset = el('button', {
+      text: '↺ Culori', title: 'Culori implicite pentru buline',
+      onclick: function () {
+        if (store.discColors) { delete store.discColors; save(); render(data); }
       }
     });
 
@@ -694,6 +760,9 @@
         swapBtn,
         orientBtn,
         namesBtn,
+        discSwatch('home'),
+        discSwatch('away'),
+        discReset,
         resetPosBtn,
         resetOrderBtn,
         el('button', { text: '🖨 Print', onclick: function () { window.print(); } }),
@@ -862,11 +931,13 @@
         el('span', { class: 'subs-label', text: d.teams[side].name })
       ]);
       made.forEach(function (m) {
+        var kind = (m.inn && m.inn.kind === 'sub') ? 'sub' : 'xi';
         var mm = m.inn && m.inn.minute;
-        row.appendChild(el('span', { class: 'sub-chip' }, [
-          mm != null ? el('span', { class: 'sub-min-badge', text: mm + "'" }) : null,
-          el('span', { text: shortName(m.out.name) + '  ↦  ' + shortName(m.inn.name) }),
-          el('button', { text: '✕', title: 'Anulează schimbarea', onclick: function () { clearSub(d, side, m.i); } })
+        row.appendChild(el('span', { class: 'sub-chip ' + kind }, [
+          el('span', { class: 'sub-kind', text: kind === 'sub' ? 'MECI' : 'PRIM 11' }),
+          (kind === 'sub' && mm != null) ? el('span', { class: 'sub-min-badge', text: mm + "'" }) : null,
+          el('span', { text: shortName(m.out.name) + '  ' + (kind === 'sub' ? '↦' : '⇄') + '  ' + shortName(m.inn.name) }),
+          el('button', { text: '✕', title: 'Anulează', onclick: function () { clearSub(d, side, m.i); } })
         ]));
       });
       strip.appendChild(row);
@@ -1115,7 +1186,7 @@
       evLog.forEach(function (row) {
         evBody.appendChild(el('div', { class: 'ev-row' }, [
           el('span', { text: (row.minute != null ? row.minute + "'  " : "—  ") + EV_META[row.type].icon + '  ' + row.playerName + '  (' + row.teamName + ')' }),
-          el('button', { text: '✕', title: 'Șterge', onclick: function () { delEvent(row.side, row.player, row.id); rerenderPanels(d); rerenderPitch(d); } })
+          el('button', { text: '✕', title: 'Șterge', onclick: row.onDel || function () { delEvent(row.side, row.player, row.id); rerenderPanels(d); rerenderPitch(d); } })
         ]));
       });
       add('events', panel('Evenimente meci', evBody, { open: true }));
@@ -1137,9 +1208,34 @@
     var box = el('div', { class: 'panels' });
     defs.forEach(function (def) {
       makePanelDraggable(def.node, def.key, d, defs);
+      addPanelWiden(def.node, def.key, d);
       box.appendChild(def.node);
     });
     return box;
+  }
+
+  // Per-panel "widen" toggle: makes the panel span the full width of the grid,
+  // so a cramped two-column panel (e.g. Formă) gets room. Persisted per key.
+  function addPanelWiden(node, key, d) {
+    if (node.classList.contains('lead')) return;   // already full-width
+    var wide = !!(store.panelWide && store.panelWide[key]);
+    if (wide) node.classList.add('wide');
+    var sum = node.querySelector('summary');
+    if (!sum) return;
+    var btn = el('span', {
+      class: 'pwiden', role: 'button', tabindex: '0',
+      title: wide ? 'Restrânge caseta' : 'Extinde caseta pe toată lățimea',
+      text: wide ? '⤡' : '⤢'
+    });
+    btn.addEventListener('click', function (e) {
+      e.preventDefault(); e.stopPropagation();
+      store.panelWide = store.panelWide || {};
+      if (store.panelWide[key]) delete store.panelWide[key]; else store.panelWide[key] = true;
+      save();
+      rerenderPanels(d);
+    });
+    var grip = sum.querySelector('.pgrip');
+    sum.insertBefore(btn, grip ? grip.nextSibling : sum.firstChild);
   }
 
   /* ---------- drag panels to reorder ---------- */
@@ -1349,14 +1445,30 @@
       });
     }
 
-    // optional minute of the substitution — read at click time
-    var minIn = el('input', { class: 'field sub-min', type: 'number', min: '1', max: '120', placeholder: "Minut (opțional)" });
+    // type of change: correcting the announced XI, or an in-match substitution
+    var kindSel = 'xi';
+    var minIn = el('input', { class: 'field sub-min', type: 'number', min: '1', max: '120', placeholder: "Minut" });
+    var minRow = el('div', { class: 'sub-min-row' }, [minIn]);
+    var kindToggle = el('div', { class: 'sub-kind-toggle' });
+    function setKind(k) {
+      kindSel = k;
+      [].forEach.call(kindToggle.children, function (b) { b.classList.toggle('active', b.getAttribute('data-k') === k); });
+      minRow.hidden = (k !== 'sub');
+    }
+    [['xi', 'Corectură primul 11'], ['sub', 'Schimbare în meci']].forEach(function (pair) {
+      kindToggle.appendChild(el('button', { 'data-k': pair[0], text: pair[1], onclick: function () { setKind(pair[0]); } }));
+    });
+    function doSub(idx, player) {
+      applySub(d, side, idx, player, kindSel === 'sub' ? minIn.value : null, kindSel);
+      close();
+    }
 
     if (slotIdx >= 0) {
       var origName = pred[slotIdx] ? pred[slotIdx].name : null;
       var swapped = !!(store.xi && store.xi[side] && store.xi[side][slotIdx]);
       wrap.appendChild(el('p', { class: 'sub-head', text: 'Îl scoate pe ' + p.name + '. Cine intră?' }));
-      wrap.appendChild(minIn);
+      wrap.appendChild(kindToggle);
+      wrap.appendChild(minRow);
       if (swapped && origName) {
         wrap.appendChild(line({ name: '↩ Revino la ' + origName + ' (din predicție)' },
           function () { clearSub(d, side, slotIdx); close(); }));
@@ -1366,20 +1478,22 @@
       groupPick(bench).forEach(function (grp) {
         wrap.appendChild(el('h4', { text: grp.label }));
         grp.items.forEach(function (b) {
-          wrap.appendChild(line(b, function () { applySub(d, side, slotIdx, b, minIn.value); close(); }));
+          wrap.appendChild(line(b, function () { doSub(slotIdx, b); }));
         });
       });
       if (!bench.length) wrap.appendChild(el('p', { text: 'Nu există jucători de rezervă în date.' }));
     } else {
       wrap.appendChild(el('p', { class: 'sub-head', text: p.name + ' e pe bancă. Pe cine înlocuiește?' }));
-      wrap.appendChild(minIn);
+      wrap.appendChild(kindToggle);
+      wrap.appendChild(minRow);
       eff.forEach(function (s, i) {
         if (!has(s.name)) return; // empty slot — fill it directly via the pitch, not from here
         var full = playerByNameOrNum(squad, s);
-        wrap.appendChild(line(full, function () { applySub(d, side, i, p, minIn.value); close(); }));
+        wrap.appendChild(line(full, function () { doSub(i, p); }));
       });
     }
-    wrap.appendChild(el('p', { class: 'sub-note', text: 'Se salvează local, în acest browser — pentru schimbări în timpul meciului, fără să aștepți actualizarea datelor.' }));
+    wrap.appendChild(el('p', { class: 'sub-note', text: '„Corectură primul 11" = alinierea anunțată era greșită. „Schimbare în meci" = schimbare la minutul indicat, apare în jurnalul meciului. Se salvează local.' }));
+    setKind('xi');
     return wrap;
   }
 
