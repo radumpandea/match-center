@@ -237,9 +237,9 @@ button.pick.warn{color:var(--color-neutral-400)}
 .panel-extra .px-row{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-3);font-size:12.5px;color:var(--color-text);background:var(--color-surface-2);border:1px solid var(--color-divider);border-radius:var(--radius-sm);padding:4px 8px}
 .panel-extra .px-row button{background:none;border:none;color:var(--color-neutral-600);cursor:pointer;font-size:11px;flex:none}
 .panel-extra .px-row button:hover{color:var(--color-text)}
-.panel-extra .px-add{display:flex;gap:var(--space-2);margin-top:2px}
-.panel-extra .px-in{flex:1;font-size:12px}
-.panel-extra .px-add .pick{font-size:11px;padding:6px 10px;flex:none}
+.panel-extra .px-add{display:flex;gap:var(--space-2);align-items:stretch;margin-top:2px}
+.panel-extra .px-in{flex:1 1 auto;width:auto;min-width:0;margin-top:0;font-size:12px;padding:6px 8px}
+.panel-extra .px-add .pick{flex:0 0 auto;width:auto;display:inline-block;margin-top:0;text-align:center;font-size:11px;padding:6px 12px}
 .panel > summary{
   list-style:none;cursor:pointer;padding:var(--space-3) var(--space-4);
   font:600 11px/1 "Inter",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-300);
