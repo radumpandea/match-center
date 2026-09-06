@@ -85,8 +85,15 @@ nimic relevant — `funfact` / `linkLine` rămân `null`, e normal.
 ## Pasul 1 — Cercetare (web_search / web_fetch)
 
 Ordinea de mai jos merge de la structurat (rapid, o pagină) spre editorial. Nu tot e mereu
-disponibil — nu inventa. Ce a pus deja Nivelul 1 (stadion, arbitru nume, lot, accidentări,
-`confirmedXI`) doar verifici, nu re-cauți.
+disponibil — nu inventa. Ce a pus deja Nivelul 1 (stadion, arbitru nume, lot, formă, cap la
+cap, accidentări, `confirmedXI`, câteva bullet-uri factuale în `storyOfTheMatch`) doar
+verifici, nu re-cauți.
+
+**Buget de căutări: ~12 fetch-uri/căutări per meci, total.** Nu verifica lotul jucător cu
+jucător — l-a făcut Nivelul 1. Cheltuiala tipică: 1 pagină de preview, 1-2 de team news,
+2 Wikipedia (antrenori), 2 FBref (minute/meciuri pentru primul 11), 1-2 pentru funfacts,
+1 SoccerStats (statistici de goluri). Calitatea în limita bugetului bate acoperirea
+exhaustivă.
 
 1. **Cap la cap + clasament + formă — verifică ce a pus Nivelul 1, apoi SoccerStats pentru rest.**
    Nivelul 1 pune deja `h2h.recent[]` + `h2h.summary` (istoric all-time), `form.position` +

@@ -12,8 +12,9 @@ refresh-fixtures.yml   →  docs/data/fixtures.json      (deterministic, RapidAP
 prefetch-preview.yml   →  docs/data/teams/<id>.json    (deterministic squad cache, RapidAPI)
                           docs/data/matches/<slug>.json ("partial": true — factual skeleton)
                           docs/data/previews.json      (slugs that have a partial pack)
-build-match-data.yml   →  docs/data/matches/<slug>.json (Claude — upgrades the partial pack
-                                                         with the editorial layer, drops the flag)
+build-match-data.yml   →  docs/data/matches/<slug>.json (Claude editorial pass — up to 2
+                                                         packs closest to kickoff, Haiku,
+                                                         ~12 lookups/match, drops the flag)
 docs/index.html        →  fixture list
 docs/match.html?m=<slug>  →  the Match Center: pitch + predicted XI, player/coach/referee
                              cards, story / H2H / form / absences / mercato / news panels,
@@ -96,10 +97,18 @@ football feed can give for free:
 `match.html` treats a partial file as a rich skeleton: it renders the squads and lets you
 pick the XI from them, shows an amber "Date parțiale" banner, and still runs the
 client-side live calls for what's missing. `index.html` tags these fixtures "DATE PARȚIALE"
-(from `docs/data/previews.json`). `build-match-data.yml` / the `match-data-json` skill then
-**upgrade the same file** with the editorial layer (form, H2H, probable XI, story bars,
-funfacts, coach careers, mercato) computed largely from the numbers already in the file,
-triage `newsCandidates` into `news[]`, and remove the `partial` flag and the raw candidates.
+(from `docs/data/previews.json`).
+
+`build-match-data.yml` is the **Level 2 editorial pass**: once a day it takes the **1–2
+partial packs closest to kickoff** (within 3 days), runs **Haiku** against the
+`match-data-json` skill with a **~12-lookup-per-match budget**, and adds only the editorial
+fields Level 1 can't — `storyOfTheMatch` polish + a few researched angles, per-team
+`stories`, `funfact` / `linkLine` for the likely XI, `coach.career`, `mercato`,
+`stats.minutes` / `stats.apps` from FBref — then triages `newsCandidates` into `news[]`,
+removes the `partial` flag, and sets `ready: true`. It does **not** re-research squads,
+form or H2H. `workflow_dispatch` takes a `model` input to run a marquee match on Sonnet.
+The deterministic `storyOfTheMatch` seeds mean a pack still reads well even if this pass
+never runs for it.
 
 This tier needs only the `RAPIDAPI_KEY` repo secret (server-side, in the Action) — it does
 **not** need the public key in `docs/app/config.js`.

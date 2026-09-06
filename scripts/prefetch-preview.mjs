@@ -744,6 +744,42 @@ async function buildMatch(fx) {
   return out;
 }
 
+// Factual story seeds computed from numbers already in the pack — so a partial
+// pack shows something in the "Story of the match" panel even before the AI
+// editorial pass, and that pass only has to polish + add a few researched
+// angles. Only runs when storyOfTheMatch is still empty.
+function computeStorySeeds(doc) {
+  if (doc.storyOfTheMatch && doc.storyOfTheMatch.length) return;
+  const out = [];
+  for (const side of ['home', 'away']) {
+    const t = doc.teams[side], nm = t.name;
+    const f = t.form || {}, tb = f.table || {};
+    if (tb.points != null && tb.played) {
+      out.push(`${nm} — locul ${f.position != null ? f.position : '?'} după ${tb.played} etape, ${tb.points} puncte, golaveraj ${tb.gf}-${tb.ga}.`);
+    }
+    const rec = (f.recent || []).map((r) => r.result).filter(Boolean);
+    if (rec.length >= 3) {
+      let run = 1;
+      while (run < rec.length && rec[run] === rec[0]) run++;
+      if (run >= 3) {
+        const w = { W: 'victorii', D: 'egaluri', L: 'înfrângeri' }[rec[0]] || 'rezultate identice';
+        out.push(`${nm} vine după ${run} ${w} la rând.`);
+      } else {
+        let unbeaten = 0;
+        while (unbeaten < rec.length && rec[unbeaten] !== 'L') unbeaten++;
+        if (unbeaten >= 3) out.push(`${nm} — ${unbeaten} meciuri fără înfrângere.`);
+      }
+    }
+    const top = (t.squad || []).filter((p) => p.stats && p.stats.goals)
+      .sort((a, b) => b.stats.goals - a.stats.goals)[0];
+    if (top && top.stats.goals >= 2) {
+      out.push(`${top.name} e cel mai bun marcator al echipei ${nm} în acest start de sezon (${top.stats.goals} goluri).`);
+    }
+  }
+  if (doc.h2h && doc.h2h.summary) out.push(doc.h2h.summary);
+  if (out.length) doc.storyOfTheMatch = out.slice(0, 7);
+}
+
 // drop the _injury helper key before it goes into the schema-checked file
 function stripInternal(p) {
   const { _injury, ...rest } = p;
@@ -816,6 +852,7 @@ async function main() {
     } catch (e) {
       console.error(`  sfi enrich failed: ${e.message}`);
     }
+    computeStorySeeds(doc);
     writeJSON(`${MATCHES_DIR}/${f.slug}.json`, doc);
     partialSlugs.add(f.slug);
     console.log(`  wrote docs/data/matches/${f.slug}.json (partial${doc.h2h.recent.length ? ', +h2h' : ''})`);

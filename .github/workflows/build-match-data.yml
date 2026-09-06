@@ -2,13 +2,18 @@ name: Build Match Data
 
 on:
   schedule:
-    - cron: "0 6 * * *"    # 06:00 UTC daily (08:00 Europe/Bucharest) — after fixture refresh
-  workflow_dispatch: {}    # run on demand from the Actions tab (e.g. for a first test)
+    - cron: "0 6 * * *"    # 06:00 UTC daily (08:00 Europe/Bucharest) — after fixture refresh + prefetch
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Model for the editorial pass (default: Haiku 4.5)"
+        required: false
+        default: "claude-haiku-4-5-20251001"
 
 jobs:
   build-match:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 90
     permissions:
       contents: write
       id-token: write
@@ -42,87 +47,88 @@ jobs:
           claude_code_oauth_token: "${{ secrets.ANTHROPIC_API_KEY == '' && secrets.CLAUDE_CODE_OAUTH_TOKEN || '' }}"
           show_full_output: true
           prompt: |
-            You are building one structured match-data JSON file for a small
-            football Match Center site (radumpandea.github.io/match-center). You
-            run once a day, unattended, with no memory of any previous run and no
-            one reviewing the output before it goes live — everything you need is
-            in this repo and this prompt, and the accuracy rules below are not
-            optional.
+            You are the Level 2 editorial pass for a small football Match Center
+            site (radumpandea.github.io/match-center). You run once a day,
+            unattended, no memory of a previous run, nobody reviewing the output.
+            Everything you need is in this repo and this prompt.
 
             ## Critical: do the work yourself, now — there is no "later"
-            This process is a single one-shot run. The moment your final response
-            is produced, this job exits immediately — nothing keeps running after
-            that. Do NOT use the Task tool or any background/async agent to do the
-            research and "report back once it completes" — there is no "later" for
-            it to report into; delegated work like that is abandoned mid-way and
-            nothing gets built, committed, or pushed, even though your own turn
-            will look like it succeeded. Do every step yourself, directly,
-            synchronously, in this same turn: the research, the JSON file, the
-            fixtures.json update, and the git commit and push, all before you give
-            your final answer. Take as many tool calls and as long as you need.
+            This is a single one-shot run. The moment your final response is
+            produced, the job exits — nothing runs after that. Do NOT use the Task
+            tool or any background/async agent. Do every step yourself, directly,
+            in this same turn: research, edit the JSON files, update
+            fixtures.json, git commit and push — all before your final answer.
 
-            ## Repo layout
-            - `docs/data/fixtures.json` — an array of fixture entries:
-              { slug, comp, country, round, date, ko, kickoff, home, away, venue, ready }
-              GitHub Pages serves the site from `docs/`.
-            - `docs/data/schema.json` — the JSON Schema every match-data file must
-              satisfy (`additionalProperties: false` throughout).
-            - `docs/data/matches/<slug>.json` — where each match's data belongs.
-            - `.claude/skills/match-data-json/SKILL.md` — the full spec for how to
-              research and assemble the file. Follow it exactly, at its default
-              maximum scope (full squads, full detail per player, all sections) —
-              do not reduce scope or ask; there is no one here to ask.
-            - `scripts/validate-match.mjs` — run this on your output file.
+            ## What Level 1 already did (do NOT redo it)
+            `scripts/prefetch-preview.mjs` runs daily, deterministically, and has
+            already written `docs/data/matches/<slug>.json` for upcoming fixtures
+            with `"partial": true`. It fills, and you must TRUST (verify only if a
+            value looks obviously wrong, don't re-derive):
+            - `teams.<side>.squad[]` — full squads, shirt no., age, nat, height,
+              position, season goals/assists/cards/rating, and `career` for the
+              recent-lineup players;
+            - `teams.<side>.form` — `last5`, `table` (standings row), `recent`
+              (form guide), `position`;
+            - `h2h.recent[]` + `h2h.summary`;
+            - `venue`, `referee.name`, `teams.<side>.coach.name`, injuries in
+              `absences[]`, `confirmedXI` when the lineup was public;
+            - `storyOfTheMatch` — a few FACTUAL seed bullets computed from the
+              numbers (standings, streaks, top scorer);
+            - `teams.<side>.newsCandidates[]` — raw dated RSS headlines.
 
             ## Your job today
-            1. Read `docs/data/fixtures.json`. Among entries with `ready: false`,
-               find the one with the earliest `date` that is today or in the next
-               2 days (Europe/Bucharest time). If there is none, stop here — do
-               nothing else, make no commit. This is the expected outcome most days.
-            2. Build that match's data by following
-               `.claude/skills/match-data-json/SKILL.md` from Pasul 0 through
-               Pasul 3, in full. Write the file at
-               `docs/data/matches/<slug>.json` (create `docs/data/matches/` if
-               needed), conforming exactly to `docs/data/schema.json`.
-               If that file already exists with `"partial": true`, it was
-               pre-filled deterministically by `scripts/prefetch-preview.mjs`
-               (full squads with per-player season stats, coach name, injuries,
-               referee name, venue, the confirmed lineup when it was public, and
-               `teams.<side>.newsCandidates[]` — raw dated RSS headlines).
-               Build ON TOP of it: keep those fields (verify, don't blindly
-               rewrite), fill every empty section, triage `newsCandidates` into
-               `news[]`, and REMOVE both the `"partial"` flag and the
-               `newsCandidates` arrays from the final file — see the skill's
-               "Pipeline în două niveluri" and "Pornire de la fișierul partial".
-            3. Run `node scripts/validate-match.mjs docs/data/matches/<slug>.json`.
-               It must exit 0. Fix every `✗`. Treat `!` warnings (e.g. "lists 1
-               goalkeeper") as a signal to re-verify that part against the official
-               source.
-            4. Set that one entry's `ready: true` in `docs/data/fixtures.json`, and
-               correct its `round`, `ko`, `kickoff` or `venue` if your research
-               shows the fixture feed's value was wrong. Leave every other entry
-               untouched.
+            1. Read `docs/data/fixtures.json`. Pick **up to 2** entries that
+               (a) have `ready: false`, (b) whose `docs/data/matches/<slug>.json`
+               exists AND still has `"partial": true`, (c) kick off soonest,
+               within the next **3 days** (Europe/Bucharest). If none qualify,
+               STOP — no commit. That is the normal outcome most days.
+            2. For each picked match, edit its file IN PLACE, following
+               `.claude/skills/match-data-json/SKILL.md` as the editorial layer.
+               You may ONLY add/change these fields:
+               - `storyOfTheMatch`: keep the factual seed bullets, merge/rephrase
+                 for tone, add AT MOST 3 genuinely-researched angles → 6–10 total.
+               - `teams.<side>.stories[]`: 2–3 punchy bars per team.
+               - `funfact` / `linkLine`: only for the ~11 likely starters of each
+                 side plus anyone a story touches. The rest stay `null`.
+               - `news[]`: triage `newsCandidates` — keep only match-relevant,
+                 ≤2–3 days old; rewrite in Romanian, paraphrased. Then DELETE the
+                 `newsCandidates` arrays.
+               - `coach.career` / `coach.country` / `coach.age` / `coach.tenureFrom`
+                 if empty (Wikipedia manager infobox).
+               - `mercatoIn[]` / `mercatoOut[]`, `preseason[]` — if quickly found.
+               - `stats.minutes` / `stats.apps` for the likely XI (FBref "All
+                 Competitions" club page — one page per club covers the whole XI).
+               - `venue.capacity` / `venue.city`, `referee` age/averages — ONLY if
+                 trivially found; otherwise leave as-is.
+               - `colors`, `shortName` if known.
+               Do NOT rewrite squads, form, h2h, or the confirmed lineup.
+               FINALLY: remove the `"partial"` key from the object.
+            3. `node scripts/validate-match.mjs docs/data/matches/<slug>.json` must
+               exit 0 for each file. `!` warnings about predictedXI count or squad
+               size are EXPECTED on these packs — don't chase them. Fix every `✗`.
+            4. Set `ready: true` on those entries in `docs/data/fixtures.json`;
+               correct `round` / `ko` / `kickoff` / `venue` only if clearly wrong.
+               Touch no other entry.
 
-            ## Accuracy — read this twice, no one will catch a mistake before it's live
-            - Never invent a fact, a statistic, or a height/career detail. Use
-              `null` / `"n/d"` exactly as the schema and skill say.
-            - Never write a "first time", "record", or "return to" claim unless a
-              source states that exact thing. When unsure, state the plain fact.
-            - Any news item must be dated within 2-3 days of today — check the
-              article's own date; drop anything older or undated.
-            - If two sources disagree on a squad, a lineup, or a stat, prefer the
-              official source (club site, league site, UEFA squad list for European
-              games) and note the discrepancy rather than silently picking one.
-            - This research is intentionally large (the skill notes 40-90+ lookups
-              just for squad details) — that volume is expected, not a signal to
-              cut corners.
+            ## Lookup budget — this is a hard limit
+            About **12 web lookups per match**, total. Quality within the budget
+            beats exhaustive coverage. Typical spend: 1 match-preview page, 1–2
+            team-news pages, 2 Wikipedia coach pages, 2 FBref club pages, 1–2 for
+            funfacts, 1 SoccerStats for goal stats. Do NOT verify squads player by
+            player — Level 1 already did that.
+
+            ## Accuracy
+            - Never invent a fact, statistic, height, or career detail. Missing →
+              `null` / `"n/d"`, never a guess.
+            - "first time" / "record" / "return to" needs a source that says
+              exactly that; otherwise state the plain fact.
+            - News items must be dated within 2–3 days of today.
+            - On a squad/lineup/stat conflict, prefer the official source.
 
             ## Finishing up
-            - Only commit and push if you actually produced a schema-valid JSON and
-              updated `fixtures.json` for that one match. Commit message: which
-              match, competition, round.
-            - Push directly to `main`.
-            - Never touch any other match's fixtures entry or data file.
+            - Commit only files you actually produced + the fixtures.json edit,
+              in ONE commit ("Match data: <match1>[, <match2>]"). Push to `main`.
           claude_args: |
-            --model claude-sonnet-5
+            --model ${{ github.event.inputs.model || 'claude-haiku-4-5-20251001' }}
+            --max-turns 120
             --allowedTools "Read,Write,Edit,Bash,Glob,Grep,WebSearch,WebFetch"
