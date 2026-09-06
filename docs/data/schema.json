@@ -40,6 +40,7 @@
       }
     },
     "kickoff": { "type": "string", "description": "ISO 8601 with timezone offset, or \"n/d\"" },
+    "broadcast": { "type": ["string", "null"], "description": "TV / streaming broadcaster(s), free text, e.g. \"DAZN\"" },
     "venue": {
       "type": "object",
       "additionalProperties": false,
@@ -167,7 +168,38 @@
             "ppg": { "type": ["number", "null"] },
             "homeAway": { "type": ["string", "null"], "description": "free-text home/away split" },
             "position": { "type": ["integer", "null"], "description": "league standing (most recent completed table when live position is unknown)" },
-            "note": { "type": ["string", "null"], "description": "free-text standing context, e.g. \"Sezonul trecut: locul 3 (76p, 72-41)\"" }
+            "note": { "type": ["string", "null"], "description": "free-text standing context, e.g. \"Sezonul trecut: locul 3 (76p, 72-41)\"" },
+            "table": {
+              "type": ["object", "null"],
+              "description": "structured standings row for this team",
+              "additionalProperties": false,
+              "properties": {
+                "played": { "type": ["integer", "null"] },
+                "win": { "type": ["integer", "null"] },
+                "draw": { "type": ["integer", "null"] },
+                "loss": { "type": ["integer", "null"] },
+                "gf": { "type": ["integer", "null"] },
+                "ga": { "type": ["integer", "null"] },
+                "points": { "type": ["integer", "null"] }
+              }
+            },
+            "recent": {
+              "type": "array",
+              "description": "form guide — the team's last matches, most recent first, from this team's perspective",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["score"],
+                "properties": {
+                  "date": { "type": ["string", "null"], "description": "YYYY-MM-DD" },
+                  "opp": { "type": ["string", "null"], "description": "opponent name" },
+                  "homeAway": { "type": ["string", "null"], "enum": ["H", "A", "N", null] },
+                  "comp": { "type": ["string", "null"] },
+                  "score": { "type": "string", "description": "this team first, e.g. \"3-1\"" },
+                  "result": { "type": ["string", "null"], "enum": ["W", "D", "L", null] }
+                }
+              }
+            }
           }
         },
         "absences": {

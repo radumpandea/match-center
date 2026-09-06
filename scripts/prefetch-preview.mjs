@@ -423,8 +423,39 @@ async function sfiH2H(a, b, nameA, nameB, cache) {
   return rec;
 }
 
-// Fill h2h + form.position/note on a partial pack from soccer-football-info.
-// Only touches fields the primary feed left empty.
+// A team's last matches, most recent first, from that team's perspective —
+// this is the OneFootball-style "form guide" (competitive + friendlies).
+const SFI_HISTORY_TTL = 2;
+async function sfiHistory(teamId, teamName, cache) {
+  cache.history = cache.history || {};
+  const hit = cache.history[teamId];
+  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < SFI_HISTORY_TTL) return hit;
+  const res = await sfi('teams/history/', { i: teamId, w: '6m' });
+  const matches = res && res[0] && Array.isArray(res[0].matches) ? res[0].matches : null;
+  if (!matches) return hit || null;
+  const want = norm(teamName);
+  const recent = matches.slice(0, 6).map((m) => {
+    const ta = m.teamA || {}, tb = m.teamB || {};
+    const sa = num(ta.score), sb = num(tb.score);
+    if (sa == null || sb == null) return null;
+    const weAreA = norm(ta.name).indexOf(want) >= 0 || want.indexOf(norm(ta.name)) >= 0;
+    const us = weAreA ? sa : sb, them = weAreA ? sb : sa;
+    return {
+      date: (m.date || '').slice(0, 10),
+      opp: weAreA ? (tb.name || null) : (ta.name || null),
+      homeAway: weAreA ? 'H' : 'A',
+      comp: (m.championship && m.championship.name) || null,
+      score: `${us}-${them}`,
+      result: us > them ? 'W' : us < them ? 'L' : 'D',
+    };
+  }).filter(Boolean);
+  const rec = { fetchedAt: todayISO(), recent };
+  cache.history[teamId] = rec;
+  return rec;
+}
+
+// Fill h2h + form (position/note/table/recent) on a partial pack from
+// soccer-football-info. Only touches fields the primary feed left empty.
 async function applySfi(doc, fx, cache) {
   const champId = await sfiChampionshipId(fx.comp, fx.country, cache);
   if (!champId) return;
@@ -440,10 +471,18 @@ async function applySfi(doc, fx, cache) {
     const t = doc.teams[side];
     const f = t.form || { last5: [], ppg: null, homeAway: null, position: null, note: null };
     if (f.position == null && row.position != null) f.position = row.position;
+    if (f.table == null && row.played != null) {
+      f.table = {
+        played: row.played, win: row.win, draw: row.draw, loss: row.loss,
+        gf: row.gf, ga: row.ga, points: row.points,
+      };
+    }
     if (!has(f.note) && row.points != null && row.played) {
       f.note = `Clasament ${standings.season || 'sezon precedent'}: locul ${row.position}, ${row.points}p` +
         (row.gf != null ? ` (${row.gf}-${row.ga})` : '');
     }
+    const hist = await sfiHistory(row.id, name, cache);
+    if (hist && hist.recent.length && (!f.recent || !f.recent.length)) f.recent = hist.recent;
     t.form = f;
   }
 

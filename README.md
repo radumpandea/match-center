@@ -80,12 +80,14 @@ football feed can give for free:
 - the confirmed lineup + formation, once the feed publishes it (usually only near kickoff);
 - `teams.<side>.newsCandidates[]` — raw dated headlines from Google News RSS (no key, no
   library), for the editorial step to triage and paraphrase into `news[]`;
-- **head-to-head** (`h2h.recent[]` + `h2h.summary`) and **league-table context**
-  (`form.position` + `form.note`) from a second RapidAPI source, **soccer-football-info**
-  (free tier ~200 calls/day → server-side only, same account key as `RAPIDAPI_KEY`, the
-  account must be subscribed to it). Championship ids, standings and H2H are cached in
-  `docs/data/teams/_sfi.json` (standings 2 days, H2H per pair 14 days) and a per-run call
-  budget of 150 guards the quota. This key must NOT go in `docs/app/config.js`.
+- **head-to-head** (`h2h.recent[]` + `h2h.summary`), **league-table context**
+  (`form.position`, `form.note`, `form.table` = the standings row), and a **OneFootball-style
+  form guide** (`form.recent[]` — each side's last ~5 matches, competitive and friendly, with
+  scores) from a second RapidAPI source, **soccer-football-info** (free tier ~200 calls/day →
+  server-side only, same account key as `RAPIDAPI_KEY`, the account must be subscribed to it).
+  Championship ids, standings, H2H and per-team match history are cached in
+  `docs/data/teams/_sfi.json` (standings/history 2 days, H2H per pair 14 days) and a per-run
+  call budget of 150 guards the quota. This key must NOT go in `docs/app/config.js`.
 
 `match.html` treats a partial file as a rich skeleton: it renders the squads and lets you
 pick the XI from them, shows an amber "Date parțiale" banner, and still runs the

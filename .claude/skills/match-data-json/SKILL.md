@@ -80,14 +80,15 @@ Ordinea de mai jos merge de la structurat (rapid, o pagină) spre editorial. Nu 
 disponibil — nu inventa. Ce a pus deja Nivelul 1 (stadion, arbitru nume, lot, accidentări,
 `confirmedXI`) doar verifici, nu re-cauți.
 
-1. **Cap la cap + clasament — verifică ce a pus Nivelul 1, apoi SoccerStats pentru rest.**
-   Nivelul 1 pune deja `h2h.recent[]` + `h2h.summary` (istoric all-time din
-   soccer-football-info) și `form.position` + `form.note` (clasamentul ultimului sezon
-   închis). Verifică-le și **completează forma curentă**: `soccerstats.com/latest.asp?league={liga}`
-   dă clasament la zi + `last5` W/D/L + PPG + split acasă/deplasare + statistici de goluri
-   pentru toată liga; `soccerstats.com/h2h.asp?league={liga}&t1id={id1}&t2id={id2}` dă cap la
-   cap structurat dacă vrei să confirmi. Umple `teams.<side>.form.last5`, `.ppg`, `.homeAway`
-   (Nivelul 1 le lasă goale — sunt forma curentă, nu clasamentul sezonului trecut).
+1. **Cap la cap + clasament + formă — verifică ce a pus Nivelul 1, apoi SoccerStats pentru rest.**
+   Nivelul 1 pune deja `h2h.recent[]` + `h2h.summary` (istoric all-time), `form.position` +
+   `form.note`, `form.table` (rând de clasament: `played/win/draw/loss/gf/ga/points`) și
+   `form.recent[]` — ghidul de formă stil OneFootball: ultimele ~5 meciuri (competitive +
+   amicale), cel mai recent primul, din perspectiva echipei (`{date, opp, homeAway, comp,
+   score, result}`). Verifică-le și **completează**: `form.last5` (W/D/L), `.ppg`, `.homeAway`
+   (split acasă/deplasare în text), și `broadcast` (postul TV, ex. „DAZN"). Sursa rapidă:
+   `soccerstats.com/latest.asp?league={liga}` (clasament la zi + statistici de goluri);
+   `soccerstats.com/h2h.asp?...` pentru confirmarea capului la cap.
 2. **Primul 11 probabil** → `predictedXI` (11, ordonat GK→ATT) + `formation`. Surse: maxifoot,
    VAVEL, Sports Mole, footmercato. Dacă `confirmedXI` e deja pus de Nivelul 1, folosește-l
    ca `predictedXI` și lasă `confirmedXI` cum e. Dacă meciul s-a jucat, caută alinierea reală.
@@ -191,6 +192,9 @@ Reguli de mapare:
 - `absences[].reason` ∈ injury/suspension/doubt/other.
 - `news[]` = `{date, text}`, text în română, parafrazat. `newsCandidates` (dacă exista de la
   Nivelul 1) **nu apare** în fișierul final — l-ai triat în `news[]` și l-ai șters.
+- `form.recent[].score` = din perspectiva echipei (golurile ei primele, ex. „3-1").
+  `homeAway` ∈ H/A/N. `comp` = numele competiției (amicalele se afișează ca „amical").
+- `broadcast` (opțional, la nivel de meci) = postul TV / streaming, text liber.
 - La final, fișierul complet **nu conține** `partial` și **nu conține** `newsCandidates`.
 
 După ce scrii fișierul:

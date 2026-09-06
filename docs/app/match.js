@@ -749,6 +749,7 @@
       bits.push(isNaN(dt) ? d.kickoff : dt.toLocaleString('ro-RO', { weekday: 'long', day: '2-digit', month: 'long', hour: '2-digit', minute: '2-digit' }));
     }
     if (has(d.venue && d.venue.name)) bits.push(d.venue.name + (has(d.venue.city) ? ', ' + d.venue.city : ''));
+    if (has(d.broadcast)) bits.push('📺 ' + d.broadcast);
     return bits.join('  ·  ');
   }
 
@@ -873,6 +874,17 @@
     return strip;
   }
 
+  // form-guide helpers: "2026-08-29" -> "29.08"; strip the country prefix and
+  // collapse friendlies for the competition label
+  function fgDate(s) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(s || '');
+    return m ? m[3] + '.' + m[2] : (has(s) ? s : '');
+  }
+  function fgComp(c) {
+    if (!has(c)) return '';
+    if (/friendl|amical/i.test(c)) return 'amical';
+    return String(c).replace(/^(France|England|Spain|Italy|Germany|Romania|Europe|Elite Club)\s+/i, '');
+  }
   function shortName(name) {
     var parts = String(name || '').split(/\s+/).filter(Boolean);
     if (parts.length < 2) return name || '';
@@ -944,19 +956,43 @@
       add('h2h', panel('Cap la cap', h, { open: true }));
     }
 
-    // Form (two-col)
+    // Form (two-col) — OneFootball-style: W/D/L badges, a standings row, a
+    // form guide (last matches with scores), plus PPG / home-away split.
     if (d.teams.home.form || d.teams.away.form) {
       add('form', panel('Formă', twoCol(d, function (t) {
         var wrap = el('div');
         var f = t.form || {};
-        if (f.last5 && f.last5.length) {
-          var badges = el('div', { class: 'form-badges' });
-          f.last5.forEach(function (r) { badges.appendChild(el('span', { class: 'fb-' + r, text: r })); });
-          wrap.appendChild(badges);
+        var badges = (f.last5 && f.last5.length) ? f.last5
+          : (f.recent || []).slice(0, 5).map(function (r) { return r.result; }).filter(has);
+        if (badges.length) {
+          var b = el('div', { class: 'form-badges' });
+          badges.forEach(function (r) { b.appendChild(el('span', { class: 'fb-' + r, text: r })); });
+          wrap.appendChild(b);
         }
-        if (has(f.position)) wrap.appendChild(el('div', { text: 'Loc: ' + f.position }));
+        var tbl = f.table || {};
+        if (has(f.position) || has(tbl.points)) {
+          var bits = [];
+          if (has(f.position)) bits.push('Loc ' + f.position);
+          if (has(tbl.played)) bits.push(tbl.played + ' M');
+          if (has(tbl.win)) bits.push(tbl.win + '-' + (tbl.draw || 0) + '-' + (tbl.loss || 0));
+          if (has(tbl.gf)) bits.push(tbl.gf + '-' + tbl.ga);
+          if (has(tbl.points)) bits.push(tbl.points + 'p');
+          wrap.appendChild(el('div', { class: 'form-table', text: bits.join('  ·  ') }));
+        }
+        if (f.recent && f.recent.length) {
+          var list = el('ul', { class: 'form-guide' });
+          f.recent.forEach(function (r) {
+            list.appendChild(el('li', {}, [
+              el('span', { class: 'fg-res fb-' + (r.result || 'D'), text: r.result || '–' }),
+              el('span', { class: 'fg-score', text: has(r.score) ? r.score : '' }),
+              el('span', { class: 'fg-opp', text: (r.homeAway === 'A' ? 'la ' : r.homeAway === 'H' ? 'cu ' : '') + (has(r.opp) ? r.opp : '') }),
+              el('span', { class: 'fg-meta', text: [fgDate(r.date), fgComp(r.comp)].filter(has).join(' · ') })
+            ]));
+          });
+          wrap.appendChild(list);
+        }
         if (has(f.ppg)) wrap.appendChild(el('div', { text: 'PPG: ' + f.ppg }));
-        if (has(f.homeAway)) wrap.appendChild(el('div', { text: f.homeAway }));
+        if (has(f.homeAway)) wrap.appendChild(el('div', { class: 'form-note', text: f.homeAway }));
         if (has(f.note)) wrap.appendChild(el('div', { class: 'form-note', text: f.note }));
         if (!wrap.childNodes.length) wrap.appendChild(el('div', { text: 'n/d' }));
         return wrap;
