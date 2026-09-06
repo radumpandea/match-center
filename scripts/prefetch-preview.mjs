@@ -306,20 +306,29 @@ async function teamNews(teamName, oppName) {
 /* ---------- soccer-football-info: h2h + league-table context ----------
    All results are cached in docs/data/teams/_sfi.json so repeat runs cost
    almost nothing. A per-run call budget guards the 200/day free tier. */
+const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 let _sfiCalls = 0;
+let _sfiLast = 0;
 async function sfi(path, params) {
   if (_sfiCalls >= SFI_CALL_BUDGET) { console.error('  sfi: call budget reached, skipping ' + path); return null; }
   const qs = Object.entries({ f: 'json', l: 'en_US', ...params })
     .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&');
-  _sfiCalls++;
-  let r;
-  try {
-    r = await fetch(`${SFI_HOST}/${path}?${qs}`, { headers: SFI_HEADERS });
-  } catch (e) { console.error(`  sfi ${path}: ${e.message}`); return null; }
-  if (!r.ok) { console.error(`  sfi ${path}: HTTP ${r.status}`); return null; }
-  let j;
-  try { j = await r.json(); } catch { return null; }
-  return (j && Array.isArray(j.result)) ? j.result : null;
+  const gap = Date.now() - _sfiLast;
+  if (gap < 130) await sleep(130 - gap);          // stay under the per-second throttle
+  for (let attempt = 0; attempt < 2; attempt++) {
+    _sfiCalls++;
+    _sfiLast = Date.now();
+    let r;
+    try {
+      r = await fetch(`${SFI_HOST}/${path}?${qs}`, { headers: SFI_HEADERS });
+    } catch (e) { console.error(`  sfi ${path}: ${e.message}`); return null; }
+    if (r.status === 429 && attempt === 0) { await sleep(1500); continue; }
+    if (!r.ok) { console.error(`  sfi ${path}: HTTP ${r.status}`); return null; }
+    let j;
+    try { j = await r.json(); } catch { return null; }
+    return (j && Array.isArray(j.result)) ? j.result : null;
+  }
+  return null;
 }
 
 async function sfiChampionshipId(comp, cc, cache) {
@@ -527,6 +536,50 @@ async function sfiPlayerCareer(pid, cache) {
   return rec;
 }
 
+// Fill squad[].career (and missing foot/height) for the players in each team's
+// most recent match lineup, matched to the FotMob squad by name/shirt. Works on
+// partial packs (via applySfi) and, topped up, on full packs. Returns true if it
+// changed anything.
+async function applySfiCareers(doc, fx, cache, ids) {
+  if (!ids) {
+    const champId = await sfiChampionshipId(fx.comp, fx.country, cache);
+    if (!champId) return false;
+    const st = await sfiStandings(champId, cache);
+    if (!st) return false;
+    ids = {};
+    for (const [side, name] of [['home', fx.home], ['away', fx.away]]) {
+      const row = sfiFindTeam(st, name);
+      if (row) ids[side] = row.id;
+    }
+  }
+  let touched = false;
+  for (const [side, name] of [['home', fx.home], ['away', fx.away]]) {
+    if (!ids[side]) continue;
+    const hist = await sfiHistory(ids[side], name, cache);
+    const mid = hist && hist.recentMatchId;
+    if (!mid) continue;
+    const lineup = await sfiRecentLineup(mid, name, cache);
+    if (!lineup.length) continue;
+    const squad = doc.teams[side].squad || [];
+    let filled = 0;
+    for (const lp of lineup) {
+      const want = norm(lp.name);
+      const p = squad.find((x) => {
+        const n = norm(x.name);
+        return n && (n === want || n.indexOf(want) >= 0 || want.indexOf(n) >= 0 || (lp.sn != null && x.number === lp.sn));
+      });
+      if (!p || has(p.career)) continue;
+      const pc = await sfiPlayerCareer(lp.id, cache);
+      if (!pc) continue;
+      if (pc.career) { p.career = pc.career; filled++; touched = true; }
+      if (!p.foot && pc.foot) { p.foot = pc.foot; touched = true; }
+      if (p.height == null && pc.height != null) { p.height = pc.height; touched = true; }
+    }
+    if (filled) console.log(`  sfi careers ${side}: ${filled}`);
+  }
+  return touched;
+}
+
 // Fill h2h + form (position/note/table/recent) on a partial pack from
 // soccer-football-info. Only touches fields the primary feed left empty.
 async function applySfi(doc, fx, cache) {
@@ -559,32 +612,7 @@ async function applySfi(doc, fx, cache) {
     t.form = f;
   }
 
-  // player careers, matched to the FotMob squad by name — only for the players
-  // in the most recent match lineup, to bound the number of players/view calls
-  for (const [side, name] of sides) {
-    if (!ids[side]) continue;
-    const hist = cache.history && cache.history[ids[side]];
-    const mid = hist && hist.recentMatchId;
-    if (!mid) continue;
-    const lineup = await sfiRecentLineup(mid, name, cache);
-    if (!lineup.length) continue;
-    const squad = doc.teams[side].squad || [];
-    let filled = 0;
-    for (const lp of lineup) {
-      const want = norm(lp.name);
-      const p = squad.find((x) => {
-        const n = norm(x.name);
-        return n && (n === want || n.indexOf(want) >= 0 || want.indexOf(n) >= 0 || (lp.sn != null && x.number === lp.sn));
-      });
-      if (!p || has(p.career)) continue;
-      const pc = await sfiPlayerCareer(lp.id, cache);
-      if (!pc) continue;
-      if (pc.career) { p.career = pc.career; filled++; }
-      if (!p.foot && pc.foot) p.foot = pc.foot;
-      if (p.height == null && pc.height != null) p.height = pc.height;
-    }
-    if (filled) console.log(`  sfi careers ${side}: ${filled}`);
-  }
+  await applySfiCareers(doc, fx, cache, ids);
 
   const noH2H = !doc.h2h || !doc.h2h.recent || !doc.h2h.recent.length;
   if (noH2H && ids.home && ids.away) {
@@ -723,14 +751,15 @@ async function main() {
   const from = todayDate();
   const to = new Date(Date.now() + DAYS_AHEAD * 86400000).toLocaleDateString('en-CA', { timeZone: 'Europe/Bucharest' });
 
-  const due = fixtures.filter((f) =>
-    !f.ready && f.date && f.date !== 'n/d' && f.date >= from && f.date <= to && has(f.kickoff));
+  const inWindow = (f) => f.date && f.date !== 'n/d' && f.date >= from && f.date <= to && has(f.kickoff);
+  const due = fixtures.filter((f) => !f.ready && inWindow(f));
+  const readyUpcoming = fixtures.filter((f) => f.ready && inWindow(f));
 
-  if (!due.length) {
-    console.log('No upcoming fixtures need a prefetch. Nothing to do.');
+  if (!due.length && !readyUpcoming.length) {
+    console.log('No upcoming fixtures in range. Nothing to do.');
     return;
   }
-  console.log(`${due.length} fixture(s) in the next ${DAYS_AHEAD} days:`);
+  console.log(`${due.length} partial + ${readyUpcoming.length} ready fixture(s) in the next ${DAYS_AHEAD} days:`);
 
   const partialSlugs = new Set(existingPartialSlugs());
   const sfiCache = readJSON(SFI_FILE) || {};
@@ -767,6 +796,22 @@ async function main() {
     writeJSON(`${MATCHES_DIR}/${f.slug}.json`, doc);
     partialSlugs.add(f.slug);
     console.log(`  wrote docs/data/matches/${f.slug}.json (partial${doc.h2h.recent.length ? ', +h2h' : ''})`);
+  }
+
+  // full (non-partial) packs for upcoming fixtures: top up squad[].career only,
+  // for players still missing it — idempotent, so it settles after a run or two
+  for (const f of readyUpcoming) {
+    const path = `${MATCHES_DIR}/${f.slug}.json`;
+    const doc = readJSON(path);
+    if (!doc || doc.partial) continue;
+    const need = ['home', 'away'].some((s) => (doc.teams[s].squad || []).some((p) => !has(p.career)));
+    if (!need) continue;
+    try {
+      if (await applySfiCareers(doc, f, sfiCache)) {
+        writeJSON(path, doc);
+        console.log(`- ${f.slug}: careers topped up`);
+      }
+    } catch (e) { console.error(`  ${f.slug} careers: ${e.message}`); }
   }
 
   writeJSON(SFI_FILE, sfiCache);
