@@ -406,8 +406,13 @@ table.mc.standings tr.is-mine td{background:var(--color-accent-900,rgba(120,140,
 .notes .note{background:var(--color-surface-2);border:1px solid var(--color-divider);border-radius:var(--radius-sm);padding:6px 8px;font-size:12px;margin-top:6px;display:flex;gap:var(--space-3);justify-content:space-between}
 .notes .note time{color:var(--color-neutral-600);font-size:10px;white-space:nowrap}
 .notes .note button{background:none;border:none;color:var(--color-neutral-600);cursor:pointer;font-size:11px}
-.notes-row{display:flex;gap:var(--space-2);margin-top:6px}
-.notes-row button{font-size:11px;padding:var(--space-2) var(--space-4);border-radius:var(--radius-sm);border:1px solid var(--color-divider);background:var(--color-accent-900);color:var(--color-accent-200);cursor:pointer}
+.notes-row{display:flex;gap:var(--space-2);margin-top:6px;align-items:center}
+.notes-row>button{font-size:11px;padding:var(--space-2) var(--space-4);border-radius:var(--radius-sm);border:1px solid var(--color-divider);background:var(--color-accent-900);color:var(--color-accent-200);cursor:pointer}
+.note-kinds{display:inline-flex;gap:2px}
+.note-kind{width:22px;height:22px;font-size:12px;line-height:1;border:1px solid var(--color-divider);border-radius:var(--radius-sm);background:var(--color-surface-2);color:var(--color-neutral-500);cursor:pointer}
+.note-kind.on{background:var(--color-accent-900);color:var(--color-accent-200);border-color:var(--color-accent-700,var(--color-divider))}
+.notes .note.nk-b{border-left:2px solid var(--color-accent-700,var(--color-neutral-600))}
+.notes .note.nk-s{margin-left:16px;border-left:2px solid var(--color-neutral-700)}
 
 .loading,.errbox{padding:var(--space-8);text-align:center;color:var(--color-neutral-500)}
 

@@ -99,10 +99,28 @@
     try { localStorage.setItem(NKEY, JSON.stringify(store)); } catch (e) {}
   }
   function notesFor(id) { return (store.notes && store.notes[id]) || []; }
-  function addNote(id, text) {
-    if (!text.trim()) return;
+  // one input line -> { kind, text }. A leading -, *, • or – marks a bullet;
+  // two markers (--, **) or a 2-space indent marks a sub-bullet.
+  function parseNoteLine(raw, dflt) {
+    var lead = (raw.match(/^\s*/) || [''])[0].length;
+    var s = raw.trim();
+    var m2 = s.match(/^([-*]{2}|[-*•–]\s*[-*•–])\s+(.*)$/);
+    if (m2) return { kind: 'sub', text: m2[2].trim() };
+    var m1 = s.match(/^[-*•–]\s+(.*)$/);
+    if (m1) return { kind: lead >= 2 ? 'sub' : 'bullet', text: m1[1].trim() };
+    if (lead >= 2 && s) return { kind: 'sub', text: s };
+    return { kind: dflt || 'text', text: s };
+  }
+  function addNote(id, text, kind) {
+    var rows = String(text || '').split('\n')
+      .map(function (l) { return parseNoteLine(l, kind); })
+      .filter(function (r) { return r.text; });
+    if (!rows.length) return;
     store.notes = store.notes || {};
-    (store.notes[id] = store.notes[id] || []).push({ id: Date.now() + '' + Math.random().toString(36).slice(2, 6), text: text.trim(), ts: Date.now() });
+    var arr = (store.notes[id] = store.notes[id] || []);
+    rows.forEach(function (r) {
+      arr.push({ id: Date.now() + '' + Math.random().toString(36).slice(2, 6), text: r.text, kind: r.kind, ts: Date.now() });
+    });
     save();
   }
   function delNote(id, noteId) {
@@ -114,11 +132,14 @@
   function notesBlock(id, label) {
     var wrap = el('div', { class: 'notes' });
     var list = el('div');
+    var curKind = 'text';
+    var KIND = { text: { pre: '', cls: 'nk-t' }, bullet: { pre: '• ', cls: 'nk-b' }, sub: { pre: '– ', cls: 'nk-s' } };
     function redraw() {
       list.innerHTML = '';
       notesFor(id).forEach(function (n) {
-        list.appendChild(el('div', { class: 'note' }, [
-          el('span', { text: n.text }),
+        var k = KIND[n.kind] || KIND.text;
+        list.appendChild(el('div', { class: 'note ' + k.cls }, [
+          el('span', { text: k.pre + n.text }),
           el('span', {}, [
             el('time', { text: new Date(n.ts).toLocaleString('ro-RO', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) }),
             el('button', { text: '✕', title: 'Șterge', onclick: function () { delNote(id, n.id); redraw(); } })
@@ -126,14 +147,28 @@
         ]));
       });
     }
-    var ta = el('textarea', { placeholder: 'Notiță — ' + (label || id) + '…' });
-    var addBtn = el('button', { text: 'Adaugă notiță', onclick: function () { addNote(id, ta.value); ta.value = ''; redraw(); } });
+    var ta = el('textarea', { placeholder: 'Notiță — ' + (label || id) + '… (o linie pe rând; „- " = punct, „-- " sau indentare = subpunct)' });
+    function commit() { addNote(id, ta.value, curKind); ta.value = ''; redraw(); ta.focus(); }
+    var kindBtns = ['text', 'bullet', 'sub'].map(function (k) {
+      return el('button', {
+        class: 'note-kind' + (k === curKind ? ' on' : ''),
+        title: { text: 'Text', bullet: 'Punct', sub: 'Subpunct' }[k],
+        text: { text: '¶', bullet: '•', sub: '–' }[k],
+        onclick: function () {
+          curKind = k;
+          [].forEach.call(kindRow.children, function (b, i) { b.classList.toggle('on', ['text', 'bullet', 'sub'][i] === k); });
+          ta.focus();
+        }
+      });
+    });
+    var kindRow = el('span', { class: 'note-kinds' }, kindBtns);
+    var addBtn = el('button', { text: 'Adaugă', onclick: commit });
     ta.addEventListener('keydown', function (e) {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { addNote(id, ta.value); ta.value = ''; redraw(); }
+      if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') commit();
     });
     wrap.appendChild(list);
     wrap.appendChild(ta);
-    wrap.appendChild(el('div', { class: 'notes-row' }, [addBtn]));
+    wrap.appendChild(el('div', { class: 'notes-row' }, [kindRow, addBtn]));
     redraw();
     return wrap;
   }
@@ -158,10 +193,24 @@
       if (!n[id] || !n[id].length) return;
       lines.push('## ' + nameOf(id));
       n[id].forEach(function (note) {
-        lines.push('- ' + note.text + '  \n  _' + new Date(note.ts).toLocaleString('ro-RO') + '_');
+        var ind = note.kind === 'sub' ? '  ' : '';
+        lines.push(ind + '- ' + note.text + '  \n  ' + ind + '_' + new Date(note.ts).toLocaleString('ro-RO') + '_');
       });
       lines.push('');
     });
+    var px = store.panelExtra || {};
+    var pxKeys = Object.keys(px).filter(function (k) { return px[k] && px[k].length; });
+    if (pxKeys.length) {
+      lines.push('## Informații adăugate');
+      pxKeys.forEach(function (k) {
+        var head = k.indexOf('teaminfo:') === 0
+          ? (data.teams[k.split(':')[1]] ? data.teams[k.split(':')[1]].name : k)
+          : k;
+        lines.push('', '### ' + head);
+        px[k].forEach(function (it) { lines.push('- ' + it.text); });
+      });
+      lines.push('');
+    }
     var blob = new Blob([lines.join('\n')], { type: 'text/markdown' });
     var a = el('a', { href: URL.createObjectURL(blob), download: 'notite-' + slug + '.md' });
     document.body.appendChild(a); a.click(); a.remove();
@@ -1125,6 +1174,11 @@
       add('squad-' + side, panel('Lot — ' + t.name, wrap));
     });
 
+    // free per-team info the user adds by hand
+    add('teaminfo', panel('Informații echipă', twoCol(d, function (t, side) {
+      return extrasBox('teaminfo:' + side, '＋ informație despre ' + t.name);
+    })));
+
     // sources
     if (d.sources && d.sources.length) {
       add('sources', panel('Surse', ul(d.sources.map(function (s) {
@@ -1168,12 +1222,10 @@
     return box;
   }
 
-  // Lets the user append their own lines to any existing panel/category. Stored
-  // per panel key in store.panelExtra[key]; rendered at the bottom of the body.
-  function addPanelExtras(node, key, d) {
-    if (key === 'notes') return;   // that panel is already a free-text notes area
-    var body = node.querySelector('.body');
-    if (!body) return;
+  // Reusable "add your own lines" box, stored in store.panelExtra[key]. Used both
+  // at the bottom of a whole panel (addPanelExtras) and per team column (the
+  // "Informații echipă" panel).
+  function extrasBox(key, placeholder) {
     var box = el('div', { class: 'panel-extra' });
     function redraw() {
       box.innerHTML = '';
@@ -1189,7 +1241,7 @@
           } })
         ]));
       });
-      var inp = el('input', { class: 'field px-in', placeholder: '＋ adaugă o informație aici' });
+      var inp = el('input', { class: 'field px-in', placeholder: placeholder || '＋ adaugă o informație aici' });
       function add() {
         var v = inp.value.trim();
         if (!v) return;
@@ -1204,7 +1256,15 @@
       box.appendChild(el('div', { class: 'px-add' }, [inp, el('button', { class: 'pick', text: 'Adaugă', onclick: add })]));
     }
     redraw();
-    body.appendChild(box);
+    return box;
+  }
+
+  // Lets the user append their own lines to any existing panel/category. Stored
+  // per panel key in store.panelExtra[key]; rendered at the bottom of the body.
+  function addPanelExtras(node, key, d) {
+    if (key === 'notes' || key === 'teaminfo') return;   // those have their own inputs
+    var body = node.querySelector('.body');
+    if (body) body.appendChild(extrasBox(key));
   }
 
   // Per-panel "widen" toggle: makes the panel span the full width of the grid,
@@ -1285,8 +1345,8 @@
 
   function twoCol(d, fn) {
     return el('div', { class: 'two-col' }, [
-      el('div', {}, [el('h4', { text: d.teams.home.name }), fn(d.teams.home)]),
-      el('div', {}, [el('h4', { text: d.teams.away.name }), fn(d.teams.away)])
+      el('div', {}, [el('h4', { text: d.teams.home.name }), fn(d.teams.home, 'home')]),
+      el('div', {}, [el('h4', { text: d.teams.away.name }), fn(d.teams.away, 'away')])
     ]);
   }
   function hasMercato(d) {
