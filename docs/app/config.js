@@ -6,6 +6,6 @@ window.PM_CONFIG = {
   // Collaboration is optional. Create a free Supabase project, run the SQL in
   // docs/supabase.sql, then set these two public browser values. The anon key
   // is designed to be public; access is constrained by the SQL RLS policies.
-  supabaseUrl: '',
-  supabaseAnonKey: ''
+  supabaseUrl: 'https://jcanxrqtlaemyklxnoit.supabase.co',
+  supabaseAnonKey: 'sb_publishable_owqPyzyfHHfMZiAuTFkV4w_cNJi7Z8r'
 };
