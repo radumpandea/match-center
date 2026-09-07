@@ -8,7 +8,7 @@ on:
 jobs:
   prefetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 30   # a cold run does ~600 throttled API-Football calls
+    timeout-minutes: 45   # a cold run can do ~5000 throttled API-Football calls (~20 min); warm runs are minutes
     permissions:
       contents: write
 

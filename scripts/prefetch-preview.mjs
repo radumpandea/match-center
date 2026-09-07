@@ -47,9 +47,9 @@ const STANDINGS_TTL = 2;
 const TEAMSTATS_TTL = 2;
 const H2H_TTL = 14;
 const CAREER_TTL = 30;
-const AF_CALL_BUDGET = 1500;   // safety ceiling well under the 7500/day Pro tier
+const AF_CALL_BUDGET = 5500;   // ceiling on the 7500/day Pro tier (refresh-fixtures uses ~8, build-match-data 0)
 const AF_THROTTLE_MS = 250;    // ~240 req/min, under the 300/min Pro limit
-const CAREER_MAX_PLAYERS = 22; // per team, per match
+const CAREER_MAX_PLAYERS = 8;  // per team, per match — likely XI only; the deep editorial pass does full-rotation careers
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const FIXTURES = ROOT + 'docs/data/fixtures.json';
@@ -200,7 +200,8 @@ function statsFrom(row) {
   const s = {
     goals: num(go.total), assists: num(go.assists),
     minutes: num(g.minutes), apps: num(g.appearences),
-    yellow: num(c.yellow), red: red || null, rating: fnum(g.rating),
+    yellow: num(c.yellow), red: red || null,
+    rating: num(g.appearences) ? fnum(g.rating) : null,   // a 0-app "rating" of 0 is noise
   };
   return Object.values(s).some((v) => v != null) ? s : null;
 }
@@ -789,8 +790,11 @@ async function main() {
   const to = new Date(Date.now() + DAYS_AHEAD * 86400000).toLocaleDateString('en-CA', { timeZone: 'Europe/Bucharest' });
 
   const inWindow = (f) => f.date && f.date !== 'n/d' && f.date >= from && f.date <= to && has(f.kickoff);
-  const due = fixtures.filter((f) => !f.ready && inWindow(f));
-  const readyUpcoming = fixtures.filter((f) => f.ready && inWindow(f));
+  // soonest-first, so if the per-run call budget runs out the nearest (most
+  // useful) fixtures are the ones that got built
+  const byKickoff = (a, b) => String(a.kickoff).localeCompare(String(b.kickoff));
+  const due = fixtures.filter((f) => !f.ready && inWindow(f)).sort(byKickoff);
+  const readyUpcoming = fixtures.filter((f) => f.ready && inWindow(f)).sort(byKickoff);
 
   if (!due.length && !readyUpcoming.length) {
     console.log('No upcoming fixtures in range. Nothing to do.');
