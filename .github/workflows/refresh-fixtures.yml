@@ -21,9 +21,9 @@ jobs:
         with:
           node-version: 20
 
-      - name: Refresh docs/data/fixtures.json from the football feed
+      - name: Refresh docs/data/fixtures.json from API-Football
         env:
-          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          APIFOOTBALL_KEY: ${{ secrets.APIFOOTBALL_KEY }}
         run: node scripts/refresh-fixtures.mjs
 
       - name: Commit if changed
