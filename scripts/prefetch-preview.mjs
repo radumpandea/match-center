@@ -403,6 +403,20 @@ async function getFixtureMeta(eventId, cache) {
   return { referee, venue, lineups, colors };
 }
 
+// the home team's registered stadium — a reliable fallback when the fixture
+// object has no venue (common in the lower leagues). Cached forever.
+async function getTeamVenue(teamId, cache) {
+  cache.teamVenues = cache.teamVenues || {};
+  if (String(teamId) in cache.teamVenues) return cache.teamVenues[teamId];
+  const j = await af('teams', { id: teamId });
+  const v = j && j.response && j.response[0] && j.response[0].venue;
+  const rec = (v && v.name)
+    ? { name: v.name, capacity: num(v.capacity), city: v.city || null, notes: null }
+    : null;
+  cache.teamVenues[teamId] = rec;
+  return rec;
+}
+
 /* ---------- standings + form + team stats + h2h (cached) ---------- */
 async function getStandings(leagueId, season, cache) {
   cache.standings = cache.standings || {};
@@ -681,6 +695,11 @@ async function buildMatch(fx, season, cache) {
     teams: { home: emptyTeamBlock(fx.home), away: emptyTeamBlock(fx.away) },
   };
 
+  if (!has(out.venue.name) && fx.homeId != null) {
+    const tv = await getTeamVenue(fx.homeId, cache);
+    if (tv) out.venue = tv;
+  }
+
   const bySide = {
     home: { id: fx.homeId, cache: homeSquad, news: homeNews },
     away: { id: fx.awayId, cache: awaySquad, news: awayNews },
@@ -848,9 +867,14 @@ async function main() {
       const fm = doc.teams[s].form;
       return !fm || !fm.next || !fm.next.length;
     });
-    if (!needCareer && !needStandings && !needNext) continue;
+    const needVenue = !doc.venue || !has(doc.venue.name);
+    if (!needCareer && !needStandings && !needNext && !needVenue) continue;
     let touched = false;
 
+    if (needVenue && f.homeId != null) {
+      const tv = await getTeamVenue(f.homeId, cache);
+      if (tv) { doc.venue = tv; touched = true; }
+    }
     if (needStandings && leagueId) {
       const st = await getStandings(leagueId, season, cache);
       if (st && (st.rows || []).length) { doc.standings = { league: f.comp, season, rows: st.rows }; touched = true; }
