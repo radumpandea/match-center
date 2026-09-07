@@ -30,6 +30,20 @@ metodologia de mai jos e aceeași în ambele cazuri.
 Contractul de date (`docs/data/schema.json`) e obligatoriu — rulează
 `node scripts/validate-match.mjs <fișier>` înainte să închei, și nu preda nimic dacă nu trece.
 
+## Două moduri: standard și aprofundat
+
+Workflow-ul îți spune în ce mod ești (variabila `DEPTH` din prompt).
+
+- **`standard`** — pasul editorial zilnic, automat. Model rapid, buget de **~12
+  căutări/meci**, până la 2 meciuri, **doar câmpurile din allowlist-ul din prompt**. Scopul
+  e o podea decentă pe fiecare pachet, nu exhaustivitate. Pașii 0–3 de mai jos, cu bugetul.
+- **`deep`** — declanșat manual pentru **meciul pe care îl comentezi efectiv**. Un singur
+  meci, model puternic, buget de **~50 de căutări**, fără allowlist (poți completa dens orice
+  câmp din schemă). Pe lângă Pașii 0–3, aplici **`## Modul aprofundat`** de mai jos, care are
+  prioritate peste limitele de buget și de scop din Pașii 0–2.
+
+Restul metodologiei (surse, reguli de acuratețe, mapare pe schemă) e identică în ambele.
+
 ---
 
 ## Pasul 0 — Lotul: verifică ce a pus Nivelul 1, adâncește primul 11
@@ -219,6 +233,53 @@ node scripts/validate-match.mjs docs/data/matches/<slug>.json
 ```
 Trebuie să treacă fără eroare. Rezolvă orice `✗`. Avertismentele `!` (ex. „doar 1 portar")
 sunt semnale de re-verificat, nu neapărat blocante — dar tratează-le serios.
+
+## Modul aprofundat (meci de comentat)
+
+Se aplică **doar când `DEPTH=deep`**. Un comentator vorbește 90 de minute — pachetul
+trebuie să-i dea material, nu un rezumat. Față de modul standard, se schimbă:
+
+**Buget.** ~50 de căutări/fetch-uri, un singur meci. Adâncimea bate viteza. Allowlist-ul de
+câmpuri din prompt NU se aplică — completează dens orice câmp din schemă.
+
+**Lotul — nu doar primul 11.** `career`, `funfact`, `linkLine`, `pronunciation`, `foot`,
+`height`, `lastSeason` pentru **toată rotația realistă**: primul 11 probabil + rezervele care
+prind minute + orice tânăr sau transfer cu poveste. Doar jucătorii clar în afara planurilor
+rămân cu câmpuri `null`. `career` = roluri, ani, realizări, goluri per club — nu doar lista
+de cluburi. Wikipedia (infobox) + Transfermarkt (din fragmente) + footmercato/joueur.
+
+**Unghiuri tactice și statistice, stil Opta.** Nu doar „e pe locul 4". Caută și
+**calculează** (verifică aritmetica de două ori):
+- procentul de goluri din faze fixe / din penalty / în ultimele 15 minute;
+- distribuția golurilor marcate și primite pe intervale de 15 min (SoccerStats are pagina);
+- xG vs goluri reale, supra/sub-performanță — **Understat** (`understat.com/team/{Echipa}/{an}`
+  și `understat.com/match/{id}` au JSON în pagină; acoperă top-5 ligi, NU România) și
+  **FBref** (SCA/GCA, progressive passes/carries, presiuni, dueluri aeriene — o pagină de club
+  acoperă tot lotul);
+- formațiile folosite în sezon și cum se schimbă acasă/deplasare;
+- executanții de penalty / cornere / lovituri libere;
+- serii: meciuri fără gol primit, fără înfrângere, fără victorie în deplasare etc.;
+- The Analyst (theanalyst.com) pentru unghiul editorial pe ligile mari.
+
+**Fire narative extinse.** `storyOfTheMatch[]` = 10–14 propoziții, fiecare un unghi în sine.
+`teams.<side>.stories[]` = 3–4 bare per echipă, titlu punchy + 3–5 bullet-uri, unghiuri
+distincte (o bară tactică, una de om, una de context/sezon, una de miză).
+
+**Arbitru — cifre reale.** `referee.age`, `apps`, `ycPerMatch` / `rcPerMatch` din sezonul
+curent (worldreferee.com, transfermarkt profil de arbitru din fragmente), rata de penalty,
+și istoricul cu **ambele** cluburi (`referee.history`). Nu lăsa pe `n/d` decât după ce ai
+căutat explicit.
+
+**Pronunție.** `pronunciation` pentru numele dificile din primul 11 și pentru orice nume
+din fire narative — **scriere fonetică pe care un comentator român o citește direct** (ex.
+„Ntcam" → „en-CIA-mĕ"), nu IPA. Surse: Forvo, secțiunea de pronunție din Wikipedia,
+transcrieri din presă.
+
+**Context multi-sezon** unde dă culoare: evoluția în clasament față de sezonul trecut,
+golgheterul de anul trecut vs acum, antrenor la primul sezon complet etc.
+
+**Mercato și pregătire complete.** `mercatoIn[]` / `mercatoOut[]` cu toate mișcările verii și
+sumele; `preseason[]` cu toate amicalele.
 
 ## Pasul 3 — Limbă și ton
 

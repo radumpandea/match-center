@@ -12,9 +12,10 @@ refresh-fixtures.yml   →  docs/data/fixtures.json      (deterministic, RapidAP
 prefetch-preview.yml   →  docs/data/teams/<id>.json    (deterministic squad cache, RapidAPI)
                           docs/data/matches/<slug>.json ("partial": true — factual skeleton)
                           docs/data/previews.json      (slugs that have a partial pack)
-build-match-data.yml   →  docs/data/matches/<slug>.json (Claude editorial pass — up to 2
-                                                         packs closest to kickoff, Haiku,
-                                                         ~12 lookups/match, drops the flag)
+build-match-data.yml   →  docs/data/matches/<slug>.json (Claude editorial pass — 2 lanes:
+                                                         standard = daily, up to 2 packs,
+                                                         Haiku, ~12 lookups; deep = on
+                                                         demand, 1 match, Sonnet, ~50)
 docs/index.html        →  fixture list
 docs/match.html?m=<slug>  →  the Match Center: pitch + predicted XI, player/coach/referee
                              cards, story / H2H / form / absences / mercato / news panels,
@@ -99,16 +100,27 @@ pick the XI from them, shows an amber "Date parțiale" banner, and still runs th
 client-side live calls for what's missing. `index.html` tags these fixtures "DATE PARȚIALE"
 (from `docs/data/previews.json`).
 
-`build-match-data.yml` is the **Level 2 editorial pass**: once a day it takes the **1–2
-partial packs closest to kickoff** (within 3 days), runs **Haiku** against the
-`match-data-json` skill with a **~12-lookup-per-match budget**, and adds only the editorial
-fields Level 1 can't — `storyOfTheMatch` polish + a few researched angles, per-team
-`stories`, `funfact` / `linkLine` for the likely XI, `coach.career`, `mercato`,
-`stats.minutes` / `stats.apps` from FBref — then triages `newsCandidates` into `news[]`,
-removes the `partial` flag, and sets `ready: true`. It does **not** re-research squads,
-form or H2H. `workflow_dispatch` takes a `model` input to run a marquee match on Sonnet.
-The deterministic `storyOfTheMatch` seeds mean a pack still reads well even if this pass
-never runs for it.
+`build-match-data.yml` is the **Level 2 editorial pass**, and it has two lanes:
+
+- **`standard`** (the daily cron, and `workflow_dispatch` with `depth: standard`): takes the
+  **1–2 partial packs closest to kickoff** (within 3 days, strictly soonest-first), runs
+  **Haiku** against the `match-data-json` skill with a **~12-lookup-per-match budget**, and
+  adds only the editorial fields Level 1 can't — `storyOfTheMatch` polish + a few researched
+  angles, per-team `stories`, `funfact` / `linkLine` for the likely XI, `coach.career`,
+  `mercato`, `stats.minutes` / `stats.apps` from FBref — then triages `newsCandidates` into
+  `news[]`, removes the `partial` flag, prunes `previews.json`, and sets `ready: true`.
+- **`deep`** (`workflow_dispatch` with `depth: deep`, plus a `match:` slug): **one** match,
+  **Sonnet**, **~50 lookups**, no field allowlist — the full commentator dossier from the
+  skill's "Modul aprofundat" section: rotation-wide player depth (`career` / `funfact` /
+  `pronunciation` / `foot` / `height` for the whole realistic rotation, not just the XI),
+  Opta-style tactical and statistical angles (set-piece %, goal-timing split, xG vs actual
+  from Understat / FBref), 10–14 `storyOfTheMatch` lines, 3–4 `stories` per team, real
+  referee averages. For the match you are actually going to commentate.
+
+Both lanes take an optional `match:` slug (operate on exactly that pack instead of the
+auto-pick) and a `model:` override. Neither lane re-researches squads, form or H2H. The
+deterministic `storyOfTheMatch` seeds mean a pack still reads well even if no editorial pass
+runs for it.
 
 This tier needs only the `RAPIDAPI_KEY` repo secret (server-side, in the Action) — it does
 **not** need the public key in `docs/app/config.js`.
