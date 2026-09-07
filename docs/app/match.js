@@ -25,36 +25,15 @@
       return;
     }
     // A file with "partial": true is the deterministic prefetch (squads / coach /
-    // injuries / referee / venue only) — treat it like a rich skeleton: use its
-    // data, but still run the client-side live enrichment for the editorial-free
-    // gaps (lineups near kickoff, a fresher referee/venue).
+    // form / h2h / injuries / referee / venue). A file with no prep JSON at all
+    // is a bare skeleton from the fixture row. Either way there is no live
+    // client-side call any more — the daily prefetch fills these, and anything
+    // still missing is fillable by hand.
     var partial = !!(prep && prep.partial);
     var data = prep || skeletonFromFixture(fixture, slug);
     data._skeleton = !prep;
     data._partial = partial;
-    data._liveStatus = null;
-    data._squadStatus = null;
-    if ((!prep || partial) && fixture) {
-      var jobs = [];
-      if (fixture.eventId != null) {
-        jobs.push(enrichFromLiveApi(data, fixture.eventId)
-          .then(function (s) { data._liveStatus = s; })
-          .catch(function () { data._liveStatus = 'error'; }));
-      } else {
-        data._liveStatus = 'no-event-id';
-      }
-      var haveSquads = (data.teams.home.squad || []).length && (data.teams.away.squad || []).length;
-      if (!haveSquads) {
-        jobs.push(enrichSquadsFromLiveApi(data, fixture)
-          .then(function (s) { data._squadStatus = s; })
-          .catch(function () { data._squadStatus = 'error'; }));
-      } else {
-        data._squadStatus = 'prefetch';
-      }
-      Promise.all(jobs).then(function () { render(data); });
-    } else {
-      render(data);
-    }
+    render(data);
   });
 
   function fail(html) { root.innerHTML = '<div class="errbox">' + html + '</div>'; }
@@ -101,260 +80,11 @@
     };
   }
 
-  /* ---------- live enrichment (client-side call to the football feed) ----------
-     Best-effort: the exact response shape hasn't been verified against a real
-     API key yet (see README "Live data"). Every lookup is wrapped so a wrong
-     guess just leaves that field unfilled rather than breaking the page. */
-  var LIVE_HOST = 'free-api-live-football-data.p.rapidapi.com';
-  function liveKey() {
-    var k = window.PM_CONFIG && window.PM_CONFIG.rapidApiKey;
-    return (k && !/REPLACE/.test(k)) ? k : null;
-  }
-  function liveCall(path, eventId) {
-    var key = liveKey();
-    if (!key) return Promise.resolve(null);
-    return fetch('https://' + LIVE_HOST + '/' + path + '?eventid=' + encodeURIComponent(eventId), {
-      headers: { 'x-rapidapi-host': LIVE_HOST, 'x-rapidapi-key': key }
-    }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
-  }
-  // Dig through a few plausible response shapes for a flat list of players.
-  function digPlayerList(j) {
-    var cands = [j, j && j.response, j && j.response && j.response.lineup,
-      j && j.response && j.response.starters, j && j.lineup, j && j.players];
-    for (var i = 0; i < cands.length; i++) {
-      var c = cands[i];
-      if (Array.isArray(c) && c.length && (c[0].name || c[0].playerName)) return c;
-      if (c && Array.isArray(c.starters)) return c.starters;
-      if (c && Array.isArray(c.players)) return c.players;
-    }
-    return null;
-  }
-  function mapLivePlayer(p) {
-    var name = p.name || p.playerName || (p.player && p.player.name) || null;
-    if (!name) return null;
-    var posRaw = (p.position || p.pos || '').toString().toUpperCase();
-    var role = /^(GK|G)$/.test(posRaw) ? 'GK' : /^(DF|DEF|D)/.test(posRaw) ? 'DEF' : /^(MF|MID|M)/.test(posRaw) ? 'MID' : /^(FW|ATT|F|ST)/.test(posRaw) ? 'ATT' : 'MID';
-    return { number: p.shirtNumber != null ? p.shirtNumber : (p.number != null ? p.number : null), name: name, pos: posRaw || null, role: role, status: 'available' };
-  }
-  function applyLiveLineup(team, json) {
-    var list = digPlayerList(json);
-    if (!list || !list.length) return false;
-    var players = list.map(mapLivePlayer).filter(Boolean);
-    if (!players.length) return false;
-    team.squad = players;
-    team.predictedXI = players.slice(0, 11).map(function (p) { return { number: p.number, name: p.name, pos: p.pos }; });
-    while (team.predictedXI.length < 11) team.predictedXI.push({ number: null, name: null, pos: null });
-    return true;
-  }
-  function applyLiveReferee(d, json) {
-    var r = json && (json.response || json);
-    var name = r && (r.name || r.refereeName || (r.referee && r.referee.name));
-    if (!name) return false;
-    d.referee = { name: name, country: (r.country || r.nationality || null), age: r.age || null, apps: null, ycPerMatch: null, rcPerMatch: null, history: null };
-    return true;
-  }
-  function applyLiveLocation(d, json) {
-    var r = json && (json.response || json);
-    var name = r && (r.name || r.venueName || (r.venue && r.venue.name) || (r.stadium && r.stadium.name));
-    if (!name) return false;
-    d.venue = { name: name, capacity: r.capacity || null, city: r.city || null, notes: null };
-    return true;
-  }
-  function enrichFromLiveApi(d, eventId) {
-    if (!liveKey()) return Promise.resolve('no-key');
-    return Promise.all([
-      liveCall('football-get-hometeam-lineup', eventId),
-      liveCall('football-get-awayteam-lineup', eventId),
-      liveCall('football-get-match-referee', eventId),
-      liveCall('football-get-match-location', eventId)
-    ]).then(function (r) {
-      var gotHome = applyLiveLineup(d.teams.home, r[0]);
-      var gotAway = applyLiveLineup(d.teams.away, r[1]);
-      var gotRef = applyLiveReferee(d, r[2]);
-      var gotVenue = has(d.venue.name) || applyLiveLocation(d, r[3]);
-      return (gotHome || gotAway || gotRef || gotVenue) ? 'ok' : 'empty';
-    });
-  }
+  /* Live client-side football-feed calls were removed when the pipeline moved
+     to API-Football (server-side only). The daily prefetch now fills squads,
+     coach, form, h2h, injuries, referee and venue; whatever is still missing
+     is entered by hand. No API key ships in the page any more. */
 
-  /* ---------- live squads (client-side) ----------
-     football-get-list-player?teamid=<id> returns a FotMob-style squad grouped
-     by role, each member carrying shirt number, age, country, height and
-     current-season aggregates (goals, assists, yellow/red cards, rating). Team
-     ids come from the fixture (added by refresh-fixtures.mjs); when they're
-     missing we resolve them by name from football-get-list-all-team. Every
-     lookup degrades to "leave it unfilled" on a shape mismatch. */
-  function liveGet(path, params) {
-    var key = liveKey();
-    if (!key) return Promise.resolve(null);
-    var qs = Object.keys(params || {}).map(function (k) {
-      return encodeURIComponent(k) + '=' + encodeURIComponent(params[k]);
-    }).join('&');
-    return fetch('https://' + LIVE_HOST + '/' + path + (qs ? '?' + qs : ''), {
-      headers: { 'x-rapidapi-host': LIVE_HOST, 'x-rapidapi-key': key }
-    }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
-  }
-  function num(v) { var n = parseInt(v, 10); return isNaN(n) ? null : n; }
-  function fnum(v) { var n = parseFloat(v); return isNaN(n) ? null : n; }
-  function norm(s) {
-    return String(s || '').toLowerCase().normalize('NFD')
-      .replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '');
-  }
-  function digList(j) {
-    var r = j && (j.response || j);
-    if (!r) return null;
-    if (Array.isArray(r)) return r;
-    if (Array.isArray(r.list)) return r.list;
-    if (r.list && Array.isArray(r.list.teams)) return r.list.teams;
-    if (Array.isArray(r.teams)) return r.teams;
-    return null;
-  }
-  var ROLE_WORDS = { goalkeeper: 'GK', keeper: 'GK', defender: 'DEF', 'defence': 'DEF', midfield: 'MID', midfielder: 'MID', attacker: 'ATT', forward: 'ATT', striker: 'ATT' };
-  function roleFrom(groupTitle, member) {
-    var k = ((member && member.role && (member.role.key || member.role.fallback)) || groupTitle || '').toLowerCase();
-    var hit = Object.keys(ROLE_WORDS).filter(function (w) { return k.indexOf(w) >= 0; })[0];
-    return hit ? ROLE_WORDS[hit] : null;
-  }
-  function isCoachEntry(groupTitle, member) {
-    var k = ((member && member.role && (member.role.key || member.role.fallback)) || groupTitle || '').toLowerCase();
-    return k.indexOf('coach') >= 0 || k.indexOf('manager') >= 0 || k.indexOf('staff') >= 0;
-  }
-  function mapSquadMember(m, groupTitle) {
-    var name = m.name || m.cname || (m.player && m.player.name) || null;
-    if (!name) return null;
-    var posDesc = (m.positionIdsDesc || m.positionDesc || m.position || '').toString();
-    var pos = posDesc ? posDesc.split(',')[0].trim() : null;
-    var injured = m.injured === true || (m.injury != null && m.injury !== false);
-    var stats = {
-      goals: num(m.goals),
-      assists: num(m.assists),
-      minutes: num(m.minutesPlayed != null ? m.minutesPlayed : m.minutes),
-      apps: num(m.appearances != null ? m.appearances : m.matches),
-      yellow: num(m.ycards != null ? m.ycards : m.yellowCards),
-      red: num(m.rcards != null ? m.rcards : m.redCards),
-      rating: fnum(m.rating)
-    };
-    var hasStat = Object.keys(stats).some(function (k) { return stats[k] != null; });
-    var ret = (m.injury && (m.injury.expectedReturn || m.injury.returnDate)) || null;
-    return {
-      number: num(m.shirtNumber != null ? m.shirtNumber : m.jerseyNumber),
-      name: name, pos: pos, role: roleFrom(groupTitle, m) || 'MID',
-      age: num(m.age), height: num(m.height),
-      nat: (m.ccode || m.countryCode || null),
-      natTeam: null,
-      birthCountry: (m.cname || m.country || null),
-      foot: null,
-      status: injured ? 'out' : 'available',
-      statusNote: injured ? ('Accidentat' + (ret ? ' — revenire estimată ' + ret : '')) : null,
-      stats: hasStat ? stats : null,
-      _pid: (m.id != null ? m.id : null)
-    };
-  }
-  function applyLiveSquad(team, json) {
-    var r = json && (json.response || json);
-    var groups = (r && r.list && Array.isArray(r.list.squad)) ? r.list.squad
-      : (r && Array.isArray(r.squad)) ? r.squad
-      : (Array.isArray(r) ? r : null);
-    if (!groups) return false;
-    var players = [], coachName = null;
-    groups.forEach(function (g) {
-      var title = (g && (g.title || g.name)) || '';
-      var members = (g && (g.members || g.players)) || (Array.isArray(g) ? g : []);
-      members.forEach(function (m) {
-        if (isCoachEntry(title, m)) { if (!coachName) coachName = m.name || null; return; }
-        var p = mapSquadMember(m, title);
-        if (p) players.push(p);
-      });
-    });
-    if (!players.length) return false;
-    // for a skeleton match, prefer the fullest list we've seen (a lineup call
-    // may have already seeded ~11 names into squad)
-    if (!team.squad || players.length > team.squad.length) team.squad = players;
-    if (coachName && (!team.coach || !has(team.coach.name))) team.coach = { name: coachName };
-    return true;
-  }
-  function resolveTeamIds(fixture) {
-    var ids = {
-      home: fixture.homeId != null ? fixture.homeId : null,
-      away: fixture.awayId != null ? fixture.awayId : null
-    };
-    if (ids.home != null && ids.away != null) return Promise.resolve(ids);
-    if (fixture.leagueId == null) return Promise.resolve(ids);
-    return liveGet('football-get-list-all-team', { leagueid: fixture.leagueId }).then(function (j) {
-      var list = digList(j);
-      if (!list) return ids;
-      function findId(teamName) {
-        var want = norm(teamName);
-        if (!want) return null;
-        var hit = list.filter(function (t) {
-          var n = norm(t.name || t.teamName || t.shortName || '');
-          return n && (n === want || n.indexOf(want) >= 0 || want.indexOf(n) >= 0);
-        })[0];
-        return hit ? (hit.id != null ? hit.id : (hit.teamId != null ? hit.teamId : null)) : null;
-      }
-      if (ids.home == null) ids.home = findId(fixture.home);
-      if (ids.away == null) ids.away = findId(fixture.away);
-      return ids;
-    });
-  }
-  function enrichSquadsFromLiveApi(d, fixture) {
-    if (!liveKey()) return Promise.resolve('no-key');
-    return resolveTeamIds(fixture).then(function (ids) {
-      if (ids.home == null && ids.away == null) return 'no-team-id';
-      return Promise.all([
-        ids.home != null ? liveGet('football-get-list-player', { teamid: ids.home }) : Promise.resolve(null),
-        ids.away != null ? liveGet('football-get-list-player', { teamid: ids.away }) : Promise.resolve(null)
-      ]).then(function (r) {
-        var a = r[0] ? applyLiveSquad(d.teams.home, r[0]) : false;
-        var b = r[1] ? applyLiveSquad(d.teams.away, r[1]) : false;
-        return (a || b) ? 'ok' : 'empty';
-      });
-    });
-  }
-
-  /* lazy, per-player: football-get-player-detail?playerid=<id> fills preferred
-     foot, birth country and (when present) minutes / appearances. Cached; a
-     shape mismatch just leaves those fields as they were. */
-  var _pdCache = {};
-  function loadPlayerDetail(p) {
-    if (!p || p._pid == null || !liveKey()) return Promise.resolve(null);
-    if (_pdCache[p._pid]) return _pdCache[p._pid];
-    var pr = liveGet('football-get-player-detail', { playerid: p._pid }).then(function (j) {
-      var r = j && (j.response || j);
-      if (!r) return null;
-      var info = r.playerInformation || r.playerInfo || (r.data && r.data.playerInformation) || [];
-      (Array.isArray(info) ? info : []).forEach(function (it) {
-        var t = (it.title || it.translationKey || it.key || '').toString().toLowerCase();
-        var v = it.value;
-        if (v && typeof v === 'object') v = (v.fallback != null ? v.fallback : (v.numberValue != null ? v.numberValue : v.key));
-        if (v == null) return;
-        if (/foot/.test(t) && !p.foot) {
-          var f = String(v).toLowerCase();
-          p.foot = f[0] === 'l' ? 'L' : f[0] === 'r' ? 'R' : (f[0] === 'b' ? 'B' : null);
-        } else if (/(country|nationalit)/.test(t) && !has(p.birthCountry)) {
-          p.birthCountry = String(v);
-        } else if (/height/.test(t) && p.height == null) {
-          p.height = num(String(v).replace(/[^0-9]/g, ''));
-        }
-      });
-      var ml = r.mainLeague || (r.data && r.data.mainLeague) || null;
-      var st = ml && (ml.stats || ml.statsSection);
-      var acc = p.stats || {};
-      (Array.isArray(st) ? st : []).forEach(function (s) {
-        var t = (s.title || s.name || s.localizedTitleId || '').toString().toLowerCase();
-        var v = s.value != null ? s.value : s.statValue;
-        if (v && typeof v === 'object') v = v.value != null ? v.value : v.fallback;
-        if (/minutes/.test(t)) acc.minutes = num(v);
-        else if (/(matches|appearance)/.test(t)) acc.apps = num(v);
-        else if (/goals/.test(t) && acc.goals == null) acc.goals = num(v);
-        else if (/assists/.test(t) && acc.assists == null) acc.assists = num(v);
-        else if (/rating/.test(t) && acc.rating == null) acc.rating = fnum(v);
-      });
-      if (Object.keys(acc).some(function (k) { return acc[k] != null; })) p.stats = acc;
-      return r;
-    });
-    _pdCache[p._pid] = pr;
-    return pr;
-  }
 
   /* ---------- notes (localStorage) ---------- */
   var NKEY = 'mc:' + slug;
@@ -883,27 +613,17 @@
   }
 
   function skeletonBanner(d) {
-    var msg = {
-      ok: 'Date live găsite (lot/arbitru/stadion) — verifică-le, s-ar putea să lipsească detalii.',
-      empty: 'Datele live nu au întors nimic pentru acest meci încă.',
-      error: 'Nu am putut contacta feedul live.',
-      'no-key': 'Fără cheie API configurată — vezi docs/app/config.js.',
-      'no-event-id': 'Acest fixture nu are încă un id de eveniment pentru datele live.',
-      loading: 'Se încarcă datele live…'
-    }[d._liveStatus] || 'Fără date live.';
-    var squadMsg = {
-      ok: ' Loturile complete au fost încărcate din feed (vârstă, naționalitate, goluri, pase decisive, cartonașe) — click pe un slot gol de pe teren ca să alegi primul 11 din lot.',
-      prefetch: ' Loturile complete sunt deja în fișierul de preview (vârstă, naționalitate, goluri, pase decisive, cartonașe) — click pe un slot gol de pe teren ca să alegi primul 11 din lot.',
-      empty: ' Feedul nu a întors loturile pentru acest meci.',
-      error: ' Nu am putut încărca loturile din feed.',
-      'no-team-id': ' Fixture-ul nu are încă id-uri de echipă pentru loturi (se completează la următorul refresh).',
-      'no-key': ''
-    }[d._squadStatus] || '';
+    var haveSquads = (d.teams.home.squad || []).length && (d.teams.away.squad || []).length;
     var lead = d._partial
-      ? '⚠ Date parțiale (preîncărcare automată): loturi, antrenor, accidentări, arbitru și stadion din feed. Formă, cap la cap, primul 11, fire narative și funfacts vin cu pachetul editorial complet.'
-      : '⚠ Fără pachet de pregătire pentru acest meci încă. ' + msg;
+      ? '⚠ Date parțiale (preîncărcare automată din API-Football): loturi cu statistici, antrenor, formă, clasament, cap la cap, accidentări, arbitru și stadion. Primul 11 probabil, fire narative, funfacts și pronunție vin cu pachetul editorial complet.'
+      : '⚠ Fără pachet de pregătire pentru acest meci încă.' +
+        (haveSquads ? ' Loturile sunt încărcate — ' : ' ') +
+        'completează manual restul.';
+    var tail = haveSquads
+      ? ' Click pe un slot gol de pe teren ca să alegi primul 11 din lot; „+ adaugă…” lângă antrenor / arbitru / stadion pentru rest.'
+      : ' Click pe un slot gol de pe teren, sau pe „+ adaugă…” de lângă antrenor / arbitru / stadion.';
     return el('div', { class: 'skeleton-banner' }, [
-      el('span', { text: lead + squadMsg + ' Completează manual ce lipsește: click pe un slot gol de pe teren, sau pe „+ adaugă…” de lângă antrenor / arbitru / stadion.' })
+      el('span', { text: lead + tail })
     ]);
   }
 
@@ -1617,9 +1337,6 @@
           if (has(p.lastSeason)) body.appendChild(el('p', { html: '<b style="color:var(--color-neutral-500)">Sezonul trecut:</b> ' + esc(p.lastSeason) }));
         }
         fill();
-        if (p._pid != null && !_pdCache[p._pid]) {
-          loadPlayerDetail(p).then(function () { fill(); }).catch(function () {});
-        }
         return wrap;
       },
       'Carieră': function () { return el('div', {}, [el('p', { text: has(p.career) ? p.career : 'n/d' })]); },
