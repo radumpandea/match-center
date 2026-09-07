@@ -150,9 +150,9 @@ cd docs && python -m http.server 8000
 | Secret | Used by | Notes |
 |---|---|---|
 | `RAPIDAPI_KEY` | refresh-fixtures.yml, prefetch-preview.yml | free-api-live-football-data key (same as the `comentarii` repo). Used server-side by both deterministic Actions. A copy of this value also lives **publicly** in `docs/app/config.js` for client-side live lookups — see "Live data" below. |
-| `ANTHROPIC_API_KEY` | build-match-data.yml | research run — an Anthropic Console API key. **Preferred**: billed per token, no session cap. A daily unattended run needs this; the subscription token below hits its rolling 5-hour session limit. |
-| `ANTHROPIC_WORKSPACE_ID` | build-match-data.yml | **only if** `ANTHROPIC_API_KEY` is an identity-linked key (error: `anthropic-workspace-id is required`). Value looks like `wrkspc_...`, from the Anthropic Console. Not needed for a plain workspace-scoped key. |
-| `CLAUDE_CODE_OAUTH_TOKEN` | build-match-data.yml (fallback), claude.yml, claude-code-review.yml | `claude setup-token` output. Only used by build-match-data when `ANTHROPIC_API_KEY` is unset — the Claude subscription's 5-hour session limit makes it unreliable for the cron. Still fine for `@claude` / PR review. |
+| `CLAUDE_CODE_OAUTH_TOKEN` | build-match-data.yml (**currently preferred**), claude.yml, claude-code-review.yml | `claude setup-token` output — the Claude subscription. No credit cost, but shares one rolling 5-hour session limit with all other Claude usage on that login, so the 06:00 UTC cron can collide with interactive sessions. The build Action prefers this while `ANTHROPIC_API_KEY` is out of credit. |
+| `ANTHROPIC_API_KEY` | build-match-data.yml (fallback) | Anthropic Console API key — billed per token, no session cap. Preferred for a daily unattended run **when funded**; it ran dry on 2026-09-05 (`Credit balance is too low`). Used only when `CLAUDE_CODE_OAUTH_TOKEN` is unset. Re-fund it and flip the priority back in `build-match-data.yml`. |
+| `ANTHROPIC_WORKSPACE_ID` | build-match-data.yml | **only if** the `ANTHROPIC_API_KEY` fallback is in use AND it is an identity-linked key (error: `anthropic-workspace-id is required`). Value looks like `wrkspc_...`, from the Anthropic Console. Not needed for a plain workspace-scoped key or when running on the OAuth token. |
 
 ## Status
 

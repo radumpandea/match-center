@@ -31,20 +31,25 @@ jobs:
 
       - uses: anthropics/claude-code-action@v1
         env:
-          # An identity-linked Anthropic API key (the newer default for keys created
-          # via personal login) rejects requests unless the acting workspace is named.
-          # Set the ANTHROPIC_WORKSPACE_ID repo secret (format: wrkspc_...) and it is
-          # sent as a header; leave it unset for a plain workspace-scoped key.
-          ANTHROPIC_CUSTOM_HEADERS: "${{ secrets.ANTHROPIC_WORKSPACE_ID && format('anthropic-workspace-id: {0}', secrets.ANTHROPIC_WORKSPACE_ID) || '' }}"
+          # Only relevant when the ANTHROPIC_API_KEY fallback is in use: an
+          # identity-linked key (the newer default for keys created via personal
+          # login) rejects requests unless the acting workspace is named. Sent as
+          # a header only when we are NOT using the OAuth token and
+          # ANTHROPIC_WORKSPACE_ID (format: wrkspc_...) is set.
+          ANTHROPIC_CUSTOM_HEADERS: "${{ (secrets.CLAUDE_CODE_OAUTH_TOKEN == '' && secrets.ANTHROPIC_WORKSPACE_ID) && format('anthropic-workspace-id: {0}', secrets.ANTHROPIC_WORKSPACE_ID) || '' }}"
         with:
-          # Provide ONE of these two secrets. Prefer ANTHROPIC_API_KEY: it is
-          # billed per token and has no session cap, which a daily unattended
-          # run needs. CLAUDE_CODE_OAUTH_TOKEN (`claude setup-token`) uses the
-          # Claude subscription, whose rolling 5-hour session limit this job hit
-          # on 2026-09-04 ("You've hit your session limit"); it is only used here
-          # when ANTHROPIC_API_KEY is unset.
-          anthropic_api_key: "${{ secrets.ANTHROPIC_API_KEY }}"
-          claude_code_oauth_token: "${{ secrets.ANTHROPIC_API_KEY == '' && secrets.CLAUDE_CODE_OAUTH_TOKEN || '' }}"
+          # Provide ONE of these two secrets. Currently PREFERRING
+          # CLAUDE_CODE_OAUTH_TOKEN (`claude setup-token`, the Claude
+          # subscription): the ANTHROPIC_API_KEY console account ran out of
+          # credit on 2026-09-05 ("Credit balance is too low", billing_error)
+          # and every scheduled run since failed. The OAuth token has no credit
+          # cost but shares one rolling 5-hour session limit with all other
+          # Claude usage on that account — if you are also running interactive
+          # Claude Code with the same login, the 06:00 UTC cron can collide with
+          # it ("You've hit your session limit"). Switch back to preferring
+          # ANTHROPIC_API_KEY once the console account is funded again.
+          claude_code_oauth_token: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}"
+          anthropic_api_key: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN == '' && secrets.ANTHROPIC_API_KEY || '' }}"
           show_full_output: true
           prompt: |
             You are the Level 2 editorial pass for a small football Match Center
