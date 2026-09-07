@@ -92,6 +92,36 @@
       "description": "6-10 lead bullet sentences",
       "items": { "type": "string" }
     },
+    "standings": {
+      "type": ["object", "null"],
+      "description": "the full league table for this fixture's competition",
+      "additionalProperties": false,
+      "properties": {
+        "league": { "type": ["string", "null"] },
+        "season": { "type": ["integer", "null"] },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "rank": { "type": ["integer", "null"] },
+              "teamId": { "type": ["integer", "null"] },
+              "team": { "type": ["string", "null"] },
+              "played": { "type": ["integer", "null"] },
+              "win": { "type": ["integer", "null"] },
+              "draw": { "type": ["integer", "null"] },
+              "loss": { "type": ["integer", "null"] },
+              "gf": { "type": ["integer", "null"] },
+              "ga": { "type": ["integer", "null"] },
+              "gd": { "type": ["integer", "null"] },
+              "points": { "type": ["integer", "null"] },
+              "form": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    },
     "teams": {
       "type": "object",
       "additionalProperties": false,
@@ -197,6 +227,20 @@
                   "comp": { "type": ["string", "null"] },
                   "score": { "type": "string", "description": "this team first, e.g. \"3-1\"" },
                   "result": { "type": ["string", "null"], "enum": ["W", "D", "L", null] }
+                }
+              }
+            },
+            "next": {
+              "type": "array",
+              "description": "the team's next scheduled fixtures (not yet played)",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "date": { "type": ["string", "null"], "description": "YYYY-MM-DD" },
+                  "opp": { "type": ["string", "null"] },
+                  "homeAway": { "type": ["string", "null"], "enum": ["H", "A", "N", null] },
+                  "comp": { "type": ["string", "null"] }
                 }
               }
             },

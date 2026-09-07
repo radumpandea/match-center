@@ -56,6 +56,9 @@
   function initials(name) {
     return String(name || '?').split(/\s+/).map(function (w) { return w[0]; }).slice(0, 2).join('').toUpperCase();
   }
+  function teamKey(s) {
+    return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '');
+  }
 
   /* ---------- skeleton (no prep JSON yet) ---------- */
   function emptyTeam(name) {
@@ -862,6 +865,33 @@
     if (/friendl|amical/i.test(c)) return 'amical';
     return String(c).replace(/^(France|England|Spain|Italy|Germany|Romania|Europe|Elite Club)\s+/i, '');
   }
+  // full league table; the two teams in this fixture are highlighted
+  function standingsTable(d) {
+    var s = d.standings || {};
+    var rows = s.rows || [];
+    if (!rows.length) return el('div', { text: 'n/d' });
+    var mine = {};
+    [d.teams.home, d.teams.away].forEach(function (t) { mine[teamKey(t.name)] = true; });
+    var head = el('tr', {}, ['#', 'Echipă', 'M', 'V', 'E', 'Î', 'GM:GP', '+/-', 'P'].map(function (h) {
+      return el('th', { text: h });
+    }));
+    var tb = el('table', { class: 'mc standings' }, [head]);
+    rows.forEach(function (r) {
+      var gd = r.gd == null ? '' : (r.gd > 0 ? '+' + r.gd : '' + r.gd);
+      tb.appendChild(el('tr', { class: mine[teamKey(r.team)] ? 'is-mine' : null }, [
+        el('td', { text: r.rank == null ? '' : r.rank }),
+        el('td', { class: 'st-team', text: has(r.team) ? r.team : '—' }),
+        el('td', { text: r.played == null ? '' : r.played }),
+        el('td', { text: r.win == null ? '' : r.win }),
+        el('td', { text: r.draw == null ? '' : r.draw }),
+        el('td', { text: r.loss == null ? '' : r.loss }),
+        el('td', { text: (r.gf == null ? '' : r.gf) + ':' + (r.ga == null ? '' : r.ga) }),
+        el('td', { text: gd }),
+        el('td', { class: 'st-pts', text: r.points == null ? '' : r.points })
+      ]));
+    });
+    return el('div', { class: 'standings-wrap' }, [tb]);
+  }
   function shortName(name) {
     var parts = String(name || '').split(/\s+/).filter(Boolean);
     if (parts.length < 2) return name || '';
@@ -971,9 +1001,26 @@
         if (has(f.ppg)) wrap.appendChild(el('div', { text: 'PPG: ' + f.ppg }));
         if (has(f.homeAway)) wrap.appendChild(el('div', { class: 'form-note', text: f.homeAway }));
         if (has(f.note)) wrap.appendChild(el('div', { class: 'form-note', text: f.note }));
+        if (f.next && f.next.length) {
+          wrap.appendChild(el('div', { class: 'form-next-h', text: 'Următoarele' }));
+          var nx = el('ul', { class: 'form-guide next' });
+          f.next.forEach(function (r) {
+            nx.appendChild(el('li', {}, [
+              el('span', { class: 'fg-res fb-N', text: '·' }),
+              el('span', { class: 'fg-opp', text: (r.homeAway === 'A' ? 'la ' : r.homeAway === 'H' ? 'cu ' : '') + (has(r.opp) ? r.opp : '?') }),
+              el('span', { class: 'fg-meta', text: [fgDate(r.date), fgComp(r.comp)].filter(has).join(' · ') })
+            ]));
+          });
+          wrap.appendChild(nx);
+        }
         if (!wrap.childNodes.length) wrap.appendChild(el('div', { text: 'n/d' }));
         return wrap;
       })));
+    }
+
+    // League table
+    if (d.standings && d.standings.rows && d.standings.rows.length) {
+      add('standings', panel('Clasament' + (has(d.standings.league) ? ' · ' + d.standings.league : ''), standingsTable(d)));
     }
 
     // Absences + probable XI

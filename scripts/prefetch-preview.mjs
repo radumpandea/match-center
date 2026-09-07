@@ -412,7 +412,7 @@ async function getStandings(leagueId, season, cache) {
   const table = j && j.response && j.response[0] && j.response[0].league
     && j.response[0].league.standings && j.response[0].league.standings[0];
   if (!Array.isArray(table) || !table.length) return hit || null;
-  const byId = {}, byName = {};
+  const byId = {}, byName = {}, rows = [];
   for (const row of table) {
     const t = row.team || {};
     const rec = {
@@ -428,8 +428,13 @@ async function getStandings(leagueId, season, cache) {
     };
     if (t.id != null) byId[t.id] = rec;
     if (t.name) byName[norm(t.name)] = rec;
+    rows.push({
+      rank: rec.position, teamId: t.id != null ? t.id : null, team: t.name || null,
+      played: rec.played, win: rec.win, draw: rec.draw, loss: rec.loss,
+      gf: rec.gf, ga: rec.ga, gd: num(row.goalsDiff), points: rec.points, form: rec.form,
+    });
   }
-  const rec = { fetchedAt: todayISO(), season, byId, byName };
+  const rec = { fetchedAt: todayISO(), season, byId, byName, rows };
   cache.standings[leagueId] = rec;
   return rec;
 }
@@ -492,6 +497,21 @@ async function getFormGuide(teamId, season) {
         result: us > them ? 'W' : us < them ? 'L' : 'D',
       };
     });
+}
+
+// the team's next 3 scheduled fixtures (not yet played)
+async function getNextFixtures(teamId, season) {
+  const j = await af('fixtures', { team: teamId, season, next: 3 });
+  const rows = (j && j.response) || [];
+  return rows.map((f) => {
+    const home = f.teams.home.id === teamId;
+    return {
+      date: (f.fixture.date || '').slice(0, 10),
+      opp: home ? f.teams.away.name : f.teams.home.name,
+      homeAway: home ? 'H' : 'A',
+      comp: f.league && f.league.name || null,
+    };
+  });
 }
 
 async function getH2H(homeId, awayId, homeName, awayName, cache) {
@@ -691,6 +711,10 @@ async function applyStandingsAndForm(doc, fx, season, cache) {
   if (!leagueId) return;
   const st = await getStandings(leagueId, season, cache);
 
+  if (st && Array.isArray(st.rows) && st.rows.length && !doc.standings) {
+    doc.standings = { league: fx.comp, season, rows: st.rows };
+  }
+
   for (const side of ['home', 'away']) {
     const t = doc.teams[side];
     const id = fx[side + 'Id'];
@@ -719,6 +743,10 @@ async function applyStandingsAndForm(doc, fx, season, cache) {
     if ((!f.recent || !f.recent.length) && id != null) {
       const guide = await getFormGuide(id, season);
       if (guide.length) f.recent = guide;
+    }
+    if (id != null) {
+      const nx = await getNextFixtures(id, season);
+      if (nx.length) f.next = nx;
     }
     if (id != null && leagueId) {
       const ts = await getTeamStats(id, leagueId, season, cache);
@@ -806,29 +834,47 @@ async function main() {
   const liveSlugs = new Set(fixtures.map((f) => f.slug));
   const partialSlugs = new Set(existingPartialSlugs().filter((s) => liveSlugs.has(s)));
 
-  // full packs for upcoming fixtures: top up squad[].career where still missing
+  // full packs for upcoming fixtures: top up squad[].career, the league table
+  // and each side's next-3 fixtures where they're still missing
   for (const f of readyUpcoming) {
     const path = `${MATCHES_DIR}/${f.slug}.json`;
     const doc = readJSON(path);
     if (!doc || doc.partial) continue;
-    const need = ['home', 'away'].some((s) => (doc.teams[s].squad || []).some((p) => !has(p.career)));
-    if (!need) continue;
     const leagueId = AF_LEAGUE_ID[f.comp] || f.leagueId || null;
+    const needCareer = ['home', 'away'].some((s) => (doc.teams[s].squad || []).some((p) => !has(p.career)));
+    const needStandings = !doc.standings || !(doc.standings.rows || []).length;
+    const needNext = ['home', 'away'].some((s) => {
+      const fm = doc.teams[s].form;
+      return !fm || !fm.next || !fm.next.length;
+    });
+    if (!needCareer && !needStandings && !needNext) continue;
     let touched = false;
+
+    if (needStandings && leagueId) {
+      const st = await getStandings(leagueId, season, cache);
+      if (st && (st.rows || []).length) { doc.standings = { league: f.comp, season, rows: st.rows }; touched = true; }
+    }
     for (const side of ['home', 'away']) {
       const id = f[side + 'Id'];
       if (id == null) continue;
-      const sq = await getSquad(id, f[side === 'home' ? 'home' : 'away'], leagueId, season);
-      const ids = sq && sq.squad || [];
-      for (const p of doc.teams[side].squad || []) {
-        if (has(p.career)) continue;
-        const match = ids.find((x) => norm(x.name) === norm(p.name) || (p.number != null && x.number === p.number));
-        if (!match || match._id == null) continue;
-        const c = await getCareer(match._id, cache);
-        if (c) { p.career = c; touched = true; }
+      if (needCareer) {
+        const sq = await getSquad(id, f[side === 'home' ? 'home' : 'away'], leagueId, season);
+        const ids = sq && sq.squad || [];
+        for (const p of doc.teams[side].squad || []) {
+          if (has(p.career)) continue;
+          const match = ids.find((x) => norm(x.name) === norm(p.name) || (p.number != null && x.number === p.number));
+          if (!match || match._id == null) continue;
+          const c = await getCareer(match._id, cache);
+          if (c) { p.career = c; touched = true; }
+        }
+      }
+      const fm = doc.teams[side].form;
+      if (fm && (!fm.next || !fm.next.length)) {
+        const nx = await getNextFixtures(id, season);
+        if (nx.length) { fm.next = nx; touched = true; }
       }
     }
-    if (touched) { writeJSON(path, doc); console.log(`- ${f.slug}: careers topped up`); }
+    if (touched) { writeJSON(path, doc); console.log(`- ${f.slug}: topped up`); }
   }
 
   for (const f of due) {

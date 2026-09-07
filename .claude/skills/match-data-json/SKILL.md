@@ -21,7 +21,9 @@ preîncarcă factualul din **API-Football**:
 - `absences[]` din accidentări/suspendări; `referee.name`; `venue` (nume/oraș/capacitate);
 - `confirmedXI` + `formation` + `colors` dacă alinierea era publică;
 - `form` — `table`, `position`, `last5`, `ppg`, split acasă/deplasare, `recent[]` (ghid de
-  formă) și `form.stats` (goluri pe intervale, clean sheet-uri, faze fixe, formații, serii);
+  formă), `next[]` (următoarele 3 meciuri) și `form.stats` (goluri pe intervale, clean
+  sheet-uri, faze fixe, formații, serii);
+- `standings` (nivel de meci) — clasamentul complet al competiției;
 - `h2h.recent[]` + `h2h.summary`;
 - `squad[].career` — istoric scurt de cluburi per jucător;
 - `teams.<side>.newsCandidates[]` — titluri brute din RSS, datate;
