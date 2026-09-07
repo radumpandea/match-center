@@ -641,8 +641,10 @@
       title: 'Păstrează acest meci în lista ta de favorite',
       onclick: async function () {
         if (!window.MC_COLLAB) return;
-        var yes = await window.MC_COLLAB.toggleFavourite(slug);
-        favBtn.textContent = yes ? '★ Favorit' : '☆ Favorit';
+        try {
+          var yes = await window.MC_COLLAB.toggleFavourite(slug);
+          favBtn.textContent = yes ? '★ Favorit' : '☆ Favorit';
+        } catch (e) { openCollaboration(data); }
       }
     });
     var collabBtn = el('button', {
@@ -707,12 +709,20 @@
       'Profil': function () {
         var s = window.MC_COLLAB ? window.MC_COLLAB.status() : { configured: false };
         var field = el('input', { class: 'field', value: s.name || '', placeholder: 'Numele tău (ex. Radu)' });
-        var msg = el('div', { class: 'ev-empty', text: s.configured ? 'Sincronizare activă pentru acest browser.' : 'Mod local activ. Pentru colaborare, completează configurația Supabase din app/config.js.' });
+        var msg = el('div', { class: 'ev-empty', text: s.configured ? (s.online ? 'Conectat. Datele tale se sincronizează între dispozitive.' : 'Conectează-te cu emailul pentru a-ți păstra datele și favoritele pe orice dispozitiv.') : 'Mod local activ. Pentru colaborare, completează configurația Supabase din app/config.js.' });
         var saveName = el('button', { class: 'pick', text: 'Salvează numele', onclick: async function () {
           if (!window.MC_COLLAB) return;
           await window.MC_COLLAB.setName(field.value); msg.textContent = 'Numele a fost salvat: ' + (window.MC_COLLAB.status().name || 'Utilizator') + '.';
         } });
-        return el('div', {}, [el('p', { text: 'Numele apare în jurnalul comun atunci când modifici primul 11, notițele, rezervele sau evenimentele.' }), field, el('div', { class: 'ev-btns' }, [saveName]), msg]);
+        var email = el('input', { class: 'field', type: 'email', placeholder: 'emailul-tău@exemplu.ro' });
+        var sendLink = el('button', { class: 'pick', text: 'Trimite link de conectare', onclick: async function () {
+          try { var to = await window.MC_COLLAB.sendMagicLink(email.value); msg.textContent = 'Am trimis un link de conectare la ' + to + '. Deschide-l pe orice dispozitiv pentru a intra în același cont.'; } catch (e) { msg.textContent = e.message || 'Nu am putut trimite linkul.'; }
+        } });
+        var logout = el('button', { class: 'pick', text: 'Deconectează-mă', onclick: async function () { await window.MC_COLLAB.signOut(); close(); render(data); } });
+        var auth = s.configured && !s.online
+          ? el('div', {}, [el('p', { text: 'Introdu adresa ta; primești un link fără parolă. Folosește același email pe telefon, laptop sau orice alt dispozitiv.' }), email, el('div', { class: 'ev-btns' }, [sendLink])])
+          : (s.online ? el('div', { class: 'ev-btns' }, [logout]) : null);
+        return el('div', {}, [el('p', { text: 'Numele apare în jurnalul comun atunci când modifici primul 11, notițele, rezervele sau evenimentele.' }), field, el('div', { class: 'ev-btns' }, [saveName]), auth, msg]);
       },
       'Activitate': function () {
         var wrap = el('div', {}, [el('div', { class: 'ev-empty', text: 'Se încarcă activitatea…' })]);

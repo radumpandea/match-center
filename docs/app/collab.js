@@ -20,14 +20,28 @@
     if (!enabled) return null;
     var got = await client.auth.getUser();
     user = got.data && got.data.user;
-    if (!user) {
-      var signed = await client.auth.signInAnonymously();
-      user = signed.data && signed.data.user;
-      if (signed.error) throw signed.error;
-    }
-    name = localName() || 'Utilizator';
+    name = localName() || (user && user.user_metadata && user.user_metadata.display_name) || (user && user.email ? user.email.split('@')[0] : '');
     emit();
     return user;
+  }
+
+  async function sendMagicLink(email) {
+    if (!enabled) throw new Error('Supabase nu este configurat.');
+    var clean = String(email || '').trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean)) throw new Error('Introdu o adresă de email validă.');
+    var res = await client.auth.signInWithOtp({
+      email: clean,
+      options: { emailRedirectTo: location.origin + location.pathname }
+    });
+    if (res.error) throw res.error;
+    return clean;
+  }
+
+  async function signOut() {
+    if (!enabled) return;
+    var res = await client.auth.signOut();
+    if (res.error) throw res.error;
+    user = null; favs = {}; name = ''; emit();
   }
 
   function changedAreas(before, after) {
@@ -54,6 +68,7 @@
     if (!enabled) { emit(); return; }
     try {
       await ensureUser();
+      if (!user) { emit(); return; }
       await loadFavourites();
       var res = await client.from('mc_match_state').select('state').eq('match_slug', slug).maybeSingle();
       if (res.error) throw res.error;
@@ -125,6 +140,7 @@
       local[slug] = !local[slug]; localStorage.setItem('mc:favourites', JSON.stringify(local)); return !!local[slug];
     }
     await ensureUser();
+    if (!user) throw new Error('Conectează-te cu emailul tău pentru a salva favoritele între dispozitive.');
     if (favs[slug]) { await client.from('mc_favourites').delete().eq('user_id', user.id).eq('match_slug', slug); delete favs[slug]; }
     else { await client.from('mc_favourites').insert({ user_id: user.id, match_slug: slug }); favs[slug] = true; }
     emit(); return !!favs[slug];
@@ -138,8 +154,8 @@
 
   async function ready() {
     if (!enabled) { emit(); return; }
-    try { await ensureUser(); await loadFavourites(); } catch (e) { enabled = false; emit(); }
+    try { await ensureUser(); if (user) await loadFavourites(); } catch (e) { enabled = false; emit(); }
   }
 
-  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes };
+  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes };
 })();

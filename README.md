@@ -140,18 +140,21 @@ The site still works fully in one browser without an account: edits and favourit
 stay in `localStorage`. To make a match screen collaborative across people and
 devices, provision a free [Supabase](https://supabase.com/) project once:
 
-1. In **Authentication -> Providers**, enable **Anonymous sign-ins**.
+1. In **Authentication -> Providers**, make sure **Email** is enabled (it is
+   normally enabled by default). Do not enable Anonymous sign-ins for this flow.
 2. In **SQL Editor**, run [`docs/supabase.sql`](docs/supabase.sql).
 3. In **Project Settings -> API**, copy the project URL and browser-safe
    **anon/publishable** key into `supabaseUrl` and `supabaseAnonKey` in
    [`docs/app/config.js`](docs/app/config.js), then commit it. Do not use the
    `service_role` key in the browser.
 
-Each browser receives an anonymous account and the user chooses a display name
-from **Colaborare -> Profil**. All editor state for a match syncs to the shared
-match screen, the activity tab attributes changes to that display name, and live
-updates arrive while another collaborator has the page open. The star beside a
-fixture, and the **Favorite** filter, are private to that user's anonymous account.
+In **Authentication -> URL Configuration**, set the Site URL to
+`https://radumpandea.github.io/match-center/` and add that same URL (or the
+`https://radumpandea.github.io/match-center/**` wildcard) to Redirect URLs.
+Users connect from **Colaborare -> Profil** with an email magic link, then choose
+a display name. The same email on another device restores that user's favourites
+and edits. All editor state for a match syncs to the shared match screen, and the
+activity tab attributes changes to that display name.
 
 ## Status
 

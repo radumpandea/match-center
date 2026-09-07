@@ -1,5 +1,5 @@
--- Run once in Supabase Dashboard -> SQL Editor. Anonymous users get a stable
--- browser identity; their chosen display name is stored with every change.
+-- Run once in Supabase Dashboard -> SQL Editor. Users authenticate with their
+-- email magic link, so favourites and edits travel between their devices.
 create table if not exists public.mc_match_state (
   match_slug text primary key,
   state jsonb not null default '{}'::jsonb,

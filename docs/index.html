@@ -99,9 +99,9 @@
   </div>
 </div>
 
-<script src="app/config.js?v=20260907e"></script>
+<script src="app/config.js?v=20260907f"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app/collab.js?v=20260907e"></script>
+<script src="app/collab.js?v=20260907f"></script>
 <script>
 (function(){
   var MONTHS = ['ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
@@ -198,8 +198,10 @@
         fav.onclick = async function(e){
           e.preventDefault(); e.stopPropagation();
           if (!window.MC_COLLAB) return;
-          var yes = await window.MC_COLLAB.toggleFavourite(m.slug);
-          fav.classList.toggle('on', yes); fav.textContent = yes ? '★' : '☆';
+          try {
+            var yes = await window.MC_COLLAB.toggleFavourite(m.slug);
+            fav.classList.toggle('on', yes); fav.textContent = yes ? '★' : '☆';
+          } catch (err) { alert('Conectează-te din orice ecran de meci, folosind butonul „Colaborare”, pentru a salva favoritele pe toate dispozitivele.'); }
         };
         el.appendChild(fav);
         group.appendChild(el);
