@@ -308,6 +308,11 @@ table.mc.standings tr.is-mine td{background:var(--color-accent-900,rgba(120,140,
 }
 .team-aside .story-bar:last-child{margin-bottom:0}
 .team-aside .body ul,.team-aside ul{margin:0;padding-left:1.05em;display:flex;flex-direction:column;gap:3px}
+.team-aside .ta-add-h{font:600 10px/1.3 "Inter",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-500);margin-top:var(--space-3)}
+.team-aside .panel-extra{margin-top:4px;border-top:none;padding-top:0}
+.team-aside .panel-extra .px-add{flex-wrap:wrap}
+.team-aside .panel-extra .px-in{flex:1 1 100%}
+.team-aside .panel-extra .px-add .pick{flex:1 1 auto}
 @media (max-width:1000px){
   .pitch-row{flex-direction:column}
   .team-aside{flex:none;width:100%;max-height:none;order:3}

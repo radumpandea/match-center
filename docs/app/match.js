@@ -978,13 +978,14 @@
   // team's flank of the pitch (see render()). null when the team has no stories.
   function teamAside(d, side) {
     var t = d.teams[side];
-    if (!t.stories || !t.stories.length) return null;
     var box = el('div', { class: 'team-aside ' + side }, [
       el('div', { class: 'team-aside-title', text: (t.shortName || t.name) + ' · informații echipă' })
     ]);
-    t.stories.forEach(function (s) {
+    (t.stories || []).forEach(function (s) {
       box.appendChild(el('div', { class: 'story-bar' }, [el('h4', { text: s.title }), ul(s.bullets)]));
     });
+    box.appendChild(el('div', { class: 'ta-add-h', text: 'Notele tale' }));
+    box.appendChild(extrasBox('teaminfo:' + side, '＋ informație despre ' + t.name));
     return box;
   }
 
@@ -1174,10 +1175,7 @@
       add('squad-' + side, panel('Lot — ' + t.name, wrap));
     });
 
-    // free per-team info the user adds by hand
-    add('teaminfo', panel('Informații echipă', twoCol(d, function (t, side) {
-      return extrasBox('teaminfo:' + side, '＋ informație despre ' + t.name);
-    })));
+    // (per-team custom info lives in the pitch-side rail — see teamAside)
 
     // sources
     if (d.sources && d.sources.length) {
