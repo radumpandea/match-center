@@ -407,7 +407,8 @@ async function getFixtureMeta(eventId, cache) {
 async function getStandings(leagueId, season, cache) {
   cache.standings = cache.standings || {};
   const hit = cache.standings[leagueId];
-  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < STANDINGS_TTL) return hit;
+  // v:2 added the full `rows` table — ignore older cache entries that lack it
+  if (hit && hit.v === 2 && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < STANDINGS_TTL) return hit;
   const j = await af('standings', { league: leagueId, season });
   const table = j && j.response && j.response[0] && j.response[0].league
     && j.response[0].league.standings && j.response[0].league.standings[0];
@@ -434,7 +435,7 @@ async function getStandings(leagueId, season, cache) {
       gf: rec.gf, ga: rec.ga, gd: num(row.goalsDiff), points: rec.points, form: rec.form,
     });
   }
-  const rec = { fetchedAt: todayISO(), season, byId, byName, rows };
+  const rec = { fetchedAt: todayISO(), v: 2, season, byId, byName, rows };
   cache.standings[leagueId] = rec;
   return rec;
 }
