@@ -648,8 +648,8 @@
       }
     });
     var collabBtn = el('button', {
-      text: '👥 Colaborare',
-      title: 'Nume, sincronizare și modificările echipei',
+      text: (window.MC_COLLAB && window.MC_COLLAB.status().online) ? '👥 Conectat: ' + (window.MC_COLLAB.status().name || 'utilizator') : '👥 Conectează-te',
+      title: 'Conectare, sincronizare și modificările echipei',
       onclick: function () { openCollaboration(data); }
     });
 

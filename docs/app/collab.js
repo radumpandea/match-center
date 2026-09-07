@@ -31,7 +31,9 @@
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean)) throw new Error('Introdu o adresă de email validă.');
     var res = await client.auth.signInWithOtp({
       email: clean,
-      options: { emailRedirectTo: location.origin + location.pathname }
+      // Keep the exact match query too: returning to match.html without ?m=
+      // would discard the screen the user was working on after authentication.
+      options: { emailRedirectTo: location.origin + location.pathname + location.search }
     });
     if (res.error) throw res.error;
     return clean;
