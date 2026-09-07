@@ -2,14 +2,17 @@
 
 An interactive pre-match screen for football commentators, pre-loaded with researched
 match intelligence. Static site on GitHub Pages; data fed by three daily GitHub Actions.
+All football data comes from **API-Football** (api-sports.io), used server-side only —
+no API key ships in the page.
 
 Live: https://radumpandea.github.io/match-center/
 
 ## How it works
 
 ```
-refresh-fixtures.yml   →  docs/data/fixtures.json      (deterministic, RapidAPI football feed)
-prefetch-preview.yml   →  docs/data/teams/<id>.json    (deterministic squad cache, RapidAPI)
+refresh-fixtures.yml   →  docs/data/fixtures.json      (deterministic, API-Football)
+prefetch-preview.yml   →  docs/data/teams/<id>.json    (deterministic squad cache, API-Football)
+                          docs/data/teams/_afcache.json (standings / team stats / h2h / careers)
                           docs/data/matches/<slug>.json ("partial": true — factual skeleton)
                           docs/data/previews.json      (slugs that have a partial pack)
 build-match-data.yml   →  docs/data/matches/<slug>.json (Claude editorial pass — 2 lanes:
@@ -38,67 +41,56 @@ python scripts/validate_match.py docs/data/matches/l1-e4-toulouse-lille.json
 ## Every fixture opens, even before the daily research pack
 
 `docs/index.html` links every fixture in `fixtures.json`, not just the ones with a
-finished pack (tag "PREGĂTIT" vs "LIVE / MANUAL"). Opening a match without a
-`docs/data/matches/<slug>.json` yet, `match.html`:
+finished pack. `match.html` renders, in priority order:
 
-1. Builds a minimal skeleton from that fixture's `fixtures.json` entry (teams, comp,
-   round, kickoff, venue if known) — empty pitch slots, no coach/referee/squad yet.
-2. If the fixture has an `eventId` (the football feed's per-match id — see below), tries
-   a client-side call to the same football feed for lineups, referee and venue, and fills
-   in whatever comes back. A banner under the team names says what happened (live data
-   found / empty / no key configured / no event id yet).
-3. In parallel it loads the **full squad for both teams** from the feed
-   (`football-get-list-player?teamid=`), using the `homeId` / `awayId` that
-   `refresh-fixtures.mjs` stores on each `fixtures.json` entry (falling back to a
-   name match against `football-get-list-all-team?leagueid=` when those are absent —
-   older entries get the ids at the next refresh). Each squad member arrives with shirt
-   number, age, nationality (3-letter code), height, detailed position and current-season
-   aggregates — goals, assists, yellow/red cards, rating — shown in the player card's
-   Profil tab and in the "Lot" panels. Opening a player card also lazy-loads
-   `football-get-player-detail?playerid=` for preferred foot and, when present, minutes /
-   appearances.
-4. Anything still missing is fillable by hand: click any empty pitch slot to **pick the
-   player for that position from the loaded squad** (searchable), or expand "Adaugă manual
-   un jucător nou" for one not in the feed (number, name, position — added to the squad and
-   available as a future substitute); click "+ Adaugă antrenor" / "+ Adaugă arbitru" /
-   "+ adaugă stadion" next to the coach cards, referee card, or header meta line. All of it
-   saves to `localStorage`, same as notes and substitutions.
+1. The **partial pack** (`docs/data/matches/<slug>.json` with `"partial": true`) written
+   by the daily prefetch — squads with per-player season stats, coach, form, standings,
+   head-to-head, injuries, referee and venue. An amber banner marks it.
+2. Or, if no pack exists yet, a **bare skeleton** from the `fixtures.json` row (teams,
+   comp, round, kickoff, venue if known) — empty pitch, no squads.
 
-Once the real research pack lands (daily, or triggered on demand — see `match-data-json`),
-opening the match again uses that instead; nothing manual is lost from local storage, but
-the richer prep data takes priority over the skeleton/live/manual layers for any field it has.
+There are **no client-side API calls** — the paid API-Football key stays server-side.
+Anything a pack is missing is fillable by hand: click any empty pitch slot to pick the
+player for that position from the loaded squad (searchable), or expand "Adaugă manual un
+jucător nou" for one not in the squad; click "+ Adaugă antrenor" / "+ Adaugă arbitru" /
+"+ adaugă stadion". All of it saves to `localStorage`, same as notes and substitutions.
+
+Once the full research pack lands (daily, or on demand — see `match-data-json`), opening
+the match again uses that instead; nothing manual is lost from local storage, but the
+richer prep data takes priority over the skeleton/manual layers for any field it has.
 
 ### Prefetch tier — `prefetch-preview.yml` + `scripts/prefetch-preview.mjs`
 
 A deterministic step (no AI, no token cost) that runs daily after `refresh-fixtures` and,
 for every not-`ready` fixture kicking off in the next 6 days, writes
-`docs/data/matches/<slug>.json` marked **`"partial": true`** with the factual skeleton the
-football feed can give for free:
+`docs/data/matches/<slug>.json` marked **`"partial": true`** from API-Football:
 
-- full squad for both teams (shirt number, age, country, height, position, season goals /
-  assists / cards / rating) — fetched once per team into `docs/data/teams/<teamId>.json`
-  and reused across every fixture that team plays, refreshed when older than 3 days;
-- head coach name; injuries → `absences[]`; referee name; venue;
-- the confirmed lineup + formation, once the feed publishes it (usually only near kickoff);
-- `teams.<side>.newsCandidates[]` — raw dated headlines from Google News RSS (no key, no
-  library), for the editorial step to triage and paraphrase into `news[]`;
-- **head-to-head** (`h2h.recent[]` + `h2h.summary`), **league-table context**
-  (`form.position`, `form.note`, `form.table` = the standings row), and a **OneFootball-style
-  form guide** (`form.recent[]` — each side's last ~5 matches, competitive and friendly, with
-  scores) from a second RapidAPI source, **soccer-football-info** (free tier ~200 calls/day →
-  server-side only, same account key as `RAPIDAPI_KEY`, the account must be subscribed to it).
-  It also fills `squad[].career` (a short club history) for the players in each team's most
-  recent match lineup, matched to the FotMob squad by name — from soccer-football-info
-  `players/view`. (`stats.minutes` / `stats.apps` are in neither feed; the `match-data-json`
-  skill adds those for the likely XI from FBref.) Championship ids, standings, H2H, per-team
-  match history, recent lineups and player careers are cached in `docs/data/teams/_sfi.json`
-  (standings/history 2 days, lineups 7, careers 30, H2H per pair 14) and a per-run call
-  budget of 190 guards the quota. This key must NOT go in `docs/app/config.js`.
+- **full squad** for both teams — shirt number, age, nationality (3-letter), height,
+  weight, role, and current-season stats **including minutes and appearances** (`players` +
+  `players/squads`). Cached per team at `docs/data/teams/<teamId>.json`, reused across
+  every fixture that team plays, refreshed after 3 days;
+- **coach** — name, age, nationality, full managerial `career[]` and tenure start (`coachs`);
+- **injuries / suspensions** → `absences[]`, reason-classified (`injuries`, latest bulletin);
+- **referee** + **venue** (name / city / capacity) from `fixtures` + `venues`;
+- **confirmed XI**, formation and shirt **colours** once `fixtures/lineups` publishes them
+  (usually ~1h before kickoff);
+- **standings** → `form.table` / `form.position` / `form.last5` / `form.ppg` and a
+  home-away split; **form guide** `form.recent[]` (last ~6, this team's perspective);
+- **`form.stats`** — Opta-style aggregates from `teams/statistics`: goal-timing split
+  (scored and conceded, per 15 min), clean sheets, failed-to-score, penalty share,
+  formations used, biggest streak;
+- **head-to-head** (`h2h.recent[]` + a W-D-L `h2h.summary`) from `fixtures/headtohead`;
+- **`squad[].career`** — a short club-history string per player from `players/teams`;
+- `teams.<side>.newsCandidates[]` — raw dated Google News RSS headlines (no key), for the
+  editorial step to triage into `news[]`;
+- **story seeds** — a few factual `storyOfTheMatch` bullets computed from the numbers above.
 
-`match.html` treats a partial file as a rich skeleton: it renders the squads and lets you
-pick the XI from them, shows an amber "Date parțiale" banner, and still runs the
-client-side live calls for what's missing. `index.html` tags these fixtures "DATE PARȚIALE"
-(from `docs/data/previews.json`).
+Standings, team stats, H2H and player careers are cached in `docs/data/teams/_afcache.json`
+(2 / 2 / 14 / 30 days). A cold run does ~600 throttled calls; warm runs a fraction of that.
+The 7500/day Pro quota is guarded by a per-run budget of 1500 and a 250 ms throttle.
+
+`match.html` renders a partial file as a rich skeleton (squads, form, h2h, amber banner);
+`index.html` tags these fixtures "DATE PARȚIALE" (from `docs/data/previews.json`).
 
 `build-match-data.yml` is the **Level 2 editorial pass**, and it has two lanes:
 
@@ -122,33 +114,9 @@ auto-pick) and a `model:` override. Neither lane re-researches squads, form or H
 deterministic `storyOfTheMatch` seeds mean a pack still reads well even if no editorial pass
 runs for it.
 
-This tier needs only the `RAPIDAPI_KEY` repo secret (server-side, in the Action) — it does
-**not** need the public key in `docs/app/config.js`.
-
-### Live data (client-side) — read this before touching `docs/app/config.js`
-
-`match.html` can call `free-api-live-football-data` directly from the browser (no backend),
-using the per-match `eventId` that `refresh-fixtures.mjs` now stores on each `fixtures.json`
-entry. This means the API key has to be **embedded in the public page** —
-`docs/app/config.js`, committed to the repo, readable by anyone via view-source or the
-browser's network tab. It is not a secret once it's there.
-
-Set it up: open `docs/app/config.js` and replace `REPLACE_WITH_RAPIDAPI_KEY` with the same
-value as the `RAPIDAPI_KEY` repo secret, then commit and push. Leave the placeholder in
-place to skip live lookups entirely (the skeleton + manual-entry flow still works).
-
-If this public copy is ever scraped and abused, rotate it: generate a new key in the
-RapidAPI dashboard, update it in `docs/app/config.js` and in the `RAPIDAPI_KEY` repo secret.
-
-**The exact response shape of these endpoints hasn't been verified against a real API key
-yet** — `enrichFromLiveApi()` (lineups/referee/venue), `enrichSquadsFromLiveApi()` (squads,
-via `applyLiveSquad` / `mapSquadMember`) and `loadPlayerDetail()` in `docs/app/match.js`
-are best-effort parsers with a few fallback shapes. The squad parser is modelled on the
-FotMob-style `response.list.squad[].members[]` layout (`shirtNumber`, `age`, `ccode`,
-`cname`, `height`, `positionIdsDesc`, `goals`, `assists`, `ycards`, `rcards`, `rating`,
-`injury`). Once the key above is live, open a match without a prep pack and check the
-banner ("Loturile complete au fost încărcate…") and the "Lot" panels; if a field is wrong,
-inspect a real response in the browser's network tab and adjust the mappers named above.
+Both deterministic Actions need only the `APIFOOTBALL_KEY` repo secret (server-side). No
+key is embedded in the page — `docs/app/config.js` is an empty stub and `match.html` makes
+no API calls of its own.
 
 ## Local preview
 
@@ -161,7 +129,7 @@ cd docs && python -m http.server 8000
 
 | Secret | Used by | Notes |
 |---|---|---|
-| `RAPIDAPI_KEY` | refresh-fixtures.yml, prefetch-preview.yml | free-api-live-football-data key (same as the `comentarii` repo). Used server-side by both deterministic Actions. A copy of this value also lives **publicly** in `docs/app/config.js` for client-side live lookups — see "Live data" below. |
+| `APIFOOTBALL_KEY` | refresh-fixtures.yml, prefetch-preview.yml | API-Football (api-sports.io) key, Pro plan (7500 req/day). Server-side only — used by both deterministic Actions, never shipped in the page. |
 | `CLAUDE_CODE_OAUTH_TOKEN` | build-match-data.yml (**currently preferred**), claude.yml, claude-code-review.yml | `claude setup-token` output — the Claude subscription. No credit cost, but shares one rolling 5-hour session limit with all other Claude usage on that login, so the 06:00 UTC cron can collide with interactive sessions. The build Action prefers this while `ANTHROPIC_API_KEY` is out of credit. |
 | `ANTHROPIC_API_KEY` | build-match-data.yml (fallback) | Anthropic Console API key — billed per token, no session cap. Preferred for a daily unattended run **when funded**; it ran dry on 2026-09-05 (`Credit balance is too low`). Used only when `CLAUDE_CODE_OAUTH_TOKEN` is unset. Re-fund it and flip the priority back in `build-match-data.yml`. |
 | `ANTHROPIC_WORKSPACE_ID` | build-match-data.yml | **only if** the `ANTHROPIC_API_KEY` fallback is in use AND it is an identity-linked key (error: `anthropic-workspace-id is required`). Value looks like `wrkspc_...`, from the Anthropic Console. Not needed for a plain workspace-scoped key or when running on the OAuth token. |

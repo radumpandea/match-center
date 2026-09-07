@@ -13,11 +13,21 @@ informații, strat de notițe.
 ## Pipeline în două niveluri — tu ești Nivelul 2
 
 **Nivelul 1** (`scripts/prefetch-preview.mjs`, determinist, fără AI) rulează zilnic și
-preîncarcă factualul din feedul RapidAPI: `squad[]` complet pe ambele echipe (număr, vârstă,
-`nat`, înălțime, `pos`, plus `stats` pe sezonul curent — goluri, pase, cartonașe, rating),
-`coach.name`, `absences[]` din accidentări, `referee.name`, `venue`, `confirmedXI` +
-`formation` dacă alinierea era publică, și `teams.<side>.newsCandidates[]` — titluri brute
-din RSS, datate. Fișierul e marcat `"partial": true`.
+preîncarcă factualul din **API-Football**:
+- `squad[]` complet pe ambele echipe — număr, vârstă, `nat`, înălțime, greutate, `role`, și
+  `stats` pe sezonul curent **inclusiv minute și meciuri jucate** (`stats.minutes` /
+  `stats.apps`);
+- `coach` — nume, vârstă, țară, `career[]` complet și `tenureFrom`;
+- `absences[]` din accidentări/suspendări; `referee.name`; `venue` (nume/oraș/capacitate);
+- `confirmedXI` + `formation` + `colors` dacă alinierea era publică;
+- `form` — `table`, `position`, `last5`, `ppg`, split acasă/deplasare, `recent[]` (ghid de
+  formă) și `form.stats` (goluri pe intervale, clean sheet-uri, faze fixe, formații, serii);
+- `h2h.recent[]` + `h2h.summary`;
+- `squad[].career` — istoric scurt de cluburi per jucător;
+- `teams.<side>.newsCandidates[]` — titluri brute din RSS, datate;
+- câteva bullet-uri factuale în `storyOfTheMatch` (seed-uri).
+
+Fișierul e marcat `"partial": true`.
 
 **Nivelul 2 (acest skill)** = stratul editorial + completarea golurilor: pornești de la
 fișierul parțial, **nu de la zero**. Verifici ce a pus Nivelul 1, completezi ce lipsește
@@ -48,9 +58,9 @@ Restul metodologiei (surse, reguli de acuratețe, mapare pe schemă) e identică
 
 ## Pasul 0 — Lotul: verifică ce a pus Nivelul 1, adâncește primul 11
 
-Nivelul 1 a pus deja **lotul complet pentru ambele echipe** cu număr, vârstă, `nat`, `pos`,
-înălțime (din feed, unde există) și `stats` pe sezon. Sarcina ta pe lot NU e să-l reconstrui
-de la zero, ci:
+Nivelul 1 a pus deja **lotul complet pentru ambele echipe** cu număr, vârstă, `nat`,
+înălțime, greutate, `role`, `stats` pe sezon (**inclusiv minute și meciuri**) și un
+`career` scurt per jucător. Sarcina ta pe lot NU e să-l reconstrui de la zero, ci:
 
 1. **Verificare de completitudine** — compară `squad[]` din fișier cu sursa oficială (site
    de club / `footmercato.net/club/{club}/effectif/` / `superliga.ro` pentru RO; pentru
@@ -58,22 +68,22 @@ de la zero, ci:
    „Squad lists"). Adaugă jucătorii lipsă, scoate-i pe cei plecați, corectează numerele.
    Numără explicit portarii — dacă oficial sunt 3 și în fișier e 1, mai caută.
 2. **`status` per jucător** — `available` / `doubt` / `out` / `suspended` + `statusNote`,
-   din team news din preziua/ziua meciului. Feedul a marcat unele accidentări; suspendările
-   (cumul de galbene, roșu) le pui tu.
-3. **Adâncire — doar unde contează.** Detaliile grele (înălțime lipsă, `career`,
-   `pronunciation`, `foot`, `funfact`, `linkLine`, plus `stats.minutes` / `stats.apps`) se
-   cercetează pentru: **primul 11 probabil al fiecărei echipe + orice jucător pe care îl
-   atinge o poveste** (linkLine cu adversarul, revenire, bornă). Pentru restul lotului lasă
-   câmpurile pe `null` — e normal, nu un eșec.
-   - `career`: Nivelul 1 pune deja un istoric scurt de cluburi din `soccer-football-info`
-     pentru jucătorii din alinierea recentă — verifică-l și extinde-l (roluri, realizări,
-     goluri per club). Wikipedia (pagina individuală) e sursa unică cea mai eficientă:
-     infobox cu înălțime + carieră + națională dintr-un fetch. Transfermarkt doar din
-     fragmente.
-   - `stats.minutes` / `stats.apps`: **NU sunt în feed** (nici Nivelul 1 nu le poate lua).
-     Ia-le pentru primul 11 de pe **FBref** — pagina „{Club} Stats — {sezon}, All
-     Competitions" listează minute și meciuri per jucător. Restul `stats` (goluri, pase,
-     cartonașe) vin din feed.
+   din team news din preziua/ziua meciului. Nivelul 1 a marcat accidentările din API;
+   suspendările (cumul de galbene, roșu) le pui tu.
+3. **`pos` — poziția fină.** Nivelul 1 pune doar `role` (GK/DEF/MID/ATT), nu `pos`
+   (GK/LB/RCB/DM/CAM…). Pune `pos` pentru primul 11 probabil (ecranul îl folosește la
+   așezarea pe teren). Pentru restul lotului `pos: null` e ok.
+4. **Adâncire — doar unde contează.** Detaliile grele (înălțime lipsă, `pronunciation`,
+   `foot`, `funfact`, `linkLine`) se cercetează pentru: **primul 11 probabil al fiecărei
+   echipe + orice jucător pe care îl atinge o poveste** (linkLine cu adversarul, revenire,
+   bornă). Pentru restul lotului lasă câmpurile pe `null` — e normal, nu un eșec.
+   - `career`: Nivelul 1 pune deja un istoric de cluburi cu ani. Verifică-l și, pentru
+     primul 11, extinde-l cu roluri/realizări/goluri per club. Wikipedia (pagina
+     individuală) e sursa unică cea mai eficientă: infobox cu înălțime + carieră +
+     națională dintr-un fetch. Transfermarkt doar din fragmente.
+   - `stats.minutes` / `stats.apps` **vin deja de la Nivelul 1** (API-Football). Nu le
+     re-căuta pe FBref în modul standard — FBref rămâne doar pentru statistici avansate
+     (xG, SCA, presiuni) în modul aprofundat.
    - Academici tineri: `null`, nu inventa.
 
 Dacă utilizatorul semnalează o lipsă, tratează asta ca semnal că verificarea a fost
@@ -104,20 +114,19 @@ cap, accidentări, `confirmedXI`, câteva bullet-uri factuale în `storyOfTheMat
 verifici, nu re-cauți.
 
 **Buget de căutări: ~12 fetch-uri/căutări per meci, total.** Nu verifica lotul jucător cu
-jucător — l-a făcut Nivelul 1. Cheltuiala tipică: 1 pagină de preview, 1-2 de team news,
-2 Wikipedia (antrenori), 2 FBref (minute/meciuri pentru primul 11), 1-2 pentru funfacts,
-1 SoccerStats (statistici de goluri). Calitatea în limita bugetului bate acoperirea
-exhaustivă.
+jucător — l-a făcut Nivelul 1, cu tot cu minute/meciuri și carieră. Cheltuiala tipică:
+1 pagină de preview, 1-2 de team news, 2 Wikipedia (antrenori), 2-3 pentru primul 11
+probabil + funfacts, 1 SoccerStats (statistici de goluri pe care Nivelul 1 nu le are).
+Calitatea în limita bugetului bate acoperirea exhaustivă.
 
-1. **Cap la cap + clasament + formă — verifică ce a pus Nivelul 1, apoi SoccerStats pentru rest.**
-   Nivelul 1 pune deja `h2h.recent[]` + `h2h.summary` (istoric all-time), `form.position` +
-   `form.note`, `form.table` (rând de clasament: `played/win/draw/loss/gf/ga/points`) și
-   `form.recent[]` — ghidul de formă stil OneFootball: ultimele ~5 meciuri (competitive +
-   amicale), cel mai recent primul, din perspectiva echipei (`{date, opp, homeAway, comp,
-   score, result}`). Verifică-le și **completează**: `form.last5` (W/D/L), `.ppg`, `.homeAway`
-   (split acasă/deplasare în text), și `broadcast` (postul TV, ex. „DAZN"). Sursa rapidă:
-   `soccerstats.com/latest.asp?league={liga}` (clasament la zi + statistici de goluri);
-   `soccerstats.com/h2h.asp?...` pentru confirmarea capului la cap.
+1. **Cap la cap + clasament + formă — Nivelul 1 le-a pus deja, tu doar verifici.**
+   Nivelul 1 pune `h2h.recent[]` + `h2h.summary`, `form.position` / `form.table` (rând de
+   clasament), `form.last5`, `form.ppg`, `form.homeAway` (split acasă/deplasare),
+   `form.recent[]` (ghid de formă, ultimele ~6, cel mai recent primul) și `form.stats`
+   (goluri pe intervale, clean sheet-uri, faze fixe, formații, serii). Nu le re-căuta.
+   Completează doar ce lipsește: `broadcast` (postul TV, ex. „DAZN") și, dacă vrei un unghi
+   de goluri pe care API-Football nu-l dă, o pagină SoccerStats
+   (`soccerstats.com/latest.asp?league={liga}`).
 2. **Primul 11 probabil** → `predictedXI` (11, ordonat GK→ATT) + `formation`. Surse: maxifoot,
    VAVEL, Sports Mole, footmercato. Dacă `confirmedXI` e deja pus de Nivelul 1, folosește-l
    ca `predictedXI` și lasă `confirmedXI` cum e. Dacă meciul s-a jucat, caută alinierea reală.
@@ -139,14 +148,16 @@ exhaustivă.
 6. **Mercato vara curentă** → `mercatoIn[]` / `mercatoOut[]`: sosiri/plecări cu sume
    (footmercato.net/tableau sau echivalent).
 7. **Pregătirea de vară** → `preseason[]`: amicalele cu scoruri (dacă mai e relevant).
-8. **Absenți** → verifică `absences[]` (Nivelul 1 a pus accidentările din feed); adaugă
-   suspendările și incertitudinile. `reason` ∈ injury/suspension/doubt/other.
+8. **Absenți** → verifică `absences[]` (Nivelul 1 a pus accidentările/suspendările din
+   API-Football); adaugă incertitudinile de team news. `reason` ∈ injury/suspension/doubt/other.
 9. **Fire narative** → `storyOfTheMatch[]` (6-10 propoziții) + `teams.<side>.stories[]` (bare
    cu titlu punchy stil presă sportivă + 2-5 bullet-uri pe un unghi). **Calculează** din ce e
-   deja în fișier: `squad[].stats` îți dă golgheterii, disciplina, minutajul; SoccerStats îți
-   dă rangul și seria de formă. Combină-le (ex. „X a marcat 5 din cele 9 goluri ale echipei",
-   „Y — 4 meciuri fără înfrângere, dar 0 clean sheet-uri"). Fă aritmetica și **verific-o de
-   două ori**. The Analyst (theanalyst.com) pentru unghi stil Opta la ligile mari.
+   deja în fișier: `squad[].stats` îți dă golgheterii, disciplina, minutajul; `form.table` /
+   `form.recent` / `form.stats` îți dau rangul, seria de formă, golurile pe intervale, fazele
+   fixe, formațiile. Combină-le (ex. „X a marcat 5 din cele 9 goluri ale echipei", „Y —
+   4 meciuri fără înfrângere, dar 0 clean sheet-uri", „38% din golurile lui Z vin după min.
+   75"). Fă aritmetica și **verific-o de două ori**. The Analyst (theanalyst.com) pentru
+   unghi stil Opta la ligile mari.
 
 ### Surse preferate (în ordine)
 Site-uri oficiale ligă/club → footmercato.net (efectiv + tablou transferuri + fișe jucători)
@@ -213,12 +224,15 @@ Reguli de mapare:
 - `squad[]` = tot lotul. `role` ∈ GK/DEF/MID/ATT (obligatoriu). `foot` ∈ L/R/B/null.
   Coduri de țară cu 3 litere (DNK, FRA, ITA...).
 - `squad[].stats` (opțional) = agregate pe sezonul curent: `goals`, `assists`, `minutes`,
-  `apps`, `yellow`, `red`, `rating` — toate nullable. Nivelul 1 umple `goals`/`assists`/
-  `yellow`/`red`/`rating` din feed; `minutes`/`apps` le adaugi tu din FBref pentru primul 11
-  (vezi Pasul 0). `career` (istoric de cluburi) e completat parțial de Nivelul 1 din
-  soccer-football-info — verifică și extinde pentru primul 11.
-- `colors` = culorile principale ale echipei (hex), pentru tricourile de pe teren. Dacă nu
-  ești sigur, `null` — ecranul are un fallback.
+  `apps`, `yellow`, `red`, `rating` — toate nullable, **toate umplute de Nivelul 1** din
+  API-Football (inclusiv `minutes`/`apps`). Nu le re-căuta în modul standard. `career`
+  (istoric de cluburi cu ani) e pus de Nivelul 1 — verifică și extinde-l pentru primul 11.
+- `colors` = culorile principale ale echipei (hex), pentru tricourile de pe teren. Nivelul 1
+  le pune când alinierea e publică; altfel `null` și ecranul are un fallback.
+- `form.stats` = agregate stil Opta puse de Nivelul 1 (`goalsForByInterval`,
+  `goalsAgainstByInterval`, `cardsYellowByInterval`, `cleanSheets`, `failedToScore`,
+  `penaltyScored`/`penaltyScoredPct`, `formations`, `biggestStreak`). Le folosești la fire
+  narative — nu le rescrii.
 - `absences[].reason` ∈ injury/suspension/doubt/other.
 - `news[]` = `{date, text}`, text în română, parafrazat. `newsCandidates` (dacă exista de la
   Nivelul 1) **nu apare** în fișierul final — l-ai triat în `news[]` și l-ai șters.
