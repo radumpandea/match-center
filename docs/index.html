@@ -54,7 +54,7 @@
   .group-label{font:600 11px/1 "Inter",sans-serif;letter-spacing:.16em;color:var(--color-neutral-400)}
   .group-count{font-size:11px;color:var(--color-neutral-600)}
   .row{
-    display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:var(--space-4);
+    display:grid;grid-template-columns:52px 1fr auto auto;align-items:center;gap:var(--space-4);
     padding:var(--space-4);border-radius:var(--radius-md);border:1px solid var(--color-divider);
     color:inherit;text-decoration:none;transition:background .12s
   }
@@ -68,6 +68,9 @@
   .row-tag.ready{background:color-mix(in srgb,var(--color-accent) 18%,transparent);color:var(--color-accent-200)}
   .row-tag.partial{background:color-mix(in srgb,#e8b04b 16%,transparent);color:#f1cd8a;border:1px solid color-mix(in srgb,#e8b04b 38%,transparent)}
   .row-tag.pending{background:transparent;color:var(--color-neutral-600);border:1px solid var(--color-divider)}
+  .fav{width:28px;height:28px;padding:0;border:1px solid var(--color-divider);border-radius:50%;background:transparent;color:var(--color-neutral-500);font-size:16px;line-height:1;cursor:pointer}
+  .fav.on{color:#f1cd8a;border-color:#e8b04b;background:color-mix(in srgb,#e8b04b 12%,transparent)}
+  .fav:hover{color:#f1cd8a;border-color:#e8b04b}
   .empty{padding:var(--space-8);text-align:center;font-size:13px;color:var(--color-neutral-600);border:1px dashed var(--color-divider);border-radius:var(--radius-md)}
   .foot{font-size:11.5px;line-height:1.7;color:var(--color-neutral-600);border-top:1px solid var(--color-divider);padding-top:var(--space-4);text-wrap:pretty}
 </style>
@@ -96,12 +99,15 @@
   </div>
 </div>
 
+<script src="app/config.js?v=20260907e"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app/collab.js?v=20260907e"></script>
 <script>
 (function(){
   var MONTHS = ['ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
   var DAYS = ['duminică','luni','marți','miercuri','joi','vineri','sâmbătă'];
 
-  var state = { comp: null, query: '' };
+  var state = { comp: null, query: '', favourites: false };
   var all = [];
   var partials = {};   // slug -> true, from data/previews.json (deterministic prefetch)
 
@@ -131,6 +137,11 @@
     allChip.textContent = 'Toate';
     allChip.onclick = function(){ state.comp = null; render(); };
     chipsEl.appendChild(allChip);
+    var favChip = document.createElement('button');
+    favChip.className = 'chip' + (state.favourites ? ' active' : '');
+    favChip.textContent = '★ Favorite';
+    favChip.onclick = function(){ state.favourites = !state.favourites; render(); };
+    chipsEl.appendChild(favChip);
     comps.forEach(function(c){
       var b = document.createElement('button');
       b.className = 'chip' + (state.comp === c ? ' active' : '');
@@ -142,6 +153,7 @@
     var q = state.query.trim().toLowerCase();
     var vis = all.filter(function(m){
       return (state.comp === null || m.comp === state.comp) &&
+        (!state.favourites || (window.MC_COLLAB && window.MC_COLLAB.isFavourite(m.slug))) &&
         (!q || (m.home + ' ' + m.away).toLowerCase().indexOf(q) >= 0);
     });
 
@@ -178,6 +190,18 @@
           '<span class="row-mid"><span class="row-title">' + m.home + ' – ' + m.away + '</span>' +
           '<span class="row-sub">' + m.comp + ' · ' + m.round + (m.venue && m.venue !== 'n/d' ? ' · ' + m.venue : '') + '</span></span>' +
           '<span class="row-tag ' + tagClass + '">' + tagText + '</span>';
+        var fav = document.createElement('button');
+        var isFav = window.MC_COLLAB && window.MC_COLLAB.isFavourite(m.slug);
+        fav.className = 'fav' + (isFav ? ' on' : '');
+        fav.textContent = isFav ? '★' : '☆';
+        fav.title = isFav ? 'Elimină din favorite' : 'Adaugă la favorite';
+        fav.onclick = async function(e){
+          e.preventDefault(); e.stopPropagation();
+          if (!window.MC_COLLAB) return;
+          var yes = await window.MC_COLLAB.toggleFavourite(m.slug);
+          fav.classList.toggle('on', yes); fav.textContent = yes ? '★' : '☆';
+        };
+        el.appendChild(fav);
         group.appendChild(el);
       });
 
@@ -200,8 +224,10 @@
     all = (res[0] || []).filter(isUpcoming).sort(function(a, b){
       return (a.date + (a.ko || '')).localeCompare(b.date + (b.ko || ''));
     });
+    if (window.MC_COLLAB) window.MC_COLLAB.ready().then(render);
     render();
   }).catch(function(){ render(); });
+  window.addEventListener('mc-collab', render);
 })();
 </script>
 </body>

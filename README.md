@@ -134,7 +134,27 @@ cd docs && python -m http.server 8000
 | `ANTHROPIC_API_KEY` | build-match-data.yml (fallback) | Anthropic Console API key — billed per token, no session cap. Preferred for a daily unattended run **when funded**; it ran dry on 2026-09-05 (`Credit balance is too low`). Used only when `CLAUDE_CODE_OAUTH_TOKEN` is unset. Re-fund it and flip the priority back in `build-match-data.yml`. |
 | `ANTHROPIC_WORKSPACE_ID` | build-match-data.yml | **only if** the `ANTHROPIC_API_KEY` fallback is in use AND it is an identity-linked key (error: `anthropic-workspace-id is required`). Value looks like `wrkspc_...`, from the Anthropic Console. Not needed for a plain workspace-scoped key or when running on the OAuth token. |
 
+## Shared edits and favourites (Supabase)
+
+The site still works fully in one browser without an account: edits and favourites
+stay in `localStorage`. To make a match screen collaborative across people and
+devices, provision a free [Supabase](https://supabase.com/) project once:
+
+1. In **Authentication -> Providers**, enable **Anonymous sign-ins**.
+2. In **SQL Editor**, run [`docs/supabase.sql`](docs/supabase.sql).
+3. In **Project Settings -> API**, copy the project URL and browser-safe
+   **anon/publishable** key into `supabaseUrl` and `supabaseAnonKey` in
+   [`docs/app/config.js`](docs/app/config.js), then commit it. Do not use the
+   `service_role` key in the browser.
+
+Each browser receives an anonymous account and the user chooses a display name
+from **Colaborare -> Profil**. All editor state for a match syncs to the shared
+match screen, the activity tab attributes changes to that display name, and live
+updates arrive while another collaborator has the page open. The star beside a
+fixture, and the **Favorite** filter, are private to that user's anonymous account.
+
 ## Status
 
-Option A: single user, no accounts, pre-match only. Live in-match data, accounts, and
-cross-device sync are deliberately out of scope for now.
+Option A is now a collaborative pre-match tool when Supabase is configured. Live
+in-match feed automation is still deliberately out of scope; manual live events,
+shared editor changes, favourites and cross-device sync are supported.

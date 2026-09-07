@@ -34,6 +34,7 @@
     data._skeleton = !prep;
     data._partial = partial;
     render(data);
+    connectCollaboration(data);
   });
 
   function fail(html) { root.innerHTML = '<div class="errbox">' + html + '</div>'; }
@@ -97,6 +98,21 @@
   }
   function save() {
     try { localStorage.setItem(NKEY, JSON.stringify(store)); } catch (e) {}
+    if (window.MC_COLLAB) window.MC_COLLAB.persist(store);
+  }
+
+  var collaborationStarted = false;
+  function connectCollaboration(data) {
+    if (collaborationStarted || !window.MC_COLLAB) return;
+    collaborationStarted = true;
+    window.MC_COLLAB.start(slug, store, function (remoteState) {
+      store = remoteState || {};
+      try { localStorage.setItem(NKEY, JSON.stringify(store)); } catch (e) {}
+      view = (store.view && typeof store.view === 'object')
+        ? { orientation: store.view.orientation === 'v' ? 'v' : 'h', swapped: !!store.view.swapped, fullNames: !!store.view.fullNames, labelSize: [0, 1, 2].indexOf(store.view.labelSize) >= 0 ? store.view.labelSize : 0 }
+        : { orientation: 'h', swapped: false, fullNames: false, labelSize: 0 };
+      render(data);
+    });
   }
   function notesFor(id) { return (store.notes && store.notes[id]) || []; }
   // one input line -> { kind, text }. A leading -, *, • or – marks a bullet;
@@ -620,6 +636,20 @@
         if (store.discColors) { delete store.discColors; save(); render(data); }
       }
     });
+    var favBtn = el('button', {
+      text: (window.MC_COLLAB && window.MC_COLLAB.isFavourite(slug)) ? '★ Favorit' : '☆ Favorit',
+      title: 'Păstrează acest meci în lista ta de favorite',
+      onclick: async function () {
+        if (!window.MC_COLLAB) return;
+        var yes = await window.MC_COLLAB.toggleFavourite(slug);
+        favBtn.textContent = yes ? '★ Favorit' : '☆ Favorit';
+      }
+    });
+    var collabBtn = el('button', {
+      text: '👥 Colaborare',
+      title: 'Nume, sincronizare și modificările echipei',
+      onclick: function () { openCollaboration(data); }
+    });
 
     // header
     var metaWrap = el('div', { class: 'mc-meta' }, [document.createTextNode(metaLine(data))]);
@@ -643,6 +673,8 @@
         discSwatch('home'),
         discSwatch('away'),
         discReset,
+        favBtn,
+        collabBtn,
         resetPosBtn,
         resetOrderBtn,
         el('button', { text: '🖨 Print', onclick: function () { window.print(); } }),
@@ -662,6 +694,37 @@
 
     panelsEl = panels(data);
     root.appendChild(panelsEl);
+  }
+
+  function openCollaboration(data) {
+    modal(function (close) {
+      return el('div', { class: 'modal-head' }, [
+        el('div', { class: 'avatar', text: '👥' }),
+        el('div', {}, [el('h3', { text: 'Colaborare' }), el('div', { class: 'sub', text: 'Schimbările sunt salvate cu numele persoanei care le-a făcut.' })]),
+        el('button', { class: 'modal-close', text: '×', onclick: close })
+      ]);
+    }, {
+      'Profil': function () {
+        var s = window.MC_COLLAB ? window.MC_COLLAB.status() : { configured: false };
+        var field = el('input', { class: 'field', value: s.name || '', placeholder: 'Numele tău (ex. Radu)' });
+        var msg = el('div', { class: 'ev-empty', text: s.configured ? 'Sincronizare activă pentru acest browser.' : 'Mod local activ. Pentru colaborare, completează configurația Supabase din app/config.js.' });
+        var saveName = el('button', { class: 'pick', text: 'Salvează numele', onclick: async function () {
+          if (!window.MC_COLLAB) return;
+          await window.MC_COLLAB.setName(field.value); msg.textContent = 'Numele a fost salvat: ' + (window.MC_COLLAB.status().name || 'Utilizator') + '.';
+        } });
+        return el('div', {}, [el('p', { text: 'Numele apare în jurnalul comun atunci când modifici primul 11, notițele, rezervele sau evenimentele.' }), field, el('div', { class: 'ev-btns' }, [saveName]), msg]);
+      },
+      'Activitate': function () {
+        var wrap = el('div', {}, [el('div', { class: 'ev-empty', text: 'Se încarcă activitatea…' })]);
+        if (!window.MC_COLLAB || !window.MC_COLLAB.configured()) { wrap.firstChild.textContent = 'Activitatea comună devine disponibilă după configurarea Supabase.'; return wrap; }
+        window.MC_COLLAB.changes(slug).then(function (items) {
+          wrap.innerHTML = '';
+          if (!items.length) { wrap.appendChild(el('div', { class: 'ev-empty', text: 'Încă nu există modificări comune pentru acest meci.' })); return; }
+          items.forEach(function (item) { wrap.appendChild(el('div', { class: 'ev-row' }, [el('span', { text: item.display_name + ' — ' + item.summary }), el('time', { text: new Date(item.changed_at).toLocaleString('ro-RO', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) })])); });
+        });
+        return wrap;
+      }
+    });
   }
 
   function skeletonBanner(d) {
