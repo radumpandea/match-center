@@ -1,81 +1,72 @@
 // Deterministic pre-fill of docs/data/matches/<slug>.json for upcoming fixtures
-// that don't have a full research pack yet. NO AI — so no hallucination risk and
-// no API-token cost. Pulls the factual skeleton straight from
-// free-api-live-football-data (RapidAPI):
+// that don't have a full research pack yet. NO AI — no hallucination risk, no
+// AI-token cost. Everything comes from API-Football (api-sports.io v3):
 //
-//   - full squad for both teams, each player with shirt number, age, country
-//     (3-letter code), height, detailed position and current-season aggregates
-//     (goals, assists, yellow/red cards, rating)
-//   - head coach name
-//   - injury list -> teams.<side>.absences[]
-//   - referee name, venue (name / capacity / city)
-//   - the confirmed lineup + formation, once the feed publishes it (usually only
-//     ~1h before kickoff, so most prefetch runs leave predictedXI empty and the
-//     client-side call in match.html fills it in later)
+//   - full squad for both teams (shirt no., age, nationality, height, weight,
+//     role and current-season stats: goals, assists, minutes, appearances,
+//     cards, rating)
+//   - head coach: name, age, nationality, managerial career, tenure start
+//   - injuries / suspensions -> teams.<side>.absences[]
+//   - referee name, venue (name / city / capacity)
+//   - the confirmed lineup + formation, once API-Football publishes it (usually
+//     ~1h before kickoff)
+//   - league standings row + home/away split -> teams.<side>.form
+//   - a form guide (last ~6 results, this team's perspective) -> form.recent
+//   - Opta-style team aggregates (goal-timing split, clean sheets, penalty
+//     share, formations used, biggest streak) -> form.stats
+//   - head-to-head (last meetings + W-D-L summary) -> h2h
+//   - a short club-history career string per player -> squad[].career
+//   - raw dated RSS headlines -> teams.<side>.newsCandidates[] (no key)
 //
 // The file is written schema-valid with "partial": true. The match-data-json
-// skill later upgrades the SAME file with the editorial layer (form, head to
-// head, probable XI, story bars, funfacts, coach careers, mercato, news) and
-// removes the partial flag. Nothing here ever sets fixtures.json `ready` or
-// touches a file that already holds a full (non-partial) pack.
+// skill later upgrades the SAME file with the editorial layer and removes the
+// flag. Nothing here ever sets fixtures.json `ready`.
 //
-// Squads are cached per team at docs/data/teams/<teamId>.json and reused across
-// every fixture that team plays, refetched only when older than SQUAD_TTL_DAYS.
+// Per-team squads are cached at docs/data/teams/<teamId>.json (TTL 3 days).
+// Standings, team stats, H2H and player careers are cached in
+// docs/data/teams/_afcache.json (2 / 2 / 14 / 30 days).
 //
-// Requires Node 18+ (global fetch) and env RAPIDAPI_KEY.
+// Requires Node 18+ (global fetch) and env APIFOOTBALL_KEY.
 // Run daily by .github/workflows/prefetch-preview.yml, after refresh-fixtures.
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
 
-const HOST = 'https://free-api-live-football-data.p.rapidapi.com';
-const API_KEY = process.env.RAPIDAPI_KEY;
+const HOST = 'https://v3.football.api-sports.io';
+const API_KEY = process.env.APIFOOTBALL_KEY;
 if (!API_KEY) {
-  console.error('Missing RAPIDAPI_KEY env var.');
+  console.error('Missing APIFOOTBALL_KEY env var.');
   process.exit(1);
 }
-const HEADERS = {
-  'x-rapidapi-host': 'free-api-live-football-data.p.rapidapi.com',
-  'x-rapidapi-key': API_KEY,
-};
+const HEADERS = { 'x-apisports-key': API_KEY };
 
-const DAYS_AHEAD = 6;      // only prefetch fixtures kicking off within this window
-const SQUAD_TTL_DAYS = 3;  // refetch a cached team squad once it is older than this
+const DAYS_AHEAD = 6;
+const SQUAD_TTL_DAYS = 3;
+const STANDINGS_TTL = 2;
+const TEAMSTATS_TTL = 2;
+const H2H_TTL = 14;
+const CAREER_TTL = 30;
+const AF_CALL_BUDGET = 1500;   // safety ceiling well under the 7500/day Pro tier
+const AF_THROTTLE_MS = 250;    // ~240 req/min, under the 300/min Pro limit
+const CAREER_MAX_PLAYERS = 22; // per team, per match
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const FIXTURES = ROOT + 'docs/data/fixtures.json';
 const MATCHES_DIR = ROOT + 'docs/data/matches';
 const TEAMS_DIR = ROOT + 'docs/data/teams';
 const PREVIEWS = ROOT + 'docs/data/previews.json';
+const CACHE_FILE = `${TEAMS_DIR}/_afcache.json`;
 
 const SOURCE = {
-  name: 'free-api-live-football-data (RapidAPI)',
-  url: 'https://rapidapi.com/Creativesdev/api/free-api-live-football-data',
+  name: 'API-Football (api-sports.io)',
+  url: 'https://www.api-football.com/',
 };
 
-// Second RapidAPI source: soccer-football-info (free tier ~200 calls/day, so
-// SERVER-SIDE ONLY — never the public docs/app/config.js key). Same RapidAPI
-// account key as RAPIDAPI_KEY; the account must be subscribed to this API.
-// Used for head-to-head and league-table context that the primary feed lacks.
-const SFI_HOST = 'https://soccer-football-info.p.rapidapi.com';
-const SFI_HEADERS = { 'x-rapidapi-host': 'soccer-football-info.p.rapidapi.com', 'x-rapidapi-key': API_KEY };
-const SFI_FILE = `${TEAMS_DIR}/_sfi.json`;   // shared cache: championship ids, standings, h2h
-const SFI_STANDINGS_TTL = 2;
-const SFI_H2H_TTL = 14;
-const SFI_CALL_BUDGET = 190;                 // hard stop just under the 200/day tier
-const SFI_SOURCE = { name: 'soccer-football-info (RapidAPI)', url: 'https://rapidapi.com/soccerfootball/api/soccer-football-info' };
-const SFI_LEAGUE = {
-  'Premier League': { cc: 'GB', re: /premier league/i },
-  'Ligue 1':        { cc: 'FR', re: /\bligue 1\b/i },
-  'LaLiga':         { cc: 'ES', re: /primera liga/i },
-  'Serie A':        { cc: 'IT', re: /\bserie a\b/i },
-  'Bundesliga':     { cc: 'DE', re: /\bbundesliga\b/i },
-  '2. Bundesliga':  { cc: 'DE', re: /2\.?\s*bundesliga|zweite bundesliga|bundesliga 2/i, noExclude: true },
-  'Superliga':      { cc: 'RO', re: /liga i\b/i },
-  'Liga 2':         { cc: 'RO', re: /liga (ii|2)\b/i, noExclude: true },
+const AF_LEAGUE_ID = {
+  'Premier League': 39, 'Ligue 1': 61, 'LaLiga': 140, 'Serie A': 135,
+  'Bundesliga': 78, '2. Bundesliga': 79, 'Superliga': 283, 'Liga 2': 284,
 };
-const SFI_EXCLUDE = /women|femin|u1[6-9]|u2[0-3]|youth|reserve|primavera|play-?off|segunda|serie b|serie d|ligue 2|2\.\s*bundesliga|\bii\b/i;
 
 /* ---------- small helpers ---------- */
 function todayISO() { return new Date().toISOString(); }
@@ -84,6 +75,12 @@ function daysBetween(a, b) { return Math.round((new Date(a) - new Date(b)) / 864
 function num(v) { const n = parseInt(v, 10); return Number.isNaN(n) ? null : n; }
 function fnum(v) { const n = parseFloat(v); return Number.isNaN(n) ? null : n; }
 function has(v) { return v != null && v !== '' && v !== 'n/d'; }
+const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
+
+function currentSeason(d = new Date()) {
+  const y = d.getFullYear();
+  return d.getMonth() >= 6 ? y : y - 1;
+}
 
 function readJSON(path) {
   try { return JSON.parse(readFileSync(path, 'utf8')); } catch { return null; }
@@ -93,162 +90,486 @@ function writeJSON(path, obj) {
   writeFileSync(path, JSON.stringify(obj, null, 2) + '\n');
 }
 
-async function api(path, params) {
-  const qs = Object.entries(params || {})
-    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&');
-  const url = `${HOST}/${path}${qs ? '?' + qs : ''}`;
-  let r;
-  try {
-    r = await fetch(url, { headers: HEADERS });
-  } catch (e) {
-    console.error(`  api ${path}: ${e.message}`);
-    return null;
-  }
-  if (!r.ok) { console.error(`  api ${path}: HTTP ${r.status}`); return null; }
-  let j;
-  try { j = await r.json(); } catch { return null; }
-  if (j && j.status && j.status !== 'success') return null;
-  return j;
-}
-
 function norm(s) {
   return String(s || '').toLowerCase().normalize('NFD')
     .replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '');
 }
 
-/* ---------- squad mapping (mirrors docs/app/match.js mapSquadMember) ---------- */
-const ROLE_WORDS = {
-  goalkeeper: 'GK', keeper: 'GK', defender: 'DEF', defence: 'DEF',
-  midfield: 'MID', midfielder: 'MID', attacker: 'ATT', forward: 'ATT', striker: 'ATT',
-};
-function roleFrom(groupTitle, member) {
-  const k = ((member && member.role && (member.role.key || member.role.fallback)) || groupTitle || '').toLowerCase();
-  const hit = Object.keys(ROLE_WORDS).find((w) => k.indexOf(w) >= 0);
-  return hit ? ROLE_WORDS[hit] : null;
-}
-function isCoachEntry(groupTitle, member) {
-  const k = ((member && member.role && (member.role.key || member.role.fallback)) || groupTitle || '').toLowerCase();
-  return k.indexOf('coach') >= 0 || k.indexOf('manager') >= 0 || k.indexOf('staff') >= 0;
-}
-function mapSquadMember(m, groupTitle) {
-  const name = m.name || m.cname || (m.player && m.player.name) || null;
-  if (!name) return null;
-  const posDesc = (m.positionIdsDesc || m.positionDesc || m.position || '').toString();
-  const pos = posDesc ? posDesc.split(',')[0].trim() : null;
-  const injured = m.injured === true || (m.injury != null && m.injury !== false);
-  const ret = (m.injury && (m.injury.expectedReturn || m.injury.returnDate)) || null;
-  const stats = {
-    goals: num(m.goals),
-    assists: num(m.assists),
-    minutes: num(m.minutesPlayed != null ? m.minutesPlayed : m.minutes),
-    apps: num(m.appearances != null ? m.appearances : m.matches),
-    yellow: num(m.ycards != null ? m.ycards : m.yellowCards),
-    red: num(m.rcards != null ? m.rcards : m.redCards),
-    rating: fnum(m.rating),
-  };
-  const hasStat = Object.values(stats).some((v) => v != null);
-  return {
-    number: num(m.shirtNumber != null ? m.shirtNumber : m.jerseyNumber),
-    name,
-    pos: pos || null,
-    role: roleFrom(groupTitle, m) || 'MID',
-    age: num(m.age),
-    height: num(m.height),
-    weight: null,
-    foot: null,
-    nat: m.ccode || m.countryCode || null,
-    natTeam: null,
-    birthCountry: m.cname || m.country || null,
-    pronunciation: null,
-    career: null,
-    lastSeason: null,
-    funfact: null,
-    linkLine: null,
-    status: injured ? 'out' : 'available',
-    statusNote: injured ? ('Accidentat' + (ret ? ' — revenire estimată ' + ret : '')) : null,
-    stats: hasStat ? stats : null,
-    _injury: injured ? { detail: (m.injury && (m.injury.type || m.injury.title)) || null, since: null } : null,
-  };
-}
-function parseSquadGroups(json) {
-  const r = json && (json.response || json);
-  const groups = (r && r.list && Array.isArray(r.list.squad)) ? r.list.squad
-    : (r && Array.isArray(r.squad)) ? r.squad
-    : (Array.isArray(r) ? r : null);
-  if (!groups) return null;
-  const players = [];
-  let coachName = null;
-  for (const g of groups) {
-    const title = (g && (g.title || g.name)) || '';
-    const members = (g && (g.members || g.players)) || (Array.isArray(g) ? g : []);
-    for (const m of members) {
-      if (isCoachEntry(title, m)) { if (!coachName) coachName = m.name || null; continue; }
-      const p = mapSquadMember(m, title);
-      if (p) players.push(p);
+/* ---------- API-Football client ---------- */
+let _calls = 0;
+let _last = 0;
+async function af(path, params) {
+  if (_calls >= AF_CALL_BUDGET) { console.error(`  af: call budget reached, skipping ${path}`); return null; }
+  const qs = Object.entries(params || {})
+    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&');
+  const url = `${HOST}/${path}${qs ? '?' + qs : ''}`;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const gap = Date.now() - _last;
+    if (gap < AF_THROTTLE_MS) await sleep(AF_THROTTLE_MS - gap);
+    _calls++;
+    _last = Date.now();
+    let r;
+    try {
+      r = await fetch(url, { headers: HEADERS });
+    } catch (e) {
+      console.error(`  af ${path}: ${e.message}`);
+      return null;
     }
-  }
-  if (!players.length) return null;
-  return { players, coachName };
-}
-
-/* ---------- lineup mapping (mirrors match.js applyLiveLineup) ---------- */
-function digPlayerList(j) {
-  const cands = [j, j && j.response, j && j.response && j.response.lineup,
-    j && j.response && j.response.starters, j && j.lineup, j && j.players];
-  for (const c of cands) {
-    if (Array.isArray(c) && c.length && (c[0].name || c[0].playerName)) return c;
-    if (c && Array.isArray(c.starters)) return c.starters;
-    if (c && Array.isArray(c.players)) return c.players;
+    if ((r.status === 429 || r.status >= 500) && attempt < 2) { await sleep(1500); continue; }
+    if (!r.ok) { console.error(`  af ${path}: HTTP ${r.status}`); return null; }
+    let j;
+    try { j = await r.json(); } catch { return null; }
+    const errs = j && j.errors;
+    const errCount = Array.isArray(errs) ? errs.length : (errs ? Object.keys(errs).length : 0);
+    if (errCount) {
+      console.error(`  af ${path}: ${JSON.stringify(errs)}`);
+      return null;
+    }
+    return j;   // { response, paging, results, ... }
   }
   return null;
 }
-function lineupFrom(json) {
-  const list = digPlayerList(json);
-  if (!list || !list.length) return null;
-  const xi = list.slice(0, 11).map((p) => {
-    const name = p.name || p.playerName || (p.player && p.player.name) || null;
-    if (!name) return null;
-    const posRaw = (p.position || p.pos || '').toString().toUpperCase();
-    return { number: num(p.shirtNumber != null ? p.shirtNumber : p.number), name, pos: posRaw || 'n/d' };
-  }).filter(Boolean);
-  if (xi.length < 11) return null;
-  const r = json && (json.response || json);
-  const formation = (r && (r.formation || r.lineupFormation)) || null;
-  return { xi, formation: formation ? String(formation) : 'n/d' };
+
+/* ---------- country name -> FIFA 3-letter code ----------
+   API-Football returns full country names ("Netherlands"); the schema wants a
+   3-letter code. This covers the football nations that actually turn up in our
+   eight leagues; anything unmapped falls back to the first three letters. */
+const CC3 = {
+  'england': 'ENG', 'scotland': 'SCO', 'wales': 'WAL', 'northern ireland': 'NIR',
+  'ireland': 'IRL', 'republic of ireland': 'IRL', 'france': 'FRA', 'spain': 'ESP',
+  'italy': 'ITA', 'germany': 'GER', 'portugal': 'POR', 'netherlands': 'NED',
+  'belgium': 'BEL', 'switzerland': 'SUI', 'austria': 'AUT', 'denmark': 'DEN',
+  'sweden': 'SWE', 'norway': 'NOR', 'finland': 'FIN', 'iceland': 'ISL',
+  'poland': 'POL', 'czech-republic': 'CZE', 'czechia': 'CZE', 'slovakia': 'SVK',
+  'hungary': 'HUN', 'romania': 'ROU', 'bulgaria': 'BUL', 'serbia': 'SRB',
+  'croatia': 'CRO', 'slovenia': 'SVN', 'bosnia and herzegovina': 'BIH',
+  'north macedonia': 'MKD', 'macedonia': 'MKD', 'montenegro': 'MNE',
+  'albania': 'ALB', 'kosovo': 'KVX', 'greece': 'GRE', 'turkey': 'TUR',
+  'türkiye': 'TUR', 'ukraine': 'UKR', 'russia': 'RUS', 'belarus': 'BLR',
+  'georgia': 'GEO', 'armenia': 'ARM', 'azerbaijan': 'AZE', 'cyprus': 'CYP',
+  'israel': 'ISR', 'luxembourg': 'LUX', 'malta': 'MLT', 'moldova': 'MDA',
+  'brazil': 'BRA', 'argentina': 'ARG', 'uruguay': 'URU', 'colombia': 'COL',
+  'chile': 'CHI', 'paraguay': 'PAR', 'peru': 'PER', 'ecuador': 'ECU',
+  'bolivia': 'BOL', 'venezuela': 'VEN', 'mexico': 'MEX', 'usa': 'USA',
+  'united-states': 'USA', 'united states': 'USA', 'canada': 'CAN',
+  'costa rica': 'CRC', 'jamaica': 'JAM', 'honduras': 'HON', 'panama': 'PAN',
+  'nigeria': 'NGA', 'ghana': 'GHA', 'senegal': 'SEN', 'ivory coast': 'CIV',
+  "cote d'ivoire": 'CIV', 'cameroon': 'CMR', 'mali': 'MLI', 'morocco': 'MAR',
+  'algeria': 'ALG', 'tunisia': 'TUN', 'egypt': 'EGY', 'south africa': 'RSA',
+  'dr congo': 'COD', 'congo dr': 'COD', 'congo': 'CGO', 'guinea': 'GUI',
+  'burkina faso': 'BFA', 'gabon': 'GAB', 'zambia': 'ZAM', 'zimbabwe': 'ZIM',
+  'angola': 'ANG', 'cape verde': 'CPV', 'cape verde islands': 'CPV',
+  'gambia': 'GAM', 'togo': 'TOG', 'benin': 'BEN', 'kenya': 'KEN',
+  'japan': 'JPN', 'south korea': 'KOR', 'korea republic': 'KOR', 'china': 'CHN',
+  'china pr': 'CHN', 'australia': 'AUS', 'iran': 'IRN', 'iraq': 'IRQ',
+  'saudi arabia': 'KSA', 'qatar': 'QAT', 'united arab emirates': 'UAE',
+  'uzbekistan': 'UZB', 'india': 'IND', 'new zealand': 'NZL', 'jordan': 'JOR',
+  'syria': 'SYR', 'lebanon': 'LBN',
+};
+function cc3(name) {
+  if (!name) return null;
+  const k = String(name).toLowerCase().trim();
+  return CC3[k] || (k.length >= 3 ? k.slice(0, 3).toUpperCase() : null);
+}
+const COUNTRY_NAMES = new Set(Object.keys(CC3));
+function looksNational(teamName) {
+  const k = String(teamName || '').toLowerCase().trim();
+  if (/\bu-?\d{2}\b/.test(k) || /\bolympic|olympics\b/.test(k)) return true;
+  return COUNTRY_NAMES.has(k);
 }
 
-/* ---------- referee / venue (mirrors match.js) ---------- */
-function refereeFrom(json) {
-  const r = json && (json.response || json);
-  const name = r && (r.name || r.refereeName || (r.referee && r.referee.name));
-  if (!name) return null;
+/* ---------- role mapping ---------- */
+const ROLE_BY_POS = { goalkeeper: 'GK', defender: 'DEF', midfielder: 'MID', attacker: 'ATT' };
+function roleFrom(position) {
+  const k = String(position || '').toLowerCase();
+  return ROLE_BY_POS[k] || 'MID';
+}
+
+/* ---------- squad (players/squads + players) ---------- */
+function statRowFor(statistics, leagueId) {
+  const arr = Array.isArray(statistics) ? statistics : [];
+  if (!arr.length) return null;
+  return arr.find((s) => s.league && s.league.id === leagueId)
+    || arr.slice().sort((a, b) => (b.games && b.games.minutes || 0) - (a.games && a.games.minutes || 0))[0]
+    || arr[0];
+}
+function statsFrom(row) {
+  if (!row) return null;
+  const g = row.games || {}, go = row.goals || {}, c = row.cards || {};
+  const red = (num(c.red) || 0) + (num(c.yellowred) || 0);
+  const s = {
+    goals: num(go.total), assists: num(go.assists),
+    minutes: num(g.minutes), apps: num(g.appearences),
+    yellow: num(c.yellow), red: red || null, rating: fnum(g.rating),
+  };
+  return Object.values(s).some((v) => v != null) ? s : null;
+}
+
+async function getSquad(teamId, teamName, leagueId, season) {
+  const cachePath = `${TEAMS_DIR}/${teamId}.json`;
+  const cached = readJSON(cachePath);
+  if (cached && cached.fetchedAt && daysBetween(todayISO(), cached.fetchedAt) < SQUAD_TTL_DAYS) {
+    return cached;
+  }
+
+  const rosterJ = await af('players/squads', { team: teamId });
+  const roster = (rosterJ && rosterJ.response && rosterJ.response[0] && rosterJ.response[0].players) || [];
+
+  // per-player bio + season stats, paginated
+  const byId = new Map();
+  const first = await af('players', { team: teamId, season, page: 1 });
+  const pages = (first && first.paging && first.paging.total) || 1;
+  const collect = (j) => {
+    for (const row of (j && j.response) || []) {
+      if (row.player && row.player.id != null) byId.set(row.player.id, row);
+    }
+  };
+  collect(first);
+  for (let p = 2; p <= Math.min(pages, 6); p++) {
+    collect(await af('players', { team: teamId, season, page: p }));
+  }
+
+  const seen = new Set();
+  const squad = [];
+  const pushPlayer = (id, name, age, number, position) => {
+    if (id != null && seen.has(id)) return;
+    if (id != null) seen.add(id);
+    const row = id != null ? byId.get(id) : null;
+    const pl = row && row.player;
+    const st = statsFrom(statRowFor(row && row.statistics, leagueId));
+    const injured = !!(pl && pl.injured);
+    squad.push({
+      _id: id,
+      number: num(number),
+      name: name || (pl && pl.name) || null,
+      pos: null,
+      role: roleFrom(position || (st && st.position)),
+      age: num(age != null ? age : (pl && pl.age)),
+      height: pl ? num(String(pl.height || '').replace(/[^0-9]/g, '')) : null,
+      weight: pl ? num(String(pl.weight || '').replace(/[^0-9]/g, '')) : null,
+      foot: null,
+      nat: pl ? cc3(pl.nationality) : null,
+      natTeam: null,
+      birthCountry: (pl && pl.birth && pl.birth.country) || null,
+      pronunciation: null,
+      career: null,
+      lastSeason: null,
+      funfact: null,
+      linkLine: null,
+      status: injured ? 'out' : 'available',
+      statusNote: injured ? 'Accidentat' : null,
+      stats: st,
+    });
+  };
+
+  for (const m of roster) pushPlayer(m.id, m.name, m.age, m.number, m.position);
+  // players with season minutes who aren't in the published roster list (loaned
+  // back, late list changes) — include them too so stats aren't lost
+  for (const [id, row] of byId) {
+    if (seen.has(id)) continue;
+    const g = row.statistics && statRowFor(row.statistics, leagueId);
+    if (!g || !(g.games && g.games.minutes)) continue;
+    pushPlayer(id, row.player.name, row.player.age, g.games.number, g.games.position);
+  }
+
+  if (!squad.length) {
+    if (cached) { console.log(`  team ${teamId}: API empty, keeping cache from ${cached.fetchedAt}`); return cached; }
+    console.log(`  team ${teamId}: no squad`);
+    return null;
+  }
+
+  const coach = await getCoach(teamId);
+  const rec = {
+    teamId, name: teamName || (cached && cached.name) || null,
+    fetchedAt: todayISO(), source: SOURCE.url,
+    coach, squad,
+  };
+  writeJSON(cachePath, rec);
+  console.log(`  team ${teamId} (${rec.name}): cached ${squad.length} players`);
+  return rec;
+}
+
+/* ---------- coach (coachs) ---------- */
+async function getCoach(teamId) {
+  const j = await af('coachs', { team: teamId });
+  const list = (j && j.response) || [];
+  // the current coach: a career row for this team with no end date
+  let cur = null;
+  for (const c of list) {
+    const row = (c.career || []).find((e) => e.team && e.team.id === teamId && !e.end);
+    if (row) { cur = c; break; }
+  }
+  if (!cur) return { name: 'n/d' };
+  const career = (cur.career || [])
+    .filter((e) => e.team && e.team.name)
+    .map((e) => ({
+      club: e.team.name,
+      period: `${(e.start || '').slice(0, 4) || '?'}–${e.end ? (e.end || '').slice(0, 4) : 'prezent'}`,
+      note: null,
+    }))
+    .slice(0, 12);
+  const tenure = (cur.career || []).find((e) => e.team && e.team.id === teamId && !e.end);
   return {
-    name,
-    country: (r.country || r.nationality || null),
-    age: num(r.age),
-    apps: null, ycPerMatch: null, rcPerMatch: null, history: null,
+    name: cur.name || 'n/d',
+    country: cur.nationality || null,
+    age: num(cur.age),
+    tenureFrom: tenure && tenure.start ? tenure.start.slice(0, 7) : null,
+    career: career.length ? career : undefined,
   };
 }
-function venueFrom(json) {
-  const r = json && (json.response || json);
-  const name = r && (r.name || r.venueName || (r.venue && r.venue.name) || (r.stadium && r.stadium.name));
-  if (!name) return null;
-  return { name, capacity: num(r.capacity), city: (r.city || null), notes: null };
+
+/* ---------- injuries ---------- */
+function classifyReason(reason) {
+  const k = String(reason || '').toLowerCase();
+  if (/suspend|red card|ban\b|banned/.test(k)) return 'suspension';
+  if (/doubt|knock|assess|questionable|fitness test|late test/.test(k)) return 'doubt';
+  return 'injury';
+}
+async function getAbsences(teamId, season) {
+  const j = await af('injuries', { team: teamId, season });
+  const rows = (j && j.response) || [];
+  if (!rows.length) return [];
+  // keep only the most recent fixture's entries (the current bulletin)
+  let latest = '';
+  for (const r of rows) {
+    const d = (r.fixture && r.fixture.date) || '';
+    if (d > latest) latest = d;
+  }
+  const cutoff = latest ? latest.slice(0, 10) : null;
+  const byName = new Map();
+  for (const r of rows) {
+    const d = (r.fixture && r.fixture.date || '').slice(0, 10);
+    if (cutoff && d !== cutoff) continue;
+    const name = r.player && r.player.name;
+    if (!name || byName.has(name)) continue;
+    const reason = (r.player && r.player.reason) || null;
+    byName.set(name, {
+      name,
+      reason: classifyReason(reason),
+      detail: reason,
+      since: d || null,
+    });
+  }
+  return [...byName.values()];
 }
 
-/* ---------- RSS news candidates (Google News) ----------
-   Raw, dated headlines only — the match-data-json skill triages them into news[]
-   and paraphrases into Romanian. No key, no library; Google News RSS is simple
-   well-formed XML so a regex extract is enough. Best-effort: a failed feed just
-   contributes nothing. */
-const RSS_DAYS = 4;         // drop anything older than this
-const NEWS_PER_TEAM = 8;
+/* ---------- referee + venue (fixtures?id= , venues) ---------- */
+async function getFixtureMeta(eventId, cache) {
+  const j = await af('fixtures', { id: eventId });
+  const f = j && j.response && j.response[0];
+  if (!f) return { referee: null, venue: null, lineups: null };
+  const refRaw = f.fixture && f.fixture.referee;
+  let referee = null;
+  if (refRaw) {
+    const [nm, country] = String(refRaw).split(',').map((s) => s.trim());
+    referee = { name: nm, country: country || null, age: null, apps: null, ycPerMatch: null, rcPerMatch: null, history: null };
+  }
+  let venue = null;
+  const v = f.fixture && f.fixture.venue;
+  if (v && v.name) {
+    venue = { name: v.name, capacity: null, city: v.city || null, notes: null };
+    if (v.id) {
+      cache.venues = cache.venues || {};
+      let vc = cache.venues[v.id];
+      if (!vc) {
+        const vj = await af('venues', { id: v.id });
+        const vr = vj && vj.response && vj.response[0];
+        vc = vr ? { capacity: num(vr.capacity), city: vr.city || null } : { capacity: null, city: null };
+        cache.venues[v.id] = vc;
+      }
+      if (vc.capacity != null) venue.capacity = vc.capacity;
+      if (!venue.city && vc.city) venue.city = vc.city;
+    }
+  }
+  // lineups (present only ~1h before kickoff); colors come with them
+  const luJ = await af('fixtures/lineups', { fixture: eventId });
+  const lu = luJ && luJ.response;
+  let lineups = null;
+  const colors = {};
+  if (lu && lu.length === 2) {
+    lineups = {};
+    for (const side of lu) {
+      const xi = (side.startXI || []).map((e) => e.player)
+        .filter((p) => p && p.name)
+        .map((p) => ({ number: num(p.number), name: p.name, pos: p.pos || 'n/d' }));
+      lineups[side.team.id] = { xi, formation: side.formation || 'n/d' };
+      const pc = side.team && side.team.colors && side.team.colors.player;
+      if (pc && pc.primary) {
+        colors[side.team.id] = { primary: '#' + pc.primary, secondary: pc.border ? '#' + pc.border : null };
+      }
+    }
+  }
+  return { referee, venue, lineups, colors };
+}
 
+/* ---------- standings + form + team stats + h2h (cached) ---------- */
+async function getStandings(leagueId, season, cache) {
+  cache.standings = cache.standings || {};
+  const hit = cache.standings[leagueId];
+  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < STANDINGS_TTL) return hit;
+  const j = await af('standings', { league: leagueId, season });
+  const table = j && j.response && j.response[0] && j.response[0].league
+    && j.response[0].league.standings && j.response[0].league.standings[0];
+  if (!Array.isArray(table) || !table.length) return hit || null;
+  const byId = {}, byName = {};
+  for (const row of table) {
+    const t = row.team || {};
+    const rec = {
+      id: t.id, name: t.name,
+      position: num(row.rank), points: num(row.points),
+      played: row.all && num(row.all.played),
+      win: row.all && num(row.all.win), draw: row.all && num(row.all.draw),
+      loss: row.all && num(row.all.lose),
+      gf: row.all && row.all.goals && num(row.all.goals.for),
+      ga: row.all && row.all.goals && num(row.all.goals.against),
+      form: row.form || null,
+      home: row.home || null, away: row.away || null,
+    };
+    if (t.id != null) byId[t.id] = rec;
+    if (t.name) byName[norm(t.name)] = rec;
+  }
+  const rec = { fetchedAt: todayISO(), season, byId, byName };
+  cache.standings[leagueId] = rec;
+  return rec;
+}
+
+function splitText(home, away) {
+  const s = (r) => r ? `${r.win || 0}-${r.draw || 0}-${r.lose || 0}` : null;
+  const h = s(home), a = s(away);
+  if (!h && !a) return null;
+  return `Acasă ${h || 'n/d'}, deplasare ${a || 'n/d'}`;
+}
+
+async function getTeamStats(teamId, leagueId, season, cache) {
+  cache.teamStats = cache.teamStats || {};
+  const key = `${leagueId}:${teamId}`;
+  const hit = cache.teamStats[key];
+  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < TEAMSTATS_TTL) return hit.data;
+  const j = await af('teams/statistics', { team: teamId, league: leagueId, season });
+  const r = j && j.response;
+  if (!r || !r.goals) { return hit ? hit.data : null; }
+  const interval = (obj) => {
+    const out = {};
+    for (const [k, v] of Object.entries(obj || {})) if (v && v.total != null) out[k] = v.total;
+    return Object.keys(out).length ? out : null;
+  };
+  const data = {
+    goalsForByInterval: interval(r.goals.for && r.goals.for.minute),
+    goalsAgainstByInterval: interval(r.goals.against && r.goals.against.minute),
+    cardsYellowByInterval: interval(r.cards && r.cards.yellow),
+    goalsForAvg: fnum(r.goals.for && r.goals.for.average && r.goals.for.average.total),
+    goalsAgainstAvg: fnum(r.goals.against && r.goals.against.average && r.goals.against.average.total),
+    cleanSheets: r.clean_sheet && num(r.clean_sheet.total),
+    failedToScore: r.failed_to_score && num(r.failed_to_score.total),
+    penaltyScored: r.penalty && r.penalty.scored && num(r.penalty.scored.total),
+    penaltyScoredPct: r.penalty && r.penalty.scored && fnum(String(r.penalty.scored.percentage || '').replace('%', '')),
+    formations: (r.lineups || []).filter((l) => l.formation).map((l) => ({ formation: l.formation, played: num(l.played) })),
+    biggestStreak: r.biggest && r.biggest.streak
+      ? { wins: num(r.biggest.streak.wins), draws: num(r.biggest.streak.draws), loses: num(r.biggest.streak.loses) }
+      : null,
+  };
+  cache.teamStats[key] = { fetchedAt: todayISO(), data };
+  return data;
+}
+
+// last ~6 results, this team's perspective (form guide)
+async function getFormGuide(teamId, season) {
+  const j = await af('fixtures', { team: teamId, season, last: 6 });
+  const rows = (j && j.response) || [];
+  return rows
+    .filter((f) => f.goals && f.goals.home != null && f.goals.away != null)
+    .map((f) => {
+      const home = f.teams.home.id === teamId;
+      const us = home ? f.goals.home : f.goals.away;
+      const them = home ? f.goals.away : f.goals.home;
+      return {
+        date: (f.fixture.date || '').slice(0, 10),
+        opp: home ? f.teams.away.name : f.teams.home.name,
+        homeAway: home ? 'H' : 'A',
+        comp: f.league && f.league.name || null,
+        score: `${us}-${them}`,
+        result: us > them ? 'W' : us < them ? 'L' : 'D',
+      };
+    });
+}
+
+async function getH2H(homeId, awayId, homeName, awayName, cache) {
+  cache.h2h = cache.h2h || {};
+  const key = [homeId, awayId].sort((a, b) => a - b).join('-');
+  const hit = cache.h2h[key];
+  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < H2H_TTL) return hit;
+  const j = await af('fixtures/headtohead', { h2h: `${homeId}-${awayId}`, last: 10 });
+  const rows = ((j && j.response) || []).filter((f) => f.goals && f.goals.home != null);
+  if (!rows.length) return hit || null;
+  let hw = 0, aw = 0, d = 0;
+  for (const f of rows) {
+    const hg = f.teams.home.id === homeId ? f.goals.home : f.goals.away;
+    const ag = f.teams.home.id === homeId ? f.goals.away : f.goals.home;
+    if (hg > ag) hw++; else if (hg < ag) aw++; else d++;
+  }
+  const recent = rows.slice(0, 5).map((f) => ({
+    date: (f.fixture.date || '').slice(0, 10),
+    comp: f.league && f.league.name || null,
+    score: `${f.teams.home.name} ${f.goals.home}-${f.goals.away} ${f.teams.away.name}`,
+  }));
+  const rec = {
+    fetchedAt: todayISO(),
+    recent,
+    summary: `Cap la cap (${rows.length} meciuri): ${homeName} ${hw} - ${d} - ${aw} ${awayName}.`,
+  };
+  cache.h2h[key] = rec;
+  return rec;
+}
+
+/* ---------- player careers (players/teams, cached 30d) ---------- */
+async function getCareer(playerId, cache) {
+  cache.careers = cache.careers || {};
+  const hit = cache.careers[playerId];
+  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < CAREER_TTL) return hit.career;
+  const j = await af('players/teams', { player: playerId });
+  const rows = (j && j.response) || [];
+  const clubs = rows
+    .filter((r) => r.team && r.team.name && !looksNational(r.team.name) && Array.isArray(r.seasons) && r.seasons.length)
+    .map((r) => ({ name: r.team.name, min: Math.min(...r.seasons), max: Math.max(...r.seasons) }))
+    .sort((a, b) => a.min - b.min || a.max - b.max);
+  const thisYear = currentSeason();
+  const parts = clubs.map((c) => {
+    const end = c.max >= thisYear ? 'prezent' : String(c.max);
+    return c.min === c.max && end !== 'prezent'
+      ? `${c.name} (${c.min})`
+      : `${c.name} (${c.min}–${end})`;
+  });
+  const career = parts.length ? parts.slice(0, 10).join(' · ') : null;
+  cache.careers[playerId] = { fetchedAt: todayISO(), career };
+  return career;
+}
+
+async function applyCareers(doc, cache) {
+  for (const side of ['home', 'away']) {
+    const idRows = doc.teams[side]._squadIds || [];   // same order/length as squad
+    const squad = doc.teams[side].squad || [];
+    const targets = squad
+      .map((p, i) => ({ p, id: idRows[i] && idRows[i]._id }))
+      .filter((x) => x.id != null && !has(x.p.career))
+      .sort((a, b) => ((b.p.stats && b.p.stats.minutes) || 0) - ((a.p.stats && a.p.stats.minutes) || 0))
+      .slice(0, CAREER_MAX_PLAYERS);
+    let filled = 0;
+    for (const { p, id } of targets) {
+      const c = await getCareer(id, cache);
+      if (c) { p.career = c; filled++; }
+    }
+    if (filled) console.log(`  careers ${side}: ${filled}`);
+  }
+}
+
+/* ---------- RSS news candidates (Google News) — unchanged, no key ---------- */
+const RSS_DAYS = 4;
+const NEWS_PER_TEAM = 8;
 function decodeEntities(s) {
   return String(s || '')
     .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
     .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))
-    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
+    .replace(/&#(\d+);/g, (_, dd) => String.fromCodePoint(parseInt(dd, 10)))
     .replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&#39;/g, "'")
     .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
     .replace(/<[^>]+>/g, '').trim();
@@ -277,7 +598,6 @@ async function fetchRss(query) {
     const src = (block.match(/<source[^>]*>([\s\S]*?)<\/source>/) || [])[1] || '';
     let title = decodeEntities(rawTitle);
     const source = decodeEntities(src) || null;
-    // Google News appends " - <source>" to titles
     if (source && title.endsWith(' - ' + source)) title = title.slice(0, -(source.length + 3)).trim();
     if (!title) continue;
     items.push({ title, url: link.trim() || null, source, published: isoDay(pub) });
@@ -286,10 +606,7 @@ async function fetchRss(query) {
 }
 async function teamNews(teamName, oppName) {
   const cutoff = new Date(Date.now() - RSS_DAYS * 86400000).toISOString().slice(0, 10);
-  const queries = [
-    `"${teamName}" when:${RSS_DAYS}d`,
-    `"${teamName}" "${oppName}" when:7d`,
-  ];
+  const queries = [`"${teamName}" when:${RSS_DAYS}d`, `"${teamName}" "${oppName}" when:7d`];
   const seen = new Set();
   const out = [];
   for (const q of queries) {
@@ -305,382 +622,6 @@ async function teamNews(teamName, oppName) {
   return out.slice(0, NEWS_PER_TEAM);
 }
 
-/* ---------- soccer-football-info: h2h + league-table context ----------
-   All results are cached in docs/data/teams/_sfi.json so repeat runs cost
-   almost nothing. A per-run call budget guards the 200/day free tier. */
-const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
-let _sfiCalls = 0;
-let _sfiLast = 0;
-async function sfi(path, params) {
-  if (_sfiCalls >= SFI_CALL_BUDGET) { console.error('  sfi: call budget reached, skipping ' + path); return null; }
-  const qs = Object.entries({ f: 'json', l: 'en_US', ...params })
-    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&');
-  const gap = Date.now() - _sfiLast;
-  if (gap < 130) await sleep(130 - gap);          // stay under the per-second throttle
-  for (let attempt = 0; attempt < 2; attempt++) {
-    _sfiCalls++;
-    _sfiLast = Date.now();
-    let r;
-    try {
-      r = await fetch(`${SFI_HOST}/${path}?${qs}`, { headers: SFI_HEADERS });
-    } catch (e) { console.error(`  sfi ${path}: ${e.message}`); return null; }
-    if (r.status === 429 && attempt === 0) { await sleep(1500); continue; }
-    if (!r.ok) { console.error(`  sfi ${path}: HTTP ${r.status}`); return null; }
-    let j;
-    try { j = await r.json(); } catch { return null; }
-    return (j && Array.isArray(j.result)) ? j.result : null;
-  }
-  return null;
-}
-
-async function sfiChampionshipId(comp, cc, cache) {
-  cache.championships = cache.championships || {};
-  if (comp in cache.championships) return cache.championships[comp];   // may be null (known miss)
-  const spec = SFI_LEAGUE[comp];
-  let found = null;
-  if (spec) {
-    for (let p = 1; p <= 5 && !found; p++) {
-      const rows = await sfi('championships/list/', { c: cc, p });
-      if (!rows || !rows.length) break;
-      const hits = rows.filter((x) => x.name && spec.re.test(x.name) && (spec.noExclude || !SFI_EXCLUDE.test(x.name)));
-      found = (hits.find((x) => x.important) || hits[0]) || null;
-      if (rows.length < 25) break;
-    }
-  }
-  cache.championships[comp] = found ? found.id : null;
-  if (found) console.log(`  sfi league ${comp} -> ${found.name} [${found.id}]`);
-  return cache.championships[comp];
-}
-
-async function sfiStandings(champId, cache) {
-  cache.standings = cache.standings || {};
-  const hit = cache.standings[champId];
-  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < SFI_STANDINGS_TTL) return hit;
-  const res = await sfi('championships/view/', { i: champId });
-  const seasons = (res && res[0] && Array.isArray(res[0].seasons)) ? res[0].seasons.slice() : [];
-  // newest first (they come oldest-first; sort by `to` to be safe), then take the
-  // most recent season that actually has a populated table
-  seasons.sort((x, y) => String(y.to || y.from || '').localeCompare(String(x.to || x.from || '')));
-  let season = null, table = null;
-  for (const s of seasons) {
-    const tb = s && s.groups && s.groups[0] && s.groups[0].table;
-    if (tb && tb.length && tb.some((r) => num(r.points) != null)) { season = s; table = tb; break; }
-  }
-  if (!table) return hit || null;
-  const byName = {};
-  for (const row of table) {
-    const t = row.team || {};
-    if (!t.name) continue;
-    const played = (num(row.win) || 0) + (num(row.draw) || 0) + (num(row.loss) || 0);
-    byName[norm(t.name)] = {
-      id: t.id || null, name: t.name,
-      position: num(row.position), points: num(row.points), played,
-      win: num(row.win), draw: num(row.draw), loss: num(row.loss),
-      gf: num(row.goals_scored), ga: num(row.goals_conceded),
-    };
-  }
-  const rec = { fetchedAt: todayISO(), season: season.name || null, byName };
-  cache.standings[champId] = rec;
-  return rec;
-}
-
-function sfiFindTeam(standings, teamName) {
-  if (!standings || !standings.byName) return null;
-  const want = norm(teamName);
-  if (!want) return null;
-  if (standings.byName[want]) return standings.byName[want];
-  // substring both ways, but pick the closest by length so "milan" prefers
-  // "acmilan" over "intermilan"
-  const cands = Object.keys(standings.byName)
-    .filter((n) => n && (n.indexOf(want) >= 0 || want.indexOf(n) >= 0))
-    .sort((a, b) => Math.abs(a.length - want.length) - Math.abs(b.length - want.length));
-  return cands.length ? standings.byName[cands[0]] : null;
-}
-
-async function sfiH2H(a, b, nameA, nameB, cache) {
-  cache.h2h = cache.h2h || {};
-  const key = [a, b].sort().join('_');
-  const hit = cache.h2h[key];
-  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < SFI_H2H_TTL) return hit;
-  const res = await sfi('teams/versus/', { x: a, y: b, w: 'all' });
-  const v = res && res[0];
-  if (!v || !Array.isArray(v.matches)) return hit || null;
-  const xId = v.teamX && v.teamX.id;
-  const skipComp = /friendl|amical|\btest\b|club friendlies|trophy|soccer aid/i;
-  const recent = v.matches
-    .filter((m) => {
-      const cn = (m.championship && m.championship.name) || '';
-      if (skipComp.test(cn)) return false;
-      const sa = m.teamA && m.teamA.score, sb = m.teamB && m.teamB.score;
-      return sa != null && sb != null;   // drop fixtures with no recorded score
-    })
-    .slice(0, 5)
-    .map((m) => {
-      const ta = m.teamA || {}, tb = m.teamB || {};
-      return {
-        date: (m.date || '').slice(0, 10),
-        comp: (m.championship && m.championship.name) || null,
-        score: `${ta.name} ${m.teamA.score}-${m.teamB.score} ${tb.name}`,
-      };
-    });
-  const r = v.results || {};
-  const xWins = xId === a ? r.teamX : r.teamY;
-  const yWins = xId === a ? r.teamY : r.teamX;
-  const summary = (r.teamX != null)
-    ? `Cap la cap (toate competițiile): ${nameA} ${xWins ?? '?'} - ${r.draw ?? '?'} - ${yWins ?? '?'} ${nameB}.`
-    : null;
-  const rec = { fetchedAt: todayISO(), recent, summary };
-  cache.h2h[key] = rec;
-  return rec;
-}
-
-// A team's last matches, most recent first, from that team's perspective —
-// this is the OneFootball-style "form guide" (competitive + friendlies).
-const SFI_HISTORY_TTL = 2;
-async function sfiHistory(teamId, teamName, cache) {
-  cache.history = cache.history || {};
-  const hit = cache.history[teamId];
-  // re-fetch a stale entry, or one from an older cache layout (v bump)
-  if (hit && hit.fetchedAt && hit.v === 2 &&
-      daysBetween(todayISO(), hit.fetchedAt) < SFI_HISTORY_TTL) return hit;
-  const res = await sfi('teams/history/', { i: teamId, w: '6m' });
-  const matches = res && res[0] && Array.isArray(res[0].matches) ? res[0].matches : null;
-  if (!matches) return hit || null;
-  const want = norm(teamName);
-  const recent = matches.slice(0, 6).map((m) => {
-    const ta = m.teamA || {}, tb = m.teamB || {};
-    const sa = num(ta.score), sb = num(tb.score);
-    if (sa == null || sb == null) return null;
-    const weAreA = norm(ta.name).indexOf(want) >= 0 || want.indexOf(norm(ta.name)) >= 0;
-    const us = weAreA ? sa : sb, them = weAreA ? sb : sa;
-    return {
-      date: (m.date || '').slice(0, 10),
-      opp: weAreA ? (tb.name || null) : (ta.name || null),
-      homeAway: weAreA ? 'H' : 'A',
-      comp: (m.championship && m.championship.name) || null,
-      score: `${us}-${them}`,
-      result: us > them ? 'W' : us < them ? 'L' : 'D',
-    };
-  }).filter(Boolean);
-  const fr = /friendl|amical|\btest\b|club friendly|club friendlies|trophy|soccer aid/i;
-  const firstReal = matches.find((m) =>
-    num((m.teamA || {}).score) != null && num((m.teamB || {}).score) != null &&
-    !fr.test((m.championship && m.championship.name) || ''));
-  const rec = { fetchedAt: todayISO(), v: 2, recent, recentMatchId: firstReal ? firstReal.id : null };
-  cache.history[teamId] = rec;
-  return rec;
-}
-
-/* ---------- player careers (soccer-football-info) ----------
-   players/view gives a `trasfers` club history (no season stats). We resolve
-   player ids from the most recent match lineup (matches/view/full) and match
-   them to the FotMob squad by name. Everything is cached hard in _sfi.json:
-   lineups 7 days, player careers 30 days. */
-const SFI_LINEUP_TTL = 7;
-const SFI_PLAYER_TTL = 30;
-function sfiYear(s) { const m = /^(\d{4})/.exec(s || ''); return m ? m[1] : null; }
-function buildCareer(trasfers) {
-  if (!Array.isArray(trasfers) || !trasfers.length) return null;
-  const rows = trasfers.slice().reverse();   // oldest first
-  const out = [];
-  let lastId = null;
-  for (const r of rows) {
-    const tm = r.team || {};
-    if (!tm.name) continue;
-    if (tm.id && tm.id === lastId) continue;             // collapse consecutive dupes
-    lastId = tm.id || null;
-    const y1 = sfiYear(r.from), y2 = r.to == null ? 'prezent' : sfiYear(r.to);
-    if (!y1 && out.some((x) => x.indexOf(tm.name + ' ') === 0 || x === tm.name)) continue; // national-team noise
-    out.push(tm.name + (y1 ? ` (${y1}${y2 && y2 !== y1 ? '–' + y2 : ''})` : ''));
-  }
-  const seen = new Set(), final = [];
-  for (const l of out) {
-    const nm = l.replace(/\s*\(.*/, '');
-    if (seen.has(nm)) continue;
-    seen.add(nm); final.push(l);
-  }
-  return final.length ? final.slice(0, 10).join(' · ') : null;
-}
-async function sfiRecentLineup(matchId, teamName, cache) {
-  cache.lineups = cache.lineups || {};
-  const key = matchId + ':' + norm(teamName);
-  const hit = cache.lineups[key];
-  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < SFI_LINEUP_TTL) return hit.players;
-  const res = await sfi('matches/view/full/', { i: matchId });
-  const r = res && res[0];
-  if (!r) return (hit && hit.players) || [];
-  const want = norm(teamName);
-  const side = [r.teamA, r.teamB].find((tt) => {
-    const n = tt && norm(tt.name);
-    return n && (n.indexOf(want) >= 0 || want.indexOf(n) >= 0);
-  });
-  const lu = side && side.lineup;
-  const players = lu
-    ? (lu.start || []).concat(lu.substitutions || [])
-        .map((p) => ({ id: p.id, name: p.name, sn: num(p.s_n) }))
-        .filter((p) => p.id && p.name)
-    : [];
-  cache.lineups[key] = { fetchedAt: todayISO(), players };
-  return players;
-}
-async function sfiPlayerCareer(pid, cache) {
-  cache.players = cache.players || {};
-  const hit = cache.players[pid];
-  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < SFI_PLAYER_TTL) return hit;
-  const res = await sfi('players/view/', { i: pid });
-  const p = res && res[0];
-  if (!p) return hit || null;
-  const foot = /^l/i.test(p.foot || '') ? 'L' : /^r/i.test(p.foot || '') ? 'R' : (/both|ambi/i.test(p.foot || '') ? 'B' : null);
-  const rec = {
-    fetchedAt: todayISO(),
-    career: buildCareer(p.trasfers),
-    foot: foot,
-    height: num(String(p.height || '').replace(/[^0-9]/g, '')),
-  };
-  cache.players[pid] = rec;
-  return rec;
-}
-
-// Fill squad[].career (and missing foot/height) for the players in each team's
-// most recent match lineup, matched to the FotMob squad by name/shirt. Works on
-// partial packs (via applySfi) and, topped up, on full packs. Returns true if it
-// changed anything.
-async function applySfiCareers(doc, fx, cache, ids) {
-  if (!ids) {
-    const champId = await sfiChampionshipId(fx.comp, fx.country, cache);
-    if (!champId) return false;
-    const st = await sfiStandings(champId, cache);
-    if (!st) return false;
-    ids = {};
-    for (const [side, name] of [['home', fx.home], ['away', fx.away]]) {
-      const row = sfiFindTeam(st, name);
-      if (row) ids[side] = row.id;
-    }
-  }
-  let touched = false;
-  for (const [side, name] of [['home', fx.home], ['away', fx.away]]) {
-    if (!ids[side]) continue;
-    const hist = await sfiHistory(ids[side], name, cache);
-    const mid = hist && hist.recentMatchId;
-    if (!mid) continue;
-    const lineup = await sfiRecentLineup(mid, name, cache);
-    if (!lineup.length) continue;
-    const squad = doc.teams[side].squad || [];
-    let filled = 0;
-    for (const lp of lineup) {
-      const want = norm(lp.name);
-      const p = squad.find((x) => {
-        const n = norm(x.name);
-        return n && (n === want || n.indexOf(want) >= 0 || want.indexOf(n) >= 0 || (lp.sn != null && x.number === lp.sn));
-      });
-      if (!p || has(p.career)) continue;
-      const pc = await sfiPlayerCareer(lp.id, cache);
-      if (!pc) continue;
-      if (pc.career) { p.career = pc.career; filled++; touched = true; }
-      if (!p.foot && pc.foot) { p.foot = pc.foot; touched = true; }
-      if (p.height == null && pc.height != null) { p.height = pc.height; touched = true; }
-    }
-    if (filled) console.log(`  sfi careers ${side}: ${filled}`);
-  }
-  return touched;
-}
-
-// Fill h2h + form (position/note/table/recent) on a partial pack from
-// soccer-football-info. Only touches fields the primary feed left empty.
-async function applySfi(doc, fx, cache) {
-  const champId = await sfiChampionshipId(fx.comp, fx.country, cache);
-  if (!champId) return;
-  const standings = await sfiStandings(champId, cache);
-  if (!standings) return;
-
-  const sides = [['home', fx.home], ['away', fx.away]];
-  const ids = {};
-  for (const [side, name] of sides) {
-    const row = sfiFindTeam(standings, name);
-    if (!row) continue;
-    ids[side] = row.id;
-    const t = doc.teams[side];
-    const f = t.form || { last5: [], ppg: null, homeAway: null, position: null, note: null };
-    if (f.position == null && row.position != null) f.position = row.position;
-    if (f.table == null && row.played != null) {
-      f.table = {
-        played: row.played, win: row.win, draw: row.draw, loss: row.loss,
-        gf: row.gf, ga: row.ga, points: row.points,
-      };
-    }
-    if (!has(f.note) && row.points != null && row.played) {
-      f.note = `Clasament ${standings.season || 'sezon precedent'}: locul ${row.position}, ${row.points}p` +
-        (row.gf != null ? ` (${row.gf}-${row.ga})` : '');
-    }
-    const hist = await sfiHistory(row.id, name, cache);
-    if (hist && hist.recent.length && (!f.recent || !f.recent.length)) f.recent = hist.recent;
-    t.form = f;
-  }
-
-  await applySfiCareers(doc, fx, cache, ids);
-
-  const noH2H = !doc.h2h || !doc.h2h.recent || !doc.h2h.recent.length;
-  if (noH2H && ids.home && ids.away) {
-    const h = await sfiH2H(ids.home, ids.away, fx.home, fx.away, cache);
-    if (h && (h.recent.length || h.summary)) {
-      doc.h2h = { recent: h.recent, summary: h.summary };
-      if (!doc.sources.some((s) => s.url === SFI_SOURCE.url)) {
-        doc.sources.push({ ...SFI_SOURCE, accessed: todayDate() });
-      }
-    }
-  } else if ((doc.teams.home.form && doc.teams.home.form.position != null) ||
-             (doc.teams.away.form && doc.teams.away.form.position != null)) {
-    if (!doc.sources.some((s) => s.url === SFI_SOURCE.url)) {
-      doc.sources.push({ ...SFI_SOURCE, accessed: todayDate() });
-    }
-  }
-}
-
-/* ---------- per-team squad cache ---------- */
-async function getSquad(teamId, teamName) {
-  const cachePath = `${TEAMS_DIR}/${teamId}.json`;
-  const cached = readJSON(cachePath);
-  if (cached && cached.fetchedAt && daysBetween(todayISO(), cached.fetchedAt) < SQUAD_TTL_DAYS) {
-    return cached;
-  }
-  const json = await api('football-get-list-player', { teamid: teamId });
-  const parsed = parseSquadGroups(json);
-  if (!parsed) {
-    if (cached) { console.log(`  team ${teamId}: feed empty, keeping cache from ${cached.fetchedAt}`); return cached; }
-    console.log(`  team ${teamId}: no squad from feed`);
-    return null;
-  }
-  const rec = {
-    teamId,
-    name: teamName || (cached && cached.name) || null,
-    fetchedAt: todayISO(),
-    source: SOURCE.url,
-    coach: parsed.coachName ? { name: parsed.coachName } : null,
-    squad: parsed.players,
-  };
-  writeJSON(cachePath, rec);
-  console.log(`  team ${teamId} (${rec.name}): cached ${parsed.players.length} players`);
-  return rec;
-}
-
-/* ---------- name -> team id fallback ---------- */
-let _leagueTeams = new Map();
-async function teamIdByName(leagueId, teamName) {
-  if (leagueId == null) return null;
-  if (!_leagueTeams.has(leagueId)) {
-    const json = await api('football-get-list-all-team', { leagueid: leagueId });
-    const r = json && (json.response || json);
-    const list = (r && Array.isArray(r.list)) ? r.list : (Array.isArray(r) ? r : (Array.isArray(r && r.teams) ? r.teams : []));
-    _leagueTeams.set(leagueId, list || []);
-  }
-  const want = norm(teamName);
-  const hit = (_leagueTeams.get(leagueId) || []).find((t) => {
-    const n = norm(t.name || t.teamName || t.shortName || '');
-    return n && (n === want || n.indexOf(want) >= 0 || want.indexOf(n) >= 0);
-  });
-  return hit ? (hit.id != null ? hit.id : (hit.teamId != null ? hit.teamId : null)) : null;
-}
-
 /* ---------- build one match file ---------- */
 function emptyTeamBlock(name) {
   return {
@@ -692,15 +633,14 @@ function emptyTeamBlock(name) {
   };
 }
 
-async function buildMatch(fx) {
+async function buildMatch(fx, season, cache) {
+  const leagueId = AF_LEAGUE_ID[fx.comp] || fx.leagueId || null;
   const eventId = fx.eventId;
-  const [homeSquad, awaySquad, refJson, venJson, homeLine, awayLine, homeNews, awayNews] = await Promise.all([
-    fx._homeId != null ? getSquad(fx._homeId, fx.home) : Promise.resolve(null),
-    fx._awayId != null ? getSquad(fx._awayId, fx.away) : Promise.resolve(null),
-    eventId != null ? api('football-get-match-referee', { eventid: eventId }) : Promise.resolve(null),
-    eventId != null ? api('football-get-match-location', { eventid: eventId }) : Promise.resolve(null),
-    eventId != null ? api('football-get-hometeam-lineup', { eventid: eventId }) : Promise.resolve(null),
-    eventId != null ? api('football-get-awayteam-lineup', { eventid: eventId }) : Promise.resolve(null),
+
+  const [homeSquad, awaySquad, meta, homeNews, awayNews] = await Promise.all([
+    fx.homeId != null ? getSquad(fx.homeId, fx.home, leagueId, season) : Promise.resolve(null),
+    fx.awayId != null ? getSquad(fx.awayId, fx.away, leagueId, season) : Promise.resolve(null),
+    eventId != null ? getFixtureMeta(eventId, cache) : Promise.resolve({ referee: null, venue: null, lineups: null }),
     teamNews(fx.home, fx.away),
     teamNews(fx.away, fx.home),
   ]);
@@ -712,49 +652,92 @@ async function buildMatch(fx) {
     sources: [{ ...SOURCE, accessed: todayDate() }],
     competition: { name: fx.comp, round: fx.round, country: fx.country || 'n/d' },
     kickoff: fx.kickoff || 'n/d',
-    venue: venueFrom(venJson) || { name: has(fx.venue) ? fx.venue : 'n/d', capacity: null, city: null, notes: null },
-    referee: refereeFrom(refJson) || { name: 'n/d', country: null, age: null, apps: null, ycPerMatch: null, rcPerMatch: null, history: null },
+    venue: (meta && meta.venue) || { name: has(fx.venue) ? fx.venue : 'n/d', capacity: null, city: null, notes: null },
+    referee: (meta && meta.referee) || { name: 'n/d', country: null, age: null, apps: null, ycPerMatch: null, rcPerMatch: null, history: null },
     h2h: { recent: [], summary: null },
     storyOfTheMatch: [],
     teams: { home: emptyTeamBlock(fx.home), away: emptyTeamBlock(fx.away) },
   };
 
   const bySide = {
-    home: { cache: homeSquad, line: homeLine, news: homeNews },
-    away: { cache: awaySquad, line: awayLine, news: awayNews },
+    home: { id: fx.homeId, cache: homeSquad, news: homeNews },
+    away: { id: fx.awayId, cache: awaySquad, news: awayNews },
   };
   for (const side of ['home', 'away']) {
     const t = out.teams[side];
-    const { cache, line, news } = bySide[side];
-    if (cache && cache.squad && cache.squad.length) {
-      t.squad = cache.squad.map(stripInternal);
-      if (cache.coach && cache.coach.name) t.coach = { name: cache.coach.name };
-      t.absences = cache.squad
-        .filter((p) => p._injury)
-        .map((p) => ({ name: p.name, reason: 'injury', detail: p._injury.detail || null, since: null }));
+    const { id, cache: sq, news } = bySide[side];
+    if (sq && sq.squad && sq.squad.length) {
+      t.squad = sq.squad.map(stripInternal);
+      t._squadIds = sq.squad;   // keep _id-bearing copies for the career pass
+      if (sq.coach && sq.coach.name) t.coach = sq.coach;
+      t.absences = await getAbsences(id, season);
     }
     if (news && news.length) t.newsCandidates = news;
-    const parsedLine = lineupFrom(line);
-    if (parsedLine) {
-      t.confirmedXI = parsedLine.xi;
-      t.predictedXI = parsedLine.xi;
-      if (has(parsedLine.formation)) t.formation = parsedLine.formation;
+    const lu = meta && meta.lineups && id != null ? meta.lineups[id] : null;
+    if (lu && lu.xi.length === 11) {
+      t.confirmedXI = lu.xi;
+      t.predictedXI = lu.xi;
+      if (has(lu.formation)) t.formation = lu.formation;
     }
+    const col = meta && meta.colors && id != null ? meta.colors[id] : null;
+    if (col && col.primary) t.colors = col;
   }
   return out;
 }
 
-// Factual story seeds computed from numbers already in the pack — so a partial
-// pack shows something in the "Story of the match" panel even before the AI
-// editorial pass, and that pass only has to polish + add a few researched
-// angles. Only runs when storyOfTheMatch is still empty.
+async function applyStandingsAndForm(doc, fx, season, cache) {
+  const leagueId = AF_LEAGUE_ID[fx.comp] || fx.leagueId || null;
+  if (!leagueId) return;
+  const st = await getStandings(leagueId, season, cache);
+
+  for (const side of ['home', 'away']) {
+    const t = doc.teams[side];
+    const id = fx[side + 'Id'];
+    const row = st && (st.byId[id] || st.byName[norm(t.name)]);
+    const f = t.form || { last5: [], ppg: null, homeAway: null, position: null, note: null };
+
+    if (row) {
+      if (f.position == null && row.position != null) f.position = row.position;
+      if (f.table == null && row.played != null) {
+        f.table = {
+          played: row.played, win: row.win, draw: row.draw, loss: row.loss,
+          gf: row.gf, ga: row.ga, points: row.points,
+        };
+      }
+      if (!f.last5 || !f.last5.length) {
+        f.last5 = String(row.form || '').toUpperCase().split('').filter((x) => 'WDL'.includes(x)).slice(-5);
+      }
+      if (row.played) f.ppg = Math.round((row.points / row.played) * 100) / 100;
+      if (!has(f.homeAway)) f.homeAway = splitText(row.home, row.away);
+      if (!has(f.note) && row.points != null && row.played) {
+        f.note = `Clasament ${season}/${(season + 1) % 100}: locul ${row.position}, ${row.points}p` +
+          (row.gf != null ? ` (${row.gf}-${row.ga})` : '');
+      }
+    }
+
+    if ((!f.recent || !f.recent.length) && id != null) {
+      const guide = await getFormGuide(id, season);
+      if (guide.length) f.recent = guide;
+    }
+    if (id != null && leagueId) {
+      const ts = await getTeamStats(id, leagueId, season, cache);
+      if (ts) f.stats = ts;
+    }
+    t.form = f;
+  }
+
+  if ((!doc.h2h.recent || !doc.h2h.recent.length) && fx.homeId != null && fx.awayId != null) {
+    const h = await getH2H(fx.homeId, fx.awayId, fx.home, fx.away, cache);
+    if (h && (h.recent.length || h.summary)) doc.h2h = { recent: h.recent, summary: h.summary };
+  }
+}
+
+/* ---------- story seeds ---------- */
 function computeStorySeeds(doc) {
-  // called only on partial packs, whose story is only ever seeds — so regenerate
-  // each run to pick up form/h2h data that arrived after the first pass
   const out = [];
   for (const side of ['home', 'away']) {
     const t = doc.teams[side], nm = t.name;
-    const f = t.form || {}, tb = f.table || {};
+    const f = t.form || {}, tb = f.table || {}, ts = f.stats || {};
     if (tb.points != null && tb.played) {
       out.push(`${nm} — locul ${f.position != null ? f.position : '?'} după ${tb.played} etape, ${tb.points} puncte, golaveraj ${tb.gf}-${tb.ga}.`);
     }
@@ -771,6 +754,15 @@ function computeStorySeeds(doc) {
         if (unbeaten >= 3) out.push(`${nm} — ${unbeaten} meciuri fără înfrângere.`);
       }
     }
+    if (ts.cleanSheets != null && tb.played && ts.cleanSheets >= Math.ceil(tb.played / 2)) {
+      out.push(`${nm} a păstrat poarta intactă în ${ts.cleanSheets} din ${tb.played} etape.`);
+    }
+    const gfi = ts.goalsForByInterval || {};
+    const late = (gfi['76-90'] || 0) + (gfi['91-105'] || 0);
+    const totalFor = Object.values(gfi).reduce((a, b) => a + b, 0);
+    if (totalFor >= 5 && late / totalFor >= 0.4) {
+      out.push(`${nm} — ${late} din ${totalFor} goluri marcate după minutul 75.`);
+    }
     const top = (t.squad || []).filter((p) => p.stats && p.stats.goals)
       .sort((a, b) => b.stats.goals - a.stats.goals)[0];
     if (top && top.stats.goals >= 2) {
@@ -778,18 +770,21 @@ function computeStorySeeds(doc) {
     }
   }
   if (doc.h2h && doc.h2h.summary) out.push(doc.h2h.summary);
-  if (out.length) doc.storyOfTheMatch = out.slice(0, 7);
+  if (out.length) doc.storyOfTheMatch = out.slice(0, 8);
 }
 
-// drop the _injury helper key before it goes into the schema-checked file
 function stripInternal(p) {
-  const { _injury, ...rest } = p;
+  const { _id, ...rest } = p;
   return rest;
+}
+function stripSquadIds(doc) {
+  for (const side of ['home', 'away']) delete doc.teams[side]._squadIds;
 }
 
 /* ---------- main ---------- */
 async function main() {
   const fixtures = readJSON(FIXTURES) || [];
+  const season = currentSeason();
   const from = todayDate();
   const to = new Date(Date.now() + DAYS_AHEAD * 86400000).toLocaleDateString('en-CA', { timeZone: 'Europe/Bucharest' });
 
@@ -803,25 +798,33 @@ async function main() {
   }
   console.log(`${due.length} partial + ${readyUpcoming.length} ready fixture(s) in the next ${DAYS_AHEAD} days:`);
 
-  const partialSlugs = new Set(existingPartialSlugs());
-  const sfiCache = readJSON(SFI_FILE) || {};
+  const cache = readJSON(CACHE_FILE) || {};
+  const liveSlugs = new Set(fixtures.map((f) => f.slug));
+  const partialSlugs = new Set(existingPartialSlugs().filter((s) => liveSlugs.has(s)));
 
-  // full (non-partial) packs for upcoming fixtures first: top up squad[].career
-  // for players still missing it (idempotent — settles once the 30-day player
-  // cache fills). Done before the partial passes so a published pack the user is
-  // looking at isn't starved by the daily call budget.
+  // full packs for upcoming fixtures: top up squad[].career where still missing
   for (const f of readyUpcoming) {
     const path = `${MATCHES_DIR}/${f.slug}.json`;
     const doc = readJSON(path);
     if (!doc || doc.partial) continue;
     const need = ['home', 'away'].some((s) => (doc.teams[s].squad || []).some((p) => !has(p.career)));
     if (!need) continue;
-    try {
-      if (await applySfiCareers(doc, f, sfiCache)) {
-        writeJSON(path, doc);
-        console.log(`- ${f.slug}: careers topped up`);
+    const leagueId = AF_LEAGUE_ID[f.comp] || f.leagueId || null;
+    let touched = false;
+    for (const side of ['home', 'away']) {
+      const id = f[side + 'Id'];
+      if (id == null) continue;
+      const sq = await getSquad(id, f[side === 'home' ? 'home' : 'away'], leagueId, season);
+      const ids = sq && sq.squad || [];
+      for (const p of doc.teams[side].squad || []) {
+        if (has(p.career)) continue;
+        const match = ids.find((x) => norm(x.name) === norm(p.name) || (p.number != null && x.number === p.number));
+        if (!match || match._id == null) continue;
+        const c = await getCareer(match._id, cache);
+        if (c) { p.career = c; touched = true; }
       }
-    } catch (e) { console.error(`  ${f.slug} careers: ${e.message}`); }
+    }
+    if (touched) { writeJSON(path, doc); console.log(`- ${f.slug}: careers topped up`); }
   }
 
   for (const f of due) {
@@ -833,35 +836,34 @@ async function main() {
     }
     console.log(`- ${f.slug}:`);
 
-    f._homeId = f.homeId != null ? f.homeId : await teamIdByName(f.leagueId, f.home);
-    f._awayId = f.awayId != null ? f.awayId : await teamIdByName(f.leagueId, f.away);
-
     let doc;
     try {
-      doc = await buildMatch(f);
+      doc = await buildMatch(f, season, cache);
     } catch (e) {
       console.error(`  build failed: ${e.message}`);
       continue;
     }
     const gotSquad = doc.teams.home.squad.length || doc.teams.away.squad.length;
     if (!gotSquad && !existing) {
-      console.log('  nothing usable from the feed and no file yet — skipping');
+      console.log('  nothing usable from the API and no file yet — skipping');
       continue;
     }
     try {
-      await applySfi(doc, f, sfiCache);
+      await applyStandingsAndForm(doc, f, season, cache);
+      await applyCareers(doc, cache);
     } catch (e) {
-      console.error(`  sfi enrich failed: ${e.message}`);
+      console.error(`  enrich failed: ${e.message}`);
     }
     computeStorySeeds(doc);
+    stripSquadIds(doc);
     writeJSON(`${MATCHES_DIR}/${f.slug}.json`, doc);
     partialSlugs.add(f.slug);
     console.log(`  wrote docs/data/matches/${f.slug}.json (partial${doc.h2h.recent.length ? ', +h2h' : ''})`);
   }
 
-  writeJSON(SFI_FILE, sfiCache);
+  writeJSON(CACHE_FILE, cache);
   writeJSON(PREVIEWS, [...partialSlugs].sort());
-  console.log(`previews.json: ${partialSlugs.size} partial pack(s); soccer-football-info calls: ${_sfiCalls}`);
+  console.log(`previews.json: ${partialSlugs.size} partial pack(s); API-Football calls: ${_calls}`);
 }
 
 function existingPartialSlugs() {

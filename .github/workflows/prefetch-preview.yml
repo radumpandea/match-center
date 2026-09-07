@@ -8,7 +8,7 @@ on:
 jobs:
   prefetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30   # a cold run does ~600 throttled API-Football calls
     permissions:
       contents: write
 
@@ -24,9 +24,9 @@ jobs:
       - name: Install validator dependencies
         run: npm install --no-audit --no-fund
 
-      - name: Pre-fill docs/data/matches/*.json + docs/data/teams/*.json from the football feed
+      - name: Pre-fill docs/data/matches/*.json + docs/data/teams/*.json from API-Football
         env:
-          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          APIFOOTBALL_KEY: ${{ secrets.APIFOOTBALL_KEY }}
         run: node scripts/prefetch-preview.mjs
 
       - name: Validate every partial pack against the schema

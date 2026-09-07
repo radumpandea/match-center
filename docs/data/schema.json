@@ -199,6 +199,43 @@
                   "result": { "type": ["string", "null"], "enum": ["W", "D", "L", null] }
                 }
               }
+            },
+            "stats": {
+              "type": ["object", "null"],
+              "description": "Opta-style season aggregates from API-Football teams/statistics",
+              "additionalProperties": false,
+              "properties": {
+                "goalsForByInterval": { "type": ["object", "null"], "additionalProperties": { "type": ["integer", "null"] } },
+                "goalsAgainstByInterval": { "type": ["object", "null"], "additionalProperties": { "type": ["integer", "null"] } },
+                "cardsYellowByInterval": { "type": ["object", "null"], "additionalProperties": { "type": ["integer", "null"] } },
+                "goalsForAvg": { "type": ["number", "null"] },
+                "goalsAgainstAvg": { "type": ["number", "null"] },
+                "cleanSheets": { "type": ["integer", "null"] },
+                "failedToScore": { "type": ["integer", "null"] },
+                "penaltyScored": { "type": ["integer", "null"] },
+                "penaltyScoredPct": { "type": ["number", "null"] },
+                "formations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["formation"],
+                    "properties": {
+                      "formation": { "type": "string" },
+                      "played": { "type": ["integer", "null"] }
+                    }
+                  }
+                },
+                "biggestStreak": {
+                  "type": ["object", "null"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "wins": { "type": ["integer", "null"] },
+                    "draws": { "type": ["integer", "null"] },
+                    "loses": { "type": ["integer", "null"] }
+                  }
+                }
+              }
             }
           }
         },
