@@ -1,0 +1,87 @@
+name: Build Match Data (Fallback)
+
+on:
+  schedule:
+    - cron: "30 6 * * *"
+  workflow_dispatch:
+    inputs:
+      match:
+        description: "Exact slug to process. Leave empty to auto-pick up to 2 partial fixtures within 3 days."
+        required: false
+        default: ""
+      model:
+        description: "Model override (example: llama3.1, mistral, deepseek-r1)."
+        required: false
+        default: ""
+
+jobs:
+  build-match-fallback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build via OpenAI-compatible model
+        env:
+          MATCH: ${{ github.event.inputs.match || '' }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || github.event.inputs.model || 'llama3.1' }}
+          OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
+          OLLAMA_BASE_URL: ${{ secrets.OLLAMA_BASE_URL }}
+          OLLAMA_MODEL: ${{ secrets.OLLAMA_MODEL || github.event.inputs.model || 'llama3.1' }}
+        run: |
+          if [ -z "${OPENAI_API_KEY}" ] && [ -z "${OLLAMA_API_KEY}" ] && [ -z "${OPENAI_BASE_URL}" ] && [ -z "${OLLAMA_BASE_URL}" ]; then
+            echo "No fallback model credentials configured. Set OPENAI_API_KEY + OPENAI_BASE_URL or OLLAMA_BASE_URL."
+            exit 1
+          fi
+          python scripts/build-match-data-openai-compatible.py
+
+      - name: Validate changed match files
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path('.')
+          fixtures = json.loads((root / 'docs/data/fixtures.json').read_text(encoding='utf-8'))
+          slugs = [f['slug'] for f in fixtures if f.get('ready') is True and 'slug' in f]
+          for slug in slugs:
+              p = root / 'docs/data/matches' / f'{slug}.json'
+              if p.exists():
+                  print(f'Validating {p}')
+                  import subprocess
+                  subprocess.run(['node', 'scripts/validate-match.mjs', str(p.relative_to(root))], check=True)
+          print('All validated match files passed.')
+          PY
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/matches docs/data/fixtures.json docs/data/previews.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Match data: fallback build"
+          git push
