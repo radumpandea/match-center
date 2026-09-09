@@ -112,14 +112,27 @@ def pick_model():
     return model
 
 
+def detect_provider():
+    if os.environ.get("OPENROUTER_API_KEY") or os.environ.get("OPENROUTER_BASE_URL"):
+        return "openrouter"
+    if os.environ.get("OPENAI_API_KEY") or os.environ.get("OPENAI_BASE_URL"):
+        return "openai"
+    if os.environ.get("OLLAMA_API_KEY") or os.environ.get("OLLAMA_BASE_URL"):
+        return "ollama"
+    return "unknown"
+
+
 def resolve_base_url():
-    base = (
-        os.environ.get("OPENROUTER_BASE_URL")
-        or os.environ.get("OPENAI_BASE_URL")
-        or os.environ.get("OLLAMA_BASE_URL")
-        or ("https://openrouter.ai/api/v1" if os.environ.get("OPENROUTER_API_KEY") else None)
-        or ("https://api.openai.com/v1" if os.environ.get("OPENAI_API_KEY") else None)
-    )
+    provider = detect_provider()
+    if provider == "openrouter":
+        base = os.environ.get("OPENROUTER_BASE_URL") or "https://openrouter.ai/api/v1"
+    elif provider == "openai":
+        base = os.environ.get("OPENAI_BASE_URL") or "https://api.openai.com/v1"
+    elif provider == "ollama":
+        base = os.environ.get("OLLAMA_BASE_URL")
+    else:
+        base = None
+
     if not base:
         fail("No model endpoint configured. Set OPENROUTER_BASE_URL, OPENAI_BASE_URL, or OLLAMA_BASE_URL.")
     return base.rstrip("/")
@@ -127,16 +140,23 @@ def resolve_base_url():
 
 def build_api_call_payload(model: str, prompt: str):
     base_url = resolve_base_url()
+    provider = detect_provider()
     api_key = (
         os.environ.get("OPENROUTER_API_KEY")
         or os.environ.get("OPENAI_API_KEY")
         or os.environ.get("OLLAMA_API_KEY")
         or "unused"
     )
+    headers = {"Content-Type": "application/json"}
+    if provider == "ollama" and api_key and api_key != "unused":
+        headers["Authorization"] = f"Bearer {api_key}"
+    elif provider in {"openrouter", "openai"} and api_key and api_key != "unused":
+        headers["Authorization"] = f"Bearer {api_key}"
+
     if "/api/chat" in base_url.lower() or "/api/generate" in base_url.lower():
         return {
             "url": base_url,
-            "headers": {"Content-Type": "application/json"},
+            "headers": headers,
             "payload": {
                 "model": model,
                 "messages": [{"role": "user", "content": prompt}],
@@ -147,7 +167,7 @@ def build_api_call_payload(model: str, prompt: str):
 
     return {
         "url": base_url + "/chat/completions",
-        "headers": {"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"},
+        "headers": headers,
         "payload": {
             "model": model,
             "messages": [{"role": "user", "content": prompt}],
@@ -167,8 +187,18 @@ def call_model(prompt: str):
         req.add_unredirected_header("Authorization", f"Bearer {call['auth']}")
 
     context = ssl._create_unverified_context()
-    with urllib.request.urlopen(req, timeout=180, context=context) as resp:
-        raw = resp.read().decode("utf-8")
+    try:
+        with urllib.request.urlopen(req, timeout=180, context=context) as resp:
+            raw = resp.read().decode("utf-8")
+    except urllib.error.HTTPError as exc:
+        body = exc.read().decode("utf-8", errors="replace")
+        provider = detect_provider()
+        print(f"Provider: {provider}", file=sys.stderr)
+        print(f"Endpoint: {resolve_base_url()}", file=sys.stderr)
+        print(f"Model: {pick_model()}", file=sys.stderr)
+        print(f"HTTP {exc.code}: {exc.reason}", file=sys.stderr)
+        print(body[:1200], file=sys.stderr)
+        fail(f"Authentication failed for {provider}. Check the API key and endpoint secret values.")
 
     try:
         parsed = json.loads(raw)
