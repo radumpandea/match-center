@@ -239,6 +239,42 @@ def clean_response(raw_text: str):
     return text
 
 
+def normalize_team_stories(team: dict):
+    if not isinstance(team, dict):
+        return team
+
+    stories = team.get("stories")
+    if stories is None:
+        team["stories"] = []
+        return team
+
+    if isinstance(stories, dict):
+        stories = [stories]
+
+    if not isinstance(stories, list):
+        stories = [{"title": "Story", "bullets": [str(stories)]}]
+
+    cleaned = []
+    for item in stories:
+        if isinstance(item, dict):
+            bullets = item.get("bullets")
+            if isinstance(bullets, str):
+                bullets = [bullets]
+            elif not isinstance(bullets, list):
+                bullets = []
+            cleaned.append({
+                "title": item.get("title") or "Story",
+                "bullets": [str(b) for b in bullets if b is not None],
+            })
+        elif isinstance(item, str):
+            cleaned.append({"title": "Story", "bullets": [item]})
+        elif item is not None:
+            cleaned.append({"title": "Story", "bullets": [str(item)]})
+
+    team["stories"] = cleaned
+    return team
+
+
 def finalize_pack(pack: dict):
     pack.pop("partial", None)
     pack.pop("newsCandidates", None)
@@ -246,6 +282,7 @@ def finalize_pack(pack: dict):
         team = pack.get("teams", {}).get(side)
         if isinstance(team, dict):
             team.pop("newsCandidates", None)
+            normalize_team_stories(team)
     if "ready" in pack:
         pack["ready"] = True
     return pack
