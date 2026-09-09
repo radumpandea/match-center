@@ -103,20 +103,36 @@ The current file content is:
 
 
 def pick_model():
-    model = os.environ.get("OPENAI_MODEL") or os.environ.get("OLLAMA_MODEL") or "llama3.1"
+    model = (
+        os.environ.get("OPENROUTER_MODEL")
+        or os.environ.get("OPENAI_MODEL")
+        or os.environ.get("OLLAMA_MODEL")
+        or "meta-llama/llama-3.3-70b-instruct"
+    )
     return model
 
 
 def resolve_base_url():
-    base = os.environ.get("OPENAI_BASE_URL") or os.environ.get("OLLAMA_BASE_URL")
+    base = (
+        os.environ.get("OPENROUTER_BASE_URL")
+        or os.environ.get("OPENAI_BASE_URL")
+        or os.environ.get("OLLAMA_BASE_URL")
+        or ("https://openrouter.ai/api/v1" if os.environ.get("OPENROUTER_API_KEY") else None)
+        or ("https://api.openai.com/v1" if os.environ.get("OPENAI_API_KEY") else None)
+    )
     if not base:
-        fail("No model endpoint configured. Set OPENAI_BASE_URL or OLLAMA_BASE_URL.")
+        fail("No model endpoint configured. Set OPENROUTER_BASE_URL, OPENAI_BASE_URL, or OLLAMA_BASE_URL.")
     return base.rstrip("/")
 
 
 def build_api_call_payload(model: str, prompt: str):
     base_url = resolve_base_url()
-    api_key = os.environ.get("OPENAI_API_KEY") or os.environ.get("OLLAMA_API_KEY") or "unused"
+    api_key = (
+        os.environ.get("OPENROUTER_API_KEY")
+        or os.environ.get("OPENAI_API_KEY")
+        or os.environ.get("OLLAMA_API_KEY")
+        or "unused"
+    )
     if "/api/chat" in base_url.lower() or "/api/generate" in base_url.lower():
         return {
             "url": base_url,

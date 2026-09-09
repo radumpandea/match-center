@@ -46,13 +46,22 @@ jobs:
           MATCH: ${{ github.event.inputs.match || '' }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
-          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || github.event.inputs.model || 'llama3.1' }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || github.event.inputs.model || 'meta-llama/llama-3.3-70b-instruct' }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_BASE_URL: ${{ secrets.OPENROUTER_BASE_URL }}
+          OPENROUTER_MODEL: ${{ secrets.OPENROUTER_MODEL || github.event.inputs.model || 'meta-llama/llama-3.3-70b-instruct' }}
           OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
           OLLAMA_BASE_URL: ${{ secrets.OLLAMA_BASE_URL }}
           OLLAMA_MODEL: ${{ secrets.OLLAMA_MODEL || github.event.inputs.model || 'llama3.1' }}
         run: |
-          if [ -z "${OPENAI_API_KEY}" ] && [ -z "${OLLAMA_API_KEY}" ] && [ -z "${OPENAI_BASE_URL}" ] && [ -z "${OLLAMA_BASE_URL}" ]; then
-            echo "No fallback model credentials configured. Set OPENAI_API_KEY + OPENAI_BASE_URL or OLLAMA_BASE_URL."
+          if [ -n "${OPENROUTER_API_KEY}" ] && [ -z "${OPENROUTER_BASE_URL}" ]; then
+            export OPENROUTER_BASE_URL="https://openrouter.ai/api/v1"
+          fi
+          if [ -n "${OPENAI_API_KEY}" ] && [ -z "${OPENAI_BASE_URL}" ]; then
+            export OPENAI_BASE_URL="https://api.openai.com/v1"
+          fi
+          if [ -z "${OPENAI_API_KEY}" ] && [ -z "${OPENROUTER_API_KEY}" ] && [ -z "${OLLAMA_API_KEY}" ] && [ -z "${OPENAI_BASE_URL}" ] && [ -z "${OPENROUTER_BASE_URL}" ] && [ -z "${OLLAMA_BASE_URL}" ]; then
+            echo "No fallback model credentials configured. Set OPENAI_API_KEY + OPENAI_BASE_URL, OPENROUTER_API_KEY, or OLLAMA_BASE_URL."
             exit 1
           fi
           python scripts/build-match-data-openai-compatible.py
