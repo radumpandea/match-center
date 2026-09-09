@@ -15,6 +15,7 @@
     "country": "FR"
   },
   "kickoff": "2026-09-11T21:45:00+03:00",
+  "broadcast": null,
   "venue": {
     "name": "Roazhon Park",
     "capacity": 31127,
@@ -61,20 +62,57 @@
     "summary": "Cap la cap (10 meciuri): Rennes 2 - 1 - 7 Marseille."
   },
   "storyOfTheMatch": [
-    "Rennes — locul 5 după 3 etape, 7 puncte, golaveraj 7-5.",
-    "Rennes — 3 meciuri fără înfrângere.",
-    "E. Lepaul e cel mai bun marcator al echipei Rennes în acest start de sezon (3 goluri).",
-    "Marseille — locul 10 după 3 etape, 3 puncte, golaveraj 6-5.",
-    "A. Gouiri e cel mai bun marcator al echipei Marseille în acest start de sezon (2 goluri).",
-    "Cap la cap (10 meciuri): Rennes 2 - 1 - 7 Marseille."
+    "Rennes este pe locul 5, cu 7 puncte după 3 etape și un golaveraj de 7-5; echipa are o serie de 3 meciuri fără înfrângere în campionat.",
+    "Rennes a marcat în toate cele 3 etape și a produs 7 goluri, dar defensiva a avut încă 5 goluri primite, ceea ce face ca meciurile sale recente să fie mai deschise decât în prima parte a sezonului.",
+    "E. Lepaul e cel mai bun marcator al lui Rennes în acest start de sezon, cu 3 goluri în 2 meciuri.",
+    "Marseille este deocamdată pe locul 10, cu 4 puncte din 3 etape și un golaveraj de 6-5, fiind încă într-un moment de clarificare tactică sub Bruno Genesio.",
+    "A. Gouiri e cel mai bun marcator al lui Marseille în acest start de sezon, cu 2 goluri, dar echipa a arătat o formă mai instabilă decât seria pozitivă de la finalul sezonului precedent.",
+    "Cap la cap, derby-ul francez din acest sezon se încheie în favoarea lui Marseille în 7 din ultimele 10 meciuri directe; Rennes are doar 2 victorii și 1 egal.",
+    "Partida va fi decisivă pentru ritmul de top al lui Rennes și pentru dacă Marseille reușește să-și recupereze coerența într-un meci cu mare proporție de presiune și de posesie la centru.",
+    "Roazhon Park e teren favorabil lui Rennes, care are un avantaj de teren și o energie de susținere importantă în etapele de acasă din această fază de campionat."
   ],
+  "standings": {
+    "league": "Ligue 1",
+    "season": 2026,
+    "rows": [
+      {
+        "rank": 5,
+        "teamId": 94,
+        "team": "Rennes",
+        "played": 3,
+        "win": 2,
+        "draw": 1,
+        "loss": 0,
+        "gf": 7,
+        "ga": 5,
+        "gd": 2,
+        "points": 7
+      },
+      {
+        "rank": 10,
+        "teamId": 81,
+        "team": "Marseille",
+        "played": 3,
+        "win": 1,
+        "draw": 1,
+        "loss": 1,
+        "gf": 6,
+        "ga": 5,
+        "gd": 1,
+        "points": 4
+      }
+    ]
+  },
   "teams": {
     "home": {
-      "name": "Rennes",
-      "shortName": null,
-      "colors": null,
+      "name": "Stade Rennais FC",
+      "shortName": "REN",
+      "colors": {
+        "primary": "#FF1E31",
+        "secondary": "#0B2E59"
+      },
       "coach": {
-        "name": "F. Haise",
+        "name": "Franck Haise",
         "country": "France",
         "age": 54,
         "tenureFrom": "2025-08",
@@ -1083,13 +1121,16 @@
       "stories": []
     },
     "away": {
-      "name": "Marseille",
-      "shortName": null,
-      "colors": null,
+      "name": "Olympique de Marseille",
+      "shortName": "OM",
+      "colors": {
+        "primary": "#00AEEF",
+        "secondary": "#FFFFFF"
+      },
       "coach": {
         "name": "Bruno Genesio",
-        "country": null,
-        "age": null,
+        "country": "France",
+        "age": 57,
         "tenureFrom": "2026-07",
         "career": [
           {
