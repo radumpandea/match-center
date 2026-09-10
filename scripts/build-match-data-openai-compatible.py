@@ -344,6 +344,35 @@ def normalize_team_stories(team: dict):
     return team
 
 
+def normalize_editorial_list(key: str, value):
+    if not isinstance(value, list):
+        return None
+
+    if key == "news":
+        allowed = {"date", "text"}
+        required = "text"
+    elif key == "mercatoIn":
+        allowed = {"name", "from", "fee"}
+        required = "name"
+    elif key == "mercatoOut":
+        allowed = {"name", "to", "fee"}
+        required = "name"
+    elif key == "preseason":
+        allowed = {"opp", "score", "date"}
+        required = "opp"
+    else:
+        return value
+
+    cleaned = []
+    for item in value:
+        if not isinstance(item, dict) or not isinstance(item.get(required), str):
+            continue
+        if key == "preseason" and not isinstance(item.get("score"), str):
+            continue
+        cleaned.append({field: item[field] for field in allowed if field in item})
+    return cleaned
+
+
 def apply_editorial_patch(pack: dict, patch: dict):
     if isinstance(patch.get("storyOfTheMatch"), list):
         pack["storyOfTheMatch"] = [str(item) for item in patch["storyOfTheMatch"] if item is not None]
@@ -360,9 +389,15 @@ def apply_editorial_patch(pack: dict, patch: dict):
         if not isinstance(team, dict) or not isinstance(changes, dict):
             continue
 
-        for key in ("stories", "news", "mercatoIn", "mercatoOut", "preseason"):
+        if "stories" in changes and isinstance(changes["stories"], list):
+            team["stories"] = changes["stories"]
+            normalize_team_stories(team)
+
+        for key in ("news", "mercatoIn", "mercatoOut", "preseason"):
             if key in changes and isinstance(changes[key], list):
-                team[key] = changes[key]
+                normalized = normalize_editorial_list(key, changes[key])
+                if normalized:
+                    team[key] = normalized
 
         coach_patch = changes.get("coach")
         if isinstance(coach_patch, dict) and isinstance(team.get("coach"), dict):
