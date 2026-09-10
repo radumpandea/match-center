@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       match:
-        description: "Exact slug to process. Leave empty to auto-pick up to 2 partial fixtures within 3 days."
+        description: "Exact slug to process. Leave empty to process all fixtures scheduled for tomorrow."
         required: false
         default: ""
       model:

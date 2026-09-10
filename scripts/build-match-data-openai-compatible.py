@@ -37,10 +37,9 @@ def choose_matches():
     fixtures = read_json(FIXTURES_PATH)
     selected = []
     now = datetime.now(timezone.utc)
+    tomorrow = now.date() + timedelta(days=1)
 
     for item in fixtures:
-        if item.get("ready") is not False:
-            continue
         slug = item.get("slug")
         if not slug:
             continue
@@ -51,9 +50,6 @@ def choose_matches():
             pack = read_json(match_path)
         except json.JSONDecodeError:
             continue
-        if pack.get("partial") is not True:
-            continue
-
         kickoff = item.get("kickoff") or item.get("date")
         if not kickoff:
             continue
@@ -66,13 +62,11 @@ def choose_matches():
         except ValueError:
             continue
 
-        if dt < now:
-            continue
-        if dt - now <= timedelta(days=3):
+        if dt.date() == tomorrow:
             selected.append((dt, slug))
 
     selected.sort(key=lambda x: x[0])
-    return [slug for _, slug in selected[:2]]
+    return [slug for _, slug in selected]
 
 
 def build_prompt(slug: str, pack: dict):
@@ -111,7 +105,7 @@ def build_prompt(slug: str, pack: dict):
         }
 
     prompt = f"""
-You are the editorial assistant for the Match Center repo.
+Ești editorul sportiv al site-ului Match Center. Scrie toate câmpurile textuale noi în limba română.
 
 Task: produce the Level 2 editorial patch for docs/data/matches/{slug}.json.
 
@@ -122,17 +116,21 @@ Requirements:
 - `playerEdits` must be an array of objects with `name` plus only verified fields among `funfact`, `linkLine`, `pronunciation`, `foot`, `height`, `stats`, and `statusNote`.
 - For `coach`, return only `country`, `age`, `tenureFrom`, and `career` when they are empty or clearly incomplete.
 - The patch must preserve the existing squads, coach data, form, standings, H2H, and lineup data.
+- Folosește exclusiv fapte prezente explicit în pachetul primit sau în `newsCandidates`. Nu folosi cunoștințe generale neconfirmate și nu completa golurile prin presupuneri.
+- Nu transforma un câmp gol, o listă goală sau o formulare vagă într-o afirmație factuală. Dacă nu există dovadă pentru o informație, omite câmpul.
+- Nu scrie fraze generice precum „are mai mulți jucători accidentați”, „antrenorul are decizii dificile”, „meciul va fi interesant” sau „echipa caută victoria”. Acestea nu sunt date și trebuie omise.
 - Add or improve the following editorial fields only when relevant and supported by the current match pack:
-  - storyOfTheMatch: 6-10 concise, factual bullets.
-  - teams.home.stories[] and teams.away.stories[]: 2-3 short, punchy bars per team.
+    - storyOfTheMatch: 6-10 bullets concise, factuale, în română; fiecare trebuie să conțină un număr, un nume, o dată, un rezultat, o poziție în clasament sau alt fapt verificabil din pachet.
+    - teams.home.stories[] and teams.away.stories[]: 2-3 bare scurte, în română, fiecare bazată pe date concrete din pachet.
   - funfact and linkLine for the likely XI / notable players only.
   - coach.career / country / age / tenureFrom if empty and easy to confirm.
   - mercatoIn[] / mercatoOut[] and preseason[] if clearly present.
-  - news[]: keep only a few recent, match-relevant items, in Romanian or English, and trim old headlines.
+    - news[]: păstrează doar câteva știri recente și relevante; reformulează-le în română numai dacă sunt susținute de `newsCandidates` și nu inventa detalii absente din titlu.
 - Do not fabricate statistics or transfer fees.
 - If a fact is uncertain, leave it null or as-is rather than guessing.
 - Each `stories` item MUST be an object with a short `title` and a `bullets` array of 2-5 short strings; never return story strings.
 - Keep the patch compact: at most 8 storyOfTheMatch strings, 2 story objects per team, and 3 playerEdits per team.
+- Nu returna conținut în engleză pentru `storyOfTheMatch`, `stories`, `news`, `funfact`, `linkLine` sau `statusNote`; numele proprii și denumirile oficiale rămân neschimbate.
 - Return ONLY valid JSON for the patch. No markdown fences and no commentary.
 
 The current editorial data is:
