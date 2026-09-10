@@ -470,6 +470,28 @@
     e.forEach(function (x) { if (c[x.type] != null) c[x.type]++; });
     return c;
   }
+  function scoreFor(d, side) {
+    var goals = 0;
+    ['home', 'away'].forEach(function (eventSide) {
+      effSquad(d, eventSide).forEach(function (p) {
+        var c = evCounts(eventSide, p);
+        if (eventSide === side) goals += c.goal;
+        if (eventSide !== side) goals += c.owngoal;
+      });
+    });
+    return goals;
+  }
+  function cornerCounts(side) {
+    var c = store.corners && store.corners[side];
+    return { left: c && Number.isInteger(c.left) && c.left > 0 ? c.left : 0, right: c && Number.isInteger(c.right) && c.right > 0 ? c.right : 0 };
+  }
+  function adjustCorner(d, side, flank, delta) {
+    store.corners = store.corners || {};
+    store.corners[side] = store.corners[side] || { left: 0, right: 0 };
+    store.corners[side][flank] = Math.max(0, (Number.isInteger(store.corners[side][flank]) ? store.corners[side][flank] : 0) + delta);
+    save();
+    rerenderPitch(d);
+  }
   // Flatten store.events into a minute-sorted match log, resolving player names.
   function collectEvents(d) {
     var rows = [];
@@ -860,7 +882,33 @@
       ]));
     }
 
-    return el('div', { class: 'pitch-wrap' }, [shell, benchStrip(d), subsStrip(d)]);
+    return el('div', { class: 'pitch-wrap' }, [matchGraphic(d), shell, benchStrip(d), subsStrip(d)]);
+  }
+
+  function matchGraphic(d) {
+    var score = el('div', { class: 'match-graphic-score' }, [
+      el('span', { class: 'mgs-team home', text: d.teams.home.name }),
+      el('strong', { class: 'mgs-result', text: scoreFor(d, 'home') + ' – ' + scoreFor(d, 'away') }),
+      el('span', { class: 'mgs-team away', text: d.teams.away.name })
+    ]);
+    var corners = el('div', { class: 'corner-counter' });
+    ['home', 'away'].forEach(function (side) {
+      var c = cornerCounts(side), team = d.teams[side];
+      var row = el('div', { class: 'corner-team ' + side }, [
+        el('strong', { text: team.shortName || team.name }),
+        el('span', { class: 'corner-total', text: 'Total ' + (c.left + c.right) })
+      ]);
+      ['left', 'right'].forEach(function (flank) {
+        row.appendChild(el('span', { class: 'corner-cell' }, [
+          el('span', { class: 'corner-label', text: flank === 'left' ? 'Stânga' : 'Dreapta' }),
+          el('button', { class: 'corner-btn', title: 'Scade corner ' + (flank === 'left' ? 'stânga' : 'dreapta'), text: '−', onclick: function () { adjustCorner(d, side, flank, -1); } }),
+          el('b', { text: String(c[flank]) }),
+          el('button', { class: 'corner-btn', title: 'Adaugă corner ' + (flank === 'left' ? 'stânga' : 'dreapta'), text: '+', onclick: function () { adjustCorner(d, side, flank, 1); } })
+        ]));
+      });
+      corners.appendChild(row);
+    });
+    return el('div', { class: 'match-graphic' }, [score, corners]);
   }
 
   // The substitutes' bench, drawn on the touchline below the pitch — one row per
@@ -1068,6 +1116,18 @@
 
     if (d.storyOfTheMatch && d.storyOfTheMatch.length) {
       add('story', panel('Story of the match', ul(d.storyOfTheMatch), { lead: true, open: true }));
+    }
+
+    if (d.commentatorBriefing) {
+      var briefing = d.commentatorBriefing;
+      var briefingBody = el('div');
+      [['talkingPoints', 'Idei pentru microfon'], ['tacticalWatch', 'De urmărit tactic'], ['liveQuestions', 'Întrebări pentru live']].forEach(function (pair) {
+        if (briefing[pair[0]] && briefing[pair[0]].length) {
+          briefingBody.appendChild(el('h4', { text: pair[1] }));
+          briefingBody.appendChild(ul(briefing[pair[0]]));
+        }
+      });
+      if (briefingBody.childNodes.length) add('briefing', panel('Briefing comentator', briefingBody, { lead: true, open: true }));
     }
 
     // H2H
