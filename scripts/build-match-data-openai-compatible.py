@@ -373,8 +373,10 @@ def normalize_editorial_list(key: str, value):
 
 def apply_editorial_patch(pack: dict, patch: dict):
     if isinstance(patch.get("storyOfTheMatch"), list):
-        pack["storyOfTheMatch"] = [str(item) for item in patch["storyOfTheMatch"] if item is not None]
-    if "broadcast" in patch:
+        stories = [item for item in patch["storyOfTheMatch"] if isinstance(item, str)]
+        if stories:
+            pack["storyOfTheMatch"] = stories
+    if "broadcast" in patch and (patch["broadcast"] is None or isinstance(patch["broadcast"], str)):
         pack["broadcast"] = patch["broadcast"]
 
     teams_patch = patch.get("teams")
@@ -399,9 +401,21 @@ def apply_editorial_patch(pack: dict, patch: dict):
 
         coach_patch = changes.get("coach")
         if isinstance(coach_patch, dict) and isinstance(team.get("coach"), dict):
-            for key in ("country", "age", "tenureFrom", "career"):
-                if key in coach_patch:
+            text_keys = {"country", "tenureFrom"}
+            for key in text_keys:
+                if key in coach_patch and (coach_patch[key] is None or isinstance(coach_patch[key], str)):
                     team["coach"][key] = coach_patch[key]
+            if "age" in coach_patch and (coach_patch["age"] is None or (isinstance(coach_patch["age"], int) and not isinstance(coach_patch["age"], bool))):
+                team["coach"]["age"] = coach_patch["age"]
+            if isinstance(coach_patch.get("career"), list):
+                career = [
+                    item for item in coach_patch["career"]
+                    if isinstance(item, dict)
+                    and isinstance(item.get("club"), str)
+                    and isinstance(item.get("period"), str)
+                ]
+                if career:
+                    team["coach"]["career"] = career
 
         player_edits = changes.get("playerEdits")
         if isinstance(player_edits, list):
