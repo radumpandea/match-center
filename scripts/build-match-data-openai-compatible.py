@@ -78,6 +78,7 @@ def build_prompt(slug: str, pack: dict):
         "referee": pack.get("referee"),
         "h2h": pack.get("h2h"),
         "storyOfTheMatch": pack.get("storyOfTheMatch", []),
+        "commentatorBriefing": pack.get("commentatorBriefing"),
         "broadcast": pack.get("broadcast"),
         "teams": {},
     }
@@ -111,7 +112,7 @@ Task: produce the Level 2 editorial patch for docs/data/matches/{slug}.json.
 
 Requirements:
 - The deterministic Level 1 pack is authoritative. Do not rewrite or return the full match file.
-- Return ONLY a small JSON object with these optional keys: `storyOfTheMatch`, `broadcast`, and `teams`.
+- Return ONLY a small JSON object with these optional keys: `storyOfTheMatch`, `commentatorBriefing`, `broadcast`, and `teams`.
 - Under each team in `teams`, return only these optional keys: `stories`, `news`, `mercatoIn`, `mercatoOut`, `preseason`, `coach`, and `playerEdits`.
 - `playerEdits` must be an array of objects with `name` plus only verified text fields among `funfact`, `linkLine`, `pronunciation`, and `statusNote`. Do not edit numeric or enum player fields.
 - For `coach`, return only `country`, `age`, `tenureFrom`, and `career` when they are empty or clearly incomplete.
@@ -126,11 +127,13 @@ Requirements:
   - coach.career / country / age / tenureFrom if empty and easy to confirm.
   - mercatoIn[] / mercatoOut[] and preseason[] if clearly present.
     - news[]: păstrează doar câteva știri recente și relevante; reformulează-le în română numai dacă sunt susținute de `newsCandidates` și nu inventa detalii absente din titlu.
+    - commentatorBriefing: adaugă, când există suport factual, `talkingPoints` (3-6 idei utile la microfon), `tacticalWatch` (2-4 lucruri concrete de urmărit) și `liveQuestions` (2-4 întrebări deschise pentru desfășurarea meciului). Toate trebuie să fie în română și bazate pe statistici, formații, absențe, H2H, știri sau lotul primit.
 - Do not fabricate statistics or transfer fees.
 - If a fact is uncertain, leave it null or as-is rather than guessing.
 - Each `stories` item MUST be an object with a short `title` and a `bullets` array of 2-5 short strings; never return story strings.
 - Keep the patch compact: at most 8 storyOfTheMatch strings, 2 story objects per team, and 3 playerEdits per team.
 - Nu returna conținut în engleză pentru `storyOfTheMatch`, `stories`, `news`, `funfact`, `linkLine` sau `statusNote`; numele proprii și denumirile oficiale rămân neschimbate.
+- Nu folosi predicții prezentate ca fapte. O întrebare sau un lucru de urmărit trebuie formulat clar ca întrebare/observație, nu ca certitudine.
 - Return ONLY valid JSON for the patch. No markdown fences and no commentary.
 
 The current editorial data is:
@@ -286,9 +289,10 @@ def parse_patch_or_retry(slug: str, prompt: str, raw_text: str):
     except json.JSONDecodeError:
         retry_prompt = f"""
 Return ONLY a compact valid JSON object for the editorial patch of {slug}.
-Do not repeat the match file. Use only these keys: storyOfTheMatch, broadcast, teams.
+Do not repeat the match file. Use only these keys: storyOfTheMatch, commentatorBriefing, broadcast, teams.
 Each teams.home/away.stories item must be {{"title":"short title","bullets":["short bullet"]}}.
-Use at most 6 storyOfTheMatch strings, one story object per team, and no playerEdits.
+Use at most 6 storyOfTheMatch strings, one story object per team, no playerEdits, and at most 3 talkingPoints, 2 tacticalWatch items, and 2 liveQuestions.
+Write all new text in Romanian and omit anything that is not supported by the supplied pack.
 If you cannot support a value, omit it. No markdown and no commentary.
 """
         retry_text = call_model(retry_prompt)
@@ -378,6 +382,17 @@ def apply_editorial_patch(pack: dict, patch: dict):
             pack["storyOfTheMatch"] = stories
     if "broadcast" in patch and (patch["broadcast"] is None or isinstance(patch["broadcast"], str)):
         pack["broadcast"] = patch["broadcast"]
+    briefing = patch.get("commentatorBriefing")
+    if isinstance(briefing, dict):
+        clean_briefing = {}
+        for key, limit in (("talkingPoints", 6), ("tacticalWatch", 4), ("liveQuestions", 4)):
+            values = briefing.get(key)
+            if isinstance(values, list):
+                clean = [value for value in values if isinstance(value, str) and value.strip()]
+                if clean:
+                    clean_briefing[key] = clean[:limit]
+        if clean_briefing:
+            pack["commentatorBriefing"] = clean_briefing
 
     teams_patch = patch.get("teams")
     if not isinstance(teams_patch, dict):
