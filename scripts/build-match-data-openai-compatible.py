@@ -113,7 +113,7 @@ Requirements:
 - The deterministic Level 1 pack is authoritative. Do not rewrite or return the full match file.
 - Return ONLY a small JSON object with these optional keys: `storyOfTheMatch`, `broadcast`, and `teams`.
 - Under each team in `teams`, return only these optional keys: `stories`, `news`, `mercatoIn`, `mercatoOut`, `preseason`, `coach`, and `playerEdits`.
-- `playerEdits` must be an array of objects with `name` plus only verified fields among `funfact`, `linkLine`, `pronunciation`, `foot`, `height`, `stats`, and `statusNote`.
+- `playerEdits` must be an array of objects with `name` plus only verified text fields among `funfact`, `linkLine`, `pronunciation`, and `statusNote`. Do not edit numeric or enum player fields.
 - For `coach`, return only `country`, `age`, `tenureFrom`, and `career` when they are empty or clearly incomplete.
 - The patch must preserve the existing squads, coach data, form, standings, H2H, and lineup data.
 - Folosește exclusiv fapte prezente explicit în pachetul primit sau în `newsCandidates`. Nu folosi cunoștințe generale neconfirmate și nu completa golurile prin presupuneri.
@@ -406,13 +406,13 @@ def apply_editorial_patch(pack: dict, patch: dict):
         player_edits = changes.get("playerEdits")
         if isinstance(player_edits, list):
             by_name = {player.get("name"): player for player in team.get("squad", []) if isinstance(player, dict)}
-            allowed = {"funfact", "linkLine", "pronunciation", "foot", "height", "stats", "statusNote"}
+            allowed = {"funfact", "linkLine", "pronunciation", "statusNote"}
             for edit in player_edits:
                 if not isinstance(edit, dict) or edit.get("name") not in by_name:
                     continue
                 player = by_name[edit["name"]]
                 for key in allowed:
-                    if key in edit:
+                    if key in edit and (edit[key] is None or isinstance(edit[key], str)):
                         player[key] = edit[key]
 
     return pack
