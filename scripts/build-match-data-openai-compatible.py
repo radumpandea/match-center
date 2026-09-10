@@ -76,16 +76,53 @@ def choose_matches():
 
 
 def build_prompt(slug: str, pack: dict):
+    editorial_view = {
+        "slug": pack.get("slug"),
+        "competition": pack.get("competition"),
+        "kickoff": pack.get("kickoff"),
+        "venue": pack.get("venue"),
+        "referee": pack.get("referee"),
+        "h2h": pack.get("h2h"),
+        "storyOfTheMatch": pack.get("storyOfTheMatch", []),
+        "broadcast": pack.get("broadcast"),
+        "teams": {},
+    }
+    for side in ("home", "away"):
+        team = pack.get("teams", {}).get(side, {})
+        likely_names = {item.get("name") for item in team.get("predictedXI", []) if isinstance(item, dict)}
+        likely_players = [
+            player for player in team.get("squad", [])
+            if isinstance(player, dict) and player.get("name") in likely_names
+        ]
+        editorial_view["teams"][side] = {
+            "name": team.get("name"),
+            "coach": team.get("coach"),
+            "formation": team.get("formation"),
+            "predictedXI": team.get("predictedXI", []),
+            "likelyPlayers": likely_players,
+            "form": team.get("form"),
+            "absences": team.get("absences", []),
+            "newsCandidates": team.get("newsCandidates", []),
+            "stories": team.get("stories", []),
+            "news": team.get("news", []),
+            "mercatoIn": team.get("mercatoIn", []),
+            "mercatoOut": team.get("mercatoOut", []),
+            "preseason": team.get("preseason", []),
+        }
+
     prompt = f"""
 You are the editorial assistant for the Match Center repo.
 
-Task: update the file docs/data/matches/{slug}.json in place.
+Task: produce the Level 2 editorial patch for docs/data/matches/{slug}.json.
 
 Requirements:
-- Preserve existing squads, coach data, form, standings, H2H, and lineup data unless a value is clearly wrong.
-- Keep the file valid against the repo schema.
-- Remove the `partial` flag and delete `newsCandidates` arrays.
-- Add or improve the following editorial fields only if they are relevant and supported by the current match pack:
+- The deterministic Level 1 pack is authoritative. Do not rewrite or return the full match file.
+- Return ONLY a small JSON object with these optional keys: `storyOfTheMatch`, `broadcast`, and `teams`.
+- Under each team in `teams`, return only these optional keys: `stories`, `news`, `mercatoIn`, `mercatoOut`, `preseason`, `coach`, and `playerEdits`.
+- `playerEdits` must be an array of objects with `name` plus only verified fields among `funfact`, `linkLine`, `pronunciation`, `foot`, `height`, `stats`, and `statusNote`.
+- For `coach`, return only `country`, `age`, `tenureFrom`, and `career` when they are empty or clearly incomplete.
+- The patch must preserve the existing squads, coach data, form, standings, H2H, and lineup data.
+- Add or improve the following editorial fields only when relevant and supported by the current match pack:
   - storyOfTheMatch: 6-10 concise, factual bullets.
   - teams.home.stories[] and teams.away.stories[]: 2-3 short, punchy bars per team.
   - funfact and linkLine for the likely XI / notable players only.
@@ -94,10 +131,10 @@ Requirements:
   - news[]: keep only a few recent, match-relevant items, in Romanian or English, and trim old headlines.
 - Do not fabricate statistics or transfer fees.
 - If a fact is uncertain, leave it null or as-is rather than guessing.
-- Return ONLY valid JSON that matches the existing file schema. No markdown fences.
+- Return ONLY valid JSON for the patch. No markdown fences and no commentary.
 
-The current file content is:
-{json.dumps(pack, ensure_ascii=False, indent=2)}
+The current editorial data is:
+{json.dumps(editorial_view, ensure_ascii=False, indent=2)}
 """
     return prompt
 
@@ -275,6 +312,47 @@ def normalize_team_stories(team: dict):
     return team
 
 
+def apply_editorial_patch(pack: dict, patch: dict):
+    if isinstance(patch.get("storyOfTheMatch"), list):
+        pack["storyOfTheMatch"] = [str(item) for item in patch["storyOfTheMatch"] if item is not None]
+    if "broadcast" in patch:
+        pack["broadcast"] = patch["broadcast"]
+
+    teams_patch = patch.get("teams")
+    if not isinstance(teams_patch, dict):
+        return pack
+
+    for side in ("home", "away"):
+        team = pack.get("teams", {}).get(side)
+        changes = teams_patch.get(side)
+        if not isinstance(team, dict) or not isinstance(changes, dict):
+            continue
+
+        for key in ("stories", "news", "mercatoIn", "mercatoOut", "preseason"):
+            if key in changes and isinstance(changes[key], list):
+                team[key] = changes[key]
+
+        coach_patch = changes.get("coach")
+        if isinstance(coach_patch, dict) and isinstance(team.get("coach"), dict):
+            for key in ("country", "age", "tenureFrom", "career"):
+                if key in coach_patch:
+                    team["coach"][key] = coach_patch[key]
+
+        player_edits = changes.get("playerEdits")
+        if isinstance(player_edits, list):
+            by_name = {player.get("name"): player for player in team.get("squad", []) if isinstance(player, dict)}
+            allowed = {"funfact", "linkLine", "pronunciation", "foot", "height", "stats", "statusNote"}
+            for edit in player_edits:
+                if not isinstance(edit, dict) or edit.get("name") not in by_name:
+                    continue
+                player = by_name[edit["name"]]
+                for key in allowed:
+                    if key in edit:
+                        player[key] = edit[key]
+
+    return pack
+
+
 def finalize_pack(pack: dict):
     pack.pop("partial", None)
     pack.pop("newsCandidates", None)
@@ -312,9 +390,9 @@ def main():
             fail(f"The model did not return valid JSON for {slug}: {exc}\nRaw content:\n{cleaned[:800]}")
 
         if not isinstance(updated, dict):
-            fail(f"The model response for {slug} was not a JSON object.")
+            fail(f"The model response for {slug} was not a JSON patch object.")
 
-        finalized = finalize_pack(updated)
+        finalized = finalize_pack(apply_editorial_patch(pack, updated))
         write_json(match_path, finalized)
 
         if slug in fixture_by_slug:
