@@ -131,6 +131,8 @@ Requirements:
   - news[]: keep only a few recent, match-relevant items, in Romanian or English, and trim old headlines.
 - Do not fabricate statistics or transfer fees.
 - If a fact is uncertain, leave it null or as-is rather than guessing.
+- Each `stories` item MUST be an object with a short `title` and a `bullets` array of 2-5 short strings; never return story strings.
+- Keep the patch compact: at most 8 storyOfTheMatch strings, 2 story objects per team, and 3 playerEdits per team.
 - Return ONLY valid JSON for the patch. No markdown fences and no commentary.
 
 The current editorial data is:
@@ -198,6 +200,7 @@ def build_api_call_payload(model: str, prompt: str):
                 "model": model,
                 "messages": [{"role": "user", "content": prompt}],
                 "stream": False,
+                "format": "json",
             },
             "auth": api_key if api_key != "unused" else None,
         }
@@ -208,7 +211,9 @@ def build_api_call_payload(model: str, prompt: str):
         "payload": {
             "model": model,
             "messages": [{"role": "user", "content": prompt}],
-            "temperature": 0.2,
+            "temperature": 0.1,
+            "max_tokens": 3500,
+            "response_format": {"type": "json_object"},
         },
         "auth": None,
     }
@@ -274,6 +279,33 @@ def clean_response(raw_text: str):
             text = re.sub(r"^```(?:json)?\s*", "", text, flags=re.IGNORECASE)
             text = re.sub(r"\s*```$", "", text, flags=re.IGNORECASE)
     return text
+
+
+def parse_patch_or_retry(slug: str, prompt: str, raw_text: str):
+    cleaned = clean_response(raw_text)
+    try:
+        parsed = json.loads(cleaned)
+    except json.JSONDecodeError:
+        retry_prompt = f"""
+Return ONLY a compact valid JSON object for the editorial patch of {slug}.
+Do not repeat the match file. Use only these keys: storyOfTheMatch, broadcast, teams.
+Each teams.home/away.stories item must be {{"title":"short title","bullets":["short bullet"]}}.
+Use at most 6 storyOfTheMatch strings, one story object per team, and no playerEdits.
+If you cannot support a value, omit it. No markdown and no commentary.
+"""
+        retry_text = call_model(retry_prompt)
+        retry_cleaned = clean_response(retry_text)
+        try:
+            parsed = json.loads(retry_cleaned)
+        except json.JSONDecodeError as retry_exc:
+            fail(
+                f"The model did not return valid JSON for {slug} after retry: {retry_exc}\n"
+                f"Raw content:\n{retry_cleaned[:1200]}"
+            )
+
+    if not isinstance(parsed, dict):
+        fail(f"The model response for {slug} was not a JSON patch object.")
+    return parsed
 
 
 def normalize_team_stories(team: dict):
@@ -381,16 +413,9 @@ def main():
             continue
 
         pack = read_json(match_path)
-        response_text = call_model(build_prompt(slug, pack))
-        cleaned = clean_response(response_text)
-
-        try:
-            updated = json.loads(cleaned)
-        except json.JSONDecodeError as exc:
-            fail(f"The model did not return valid JSON for {slug}: {exc}\nRaw content:\n{cleaned[:800]}")
-
-        if not isinstance(updated, dict):
-            fail(f"The model response for {slug} was not a JSON patch object.")
+        prompt = build_prompt(slug, pack)
+        response_text = call_model(prompt)
+        updated = parse_patch_or_retry(slug, prompt, response_text)
 
         finalized = finalize_pack(apply_editorial_patch(pack, updated))
         write_json(match_path, finalized)
