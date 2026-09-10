@@ -120,6 +120,8 @@ Requirements:
 - Folosește exclusiv fapte prezente explicit în pachetul primit sau în `newsCandidates`. Nu folosi cunoștințe generale neconfirmate și nu completa golurile prin presupuneri.
 - Nu transforma un câmp gol, o listă goală sau o formulare vagă într-o afirmație factuală. Dacă nu există dovadă pentru o informație, omite câmpul.
 - Nu scrie fraze generice precum „are mai mulți jucători accidentați”, „antrenorul are decizii dificile”, „meciul va fi interesant” sau „echipa caută victoria”. Acestea nu sunt date și trebuie omise.
+- Pentru `talkingPoints`, scrie doar constatări verificabile, nu recomandări: este interzis să folosești „trebuie să”, „va trebui să”, „ar trebui să”, „este nevoie să”, „poate face diferența”, „jucător cheie”, „meci dificil/interesant” sau „să obțină victoria”. Înlocuiește „defensiva trebuie îmbunătățită” cu datele care ar justifica observația, de exemplu goluri primite și rezultatele ultimelor meciuri, numai dacă apar explicit în pachet.
+- O idee pentru microfon este validă numai dacă include concret un număr, un rezultat, o poziție, o serie, un interval de minute, un nume de jucător legat de o statistică sau un fapt direct dintr-o știre. Dacă nu poți arăta faptele din pachet care susțin propoziția, omite propoziția.
 - Add or improve the following editorial fields only when relevant and supported by the current match pack:
     - storyOfTheMatch: 6-10 bullets concise, factuale, în română; fiecare trebuie să conțină un număr, un nume, o dată, un rezultat, o poziție în clasament sau alt fapt verificabil din pachet.
     - teams.home.stories[] and teams.away.stories[]: 2-3 bare scurte, în română, fiecare bazată pe date concrete din pachet.
@@ -127,7 +129,7 @@ Requirements:
   - coach.career / country / age / tenureFrom if empty and easy to confirm.
   - mercatoIn[] / mercatoOut[] and preseason[] if clearly present.
     - news[]: păstrează doar câteva știri recente și relevante; reformulează-le în română numai dacă sunt susținute de `newsCandidates` și nu inventa detalii absente din titlu.
-    - commentatorBriefing: adaugă, când există suport factual, `talkingPoints` (3-6 idei utile la microfon), `tacticalWatch` (2-4 lucruri concrete de urmărit) și `liveQuestions` (2-4 întrebări deschise pentru desfășurarea meciului). Toate trebuie să fie în română și bazate pe statistici, formații, absențe, H2H, știri sau lotul primit.
+    - commentatorBriefing: adaugă numai când există suport factual, `talkingPoints` (3-6 constatări concrete), `tacticalWatch` (2-4 întrebări/observații legate de date concrete) și `liveQuestions` (2-4 întrebări deschise, fără predicții). Este mai bine să returnezi o listă goală decât o frază generică. Nu umple numărul minim de elemente.
 - Do not fabricate statistics or transfer fees.
 - If a fact is uncertain, leave it null or as-is rather than guessing.
 - Each `stories` item MUST be an object with a short `title` and a `bullets` array of 2-5 short strings; never return story strings.
@@ -375,6 +377,45 @@ def normalize_editorial_list(key: str, value):
     return cleaned
 
 
+GENERIC_BRIEFING_PATTERNS = (
+    "trebuie să", "va trebui să", "ar trebui să", "este nevoie să",
+    "poate face diferența", "jucător cheie", "meci dificil",
+    "meci interesant", "va fi unul dificil", "dificil pentru ambele",
+    "să obțină victoria", "sa obtina victoria",
+    "caută victoria", "cauta victoria", "decizii grele",
+    "jucător important", "jucator important",
+)
+EVIDENCE_MARKERS = re.compile(
+    r"\d|locul|gol|goluri|marcat|primit|punct|meci|victori|înfrânger|infranger|egal|ultimele|minute|clasament|h2h|cap la cap|rezultat|serie",
+    re.IGNORECASE,
+)
+
+
+def normalize_commentator_briefing(value):
+    if not isinstance(value, dict):
+        return None
+    clean_briefing = {}
+    limits = {"talkingPoints": 6, "tacticalWatch": 4, "liveQuestions": 4}
+    for key, limit in limits.items():
+        values = value.get(key)
+        if not isinstance(values, list):
+            continue
+        clean = []
+        for item in values:
+            if not isinstance(item, str):
+                continue
+            text = " ".join(item.split())
+            lowered = text.casefold()
+            if not text or any(pattern in lowered for pattern in GENERIC_BRIEFING_PATTERNS):
+                continue
+            if not EVIDENCE_MARKERS.search(text):
+                continue
+            clean.append(text)
+        if clean:
+            clean_briefing[key] = clean[:limit]
+    return clean_briefing or None
+
+
 def apply_editorial_patch(pack: dict, patch: dict):
     if isinstance(patch.get("storyOfTheMatch"), list):
         stories = [item for item in patch["storyOfTheMatch"] if isinstance(item, str)]
@@ -382,17 +423,11 @@ def apply_editorial_patch(pack: dict, patch: dict):
             pack["storyOfTheMatch"] = stories
     if "broadcast" in patch and (patch["broadcast"] is None or isinstance(patch["broadcast"], str)):
         pack["broadcast"] = patch["broadcast"]
-    briefing = patch.get("commentatorBriefing")
-    if isinstance(briefing, dict):
-        clean_briefing = {}
-        for key, limit in (("talkingPoints", 6), ("tacticalWatch", 4), ("liveQuestions", 4)):
-            values = briefing.get(key)
-            if isinstance(values, list):
-                clean = [value for value in values if isinstance(value, str) and value.strip()]
-                if clean:
-                    clean_briefing[key] = clean[:limit]
-        if clean_briefing:
-            pack["commentatorBriefing"] = clean_briefing
+    briefing = normalize_commentator_briefing(patch.get("commentatorBriefing"))
+    if briefing:
+        pack["commentatorBriefing"] = briefing
+    elif "commentatorBriefing" in patch:
+        pack.pop("commentatorBriefing", None)
 
     teams_patch = patch.get("teams")
     if not isinstance(teams_patch, dict):
