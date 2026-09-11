@@ -71,6 +71,10 @@
   .fav{width:28px;height:28px;padding:0;border:1px solid var(--color-divider);border-radius:50%;background:transparent;color:var(--color-neutral-500);font-size:16px;line-height:1;cursor:pointer}
   .fav.on{color:#f1cd8a;border-color:#e8b04b;background:color-mix(in srgb,#e8b04b 12%,transparent)}
   .fav:hover{color:#f1cd8a;border-color:#e8b04b}
+  .account{display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;padding:var(--space-3) var(--space-4);border:1px solid var(--color-divider);border-radius:var(--radius-md);font-size:12.5px;color:var(--color-neutral-400)}
+  .account .input{width:220px;flex:none;font-size:12.5px;min-height:30px}
+  .account .chip{white-space:nowrap}
+  .account-msg{font-size:11.5px;color:var(--color-neutral-600)}
   .empty{padding:var(--space-8);text-align:center;font-size:13px;color:var(--color-neutral-600);border:1px dashed var(--color-divider);border-radius:var(--radius-md)}
   .foot{font-size:11.5px;line-height:1.7;color:var(--color-neutral-600);border-top:1px solid var(--color-divider);padding-top:var(--space-4);text-wrap:pretty}
 </style>
@@ -85,6 +89,8 @@
       <div class="title">Ecrane de meci pentru comentariu</div>
       <div class="intro">Un ecran interactiv pre-meci pentru fiecare partidă: teren cu primul 11 probabil, carduri de jucător, antrenor și arbitru, panouri de formă, cap la cap, absențe și fire narative, plus un strat de notițe salvate local. Datele sunt culese automat înainte de start.</div>
     </div>
+
+    <div id="account" class="account" hidden></div>
 
     <div class="filters">
       <div id="chips" style="display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center"></div>
@@ -101,7 +107,7 @@
 
 <script src="app/config.js?v=20260907h"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app/collab.js?v=20260907h"></script>
+<script src="app/collab.js?v=20260911i"></script>
 <script>
 (function(){
   var MONTHS = ['ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
@@ -110,6 +116,33 @@
   var state = { comp: null, query: '', favourites: false };
   var all = [];
   var partials = {};   // slug -> true, from data/previews.json (deterministic prefetch)
+
+  function renderAccount(){
+    var box = document.getElementById('account');
+    if (!window.MC_COLLAB || !window.MC_COLLAB.configured()) { box.hidden = true; return; }
+    box.hidden = false;
+    var s = window.MC_COLLAB.status();
+    if (s.online) {
+      box.innerHTML = '<span>Conectat: <b>' + (s.name || 'utilizator') + '</b> — favoritele tale se văd pe orice dispozitiv (max. 4).</span>';
+      var out = document.createElement('button');
+      out.className = 'chip'; out.textContent = 'Deconectează-te';
+      out.onclick = async function(){ await window.MC_COLLAB.signOut(); renderAccount(); render(); };
+      box.appendChild(out);
+    } else {
+      box.innerHTML =
+        '<span>Conectează-te ca să vezi meciurile favorite pe orice dispozitiv (max. 4):</span>' +
+        '<input id="acctEmail" class="input" type="email" placeholder="emailul-tău@exemplu.ro">' +
+        '<button id="acctSend" class="chip">Trimite link de conectare</button>' +
+        '<span id="acctMsg" class="account-msg"></span>';
+      document.getElementById('acctSend').onclick = async function(){
+        var msgEl = document.getElementById('acctMsg');
+        try {
+          var to = await window.MC_COLLAB.sendMagicLink(document.getElementById('acctEmail').value);
+          msgEl.textContent = 'Am trimis un link la ' + to + '. Deschide-l ca să revii conectat.';
+        } catch (e) { msgEl.textContent = e.message || 'Nu am putut trimite linkul.'; }
+      };
+    }
+  }
 
   function dateLabel(iso){
     var d = new Date(iso + 'T12:00:00');
@@ -201,7 +234,7 @@
           try {
             var yes = await window.MC_COLLAB.toggleFavourite(m.slug);
             fav.classList.toggle('on', yes); fav.textContent = yes ? '★' : '☆';
-          } catch (err) { alert('Conectează-te din orice ecran de meci, folosind butonul „Colaborare”, pentru a salva favoritele pe toate dispozitivele.'); }
+          } catch (err) { alert(err && err.message ? err.message : 'Conectează-te mai sus pentru a salva favoritele pe toate dispozitivele.'); }
         };
         el.appendChild(fav);
         group.appendChild(el);
@@ -226,10 +259,11 @@
     all = (res[0] || []).filter(isUpcoming).sort(function(a, b){
       return (a.date + (a.ko || '')).localeCompare(b.date + (b.ko || ''));
     });
-    if (window.MC_COLLAB) window.MC_COLLAB.ready().then(render);
+    if (window.MC_COLLAB) window.MC_COLLAB.ready().then(function(){ renderAccount(); render(); });
+    renderAccount();
     render();
   }).catch(function(){ render(); });
-  window.addEventListener('mc-collab', render);
+  window.addEventListener('mc-collab', function(){ renderAccount(); render(); });
 })();
 </script>
 </body>

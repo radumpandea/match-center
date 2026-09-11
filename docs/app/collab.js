@@ -7,6 +7,7 @@
   var client = enabled ? window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey) : null;
   var user = null, name = '', activeSlug = '', lastJson = '', timer = null, onRemote = null;
   var favs = {};
+  var FAV_LIMIT = 4;   // matches the mc_favourites_cap trigger in supabase.sql
 
   function localName() { return localStorage.getItem('mc:displayName') || ''; }
   function setLocalName(v) { localStorage.setItem('mc:displayName', v); }
@@ -139,12 +140,25 @@
   async function toggleFavourite(slug) {
     if (!enabled) {
       var local = JSON.parse(localStorage.getItem('mc:favourites') || '{}');
+      if (!local[slug] && Object.keys(local).filter(function (k) { return local[k]; }).length >= FAV_LIMIT) {
+        throw new Error('Poți avea cel mult ' + FAV_LIMIT + ' meciuri favorite — elimină unul înainte de a adăuga altul.');
+      }
       local[slug] = !local[slug]; localStorage.setItem('mc:favourites', JSON.stringify(local)); return !!local[slug];
     }
     await ensureUser();
     if (!user) throw new Error('Conectează-te cu emailul tău pentru a salva favoritele între dispozitive.');
-    if (favs[slug]) { await client.from('mc_favourites').delete().eq('user_id', user.id).eq('match_slug', slug); delete favs[slug]; }
-    else { await client.from('mc_favourites').insert({ user_id: user.id, match_slug: slug }); favs[slug] = true; }
+    if (favs[slug]) {
+      var del = await client.from('mc_favourites').delete().eq('user_id', user.id).eq('match_slug', slug);
+      if (del.error) throw del.error;
+      delete favs[slug];
+    } else {
+      if (Object.keys(favs).length >= FAV_LIMIT) {
+        throw new Error('Poți avea cel mult ' + FAV_LIMIT + ' meciuri favorite — elimină unul înainte de a adăuga altul.');
+      }
+      var ins = await client.from('mc_favourites').insert({ user_id: user.id, match_slug: slug });
+      if (ins.error) throw ins.error;
+      favs[slug] = true;
+    }
     emit(); return !!favs[slug];
   }
 

@@ -1,0 +1,33 @@
+name: Build Match Data (Favourites)
+
+on:
+  schedule:
+    - cron: "20 6 * * *"   # 06:20 UTC — 20 min after Build Match Data, so it never races the same files
+  workflow_dispatch: {}
+
+jobs:
+  pick-favourites:
+    runs-on: ubuntu-latest
+    outputs:
+      slugs: ${{ steps.pick.outputs.slugs }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Find favourited matches that still need the deep pass
+        id: pick
+        run: node scripts/pick-favourite-matches.mjs
+
+  build-favourite:
+    needs: pick-favourites
+    if: needs.pick-favourites.outputs.slugs != '[]'
+    strategy:
+      matrix:
+        slug: ${{ fromJson(needs.pick-favourites.outputs.slugs) }}
+      fail-fast: false
+    uses: ./.github/workflows/build-match-data-run.yml
+    with:
+      match: ${{ matrix.slug }}
+      depth: deep
+    secrets: inherit

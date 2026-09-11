@@ -21,6 +21,11 @@
       "enum": ["skill", "fallback", null],
       "description": "which Level 2 lane last wrote the editorial fields: the researched match-data-json skill (\"skill\"), or the no-research OpenAI-compatible fallback (\"fallback\"). null/absent predates this marker."
     },
+    "researchDepth": {
+      "type": ["string", "null"],
+      "enum": ["standard", "deep", null],
+      "description": "which editorial budget produced this pack — \"standard\" (~12 lookups, Haiku) or \"deep\" (~50 lookups, Sonnet, full commentator dossier — set for matches favourited by a user, and available on request via workflow_dispatch). null/absent predates this marker or is still partial."
+    },
     "sources": {
       "type": "array",
       "items": {

@@ -1,7 +1,7 @@
 # Match Center
 
 An interactive pre-match screen for football commentators, pre-loaded with researched
-match intelligence. Static site on GitHub Pages; data fed by three daily GitHub Actions.
+match intelligence. Static site on GitHub Pages; data fed by daily GitHub Actions.
 All football data comes from **API-Football** (api-sports.io), used server-side only —
 no API key ships in the page.
 
@@ -10,19 +10,21 @@ Live: https://radumpandea.github.io/match-center/
 ## How it works
 
 ```
-refresh-fixtures.yml   →  docs/data/fixtures.json      (deterministic, API-Football)
-prefetch-preview.yml   →  docs/data/teams/<id>.json    (deterministic squad cache, API-Football)
-                          docs/data/teams/_afcache.json (standings / team stats / h2h / careers)
-                          docs/data/matches/<slug>.json ("partial": true — factual skeleton)
-                          docs/data/previews.json      (slugs that have a partial pack)
-build-match-data.yml   →  docs/data/matches/<slug>.json (Claude editorial pass — 2 lanes:
-                                                         standard = daily, up to 2 packs,
-                                                         Haiku, ~12 lookups; deep = on
-                                                         demand, 1 match, Sonnet, ~50)
-docs/index.html        →  fixture list
-docs/match.html?m=<slug>  →  the Match Center: pitch + predicted XI, player/coach/referee
-                             cards, story / H2H / form / absences / mercato / news panels,
-                             and a notes layer saved in the browser (localStorage)
+refresh-fixtures.yml         →  docs/data/fixtures.json      (deterministic, API-Football)
+prefetch-preview.yml         →  docs/data/teams/<id>.json    (deterministic squad cache)
+                                 docs/data/teams/_afcache.json (standings / stats / h2h / careers)
+                                 docs/data/matches/<slug>.json ("partial": true — factual skeleton)
+                                 docs/data/previews.json      (slugs that have a partial pack)
+build-match-data.yml         →  docs/data/matches/<slug>.json (Claude editorial pass, daily
+                                 auto-pick of up to 2, standard depth — Haiku, ~12 lookups)
+build-match-data-favourites.yml → the same editorial pass, once per match ANY user has
+                                 favourited, at the deep depth (Sonnet, ~50 lookups) — the
+                                 shared logic lives in build-match-data-run.yml, called by
+                                 both workflows (and by workflow_dispatch for a one-off run)
+docs/index.html               →  fixture list — sign in here to see/pick favourites
+docs/match.html?m=<slug>      →  the Match Center: pitch + predicted XI, player/coach/referee
+                                 cards, story / H2H / form / absences / mercato / news panels,
+                                 and a notes layer saved in the browser (localStorage)
 ```
 
 The match-data JSON contract is `docs/data/schema.json`. Validate a file with:
@@ -159,7 +161,9 @@ devices, provision a free [Supabase](https://supabase.com/) project once:
 
 1. In **Authentication -> Providers**, make sure **Email** is enabled (it is
    normally enabled by default). Do not enable Anonymous sign-ins for this flow.
-2. In **SQL Editor**, run [`docs/supabase.sql`](docs/supabase.sql).
+2. In **SQL Editor**, run [`docs/supabase.sql`](docs/supabase.sql) — an existing
+   project just needs the new bottom half re-run (it's all `create or replace` /
+   `drop trigger if exists`, safe to re-run in full).
 3. In **Project Settings -> API**, copy the project URL and browser-safe
    **anon/publishable** key into `supabaseUrl` and `supabaseAnonKey` in
    [`docs/app/config.js`](docs/app/config.js), then commit it. Do not use the
@@ -168,10 +172,21 @@ devices, provision a free [Supabase](https://supabase.com/) project once:
 In **Authentication -> URL Configuration**, set the Site URL to
 `https://radumpandea.github.io/match-center/` and add that same URL (or the
 `https://radumpandea.github.io/match-center/**` wildcard) to Redirect URLs.
-Users connect from **Colaborare -> Profil** with an email magic link, then choose
-a display name. The same email on another device restores that user's favourites
-and edits. All editor state for a match syncs to the shared match screen, and the
-activity tab attributes changes to that display name.
+Users can sign in right from `docs/index.html` (an email field above the fixture
+list) as well as from **Colaborare -> Profil** inside a match screen — either way it's
+the same passwordless magic-link email, then choose a display name. The same email
+on another device restores that user's favourites and edits. All editor state for a
+match syncs to the shared match screen, and the activity tab attributes changes to
+that display name.
+
+**Favourites are capped at 4 per user** (enforced by a trigger in `supabase.sql`, not
+just the client, so it can't be bypassed). Every match slug favourited by *any* user
+is picked up next day by `build-match-data-favourites.yml` and gets the deep
+editorial pass — the idea is that favouriting a match is how you tell the pipeline
+"I'm commentating this one, give it the full treatment." The Action reads which
+slugs are favourited through a `mc_favourite_slugs()` RPC that returns match slugs
+only, never who favourited them, so it needs no secret beyond the public anon key
+already committed in `config.js`.
 
 ## Status
 

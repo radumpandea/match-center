@@ -1,0 +1,186 @@
+name: Build Match Data (run)
+
+# The shared editorial-pass job. Called by build-match-data.yml (the daily
+# auto-pick / manual dispatch) and build-match-data-favourites.yml (the
+# per-favourite deep pass) so the prompt lives in exactly one place.
+on:
+  workflow_call:
+    inputs:
+      match:
+        description: "Exact slug. Empty = daily auto-pick of up to 2."
+        required: false
+        type: string
+        default: ""
+      depth:
+        description: "standard or deep"
+        required: false
+        type: string
+        default: "standard"
+      model:
+        description: "Model override (empty = derived from depth)"
+        required: false
+        type: string
+        default: ""
+
+jobs:
+  build-match:
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ inputs.depth == 'deep' && 170 || 90 }}
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install validator dependencies
+        run: npm install --no-audit --no-fund
+
+      - uses: anthropics/claude-code-action@v1
+        env:
+          # Only relevant when the ANTHROPIC_API_KEY fallback is in use: an
+          # identity-linked key (the newer default for keys created via personal
+          # login) rejects requests unless the acting workspace is named. Sent as
+          # a header only when we are NOT using the OAuth token and
+          # ANTHROPIC_WORKSPACE_ID (format: wrkspc_...) is set.
+          ANTHROPIC_CUSTOM_HEADERS: "${{ (secrets.CLAUDE_CODE_OAUTH_TOKEN == '' && secrets.ANTHROPIC_WORKSPACE_ID) && format('anthropic-workspace-id: {0}', secrets.ANTHROPIC_WORKSPACE_ID) || '' }}"
+        with:
+          # Provide ONE of these two secrets. Currently PREFERRING
+          # CLAUDE_CODE_OAUTH_TOKEN (`claude setup-token`, the Claude
+          # subscription): the ANTHROPIC_API_KEY console account ran out of
+          # credit on 2026-09-05 ("Credit balance is too low", billing_error)
+          # and every scheduled run since failed. The OAuth token has no credit
+          # cost but shares one rolling 5-hour session limit with all other
+          # Claude usage on that account — if you are also running interactive
+          # Claude Code with the same login, the 06:00 UTC cron can collide with
+          # it ("You've hit your session limit"). Switch back to preferring
+          # ANTHROPIC_API_KEY once the console account is funded again.
+          claude_code_oauth_token: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}"
+          anthropic_api_key: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN == '' && secrets.ANTHROPIC_API_KEY || '' }}"
+          show_full_output: true
+          prompt: |
+            You are the Level 2 editorial pass for a small football Match Center
+            site (radumpandea.github.io/match-center). You run unattended, no
+            memory of a previous run, nobody reviewing the output. Everything you
+            need is in this repo and this prompt.
+
+            ## Critical: do the work yourself, now — there is no "later"
+            This is a single one-shot run. The moment your final response is
+            produced, the job exits — nothing runs after that. Do NOT use the Task
+            tool or any background/async agent. Do every step yourself, directly,
+            in this same turn: research, edit the JSON files, update
+            fixtures.json, git commit and push — all before your final answer.
+
+            ## Mode for this run
+            MATCH = "${{ inputs.match }}"     (empty = daily auto-pick)
+            DEPTH = "${{ inputs.depth || 'standard' }}"
+
+            - MATCH non-empty → operate on EXACTLY that one slug:
+              `docs/data/matches/<MATCH>.json`. It must already exist; build on top
+              of it. Skip the auto-pick in step 1, do only that match.
+            - MATCH empty → do the auto-pick in step 1 (up to 2 matches).
+
+            - DEPTH=standard → follow `.claude/skills/match-data-json/SKILL.md`
+              Steps 0–3 with the ~12-lookup budget and the field allowlist in
+              step 2 below.
+            - DEPTH=deep → ALSO follow the skill's "## Modul aprofundat" section.
+              ~50 lookups, ONE match only, the allowlist in step 2 does NOT apply:
+              fill any schema field, densely. This is a match a commentator will
+              talk through for 90 minutes — give them material, not a summary.
+              A non-empty MATCH with DEPTH=deep usually means a user favourited
+              this match — treat it as the one they most want to be ready for.
+
+            ## What Level 1 already did (do NOT redo it)
+            `scripts/prefetch-preview.mjs` runs daily, deterministically, and has
+            already written `docs/data/matches/<slug>.json` for upcoming fixtures
+            with `"partial": true`. It fills, and you must TRUST (verify only if a
+            value looks obviously wrong, don't re-derive):
+            - `teams.<side>.squad[]` — full squads, shirt no., age, nat, height,
+              position, season goals/assists/cards/rating, and `career` for the
+              recent-lineup players;
+            - `teams.<side>.form` — `last5`, `table` (standings row), `recent`
+              (form guide), `position`;
+            - `h2h.recent[]` + `h2h.summary`;
+            - `venue`, `referee.name`, `teams.<side>.coach.name`, injuries in
+              `absences[]`, `confirmedXI` when the lineup was public;
+            - `storyOfTheMatch` — a few FACTUAL seed bullets computed from the
+              numbers (standings, streaks, top scorer);
+            - `teams.<side>.newsCandidates[]` — raw dated RSS headlines.
+
+            ## Your job
+            1. (MATCH empty only) Read `docs/data/fixtures.json`. Pick **up to 2**
+               entries that (a) have `ready: false`, (b) whose
+               `docs/data/matches/<slug>.json` exists AND still has
+               `"partial": true`, (c) kick off soonest, within the next **3 days**
+               (Europe/Bucharest). Do not skip a nearer match for a further one —
+               soonest-first, no exceptions for league or country. If none
+               qualify, STOP — no commit. That is the normal outcome most days.
+            2. For each picked match, edit its file IN PLACE, following the skill.
+               **When DEPTH=standard** you may ONLY add/change these fields:
+               - `storyOfTheMatch`: keep the factual seed bullets, merge/rephrase
+                 for tone, add AT MOST 3 genuinely-researched angles → 6–10 total.
+               - `teams.<side>.stories[]`: 2–3 punchy bars per team.
+               - `funfact` / `linkLine`: only for the ~11 likely starters of each
+                 side plus anyone a story touches. The rest stay `null`.
+               - `news[]`: triage `newsCandidates` — keep only match-relevant,
+                 ≤2–3 days old; rewrite in Romanian, paraphrased. Then DELETE the
+                 `newsCandidates` arrays.
+               - `coach.career` / `coach.country` / `coach.age` / `coach.tenureFrom`
+                 if empty (Wikipedia manager infobox).
+               - `mercatoIn[]` / `mercatoOut[]`, `preseason[]` — if quickly found.
+               - `stats.minutes` / `stats.apps` for the likely XI (FBref "All
+                 Competitions" club page — one page per club covers the whole XI).
+               - `venue.capacity` / `venue.city`, `referee` age/averages — ONLY if
+                 trivially found; otherwise leave as-is.
+               - `colors`, `shortName` if known.
+               Do NOT rewrite squads, form, h2h, or the confirmed lineup.
+               **When DEPTH=deep** the allowlist above does not bind you — follow
+               "## Modul aprofundat": rotation-wide player depth, tactical/stat
+               angles (set-piece %, goal-timing split, xG vs actual from
+               Understat/FBref), 10–14 `storyOfTheMatch` lines, 3–4 `stories` per
+               team, real referee averages, `pronunciation` for hard names. Still
+               do NOT fabricate; still keep the Level 1 squad/form/h2h unless a
+               value is clearly wrong.
+            3. `node scripts/validate-match.mjs docs/data/matches/<slug>.json` must
+               exit 0 for each file. `!` warnings about predictedXI count or squad
+               size are EXPECTED on these packs — don't chase them. Fix every `✗`.
+            4. Set `ready: true` on those entries in `docs/data/fixtures.json`;
+               correct `round` / `ko` / `kickoff` / `venue` only if clearly wrong.
+               Touch no other entry. Set `researchDepth` on each file you edited
+               to exactly `"standard"` or `"deep"` (matching DEPTH for this run).
+            5. **Final self-check, both modes.** For every file you edited, open it
+               and confirm: the `"partial"` key is GONE, `researchDepth` is set,
+               and NO `newsCandidates` key remains anywhere in it. If a slug you
+               finished is listed in `docs/data/previews.json`, remove it from
+               that array. Re-run the validator; it must exit 0.
+
+            ## Lookup budget
+            DEPTH=standard: about **12 web lookups per match**, hard. Typical
+            spend: 1 match-preview page, 1–2 team-news pages, 2 Wikipedia coach
+            pages, 2 FBref club pages, 1–2 for funfacts, 1 SoccerStats. Do NOT
+            verify squads player by player — Level 1 did that.
+            DEPTH=deep: about **50 lookups for the single match**. Depth over
+            coverage; still stop when you hit the budget.
+
+            ## Accuracy
+            - Never invent a fact, statistic, height, or career detail. Missing →
+              `null` / `"n/d"`, never a guess.
+            - "first time" / "record" / "return to" needs a source that says
+              exactly that; otherwise state the plain fact.
+            - News items must be dated within 2–3 days of today.
+            - On a squad/lineup/stat conflict, prefer the official source.
+
+            ## Finishing up
+            - Commit only files you actually produced + the fixtures.json edit (and
+              a previews.json edit if step 5 changed it), in ONE commit. Message:
+              `Match data: <slug1>[, <slug2>]` for standard, or
+              `Match data: <slug> (deep)` for a deep run. Push to `main`.
+          claude_args: |
+            --model ${{ inputs.model != '' && inputs.model || (inputs.depth == 'deep' && 'claude-sonnet-5' || 'claude-haiku-4-5-20251001') }}
+            --max-turns ${{ inputs.depth == 'deep' && 240 || 120 }}
+            --allowedTools "Read,Write,Edit,Bash,Glob,Grep,WebSearch,WebFetch"
