@@ -50,7 +50,7 @@
     var a = before || {}, b = after || {};
     var labels = {
       notes: 'notițe', lineup: 'poziții', xi: 'primul 11 / schimbări', bench: 'rezerve',
-      events: 'evenimente', captain: 'căpitan', pnum: 'numere', panelExtra: 'informații adăugate',
+      events: 'evenimente', captain: 'căpitan', pnum: 'numere', playerPositions: 'poziții jucători', panelExtra: 'informații adăugate',
       manual: 'date manuale', discColors: 'culori', view: 'vedere', panelOrder: 'panouri'
     };
     return Object.keys(labels).filter(function (k) { return json(a[k]) !== json(b[k]); }).map(function (k) { return labels[k]; });

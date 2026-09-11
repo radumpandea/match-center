@@ -1555,6 +1555,7 @@
           if (has(p.height)) kv.appendChild(el('span', { html: '<b>Înălțime</b>' + esc(p.height + ' cm') }));
           if (footLabel(p.foot)) kv.appendChild(el('span', { html: '<b>Picior</b>' + esc(footLabel(p.foot)) }));
           if (kv.childNodes.length) body.appendChild(kv);
+          body.appendChild(positionsEditor(side, p));
           var s = p.stats || {};
           var rows = [
             ['Meciuri', s.apps], ['Minute', s.minutes], ['Goluri', s.goals],
@@ -1890,6 +1891,63 @@
   }
 
   function pos(p) { return has(p.pos) ? p.pos : ({ GK: 'Portar', DEF: 'Fundaș', MID: 'Mijlocaș', ATT: 'Atacant' })[p.role] || ''; }
+  function positionLabel(v) {
+    return ({ GK: 'Portar', DEF: 'Fundaș', MID: 'Mijlocaș', ATT: 'Atacant',
+      LB: 'Fundaș stânga', RB: 'Fundaș dreapta', CB: 'Fundaș central',
+      LWB: 'Fundaș lateral stânga', RWB: 'Fundaș lateral dreapta',
+      CDM: 'Mijlocaș defensiv', CM: 'Mijlocaș central', CAM: 'Mijlocaș ofensiv',
+      LM: 'Mijlocaș stânga', RM: 'Mijlocaș dreapta', LW: 'Extremă stânga',
+      RW: 'Extremă dreapta', ST: 'Vârf', CF: 'Atacant central' })[String(v || '').toUpperCase()] || v || 'n/d';
+  }
+  function positionState(side, p) {
+    var key = keyOf(p);
+    var mine = store.playerPositions && store.playerPositions[side] && store.playerPositions[side][key];
+    var main = (mine && mine.primary) || p.pos || p.role || null;
+    var alternatives = (mine && mine.alternatives) || p.positions || [];
+    var seen = {};
+    alternatives = alternatives.filter(function (x) {
+      var v = String(x || '').trim().toUpperCase();
+      if (!v || v === String(main || '').toUpperCase() || seen[v]) return false;
+      seen[v] = true; return true;
+    });
+    return { primary: main, alternatives: alternatives };
+  }
+  function setPlayerPositions(side, p, primary, alternatives) {
+    var key = keyOf(p);
+    store.playerPositions = store.playerPositions || {};
+    store.playerPositions[side] = store.playerPositions[side] || {};
+    store.playerPositions[side][key] = { primary: String(primary || '').trim() || null, alternatives: alternatives };
+    save();
+  }
+  function positionsEditor(side, p) {
+    var state = positionState(side, p);
+    var wrap = el('div', { class: 'position-card' });
+    var mainIn = el('input', { class: 'field pos-main-in', value: state.primary || '', placeholder: 'ex. RB, CM, ST' });
+    var altIn = el('input', { class: 'field pos-alt-in', placeholder: 'ex. RWB, RM (separă prin virgulă)' });
+    var chips = el('div', { class: 'pos-chips' });
+    function redraw() {
+      state.primary = mainIn.value.trim() || null;
+      chips.innerHTML = '';
+      if (state.primary) chips.appendChild(el('span', { class: 'pos-chip main', text: 'Principală: ' + positionLabel(state.primary) }));
+      state.alternatives.forEach(function (v, i) {
+        chips.appendChild(el('button', { class: 'pos-chip', text: positionLabel(v) + ' ×', title: 'Elimină poziția', onclick: function () { state.alternatives.splice(i, 1); setPlayerPositions(side, p, state.primary, state.alternatives); redraw(); } }));
+      });
+    }
+    var add = el('button', { class: 'pick pos-add', text: '+ adaugă poziție', onclick: function () {
+      String(altIn.value || '').split(',').map(function (v) { return v.trim(); }).filter(Boolean).forEach(function (v) {
+        if (state.alternatives.map(function (x) { return x.toUpperCase(); }).indexOf(v.toUpperCase()) < 0 && v.toUpperCase() !== String(state.primary || '').toUpperCase()) state.alternatives.push(v);
+      });
+      altIn.value = ''; setPlayerPositions(side, p, state.primary, state.alternatives); redraw();
+    } });
+    var saveMain = el('button', { class: 'pick pos-save-main', text: 'Salvează poziția principală', onclick: function () { setPlayerPositions(side, p, mainIn.value, state.alternatives); redraw(); } });
+    wrap.appendChild(el('h4', { class: 'stat-h', text: 'Poziții jucate' }));
+    wrap.appendChild(chips);
+    wrap.appendChild(el('div', { class: 'pos-edit-row' }, [mainIn, saveMain]));
+    wrap.appendChild(el('div', { class: 'pos-edit-row' }, [altIn, add]));
+    wrap.appendChild(el('p', { class: 'pos-help', text: 'Poziția principală vine din lot; completează aici rolurile alternative observate.' }));
+    redraw();
+    return wrap;
+  }
   function footLabel(f) { return { L: 'stângul', R: 'dreptul', B: 'ambele' }[f] || null; }
   function natLabel(p) {
     var a = [];

@@ -414,6 +414,11 @@
         "number": { "type": ["integer", "null"] },
         "name": { "type": "string" },
         "pos": { "type": ["string", "null"], "description": "detailed position label" },
+        "positions": {
+          "type": "array",
+          "description": "primary plus other positions observed in provider data or verified research",
+          "items": { "type": "string" }
+        },
         "role": { "type": "string", "enum": ["GK", "DEF", "MID", "ATT"] },
         "age": { "type": ["integer", "null"] },
         "height": { "type": ["integer", "null"], "description": "cm" },

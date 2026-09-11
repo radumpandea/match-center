@@ -206,6 +206,24 @@ function statsFrom(row) {
   return Object.values(s).some((v) => v != null) ? s : null;
 }
 
+// API-Football's registered squad role is the best primary-position signal. A
+// player can also have a different games.position in another competition; keep
+// the distinct values so the UI can surface that versatility without AI calls.
+function positionCode(position) {
+  const raw = String(position || '').trim();
+  const k = raw.toLowerCase();
+  if (!raw) return null;
+  if (k === 'goalkeeper') return 'GK';
+  if (k === 'defender') return 'DEF';
+  if (k === 'midfielder') return 'MID';
+  if (k === 'attacker') return 'ATT';
+  return raw;
+}
+function positionsFrom(position, row) {
+  const raw = [position].concat(((row && row.statistics) || []).map((s) => s && s.games && s.games.position));
+  return [...new Set(raw.map(positionCode).filter(Boolean))];
+}
+
 async function getSquad(teamId, teamName, leagueId, season) {
   const cachePath = `${TEAMS_DIR}/${teamId}.json`;
   const cached = readJSON(cachePath);
@@ -238,12 +256,14 @@ async function getSquad(teamId, teamName, leagueId, season) {
     const row = id != null ? byId.get(id) : null;
     const pl = row && row.player;
     const st = statsFrom(statRowFor(row && row.statistics, leagueId));
+    const positions = positionsFrom(position || (st && st.position), row);
     const injured = !!(pl && pl.injured);
     squad.push({
       _id: id,
       number: num(number),
       name: name || (pl && pl.name) || null,
-      pos: null,
+      pos: positions[0] || null,
+      positions,
       role: roleFrom(position || (st && st.position)),
       age: num(age != null ? age : (pl && pl.age)),
       height: pl ? num(String(pl.height || '').replace(/[^0-9]/g, '')) : null,

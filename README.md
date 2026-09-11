@@ -66,7 +66,7 @@ for every not-`ready` fixture kicking off in the next 6 days, writes
 `docs/data/matches/<slug>.json` marked **`"partial": true`** from API-Football:
 
 - **full squad** for both teams — shirt number, age, nationality (3-letter), height,
-  weight, role, and current-season stats **including minutes and appearances** (`players` +
+  weight, primary/observed broad positions, role, and current-season stats **including minutes and appearances** (`players` +
   `players/squads`). Cached per team at `docs/data/teams/<teamId>.json`, reused across
   every fixture that team plays, refreshed after 3 days;
 - **coach** — name, age, nationality, full managerial `career[]` and tenure start (`coachs`);
