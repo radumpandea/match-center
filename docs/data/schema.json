@@ -97,6 +97,37 @@
       "description": "6-10 lead bullet sentences",
       "items": { "type": "string" }
     },
+    "predictions": {
+      "type": ["object", "null"],
+      "description": "API-Football's own algorithmic pre-match model (predictions?fixture=), refreshed hourly by the provider — not AI-written. Win/draw/away percentages plus an attack/defence/form/poisson comparison, each a computed number.",
+      "additionalProperties": false,
+      "properties": {
+        "winnerName": { "type": ["string", "null"] },
+        "winOrDraw": { "type": ["boolean", "null"] },
+        "advice": { "type": ["string", "null"], "description": "the provider's own short verdict, e.g. \"Double chance : Team A or Draw\"" },
+        "percent": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "home": { "type": ["number", "null"] },
+            "draw": { "type": ["number", "null"] },
+            "away": { "type": ["number", "null"] }
+          }
+        },
+        "comparison": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "form": { "$ref": "#/definitions/homeAwayPct" },
+            "attack": { "$ref": "#/definitions/homeAwayPct" },
+            "defense": { "$ref": "#/definitions/homeAwayPct" },
+            "poisson": { "$ref": "#/definitions/homeAwayPct" },
+            "h2h": { "$ref": "#/definitions/homeAwayPct" },
+            "goals": { "$ref": "#/definitions/homeAwayPct" }
+          }
+        }
+      }
+    },
     "commentatorResearch": {
       "type": "array",
       "maxItems": 8,
@@ -153,6 +184,14 @@
     }
   },
   "definitions": {
+    "homeAwayPct": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "home": { "type": ["number", "null"] },
+        "away": { "type": ["number", "null"] }
+      }
+    },
     "team": {
       "type": "object",
       "additionalProperties": false,
@@ -187,6 +226,21 @@
                   "club": { "type": "string" },
                   "period": { "type": "string" },
                   "note": { "type": ["string", "null"] }
+                }
+              }
+            },
+            "trophies": {
+              "type": "array",
+              "description": "competitions won/placed in as a manager, from API-Football's trophies?coach= record — not researched prose",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["competition", "place"],
+                "properties": {
+                  "competition": { "type": "string" },
+                  "country": { "type": ["string", "null"] },
+                  "season": { "type": ["string", "null"] },
+                  "place": { "type": "string", "description": "e.g. \"Winner\", \"Runner-Up\", \"3rd Place\"" }
                 }
               }
             }

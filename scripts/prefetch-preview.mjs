@@ -16,15 +16,23 @@
 //     share, formations used, biggest streak) -> form.stats
 //   - head-to-head (last meetings + W-D-L summary) -> h2h
 //   - a short club-history career string per player -> squad[].career
+//   - the coach's trophy record (competition, season, place) -> coach.trophies[]
+//   - API-Football's own algorithmic pre-match model (win/draw/away percent,
+//     an advice string, attack/defence/form/poisson comparison) -> predictions
 //   - raw dated RSS headlines -> teams.<side>.newsCandidates[] (no key)
+//
+// predictions and coach.trophies are numbers/facts computed or recorded by
+// the provider itself, not written by a model — same "no invented facts"
+// guarantee as everything else here.
 //
 // The file is written schema-valid with "partial": true. The match-data-json
 // skill later upgrades the SAME file with the editorial layer and removes the
 // flag. Nothing here ever sets fixtures.json `ready`.
 //
 // Per-team squads are cached at docs/data/teams/<teamId>.json (TTL 3 days).
-// Standings, team stats, H2H and player careers are cached in
-// docs/data/teams/_afcache.json (2 / 2 / 14 / 30 days).
+// Standings, team stats, H2H, player careers and coach trophies are cached in
+// docs/data/teams/_afcache.json (2 / 2 / 14 / 30 / 60 days). predictions is
+// refetched each run (the provider recomputes it roughly hourly).
 //
 // Requires Node 18+ (global fetch) and env APIFOOTBALL_KEY.
 // Run daily by .github/workflows/prefetch-preview.yml, after refresh-fixtures.
@@ -331,12 +339,46 @@ async function getCoach(teamId) {
     .slice(0, 12);
   const tenure = (cur.career || []).find((e) => e.team && e.team.id === teamId && !e.end);
   return {
+    _id: cur.id,   // stripped before the match file is written; used to fetch trophies?coach=
     name: cur.name || 'n/d',
     country: cur.nationality || null,
     age: num(cur.age),
     tenureFrom: tenure && tenure.start ? tenure.start.slice(0, 7) : null,
     career: career.length ? career : undefined,
   };
+}
+
+/* ---------- coach trophies (trophies?coach=, cached long-term — history barely changes) ---------- */
+const TROPHY_TTL = 60;
+async function getTrophies(kind, id, cache) {
+  cache.trophies = cache.trophies || {};
+  const key = `${kind}${id}`;
+  const hit = cache.trophies[key];
+  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < TROPHY_TTL) return hit.list;
+  const j = await af('trophies', { [kind]: id });
+  const rows = (j && j.response) || [];
+  const list = rows
+    .filter((r) => r.league && r.place)
+    .map((r) => ({
+      competition: r.league,
+      country: r.country || null,
+      season: r.season != null ? String(r.season) : null,
+      place: r.place,
+    }))
+    .slice(0, 20);
+  cache.trophies[key] = { fetchedAt: todayISO(), list };
+  return list;
+}
+async function applyCoachTrophies(doc, cache) {
+  for (const side of ['home', 'away']) {
+    const coach = doc.teams[side].coach;
+    if (!coach) continue;
+    const id = coach._id;
+    delete coach._id;
+    if (id == null || (coach.trophies && coach.trophies.length)) continue;
+    const list = await getTrophies('coach', id, cache);
+    if (list.length) coach.trophies = list;
+  }
 }
 
 /* ---------- injuries ---------- */
@@ -678,6 +720,36 @@ async function teamNews(teamName, oppName) {
   return out.slice(0, NEWS_PER_TEAM);
 }
 
+/* ---------- predictions (predictions?fixture=) — API-Football's own
+   algorithmic model, not AI-written. Not cached: the provider recomputes it
+   roughly hourly as team news/form changes, and it's one call per fixture. */
+function pct(v) {
+  if (v == null) return null;
+  const n = parseFloat(String(v).replace('%', '').replace(',', '.'));
+  return Number.isNaN(n) ? null : n;
+}
+async function getPredictions(eventId) {
+  const j = await af('predictions', { fixture: eventId });
+  const row = j && j.response && j.response[0];
+  if (!row) return null;
+  const pr = row.predictions || {};
+  const comp = row.comparison || {};
+  const side = (o) => (o && (o.home != null || o.away != null) ? { home: pct(o.home), away: pct(o.away) } : null);
+  const out = {
+    winnerName: (pr.winner && pr.winner.name) || null,
+    winOrDraw: typeof pr.win_or_draw === 'boolean' ? pr.win_or_draw : null,
+    advice: pr.advice || null,
+    percent: pr.percent ? { home: pct(pr.percent.home), draw: pct(pr.percent.draw), away: pct(pr.percent.away) } : null,
+    comparison: {
+      form: side(comp.form), attack: side(comp.att), defense: side(comp.def),
+      poisson: side(comp.poisson_distribution), h2h: side(comp.h2h), goals: side(comp.goals),
+    },
+  };
+  if (!Object.values(out.comparison).some(Boolean)) out.comparison = null;
+  const empty = !out.winnerName && !out.advice && !out.percent && !out.comparison;
+  return empty ? null : out;
+}
+
 /* ---------- build one match file ---------- */
 function emptyTeamBlock(name) {
   return {
@@ -693,12 +765,13 @@ async function buildMatch(fx, season, cache) {
   const leagueId = AF_LEAGUE_ID[fx.comp] || fx.leagueId || null;
   const eventId = fx.eventId;
 
-  const [homeSquad, awaySquad, meta, homeNews, awayNews] = await Promise.all([
+  const [homeSquad, awaySquad, meta, homeNews, awayNews, predictions] = await Promise.all([
     fx.homeId != null ? getSquad(fx.homeId, fx.home, leagueId, season) : Promise.resolve(null),
     fx.awayId != null ? getSquad(fx.awayId, fx.away, leagueId, season) : Promise.resolve(null),
     eventId != null ? getFixtureMeta(eventId, cache) : Promise.resolve({ referee: null, venue: null, lineups: null }),
     teamNews(fx.home, fx.away),
     teamNews(fx.away, fx.home),
+    eventId != null ? getPredictions(eventId) : Promise.resolve(null),
   ]);
 
   const out = {
@@ -712,6 +785,7 @@ async function buildMatch(fx, season, cache) {
     referee: (meta && meta.referee) || { name: 'n/d', country: null, age: null, apps: null, ycPerMatch: null, rcPerMatch: null, history: null },
     h2h: { recent: [], summary: null },
     storyOfTheMatch: [],
+    predictions: predictions || null,
     teams: { home: emptyTeamBlock(fx.home), away: emptyTeamBlock(fx.away) },
   };
 
@@ -847,7 +921,13 @@ function stripInternal(p) {
   return rest;
 }
 function stripSquadIds(doc) {
-  for (const side of ['home', 'away']) delete doc.teams[side]._squadIds;
+  for (const side of ['home', 'away']) {
+    delete doc.teams[side]._squadIds;
+    // safety net: applyCoachTrophies() strips this too, but only on the
+    // success path — guarantee it's gone even if an earlier enrichment
+    // step throws, since additionalProperties:false would reject it.
+    if (doc.teams[side].coach) delete doc.teams[side].coach._id;
+  }
 }
 
 /* ---------- main ---------- */
@@ -888,12 +968,21 @@ async function main() {
       return !fm || !fm.next || !fm.next.length;
     });
     const needVenue = !doc.venue || !has(doc.venue.name);
-    if (!needCareer && !needStandings && !needNext && !needVenue) continue;
+    const needPredictions = !doc.predictions;
+    const needTrophies = ['home', 'away'].some((s) => {
+      const c = doc.teams[s].coach;
+      return c && has(c.name) && (!c.trophies || !c.trophies.length);
+    });
+    if (!needCareer && !needStandings && !needNext && !needVenue && !needPredictions && !needTrophies) continue;
     let touched = false;
 
     if (needVenue && f.homeId != null) {
       const tv = await getTeamVenue(f.homeId, cache);
       if (tv) { doc.venue = tv; touched = true; }
+    }
+    if (needPredictions && f.eventId != null) {
+      const pr = await getPredictions(f.eventId);
+      if (pr) { doc.predictions = pr; touched = true; }
     }
     if (needStandings && leagueId) {
       const st = await getStandings(leagueId, season, cache);
@@ -917,6 +1006,14 @@ async function main() {
       if (fm && (!fm.next || !fm.next.length)) {
         const nx = await getNextFixtures(id, season);
         if (nx.length) { fm.next = nx; touched = true; }
+      }
+      const coach = doc.teams[side].coach;
+      if (needTrophies && coach && has(coach.name) && (!coach.trophies || !coach.trophies.length)) {
+        const cinfo = await getCoach(id);
+        if (cinfo && cinfo._id != null) {
+          const list = await getTrophies('coach', cinfo._id, cache);
+          if (list.length) { coach.trophies = list; touched = true; }
+        }
       }
     }
     if (touched) { writeJSON(path, doc); console.log(`- ${f.slug}: topped up`); }
@@ -946,6 +1043,7 @@ async function main() {
     try {
       await applyStandingsAndForm(doc, f, season, cache);
       await applyCareers(doc, cache);
+      await applyCoachTrophies(doc, cache);
     } catch (e) {
       console.error(`  enrich failed: ${e.message}`);
     }

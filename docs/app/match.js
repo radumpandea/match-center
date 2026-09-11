@@ -1118,6 +1118,47 @@
       add('story', panel('Story of the match', ul(d.storyOfTheMatch), { lead: true, open: true }));
     }
 
+    // API-Football's own algorithmic model (predictions?fixture=) — computed
+    // percentages from the provider, not written by a language model.
+    if (d.predictions) {
+      var pr = d.predictions;
+      var pbody = el('div', { class: 'prediction' });
+      if (pr.percent && (pr.percent.home != null || pr.percent.draw != null || pr.percent.away != null)) {
+        var segs = [
+          { v: pr.percent.home, cls: 'ph', label: d.teams.home.shortName || d.teams.home.name },
+          { v: pr.percent.draw, cls: 'pd', label: 'Egal' },
+          { v: pr.percent.away, cls: 'pa', label: d.teams.away.shortName || d.teams.away.name }
+        ].filter(function (s) { return s.v != null; });
+        var bar = el('div', { class: 'prediction-bar' });
+        segs.forEach(function (s) {
+          bar.appendChild(el('div', { class: 'prediction-seg ' + s.cls, style: 'flex:' + s.v, title: s.label + ': ' + s.v + '%' }));
+        });
+        pbody.appendChild(bar);
+        pbody.appendChild(el('div', { class: 'prediction-legend' }, segs.map(function (s) {
+          return el('span', { class: 'pl-dot ' + s.cls, text: s.label + ' ' + s.v + '%' });
+        })));
+      }
+      if (has(pr.advice)) pbody.appendChild(el('p', { class: 'prediction-advice', text: pr.advice }));
+      if (pr.comparison) {
+        var cmpRows = [
+          ['form', 'Formă'], ['attack', 'Atac'], ['defense', 'Defensivă'],
+          ['poisson', 'Distribuție Poisson'], ['h2h', 'Cap la cap'], ['goals', 'Goluri']
+        ];
+        var cmp = el('table', { class: 'mc prediction-cmp' });
+        cmpRows.forEach(function (r) {
+          var v = pr.comparison[r[0]];
+          if (!v || (v.home == null && v.away == null)) return;
+          cmp.appendChild(el('tr', {}, [
+            el('td', { text: v.home != null ? v.home + '%' : '—' }),
+            el('th', { text: r[1] }),
+            el('td', { text: v.away != null ? v.away + '%' : '—' })
+          ]));
+        });
+        if (cmp.childNodes.length) pbody.appendChild(cmp);
+      }
+      if (pbody.childNodes.length) add('predictions', panel('Pronostic (API-Football)', pbody, { open: true }));
+    }
+
     if (d.commentatorResearch && d.commentatorResearch.length) {
       var researchBody = el('div', { class: 'research-cards' });
       d.commentatorResearch.forEach(function (card) {
@@ -1860,6 +1901,18 @@
         if (!c.career || !c.career.length) return el('p', { text: 'n/d' });
         var t = el('table', { class: 'mc' }, [el('tr', {}, [el('th', { text: 'Club' }), el('th', { text: 'Perioadă' }), el('th', { text: 'Note' })])]);
         c.career.forEach(function (r) { t.appendChild(el('tr', {}, [el('td', { text: r.club }), el('td', { text: r.period }), el('td', { text: has(r.note) ? r.note : '—' })])); });
+        return t;
+      },
+      'Trofee': function () {
+        if (!c.trophies || !c.trophies.length) return el('p', { text: 'n/d' });
+        var t = el('table', { class: 'mc' }, [el('tr', {}, [el('th', { text: 'Competiție' }), el('th', { text: 'Sezon' }), el('th', { text: 'Rezultat' })])]);
+        c.trophies.forEach(function (r) {
+          t.appendChild(el('tr', {}, [
+            el('td', { text: has(r.country) ? r.competition + ' (' + r.country + ')' : r.competition }),
+            el('td', { text: has(r.season) ? r.season : '—' }),
+            el('td', { text: r.place })
+          ]));
+        });
         return t;
       },
       'Notițe': function () { return notesBlock(id, 'antrenor ' + d.teams[side].name); }

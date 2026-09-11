@@ -69,7 +69,12 @@ for every not-`ready` fixture kicking off in the next 6 days, writes
   weight, primary/observed broad positions, role, and current-season stats **including minutes and appearances** (`players` +
   `players/squads`). Cached per team at `docs/data/teams/<teamId>.json`, reused across
   every fixture that team plays, refreshed after 3 days;
-- **coach** — name, age, nationality, full managerial `career[]` and tenure start (`coachs`);
+- **coach** — name, age, nationality, full managerial `career[]` and tenure start (`coachs`),
+  plus their trophy record (`coach.trophies[]`, competition/season/place from `trophies`);
+- **pronostic** → root `predictions`: API-Football's own algorithmic pre-match model
+  (`predictions?fixture=`) — win/draw/away percent, an `advice` string, and a
+  form/attack/defence/poisson/h2h/goals comparison. Computed by the provider, not written
+  by a model, and refetched every run since it updates roughly hourly;
 - **injuries / suspensions** → `absences[]`, reason-classified (`injuries`, latest bulletin);
 - **referee** + **venue** (name / city / capacity) from `fixtures` + `venues`;
 - **confirmed XI**, formation and shirt **colours** once `fixtures/lineups` publishes them
@@ -85,8 +90,9 @@ for every not-`ready` fixture kicking off in the next 6 days, writes
   editorial step to triage into `news[]`;
 - **story seeds** — a few factual `storyOfTheMatch` bullets computed from the numbers above.
 
-Standings, team stats, H2H and player careers are cached in `docs/data/teams/_afcache.json`
-(2 / 2 / 14 / 30 days). A cold run does ~600 throttled calls; warm runs a fraction of that.
+Standings, team stats, H2H, player careers and coach trophies are cached in
+`docs/data/teams/_afcache.json` (2 / 2 / 14 / 30 / 60 days). A cold run does ~600 throttled
+calls; warm runs a fraction of that.
 The 7500/day Pro quota is guarded by a per-run budget of 1500 and a 250 ms throttle.
 
 `match.html` renders a partial file as a rich skeleton (squads, form, h2h, amber banner);
