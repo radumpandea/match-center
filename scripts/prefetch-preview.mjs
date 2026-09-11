@@ -1078,7 +1078,6 @@ async function main() {
     }
     if (needMatchDay && f.eventId != null) {
       const meta = await getFixtureMeta(f.eventId, cache);
-      console.log(`  [debug] ${f.slug}: API-Football referee = ${JSON.stringify(meta.referee)}`);
       if (meta.referee && !has(doc.referee && doc.referee.name)) { doc.referee = meta.referee; touched = true; }
       for (const side of ['home', 'away']) {
         const id = f[side + 'Id'];
