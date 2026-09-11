@@ -152,7 +152,12 @@ jobs:
             4. Set `ready: true` on those entries in `docs/data/fixtures.json`;
                correct `round` / `ko` / `kickoff` / `venue` only if clearly wrong.
                Touch no other entry. Set `researchDepth` on each file you edited
-               to exactly `"standard"` or `"deep"` (matching DEPTH for this run).
+               to exactly `"standard"` or `"deep"` (matching DEPTH for this run) —
+               AND mirror that same `researchDepth` value onto the matching entry
+               in `docs/data/fixtures.json` too (add the key there if missing).
+               `docs/index.html` reads it from `fixtures.json` to show a
+               "PACHET PREMIUM" tag on the fixture list for deep-tier matches,
+               without needing to fetch every match file.
             5. **Final self-check, both modes.** For every file you edited, open it
                and confirm: the `"partial"` key is GONE, `researchDepth` is set,
                and NO `newsCandidates` key remains anywhere in it. If a slug you

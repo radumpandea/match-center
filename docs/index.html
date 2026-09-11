@@ -66,6 +66,7 @@
   .row-sub{font-size:11.5px;color:var(--color-neutral-600);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .row-tag{font-size:10.5px;letter-spacing:.1em;padding:3px 9px;border-radius:999px;white-space:nowrap}
   .row-tag.ready{background:color-mix(in srgb,var(--color-accent) 18%,transparent);color:var(--color-accent-200)}
+  .row-tag.premium{background:color-mix(in srgb,#e8b04b 22%,transparent);color:#f1cd8a;border:1px solid #e8b04b;font-weight:600}
   .row-tag.partial{background:color-mix(in srgb,#e8b04b 16%,transparent);color:#f1cd8a;border:1px solid color-mix(in srgb,#e8b04b 38%,transparent)}
   .row-tag.pending{background:transparent;color:var(--color-neutral-600);border:1px solid var(--color-divider)}
   .fav{width:28px;height:28px;padding:0;border:1px solid var(--color-divider);border-radius:50%;background:transparent;color:var(--color-neutral-500);font-size:16px;line-height:1;cursor:pointer}
@@ -216,8 +217,9 @@
         var el = document.createElement('a');
         el.href = 'match.html?m=' + encodeURIComponent(m.slug);
         el.className = 'row' + (m.ready ? '' : ' pending');
-        var tagClass = m.ready ? 'ready' : (partials[m.slug] ? 'partial' : 'pending');
-        var tagText = m.ready ? 'PREGĂTIT' : (partials[m.slug] ? 'DATE PARȚIALE' : 'LIVE / MANUAL');
+        var isPremium = m.researchDepth === 'deep';
+        var tagClass = isPremium ? 'premium' : (m.ready ? 'ready' : (partials[m.slug] ? 'partial' : 'pending'));
+        var tagText = isPremium ? 'PACHET PREMIUM' : (m.ready ? 'PREGĂTIT' : (partials[m.slug] ? 'DATE PARȚIALE' : 'LIVE / MANUAL'));
         el.innerHTML =
           '<span class="row-ko">' + (m.ko || 'n/d') + '</span>' +
           '<span class="row-mid"><span class="row-title">' + m.home + ' – ' + m.away + '</span>' +
