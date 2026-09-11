@@ -49,7 +49,7 @@ const H2H_TTL = 14;
 const CAREER_TTL = 30;
 const AF_CALL_BUDGET = 5500;   // ceiling on the 7500/day Pro tier (refresh-fixtures uses ~8, build-match-data 0)
 const AF_THROTTLE_MS = 250;    // ~240 req/min, under the 300/min Pro limit
-const CAREER_MAX_PLAYERS = 8;  // per team, per match — likely XI only; the deep editorial pass does full-rotation careers
+const CAREER_MAX_PLAYERS = 30; // per team, per match — cache careers for the full normal squad, not only the likely XI
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const FIXTURES = ROOT + 'docs/data/fixtures.json';

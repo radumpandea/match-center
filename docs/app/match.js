@@ -1577,7 +1577,9 @@
         fill();
         return wrap;
       },
-      'Carieră': function () { return el('div', {}, [el('p', { text: has(p.career) ? p.career : 'n/d' })]); },
+      'Carieră': function () {
+        return el('div', {}, [el('p', { text: has(p.career) ? p.career : 'Cariera nu este disponibilă în sursa verificată.' })]);
+      },
       'Funfact': function () {
         var wrap = el('div');
         wrap.appendChild(el('p', { text: has(p.funfact) ? p.funfact : '—' }));
