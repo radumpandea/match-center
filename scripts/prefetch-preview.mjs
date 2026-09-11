@@ -20,6 +20,8 @@
 //   - API-Football's own algorithmic pre-match model (win/draw/away percent,
 //     an advice string, attack/defence/form/poisson comparison) -> predictions
 //   - raw dated RSS headlines -> teams.<side>.newsCandidates[] (no key)
+//   - kickoff-hour weather forecast at the venue -> venue.weather (Open-Meteo,
+//     free, no key — geocoded from venue.city)
 //
 // predictions and coach.trophies are numbers/facts computed or recorded by
 // the provider itself, not written by a model — same "no invented facts"
@@ -29,10 +31,17 @@
 // skill later upgrades the SAME file with the editorial layer and removes the
 // flag. Nothing here ever sets fixtures.json `ready`.
 //
+// Even once a pack is "ready" (editorial pass done), this script keeps
+// running against it every day within 72h of kickoff to refresh whatever
+// only becomes accurate/available that close in: referee, confirmed XI, kit
+// colours, weather, and fresher news headlines (added alongside, not instead
+// of, any curated news[] the editorial pass already wrote).
+//
 // Per-team squads are cached at docs/data/teams/<teamId>.json (TTL 3 days).
 // Standings, team stats, H2H, player careers and coach trophies are cached in
-// docs/data/teams/_afcache.json (2 / 2 / 14 / 30 / 60 days). predictions is
-// refetched each run (the provider recomputes it roughly hourly).
+// docs/data/teams/_afcache.json (2 / 2 / 14 / 30 / 60 days). predictions and
+// weather are refetched each run in that window (both change hourly/daily);
+// geocoded venue coordinates are cached forever.
 //
 // Requires Node 18+ (global fetch) and env APIFOOTBALL_KEY.
 // Run daily by .github/workflows/prefetch-preview.yml, after refresh-fixtures.
@@ -479,6 +488,70 @@ async function getTeamVenue(teamId, cache) {
   return rec;
 }
 
+/* ---------- weather forecast at the venue (Open-Meteo, free, no key) ---------- */
+const WMO_CONDITION = {
+  0: 'cer clar', 1: 'cer clar', 2: 'parțial noros', 3: 'cer noros',
+  45: 'ceață', 48: 'ceață',
+  51: 'ploaie ușoară', 53: 'ploaie', 55: 'ploaie intensă',
+  61: 'ploaie ușoară', 63: 'ploaie', 65: 'ploaie intensă',
+  71: 'ninsoare ușoară', 73: 'ninsoare', 75: 'ninsoare intensă',
+  80: 'aversă', 81: 'aversă', 82: 'aversă intensă',
+  95: 'furtună', 96: 'furtună cu grindină', 99: 'furtună cu grindină',
+};
+async function geocodeCity(city, cache) {
+  cache.geo = cache.geo || {};
+  const key = norm(city);
+  if (key in cache.geo) return cache.geo[key];
+  let coords = null;
+  try {
+    const r = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1`);
+    if (r.ok) {
+      const j = await r.json();
+      const hit = j && j.results && j.results[0];
+      if (hit) coords = { lat: hit.latitude, lon: hit.longitude };
+    }
+  } catch (e) { /* best-effort, no key/budget involved */ }
+  cache.geo[key] = coords;
+  return coords;
+}
+// Forecast accuracy is only meaningful in the last few days before kickoff,
+// which is exactly the window this is called in (see needWeather below).
+async function getWeather(venue, kickoffISO, cache) {
+  if (!venue || !has(venue.city) || !has(kickoffISO)) return null;
+  const coords = await geocodeCity(venue.city, cache);
+  if (!coords) return null;
+  const kickoff = new Date(kickoffISO);
+  if (Number.isNaN(kickoff.getTime())) return null;
+  let j;
+  try {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}` +
+      `&hourly=temperature_2m,precipitation,wind_speed_10m,weathercode&timezone=UTC&forecast_days=7`;
+    const r = await fetch(url);
+    if (!r.ok) return null;
+    j = await r.json();
+  } catch (e) { return null; }
+  const times = j && j.hourly && j.hourly.time;
+  if (!times || !times.length) return null;
+  const target = kickoff.toISOString().slice(0, 13) + ':00';
+  let idx = times.indexOf(target);
+  if (idx === -1) {
+    let best = -1, bestDiff = Infinity;
+    for (let i = 0; i < times.length; i++) {
+      const diff = Math.abs(new Date(times[i] + 'Z').getTime() - kickoff.getTime());
+      if (diff < bestDiff) { bestDiff = diff; best = i; }
+    }
+    idx = best;
+  }
+  if (idx === -1) return null;
+  return {
+    tempC: num(j.hourly.temperature_2m[idx]),
+    condition: WMO_CONDITION[j.hourly.weathercode[idx]] || null,
+    windKph: num(j.hourly.wind_speed_10m[idx]),
+    precipitationMm: num(j.hourly.precipitation[idx]),
+    forecastAt: todayISO(),
+  };
+}
+
 /* ---------- standings + form + team stats + h2h (cached) ---------- */
 async function getStandings(leagueId, season, cache) {
   cache.standings = cache.standings || {};
@@ -793,6 +866,10 @@ async function buildMatch(fx, season, cache) {
     const tv = await getTeamVenue(fx.homeId, cache);
     if (tv) out.venue = tv;
   }
+  if (has(out.venue.city) && has(out.kickoff)) {
+    const w = await getWeather(out.venue, out.kickoff, cache);
+    if (w) out.venue.weather = w;
+  }
 
   const bySide = {
     home: { id: fx.homeId, cache: homeSquad, news: homeNews },
@@ -973,8 +1050,47 @@ async function main() {
       const c = doc.teams[s].coach;
       return c && has(c.name) && (!c.trophies || !c.trophies.length);
     });
-    if (!needCareer && !needStandings && !needNext && !needVenue && !needPredictions && !needTrophies) continue;
+    // referee + confirmed XI + kit colours are usually only published by the
+    // provider in the final day(s) before kickoff — buildMatch() only runs
+    // once, well before that, for a pack that's already "ready", so without
+    // this check they'd never be filled in.
+    const needMatchDay = !has(doc.referee && doc.referee.name) ||
+      ['home', 'away'].some((s) => !doc.teams[s].confirmedXI || !doc.teams[s].confirmedXI.length);
+    // news and weather go stale, unlike the fields above — re-pull them every
+    // run in the last 3 days before kickoff instead of only once when missing.
+    const kickoffMs = has(doc.kickoff) ? new Date(doc.kickoff).getTime() : NaN;
+    const hoursToKickoff = Number.isNaN(kickoffMs) ? Infinity : (kickoffMs - Date.now()) / 3600000;
+    const inDayBeforeWindow = hoursToKickoff <= 72 && hoursToKickoff > -6;
+    const needNews = inDayBeforeWindow;
+    const needWeather = inDayBeforeWindow && has(doc.venue && doc.venue.city);
+    if (!needCareer && !needStandings && !needNext && !needVenue && !needPredictions && !needTrophies &&
+        !needMatchDay && !needNews && !needWeather) continue;
     let touched = false;
+
+    if (needNews) {
+      const [hn, an] = await Promise.all([teamNews(f.home, f.away), teamNews(f.away, f.home)]);
+      if (hn.length) { doc.teams.home.newsCandidates = hn; touched = true; }
+      if (an.length) { doc.teams.away.newsCandidates = an; touched = true; }
+    }
+    if (needWeather) {
+      const w = await getWeather(doc.venue, doc.kickoff, cache);
+      if (w) { doc.venue.weather = w; touched = true; }
+    }
+    if (needMatchDay && f.eventId != null) {
+      const meta = await getFixtureMeta(f.eventId, cache);
+      if (meta.referee && !has(doc.referee && doc.referee.name)) { doc.referee = meta.referee; touched = true; }
+      for (const side of ['home', 'away']) {
+        const id = f[side + 'Id'];
+        const lu = meta.lineups && id != null ? meta.lineups[id] : null;
+        if (lu && lu.xi.length === 11 && (!doc.teams[side].confirmedXI || !doc.teams[side].confirmedXI.length)) {
+          doc.teams[side].confirmedXI = lu.xi;
+          if (has(lu.formation)) doc.teams[side].formation = lu.formation;
+          touched = true;
+        }
+        const col = meta.colors && id != null ? meta.colors[id] : null;
+        if (col && col.primary && !doc.teams[side].colors) { doc.teams[side].colors = col; touched = true; }
+      }
+    }
 
     if (needVenue && f.homeId != null) {
       const tv = await getTeamVenue(f.homeId, cache);

@@ -79,6 +79,8 @@ for every not-`ready` fixture kicking off in the next 6 days, writes
 - **referee** + **venue** (name / city / capacity) from `fixtures` + `venues`;
 - **confirmed XI**, formation and shirt **colours** once `fixtures/lineups` publishes them
   (usually ~1h before kickoff);
+- **weather** → `venue.weather`: temperature, condition, wind, precipitation for the kickoff
+  hour, from [Open-Meteo](https://open-meteo.com/) (free, no key) — geocoded from `venue.city`;
 - **standings** → `form.table` / `form.position` / `form.last5` / `form.ppg` and a
   home-away split; **form guide** `form.recent[]` (last ~6, this team's perspective);
 - **`form.stats`** — Opta-style aggregates from `teams/statistics`: goal-timing split
@@ -90,9 +92,16 @@ for every not-`ready` fixture kicking off in the next 6 days, writes
   editorial step to triage into `news[]`;
 - **story seeds** — a few factual `storyOfTheMatch` bullets computed from the numbers above.
 
+Referee, confirmed XI, kit colours, weather and news headlines only become accurate or
+available in the final stretch before kickoff, so this script keeps re-checking them **daily,
+within 72h of kickoff, even for fixtures already marked `ready`** — the one exception to
+"pre-fill only runs before the editorial pass". A fresh `newsCandidates[]` pull is added
+alongside any curated `news[]` the editorial pass already wrote (not instead of it) — the
+match screen renders both, the raw one flagged as un-triaged.
+
 Standings, team stats, H2H, player careers and coach trophies are cached in
-`docs/data/teams/_afcache.json` (2 / 2 / 14 / 30 / 60 days). A cold run does ~600 throttled
-calls; warm runs a fraction of that.
+`docs/data/teams/_afcache.json` (2 / 2 / 14 / 30 / 60 days); geocoded venue coordinates are
+cached forever. A cold run does ~600 throttled calls; warm runs a fraction of that.
 The 7500/day Pro quota is guarded by a per-run budget of 1500 and a 250 ms throttle.
 
 `match.html` renders a partial file as a rich skeleton (squads, form, h2h, amber banner);

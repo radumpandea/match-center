@@ -54,7 +54,19 @@
         "name": { "type": "string" },
         "capacity": { "type": ["integer", "null"] },
         "city": { "type": ["string", "null"] },
-        "notes": { "type": ["string", "null"] }
+        "notes": { "type": ["string", "null"] },
+        "weather": {
+          "type": ["object", "null"],
+          "description": "day-before forecast for kickoff time, from Open-Meteo (free, no key) — geocoded from the venue city and refreshed daily in the 3 days before kickoff, since forecast accuracy improves the closer it gets.",
+          "additionalProperties": false,
+          "properties": {
+            "tempC": { "type": ["number", "null"] },
+            "condition": { "type": ["string", "null"], "description": "short label, e.g. \"ploaie\", \"cer noros\", \"cer clar\"" },
+            "windKph": { "type": ["number", "null"] },
+            "precipitationMm": { "type": ["number", "null"], "description": "expected precipitation in the kickoff hour" },
+            "forecastAt": { "type": ["string", "null"], "description": "ISO timestamp when this forecast was fetched" }
+          }
+        }
       }
     },
     "referee": {

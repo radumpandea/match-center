@@ -1282,30 +1282,39 @@
       })));
     }
 
-    // News — curated news[] when present, otherwise the raw RSS newsCandidates[]
-    // that the prefetch drops in (shown as links, flagged as un-triaged)
+    // News — curated news[] from the editorial pass, plus raw RSS
+    // newsCandidates[] (shown as links, flagged as un-triaged). The prefetch
+    // keeps refreshing newsCandidates daily in the 3 days before kickoff even
+    // after news[] is set, since those headlines are newer than whatever the
+    // editorial pass saw when it ran — so both render together when present.
     var anyNews = ['home', 'away'].some(function (s) {
       return (d.teams[s].news || []).length || (d.teams[s].newsCandidates || []).length;
     });
     if (anyNews) {
       add('news', panel('Top știri', twoCol(d, function (t) {
+        var parts = [];
         if ((t.news || []).length) {
-          return ul(t.news.map(function (n) { return (has(n.date) ? '[' + n.date + '] ' : '') + n.text; }));
+          parts.push(ul(t.news.map(function (n) { return (has(n.date) ? '[' + n.date + '] ' : '') + n.text; })));
         }
         var cands = t.newsCandidates || [];
-        if (!cands.length) return el('div', { text: 'n/d' });
+        if (cands.length) {
+          var list = el('ul', { class: 'news-cand' });
+          cands.forEach(function (n) {
+            list.appendChild(el('li', {}, [
+              el('a', { href: n.url || '#', target: '_blank', rel: 'noopener noreferrer', text: n.title }),
+              (n.source || n.published)
+                ? el('span', { class: 'nc-meta', text: '  ' + [n.published, n.source].filter(Boolean).join(' · ') })
+                : null
+            ]));
+          });
+          parts.push(list);
+          parts.push(el('p', { class: 'nc-note', text: (t.news || []).length
+            ? 'Titluri brute din RSS, mai recente decât pachetul editorial — încă netriate.'
+            : 'Titluri brute din RSS — încă netriate.' }));
+        }
+        if (!parts.length) return el('div', { text: 'n/d' });
         var wrap = el('div');
-        var list = el('ul', { class: 'news-cand' });
-        cands.forEach(function (n) {
-          list.appendChild(el('li', {}, [
-            el('a', { href: n.url || '#', target: '_blank', rel: 'noopener noreferrer', text: n.title }),
-            (n.source || n.published)
-              ? el('span', { class: 'nc-meta', text: '  ' + [n.published, n.source].filter(Boolean).join(' · ') })
-              : null
-          ]));
-        });
-        wrap.appendChild(list);
-        wrap.appendChild(el('p', { class: 'nc-note', text: 'Titluri brute din RSS — încă netriate.' }));
+        parts.forEach(function (p) { wrap.appendChild(p); });
         return wrap;
       })));
     }
@@ -1316,6 +1325,15 @@
       v.appendChild(el('span', { html: '<b>Stadion</b>' + esc(d.venue.name) }));
       if (has(d.venue.city)) v.appendChild(el('span', { html: '<b>Oraș</b>' + esc(d.venue.city) }));
       if (has(d.venue.capacity)) v.appendChild(el('span', { html: '<b>Capacitate</b>' + esc(d.venue.capacity) }));
+      if (d.venue.weather) {
+        var w = d.venue.weather;
+        var wbits = [];
+        if (w.tempC != null) wbits.push(Math.round(w.tempC) + '°C');
+        if (has(w.condition)) wbits.push(w.condition);
+        if (w.windKph != null) wbits.push('vânt ' + Math.round(w.windKph) + ' km/h');
+        if (w.precipitationMm != null && w.precipitationMm > 0) wbits.push('precipitații ' + w.precipitationMm + ' mm');
+        if (wbits.length) v.appendChild(el('span', { html: '<b>Vreme la ora meciului</b>' + esc(wbits.join(', ')) }));
+      }
       var vb = el('div', {}, [v]);
       if (has(d.venue.notes)) vb.appendChild(el('p', { text: d.venue.notes }));
       add('venue', panel('Stadion', vb));
