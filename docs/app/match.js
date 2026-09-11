@@ -1130,6 +1130,18 @@
       if (briefingBody.childNodes.length) add('briefing', panel('Briefing comentator', briefingBody, { lead: true, open: true }));
     }
 
+    if (d.commentatorResearch && d.commentatorResearch.length) {
+      var researchBody = el('div', { class: 'research-cards' });
+      d.commentatorResearch.forEach(function (card) {
+        researchBody.appendChild(el('div', { class: 'research-card' }, [
+          el('h4', { text: card.topic }),
+          el('p', { text: card.fact }),
+          card.source ? el('a', { href: card.source, target: '_blank', rel: 'noopener noreferrer', text: 'Sursă' }) : null
+        ]));
+      });
+      add('research', panel('Research pentru comentator', researchBody, { open: true }));
+    }
+
     // H2H
     if (d.h2h && ((d.h2h.recent && d.h2h.recent.length) || has(d.h2h.summary))) {
       var h = el('div');

@@ -101,6 +101,21 @@
         "liveQuestions": { "type": "array", "items": { "type": "string" } }
       }
     },
+    "commentatorResearch": {
+      "type": "array",
+      "maxItems": 8,
+      "description": "compact source-backed context cards for live commentary",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["topic", "fact"],
+        "properties": {
+          "topic": { "type": "string" },
+          "fact": { "type": "string" },
+          "source": { "type": ["string", "null"] }
+        }
+      }
+    },
     "standings": {
       "type": ["object", "null"],
       "description": "the full league table for this fixture's competition",

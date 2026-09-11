@@ -299,6 +299,9 @@ table.mc.standings tr.is-mine td{background:var(--color-accent-900,rgba(120,140,
 .story-bar{margin-bottom:var(--space-4)}
 .story-bar h4{margin:0 0 var(--space-1);font-size:11.5px;letter-spacing:.06em;color:var(--color-accent-200)}
 .panel .body h4{margin:var(--space-3) 0 var(--space-1);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent-200)}
+.research-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-3)}
+.research-card{padding:var(--space-3);border-left:3px solid var(--color-accent);background:var(--color-surface-2)}
+.research-card h4{margin:0 0 var(--space-1);font-size:11px}.research-card p{margin:0;color:var(--color-neutral-400)}.research-card a{display:inline-block;margin-top:var(--space-2);font-size:10px}
 
 /* ---- pitch row: team info columns flanking the pitch ---- */
 .pitch-row{display:flex;gap:var(--space-4);align-items:flex-start}

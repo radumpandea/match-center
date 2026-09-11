@@ -79,6 +79,7 @@ def build_prompt(slug: str, pack: dict):
         "h2h": pack.get("h2h"),
         "storyOfTheMatch": pack.get("storyOfTheMatch", []),
         "commentatorBriefing": pack.get("commentatorBriefing"),
+        "commentatorResearch": pack.get("commentatorResearch", []),
         "broadcast": pack.get("broadcast"),
         "teams": {},
     }
@@ -112,7 +113,7 @@ Task: produce the Level 2 editorial patch for docs/data/matches/{slug}.json.
 
 Requirements:
 - The deterministic Level 1 pack is authoritative. Do not rewrite or return the full match file.
-- Return ONLY a small JSON object with these optional keys: `storyOfTheMatch`, `commentatorBriefing`, `broadcast`, and `teams`.
+- Return ONLY a small JSON object with these optional keys: `storyOfTheMatch`, `commentatorBriefing`, `commentatorResearch`, `broadcast`, and `teams`.
 - Under each team in `teams`, return only these optional keys: `stories`, `news`, `mercatoIn`, `mercatoOut`, `preseason`, `coach`, and `playerEdits`.
 - `playerEdits` must be an array of objects with `name` plus only verified text fields among `funfact`, `linkLine`, `pronunciation`, and `statusNote`. Do not edit numeric or enum player fields.
 - For `coach`, return only `country`, `age`, `tenureFrom`, and `career` when they are empty or clearly incomplete.
@@ -130,11 +131,12 @@ Requirements:
   - mercatoIn[] / mercatoOut[] and preseason[] if clearly present.
     - news[]: păstrează doar câteva știri recente și relevante; reformulează-le în română numai dacă sunt susținute de `newsCandidates` și nu inventa detalii absente din titlu.
     - commentatorBriefing: adaugă numai când există suport factual, `talkingPoints` (3-6 constatări concrete), `tacticalWatch` (2-4 întrebări/observații legate de date concrete) și `liveQuestions` (2-4 întrebări deschise, fără predicții). Este mai bine să returnezi o listă goală decât o frază generică. Nu umple numărul minim de elemente.
+    - commentatorResearch: maximum 8 fișe scurte, fiecare cu `topic`, `fact` și opțional `source`. Alege doar context verificabil și util la microfon: cariera unui titular probabil, o plecare/venire confirmată, istoricul antrenorului, o absență documentată, o legătură directă sau un record H2H. Nu inventa anecdote, sume, transferuri sau surse.
 - Do not fabricate statistics or transfer fees.
 - If a fact is uncertain, leave it null or as-is rather than guessing.
 - Each `stories` item MUST be an object with a short `title` and a `bullets` array of 2-5 short strings; never return story strings.
 - Keep the patch compact: at most 8 storyOfTheMatch strings, 2 story objects per team, and 3 playerEdits per team.
-- Nu returna conținut în engleză pentru `storyOfTheMatch`, `stories`, `news`, `funfact`, `linkLine` sau `statusNote`; numele proprii și denumirile oficiale rămân neschimbate.
+- Nu returna conținut în engleză pentru `storyOfTheMatch`, `stories`, `news`, `funfact`, `linkLine`, `statusNote` sau `commentatorResearch`; numele proprii și denumirile oficiale rămân neschimbate.
 - Nu folosi predicții prezentate ca fapte. O întrebare sau un lucru de urmărit trebuie formulat clar ca întrebare/observație, nu ca certitudine.
 - Return ONLY valid JSON for the patch. No markdown fences and no commentary.
 
@@ -291,9 +293,9 @@ def parse_patch_or_retry(slug: str, prompt: str, raw_text: str):
     except json.JSONDecodeError:
         retry_prompt = f"""
 Return ONLY a compact valid JSON object for the editorial patch of {slug}.
-Do not repeat the match file. Use only these keys: storyOfTheMatch, commentatorBriefing, broadcast, teams.
+Do not repeat the match file. Use only these keys: storyOfTheMatch, commentatorBriefing, commentatorResearch, broadcast, teams.
 Each teams.home/away.stories item must be {{"title":"short title","bullets":["short bullet"]}}.
-Use at most 6 storyOfTheMatch strings, one story object per team, no playerEdits, and at most 3 talkingPoints, 2 tacticalWatch items, and 2 liveQuestions.
+Use at most 6 storyOfTheMatch strings, one story object per team, no playerEdits, at most 3 talkingPoints, 2 tacticalWatch items, 2 liveQuestions, and 4 research cards.
 Write all new text in Romanian and omit anything that is not supported by the supplied pack.
 If you cannot support a value, omit it. No markdown and no commentary.
 """
@@ -416,6 +418,26 @@ def normalize_commentator_briefing(value):
     return clean_briefing or None
 
 
+def normalize_commentator_research(value, allowed_sources=None):
+    if not isinstance(value, list):
+        return None
+    clean = []
+    for item in value[:8]:
+        if not isinstance(item, dict):
+            continue
+        topic = item.get("topic")
+        fact = item.get("fact")
+        source = item.get("source")
+        if not isinstance(topic, str) or not topic.strip() or not isinstance(fact, str) or not fact.strip():
+            continue
+        if source is not None and not isinstance(source, str):
+            source = None
+        if allowed_sources is not None and source not in allowed_sources:
+            source = None
+        clean.append({"topic": " ".join(topic.split()), "fact": " ".join(fact.split()), "source": source})
+    return clean or None
+
+
 def apply_editorial_patch(pack: dict, patch: dict):
     if isinstance(patch.get("storyOfTheMatch"), list):
         stories = [item for item in patch["storyOfTheMatch"] if isinstance(item, str)]
@@ -428,6 +450,21 @@ def apply_editorial_patch(pack: dict, patch: dict):
         pack["commentatorBriefing"] = briefing
     elif "commentatorBriefing" in patch:
         pack.pop("commentatorBriefing", None)
+    known_sources = {
+        source.get("url") for source in pack.get("sources", [])
+        if isinstance(source, dict) and isinstance(source.get("url"), str)
+    }
+    for side in ("home", "away"):
+        team = pack.get("teams", {}).get(side, {})
+        known_sources.update(
+            candidate.get("url") for candidate in team.get("newsCandidates", [])
+            if isinstance(candidate, dict) and isinstance(candidate.get("url"), str)
+        )
+    research = normalize_commentator_research(patch.get("commentatorResearch"), known_sources)
+    if research:
+        pack["commentatorResearch"] = research
+    elif "commentatorResearch" in patch:
+        pack.pop("commentatorResearch", None)
 
     teams_patch = patch.get("teams")
     if not isinstance(teams_patch, dict):
