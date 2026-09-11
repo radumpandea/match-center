@@ -255,6 +255,39 @@
     document.documentElement.style.setProperty('--away', resolveDisc(d, 'away'));
   }
 
+  /* ---------- tactical formation (user override) ----------
+     Pick this before placing players into slots: layout() always produces
+     exactly 11 points (1 GK + the outfield lines) for any of these, so
+     switching formation just reflows whichever 11 slots already exist. */
+  var FORMATIONS = ['3-4-3', '3-5-2', '4-1-4-1', '4-2-3-1', '4-3-3', '4-4-2', '4-5-1', '5-3-2', '5-4-1'];
+  function baseFormation(d, side) {
+    return has(d.teams[side].formation) ? d.teams[side].formation : '4-4-2';
+  }
+  function effFormation(d, side) {
+    return (store.formation && store.formation[side]) || baseFormation(d, side);
+  }
+  function formationSelect(d, side) {
+    var cur = effFormation(d, side);
+    var opts = FORMATIONS.indexOf(cur) < 0 ? [cur].concat(FORMATIONS) : FORMATIONS;
+    var sel = el('select', {
+      class: 'formation-select',
+      title: 'Sistem tactic — ' + d.teams[side].name,
+      onchange: function () {
+        store.formation = store.formation || {};
+        if (sel.value === baseFormation(d, side)) delete store.formation[side];
+        else store.formation[side] = sel.value;
+        if (!Object.keys(store.formation).length) delete store.formation;
+        save();
+        rerenderPitch(d);
+      }
+    }, opts.map(function (f) { return el('option', { value: f, text: f }); }));
+    sel.value = cur;
+    return el('label', { class: 'formation-label' }, [
+      el('span', { text: (d.teams[side].shortName || d.teams[side].name).slice(0, 3).toUpperCase() }),
+      sel
+    ]);
+  }
+
   /* Each player is placed by (d, w): d = depth from own goal-line (0.05) to just
      short of halfway (~0.45); w = position across the pitch width (0..1). The
      view transform below turns (d, w) into left/top % for the chosen orientation
@@ -694,6 +727,8 @@
         orientBtn,
         namesBtn,
         fontBtn,
+        formationSelect(data, 'home'),
+        formationSelect(data, 'away'),
         discSwatch('home'),
         discSwatch('away'),
         discReset,
@@ -800,7 +835,7 @@
       var t = d.teams[side];
       var isNear = side === nearKey;
       var xi = effXI(d, side);
-      var pts = layout(t.formation);
+      var pts = layout(effFormation(d, side));
       var squad = effSquad(d, side);
       xi.forEach(function (slot, i) {
         var isEmpty = !has(slot.name);
@@ -853,7 +888,7 @@
           el('div', { class: 'mini-card', onclick: function () { openCoach(d, side); } }, [
             el('div', { class: 'mc-role', text: 'Antrenor' }),
             el('div', { class: 'mc-name', text: t.coach.name }),
-            el('div', { class: 'mc-line', text: [has(t.coach.country) ? t.coach.country : null, has(t.coach.age) ? t.coach.age + ' ani' : null, has(t.formation) ? t.formation : null].filter(Boolean).join(' · ') })
+            el('div', { class: 'mc-line', text: [has(t.coach.country) ? t.coach.country : null, has(t.coach.age) ? t.coach.age + ' ani' : null, effFormation(d, side)].filter(Boolean).join(' · ') })
           ])
         ]));
       } else {
@@ -1248,7 +1283,7 @@
     }
 
     // Absences + probable XI
-    add('absences', panel('Absențe și primul 11 probabil', twoCol(d, function (t) {
+    add('absences', panel('Absențe și primul 11 probabil', twoCol(d, function (t, side) {
       var wrap = el('div');
       wrap.appendChild(el('h4', { text: 'Absenți' }));
       if (t.absences && t.absences.length) {
@@ -1256,7 +1291,7 @@
           return a.name + ' — ' + a.reason + (has(a.detail) ? ' (' + a.detail + ')' : '');
         })));
       } else { wrap.appendChild(el('div', { text: 'niciun absent semnalat' })); }
-      wrap.appendChild(el('h4', { text: 'Primul 11 (' + (has(t.formation) ? t.formation : 'n/d') + ')' }));
+      wrap.appendChild(el('h4', { text: 'Primul 11 (' + effFormation(d, side) + ')' }));
       wrap.appendChild(ul((t.predictedXI || []).map(function (p) {
         return (p.number != null ? p.number + '. ' : '') + p.name + (has(p.pos) ? '  ' + p.pos : '');
       })));

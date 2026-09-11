@@ -50,10 +50,12 @@ finished pack. `match.html` renders, in priority order:
    comp, round, kickoff, venue if known) — empty pitch, no squads.
 
 There are **no client-side API calls** — the paid API-Football key stays server-side.
-Anything a pack is missing is fillable by hand: click any empty pitch slot to pick the
-player for that position from the loaded squad (searchable), or expand "Adaugă manual un
-jucător nou" for one not in the squad; click "+ Adaugă antrenor" / "+ Adaugă arbitru" /
-"+ adaugă stadion". All of it saves to `localStorage`, same as notes and substitutions.
+Pick each team's **tactical system** from the toolbar first (defaults to whatever the pack's
+`formation` says, or 4-4-2) — the pitch reflows to that shape — then anything a pack is
+missing is fillable by hand: click any empty pitch slot to pick the player for that position
+from the loaded squad (searchable), or expand "Adaugă manual un jucător nou" for one not in
+the squad; click "+ Adaugă antrenor" / "+ Adaugă arbitru" / "+ adaugă stadion". All of it
+saves to `localStorage`, same as notes and substitutions.
 
 Once the full research pack lands (daily, or on demand — see `match-data-json`), opening
 the match again uses that instead; nothing manual is lost from local storage, but the
