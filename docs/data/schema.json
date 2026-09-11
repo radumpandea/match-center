@@ -16,6 +16,11 @@
       "type": "boolean",
       "description": "true when this file is the deterministic pre-fill from scripts/prefetch-preview.mjs (squads, coach, injuries, referee, venue only). The match-data-json skill upgrades the same file with the editorial layer and removes this flag."
     },
+    "generatedBy": {
+      "type": ["string", "null"],
+      "enum": ["skill", "fallback", null],
+      "description": "which Level 2 lane last wrote the editorial fields: the researched match-data-json skill (\"skill\"), or the no-research OpenAI-compatible fallback (\"fallback\"). null/absent predates this marker."
+    },
     "sources": {
       "type": "array",
       "items": {

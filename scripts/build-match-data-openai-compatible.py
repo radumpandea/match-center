@@ -122,7 +122,7 @@ Requirements:
 - Nu scrie fraze generice precum „are mai mulți jucători accidentați”, „antrenorul are decizii dificile”, „meciul va fi interesant” sau „echipa caută victoria”. Acestea nu sunt date și trebuie omise.
 - Add or improve the following editorial fields only when relevant and supported by the current match pack:
     - storyOfTheMatch: 6-10 bullets concise, factuale, în română; fiecare trebuie să conțină un număr, un nume, o dată, un rezultat, o poziție în clasament sau alt fapt verificabil din pachet.
-    - teams.home.stories[] and teams.away.stories[]: 2-3 bare scurte, în română, fiecare bazată pe date concrete din pachet.
+    - teams.home.stories[] and teams.away.stories[]: 2-3 bare scurte, în română; fiecare bullet trebuie să conțină un număr concret (scor, poziție, puncte, serie, minut, dată) din pachet, altfel va fi eliminat automat.
   - funfact and linkLine for the likely XI / notable players only.
   - coach.career / country / age / tenureFrom if empty and easy to confirm.
   - mercatoIn[] / mercatoOut[] and preseason[] if clearly present.
@@ -310,6 +310,31 @@ If you cannot support a value, omit it. No markdown and no commentary.
     return parsed
 
 
+# This model has no web research access, so it cannot back up a sentence with
+# a source the way the real match-data-json skill does. The only cheap, fairly
+# reliable signal that a sentence states an actual researched fact rather than
+# generic filler ("echipa cauta victoria", "jucatorii sunt motivati") is that
+# it names a concrete number: a score, a standings position, a points total,
+# a streak length, a date. Sentences without one get dropped rather than kept
+# on trust - see the "Reject generic commentator claims" history for why a
+# denylist of bad phrases alone was not enough (fresh generic phrasings kept
+# slipping through untouched by the denylist).
+HAS_NUMERIC_EVIDENCE = re.compile(r"\d")
+
+
+def evidenced_bullets(values):
+    if not isinstance(values, list):
+        return []
+    out = []
+    for item in values:
+        if not isinstance(item, str):
+            continue
+        text = " ".join(item.split())
+        if text and HAS_NUMERIC_EVIDENCE.search(text):
+            out.append(text)
+    return out
+
+
 def normalize_team_stories(team: dict):
     if not isinstance(team, dict):
         return team
@@ -333,14 +358,17 @@ def normalize_team_stories(team: dict):
                 bullets = [bullets]
             elif not isinstance(bullets, list):
                 bullets = []
-            cleaned.append({
-                "title": item.get("title") or "Story",
-                "bullets": [str(b) for b in bullets if b is not None],
-            })
+            bullets = evidenced_bullets([str(b) for b in bullets if b is not None])
+            if bullets:
+                cleaned.append({"title": item.get("title") or "Story", "bullets": bullets})
         elif isinstance(item, str):
-            cleaned.append({"title": "Story", "bullets": [item]})
+            bullets = evidenced_bullets([item])
+            if bullets:
+                cleaned.append({"title": "Story", "bullets": bullets})
         elif item is not None:
-            cleaned.append({"title": "Story", "bullets": [str(item)]})
+            bullets = evidenced_bullets([str(item)])
+            if bullets:
+                cleaned.append({"title": "Story", "bullets": bullets})
 
     team["stories"] = cleaned
     return team
@@ -397,12 +425,13 @@ def normalize_commentator_research(value, allowed_sources=None):
 
 def apply_editorial_patch(pack: dict, patch: dict):
     if isinstance(patch.get("storyOfTheMatch"), list):
-        stories = [item for item in patch["storyOfTheMatch"] if isinstance(item, str)]
+        stories = evidenced_bullets(patch["storyOfTheMatch"])
         if stories:
             pack["storyOfTheMatch"] = stories
     if "broadcast" in patch and (patch["broadcast"] is None or isinstance(patch["broadcast"], str)):
         pack["broadcast"] = patch["broadcast"]
     pack.pop("commentatorBriefing", None)
+    pack["generatedBy"] = "fallback"
     known_sources = {
         source.get("url") for source in pack.get("sources", [])
         if isinstance(source, dict) and isinstance(source.get("url"), str)

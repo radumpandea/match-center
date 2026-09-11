@@ -409,16 +409,12 @@ table.mc.standings tr.is-mine td{background:var(--color-accent-900,rgba(120,140,
 .stat-cell .sc-n{font-size:16px;font-weight:600;font-variant-numeric:tabular-nums}
 .stat-cell .sc-l{font-size:10px;color:var(--color-neutral-500)}
 
-/* primary and alternative playing positions in the player profile */
+/* other positions API-Football reports for this player (read-only) */
 .position-card{margin:var(--space-4) 0;padding:var(--space-3);border:1px solid var(--color-divider);border-radius:var(--radius-sm);background:var(--color-surface-2)}
 .position-card .stat-h{margin:0 0 var(--space-2)}
-.pos-chips{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:var(--space-3)}
-.pos-chip{border:1px solid var(--color-divider);border-radius:999px;padding:3px 7px;background:var(--color-bg);color:var(--color-neutral-400);font:inherit;font-size:11px;cursor:pointer}
-.pos-chip.main{border-color:var(--color-accent);color:var(--color-accent-200);cursor:default}
-.pos-edit-row{display:flex;gap:var(--space-2);margin-top:6px;align-items:center}
-.pos-edit-row .field{flex:1 1 auto;min-width:0}
-.pos-edit-row .pick{flex:0 0 auto;font-size:11px;padding:6px 8px}
-.pos-help{margin:var(--space-2) 0 0;color:var(--color-neutral-500);font-size:10.5px;line-height:1.4}
+.pos-chips{display:flex;gap:5px;flex-wrap:wrap}
+.pos-chip{border:1px solid var(--color-divider);border-radius:999px;padding:3px 7px;background:var(--color-bg);color:var(--color-neutral-400);font-size:11px}
+.pos-chip.main{border-color:var(--color-accent);color:var(--color-accent-200)}
 
 /* pick-a-player-for-this-slot list */
 .pick-list{display:flex;flex-direction:column;gap:4px;max-height:52vh;overflow:auto;margin:var(--space-2) 0}
