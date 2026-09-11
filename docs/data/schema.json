@@ -92,15 +92,6 @@
       "description": "6-10 lead bullet sentences",
       "items": { "type": "string" }
     },
-    "commentatorBriefing": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "talkingPoints": { "type": "array", "items": { "type": "string" } },
-        "tacticalWatch": { "type": "array", "items": { "type": "string" } },
-        "liveQuestions": { "type": "array", "items": { "type": "string" } }
-      }
-    },
     "commentatorResearch": {
       "type": "array",
       "maxItems": 8,

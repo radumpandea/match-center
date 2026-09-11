@@ -1118,18 +1118,6 @@
       add('story', panel('Story of the match', ul(d.storyOfTheMatch), { lead: true, open: true }));
     }
 
-    if (d.commentatorBriefing) {
-      var briefing = d.commentatorBriefing;
-      var briefingBody = el('div');
-      [['talkingPoints', 'Idei pentru microfon'], ['tacticalWatch', 'De urmărit tactic'], ['liveQuestions', 'Întrebări pentru live']].forEach(function (pair) {
-        if (briefing[pair[0]] && briefing[pair[0]].length) {
-          briefingBody.appendChild(el('h4', { text: pair[1] }));
-          briefingBody.appendChild(ul(briefing[pair[0]]));
-        }
-      });
-      if (briefingBody.childNodes.length) add('briefing', panel('Briefing comentator', briefingBody, { lead: true, open: true }));
-    }
-
     if (d.commentatorResearch && d.commentatorResearch.length) {
       var researchBody = el('div', { class: 'research-cards' });
       d.commentatorResearch.forEach(function (card) {

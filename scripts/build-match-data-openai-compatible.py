@@ -78,7 +78,6 @@ def build_prompt(slug: str, pack: dict):
         "referee": pack.get("referee"),
         "h2h": pack.get("h2h"),
         "storyOfTheMatch": pack.get("storyOfTheMatch", []),
-        "commentatorBriefing": pack.get("commentatorBriefing"),
         "commentatorResearch": pack.get("commentatorResearch", []),
         "broadcast": pack.get("broadcast"),
         "teams": {},
@@ -113,7 +112,7 @@ Task: produce the Level 2 editorial patch for docs/data/matches/{slug}.json.
 
 Requirements:
 - The deterministic Level 1 pack is authoritative. Do not rewrite or return the full match file.
-- Return ONLY a small JSON object with these optional keys: `storyOfTheMatch`, `commentatorBriefing`, `commentatorResearch`, `broadcast`, and `teams`.
+- Return ONLY a small JSON object with these optional keys: `storyOfTheMatch`, `commentatorResearch`, `broadcast`, and `teams`.
 - Under each team in `teams`, return only these optional keys: `stories`, `news`, `mercatoIn`, `mercatoOut`, `preseason`, `coach`, and `playerEdits`.
 - `playerEdits` must be an array of objects with `name` plus only verified text fields among `funfact`, `linkLine`, `pronunciation`, and `statusNote`. Do not edit numeric or enum player fields.
 - For `coach`, return only `country`, `age`, `tenureFrom`, and `career` when they are empty or clearly incomplete.
@@ -121,8 +120,6 @@ Requirements:
 - Folosește exclusiv fapte prezente explicit în pachetul primit sau în `newsCandidates`. Nu folosi cunoștințe generale neconfirmate și nu completa golurile prin presupuneri.
 - Nu transforma un câmp gol, o listă goală sau o formulare vagă într-o afirmație factuală. Dacă nu există dovadă pentru o informație, omite câmpul.
 - Nu scrie fraze generice precum „are mai mulți jucători accidentați”, „antrenorul are decizii dificile”, „meciul va fi interesant” sau „echipa caută victoria”. Acestea nu sunt date și trebuie omise.
-- Pentru `talkingPoints`, scrie doar constatări verificabile, nu recomandări: este interzis să folosești „trebuie să”, „va trebui să”, „ar trebui să”, „este nevoie să”, „poate face diferența”, „jucător cheie”, „meci dificil/interesant” sau „să obțină victoria”. Înlocuiește „defensiva trebuie îmbunătățită” cu datele care ar justifica observația, de exemplu goluri primite și rezultatele ultimelor meciuri, numai dacă apar explicit în pachet.
-- O idee pentru microfon este validă numai dacă include concret un număr, un rezultat, o poziție, o serie, un interval de minute, un nume de jucător legat de o statistică sau un fapt direct dintr-o știre. Dacă nu poți arăta faptele din pachet care susțin propoziția, omite propoziția.
 - Add or improve the following editorial fields only when relevant and supported by the current match pack:
     - storyOfTheMatch: 6-10 bullets concise, factuale, în română; fiecare trebuie să conțină un număr, un nume, o dată, un rezultat, o poziție în clasament sau alt fapt verificabil din pachet.
     - teams.home.stories[] and teams.away.stories[]: 2-3 bare scurte, în română, fiecare bazată pe date concrete din pachet.
@@ -130,7 +127,6 @@ Requirements:
   - coach.career / country / age / tenureFrom if empty and easy to confirm.
   - mercatoIn[] / mercatoOut[] and preseason[] if clearly present.
     - news[]: păstrează doar câteva știri recente și relevante; reformulează-le în română numai dacă sunt susținute de `newsCandidates` și nu inventa detalii absente din titlu.
-    - commentatorBriefing: adaugă numai când există suport factual, `talkingPoints` (3-6 constatări concrete), `tacticalWatch` (2-4 întrebări/observații legate de date concrete) și `liveQuestions` (2-4 întrebări deschise, fără predicții). Este mai bine să returnezi o listă goală decât o frază generică. Nu umple numărul minim de elemente.
     - commentatorResearch: maximum 8 fișe scurte, fiecare cu `topic`, `fact` și opțional `source`. Alege doar context verificabil și util la microfon: cariera unui titular probabil, o plecare/venire confirmată, istoricul antrenorului, o absență documentată, o legătură directă sau un record H2H. Nu inventa anecdote, sume, transferuri sau surse.
 - Do not fabricate statistics or transfer fees.
 - If a fact is uncertain, leave it null or as-is rather than guessing.
@@ -293,9 +289,9 @@ def parse_patch_or_retry(slug: str, prompt: str, raw_text: str):
     except json.JSONDecodeError:
         retry_prompt = f"""
 Return ONLY a compact valid JSON object for the editorial patch of {slug}.
-Do not repeat the match file. Use only these keys: storyOfTheMatch, commentatorBriefing, commentatorResearch, broadcast, teams.
+Do not repeat the match file. Use only these keys: storyOfTheMatch, commentatorResearch, broadcast, teams.
 Each teams.home/away.stories item must be {{"title":"short title","bullets":["short bullet"]}}.
-Use at most 6 storyOfTheMatch strings, one story object per team, no playerEdits, at most 3 talkingPoints, 2 tacticalWatch items, 2 liveQuestions, and 4 research cards.
+Use at most 6 storyOfTheMatch strings, one story object per team, no playerEdits, and 4 research cards.
 Write all new text in Romanian and omit anything that is not supported by the supplied pack.
 If you cannot support a value, omit it. No markdown and no commentary.
 """
@@ -379,45 +375,6 @@ def normalize_editorial_list(key: str, value):
     return cleaned
 
 
-GENERIC_BRIEFING_PATTERNS = (
-    "trebuie să", "va trebui să", "ar trebui să", "este nevoie să",
-    "poate face diferența", "jucător cheie", "meci dificil",
-    "meci interesant", "va fi unul dificil", "dificil pentru ambele",
-    "să obțină victoria", "sa obtina victoria",
-    "caută victoria", "cauta victoria", "decizii grele",
-    "jucător important", "jucator important",
-)
-EVIDENCE_MARKERS = re.compile(
-    r"\d|locul|gol|goluri|marcat|primit|punct|meci|victori|înfrânger|infranger|egal|ultimele|minute|clasament|h2h|cap la cap|rezultat|serie",
-    re.IGNORECASE,
-)
-
-
-def normalize_commentator_briefing(value):
-    if not isinstance(value, dict):
-        return None
-    clean_briefing = {}
-    limits = {"talkingPoints": 6, "tacticalWatch": 4, "liveQuestions": 4}
-    for key, limit in limits.items():
-        values = value.get(key)
-        if not isinstance(values, list):
-            continue
-        clean = []
-        for item in values:
-            if not isinstance(item, str):
-                continue
-            text = " ".join(item.split())
-            lowered = text.casefold()
-            if not text or any(pattern in lowered for pattern in GENERIC_BRIEFING_PATTERNS):
-                continue
-            if not EVIDENCE_MARKERS.search(text):
-                continue
-            clean.append(text)
-        if clean:
-            clean_briefing[key] = clean[:limit]
-    return clean_briefing or None
-
-
 def normalize_commentator_research(value, allowed_sources=None):
     if not isinstance(value, list):
         return None
@@ -445,11 +402,7 @@ def apply_editorial_patch(pack: dict, patch: dict):
             pack["storyOfTheMatch"] = stories
     if "broadcast" in patch and (patch["broadcast"] is None or isinstance(patch["broadcast"], str)):
         pack["broadcast"] = patch["broadcast"]
-    briefing = normalize_commentator_briefing(patch.get("commentatorBriefing"))
-    if briefing:
-        pack["commentatorBriefing"] = briefing
-    elif "commentatorBriefing" in patch:
-        pack.pop("commentatorBriefing", None)
+    pack.pop("commentatorBriefing", None)
     known_sources = {
         source.get("url") for source in pack.get("sources", [])
         if isinstance(source, dict) and isinstance(source.get("url"), str)
