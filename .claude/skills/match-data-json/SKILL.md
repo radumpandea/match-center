@@ -136,6 +136,13 @@ Calitatea în limita bugetului bate acoperirea exhaustivă.
    oraș, sancțiuni (porți închise — știri disciplinare); pentru arbitru vârstă, aparății,
    medii galbene/roșii pe meci, istoric cu echipele. Dacă Nivelul 1 le-a lăsat `n/d`, caută-le
    tu de la zero.
+   **Superliga / Liga 2 România**: API-Football aproape niciodată nu are arbitrul pentru
+   aceste ligi. Caută direct `arbitri delegați etapa <N> Superliga <Acasă> <Oaspete>` (sau
+   `Liga 2` după caz) — presa sportivă românească (sportarad.ro, golazo.ro, footballclubdemarseille-style
+   site-uri locale etc.) republică zilnic delegările FRF de pe hailafotbal.ro/arbitri/delegari,
+   de obicei cu arbitru principal + cei 2 asistenți + arbitru de rezervă + observator + VAR/AVAR.
+   Nu accesa direct hailafotbal.ro cu WebFetch — e o aplicație Angular, conținutul se randează
+   cu JS și fetch-ul static nu arată nimic util; caută prin presă, nu direct pe site.
 4. **Antrenori** → `coach`: `country`, `age`, `tenureFrom`, și cariera COMPLETĂ cronologică
    (`career[]`: club, perioadă, realizare/motiv plecare). Sursă: Wikipedia (infobox
    „Managerial career") sau Transfermarkt (via search). **Nu numi mandatul curent „revenire"

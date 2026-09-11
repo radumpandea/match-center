@@ -136,7 +136,10 @@ jobs:
                - `stats.minutes` / `stats.apps` for the likely XI (FBref "All
                  Competitions" club page — one page per club covers the whole XI).
                - `venue.capacity` / `venue.city`, `referee` age/averages — ONLY if
-                 trivially found; otherwise leave as-is.
+                 trivially found; otherwise leave as-is. Exception: `referee.name`
+                 itself for Superliga/Liga 2 matches — API-Football almost never has
+                 it, so always try (see the skill's referee step for the search
+                 pattern), even in standard mode.
                - `colors`, `shortName` if known.
                Do NOT rewrite squads, form, h2h, or the confirmed lineup.
                **When DEPTH=deep** the allowlist above does not bind you — follow
