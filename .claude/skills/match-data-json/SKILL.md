@@ -150,6 +150,13 @@ Calitatea în limita bugetului bate acoperirea exhaustivă.
    oraș, sancțiuni (porți închise — știri disciplinare); pentru arbitru vârstă, aparății,
    medii galbene/roșii pe meci, istoric cu echipele. Dacă Nivelul 1 le-a lăsat `n/d`, caută-le
    tu de la zero.
+   **`referee.name` — verifică că e numele COMPLET, nu abreviat.** Nivelul 1 preia
+   `fixture.referee` de la API-Football ca șir simplu, adesea deja abreviat („F. Maresca")
+   — spre deosebire de `coach`, acest endpoint nu are `firstname`/`lastname` de reconstruit,
+   deci trebuie căutat: un search „<nume scurt> arbitru <competiție>" sau pagina lui de pe
+   Wikipedia/worldreferee.com dă numele întreg. Nu lăsa `referee.name` abreviat dacă poți
+   găsi forma completă într-o căutare rapidă — la fel ca la antrenori, e ceva ce utilizatorul
+   citește direct în comentariul live.
    **Superliga / Liga 2 România**: API-Football aproape niciodată nu are arbitrul pentru
    aceste ligi. Caută direct `arbitri delegați etapa <N> Superliga <Acasă> <Oaspete>` (sau
    `Liga 2` după caz) — presa sportivă românească (sportarad.ro, golazo.ro, footballclubdemarseille-style
