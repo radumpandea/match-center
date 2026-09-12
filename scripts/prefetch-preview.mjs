@@ -277,16 +277,21 @@ async function getSquad(teamId, teamName, leagueId, season) {
     const injured = !!(pl && pl.injured);
     // API-Football's own `name` field is inconsistent: for well-known players
     // it's already abbreviated ("B. Samba"), for fringe/academy players it's
-    // the full name ("Ayoube Akabou") — there's no reliable "short" vs "full"
-    // distinction to build on. Prefer reconstructing a real full name from
-    // firstname+lastname (present on the detailed /players object) so the UI's
-    // own shortName() can abbreviate it consistently for pitch labels.
-    const fullName = pl && has(pl.firstname) && has(pl.lastname)
+    // already a normal full name ("António Silva", "Ayoube Akabou") — that
+    // second case needs no fixing. Only reconstruct from firstname+lastname
+    // (present on the detailed /players object) when the given name actually
+    // looks like the abbreviated "X. Surname" form, so the UI's own
+    // shortName() has something to abbreviate for pitch labels. Reconstructing
+    // unconditionally risks an incomplete legal name for multi-part surnames
+    // (firstname/lastname splits are themselves inconsistent on API-Football).
+    const baseName = name || (pl && pl.name) || null;
+    const looksAbbreviated = baseName != null && /^\S+\.\s/.test(baseName);
+    const fullName = looksAbbreviated && pl && has(pl.firstname) && has(pl.lastname)
       ? `${pl.firstname} ${pl.lastname}`.trim() : null;
     squad.push({
       _id: id,
       number: num(number),
-      name: fullName || name || (pl && pl.name) || null,
+      name: fullName || baseName,
       pos: positions[0] || null,
       positions,
       role: roleFrom(position || (st && st.position)),
