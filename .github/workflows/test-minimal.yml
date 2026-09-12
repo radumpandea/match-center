@@ -3,6 +3,8 @@ on:
   workflow_dispatch: {}
 jobs:
   build-match:
+    permissions:
+      contents: write
     uses: ./.github/workflows/debug-run.yml
     with:
       match: ""
