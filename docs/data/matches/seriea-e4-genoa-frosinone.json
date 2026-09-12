@@ -21,10 +21,10 @@
     "notes": null,
     "weather": {
       "tempC": 27,
-      "condition": "cer clar",
-      "windKph": 15,
+      "condition": "parțial noros",
+      "windKph": 14,
       "precipitationMm": 0,
-      "forecastAt": "2026-09-12T09:29:10.512Z"
+      "forecastAt": "2026-09-12T14:38:06.575Z"
     }
   },
   "referee": {
@@ -78,7 +78,10 @@
     "home": {
       "name": "Genoa",
       "shortName": null,
-      "colors": null,
+      "colors": {
+        "primary": "#7b242f",
+        "secondary": "#7b242f"
+      },
       "coach": {
         "name": "P. Vieira",
         "country": "France",
@@ -239,9 +242,65 @@
           }
         ]
       },
-      "formation": "n/d",
+      "formation": "3-5-2",
       "predictedXI": [],
-      "confirmedXI": null,
+      "confirmedXI": [
+        {
+          "number": 1,
+          "name": "Justin Bijlow",
+          "pos": "G"
+        },
+        {
+          "number": 27,
+          "name": "Alessandro Marcandalli",
+          "pos": "D"
+        },
+        {
+          "number": 5,
+          "name": "Leo Østigård",
+          "pos": "D"
+        },
+        {
+          "number": 22,
+          "name": "Johan Vásquez",
+          "pos": "D"
+        },
+        {
+          "number": 3,
+          "name": "Kingsley Ehizibue",
+          "pos": "M"
+        },
+        {
+          "number": 32,
+          "name": "Morten Frendrup",
+          "pos": "M"
+        },
+        {
+          "number": 8,
+          "name": "Tommaso Baldanzi",
+          "pos": "M"
+        },
+        {
+          "number": 97,
+          "name": "Djibril Sow",
+          "pos": "M"
+        },
+        {
+          "number": 77,
+          "name": "Mikael Ellertsson",
+          "pos": "M"
+        },
+        {
+          "number": 29,
+          "name": "Lorenzo Colombo",
+          "pos": "F"
+        },
+        {
+          "number": 18,
+          "name": "Milutin Osmajić",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "number": 1,
@@ -1480,25 +1539,7 @@
         {
           "title": "Otsego runs wild over Genoa to start 1-0 in NBC play",
           "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNWi1RWkVJcGg4bnJrall5OE1ndDIzRHNael9ZRFRrMUdSazZYaVBKWFRKX0ZaNTRrNk5vdWRJekNWM2VGSmRtczJWaEoycVB2TTc2RXlIak5DZkxqcTQ0aUxIcXhnRW5XbXY1cWNEWGxsRmZkMlp4cnotSnE2X1d6cWVaZzJWUC1qemgyZHBHcFhTaU9uazJjOTdPZEdxb2dxX1EyY2FvdUR1ZTVnaFY3NE9vNnB6cnpFWUFLNUxwazFiQQ?oc=5",
-          "source": "Toledo Blade",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Frank, Ziviski lead Otsego past Genoa, 35-14",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNRUZhbmJIYnRqQV9Sd2Q4STBlOU8xcURwRXktbVo3bGRrM3hxYWp5WWdrSlJfSU1fR21Ka3JIeUNTTDh6VXdGS2M3bFAxTDlVeTd1YTFEYWE1MUpWdjNMeVlveFhuaEIzRHJBMzRVTHQyeDVfbjlOX3BBbmZCWW9HUUVXQ2ZnaWs?oc=5",
-          "source": "Sent-trib",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Otsego vs. Genoa | Big Board Friday week 4",
-          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOWEhwSVdtTjgzRlQ2QWpLMi1paVowaEc3Mi1VQWo3dlpnTXlCSG45VVNTZXVyV0MtVUVEOWJTLXk2YU9icUNUQVhOYVJtUDN1cThUTWdEQnNDdGVpX0txODVlQmdXUEgzOUpnU1JIRXUxaXJialJzTFAwTnJicWxLRk1tODNSb2hscEQ4VGdCLWhRdHNzYk1OWWNFUlVmYXBHSlhHa3VnUF9uY3V3SU1ybzlwemtydXZaNEpvVm1oZVZoWXNScXFjdnFTRTVteVh0VC04V3VfWWNZa00?oc=5",
-          "source": "WTOL",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Genoa-Kingston holds off Winnebago, Hiawatha wins, DeKalb falls: Daily Chronicle Week 4 football roundup",
-          "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNTnNfakdWWDdxcW1FZTNveGhsS0llM0IwTDQ3VWZydHVsdmlkaDR6OXVfaXBnRzNJaHVFTm01dTJxWUh0NVdQTjBoMGxZOFExcEpEbHNaY1NERFFjbFBUMnNWWlJvNFdxMFc1YkR3NUdPZjNRRlY3aGE5VExlSTN3UWMwZjl4NzRnSDFEYzd3NGtZVTRjbXpzZUN1ajZfT251YXd3MGtROHB3MlBtaHpzaXcwTEhvT180ZVJyTUU0WkZNcURKblZ0RE94bklPVW5jX0tEV1B3ZmNBS0ZTUjlGYVJ5V3ZVaC01V0pSS25lTQ?oc=5",
-          "source": "Shaw Local",
+          "source": "toledoblade.com",
           "published": "2026-09-12"
         },
         {
@@ -1508,21 +1549,39 @@
           "published": "2026-09-12"
         },
         {
-          "title": "Genoa CFC vs. Frosinone Calcio Prediction, Picks, Live Odds – Sept. 12",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPcWJNVjUtUkdDT1RmNGl1UFNzWFpYWVBCVmlNVjM2RERqZFZYVWxyWnE0dVBUV01LaFpkWndxYWJnMkRyanMxTnNERGNtQ2ozam8weElVOEpRWHA3QkxiZ1BvV2tabzJWTkwwb2tQZENHckhmS3F0T1ZtZjhNXzdQTUFWLWpBcmxkeE4yaEE5Uk1rR0hUUGFETnhFcW1NMWJIcjI2UTRJZVZrS3FyNC1xRVpHaw?oc=5",
-          "source": "Bleacher Nation",
+          "title": "Frank, Ziviski lead Otsego past Genoa, 35-14",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNRUZhbmJIYnRqQV9Sd2Q4STBlOU8xcURwRXktbVo3bGRrM3hxYWp5WWdrSlJfSU1fR21Ka3JIeUNTTDh6VXdGS2M3bFAxTDlVeTd1YTFEYWE1MUpWdjNMeVlveFhuaEIzRHJBMzRVTHQyeDVfbjlOX3BBbmZCWW9HUUVXQ2ZnaWs?oc=5",
+          "source": "Sent-trib",
           "published": "2026-09-12"
         },
         {
-          "title": "Rolli Days: 271 new science communicators to tell Genoa’s story for the",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNOW9GVVYzbllmbldPX0Y2eW1DUm1NQ3lsTmdjb2NYeEc5YmhjWk9fcGFFOUtIMDBnYy12U1VGa2hJS0R2YzhnLXlrRFB0eVhmTjJIQjQ5UUI2emd5MFdTb293QmxPenV6OWc2OWZlYXpmengzeENsRklYdlN0VXYyN2doZ3F3cEs5N29jSkxDUURHNG1SR19nNDFVeTgtTlU1QUxIQVQwUEYzZU9DTTdR?oc=5",
-          "source": "inItaly",
+          "title": "✅ Genoa v Frosinone XIs: Ghedjemidis in? De Rossi with Osmajić",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPMGwwZ1ZYbHd5ei1kU2JwSmZHQzdXNUNWWmNFNkhXdk03a2hvZWVKU3FGUkthVDNmblhFUHRzYTZ4Mjh2T3BrdEV4RE5ramgzYkJVcGQwVFRjUGhKNVo0ZWdyNUROdjFtN2lRaVlhMkp0T1YydWRNNC1FSFlOYXpaaWd2ZHIzY2YzUGx3SA?oc=5",
+          "source": "Yahoo Sports Canada",
           "published": "2026-09-12"
         },
         {
-          "title": "Genoa vs Frosinone Predictions, Bet Builder Tips, Lineups, Odds",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQTlAxdXJoa2FBUjNxNWk2aGxNR2lXRnBUY3ZWZmpIdGQzOVBlVnJoSmVyOUcxUDQ4U1pERkFjTW5HdE9Oelk4eWdXVHlPZW8tQ210NklaOUJFNDNOY3E2Z2hoclBXS25sNXhROEdhOVQzNW95c3hXNWw3N2RiRXZSbVpIZDdvekVMUGxYOUlmc3FOVUZ3cTVDUmV2SG0xcnl2bHAxT3ZFdXoycnpCeE1TR0FR?oc=5",
-          "source": "WhoScored.com",
+          "title": "Otsego vs. Genoa | Big Board Friday week 4",
+          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOWEhwSVdtTjgzRlQ2QWpLMi1paVowaEc3Mi1VQWo3dlpnTXlCSG45VVNTZXVyV0MtVUVEOWJTLXk2YU9icUNUQVhOYVJtUDN1cThUTWdEQnNDdGVpX0txODVlQmdXUEgzOUpnU1JIRXUxaXJialJzTFAwTnJicWxLRk1tODNSb2hscEQ4VGdCLWhRdHNzYk1OWWNFUlVmYXBHSlhHa3VnUF9uY3V3SU1ybzlwemtydXZaNEpvVm1oZVZoWXNScXFjdnFTRTVteVh0VC04V3VfWWNZa00?oc=5",
+          "source": "wtol.com",
+          "published": "2026-09-12"
+        },
+        {
+          "title": "Frosinone vs. Genoa Live Stream of Italian Serie A",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE12VDlsem1RMTdWMko4WF95VHRFWGdNRDY0ZktjRVE2LTM0b25Nc0g5cWpKazFtUG1Da1FzUGlvYng4bDk0RGJweWU1ZUpEdFZoT2JNTDJndmI3dkQycnRwYjE4cw?oc=5",
+          "source": "cbssports.com",
+          "published": "2026-09-12"
+        },
+        {
+          "title": "Genoa vs. Frosinone (12 Sep, 2026) Live Score - ESPN (UK)",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFB5SFpXR0IzUzVoMk00ak1MQlpVa3lBZWx0U2kteWZEekpVYlQ4VEVGTTdLY21GT3UzUFRpU2p4NlpZMjJDWlhublQxUm5QMWpaT3dFQTJaVUpkVnlrMll6djVtWXF5Wm8?oc=5",
+          "source": "ESPN",
+          "published": "2026-09-12"
+        },
+        {
+          "title": "Genoa-Kingston holds off Winnebago, Hiawatha wins, DeKalb falls: Daily Chronicle Week 4 football roundup",
+          "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNTnNfakdWWDdxcW1FZTNveGhsS0llM0IwTDQ3VWZydHVsdmlkaDR6OXVfaXBnRzNJaHVFTm01dTJxWUh0NVdQTjBoMGxZOFExcEpEbHNaY1NERFFjbFBUMnNWWlJvNFdxMFc1YkR3NUdPZjNRRlY3aGE5VExlSTN3UWMwZjl4NzRnSDFEYzd3NGtZVTRjbXpzZUN1ajZfT251YXd3MGtROHB3MlBtaHpzaXcwTEhvT180ZVJyTUU0WkZNcURKblZ0RE94bklPVW5jX0tEV1B3ZmNBS0ZTUjlGYVJ5V3ZVaC01V0pSS25lTQ?oc=5",
+          "source": "shawlocal.com",
           "published": "2026-09-12"
         }
       ]
@@ -1530,7 +1589,10 @@
     "away": {
       "name": "Frosinone",
       "shortName": null,
-      "colors": null,
+      "colors": {
+        "primary": "#eeae0d",
+        "secondary": "#eeae0d"
+      },
       "coach": {
         "name": "M. Alvini",
         "country": "Italy",
@@ -1589,9 +1651,65 @@
           }
         ]
       },
-      "formation": "n/d",
+      "formation": "4-2-3-1",
       "predictedXI": [],
-      "confirmedXI": null,
+      "confirmedXI": [
+        {
+          "number": 22,
+          "name": "Lorenzo Palmisani",
+          "pos": "G"
+        },
+        {
+          "number": 20,
+          "name": "Anthony Oyono",
+          "pos": "D"
+        },
+        {
+          "number": 3,
+          "name": "Gabriele Calvani",
+          "pos": "D"
+        },
+        {
+          "number": 2,
+          "name": "Giorgio Cittadini",
+          "pos": "D"
+        },
+        {
+          "number": 79,
+          "name": "Gabriele Bracaglia",
+          "pos": "D"
+        },
+        {
+          "number": 14,
+          "name": "Giacomo Calò",
+          "pos": "M"
+        },
+        {
+          "number": 73,
+          "name": "Patrizio Masini",
+          "pos": "M"
+        },
+        {
+          "number": 7,
+          "name": "Farès Ghedjemis",
+          "pos": "M"
+        },
+        {
+          "number": 10,
+          "name": "Romano Schmid",
+          "pos": "M"
+        },
+        {
+          "number": 17,
+          "name": "Giorgi Kvernadze",
+          "pos": "M"
+        },
+        {
+          "number": 9,
+          "name": "Antonio Raimondo",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "number": 91,
@@ -2596,15 +2714,39 @@
       ],
       "newsCandidates": [
         {
+          "title": "Genoa vs Frosinone: Italian Serie A stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBBdlIwS1RQTGVWRFZzRmhFZ1BpU1hrakhWN0xZcUdScW8wVmRqMzdVYWNiWFBPXzJoZ0hiOTNkS3ZIc3VRV00tQk80czM3NTFqWGtEdk1PZTFsRFRXNDduYXI3NA?oc=5",
+          "source": "BBC",
+          "published": "2026-09-12"
+        },
+        {
+          "title": "Frosinone 3-2 Venezia (Sep 6, 2026) Player Stats",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1NMHZpbFJ5QlluM3ZUUXViWkM4YkdkaTZ5bDliLTB2X2U1cHc3T0JYOHlLYTkxTXJPWU5YSmhObFB0RUhydDNWd3BMRlhDamVFLWQtZjBqck56UVUwN1RRdWcxZzNuNWtEcEN3?oc=5",
+          "source": "espn.com",
+          "published": "2026-09-12"
+        },
+        {
+          "title": "✅ Genoa v Frosinone XIs: Ghedjemidis in? De Rossi with Osmajić",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPMGwwZ1ZYbHd5ei1kU2JwSmZHQzdXNUNWWmNFNkhXdk03a2hvZWVKU3FGUkthVDNmblhFUHRzYTZ4Mjh2T3BrdEV4RE5ramgzYkJVcGQwVFRjUGhKNVo0ZWdyNUROdjFtN2lRaVlhMkp0T1YydWRNNC1FSFlOYXpaaWd2ZHIzY2YzUGx3SA?oc=5",
+          "source": "Yahoo Sports Canada",
+          "published": "2026-09-12"
+        },
+        {
           "title": "Watch Genoa vs. Frosinone",
           "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOTlVwX0ZXeDNNVjFrVzlnSERiS0V5THFyRDJqQ2hIVXJTWlF6QWdpblRuV2MwUFdpa2JQMG5Fa2l5VWpmdkJubWo2R1RDYVM0aEZjdHZnWjVnOHltZWhVdjJXWHJ6LUJuSkVQVG1tWDRpc0pSZVJFN0Q4dkxMQWlfTlpBUkJxYi1rSTBZ?oc=5",
           "source": "Disney Plus",
           "published": "2026-09-12"
         },
         {
-          "title": "Genoa vs Frosinone: Italian Serie A stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBBdlIwS1RQTGVWRFZzRmhFZ1BpU1hrakhWN0xZcUdScW8wVmRqMzdVYWNiWFBPXzJoZ0hiOTNkS3ZIc3VRV00tQk80czM3NTFqWGtEdk1PZTFsRFRXNDduYXI3NA?oc=5",
-          "source": "BBC",
+          "title": "Genoa vs. Frosinone (12 Sep, 2026) Live Score - ESPN (UK)",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFB5SFpXR0IzUzVoMk00ak1MQlpVa3lBZWx0U2kteWZEekpVYlQ4VEVGTTdLY21GT3UzUFRpU2p4NlpZMjJDWlhublQxUm5QMWpaT3dFQTJaVUpkVnlrMll6djVtWXF5Wm8?oc=5",
+          "source": "ESPN",
+          "published": "2026-09-12"
+        },
+        {
+          "title": "Frosinone vs. Genoa Live Stream of Italian Serie A",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE12VDlsem1RMTdWMko4WF95VHRFWGdNRDY0ZktjRVE2LTM0b25Nc0g5cWpKazFtUG1Da1FzUGlvYng4bDk0RGJweWU1ZUpEdFZoT2JNTDJndmI3dkQycnRwYjE4cw?oc=5",
+          "source": "cbssports.com",
           "published": "2026-09-12"
         },
         {
@@ -2614,34 +2756,10 @@
           "published": "2026-09-12"
         },
         {
-          "title": "Genoa vs Frosinone Predictions, Bet Builder Tips, Lineups, Odds",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQTlAxdXJoa2FBUjNxNWk2aGxNR2lXRnBUY3ZWZmpIdGQzOVBlVnJoSmVyOUcxUDQ4U1pERkFjTW5HdE9Oelk4eWdXVHlPZW8tQ210NklaOUJFNDNOY3E2Z2hoclBXS25sNXhROEdhOVQzNW95c3hXNWw3N2RiRXZSbVpIZDdvekVMUGxYOUlmc3FOVUZ3cTVDUmV2SG0xcnl2bHAxT3ZFdXoycnpCeE1TR0FR?oc=5",
-          "source": "WhoScored.com",
+          "title": "Serie A Liveblog: Lazio vs. Milan, Genoa vs. Frosinone, Atalanta vs. Cagliari",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNN09rV2dDQkJDcEV6SVpZc21BQU5KaE9adTQxMmdiUkZtSG9DMnJoWVZSNDVYekxzOWhLWXczM09LWjYyQkg4TUVjdjBSNGEwdmN1dzZ1dm9BLTNfSTBEWEtGOEtEUVNWaXZkRE54WURKdGJFWWpoZHA3UzJqekJ2T2dmSQ?oc=5",
+          "source": "Yahoo Sports Canada",
           "published": "2026-09-12"
-        },
-        {
-          "title": "Genoa vs Frosinone Prediction and Betting Tips | September 12th 2026",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOZzUwenpiT3dvVVNVcG03Y1dYSDRWbnVaOUx3UjRmV1pfbnplYUl6QjlIa2xNN2tzZTdwTlN3SmZxR2RmVWNYWlUxS0tTY0FsS2Exd3I0dnBHYWtiX0JFS05oUlZjSnc2aW9NaW9DakE1X0s3WF9talJ3ZEwxZW5EaFRXZGIwWFZwT0tPZThiNWNKeFRTZkhLUURXV1NySW1D?oc=5",
-          "source": "Sportskeeda",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Genoa vs Frosinone Prediction, Betting Tips, Lineups & Odds | 12 Sep 2026",
-          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNaE9oVGFPbTg5cEhiaThrTVNuOEJGTi1nSHhUamRzT0xPQnphd0x1OGkyMXBEczZFSE5NdmdOYUNkS3lVVnNxQ21FUFNBNzB1N0NSbG1mV25seFA2SnZMM3FwelRGd2NmUnY5ejZQVzhtaWdRTjg3Q2xWZzkyUFlzTklWM05LbHJNQmhBLVNrNEo5UDJLamFrWVBENlpLRjNHM2xUM21kT3BVUQ?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Genoa vs Frosinone predicted XI and live stream",
-          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOb0lWM1ZkUUF4emR3MDVpaG8tRWhDSjB3blFlSkNtTVp3YUtkVHc4MjQ2bmhSVmlqXzZ6QU1aOXQtb2VlTjBqdFM4QTZTQU9oN05mdXd3cXhaSkI1cUtDMEhOeFF0dF96czRGYVZNYUxTaTlic3c0UjVUcmQzX1hmZWttaWs1cTdrNU16QkEteGwtN2ZpbW1NLXJMYTF3bW1Rc011ZHBZVXIwT3FkNk13MS1lR2xoRHktNlB0WWhRQ0gwN2RFcWtCMTB2UTF3dw?oc=5",
-          "source": "Business Upturn",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Frosinone air quality map",
-          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBDdVVGaUJtaWI5Wi1TY21yT25FVFl4S0UwMVBCQ0w4NTZZWkVKa3BWUjZ3Nzc1VUxWZnVGc2JhZU5jYXZxRU5JZjVDNnN6b2U4bG1Oem95Z3pVTklvWUZSTnBWaVdDWHVGQzhYeVRXbENrMVlP?oc=5",
-          "source": "IQAir",
-          "published": "2026-09-11"
         }
       ]
     }
