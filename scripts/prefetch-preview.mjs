@@ -344,6 +344,12 @@ async function getSquad(teamId, teamName, leagueId, season) {
 async function getCoach(teamId) {
   const j = await af('coachs', { team: teamId });
   const list = (j && j.response) || [];
+  if (teamId === 170 || teamId === 168) {
+    console.log(`  [debug] team ${teamId} coachs response: ` + JSON.stringify(list.map((c) => ({
+      name: c.name,
+      career: (c.career || []).filter((e) => e.team && e.team.id === teamId),
+    }))));
+  }
   // the current coach: a career row for this team with no end date
   let cur = null;
   for (const c of list) {
