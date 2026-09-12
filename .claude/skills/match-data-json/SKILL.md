@@ -147,6 +147,14 @@ Calitatea în limita bugetului bate acoperirea exhaustivă.
    (`career[]`: club, perioadă, realizare/motiv plecare). Sursă: Wikipedia (infobox
    „Managerial career") sau Transfermarkt (via search). **Nu numi mandatul curent „revenire"
    fără o sursă care confirmă un mandat anterior la același club.**
+   **Verifică mereu că `coach.name` chiar e antrenorul de AZI, nu doar că e completat.**
+   API-Football are un bug cunoscut: mai mulți foști antrenori pot rămâne cu data de plecare
+   goală (`end: null`) simultan, iar Nivelul 1 poate prelua unul vechi. Un search rapid gen
+   „<echipă> antrenor <lună curentă> <an curent>" sau „<echipă> head coach sacked" rezolvă asta —
+   nu te opri la primul rezultat de tip „X appointed", verifică dacă nu cumva a fost deja demis
+   și înlocuit între timp. Dacă `coach.name` e greșit, corectează-l chiar dacă nu era `n/d` —
+   datele astea ajung direct în comentariul live al utilizatorului, nu-și permite să spună ceva
+   greșit pe post.
 5. **`newsCandidates` → `news[]`.** Nivelul 1 a pus în `teams.<side>.newsCandidates[]` titluri
    brute din RSS (title, url, source, published). Triază: păstrează doar ce e **relevant
    direct pentru meci** (accidentare de ultimă oră, transfer din lot, conferință pre-meci,

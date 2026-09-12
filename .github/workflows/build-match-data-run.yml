@@ -131,7 +131,14 @@ jobs:
                  ≤2–3 days old; rewrite in Romanian, paraphrased. Then DELETE the
                  `newsCandidates` arrays.
                - `coach.career` / `coach.country` / `coach.age` / `coach.tenureFrom`
-                 if empty (Wikipedia manager infobox).
+                 if empty (Wikipedia manager infobox). `coach.name` itself is normally
+                 just verified, not rewritten — EXCEPT when it's actually wrong: a
+                 quick "<club> head coach" search sometimes shows the club has since
+                 sacked/replaced whoever API-Football still lists (a known
+                 API-Football staleness pattern — see the skill's coach step). If so,
+                 correct `coach.name` and rebuild `career[]` for the real current
+                 coach; this is data a commentator reads on air, wrong is not
+                 acceptable just because the field wasn't empty.
                - `mercatoIn[]` / `mercatoOut[]`, `preseason[]` — if quickly found.
                - `stats.minutes` / `stats.apps` for the likely XI (FBref "All
                  Competitions" club page — one page per club covers the whole XI).
