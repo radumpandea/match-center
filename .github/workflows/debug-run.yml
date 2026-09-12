@@ -22,7 +22,6 @@ on:
 jobs:
   build-match:
     runs-on: ubuntu-latest
-    timeout-minutes: ${{ inputs.depth == 'deep' && 170 || 90 }}
     permissions:
       contents: write
       id-token: write
