@@ -72,7 +72,15 @@ async function fullNamesById(teamId, season) {
   // normalized name rather than by number.
   const byNormName = new Map();
   for (const p of roster) {
-    if (byId.has(p.id)) byNormName.set(norm(p.name), byId.get(p.id));
+    const full = byId.get(p.id);
+    if (!full) continue;
+    // Sanity check: API-Football's firstname/lastname split can silently drop
+    // part of a compound surname (seen for "J. Maja" -> reconstructed name
+    // missing "Maja" entirely). Reject the reconstruction if it doesn't even
+    // contain the surname everyone already knows the player by.
+    const surname = looksAbbreviated(p.name) ? p.name.replace(/^\S+\.\s*/, '') : p.name;
+    if (!norm(full).includes(norm(surname))) continue;
+    byNormName.set(norm(p.name), full);
   }
   return byNormName;
 }

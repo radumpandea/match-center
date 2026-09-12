@@ -286,8 +286,16 @@ async function getSquad(teamId, teamName, leagueId, season) {
     // (firstname/lastname splits are themselves inconsistent on API-Football).
     const baseName = name || (pl && pl.name) || null;
     const looksAbbreviated = baseName != null && /^\S+\.\s/.test(baseName);
-    const fullName = looksAbbreviated && pl && has(pl.firstname) && has(pl.lastname)
+    const reconstructed = looksAbbreviated && pl && has(pl.firstname) && has(pl.lastname)
       ? `${pl.firstname} ${pl.lastname}`.trim() : null;
+    // Sanity check: API-Football's firstname/lastname split can silently drop
+    // part of a compound surname (seen for "J. Maja" -> reconstructed name
+    // missing "Maja" entirely). Reject the reconstruction if it doesn't even
+    // contain the surname everyone already knows the player by; keep the
+    // abbreviated form instead of publishing a subtly wrong name.
+    const surname = looksAbbreviated ? baseName.replace(/^\S+\.\s*/, '') : null;
+    const fullName = reconstructed && surname && norm(reconstructed).includes(norm(surname))
+      ? reconstructed : null;
     squad.push({
       _id: id,
       number: num(number),
