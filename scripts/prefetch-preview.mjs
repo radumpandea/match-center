@@ -344,17 +344,15 @@ async function getSquad(teamId, teamName, leagueId, season) {
 async function getCoach(teamId) {
   const j = await af('coachs', { team: teamId });
   const list = (j && j.response) || [];
-  if (teamId === 170 || teamId === 168) {
-    console.log(`  [debug] team ${teamId} coachs response: ` + JSON.stringify(list.map((c) => ({
-      name: c.name,
-      career: (c.career || []).filter((e) => e.team && e.team.id === teamId),
-    }))));
-  }
-  // the current coach: a career row for this team with no end date
+  // The current coach: a career row for this team with no end date. Multiple
+  // former coaches routinely still show end:null here too -- API-Football
+  // doesn't reliably backfill it on a departure -- so don't just take the
+  // first match; take the one with the latest start date among them.
   let cur = null;
+  let curStart = '';
   for (const c of list) {
     const row = (c.career || []).find((e) => e.team && e.team.id === teamId && !e.end);
-    if (row) { cur = c; break; }
+    if (row && (row.start || '') > curStart) { cur = c; curStart = row.start || ''; }
   }
   if (!cur) return { name: 'n/d' };
   const career = (cur.career || [])
