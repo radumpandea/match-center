@@ -275,10 +275,18 @@ async function getSquad(teamId, teamName, leagueId, season) {
     const st = statsFrom(statRowFor(row && row.statistics, leagueId));
     const positions = positionsFrom(position || (st && st.position), row);
     const injured = !!(pl && pl.injured);
+    // API-Football's own `name` field is inconsistent: for well-known players
+    // it's already abbreviated ("B. Samba"), for fringe/academy players it's
+    // the full name ("Ayoube Akabou") — there's no reliable "short" vs "full"
+    // distinction to build on. Prefer reconstructing a real full name from
+    // firstname+lastname (present on the detailed /players object) so the UI's
+    // own shortName() can abbreviate it consistently for pitch labels.
+    const fullName = pl && has(pl.firstname) && has(pl.lastname)
+      ? `${pl.firstname} ${pl.lastname}`.trim() : null;
     squad.push({
       _id: id,
       number: num(number),
-      name: name || (pl && pl.name) || null,
+      name: fullName || name || (pl && pl.name) || null,
       pos: positions[0] || null,
       positions,
       role: roleFrom(position || (st && st.position)),

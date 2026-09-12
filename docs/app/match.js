@@ -1390,7 +1390,8 @@
           var li = el('li', {}, [
             el('a', { href: '#', onclick: function (e) { e.preventDefault(); openPlayer(d, side, p); },
               text: (p.number != null ? p.number + '. ' : '') + p.name +
-                (has(p.age) ? ' · ' + p.age + ' ani' : '') + (has(p.nat) ? ' · ' + p.nat : '') +
+                (has(p.age) || has(p.nat)
+                  ? ' (' + [has(p.age) ? p.age + ' ani' : null, p.nat].filter(Boolean).join(', ') + ')' : '') +
                 (p.stats && (p.stats.goals || p.stats.assists)
                   ? ' · ' + (p.stats.goals || 0) + 'G/' + (p.stats.assists || 0) + 'A' : '') +
                 (p.status && p.status !== 'available' ? ' · ' + p.status : '') })
