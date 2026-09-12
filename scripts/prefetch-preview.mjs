@@ -363,6 +363,17 @@ async function getCoach(teamId) {
     if (row && (row.start || '') > curStart) { cur = c; curStart = row.start || ''; }
   }
   if (!cur) return { name: 'n/d' };
+  // Same abbreviated-name problem as squad players ("D. Digard" instead of
+  // "Didier Digard") -- reconstruct from firstname+lastname when the given
+  // name looks abbreviated, but only accept it if it still contains the
+  // original surname (API-Football's split can drop part of a compound one).
+  const baseCoachName = cur.name || 'n/d';
+  const coachAbbrev = /^\S+\.\s/.test(baseCoachName);
+  const coachSurname = coachAbbrev ? baseCoachName.replace(/^\S+\.\s*/, '') : null;
+  const coachFull = coachAbbrev && has(cur.firstname) && has(cur.lastname)
+    ? `${cur.firstname} ${cur.lastname}`.trim() : null;
+  const coachName = (coachFull && coachSurname && norm(coachFull).includes(norm(coachSurname)))
+    ? coachFull : baseCoachName;
   const career = (cur.career || [])
     .filter((e) => e.team && e.team.name)
     .map((e) => ({
@@ -374,7 +385,7 @@ async function getCoach(teamId) {
   const tenure = (cur.career || []).find((e) => e.team && e.team.id === teamId && !e.end);
   return {
     _id: cur.id,   // stripped before the match file is written; used to fetch trophies?coach=
-    name: cur.name || 'n/d',
+    name: coachName,
     country: cur.nationality || null,
     age: num(cur.age),
     tenureFrom: tenure && tenure.start ? tenure.start.slice(0, 7) : null,
