@@ -28,6 +28,12 @@ on:
 # asked here (auto-pick or the exact match/depth given).
 jobs:
   build-match:
+    # Must mirror the permissions build-match-data-run.yml's job requests —
+    # a reusable-workflow call that asks for more than the caller job grants
+    # fails at startup (0 jobs run), it doesn't just downgrade silently.
+    permissions:
+      contents: write
+      id-token: write
     uses: ./.github/workflows/build-match-data-run.yml
     with:
       match: ${{ github.event.inputs.match || '' }}
