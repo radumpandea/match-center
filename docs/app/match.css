@@ -119,6 +119,10 @@ button{font-family:inherit}
   font-size:var(--lbl-fs);line-height:1.15;text-align:center;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.8);
   max-width:var(--lbl-mw);overflow-wrap:anywhere
 }
+.node .lbl-sub{
+  font-size:calc(var(--lbl-fs) - 3px);line-height:1.1;text-align:center;color:rgba(255,255,255,.8);
+  text-shadow:0 1px 3px rgba(0,0,0,.8);max-width:var(--lbl-mw)
+}
 /* captain armband */
 .cap-mark{
   position:absolute;top:-6px;left:-6px;width:15px;height:15px;border-radius:50%;

@@ -374,6 +374,47 @@
       if (xi) Object.keys(xi).forEach(function (k) { set(xi[k]); });
     });
   }
+  // Per-player display-name overrides (store.pname[side][keyOf(p)]) — lets the
+  // user show something other than the researched name (a nickname, a
+  // correction) everywhere the player appears, without touching the source
+  // data. Keyed by keyOf() (number-first, falls back to the pristine name) so
+  // the override survives a later number edit. Applied every render(), right
+  // after applyPnum so keyOf() already reflects any number override.
+  function applyPname(d) {
+    var pn = store.pname || {};
+    ['home', 'away'].forEach(function (side) {
+      var map = pn[side] || {};
+      var set = function (o) {
+        if (!o) return;
+        var k = keyOf(o);
+        if (Object.prototype.hasOwnProperty.call(map, k)) {
+          if (o._name0 === undefined) o._name0 = o.name;   // remember the researched name
+          o.name = map[k];
+        } else if (o._name0 !== undefined) {
+          o.name = o._name0;   // override was cleared -- restore the researched name
+        }
+      };
+      (d.teams[side].squad || []).forEach(set);
+      (d.teams[side].predictedXI || []).forEach(set);
+      (d.teams[side].confirmedXI || []).forEach(set);
+      (store.manualSquad && store.manualSquad[side] || []).forEach(set);
+      var xi = store.xi && store.xi[side];
+      if (xi) Object.keys(xi).forEach(function (k) { set(xi[k]); });
+    });
+  }
+  function setPlayerName(d, side, p, name) {
+    var k = keyOf(p);
+    var orig = p._name0 !== undefined ? p._name0 : p.name;
+    name = (name || '').trim();
+    store.pname = store.pname || {};
+    store.pname[side] = store.pname[side] || {};
+    if (!name || name === orig) delete store.pname[side][k]; else store.pname[side][k] = name;
+    if (!Object.keys(store.pname[side]).length) delete store.pname[side];
+    save();
+    var back = document.querySelector('.modal-back');
+    if (back) back.remove();
+    render(d);
+  }
   function setPlayerNumber(d, side, p, n) {
     var oldKey = keyOf(p);
     var newKey = (n != null && !isNaN(n)) ? 'n' + n : 's' + p.name;
@@ -390,6 +431,10 @@
         store.bench[side] = store.bench[side].map(function (k) { return k === oldKey ? newKey : k; });
       }
       if (store.captain && store.captain[side] === oldKey) store.captain[side] = newKey;
+      if (store.pname && store.pname[side] && Object.prototype.hasOwnProperty.call(store.pname[side], oldKey)) {
+        store.pname[side][newKey] = store.pname[side][oldKey];
+        delete store.pname[side][oldKey];
+      }
       if (store.events) {
         var oe = side + ':' + (p.number != null ? p.number : p.name);
         var ne = side + ':' + (n != null ? n : p.name);
@@ -616,6 +661,7 @@
   function render(data) {
     applyManualOverlay(data);
     applyPnum(data);
+    applyPname(data);
     applyDiscColors(data);
     document.title = data.teams.home.name + ' – ' + data.teams.away.name + ' · Match Center';
     root.innerHTML = '';
@@ -870,7 +916,10 @@
             cap ? el('span', { class: 'cap-mark', text: 'C' }) : null
           ]),
           badges,
-          el('div', { class: 'lbl', text: isEmpty ? 'Adaugă' : (view.fullNames ? (slot.name || '') : shortName(slot.name)) })
+          el('div', { class: 'lbl', text: isEmpty ? 'Adaugă' : (view.fullNames ? (slot.name || '') : shortName(slot.name)) }),
+          (!isEmpty && full && (has(full.age) || has(full.nat)))
+            ? el('div', { class: 'lbl-sub', text: '(' + [has(full.age) ? full.age + ' ani' : null, full.nat].filter(Boolean).join(', ') + ')' })
+            : null
         ]);
         makeDraggable(node, shell, function (p) {
           store.lineup = store.lineup || {};
@@ -1620,7 +1669,17 @@
         var wrap = el('div');
         var body = el('div');
         // shirt number — editable, for when it's missing or has changed;
+        // display name — editable, in case something else is preferred;
         // plus a captain toggle
+        var nameIn = el('input', { class: 'field pname-in', type: 'text',
+          placeholder: p._name0 !== undefined ? p._name0 : p.name, value: p.name });
+        var nameSave = el('button', { class: 'pick pnum-save', text: 'Salvează', onclick: function () {
+          setPlayerName(d, side, p, nameIn.value);
+        } });
+        var nameReset = (p._name0 !== undefined && p._name0 !== p.name)
+          ? el('button', { class: 'pick pname-reset', text: '↺', title: 'Revino la numele cercetat: ' + p._name0,
+              onclick: function () { setPlayerName(d, side, p, ''); } })
+          : null;
         var numIn = el('input', { class: 'field pnum-in', type: 'number', min: '1', max: '99',
           placeholder: '—', value: p.number != null ? p.number : '' });
         var numSave = el('button', { class: 'pick pnum-save', text: 'Salvează', onclick: function () {
@@ -1634,6 +1693,8 @@
           onclick: function () { setCaptain(d, side, p); }
         });
         wrap.appendChild(el('div', { class: 'pcard-edit' }, [
+          el('label', { text: 'Nume afișat' }),
+          el('div', { class: 'pnum-row' }, [nameIn, nameSave, nameReset]),
           el('label', { text: 'Număr' }),
           el('div', { class: 'pnum-row' }, [numIn, numSave]),
           capBtn
