@@ -104,9 +104,23 @@ nu ca o căutare separată per jucător, ci ca atenție la ce apare deja în sur
   revenire pe orașul natal, revenire după accidentare lungă, o bornă de carieră.
 - **Fapt de carieră notabil** (`funfact`): golgheter al ligii, cel mai tânăr/în vârstă din
   lot, record de club, parcurs neobișnuit.
+- **Selecții la naționala mare** (`funfact`) — cere-o explicit pentru primul 11 probabil al
+  fiecărei echipe, nu doar dacă apare incidental: câte selecții (și la ce naționala, dacă
+  jucătorul a ales altă țară decât cea de origine — vezi mai jos), de când datează, un moment
+  notabil (gol la debut, turneu final). Dacă un jucător NU are nicio selecție la naționala mare
+  (doar la loturile de tineret), scrie asta explicit — „fără selecții la naționala mare a
+  <țării> — doar la loturile de tineret" — nu lăsa `funfact` gol doar pentru că răspunsul e
+  negativ; utilizatorul vrea să știe dacă are sau nu, nu doar poveștile pozitive.
 
 Adaugă un fapt DOAR dacă există și e confirmat. Majoritatea rezervelor și tinerilor n-au
 nimic relevant — `funfact` / `linkLine` rămân `null`, e normal.
+
+**Naționalitate vs. echipă națională reprezentată.** `nat` = cetățenia (codul de 3 litere);
+`natTeam` = naționala pentru care joacă efectiv, DOAR dacă diferă de `nat` (jucător
+dual-eligibil, născut/cetățean într-o țară dar a ales altă naționala — ex. născut și cetățean
+francez, dar joacă pentru Mali sau Mauritania). Nu pune niciodată o naționala într-un `career[]`
+(acela e strict pentru cluburi) — dacă vezi asta la un jucător deja din pachet, mută informația
+în `natTeam`/`funfact` și curăță `career[]`.
 
 ## Pasul 1 — Cercetare (web_search / web_fetch)
 
