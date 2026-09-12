@@ -1,0 +1,11 @@
+name: Test Minimal Reusable Call
+on:
+  workflow_dispatch: {}
+jobs:
+  build-match:
+    uses: ./.github/workflows/build-match-data-run.yml
+    with:
+      match: ""
+      depth: "standard"
+      model: ""
+    secrets: inherit
