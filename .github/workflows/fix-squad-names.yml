@@ -1,0 +1,48 @@
+name: Fix Squad Names (one-off)
+
+on:
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: "Space-separated match slugs to patch"
+        required: true
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install validator dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Patch squad names
+        env:
+          APIFOOTBALL_KEY: ${{ secrets.APIFOOTBALL_KEY }}
+        run: node scripts/fix-squad-names.mjs ${{ inputs.slugs }}
+
+      - name: Validate patched files
+        run: |
+          for s in ${{ inputs.slugs }}; do
+            node scripts/validate-match.mjs "docs/data/matches/$s.json"
+          done
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/matches
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Patch squad names to full form ($(date -u +%Y-%m-%d))"
+            git push
+          fi
