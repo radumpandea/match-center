@@ -1,0 +1,28 @@
+name: Debug Run
+
+on:
+  workflow_call:
+    inputs:
+      match:
+        description: "Exact slug. Empty = daily auto-pick of up to 2."
+        required: false
+        type: string
+        default: ""
+      depth:
+        description: "standard or deep"
+        required: false
+        type: string
+        default: "standard"
+      model:
+        description: "Model override (empty = derived from depth)"
+        required: false
+        type: string
+        default: ""
+
+jobs:
+  build-match:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1

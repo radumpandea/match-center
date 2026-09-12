@@ -3,7 +3,7 @@ on:
   workflow_dispatch: {}
 jobs:
   build-match:
-    uses: ./.github/workflows/build-match-data-run.yml
+    uses: ./.github/workflows/debug-run.yml
     with:
       match: ""
       depth: "standard"
