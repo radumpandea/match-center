@@ -229,6 +229,7 @@
           "additionalProperties": false,
           "required": ["name"],
           "properties": {
+            "apiId": { "type": ["integer", "null"], "description": "API-Football coach id — the identity key in the mc_entities table (docs/supabase.sql), so a correction applies everywhere this coach appears" },
             "name": { "type": "string" },
             "country": { "type": ["string", "null"] },
             "age": { "type": ["integer", "null"] },
@@ -487,6 +488,7 @@
       "additionalProperties": false,
       "required": ["name", "role"],
       "properties": {
+        "apiId": { "type": ["integer", "null"], "description": "API-Football player id — the identity key in the mc_entities table (docs/supabase.sql), so a correction applies everywhere this player appears" },
         "number": { "type": ["integer", "null"] },
         "name": { "type": "string" },
         "pos": { "type": ["string", "null"], "description": "detailed position label" },

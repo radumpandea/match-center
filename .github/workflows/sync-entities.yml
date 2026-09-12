@@ -1,0 +1,29 @@
+name: Sync Coach Entities
+
+# Manual for now (workflow_dispatch only) until a first run is verified
+# against the real Supabase project. Once trusted, add a schedule here (e.g.
+# after Prefetch Preview) so coach corrections in API-Football reach every
+# match automatically. Writes to Supabase only — no repo files change, so no
+# commit step and no `contents: write` permission needed.
+on:
+  workflow_dispatch: {}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Sync current coaches into mc_entities
+        env:
+          APIFOOTBALL_KEY: ${{ secrets.APIFOOTBALL_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/sync-entities.mjs

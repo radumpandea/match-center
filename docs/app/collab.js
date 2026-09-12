@@ -173,5 +173,22 @@
     try { await ensureUser(); if (user) await loadFavourites(); } catch (e) { enabled = false; emit(); }
   }
 
-  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes };
+  // Canonical cross-match entity (team/player/coach/referee), keyed by
+  // API-Football's own id — see docs/supabase.sql, mc_entities. Public read,
+  // no login required, since it replaces facts that used to be copy-pasted
+  // into every match file that mentions the same real person. Returns null on
+  // any failure (not configured, row missing, offline) so callers keep using
+  // their embedded match-file copy as the fallback — this is a read-through
+  // enhancement, never a hard dependency.
+  async function getEntity(kind, apiId) {
+    if (!enabled || apiId == null) return null;
+    try {
+      var res = await client.from('mc_entities').select('base,overrides')
+        .eq('kind', kind).eq('entity_key', 'af:' + apiId).maybeSingle();
+      if (res.error || !res.data) return null;
+      return Object.assign({}, res.data.base || {}, res.data.overrides || {});
+    } catch (e) { return null; }
+  }
+
+  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes, getEntity: getEntity };
 })();

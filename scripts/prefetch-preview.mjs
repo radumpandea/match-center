@@ -297,7 +297,7 @@ async function getSquad(teamId, teamName, leagueId, season) {
     const fullName = reconstructed && surname && norm(reconstructed).includes(norm(surname))
       ? reconstructed : null;
     squad.push({
-      _id: id,
+      apiId: id,   // API-Football player id — stable identity for the mc_entities table (docs/supabase.sql)
       number: num(number),
       name: fullName || baseName,
       pos: positions[0] || null,
@@ -384,7 +384,7 @@ async function getCoach(teamId) {
     .slice(0, 12);
   const tenure = (cur.career || []).find((e) => e.team && e.team.id === teamId && !e.end);
   return {
-    _id: cur.id,   // stripped before the match file is written; used to fetch trophies?coach=
+    apiId: cur.id,   // API-Football coach id — used for trophies?coach= and as the mc_entities identity key
     name: coachName,
     country: cur.nationality || null,
     age: num(cur.age),
@@ -418,8 +418,7 @@ async function applyCoachTrophies(doc, cache) {
   for (const side of ['home', 'away']) {
     const coach = doc.teams[side].coach;
     if (!coach) continue;
-    const id = coach._id;
-    delete coach._id;
+    const id = coach.apiId;
     if (id == null || (coach.trophies && coach.trophies.length)) continue;
     const list = await getTrophies('coach', id, cache);
     if (list.length) coach.trophies = list;
@@ -753,10 +752,9 @@ async function getCareer(playerId, cache) {
 
 async function applyCareers(doc, cache) {
   for (const side of ['home', 'away']) {
-    const idRows = doc.teams[side]._squadIds || [];   // same order/length as squad
     const squad = doc.teams[side].squad || [];
     const targets = squad
-      .map((p, i) => ({ p, id: idRows[i] && idRows[i]._id }))
+      .map((p) => ({ p, id: p.apiId }))
       .filter((x) => x.id != null && !has(x.p.career))
       .sort((a, b) => ((b.p.stats && b.p.stats.minutes) || 0) - ((a.p.stats && a.p.stats.minutes) || 0))
       .slice(0, CAREER_MAX_PLAYERS);
@@ -915,8 +913,7 @@ async function buildMatch(fx, season, cache) {
     const t = out.teams[side];
     const { id, cache: sq, news } = bySide[side];
     if (sq && sq.squad && sq.squad.length) {
-      t.squad = sq.squad.map(stripInternal);
-      t._squadIds = sq.squad;   // keep _id-bearing copies for the career pass
+      t.squad = sq.squad;   // apiId kept on each entry now (mc_entities identity key)
       if (sq.coach && sq.coach.name) t.coach = sq.coach;
       t.absences = await getAbsences(id, season);
     }
@@ -1029,20 +1026,6 @@ function computeStorySeeds(doc) {
   if (out.length) doc.storyOfTheMatch = out.slice(0, 8);
 }
 
-function stripInternal(p) {
-  const { _id, ...rest } = p;
-  return rest;
-}
-function stripSquadIds(doc) {
-  for (const side of ['home', 'away']) {
-    delete doc.teams[side]._squadIds;
-    // safety net: applyCoachTrophies() strips this too, but only on the
-    // success path — guarantee it's gone even if an earlier enrichment
-    // step throws, since additionalProperties:false would reject it.
-    if (doc.teams[side].coach) delete doc.teams[side].coach._id;
-  }
-}
-
 /* ---------- main ---------- */
 async function main() {
   const fixtures = readJSON(FIXTURES) || [];
@@ -1149,8 +1132,8 @@ async function main() {
         for (const p of doc.teams[side].squad || []) {
           if (has(p.career)) continue;
           const match = ids.find((x) => norm(x.name) === norm(p.name) || (p.number != null && x.number === p.number));
-          if (!match || match._id == null) continue;
-          const c = await getCareer(match._id, cache);
+          if (!match || match.apiId == null) continue;
+          const c = await getCareer(match.apiId, cache);
           if (c) { p.career = c; touched = true; }
         }
       }
@@ -1162,8 +1145,8 @@ async function main() {
       const coach = doc.teams[side].coach;
       if (needTrophies && coach && has(coach.name) && (!coach.trophies || !coach.trophies.length)) {
         const cinfo = await getCoach(id);
-        if (cinfo && cinfo._id != null) {
-          const list = await getTrophies('coach', cinfo._id, cache);
+        if (cinfo && cinfo.apiId != null) {
+          const list = await getTrophies('coach', cinfo.apiId, cache);
           if (list.length) { coach.trophies = list; touched = true; }
         }
       }
@@ -1200,7 +1183,6 @@ async function main() {
       console.error(`  enrich failed: ${e.message}`);
     }
     computeStorySeeds(doc);
-    stripSquadIds(doc);
     writeJSON(`${MATCHES_DIR}/${f.slug}.json`, doc);
     partialSlugs.add(f.slug);
     console.log(`  wrote docs/data/matches/${f.slug}.json (partial${doc.h2h.recent.length ? ', +h2h' : ''})`);

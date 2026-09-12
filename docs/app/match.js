@@ -35,6 +35,7 @@
     data._partial = partial;
     render(data);
     connectCollaboration(data);
+    connectEntities(data);
   });
 
   function fail(html) { root.innerHTML = '<div class="errbox">' + html + '</div>'; }
@@ -114,6 +115,26 @@
       render(data);
     });
   }
+  // Overlays the canonical, shared coach record (mc_entities, via collab.js)
+  // onto this match's embedded copy, once, on load. `coach.apiId` only exists
+  // on files built after this was added; older files simply have no apiId and
+  // this is a silent no-op, keeping the embedded coach as-is. This is what
+  // makes a coach correction apply to every match referencing that coach
+  // instead of needing a file-by-file bulk patch (the Wagner/Baum, Baines/
+  // Moyes bugs from 2026-09).
+  function connectEntities(data) {
+    if (!window.MC_COLLAB) return;
+    ['home', 'away'].forEach(function (side) {
+      var coach = data.teams[side] && data.teams[side].coach;
+      if (!coach || coach.apiId == null) return;
+      window.MC_COLLAB.getEntity('coach', coach.apiId).then(function (entity) {
+        if (!entity || !has(entity.name)) return;
+        Object.assign(coach, entity);
+        render(data);
+      });
+    });
+  }
+
   function notesFor(id) { return (store.notes && store.notes[id]) || []; }
   // one input line -> { kind, text }. A leading -, *, • or – marks a bullet;
   // two markers (--, **) or a 2-space indent marks a sub-bullet.
