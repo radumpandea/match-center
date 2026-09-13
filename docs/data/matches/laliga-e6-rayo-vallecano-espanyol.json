@@ -1,12 +1,12 @@
 {
   "slug": "laliga-e6-rayo-vallecano-espanyol",
-  "generatedAt": "2026-09-12T14:40:26.276Z",
+  "generatedAt": "2026-09-13T11:30:29.621Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-09-12"
+      "accessed": "2026-09-13"
     }
   ],
   "competition": {
@@ -21,11 +21,11 @@
     "city": "Madrid",
     "notes": null,
     "weather": {
-      "tempC": 35,
+      "tempC": 34,
       "condition": "cer clar",
-      "windKph": 7,
+      "windKph": 6,
       "precipitationMm": 0,
-      "forecastAt": "2026-09-12T14:40:26.803Z"
+      "forecastAt": "2026-09-13T11:30:29.998Z"
     }
   },
   "referee": {
@@ -68,10 +68,10 @@
     "summary": "Cap la cap (10 meciuri): Rayo Vallecano 6 - 0 - 4 Espanyol."
   },
   "storyOfTheMatch": [
-    "Rayo Vallecano — locul 14 după 4 etape, 4 puncte, golaveraj 7-10.",
+    "Rayo Vallecano — locul 15 după 5 etape, 4 puncte, golaveraj 8-14.",
     "Sergio Camello e cel mai bun marcator al echipei Rayo Vallecano în acest start de sezon (5 goluri).",
-    "Espanyol — locul 12 după 4 etape, 4 puncte, golaveraj 6-5.",
-    "Roberto Fernández e cel mai bun marcator al echipei Espanyol în acest start de sezon (3 goluri).",
+    "Espanyol — locul 7 după 5 etape, 7 puncte, golaveraj 8-5.",
+    "Roberto Fernández e cel mai bun marcator al echipei Espanyol în acest start de sezon (5 goluri).",
     "Cap la cap (10 meciuri): Rayo Vallecano 6 - 0 - 4 Espanyol."
   ],
   "predictions": {
@@ -85,20 +85,20 @@
     },
     "comparison": {
       "form": {
+        "home": 36,
+        "away": 64
+      },
+      "attack": {
         "home": 50,
         "away": 50
       },
-      "attack": {
-        "home": 54,
-        "away": 46
-      },
       "defense": {
-        "home": 33,
-        "away": 67
+        "home": 26,
+        "away": 74
       },
       "poisson": {
-        "home": 66,
-        "away": 34
+        "home": 39,
+        "away": 61
       },
       "h2h": {
         "home": 20,
@@ -116,14 +116,20 @@
       "shortName": null,
       "colors": null,
       "coach": {
-        "name": "Iñigo Pérez",
-        "country": "Spain",
-        "age": 37,
-        "tenureFrom": "2024-02",
+        "apiId": 26023,
+        "name": "Benat San Jose",
+        "country": null,
+        "age": null,
+        "tenureFrom": "2026-07",
         "career": [
           {
             "club": "Rayo Vallecano",
-            "period": "2024–prezent",
+            "period": "2026–prezent",
+            "note": null
+          },
+          {
+            "club": "Eibar",
+            "period": "2025–2026",
             "note": null
           }
         ]
@@ -133,9 +139,13 @@
       "confirmedXI": null,
       "squad": [
         {
+          "apiId": 30441,
           "number": 25,
           "name": "Emilio Audero Mulyadi",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 28,
           "height": 190,
@@ -159,13 +169,16 @@
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 30441
+          }
         },
         {
+          "apiId": 11379,
           "number": 13,
           "name": "Augusto Martín Batalla Barga",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 29,
           "height": 186,
@@ -189,13 +202,16 @@
             "yellow": 0,
             "red": null,
             "rating": 6.9
-          },
-          "apiId": 11379
+          }
         },
         {
+          "apiId": 156488,
           "number": 1,
           "name": "Dani Cárdenas",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 28,
           "height": 186,
@@ -219,13 +235,16 @@
             "yellow": 0,
             "red": null,
             "rating": 6.57
-          },
-          "apiId": 156488
+          }
         },
         {
+          "apiId": 285505,
           "number": 30,
           "name": "Juanpe",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 24,
           "height": null,
@@ -241,13 +260,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 285505
+          "stats": null
         },
         {
+          "apiId": 478244,
           "number": 30,
           "name": "Adrián Molina",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 20,
           "height": null,
@@ -266,18 +288,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 478244
+          }
         },
         {
+          "apiId": 20520,
           "number": 20,
           "name": "Iván Balliu Campeny",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 34,
           "height": 172,
@@ -301,13 +326,16 @@
             "yellow": 0,
             "red": null,
             "rating": 6.3
-          },
-          "apiId": 20520
+          }
         },
         {
+          "apiId": 333292,
           "number": 22,
           "name": "Pelayo Fernández",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 22,
           "height": 190,
@@ -330,14 +358,17 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.2
-          },
-          "apiId": 333292
+            "rating": 4.13
+          }
         },
         {
+          "apiId": 30924,
           "number": 4,
           "name": "M. Kumbulla",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 25,
           "height": null,
@@ -353,13 +384,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 30924
+          "stats": null
         },
         {
+          "apiId": 18895,
           "number": 24,
           "name": "Florian Grégoire Claude Lejeune",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 34,
           "height": 189,
@@ -383,13 +417,16 @@
             "yellow": 1,
             "red": null,
             "rating": 6.5
-          },
-          "apiId": 18895
+          }
         },
         {
+          "apiId": 626804,
           "number": 27,
           "name": "S. Lozano",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 19,
           "height": null,
@@ -405,13 +442,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 626804
+          "stats": null
         },
         {
+          "apiId": 1847,
           "number": 5,
           "name": "Luiz Felipe",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 28,
           "height": null,
@@ -427,13 +467,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 1847
+          "stats": null
         },
         {
+          "apiId": 47329,
           "number": 17,
           "name": "Adrià Pedrosa",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 27,
           "height": 176,
@@ -457,13 +500,16 @@
             "yellow": 1,
             "red": null,
             "rating": 6.35
-          },
-          "apiId": 47329
+          }
         },
         {
+          "apiId": 1703,
           "number": 2,
           "name": "Andrei Florin Rațiu",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 27,
           "height": 183,
@@ -487,13 +533,16 @@
             "yellow": 0,
             "red": null,
             "rating": 6.63
-          },
-          "apiId": 1703
+          }
         },
         {
+          "apiId": 104795,
           "number": 15,
           "name": "Mujaid Sadick",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 25,
           "height": 183,
@@ -517,13 +566,16 @@
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 104795
+          }
         },
         {
+          "apiId": 314006,
           "number": 33,
           "name": "Jozhua Vertrouwd",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 21,
           "height": 188,
@@ -547,13 +599,16 @@
             "yellow": 0,
             "red": null,
             "rating": 6.25
-          },
-          "apiId": 314006
+          }
         },
         {
+          "apiId": 478243,
           "number": 26,
           "name": "Marco de las Sías",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 20,
           "height": 180,
@@ -572,50 +627,24 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 478243
+          }
         },
         {
+          "apiId": 619508,
           "number": 34,
           "name": "I. Alonso Martin",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID",
+            "DEF"
+          ],
           "role": "MID",
           "age": 20,
-          "height": null,
-          "weight": null,
-          "foot": null,
-          "nat": null,
-          "natTeam": null,
-          "birthCountry": null,
-          "pronunciation": null,
-          "career": "Rayo Vallecano (2026–prezent)",
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": {
-            "goals": 0,
-            "assists": 0,
-            "minutes": null,
-            "apps": 0,
-            "yellow": 0,
-            "red": null,
-            "rating": null
-          },
-          "apiId": 619508
-        },
-        {
-          "number": 28,
-          "name": "Samu Becerra",
-          "pos": null,
-          "role": "MID",
-          "age": 19,
           "height": null,
           "weight": null,
           "foot": null,
@@ -629,13 +658,57 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 439633
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null
+          }
         },
         {
+          "apiId": 439633,
+          "number": 28,
+          "name": "Samu Becerra",
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
+          "role": "MID",
+          "age": 19,
+          "height": null,
+          "weight": null,
+          "foot": null,
+          "nat": "ESP",
+          "natTeam": null,
+          "birthCountry": "Spain",
+          "pronunciation": null,
+          "career": null,
+          "lastSeason": null,
+          "funfact": null,
+          "linkLine": null,
+          "status": "available",
+          "statusNote": null,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 0,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null
+          }
+        },
+        {
+          "apiId": 548809,
           "number": 36,
           "name": "G. Bouare",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 21,
           "height": null,
@@ -654,18 +727,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 2,
+            "minutes": 157,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.55
-          },
-          "apiId": 548809
+            "rating": 6.54
+          }
         },
         {
+          "apiId": 41552,
           "number": 6,
           "name": "Pathé Ismaël Ciss",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 31,
           "height": 186,
@@ -689,13 +765,16 @@
             "yellow": 1,
             "red": null,
             "rating": 6.53
-          },
-          "apiId": 41552
+          }
         },
         {
+          "apiId": 46887,
           "number": 4,
           "name": "Pedro Díaz",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 27,
           "height": 180,
@@ -719,13 +798,17 @@
             "yellow": 0,
             "red": null,
             "rating": 6.8
-          },
-          "apiId": 46887
+          }
         },
         {
+          "apiId": 47543,
           "number": 18,
           "name": "Álvaro García",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT",
+            "MID"
+          ],
           "role": "ATT",
           "age": 33,
           "height": 167,
@@ -749,13 +832,16 @@
             "yellow": 1,
             "red": null,
             "rating": 6.48
-          },
-          "apiId": 47543
+          }
         },
         {
+          "apiId": 47285,
           "number": 8,
           "name": "Unai López",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 30,
           "height": 170,
@@ -779,13 +865,17 @@
             "yellow": 1,
             "red": null,
             "rating": 7
-          },
-          "apiId": 47285
+          }
         },
         {
+          "apiId": 122657,
           "number": 11,
           "name": "Randy Nteka",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID",
+            "ATT"
+          ],
           "role": "MID",
           "age": 28,
           "height": 189,
@@ -809,13 +899,16 @@
             "yellow": 0,
             "red": null,
             "rating": 6.47
-          },
-          "apiId": 122657
+          }
         },
         {
+          "apiId": 626805,
           "number": 31,
           "name": "M. Roman",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 19,
           "height": null,
@@ -834,18 +927,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 626805
+          }
         },
         {
+          "apiId": 47109,
           "number": 23,
           "name": "Óscar Valentín",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 31,
           "height": 177,
@@ -869,13 +965,16 @@
             "yellow": 1,
             "red": null,
             "rating": 6.63
-          },
-          "apiId": 47109
+          }
         },
         {
+          "apiId": 91745,
           "number": 9,
           "name": "Alemão",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 27,
           "height": 182,
@@ -899,13 +998,16 @@
             "yellow": 0,
             "red": null,
             "rating": 6.63
-          },
-          "apiId": 91745
+          }
         },
         {
+          "apiId": 52,
           "number": 10,
           "name": "Sergio Camello",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 24,
           "height": 177,
@@ -929,13 +1031,17 @@
             "yellow": 2,
             "red": null,
             "rating": 7.85
-          },
-          "apiId": 52
+          }
         },
         {
+          "apiId": 131546,
           "number": 7,
           "name": "Isi Palazón",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT",
+            "MID"
+          ],
           "role": "ATT",
           "age": 31,
           "height": 169,
@@ -959,13 +1065,16 @@
             "yellow": 0,
             "red": null,
             "rating": 6.6
-          },
-          "apiId": 131546
+          }
         },
         {
+          "apiId": 162931,
           "number": 21,
           "name": "Fran Pérez",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 23,
           "height": 175,
@@ -989,13 +1098,16 @@
             "yellow": 1,
             "red": 1,
             "rating": 6.25
-          },
-          "apiId": 162931
+          }
         },
         {
+          "apiId": 2181,
           "number": 14,
           "name": "Giorgi Tsitaishvili",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 25,
           "height": 171,
@@ -1019,13 +1131,17 @@
             "yellow": 0,
             "red": null,
             "rating": 6.3
-          },
-          "apiId": 2181
+          }
         },
         {
+          "apiId": 128582,
           "number": 19,
           "name": "Jorge de Frutos",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT",
+            "MID"
+          ],
           "role": "ATT",
           "age": 28,
           "height": 173,
@@ -1049,31 +1165,72 @@
             "yellow": 0,
             "red": 1,
             "rating": 6.63
-          },
-          "apiId": 128582
+          }
+        },
+        {
+          "apiId": 443668,
+          "number": 37,
+          "name": "Rayane Belid",
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
+          "role": "ATT",
+          "age": 20,
+          "height": 172,
+          "weight": 63,
+          "foot": null,
+          "nat": "ESP",
+          "natTeam": null,
+          "birthCountry": "Spain",
+          "pronunciation": null,
+          "career": "Atletico Madrid (2023–2025) · Rayo Vallecano (2026–prezent)",
+          "lastSeason": null,
+          "funfact": null,
+          "linkLine": null,
+          "status": "available",
+          "statusNote": null,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 23,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.33
+          }
         }
       ],
       "form": {
         "last5": [
+          "L",
           "W",
           "L",
           "D",
           "L"
         ],
-        "ppg": 1,
-        "homeAway": "Acasă 1-1-0, deplasare 0-0-2",
-        "position": 14,
-        "note": "Clasament 2026/27: locul 14, 4p (7-10)",
+        "ppg": 0.8,
+        "homeAway": "Acasă 1-1-0, deplasare 0-0-3",
+        "position": 15,
+        "note": "Clasament 2026/27: locul 15, 4p (8-14)",
         "table": {
-          "played": 4,
+          "played": 5,
           "win": 1,
           "draw": 1,
-          "loss": 2,
-          "gf": 7,
-          "ga": 10,
+          "loss": 3,
+          "gf": 8,
+          "ga": 14,
           "points": 4
         },
         "recent": [
+          {
+            "date": "2026-09-12",
+            "opp": "Real Madrid",
+            "homeAway": "A",
+            "comp": "La Liga",
+            "score": "1-4",
+            "result": "L"
+          },
           {
             "date": "2026-09-05",
             "opp": "Racing Santander",
@@ -1113,23 +1270,9 @@
             "comp": "Friendlies Clubs",
             "score": "0-3",
             "result": "L"
-          },
-          {
-            "date": "2026-08-01",
-            "opp": "Charleroi",
-            "homeAway": "A",
-            "comp": "Friendlies Clubs",
-            "score": "3-2",
-            "result": "W"
           }
         ],
         "next": [
-          {
-            "date": "2026-09-12",
-            "opp": "Real Madrid",
-            "homeAway": "A",
-            "comp": "La Liga"
-          },
           {
             "date": "2026-09-15",
             "opp": "Espanyol",
@@ -1141,6 +1284,12 @@
             "opp": "Osasuna",
             "homeAway": "A",
             "comp": "La Liga"
+          },
+          {
+            "date": "2026-10-11",
+            "opp": "Athletic Club",
+            "homeAway": "H",
+            "comp": "La Liga"
           }
         ],
         "stats": {
@@ -1148,24 +1297,26 @@
             "0-15": 2,
             "16-30": 1,
             "31-45": 1,
-            "46-60": 4
+            "46-60": 5
           },
           "goalsAgainstByInterval": {
-            "0-15": 1,
-            "16-30": 3,
+            "0-15": 2,
+            "16-30": 4,
+            "31-45": 1,
             "46-60": 1,
             "61-75": 1,
-            "76-90": 3
+            "76-90": 3,
+            "91-105": 1
           },
           "cardsYellowByInterval": {
             "0-15": 1,
             "31-45": 1,
             "61-75": 4,
-            "76-90": 2,
+            "76-90": 3,
             "91-105": 1
           },
-          "goalsForAvg": 1.8,
-          "goalsAgainstAvg": 2.5,
+          "goalsForAvg": 1.6,
+          "goalsAgainstAvg": 2.8,
           "cleanSheets": 0,
           "failedToScore": 0,
           "penaltyScored": 0,
@@ -1173,7 +1324,7 @@
           "formations": [
             {
               "formation": "4-2-3-1",
-              "played": 2
+              "played": 3
             },
             {
               "formation": "4-1-4-1",
@@ -1185,7 +1336,7 @@
             }
           ],
           "biggestStreak": {
-            "wins": 0,
+            "wins": 1,
             "draws": 1,
             "loses": 1
           }
@@ -1196,55 +1347,31 @@
           "name": "A. Batalla",
           "reason": "injury",
           "detail": "Broken calfbone",
-          "since": "2026-09-12"
+          "since": "2026-09-15"
         },
         {
           "name": "Luiz Felipe",
           "reason": "injury",
           "detail": "Hamstring Injury",
-          "since": "2026-09-12"
+          "since": "2026-09-15"
         },
         {
           "name": "R. Nteka",
           "reason": "injury",
           "detail": "Muscle Injury",
-          "since": "2026-09-12"
+          "since": "2026-09-15"
         },
         {
           "name": "I. Palazon",
           "reason": "injury",
           "detail": "Muscle Injury",
-          "since": "2026-09-12"
-        },
-        {
-          "name": "F. Perez",
-          "reason": "suspension",
-          "detail": "Red Card",
-          "since": "2026-09-12"
+          "since": "2026-09-15"
         },
         {
           "name": "J. Vertrouwd",
           "reason": "injury",
           "detail": "Muscle Injury",
-          "since": "2026-09-12"
-        },
-        {
-          "name": "J. de Frutos",
-          "reason": "suspension",
-          "detail": "Red Card",
-          "since": "2026-09-12"
-        },
-        {
-          "name": "I. Balliu",
-          "reason": "injury",
-          "detail": "Ankle Injury",
-          "since": "2026-09-12"
-        },
-        {
-          "name": "M. Kumbulla",
-          "reason": "injury",
-          "detail": "Muscle Injury",
-          "since": "2026-09-12"
+          "since": "2026-09-15"
         }
       ],
       "mercatoIn": [],
@@ -1253,52 +1380,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Real Madrid vs. Rayo Vallecano: Preview, Predictions and Lineups",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOOVB6SzVWYlIyeWhzUjg2RTFRaGF2Vng5WHVvaFl4T3ktb2l1N3NHZ1VHSlhfLXNqNmN5cUt0bkN6LXVMVkRmcFNuVnB5aTZtSU1yQWt1SnhDRGV5Y0p0ZzI2LWhvUk8yeTlzc0piYjJQN0U1ajBYOFV5VnVBWVlEYlNLQkdZcGs?oc=5",
-          "source": "Sports Illustrated",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Real Madrid vs Rayo Vallecano: Spanish La Liga stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBQQ2YzTEJ3cHFCSGozelNSbW9FZ0JKcDVfOFZ3YkhkUHBJY2swOEp5Qmo2REl6WFRiTG5kekZHNmRqcjA3MkhUTjEweXlqY0pjX2pmTTJXY0xpSnRJbWJXdlBzRQ?oc=5",
-          "source": "BBC",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "How to watch Rayo Vallecano vs. Real Madrid in the U.S.: TV channel and streaming options for September 12",
-          "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNS3hTV1A1Q3hXRTVuMS1LSy1MQ0JTUFBWNUtUS2QwckJVVThDaGZIX3k0Sk5tMGhFM2FpQ1MtY05DNmU3S1BiRjhSdDZ3eXYxSFZCcTFyd0FrelU4Y0Z2Tm1rN2xESzF3Rkd6WUhLRHcyTXRiN1R2U3E0RklQdWlMTDZ1alZMTlNJUl9ZRmpjZUVKT0FXS1RLNHhrczIzX3EwdHdxWExrVVNfNHpfS2JBSGRqa281c2trN1ZpZkwtOGlaWVF1LUJrN1gyOFNNY3EtY0dCLTRXYVdXUW9fNFgzOTdLQUJzR3VNYlpOUw?oc=5",
-          "source": "The New York Times",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Schedules for matchdays 5, 6, and 7 of LaLiga",
-          "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNWldsMHJDbjExZklVT1pJYlRtYnlRUDVtdDZDcjdNV0JZNFI0RDhOYUZHT0tUcXpYZzZMZlVVdGM4eTZmUDlWdWt5U2twWmYwamxmc2JPMDVkOEpzb25VSExIY08yU3cwTHRLZEt4cC1LTzBjVjA1d251MWh5TkwyblY2enczTldJR0g4WUxydjdqT1JWZU5JOVZNRk15RUxiMzlMTWpYa1V5R1NCRXdobk0zbUVweFpnSVdfa0pMeFptNDg4b2Y4QTI3TVc4cTRJc2JVQUNuMFhjRmZwcjZDUVpfN2VEeW1MbXhKNVRuTzF0ZE0?oc=5",
-          "source": "realmadrid.com",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Real Madrid vs Rayo Vallecano, 2026 La Liga: Predicted lineups",
-          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNbVY4eTFqdnBzXzdTX21Vd0loeHRUR2hRSGhaNWdKMW5xeDYwZnluSXpGdGNkUExEbENRQXEzV1lCZFU4ZlR1N3FmaTdKSHhZelRRY2NuZE9MVmMxME9JWWdBcnhmbnluRlBYZ1FjdG9CSHV6WF9xRG9WNmY0c0FXWWZma2hHVWdZY202Qmw2SDRuZw?oc=5",
+          "title": "Player Ratings: Real Madrid 4–1 Rayo Vallecano",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxObDByODl3YnhZeVFrTlhhLXhJUC1JTmJSZHZoaHN0emllekdQUm9OLWFrQTRDazRUMWt5RUdoM0xqZGtLU01TZGE1NHZhZ3pxQm5OLWgwTTNuRzdzYW1DQmY2T3owRUt3WUlOaVBQWG9VZVE2eDR4MEVoeHoxN0gwaEZQZVVfS0lZb2loNDZXVkNWWmxhdVRVYXRGaTVHajJHc3FBampkejNwQQ?oc=5",
           "source": "Managing Madrid",
-          "published": "2026-09-12"
+          "published": "2026-09-13"
         },
         {
-          "title": "Real Madrid vs Rayo Vallecano – Predicted lineup and team news",
-          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNYldzUmZ0ZVZLNEJIVUFUOUNtMmEtMEI3T2xkLS03cGE5dXJudjFhU2tWR09LLWM5U256R29kaTRpV0tJOTg5UUNEajZUU2JZSzJpUHRkNnZyNzI2NnpEU0xjQVBHYXVGdWZhbUM2UE1UTGxVU28ySkdkSDJlYlBtNURwTQ?oc=5",
+          "title": "Rayo Vallecano - Barcelona",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPaTBjTExJa1BIUWpadUhVR2dybzJVV3QtdmNjeUhiYlZ0blF4SmIxYWQyb0paNUpENDRGMjZTTFE3R1d5VHNhZnRMOVF0V3RMaDY4NFdJYW5MV0dnSTg3YW9IdjAteUZmS0lsYi03elc0bmMyQXNOUm8waWEyRUtpWGo3Tm9qLThDMGgwLW5R?oc=5",
+          "source": "Flashscore.com",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "First-half blitz sees Real Madrid cruise past city rivals Rayo Vallecano",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSmFmN3VVMFVBWXU1YlJIY3hjM19LWTZuQWxuMy10UXZvTlhpNzZhSFA5bnNRSWRwYkd2R2VJUFlXUTJEVG9ubklmcEx3ZHpwX2cyUWNrRklQWmFzOWRsTUZZeFMxem1DSm1VNjV1b1dVRm53bG5YR2g2SDBGUmsyMUs1XzItN1M3Qi1ScjZKOUlsWU5xZFdfMEp2aWZpcDNObnpIbDdGNDV6Wlk?oc=5",
+          "source": "Flashscore.com",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Mbappe Scores Brace As Real Madrid Rout Rayo Vallecano In LaLiga",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOSGxFVjhZOUZ0cjR0QUtsUFlnZkZHV2F6aFg1SS1FTHpia1RRcG44RWc3cGxkLXJ4V0pyVmtOWDExVDN5V1FObFpDUUxVVEVRY09TSzJYVHp6REhFUUhrTXA4MXlJbVQxNXJDOUJjM0l0aUUyVUlNV2s4SUd6aTRUcUd5YzV3ZnVZWlkzc2VFTGRTUW9DSGFUSDlrWE5ob2Fia1dIVEZBUXdaUUFlM1lOZjljVzlUNTds0gG7AUFVX3lxTE5KdUhlWElZcXdtYVYyUXdpa2FaWkRZLVMxd1Q4MlBtWlZZWDZRRWN2ZXBkdW9DT016alRFM0VDX3FDQzZwdGRQbzJFbk5NR3J2M2s1U1R4VXlZd2k5alowcDEyUWJBOEhHaGF5eW9iS0lJcW42QmNWZGh4aWY2azg1cnNKT3BJcnUtSFg5VlhwMFVXR1lsdURFYjFuU2VXTDU1UEFBd0NOTWM2dm1lOE9ZYUhzMlI4S091Z1k?oc=5",
+          "source": "Rediff",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Arda Guler puts pressure on Real Madrid’s €140million signing after Rayo impact",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPbFNxTGRxTmhkUl9kWFNRUGhER0JzaWhHcXVfS2ZScl9TdnhTZ3RPVjduOXdlVWhIZ185ZkdBRHBFbTQ0Y09FWkZMcGZQVkdxdEowcnVOek5FajF4VkZRLUVUMENLem9OcVh2Z1BHbFZTVno1MkJkX2Fab3o4aS1Oa01UdEg?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Real Madrid - Rayo Vallecano 4-1",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNR0RTS0ZtY0JQMVZyMGV6X21iY3ZzYW0tLUkxNEhDVURIcDFNaVFhLUVHQXdZc2ltN3NqaS1SbndrTGgyZmhnbVVpU0xzbUdYdFBMTi1nS01seFMwVHpwZDBjZnVsRnZ4UmdOb2lpaTU2bTVQaW5ndnRKSVQ1SDVPNnBnUU5GUGRrUUNEZjd2eU56OHVUQTJvTHp3T05CeXo3OF9ibkYyOWk2WnJTNXNWZlhOMTlFUEZ2MUdYTS1FOVI?oc=5",
+          "source": "Flashscore.com",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Jose Mourinho talks Guler, Diomande, Vinicius, Cucurella after Real Madrid 4-1 Rayo Vallecano",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQUm5XTERVc1dPT0t6Z1E2bzB0ejR1WTZZeWoyOWI2TVJIVVREbXlLcDF1WVF4QVpzSHRaU2liWTJjVXU5aXl6LTBMeTN1eTJqQk9ncm1ENW9iekZJVF8tNEI5UXdva05TWGRMUzREQzZLbW1vazJLWUVBb1hvN2tDUEpqOHhyOU9HRUE?oc=5",
           "source": "Yahoo Sports Canada",
-          "published": "2026-09-12"
+          "published": "2026-09-13"
         },
         {
-          "title": "Rayo Vallecano vs. Real Madrid - September 13, 2026",
-          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQdk9hNTczZnFqLVFlTlpQdTZTR0ktS29NTW83VFNtOGtOZG5CcU5mVjZJcjRZMWxNLUo3czZ0dnV3YzE0dmtnVTZYcUwzSUlMNmJ2VlBzR0gxSTVBYjAwSk0xcG1hWFZYU0gwdGVoY3E1aFZGUjVCMFk3bFdvUGZPVTRJUQ?oc=5",
-          "source": "Bleacher Report",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Real Madrid vs Rayo Vallecano: Where to watch, TV channel, live stream & kick-off time",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNb1NsSy1IM0NEQ096ekNCUHR4SHEwbXFPYzlQazZEaHVyWWc4bE5tMkpqSm1vU2ZCT21IVTNQQVhfajJMSlNEdXNGZDA0S2owRFp4Y0tIZmhEMHVvWlNwU3hYWmRjck16TWM0eFAxUGNXN1FicjdhYmhJWGtXZ3lNNXJZY2VPSjNBakxLVE1RSmh4WE12Y1dFNG5rMDFIdUdCME5WYVB2TThYdVhaaWZXU3EtZU8?oc=5",
-          "source": "Goal.com",
-          "published": "2026-09-12"
+          "title": "Rayo Vallecano vs. Espanyol - Live Score - September 15, 2026",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPTFdyQ245WjRFT0dMbGhGSnFQdjM0QzlCMkdWWkJGazI1OGhkNVZ2ZTBxWjBkbzZZWF9TQVdrdVkyRzVNZnJ2a3FlR2JOcGIzOVE0dmstQU5xRW9JeVRYaUI2WEFXakNZZlVyekxidi1sYmM5YmgzSWNfb2N6Ri1KeHhxcHZxdzllei1HTXhWbU9JVEozd3U4eHVxR0R6bXhYWGc?oc=5",
+          "source": "FOX Sports",
+          "published": "2026-09-13"
         }
       ],
       "stories": []
@@ -1308,52 +1435,31 @@
       "shortName": null,
       "colors": null,
       "coach": {
+        "apiId": 25639,
         "name": "Manolo Gonzalez",
-        "country": "Spain",
-        "age": 46,
-        "tenureFrom": "2024-03",
+        "country": null,
+        "age": null,
+        "tenureFrom": "2025-07",
         "career": [
           {
             "club": "Espanyol",
-            "period": "2024–prezent",
-            "note": null
-          },
-          {
-            "club": "Espanyol II",
-            "period": "2023–2024",
-            "note": null
-          },
-          {
-            "club": "Peña Deportiva",
-            "period": "2021–2023",
-            "note": null
-          },
-          {
-            "club": "Badalona",
-            "period": "2019–2021",
-            "note": null
-          },
-          {
-            "club": "Ebro",
-            "period": "2018–2019",
-            "note": null
-          },
-          {
-            "club": "Badalona",
-            "period": "2014–2018",
+            "period": "2025–prezent",
             "note": null
           }
-        ],
-        "apiId": 25639
+        ]
       },
       "formation": "n/d",
       "predictedXI": [],
       "confirmedXI": null,
       "squad": [
         {
+          "apiId": 2813,
           "number": 13,
           "name": "Marko Dmitrović",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 33,
           "height": 194,
@@ -1372,18 +1478,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 360,
-            "apps": 4,
+            "minutes": 450,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 7.15
-          },
-          "apiId": 2813
+            "rating": 7.22
+          }
         },
         {
+          "apiId": 182735,
           "number": 1,
           "name": "Ángel Fortuño",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 24,
           "height": 183,
@@ -1402,18 +1511,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 182735
+          }
         },
         {
+          "apiId": 461502,
           "number": 31,
           "name": "Llorenç Serred",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 20,
           "height": 186,
@@ -1437,13 +1549,16 @@
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 461502
+          }
         },
         {
+          "apiId": 162585,
           "number": 30,
           "name": "Pol Tristán",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 23,
           "height": null,
@@ -1459,13 +1574,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 162585
+          "stats": null
         },
         {
+          "apiId": 47249,
           "number": 6,
           "name": "Leandro Daniel Cabrera Sasía",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 34,
           "height": 190,
@@ -1484,18 +1602,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 1,
+            "minutes": 180,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.6
-          },
-          "apiId": 47249
+            "rating": 6.83
+          }
         },
         {
+          "apiId": 36983,
           "number": 16,
           "name": "Vanja Drkušić",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 26,
           "height": 188,
@@ -1514,18 +1635,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 114,
-            "apps": 2,
+            "minutes": 115,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.8
-          },
-          "apiId": 36983
+            "rating": 6.7
+          }
         },
         {
+          "apiId": 286601,
           "number": 23,
           "name": "Omar El Hilali",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 22,
           "height": 183,
@@ -1543,19 +1667,22 @@
           "statusNote": null,
           "stats": {
             "goals": 0,
-            "assists": 0,
-            "minutes": 345,
-            "apps": 4,
-            "yellow": 0,
+            "assists": 1,
+            "minutes": 435,
+            "apps": 5,
+            "yellow": 1,
             "red": null,
-            "rating": 6.95
-          },
-          "apiId": 286601
+            "rating": 7.01
+          }
         },
         {
+          "apiId": 47299,
           "number": 2,
           "name": "Gorosabel",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 29,
           "height": null,
@@ -1571,13 +1698,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 47299
+          "stats": null
         },
         {
+          "apiId": 375915,
           "number": 3,
           "name": "Quilindschy Hartman",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 24,
           "height": 183,
@@ -1600,14 +1730,17 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.9
-          },
-          "apiId": 375915
+            "rating": 3.45
+          }
         },
         {
+          "apiId": 450716,
           "number": 21,
           "name": "Roger Hinojo",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 20,
           "height": 180,
@@ -1631,13 +1764,16 @@
             "yellow": 1,
             "red": null,
             "rating": 6.8
-          },
-          "apiId": 450716
+          }
         },
         {
+          "apiId": 585288,
           "number": 32,
           "name": "J. A. Lopez",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 19,
           "height": null,
@@ -1661,13 +1797,16 @@
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 585288
+          }
         },
         {
+          "apiId": 47277,
           "number": 14,
           "name": "Unai Núñez",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 28,
           "height": 186,
@@ -1690,14 +1829,17 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.78
-          },
-          "apiId": 47277
+            "rating": 5.42
+          }
         },
         {
+          "apiId": 282054,
           "number": 5,
           "name": "Clemens Riedel",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 22,
           "height": 186,
@@ -1716,18 +1858,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 172,
-            "apps": 3,
-            "yellow": 1,
+            "minutes": 262,
+            "apps": 4,
+            "yellow": 2,
             "red": null,
-            "rating": 6.5
-          },
-          "apiId": 282054
+            "rating": 6.48
+          }
         },
         {
+          "apiId": 438284,
           "number": 26,
           "name": "Rafel Bauzà",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 20,
           "height": 183,
@@ -1751,13 +1896,16 @@
             "yellow": 1,
             "red": null,
             "rating": 6.6
-          },
-          "apiId": 438284
+          }
         },
         {
+          "apiId": 286038,
           "number": 22,
           "name": "Álex Calatrava",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 25,
           "height": 175,
@@ -1776,18 +1924,21 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 287,
-            "apps": 4,
+            "minutes": 311,
+            "apps": 5,
             "yellow": 3,
             "red": null,
-            "rating": 6.85
-          },
-          "apiId": 286038
+            "rating": 6.8
+          }
         },
         {
+          "apiId": 46799,
           "number": 8,
           "name": "Edu Expósito",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 29,
           "height": 178,
@@ -1806,18 +1957,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 334,
-            "apps": 4,
+            "minutes": 423,
+            "apps": 5,
             "yellow": 1,
             "red": null,
-            "rating": 7.05
-          },
-          "apiId": 46799
+            "rating": 7.04
+          }
         },
         {
+          "apiId": 415089,
           "number": 20,
           "name": "Gabriel Moscardo",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 20,
           "height": 185,
@@ -1841,13 +1995,16 @@
             "yellow": 1,
             "red": null,
             "rating": 7.05
-          },
-          "apiId": 415089
+          }
         },
         {
+          "apiId": 601891,
           "number": 28,
           "name": "F. Gomez",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 19,
           "height": null,
@@ -1863,13 +2020,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 601891
+          "stats": null
         },
         {
+          "apiId": 183699,
           "number": 4,
           "name": "Urko González",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 24,
           "height": 189,
@@ -1888,18 +2048,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 223,
-            "apps": 4,
+            "minutes": 313,
+            "apps": 5,
             "yellow": 2,
             "red": null,
             "rating": 6.55
-          },
-          "apiId": 183699
+          }
         },
         {
+          "apiId": 388495,
           "number": 28,
           "name": "Javier Hernandez",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 21,
           "height": 182,
@@ -1918,18 +2081,21 @@
           "stats": {
             "goals": 0,
             "assists": 3,
-            "minutes": 317,
-            "apps": 4,
+            "minutes": 397,
+            "apps": 5,
             "yellow": 1,
             "red": null,
-            "rating": 6.48
-          },
-          "apiId": 388495
+            "rating": 6.54
+          }
         },
         {
+          "apiId": 127426,
           "number": 10,
           "name": "Pol Lozano",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 26,
           "height": 177,
@@ -1952,14 +2118,17 @@
             "apps": 2,
             "yellow": 1,
             "red": null,
-            "rating": 6.6
-          },
-          "apiId": 127426
+            "rating": 4.4
+          }
         },
         {
+          "apiId": 669869,
           "number": null,
           "name": "Cala",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 26,
           "height": null,
@@ -1975,13 +2144,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 669869
+          "stats": null
         },
         {
+          "apiId": 273732,
           "number": 24,
           "name": "Tyrhys Dolan",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 24,
           "height": 170,
@@ -2000,18 +2172,21 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 344,
-            "apps": 4,
+            "minutes": 410,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.63
-          },
-          "apiId": 273732
+            "rating": 6.57
+          }
         },
         {
+          "apiId": 312990,
           "number": 9,
           "name": "Roberto Fernández",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 24,
           "height": 186,
@@ -2028,20 +2203,23 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 3,
+            "goals": 5,
             "assists": 0,
-            "minutes": 353,
-            "apps": 4,
+            "minutes": 433,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 7.48
-          },
-          "apiId": 312990
+            "rating": 7.74
+          }
         },
         {
+          "apiId": 347885,
           "number": 18,
           "name": "Marcos Fernández",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 22,
           "height": 176,
@@ -2059,19 +2237,22 @@
           "statusNote": null,
           "stats": {
             "goals": 1,
-            "assists": 0,
-            "minutes": 60,
-            "apps": 3,
+            "assists": 1,
+            "minutes": 126,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 6.67
-          },
-          "apiId": 347885
+            "rating": 6.86
+          }
         },
         {
+          "apiId": 47396,
           "number": 19,
           "name": "Kike García",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 36,
           "height": null,
@@ -2087,13 +2268,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 47396
+          "stats": null
         },
         {
+          "apiId": 182674,
           "number": 17,
           "name": "Jofre Carreras",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 24,
           "height": 175,
@@ -2116,14 +2300,17 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.3
-          },
-          "apiId": 182674
+            "rating": 4.2
+          }
         },
         {
+          "apiId": 47398,
           "number": 11,
           "name": "Pere Milla",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 33,
           "height": 184,
@@ -2142,18 +2329,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 36,
-            "apps": 3,
+            "minutes": 46,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 6.47
-          },
-          "apiId": 47398
+            "rating": 6.44
+          }
         },
         {
+          "apiId": 286639,
           "number": 15,
           "name": "Bryan Zaragoza",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 24,
           "height": 164,
@@ -2172,34 +2362,34 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 15,
-            "apps": 1,
+            "minutes": 25,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 7
-          },
-          "apiId": 286639
+            "rating": 6.84
+          }
         }
       ],
       "form": {
         "last5": [
+          "W",
           "D",
           "L",
           "L",
           "W"
         ],
-        "ppg": 1,
-        "homeAway": "Acasă 1-1-1, deplasare 0-0-1",
-        "position": 12,
-        "note": "Clasament 2026/27: locul 12, 4p (6-5)",
+        "ppg": 1.4,
+        "homeAway": "Acasă 1-1-1, deplasare 1-0-1",
+        "position": 7,
+        "note": "Clasament 2026/27: locul 7, 7p (8-5)",
         "table": {
-          "played": 4,
-          "win": 1,
+          "played": 5,
+          "win": 2,
           "draw": 1,
           "loss": 2,
-          "gf": 6,
+          "gf": 8,
           "ga": 5,
-          "points": 4
+          "points": 7
         },
         "recent": [
           {
@@ -2273,8 +2463,8 @@
         ],
         "stats": {
           "goalsForByInterval": {
-            "0-15": 1,
-            "16-30": 1,
+            "0-15": 2,
+            "16-30": 2,
             "31-45": 2,
             "76-90": 2
           },
@@ -2286,22 +2476,22 @@
           "cardsYellowByInterval": {
             "0-15": 1,
             "16-30": 1,
-            "31-45": 2,
+            "31-45": 4,
             "46-60": 2,
             "61-75": 3,
-            "76-90": 3,
+            "76-90": 4,
             "91-105": 2
           },
-          "goalsForAvg": 1.5,
-          "goalsAgainstAvg": 1.3,
-          "cleanSheets": 1,
+          "goalsForAvg": 1.6,
+          "goalsAgainstAvg": 1,
+          "cleanSheets": 2,
           "failedToScore": 0,
           "penaltyScored": 0,
           "penaltyScoredPct": 0,
           "formations": [
             {
               "formation": "4-2-3-1",
-              "played": 3
+              "played": 4
             },
             {
               "formation": "4-4-2",
@@ -2310,7 +2500,7 @@
           ],
           "biggestStreak": {
             "wins": 1,
-            "draws": 0,
+            "draws": 1,
             "loses": 2
           }
         }
@@ -2320,19 +2510,19 @@
           "name": "K. Garcia",
           "reason": "injury",
           "detail": "Hamstring Injury",
-          "since": "2026-09-12"
+          "since": "2026-09-15"
         },
         {
           "name": "A. Gorosabel",
           "reason": "injury",
           "detail": "Injury",
-          "since": "2026-09-12"
+          "since": "2026-09-15"
         },
         {
           "name": "J. Puado",
           "reason": "injury",
           "detail": "Knee Injury",
-          "since": "2026-09-12"
+          "since": "2026-09-15"
         }
       ],
       "mercatoIn": [],
@@ -2341,52 +2531,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "How to watch Espanyol vs. Osasuna in the U.S.: TV channel and streaming options for September 12",
-          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNeVJJVGU0WkU3VnUwQ3pBSVRxQWFBNUswNVZOYVlNWDlrV0RFSXlzLXNfbmRuTTlPQlMtaExZZ0pCdjRUdWd6T2c0cUZHNnc1SXJzYndpSzRiaWRLY0ZQNlloY2NCUVl5clE3eFRfbUdCWGhKQkhFWlBrcTZiSE1ZTm9ESENNVHRybms1a2k5ZHdvTk9JWUx2NWhLeTdfc2VteFhRbEhkUWltQUgyWU92SGRtUzZZQkp4Nl9ZaVRWZGNGdVVYVXFqaUtiRTNyaURlS2d0Z194Z2hLLXhad1Aw?oc=5",
-          "source": "The New York Times",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "CA Osasuna vs RCD Espanyol - Where to Watch, Stream Info, TV Channel, and Live Updates (September 12, 2026)",
-          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNdHQ1OFNYY1FCU3Fwb0RQclJ6YnlWMmRveDgzTlBWLW16ajNfX0pQa2JLUlAyWDFzZDNXTHh3LVBxUUdFRHF4Unp3b3luV1F4QTdWZ2N2WTZWcWhGMk5EZ2VKcm9uaHBNUWtOMHZoeHBnVmtvZVZxYU9JWDkzVjlJeFc2andJWlZrUHN4SnRyOHFOUWM3dHkxQURNSFFOTU04Q0ZDV1JpWDdzZ3VZVmI1eXA3cVdmUjZiMlB6bThCaEJOV2pERWM4Uk9aSU4?oc=5",
-          "source": "Fubo",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Roberto Fernández slots in the goal for Espanyol",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNbTVwQXJPTlZ5NjF4dEF4ZlNsTFNDQmJISmtnTnBpX0N5S3c5Q291b0VjdjlhaHc5MVpnOXlGbk5zRlhySjhZajc1cFBwZHJWNkR1MTJJZEFVTS1ISEcyR2N3eV8xbnJhWUwySTJNdlRyNk9jcjV3c3p3bFlHLVFvM0prVEw4QUJORVBN?oc=5",
-          "source": "espn.com",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Espanyol Barcelona vs. CA Osasuna - September 13, 2026",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1XRUxuMVZLY003MTlXbHVQOVpoaVdqY3N3c0NRTTBud2l3dmJKcWN1bWZuUUgzSG5JU1g4TkZPd1JWaUs4ckY5WjQ0NWFNYkw3eVUyNWZRTnV6M0tqeGJhV1Y3bmxJeFRROS1vMVlTN044RnVkaWdNZXVoZktLd3c?oc=5",
-          "source": "Bleacher Report",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Espanyol 1-1 Sevilla (7 Sep, 2026) Player Stats",
-          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1VdEhEQzVkWG44VVEyeWtJOEJrVTRBYm5uM0ZRRmlxZGxKRXRnWWlnZ3VNLWhuX0VSaDVYUXJDT3Jfa2tWOTdFM0gzX3o2dld5RTZwT2NCX0xVclQ1ZDlVQ3o1WldaWEt1aXdTREhnLUdNZw?oc=5",
+          "title": "Espanyol 1-2 Real Madrid (Aug 22, 2026) Final Score",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5qaGV4d3ZDazEtSFdBbzZETGJXY2syVTl0RlAwQkxjZmxRMjg1dzFjVDJOMDhuWUIxMTBIcmVYZWtMTHdKSkdRMzhKUkxkUmFtRXdiazNNN3BsV1Q2N1JjRHl2ZWxkUloyaTNCNjVZLUllNUpGQlNBSVJYaU1FUQ?oc=5",
           "source": "ESPN",
-          "published": "2026-09-12"
+          "published": "2026-09-13"
         },
         {
-          "title": "Osasuna vs Espanyol Lineups, Prediction, Betting Picks & La Liga Odds for Saturday, September 12th",
-          "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQc1RXUWc3T3hPV09kLXoxSVNndmExNkpYY3VscG8tdmdlUUhLc180NDcwRnFRdHdUQTNXZ25TTGtlWnJKSk9XdXVINFN1bDBjQ0tJQ2k4cEw4cmtaMk1HVnZYeE54bTQyVXRTSUt6QmpRTkVSUEtKOUZ5aU8tNnpabk1nanJPcnp1a0E1dWJvTlMzdlVsY0dYQkdfbE5FVnE1WXpfS29NemdvMXdzTjVUd1BHU0NDcjQtamQyUGhIWVQza0lfSnEyQTUtSkNsZU1Za3F6TEZGSURtaG9KQkVOdzVvTGFha1hYckE?oc=5",
-          "source": "oddschecker.com",
-          "published": "2026-09-12"
+          "title": "Rayo Vallecano vs. Espanyol - Live Score - September 15, 2026",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPTFdyQ245WjRFT0dMbGhGSnFQdjM0QzlCMkdWWkJGazI1OGhkNVZ2ZTBxWjBkbzZZWF9TQVdrdVkyRzVNZnJ2a3FlR2JOcGIzOVE0dmstQU5xRW9JeVRYaUI2WEFXakNZZlVyekxidi1sYmM5YmgzSWNfb2N6Ri1KeHhxcHZxdzllei1HTXhWbU9JVEozd3U4eHVxR0R6bXhYWGc?oc=5",
+          "source": "FOX Sports",
+          "published": "2026-09-13"
         },
         {
-          "title": "Watch Osasuna vs Espanyol LaLiga soccer game LIVE: Online streams, TV channel, early teams news, start time",
-          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOYkVxWUx1bzg4SE1INng2WkhyRW5KV285ZW5nUWx4MVhRMGp3T2NkOU9MOWFtSHRBT3FZb2FyN1plaV9yRUt4cVljQzRDUUd2cDFBcG1JZTJFX3JBRnJEbGJVN0xxdGZTSVVRT29heC1nM1RkVTh6ajhWSEVzTTNlejg0WGJleUhRbS1TT2ZKWG1FSHF3U3BldlA1a3RlcERmakNHSDVYVXRLZw?oc=5",
-          "source": "Goal.com",
-          "published": "2026-09-12"
+          "title": "Espanyol vs Levante: live info and stats | LALIGA EA Sports 2026/2027",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQWF95ZFI1MDFISk1kVFdPMEFCZ0Q2WjNmeTlOdEpZb3RnMGdNVmV2TDJxVUE5bHppMW10aE9BYUkycDItRGJyTjk0Rkc4dXZfTmdDZWlOMG5TZnJLVC0tbVZabUoyZlZabXFfaVpmOG15Y0xlYUNDWE56U2lzdmd2QUJoaE1UYkRXRXhCODE0b0tOaDhLQ2JoZjVabUp0ekVPMlp6ZEFB?oc=5",
+          "source": "Diario AS",
+          "published": "2026-09-13"
         },
         {
-          "title": "Athletic Bilbao (W) v Espanyol (W) Odds",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQSDlSSXRnSm1UcUtjNVNPanVvb3ljYW50NnJocXEtTnZfWjdjZXZDN0ZKTFlzY3M4Z19HLXR5RDM3N1VDcG91dUZtaWY5TDJnblRpbVJUT042OGZkaXlDN2VKb3FpQXVsam9ob05PTldYNURmZVhXNXlaRlVsYzVocFpmdlNxT0hkSDFvM1dWZDdqS1Y2SWJTU21zRzM?oc=5",
-          "source": "FanDuel Sportsbook",
-          "published": "2026-09-12"
+          "title": "Rayo vs. Espanyol (15 Sep, 2026) Live Score",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE40VkR0U25tTWxGZzhMNHJaX2psSU5rcDdhZ1RfUDJTX3BxZm9oVF95QlVUT0JsQ3FzNDBwcEpvRXZzRktucGpGYnhHSDBZR1VTbUF4MDJ6aWtibG1TVjh4ZFBnSDBPRS1iVTBWVWlFUm53QQ?oc=5",
+          "source": "espn.in",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Football Live Scores: Rayo Vallecano vs RCD Espanyol, LaLiga, 2026/27 | Nine Wide World of Sports",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOWFlnNE5HRHdDNmxsaE1hQklVcGZHX0I0R1ZOd19lNFk0MWN2dWZKbGdfMUFxR0w5eUdhQi1ZTDdxSi0yOGx6ckV6aDc5bTdSNHhVczBJY1NoMEp6NDdEMVJxNlljWVZHanFCZjlxZmp4Q3VBS1h5UVpHejB5SVlpUTIwLUc0TjBYcEJWb2NQUHlqUkx2VnFj?oc=5",
+          "source": "Nine.com.au",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Osasuna vs Espanyol live score, H2H and lineups",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBuaTdrVlZvQ1V0R2hOV2o3V2ttUE1GcG5GNVpVRmdtZlZjeEc5N19XS1ZpMFNWeHotX0V6dC00ekR2TFlVcVBVVnhydzRyVktoQmc0R0tqOHpOVjY2aVFGYUViNmtsRVhUX3N4Ry1JbU1VQXM?oc=5",
+          "source": "Sofascore",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Rayo vs. Espanyol (Sep 15, 2026) Odds and Spread",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1KaHltdmhqR2lzamFfdDBSZlBBaXdIcjJaMWVNYlltd2VtYU1TbE9ad3V2VVljWkhNOHhhZHBTeWdrNlQwRzlCV24weHRsU21RRGFtUUhaenZ3ZTdnVEdnOA?oc=5",
+          "source": "ESPN",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Rayo Vallecano - Barcelona",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPaTBjTExJa1BIUWpadUhVR2dybzJVV3QtdmNjeUhiYlZ0blF4SmIxYWQyb0paNUpENDRGMjZTTFE3R1d5VHNhZnRMOVF0V3RMaDY4NFdJYW5MV0dnSTg3YW9IdjAteUZmS0lsYi03elc0bmMyQXNOUm8waWEyRUtpWGo3Tm9qLThDMGgwLW5R?oc=5",
+          "source": "Flashscore.com",
+          "published": "2026-09-13"
         }
       ],
       "stories": []
@@ -2412,34 +2602,48 @@
       },
       {
         "rank": 2,
-        "teamId": 542,
-        "team": "Alaves",
-        "played": 4,
-        "win": 3,
-        "draw": 1,
-        "loss": 0,
-        "gf": 10,
-        "ga": 3,
-        "gd": 7,
-        "points": 10,
-        "form": "WWDW"
+        "teamId": 541,
+        "team": "Real Madrid",
+        "played": 5,
+        "win": 4,
+        "draw": 0,
+        "loss": 1,
+        "gf": 14,
+        "ga": 4,
+        "gd": 10,
+        "points": 12,
+        "form": "WLWWW"
       },
       {
         "rank": 3,
-        "teamId": 541,
-        "team": "Real Madrid",
-        "played": 4,
+        "teamId": 542,
+        "team": "Alaves",
+        "played": 5,
         "win": 3,
-        "draw": 0,
+        "draw": 1,
         "loss": 1,
-        "gf": 10,
-        "ga": 3,
-        "gd": 7,
-        "points": 9,
-        "form": "LWWW"
+        "gf": 11,
+        "ga": 5,
+        "gd": 6,
+        "points": 10,
+        "form": "LWWDW"
       },
       {
         "rank": 4,
+        "teamId": 536,
+        "team": "Sevilla",
+        "played": 5,
+        "win": 3,
+        "draw": 1,
+        "loss": 1,
+        "gf": 8,
+        "ga": 6,
+        "gd": 2,
+        "points": 10,
+        "form": "WDLWW"
+      },
+      {
+        "rank": 5,
         "teamId": 543,
         "team": "Real Betis",
         "played": 4,
@@ -2453,7 +2657,7 @@
         "form": "WLWW"
       },
       {
-        "rank": 5,
+        "rank": 6,
         "teamId": 544,
         "team": "Deportivo La Coruna",
         "played": 4,
@@ -2467,21 +2671,21 @@
         "form": "WWDD"
       },
       {
-        "rank": 6,
-        "teamId": 536,
-        "team": "Sevilla",
-        "played": 4,
+        "rank": 7,
+        "teamId": 540,
+        "team": "Espanyol",
+        "played": 5,
         "win": 2,
         "draw": 1,
-        "loss": 1,
-        "gf": 7,
-        "ga": 6,
-        "gd": 1,
+        "loss": 2,
+        "gf": 8,
+        "ga": 5,
+        "gd": 3,
         "points": 7,
-        "form": "DLWW"
+        "form": "WDLLW"
       },
       {
-        "rank": 7,
+        "rank": 8,
         "teamId": 530,
         "team": "Atletico Madrid",
         "played": 4,
@@ -2495,21 +2699,35 @@
         "form": "LWDW"
       },
       {
-        "rank": 8,
-        "teamId": 727,
-        "team": "Osasuna",
-        "played": 4,
+        "rank": 9,
+        "teamId": 531,
+        "team": "Athletic Club",
+        "played": 5,
         "win": 2,
         "draw": 1,
-        "loss": 1,
-        "gf": 5,
+        "loss": 2,
+        "gf": 7,
         "ga": 6,
-        "gd": -1,
+        "gd": 1,
         "points": 7,
-        "form": "LWWD"
+        "form": "DWWLL"
       },
       {
-        "rank": 9,
+        "rank": 10,
+        "teamId": 4665,
+        "team": "Racing Santander",
+        "played": 5,
+        "win": 2,
+        "draw": 1,
+        "loss": 2,
+        "gf": 9,
+        "ga": 9,
+        "gd": 0,
+        "points": 7,
+        "form": "WLWLD"
+      },
+      {
+        "rank": 11,
         "teamId": 548,
         "team": "Real Sociedad",
         "played": 5,
@@ -2523,21 +2741,21 @@
         "form": "WDWLL"
       },
       {
-        "rank": 10,
-        "teamId": 531,
-        "team": "Athletic Club",
-        "played": 4,
+        "rank": 12,
+        "teamId": 727,
+        "team": "Osasuna",
+        "played": 5,
         "win": 2,
-        "draw": 0,
+        "draw": 1,
         "loss": 2,
-        "gf": 6,
-        "ga": 5,
-        "gd": 1,
-        "points": 6,
-        "form": "WWLL"
+        "gf": 5,
+        "ga": 8,
+        "gd": -3,
+        "points": 7,
+        "form": "LLWWD"
       },
       {
-        "rank": 11,
+        "rank": 13,
         "teamId": 539,
         "team": "Levante",
         "played": 4,
@@ -2551,49 +2769,7 @@
         "form": "DWDL"
       },
       {
-        "rank": 12,
-        "teamId": 540,
-        "team": "Espanyol",
-        "played": 4,
-        "win": 1,
-        "draw": 1,
-        "loss": 2,
-        "gf": 6,
-        "ga": 5,
-        "gd": 1,
-        "points": 4,
-        "form": "DLLW"
-      },
-      {
-        "rank": 13,
-        "teamId": 4665,
-        "team": "Racing Santander",
-        "played": 4,
-        "win": 1,
-        "draw": 1,
-        "loss": 2,
-        "gf": 7,
-        "ga": 8,
-        "gd": -1,
-        "points": 4,
-        "form": "LWLD"
-      },
-      {
         "rank": 14,
-        "teamId": 728,
-        "team": "Rayo Vallecano",
-        "played": 4,
-        "win": 1,
-        "draw": 1,
-        "loss": 2,
-        "gf": 7,
-        "ga": 10,
-        "gd": -3,
-        "points": 4,
-        "form": "WLDL"
-      },
-      {
-        "rank": 15,
         "teamId": 546,
         "team": "Getafe",
         "played": 4,
@@ -2605,6 +2781,20 @@
         "gd": -3,
         "points": 4,
         "form": "DLWL"
+      },
+      {
+        "rank": 15,
+        "teamId": 728,
+        "team": "Rayo Vallecano",
+        "played": 5,
+        "win": 1,
+        "draw": 1,
+        "loss": 3,
+        "gf": 8,
+        "ga": 14,
+        "gd": -6,
+        "points": 4,
+        "form": "LWLDL"
       },
       {
         "rank": 16,
@@ -2652,29 +2842,29 @@
         "rank": 19,
         "teamId": 797,
         "team": "Elche",
-        "played": 4,
+        "played": 5,
         "win": 0,
-        "draw": 1,
+        "draw": 2,
         "loss": 3,
-        "gf": 5,
-        "ga": 12,
+        "gf": 6,
+        "ga": 13,
         "gd": -7,
-        "points": 1,
-        "form": "LLLD"
+        "points": 2,
+        "form": "DLLLD"
       },
       {
         "rank": 20,
         "teamId": 532,
         "team": "Valencia",
-        "played": 4,
+        "played": 5,
         "win": 0,
         "draw": 1,
-        "loss": 3,
+        "loss": 4,
         "gf": 1,
-        "ga": 9,
-        "gd": -8,
+        "ga": 10,
+        "gd": -9,
         "points": 1,
-        "form": "LLLD"
+        "form": "LLLLD"
       }
     ]
   }

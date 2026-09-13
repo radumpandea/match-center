@@ -1,9 +1,10 @@
 {
   "teamId": 42,
   "name": "Arsenal",
-  "fetchedAt": "2026-09-10T09:57:30.652Z",
+  "fetchedAt": "2026-09-13T11:33:46.997Z",
   "source": "https://www.api-football.com/",
   "coach": {
+    "apiId": 7248,
     "name": "Mikel Arteta",
     "country": "Spain",
     "age": 43,
@@ -18,9 +19,13 @@
   },
   "squad": [
     {
+      "apiId": 2273,
       "number": 13,
       "name": "Kepa",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 31,
       "height": 189,
@@ -44,13 +49,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 2273
+      }
     },
     {
-      "number": 1,
-      "name": "I. Meslier",
-      "pos": null,
+      "apiId": 20619,
+      "number": 30,
+      "name": "Illan Stéphane Meslier",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 25,
       "height": 197,
@@ -74,13 +82,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 20619
+      }
     },
     {
+      "apiId": 403221,
       "number": 1,
       "name": "K. Ranson",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 18,
       "height": null,
@@ -96,13 +107,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 403221
+      "stats": null
     },
     {
+      "apiId": 19465,
       "number": 1,
       "name": "David Raya",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 30,
       "height": 183,
@@ -121,18 +135,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 360,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.99
-      },
-      "apiId": 19465
+        "rating": 6.91
+      }
     },
     {
+      "apiId": 157052,
       "number": 33,
-      "name": "R. Calafiori",
-      "pos": null,
+      "name": "Riccardo Calafiori",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 23,
       "height": 188,
@@ -151,18 +168,21 @@
       "stats": {
         "goals": 0,
         "assists": 2,
-        "minutes": 238,
-        "apps": 3,
+        "minutes": 328,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.1
-      },
-      "apiId": 157052
+        "rating": 7.09
+      }
     },
     {
+      "apiId": 348818,
       "number": 15,
       "name": "B. Clarke",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 18,
       "height": null,
@@ -178,13 +198,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 348818
+      "stats": null
     },
     {
+      "apiId": 418403,
       "number": 14,
       "name": "Jaden Dixon",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 18,
       "height": null,
@@ -200,13 +223,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 418403
+      "stats": null
     },
     {
+      "apiId": 22224,
       "number": 6,
       "name": "Gabriel Magalhães",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 28,
       "height": 190,
@@ -225,18 +251,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
-        "yellow": 1,
+        "minutes": 360,
+        "apps": 4,
+        "yellow": 2,
         "red": null,
-        "rating": 6.7
-      },
-      "apiId": 22224
+        "rating": 6.84
+      }
     },
     {
+      "apiId": 127817,
       "number": 5,
-      "name": "P. Hincapié",
-      "pos": null,
+      "name": "Piero Martín Hincapié Reyna",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 23,
       "height": 184,
@@ -259,14 +288,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.53
-      },
-      "apiId": 127817
+        "rating": 3.4
+      }
     },
     {
+      "apiId": 19354,
       "number": 15,
-      "name": "E. Konsa",
-      "pos": null,
+      "name": "Ezri Konsa Ngoyo",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 28,
       "height": 183,
@@ -285,18 +317,22 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 101,
-        "apps": 2,
+        "minutes": 191,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.71
-      },
-      "apiId": 19354
+        "rating": 7.16
+      }
     },
     {
+      "apiId": 313245,
       "number": 49,
-      "name": "M. Lewis-Skelly",
-      "pos": null,
+      "name": "Myles Anthony Lewis-Skelly",
+      "pos": "DEF",
+      "positions": [
+        "DEF",
+        "MID"
+      ],
       "role": "DEF",
       "age": 19,
       "height": 178,
@@ -315,18 +351,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 228,
-        "apps": 3,
+        "minutes": 273,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.95
-      },
-      "apiId": 313245
+        "rating": 6.9
+      }
     },
     {
+      "apiId": 333682,
       "number": 3,
       "name": "Cristhian Mosquera",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 21,
       "height": 191,
@@ -349,14 +388,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.9
-      },
-      "apiId": 333682
+        "rating": 7.04
+      }
     },
     {
+      "apiId": 22090,
       "number": 2,
       "name": "W. Saliba",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 24,
       "height": null,
@@ -372,13 +414,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 22090
+      "stats": null
     },
     {
-      "number": 4,
-      "name": "M. Salmon",
-      "pos": null,
+      "apiId": 482903,
+      "number": 89,
+      "name": "Marli Ellis Salmon",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 16,
       "height": null,
@@ -402,21 +447,24 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 482903
+      }
     },
     {
+      "apiId": 38746,
       "number": 12,
-      "name": "J. Timber",
-      "pos": null,
+      "name": "Jurriën David Norman Timber",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 24,
-      "height": null,
-      "weight": null,
+      "height": 179,
+      "weight": 79,
       "foot": null,
-      "nat": null,
+      "nat": "NED",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Netherlands",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -424,13 +472,24 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 38746
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "minutes": 45,
+        "apps": 1,
+        "yellow": 0,
+        "red": null,
+        "rating": 6.23
+      }
     },
     {
+      "apiId": 19959,
       "number": 4,
-      "name": "B. White",
-      "pos": null,
+      "name": "Benjamin William White",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 28,
       "height": 186,
@@ -449,18 +508,21 @@
       "stats": {
         "goals": 0,
         "assists": 1,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 315,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.16
-      },
-      "apiId": 19959
+        "rating": 7.05
+      }
     },
     {
+      "apiId": 10135,
       "number": 39,
       "name": "Bruno Guimarães",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 28,
       "height": 182,
@@ -477,20 +539,23 @@
       "status": "available",
       "statusNote": null,
       "stats": {
-        "goals": 0,
+        "goals": 1,
         "assists": 0,
-        "minutes": 19,
-        "apps": 1,
+        "minutes": 64,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 3.15
-      },
-      "apiId": 10135
+        "rating": 7.25
+      }
     },
     {
+      "apiId": 409798,
       "number": 30,
       "name": "Louie George Copley",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 19,
       "height": null,
@@ -506,13 +571,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 409798
+      "stats": null
     },
     {
+      "apiId": 442044,
       "number": 56,
-      "name": "M. Dowman",
-      "pos": null,
+      "name": "Max Dowman",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 16,
       "height": 183,
@@ -531,18 +599,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
+        "minutes": null,
         "apps": 0,
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 442044
+      }
     },
     {
+      "apiId": 19586,
       "number": 10,
-      "name": "E. Eze",
-      "pos": null,
+      "name": "Eberechi Oluchi Eze",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 27,
       "height": 178,
@@ -561,18 +632,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 59,
-        "apps": 2,
+        "minutes": 68,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 4.33
-      },
-      "apiId": 19586
+        "rating": 6.65
+      }
     },
     {
+      "apiId": 457730,
       "number": 6,
       "name": "I. Ibrahim",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 17,
       "height": null,
@@ -588,13 +662,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 457730
+      "stats": null
     },
     {
+      "apiId": 47311,
       "number": 23,
       "name": "Mikel Merino",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 29,
       "height": 189,
@@ -613,18 +690,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 46,
-        "apps": 3,
+        "minutes": 51,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.71
-      },
-      "apiId": 47311
+        "rating": 6.67
+      }
     },
     {
+      "apiId": 37127,
       "number": 8,
-      "name": "M. Ødegaard",
-      "pos": null,
+      "name": "Martin Ødegaard",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 27,
       "height": 178,
@@ -643,18 +723,21 @@
       "stats": {
         "goals": 2,
         "assists": 0,
-        "minutes": 224,
-        "apps": 3,
+        "minutes": 309,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.87
-      },
-      "apiId": 37127
+        "rating": 7.99
+      }
     },
     {
+      "apiId": 2937,
       "number": 41,
-      "name": "D. Rice",
-      "pos": null,
+      "name": "Declan Rice",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 26,
       "height": 188,
@@ -672,19 +755,22 @@
       "statusNote": null,
       "stats": {
         "goals": 0,
-        "assists": 1,
-        "minutes": 243,
-        "apps": 3,
+        "assists": 2,
+        "minutes": 324,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.47
-      },
-      "apiId": 2937
+        "rating": 7.5
+      }
     },
     {
+      "apiId": 47315,
       "number": 36,
       "name": "Martín Zubimendi",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 26,
       "height": 181,
@@ -703,18 +789,22 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 60,
-        "apps": 3,
+        "minutes": 59,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.56
-      },
-      "apiId": 47315
+        "rating": 6.71
+      }
     },
     {
+      "apiId": 18979,
       "number": 14,
-      "name": "V. Gyökeres",
-      "pos": null,
+      "name": "Viktor Einar Gyökeres",
+      "pos": "ATT",
+      "positions": [
+        "ATT",
+        "Forward"
+      ],
       "role": "ATT",
       "age": 28,
       "height": 189,
@@ -737,14 +827,17 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 6.46
-      },
-      "apiId": 18979
+        "rating": 2.17
+      }
     },
     {
+      "apiId": 457731,
       "number": 9,
       "name": "A. Annous",
-      "pos": null,
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 18,
       "height": null,
@@ -760,13 +853,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 457731
+      "stats": null
     },
     {
+      "apiId": 978,
       "number": 29,
-      "name": "K. Havertz",
-      "pos": null,
+      "name": "Kai Lukas Havertz",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 26,
       "height": 193,
@@ -785,18 +881,22 @@
       "stats": {
         "goals": 2,
         "assists": 0,
-        "minutes": 258,
-        "apps": 3,
-        "yellow": 0,
+        "minutes": 348,
+        "apps": 4,
+        "yellow": 1,
         "red": null,
-        "rating": 7.37
-      },
-      "apiId": 978
+        "rating": 7.1
+      }
     },
     {
+      "apiId": 136723,
       "number": 20,
-      "name": "N. Madueke",
-      "pos": null,
+      "name": "Chukwunonso Tristan Madueke",
+      "pos": "ATT",
+      "positions": [
+        "ATT",
+        "MID"
+      ],
       "role": "ATT",
       "age": 23,
       "height": 182,
@@ -819,14 +919,18 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 3.45
-      },
-      "apiId": 136723
+        "rating": 2.3
+      }
     },
     {
+      "apiId": 1460,
       "number": 7,
-      "name": "B. Saka",
-      "pos": null,
+      "name": "Bukayo Ayoyinka Temidayo Saka",
+      "pos": "MID",
+      "positions": [
+        "MID",
+        "ATT"
+      ],
       "role": "MID",
       "age": 24,
       "height": 178,
@@ -843,21 +947,25 @@
       "status": "available",
       "statusNote": null,
       "stats": {
-        "goals": 2,
+        "goals": 3,
         "assists": 0,
-        "minutes": 247,
-        "apps": 3,
+        "minutes": 337,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.47
-      },
-      "apiId": 1460
+        "rating": 7.49
+      }
     },
     {
+      "apiId": 161800,
       "number": 17,
-      "name": "C. Tzolis",
-      "pos": null,
-      "role": "MID",
+      "name": "Christos Tzolis",
+      "pos": "ATT",
+      "positions": [
+        "ATT",
+        "MID"
+      ],
+      "role": "ATT",
       "age": 23,
       "height": 179,
       "weight": 70,
@@ -875,13 +983,12 @@
       "stats": {
         "goals": 0,
         "assists": 1,
-        "minutes": 211,
-        "apps": 3,
+        "minutes": 292,
+        "apps": 4,
         "yellow": 2,
         "red": null,
-        "rating": 7.07
-      },
-      "apiId": 161800
+        "rating": 7.06
+      }
     }
   ]
 }

@@ -1,12 +1,12 @@
 {
   "slug": "pl-e5-brentford-chelsea",
-  "generatedAt": "2026-09-12T14:41:09.268Z",
+  "generatedAt": "2026-09-13T11:31:37.151Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-09-12"
+      "accessed": "2026-09-13"
     }
   ],
   "competition": {
@@ -19,7 +19,14 @@
     "name": "Brentford Community Stadium",
     "capacity": null,
     "city": "London",
-    "notes": null
+    "notes": null,
+    "weather": {
+      "tempC": 17,
+      "condition": "cer noros",
+      "windKph": 18,
+      "precipitationMm": 0,
+      "forecastAt": "2026-09-13T11:31:37.537Z"
+    }
   },
   "referee": {
     "name": "n/d",
@@ -61,11 +68,11 @@
     "summary": "Cap la cap (10 meciuri): Brentford 3 - 4 - 3 Chelsea."
   },
   "storyOfTheMatch": [
-    "Brentford — locul 5 după 3 etape, 5 puncte, golaveraj 5-2.",
+    "Brentford — locul 5 după 4 etape, 6 puncte, golaveraj 7-4.",
     "Brentford vine după 3 egaluri la rând.",
-    "V. Janelt e cel mai bun marcator al echipei Brentford în acest start de sezon (2 goluri).",
-    "Chelsea — locul 4 după 3 etape, 6 puncte, golaveraj 8-7.",
-    "C. Palmer e cel mai bun marcator al echipei Chelsea în acest start de sezon (2 goluri).",
+    "Kevin Schade e cel mai bun marcator al echipei Brentford în acest start de sezon (3 goluri).",
+    "Chelsea — locul 4 după 4 etape, 7 puncte, golaveraj 10-9.",
+    "Cole Jermaine Palmer e cel mai bun marcator al echipei Chelsea în acest start de sezon (2 goluri).",
     "Cap la cap (10 meciuri): Brentford 3 - 4 - 3 Chelsea."
   ],
   "predictions": {
@@ -110,17 +117,31 @@
       "shortName": null,
       "colors": null,
       "coach": {
+        "apiId": 25364,
         "name": "Keith Andrews",
-        "apiId": 25364
+        "country": null,
+        "age": null,
+        "tenureFrom": "2025-07",
+        "career": [
+          {
+            "club": "Brentford",
+            "period": "2025–prezent",
+            "note": null
+          }
+        ]
       },
       "formation": "n/d",
       "predictedXI": [],
       "confirmedXI": null,
       "squad": [
         {
+          "apiId": 19340,
           "number": 31,
           "name": "E. Balcombe",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 26,
           "height": null,
@@ -136,13 +157,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 19340
+          "stats": null
         },
         {
+          "apiId": 281,
           "number": 1,
           "name": "Caoimhín Odhrán Kelleher",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 27,
           "height": 188,
@@ -161,18 +185,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 270,
-            "apps": 3,
+            "minutes": 360,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.04
-          },
-          "apiId": 281
+            "rating": 7.23
+          }
         },
         {
+          "apiId": 363998,
           "number": 13,
           "name": "A. Stokes",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 17,
           "height": null,
@@ -188,13 +215,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 363998
+          "stats": null
         },
         {
+          "apiId": 61742,
           "number": 12,
           "name": "Hákon Rafn Valdimarsson",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 24,
           "height": 188,
@@ -218,13 +248,16 @@
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 61742
+          }
         },
         {
+          "apiId": 1119,
           "number": 20,
           "name": "Kristoffer Vassbakk Ajer",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 27,
           "height": 198,
@@ -243,18 +276,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 270,
-            "apps": 3,
+            "minutes": 360,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 6.97
-          },
-          "apiId": 1119
+            "rating": 6.88
+          }
         },
         {
+          "apiId": 19495,
           "number": 22,
           "name": "Nathan Michael Collins",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 24,
           "height": 193,
@@ -277,14 +313,17 @@
             "apps": 3,
             "yellow": 1,
             "red": null,
-            "rating": 6.61
-          },
-          "apiId": 19495
+            "rating": 6.6
+          }
         },
         {
+          "apiId": 409303,
           "number": 25,
           "name": "El Hadji Malick Diouf",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 21,
           "height": 183,
@@ -308,13 +347,16 @@
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 409303
+          }
         },
         {
+          "apiId": 19346,
           "number": 3,
           "name": "Rico Antonio Henry",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 28,
           "height": 170,
@@ -338,13 +380,16 @@
             "yellow": 0,
             "red": null,
             "rating": 0
-          },
-          "apiId": 19346
+          }
         },
         {
+          "apiId": 44871,
           "number": 2,
           "name": "Aaron Buchanan Hickey",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 23,
           "height": 178,
@@ -363,18 +408,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 61,
-            "apps": 3,
+            "minutes": 132,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.83
-          },
-          "apiId": 44871
+            "rating": 6.67
+          }
         },
         {
+          "apiId": 342022,
           "number": 33,
           "name": "Michael Olabode Kayode",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 21,
           "height": 179,
@@ -393,18 +441,21 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 209,
-            "apps": 3,
+            "minutes": 228,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.22
-          },
-          "apiId": 342022
+            "rating": 6.87
+          }
         },
         {
+          "apiId": 36922,
           "number": 4,
           "name": "S. van den Berg",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 24,
           "height": null,
@@ -420,13 +471,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 36922
+          "stats": null
         },
         {
+          "apiId": 513316,
           "number": 48,
           "name": "Luka Bentt",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 18,
           "height": null,
@@ -442,13 +496,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 513316
+          "stats": null
         },
         {
+          "apiId": 153066,
           "number": 14,
           "name": "Fábio Carvalho",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 23,
           "height": 170,
@@ -472,13 +529,16 @@
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 153066
+          }
         },
         {
+          "apiId": 15908,
           "number": 24,
           "name": "Mikkel Krogh Damsgaard",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 25,
           "height": 180,
@@ -497,18 +557,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 169,
-            "apps": 3,
+            "minutes": 199,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.1
-          },
-          "apiId": 15908
+            "rating": 6.94
+          }
         },
         {
+          "apiId": 19362,
           "number": 10,
           "name": "J. Dasilva",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 27,
           "height": null,
@@ -524,13 +587,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 19362
+          "stats": null
         },
         {
+          "apiId": 427736,
           "number": 7,
           "name": "Gustavo Gomes",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 20,
           "height": null,
@@ -546,13 +612,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 427736
+          "stats": null
         },
         {
+          "apiId": 25073,
           "number": 27,
           "name": "Vitaly Janelt",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 27,
           "height": 184,
@@ -571,18 +640,21 @@
           "stats": {
             "goals": 2,
             "assists": 0,
-            "minutes": 270,
-            "apps": 3,
+            "minutes": 360,
+            "apps": 4,
             "yellow": 3,
             "red": null,
-            "rating": 7.49
-          },
-          "apiId": 25073
+            "rating": 7.28
+          }
         },
         {
+          "apiId": 47438,
           "number": 8,
           "name": "Mathias Jensen",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 29,
           "height": 180,
@@ -606,13 +678,17 @@
             "yellow": 0,
             "red": null,
             "rating": 7.5
-          },
-          "apiId": 47438
+          }
         },
         {
+          "apiId": 106725,
           "number": 23,
           "name": "Keane William Lewis-Potter",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF",
+            "ATT"
+          ],
           "role": "DEF",
           "age": 24,
           "height": 170,
@@ -631,18 +707,21 @@
           "stats": {
             "goals": 1,
             "assists": 1,
-            "minutes": 268,
-            "apps": 3,
+            "minutes": 328,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.22
-          },
-          "apiId": 106725
+            "rating": 6.5
+          }
         },
         {
+          "apiId": 327726,
           "number": 8,
           "name": "R. Owen",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 20,
           "height": null,
@@ -658,13 +737,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 327726
+          "stats": null
         },
         {
+          "apiId": 277306,
           "number": 18,
           "name": "Mamadou Sangaré",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 23,
           "height": 178,
@@ -683,18 +765,21 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 211,
-            "apps": 3,
+            "minutes": 301,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 6.78
-          },
-          "apiId": 277306
+            "rating": 6.71
+          }
         },
         {
+          "apiId": 178077,
           "number": 7,
           "name": "Kevin Schade",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 24,
           "height": 183,
@@ -711,20 +796,23 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 1,
+            "goals": 3,
             "assists": 0,
-            "minutes": 268,
-            "apps": 3,
+            "minutes": 358,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.2
-          },
-          "apiId": 178077
+            "rating": 7.4
+          }
         },
         {
+          "apiId": 441271,
           "number": 44,
           "name": "Jannik Schuster",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 19,
           "height": 190,
@@ -748,13 +836,16 @@
             "yellow": 0,
             "red": null,
             "rating": 6.82
-          },
-          "apiId": 441271
+          }
         },
         {
+          "apiId": 263538,
           "number": 6,
           "name": "Yehor Yarmolyuk",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 21,
           "height": 180,
@@ -772,19 +863,23 @@
           "statusNote": null,
           "stats": {
             "goals": 0,
-            "assists": 0,
-            "minutes": 89,
-            "apps": 3,
+            "assists": 1,
+            "minutes": 149,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 6.58
-          },
-          "apiId": 263538
+            "rating": 6.42
+          }
         },
         {
+          "apiId": 196855,
           "number": 19,
           "name": "Jaidon Kya Denley Anthony",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT",
+            "MID"
+          ],
           "role": "ATT",
           "age": 26,
           "height": 183,
@@ -803,18 +898,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 129,
-            "apps": 3,
+            "minutes": 189,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 6.81
-          },
-          "apiId": 196855
+            "rating": 6.64
+          }
         },
         {
+          "apiId": 393193,
           "number": 9,
           "name": "Kaye Iyowuna Furo",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 18,
           "height": null,
@@ -830,13 +928,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 393193
+          "stats": null
         },
         {
+          "apiId": 284797,
           "number": 11,
           "name": "Dango Aboubacar Faissal Ouattara",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 23,
           "height": 177,
@@ -855,18 +956,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 141,
-            "apps": 3,
+            "minutes": 171,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.84
-          },
-          "apiId": 284797
+            "rating": 6.81
+          }
         },
         {
+          "apiId": 624708,
           "number": 19,
           "name": "O. Shield",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 19,
           "height": null,
@@ -882,13 +986,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 624708
+          "stats": null
         },
         {
+          "apiId": 196156,
           "number": 9,
           "name": "Thiago",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 24,
           "height": 191,
@@ -907,18 +1014,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 263,
-            "apps": 3,
-            "yellow": 0,
+            "minutes": 353,
+            "apps": 4,
+            "yellow": 1,
             "red": null,
-            "rating": 6.22
-          },
-          "apiId": 196156
+            "rating": 6.48
+          }
         },
         {
+          "apiId": 2939,
           "number": 13,
           "name": "Callum Eddie Graham Wilson",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 33,
           "height": 180,
@@ -937,33 +1047,33 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 18,
+            "minutes": 25,
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.96
-          },
-          "apiId": 2939
+            "rating": 4.43
+          }
         }
       ],
       "form": {
         "last5": [
           "D",
           "D",
+          "D",
           "W"
         ],
-        "ppg": 1.67,
-        "homeAway": "Acasă 1-1-0, deplasare 0-1-0",
+        "ppg": 1.5,
+        "homeAway": "Acasă 1-1-0, deplasare 0-2-0",
         "position": 5,
-        "note": "Clasament 2026/27: locul 5, 5p (5-2)",
+        "note": "Clasament 2026/27: locul 5, 6p (7-4)",
         "table": {
-          "played": 3,
+          "played": 4,
           "win": 1,
-          "draw": 2,
+          "draw": 3,
           "loss": 0,
-          "gf": 5,
-          "ga": 2,
-          "points": 5
+          "gf": 7,
+          "ga": 4,
+          "points": 6
         },
         "recent": [
           {
@@ -971,7 +1081,7 @@
             "opp": "Bournemouth",
             "homeAway": "A",
             "comp": "Premier League",
-            "score": "1-1",
+            "score": "2-2",
             "result": "D"
           },
           {
@@ -1038,20 +1148,23 @@
         "stats": {
           "goalsForByInterval": {
             "0-15": 1,
-            "31-45": 2,
-            "46-60": 2
+            "31-45": 3,
+            "46-60": 3
           },
           "goalsAgainstByInterval": {
+            "31-45": 1,
+            "46-60": 1,
             "76-90": 2
           },
           "cardsYellowByInterval": {
             "16-30": 2,
+            "46-60": 1,
             "61-75": 3,
             "76-90": 2,
             "91-105": 1
           },
-          "goalsForAvg": 1.7,
-          "goalsAgainstAvg": 0.7,
+          "goalsForAvg": 1.8,
+          "goalsAgainstAvg": 1,
           "cleanSheets": 1,
           "failedToScore": 0,
           "penaltyScored": 0,
@@ -1059,7 +1172,7 @@
           "formations": [
             {
               "formation": "4-2-3-1",
-              "played": 3
+              "played": 4
             }
           ],
           "biggestStreak": {
@@ -1107,52 +1220,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Confirmed Bournemouth v Brentford team news: Keith Andrews makes four changes for Premier League clash",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNX0YxNjV1cVFmRHEzVFAwb0VhWXl6eTVSNlhZVEJHSTRTNmRoU2JSMDlkWkFVQmk2Q2U4YktHY0Z0Um1vSFg0QWtNQ1M4SVJCSWxyQ3pSNUZEU09DUWRTcm13Q09BRkNLR2dPaGo2d0JnRmZUVHhfRWFmNUwzT0FMQTZaMi1RMDItVnI2emowM3ZTQ0VidXhaNTFncXBBN0dZaXMyYU5Vb2c5alE4TDdBMFU5MA?oc=5",
-          "source": "Brentford FC",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "AFC Bournemouth vs Brentford: TV channel, live stream and how to watch Premier League | Goal.com US",
-          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxObUFOb1d2Q0JwbXpweDlLYmhuWkFWREtmNEFWZFVxeklEMWV3TWhPaUZmX0xrUnhCSUJyT1k0bE15akUyeUlpMTNsTndPNmI1U1kwUy1feHBHNDRUN2VBTHFCa0llRFROTkkyYkZNSlcwQlc1V0VfeGtPODJqYl9sYmFkUFFMTEVRNHUzRjJva19aLWh6dW1HY3R2cF91dFBkdkxydFUxZFVSTWxNSUlLUFJkUW1qQQ?oc=5",
-          "source": "Goal.com",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "𝚆𝙰𝚃𝙲𝙷 Bournemouth vs. Brentford 𝐋𝐈𝐕𝐄 Ｓｔｒｅａｍ Ｆｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ!PREMIER™LEAGUE",
-          "url": "https://news.google.com/rss/articles/CBMi4gJBVV95cUxNaTlKdGpVV2RFWnBndUkxWlVhSFdmTDY5UUlGNHg2SEdpSk5mb1Y4RGxMakg0X3hXMTAyYURKT2h3VkVYdXd2SkI0cnM1a3RYRzYtSzcwODNuaHRNWlAxWUdEYmdDZ1Vsd242TVg5Uks4QnFnVUtWX0FZUnJBOWZ0SWZPZC1kZXFCaEE0YTRLVHpZekhFY3FoenhOLUpiQ2QzUnh4VTFERDh1WFdJUk5ZVG5UNnotaklFUEIwM1pZMTJ2VDFxSUVrQmdkTGljMHd2bENFQzRZMndXVjRBakFvMy1NUUhfVl9uTTV6RC1DY2NtUlF0eXllUjQ3NmkwNWR2ckpqRGxIdUtUN2NzY1VPY0lGMVNPYjR1bml5RE1RT2FmaE5vaXZibGZxTUN6WjZ2RjZDMFc0eHg0TFVNMG82OWRWWnhXb3VrVzlzajhvR003d1lSb3RITXAzZEdQd21CckE?oc=5",
-          "source": "Jackson County Pilot",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "AFC Bournemouth U18 1 Brentford U18 3: Kasujja and Madden on target in away win",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNTkQ1Y18yVmJJNE8yNmhVT09jb0I0aTBRN1lPeFRuZ0UxdW5HeFlDVWk3RXJQNUlkemtSWWxYb1pteFUtSWlBZmM3Z0tXRm1lVGpHLTRCaTVVTjh1bXkzaldpMVlzUUxnZWx1OU9IZmNtWlJYTDN6Y3MybmxZS21ySzJrTzdrcTA?oc=5",
+          "title": "Brentford analysis: Schade haunts Cherries again",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPNlFLUGNpTU5WX0prR3p5dXJxaHdYRWx6akhNUUlLTV9LcEpOcXl1VGdQUExlSWtpUkw3RHAzZGZjclZBQXZxVDVoVGRMNUZIbHlmZHZ1ZVpDNlMxOHRpZHE5UjZaNnZ2OGxGY0RRS3hBWktpZXFHdUlfakE0dG55R3JvVGs1dU9kRWpPY3V4NkJibUo3?oc=5",
           "source": "Yahoo Sports",
-          "published": "2026-09-12"
+          "published": "2026-09-13"
         },
         {
-          "title": "Bournemouth vs Brentford LIVE! Premier League score updates, news, prediction and lineups",
-          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPSExyZEV3MzlxYm9nUG1sY2xlMmdiYm83TjN5bW9RZzlVYTRObkNBaFZUb0VWekVJVnh3V29WTlpKalMwSUlLcTJ3SXFCNlZxZVhxSVU0ejhwLTNwNDByMnpRcnVGcUV0YVFTY0tuQWs3MHN4OERtdUdVRjhCTkp5Xzd5THh5cXZtZUpQeUpZTTBRV2d2M1NfRGszOWVkRkJHVDdPN2l1MFd5Sjgtc3dLSlk1VmtuNmZsMHF6QU5FMDNYQW1rMk5yTG5RUlRqbzBaSGgycDhGd1Y1Ni05NlFV?oc=5",
-          "source": "Sky Sports",
-          "published": "2026-09-12"
+          "title": "Brentford vs. Chelsea (Sep 18, 2026) Odds and Spread",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE15ZDA0MWwyR3VKWFlGeGZpVmRTQm1GZkd5c2tabWw3RTN5Si10TlFHdEZkdnFETU12SjdqUnM1VEZmV0xJLWxkYzI2cloySGE5eEtuRTFMY2l6cTFJY3ZBNw?oc=5",
+          "source": "ESPN",
+          "published": "2026-09-13"
         },
         {
-          "title": "Bournemouth vs Brentford Lineups, Live Streaming, How & Where to Watch Premier League Match",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNRl8tVVRObDZBQ0lvR3hNZHdTZ1hSZnlGTVVRdDV4dk9GOTE2TjBVYzB0ajRHUnlvSDlQSUNoRVdHbWRiNEZwVE9yVEVWX29Xc3BnTTNZWFZybjhUTXlrN1A2b2twLXIwcWNxS3pFbU1Hd0pneU5SYWpzMWVSTDBDdzY2M0l3TmEzcmJsY2s2RmhzMmVMbmRmdVllOEZ1Q1NIY0FNMEEyTGk5Y0pxbzdBaEsyTEpQVUxXdzQ0?oc=5",
-          "source": "athlonsports.com",
-          "published": "2026-09-12"
+          "title": "Things to know if travelling to Reading",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQbXlYQjRGMU12NmxxcWprOENGY1ZQMnBDNXowN2R3cFk5bmxlNG96Y2NkSDZ4NFc4UUlzY3RRZ2p1QWlGSjB6RDN4U3dJRDNQUE1NY1N0WjY5dnVQS1pSRVNUaXBQQmRzMUVhVlhmM2h1Y0k1WUNPUDg2dzN3cUQ0U0VUYVpINkJDck5VVEtQZG1tZklveUFlZHJfU21HZ1EydWdB?oc=5",
+          "source": "Brentford FC",
+          "published": "2026-09-13"
         },
         {
-          "title": "Bournemouth vs Brentford Live Stream: How to Watch English Premier League in Canada",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxONlVRRXdETzJCaVhfYmhDajdtV1VjRVMxWVRrNFpUYlFDME5yWGthQkR2RGxubmhfdVNJc0VqV0V4NVUzeG1yYVlKemJlU3B1R1U1S0wwYVhUNmYxWEFxS21QYzR0Q2ljS1l3Yk1lN0UtLU5NYWpualpHRlMzdkc4eE5hRWFNLXRGYUc4ZmlVYWpWRVV3ZlpMeXEta0JZcmdpSlRfNHJ4U1o3VURFcUx1SHlKM2pYUE1k?oc=5",
-          "source": "Fubo",
-          "published": "2026-09-12"
+          "title": "Keith Andrews Wants 'More' From Brentford Despite Unbeaten Start",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNM01PeU5zUGN3dHJra0Y2WVdEbmRJTHg0WklvM1hTUmpSdHBKSmlrSVpmSEw0d2pqNXJ4bXVwMkpSN1NZQXhGdlBVYUM0aVN3a1lydjdaQTF0T0tsbDBXVllLTU9YMjc5N3JMMlVMWC05MldFMC1rZS11TWNsLW56RzBWSkcwcXlfMEJzZlBYNnV2M1J3azBQRHlBcV9qVzVDMFREVzFOSDY0TnpIcDlzNjFqN0JlTl9aUlNmc2VqTWlrT0RTLUR3?oc=5",
+          "source": "roundtable.io",
+          "published": "2026-09-13"
         },
         {
-          "title": "AFC Bournemouth vs Brentford: You won’t believe how much money tickets cost for this Premier League game",
-          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNeUJ0Nkp5TXdVVFg2eUI1dktHWExRdzJ0ZjJ4NVM4cGlYcjNzUHZnUnVHNVFNVGhZallRSUQzOWFBejIwbVpubGdMZmxUZ0Qwc0tOMWtBRlI4anN0cVBsWmk5TnV2QTVTWmQzRXRqWnl0LUZQano4Smc4aDJOWnc2cjVMTjZkQ1dHNnlyZmxnaS1ObVFOZXh4U0owcENKdlVMUlU5cS1JZDAwaDZDMHVGT2tKOWplcGxPbHY0Nl9CRmhxdDdZM2dxNEpjMXB3MDljMnBSeNIB6AFBVV95cUxQTWh6a1hkMnk0TFFETC1WSWxSU2pGczQyUEFTY3BMRUdGREp3aEEwOERsamdMcVFEYzhoUjNPT1FCc2ZSdjVvMm9VYlVpQ1pVRElJSHhaRnZ6S0xNSkxZVXVGamhJZXg5bl9tUG44ckYxTVdCZEQtQWxKdVIwMGpCZWtROWp5bmlWU0tfdnhBcVFMVTk3NVl5T0tvVEJSOGFUYzdNLU1UR0JHdl9NbnRzNS1kbmIzaVpmUXFpYnRLQW4zWklKbjJ2WlRqa3RMaVE4MDhZUFR1LWxyR2pzSjN4bVFpNklnWDNW?oc=5",
-          "source": "Diario AS",
-          "published": "2026-09-12"
+          "title": "Bournemouth analysis: Frustration grows for Rose after Brentford draw",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE91Z09lQTdIa09Qc2tFQXdlTFdLY2FJWXNkeWluU1ZyOTZESWJJNEM1eFozM2dwMlFibEt1VTdLdlB6MERCdjdmREtRWTNWR0VaN0VtM3VYUlN0MFlTdElHVklwcURQNmc?oc=5",
+          "source": "BBC",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Bournemouth still winless after draw against unbeaten Brentford",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPYUMwak93X19mS2dVWXhwVk9DY1NwRGRwc3EwUGFYQ2dXQTVMQUctWDhGU1RxR3VxT2ZldXhtcEJFT1BHeXhocldfdzkzVXd1OEFtU0NOcFdSUmZ5X2pwSGhQZTEzNzFuTFVDeFRQMk1xc0JUWmNHVGJnX2lLTDkwcktzSk5hdGlYQ1N4RkFndFBuTUEwRE5NR2FmaURsNkRaUEwxYmtR?oc=5",
+          "source": "Guyana Chronicle",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Marco Rose stays upbeat despite Bournemouth setting unwanted Premier League record in Brentford draw",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOSUxESS1YSm5BZVFqVlNDdXZOdDJRZFk3VGZ3czNSRTFRRUR2aTdBcEFQODVsVG4yZU9ZMXJzTXVWVzJHTTh3Z2FYc2N6NkpYd19zRHpSVjhrSXV6Vm0zc1ZKQVRTakN6NFBodmdUWFBoS1VSZ0MzYXJrRFEtYU9hdHA2XzB3bzJtRllyQk5TWnplWTU4WERrakJqMWxRcTBSOHRvVmZrMUNsRXh4QWc?oc=5",
+          "source": "Goal.com",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "What We Learned From The Bournemouth Draw – AFC Bournemouth 2 Brentford 2",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQUW5xWkZUekpRRFktYTBDNVlmWG8tNlVIQWh2bTRvNExkLWc1WXItUWU2VUFzblB2MXlEWTJHTl9NTjV2eWprWHJGNjRuVGtIeWttVENsa19DR3l5SlJhMzBLaVJaY2MwSWNfREZHMFdnaG9wSndHOHZ2SnRHMGdFaFZCcWg3LWJIZ2stM3hOSHZWLUItZ0dRRTNn?oc=5",
+          "source": "Beesotted",
+          "published": "2026-09-13"
         }
       ],
       "stories": []
@@ -1162,41 +1275,20 @@
       "shortName": null,
       "colors": null,
       "coach": {
-        "name": "Xabi Alonso",
-        "country": "Spain",
-        "age": 44,
-        "tenureFrom": "2026-07",
-        "career": [
-          {
-            "club": "Chelsea",
-            "period": "2026–prezent",
-            "note": null
-          },
-          {
-            "club": "Real Madrid",
-            "period": "2025–2026",
-            "note": null
-          },
-          {
-            "club": "Bayer Leverkusen",
-            "period": "2022–2025",
-            "note": null
-          },
-          {
-            "club": "Real Sociedad B",
-            "period": "2019–2022",
-            "note": null
-          }
-        ]
+        "name": "n/d"
       },
       "formation": "n/d",
       "predictedXI": [],
       "confirmedXI": null,
       "squad": [
         {
+          "apiId": 19599,
           "number": 1,
           "name": "Damián Emiliano Martínez Romero",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 33,
           "height": 195,
@@ -1220,13 +1312,16 @@
             "yellow": 0,
             "red": null,
             "rating": 7.6
-          },
-          "apiId": 19599
+          }
         },
         {
+          "apiId": 340151,
           "number": 39,
           "name": "Mike Louis Penders",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 20,
           "height": 200,
@@ -1250,13 +1345,16 @@
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 340151
+          }
         },
         {
+          "apiId": 180940,
           "number": 28,
           "name": "T. Sharman-Lowe",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 22,
           "height": null,
@@ -1272,13 +1370,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 180940
+          "stats": null
         },
         {
+          "apiId": 64167,
           "number": 44,
           "name": "G. Słonina",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 21,
           "height": null,
@@ -1294,13 +1395,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 64167
+          "stats": null
         },
         {
+          "apiId": 366735,
           "number": 34,
           "name": "Joshua Kofi Acheampong",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 19,
           "height": 184,
@@ -1323,14 +1427,17 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.47
-          },
-          "apiId": 366735
+            "rating": 4.75
+          }
         },
         {
+          "apiId": 609590,
           "number": null,
           "name": "Denner",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 18,
           "height": null,
@@ -1346,13 +1453,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 609590
+          "stats": null
         },
         {
+          "apiId": 422780,
           "number": 30,
           "name": "Aaron Anselmino",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 20,
           "height": 186,
@@ -1376,14 +1486,18 @@
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 422780
+          }
         },
         {
+          "apiId": 181734,
           "number": 29,
           "name": "Pep Chavarría",
-          "pos": null,
-          "role": "DEF",
+          "pos": "MID",
+          "positions": [
+            "MID",
+            "DEF"
+          ],
+          "role": "MID",
           "age": 27,
           "height": 174,
           "weight": 72,
@@ -1406,13 +1520,16 @@
             "yellow": 0,
             "red": null,
             "rating": 6.29
-          },
-          "apiId": 181734
+          }
         },
         {
+          "apiId": 152953,
           "number": 6,
           "name": "Levi Lemar Samuels Colwill",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 22,
           "height": 187,
@@ -1436,13 +1553,16 @@
             "yellow": 1,
             "red": null,
             "rating": 4.07
-          },
-          "apiId": 152953
+          }
         },
         {
+          "apiId": 22094,
           "number": 3,
           "name": "Wesley Tidjan Fofana",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 25,
           "height": 190,
@@ -1466,14 +1586,18 @@
             "yellow": 1,
             "red": null,
             "rating": 6.57
-          },
-          "apiId": 22094
+          }
         },
         {
+          "apiId": 161907,
           "number": 27,
           "name": "Malo Gusto",
-          "pos": null,
-          "role": "DEF",
+          "pos": "MID",
+          "positions": [
+            "MID",
+            "DEF"
+          ],
+          "role": "MID",
           "age": 22,
           "height": 179,
           "weight": 67,
@@ -1496,13 +1620,17 @@
             "yellow": 0,
             "red": null,
             "rating": 6.41
-          },
-          "apiId": 161907
+          }
         },
         {
+          "apiId": 341642,
           "number": 21,
           "name": "Jorrel Hato",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF",
+            "MID"
+          ],
           "role": "DEF",
           "age": 19,
           "height": 182,
@@ -1521,18 +1649,22 @@
           "stats": {
             "goals": 0,
             "assists": 2,
-            "minutes": 215,
-            "apps": 3,
+            "minutes": 260,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.63
-          },
-          "apiId": 341642
+            "rating": 6.68
+          }
         },
         {
+          "apiId": 19545,
           "number": 24,
           "name": "Reece Lewis James",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF",
+            "MID"
+          ],
           "role": "DEF",
           "age": 26,
           "height": 182,
@@ -1556,13 +1688,16 @@
             "yellow": 1,
             "red": null,
             "rating": 6.52
-          },
-          "apiId": 19545
+          }
         },
         {
+          "apiId": 20995,
           "number": 5,
           "name": "Maxence Guy Lacroix",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 25,
           "height": 190,
@@ -1586,13 +1721,16 @@
             "yellow": 1,
             "red": null,
             "rating": 6.56
-          },
-          "apiId": 20995
+          }
         },
         {
+          "apiId": 383018,
           "number": 2,
           "name": "M. Palestra",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 20,
           "height": null,
@@ -1608,13 +1746,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 383018
+          "stats": null
         },
         {
+          "apiId": 319572,
           "number": 4,
           "name": "Valentín Barco",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 21,
           "height": 170,
@@ -1638,13 +1779,16 @@
             "yellow": 0,
             "red": null,
             "rating": 3.15
-          },
-          "apiId": 319572
+          }
         },
         {
+          "apiId": 116117,
           "number": 25,
           "name": "Moisés Isaac Caicedo Corozo",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 24,
           "height": 178,
@@ -1668,13 +1812,16 @@
             "yellow": 0,
             "red": null,
             "rating": 6.7
-          },
-          "apiId": 116117
+          }
         },
         {
+          "apiId": 496411,
           "number": 72,
           "name": "M. Eboue",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 16,
           "height": null,
@@ -1690,13 +1837,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 496411
+          "stats": null
         },
         {
+          "apiId": 292,
           "number": 14,
           "name": "J. Henderson",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 35,
           "height": null,
@@ -1712,13 +1862,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 292
+          "stats": null
         },
         {
+          "apiId": 282125,
           "number": 45,
           "name": "Roméo Lavia",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 21,
           "height": 181,
@@ -1742,13 +1895,17 @@
             "yellow": 1,
             "red": null,
             "rating": 6.89
-          },
-          "apiId": 282125
+          }
         },
         {
+          "apiId": 152982,
           "number": 10,
           "name": "Cole Jermaine Palmer",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID",
+            "ATT"
+          ],
           "role": "MID",
           "age": 23,
           "height": 189,
@@ -1772,13 +1929,17 @@
             "yellow": 1,
             "red": null,
             "rating": 7.73
-          },
-          "apiId": 152982
+          }
         },
         {
+          "apiId": 19170,
           "number": 17,
           "name": "Morgan Elliot Rogers",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID",
+            "ATT"
+          ],
           "role": "MID",
           "age": 23,
           "height": 187,
@@ -1802,13 +1963,16 @@
             "yellow": 1,
             "red": null,
             "rating": 7.84
-          },
-          "apiId": 19170
+          }
         },
         {
+          "apiId": 586131,
           "number": 31,
           "name": "R. Watson",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 16,
           "height": null,
@@ -1827,18 +1991,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
-            "apps": 0,
-            "yellow": 0,
+            "minutes": 45,
+            "apps": 1,
+            "yellow": 1,
             "red": null,
-            "rating": null
-          },
-          "apiId": 586131
+            "rating": 6.22
+          }
         },
         {
+          "apiId": 203762,
           "number": 22,
           "name": "Emanuel Esseh Emegha",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 22,
           "height": 195,
@@ -1862,14 +2029,18 @@
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 203762
+          }
         },
         {
+          "apiId": 425733,
           "number": 41,
           "name": "Estêvão",
-          "pos": null,
-          "role": "MID",
+          "pos": "ATT",
+          "positions": [
+            "ATT",
+            "MID"
+          ],
+          "role": "ATT",
           "age": 18,
           "height": 176,
           "weight": 62,
@@ -1887,19 +2058,22 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 21,
-            "apps": 2,
+            "minutes": 25,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.5
-          },
-          "apiId": 425733
+            "rating": 6.52
+          }
         },
         {
+          "apiId": 286894,
           "number": 11,
           "name": "Jamie Jermaine Bynoe-Gittens",
-          "pos": null,
-          "role": "MID",
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
+          "role": "ATT",
           "age": 21,
           "height": 175,
           "weight": 70,
@@ -1922,13 +2096,16 @@
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 286894
+          }
         },
         {
+          "apiId": 10329,
           "number": 9,
           "name": "João Pedro",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 24,
           "height": 182,
@@ -1952,13 +2129,16 @@
             "yellow": 1,
             "red": null,
             "rating": 7.51
-          },
-          "apiId": 10329
+          }
         },
         {
+          "apiId": 1864,
           "number": 7,
           "name": "Pedro Neto",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 26,
           "height": 174,
@@ -1982,13 +2162,16 @@
             "yellow": 0,
             "red": null,
             "rating": 7.24
-          },
-          "apiId": 1864
+          }
         },
         {
+          "apiId": 419582,
           "number": 23,
           "name": "Geovany Tcherno Quenda",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 19,
           "height": 172,
@@ -2012,13 +2195,16 @@
             "yellow": 0,
             "red": null,
             "rating": 3.15
-          },
-          "apiId": 419582
+          }
         },
         {
+          "apiId": 1469,
           "number": 18,
           "name": "Daniel Nii Tackie Mensah Welbeck",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 35,
           "height": 185,
@@ -2042,13 +2228,16 @@
             "yellow": 0,
             "red": null,
             "rating": 5.89
-          },
-          "apiId": 1469
+          }
         },
         {
+          "apiId": 5996,
           "number": 8,
-          "name": "E. Fernández",
-          "pos": null,
+          "name": "Enzo Jeremías Fernández",
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 25,
           "height": 178,
@@ -2075,9 +2264,13 @@
           }
         },
         {
+          "apiId": 18959,
           "number": 1,
           "name": "Robert Sánchez",
-          "pos": null,
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 28,
           "height": 197,
@@ -2106,22 +2299,23 @@
       ],
       "form": {
         "last5": [
+          "D",
           "L",
           "W",
           "W"
         ],
-        "ppg": 2,
-        "homeAway": "Acasă 1-0-0, deplasare 1-0-1",
+        "ppg": 1.75,
+        "homeAway": "Acasă 1-1-0, deplasare 1-0-1",
         "position": 4,
-        "note": "Clasament 2026/27: locul 4, 6p (8-7)",
+        "note": "Clasament 2026/27: locul 4, 7p (10-9)",
         "table": {
-          "played": 3,
+          "played": 4,
           "win": 2,
-          "draw": 0,
+          "draw": 1,
           "loss": 1,
-          "gf": 8,
-          "ga": 7,
-          "points": 6
+          "gf": 10,
+          "ga": 9,
+          "points": 7
         },
         "recent": [
           {
@@ -2129,8 +2323,8 @@
             "opp": "Hull City",
             "homeAway": "H",
             "comp": "Premier League",
-            "score": "1-2",
-            "result": "L"
+            "score": "2-2",
+            "result": "D"
           },
           {
             "date": "2026-09-09",
@@ -2195,14 +2389,14 @@
         ],
         "stats": {
           "goalsForByInterval": {
-            "0-15": 4,
+            "0-15": 5,
             "31-45": 2,
             "46-60": 1,
-            "61-75": 2
+            "61-75": 3
           },
           "goalsAgainstByInterval": {
-            "16-30": 2,
-            "31-45": 1,
+            "16-30": 3,
+            "31-45": 2,
             "46-60": 2,
             "76-90": 1
           },
@@ -2211,9 +2405,9 @@
             "31-45": 1,
             "46-60": 2,
             "61-75": 1,
-            "76-90": 1
+            "76-90": 2
           },
-          "goalsForAvg": 2.7,
+          "goalsForAvg": 2.5,
           "goalsAgainstAvg": 2.3,
           "cleanSheets": 0,
           "failedToScore": 0,
@@ -2223,12 +2417,16 @@
             {
               "formation": "3-4-2-1",
               "played": 3
+            },
+            {
+              "formation": "4-2-3-1",
+              "played": 1
             }
           ],
           "biggestStreak": {
             "wins": 2,
             "draws": 0,
-            "loses": 0
+            "loses": 1
           }
         }
       },
@@ -2264,52 +2462,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Confirmed Chelsea line up vs Hull City | News | Official Site",
-          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNYkI4SDJVRjVqeGk3YW9tdXhNckI5eFJXb0VPeE9EZHRNdGdkM1JNMXJncHpMeGZUM2JBM2kydFJiRzBycjZMMTl2ZDJoZFlKVGk4VzhTU3V2MU51NG5kWENyVHlGMk5xSHZOcGY0bkdJekpSMzlGNUNyR3IwVkp6RjBtZUZ1VmRpSlNnTjg0czN2Zw?oc=5",
+          "title": "Manchester United v Chelsea: Women’s Super League – live",
+          "url": "https://www.theguardian.com/football/live/2026/sep/13/manchester-united-v-chelsea-womens-super-league-live",
+          "source": "The Guardian",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Match preview: United Women v Chelsea",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOd0NkR2U3aUZ4YkR6NDdFQW5kOGlPMFlNWVRwdGRMVTI2NDEzckhOVnZteXhwR21sWUppcU5xZ0dfb1JKZktNQU9yazVQQi1HaWRvYk55VmNKQzFhaXlwTzU0eXFUWmF1WndsR1FvaTU0ODFfTmxtSmxXLWpLYjBCTHdWUVpLaFVHRmhIMi10SEU?oc=5",
+          "source": "Official Manchester United Website",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Confirmed Chelsea Women lineup vs Manchester United | News | Official Site",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNYUdadmVGNEJRTnZPcnpSWkdOUHJFRGpKRHR2cE9OcTU5Zm0zSzh4a1B6dzRVUTNXZC0xTW5XaHl4Z216RktYT1RsekNtM2xvamZsaWZJYVR4MzlxSmk4OFo4UnNBNWIxeVhSOFRJTDM4QjNhS01JSjR0Tktac0VMRDhueFdjU3VJRmNBWDJNMXY5YTRuRGJGRw?oc=5",
           "source": "Chelsea Football Club",
-          "published": "2026-09-12"
+          "published": "2026-09-13"
         },
         {
-          "title": "'I've turned the page' - Camara on Chelsea deal collapse",
-          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9NbXhWbWMwNWtsckVTSXE4c0lSNTFOQmN4MDVmYjFLN0haNDlqQ0lhaGVkc3VxUXRrQUlEdWlCS2paa0FDRjFVeGY0QXQteXBid1NOZ19iblZ5NUhxTnhqX2x5cC1Ra1U?oc=5",
-          "source": "BBC",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Chelsea vs. Hull City, Premier League: Confirmed lineups; how to watch",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNSXJaZW03bldTa1JnVDZxUmFKV0ZlLWFNVWVxMTRlSGdxNlE4eE1sR0xTWUhvUjViMXo0SmtSV1QyeUQ0akp6ck1XVnFjY0JyeklsWElSbEJaVUM4al9kQkdYLWFzaXl5MVZJNWNlbEF0QWlnU0RjQ05tb3hqaGx1enlBcThXbmQtUEd3NzZUdmI0T3g5Ull0SDNkanR0RnhDQjZsWmxCWXd0c1doMFFOX2VTQUFJN1ZaWEZXbThva0FhX1ZNdHEw?oc=5",
+          "title": "Manchester United WFC vs. Chelsea FCW, Women’s Super League: Confirmed lineups; how to watch",
+          "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOTkpFejBjeFJ3QjMxTS1XX1l2UTZCcUQ4ZXQtM0REQjhFOHdULUYwWW1TU1A0d3pkblFWUHhvOWlEV3N4NFlndkhnamNSZHQ4VW92b25zblFLMnRlNUNpZUwxbld1SGRyZF9mQjkwTGdBZnpmdHE5b0RpazFWekVORG5rUVMzRm0tbmh4NHM0RlFOMXhoRWxONnNPU0FPbzkzVFVfMFRWNWRqcFYzYVFlV25MZU9lUFpKOThxSm9rZ0dZVzVGbVFCRmhWSElNb1NFakJYSTkzT3pzYmprdW5RSHdZcjBRQQ?oc=5",
           "source": "We Ain't Got No History",
-          "published": "2026-09-12"
+          "published": "2026-09-13"
         },
         {
-          "title": "Exclusive | America’s oldest cheese shop, Alleva, reopens in Chelsea Market after 130 years in Little Italy",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOdl81R1hhTUU5VWw2NVlQTnlpRWFaUW52MF9RNC1lUFBwWmlrbmxoUHNxZ09uQTVPWEotR25TZ3g2U0pGMVRDanNfT3JQdkpDcndVMDYyUmRPRTRzYkNOR3NMMjFVZ1ozVmhXVkZfbkdHcmZLaFoyV19jdXlWMUNaa2swNXFDdjBzOWpaRU9oSzdnUnRPazlyc3pFRUdSSVItTVpQd2NUVjR1YWVOUWFpUkQyWQ?oc=5",
-          "source": "New York Post",
-          "published": "2026-09-12"
+          "title": "Chelsea and Xabi Alonso’s chronic defensive problems transcend system or personnel",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOYWY3WlFhTXR4Wk9rQjA0aWg4LXdPZnFIdUoxUmtscDdjZW1zMGFVOXZ5blRmejQzOFZYNXQyRlozaUZTczM0anN2Y3ktdm84cEpvWVFhS1FOWHlXSFBTXzdxdGlCMmFzVGVzclRHajFmWVpoa3pxSDVYMTk5bzFETHA1djVaSUx1bUwzR3A2M2VjWWdZeWc?oc=5",
+          "source": "The New York Times",
+          "published": "2026-09-13"
         },
         {
-          "title": "Chelsea Green scores epic win against Nia Jax: SmackDown highlights, Sept. 11, 2026",
-          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOZXIwYXdmWFV3YWtqelFRcThtekxLNFBXSnYwN1lnUXVBSUJLZ2x6SklEWldsTkdCRjc3U3NGSkhsei01dDNTcFpyVGY0Z1d4T04xNm5yTklBc1g0cExLbmhzcVZ6Qm90TFVGREdMay1ZWUhzaFYzLS04c19oOTlnVENJcFBZRFl5TlNJUkxaaDZVTGx1Z3UtN1FjakxJbU5vNlY0ZDNnZndyZw?oc=5",
-          "source": "WWE",
-          "published": "2026-09-12"
+          "title": "Liverpool and Chelsea stumble in the Premier League with home draws",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOdWFYLVNLbVBkcnFjQ01DbDFGSzBRQUJBYXFMUEVZT295dXdZZ0l6ZEJ1ZlpYT3hRU1ZheTc4V2JNN2pFNFNCdWd2NFZpZWs0bDkyTWlqTG9GdkFLM2k1LUI2WC12UngzUFBrcElGSnY2T0FJbzRnaWd3cFFxUU55d1dLZHdBX09NdGozUE1zV0tqN1dIV3RKTWljdEFyTGlLaGc?oc=5",
+          "source": "WTOP News",
+          "published": "2026-09-13"
         },
         {
-          "title": "Chelsea vs Hull City LIVE! Premier League match updates, news and score",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPVDZ2VWd0UmFSZ3AyVDQ5bUZrWVBaZWNGWWp3SEtySDlJNXQzRzJJY2JLUFdEc1AtUUxhZkNJV2o5SjBZY3lEMGpOa28ycTUtRUZSX29VZjhXOVJnZWtfS1RNRUFZa2JFRC1TX3Z4UmxBd1o5UUdKUklwUnNha3c0MzdTZEVpaEhEejBMckJNenBtdEFqM1NOWjBuUDUwdk53YkE3LWNmWHJ3eF9iRHkwTDVyRmhkckFKb0VMMGE0SkhvQkxOU2lFOQ?oc=5",
-          "source": "Sky Sports",
-          "published": "2026-09-12"
+          "title": "Women's Super League: Man Utd host Chelsea to start busy Sunday",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNeXluakwzVGxQSlhaSDJ6VU5XLVo5MG9xMVZvTXZMMXEzempHZlBnSHk3eHVtTkNkSWY4aXhLUmxNTC1aV1FyT21jdjlWTlBQT3ZOUUF0RTl3Tjh4eGlOTm00dkMtQWNBRWU2SnYxX2hIVXJ6UUw3VHVSX29QVkJkMDBn?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-09-13"
         },
         {
-          "title": "New third kit gallery: A breed apart | News | Official Site",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNeWg5bXJuUUdKeHVXUlZxUy03SUQyOXBxdTZfWW0zRXZtQzliblJqU2owYldlbnFwaC1YT2xGVzJqQ2pLQXpSeU1FTGtQb1hCR2dtT2Y2WlppbGZZVHNITWtuNEEzRWFOLVdpd01jN01zVGVtUW5WcF9jclJ0VTViamRRWU9mMVN2T2c?oc=5",
-          "source": "Chelsea Football Club",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Chelsea fans’ preferred lineup against Hull City: Plot twist, but from the start",
-          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPVWRzZGt3SjJfYndpeEtqWW9YV21ZWHhncDdxTkM3MHp2QUxXU2Z1NFFyTmxOd0s0UG1kN0dLNWtaLTE0V1JjUG1PYzgwaXFWbWVRNkNzOVZNYnh5NFdwbjk3NEctTHVtbEJFdDQ3TF9qQkhfMVduMXhNNHRkc3BoM0pIMUxQaWhJNGJoZTFkWFdGYndLblMyMER5cDBGWC1XMGNhTE1UQUZQdlpfZUViWDdqTG1FcFJjU0hvSmt4RTk3RUUwLUZxZVVjeGdVdDhTTU1SWUJ3?oc=5",
-          "source": "We Ain't Got No History",
-          "published": "2026-09-12"
+          "title": "Transfer rumors, news: Chelsea to return for Roma star Koné",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPQlh2OVJVTk1VLURZalpsOS1XREt5MlRRaFZnZTAxOXpqcE5aV3RPSWpJQ2RrVmVnMmtOQmZaTE9RMzRJN2Zaa2J2aTZxc3lqT1N2alBoT3duYngtNUhXU09JSHRQeGt6dnJIdThxeWVOQkdzdjdnZ0t3Y3J2a0FxdTgydjQ1czRtM2ptTWZ3Mjl2RVduY3lOenlORmV6YUd2REQwYVhR?oc=5",
+          "source": "ESPN",
+          "published": "2026-09-13"
         }
       ],
       "stories": []
@@ -2321,6 +2519,20 @@
     "rows": [
       {
         "rank": 1,
+        "teamId": 42,
+        "team": "Arsenal",
+        "played": 4,
+        "win": 4,
+        "draw": 0,
+        "loss": 0,
+        "gf": 8,
+        "ga": 1,
+        "gd": 7,
+        "points": 12,
+        "form": "WWWW"
+      },
+      {
+        "rank": 2,
         "teamId": 50,
         "team": "Manchester City",
         "played": 3,
@@ -2334,77 +2546,91 @@
         "form": "WWW"
       },
       {
-        "rank": 2,
-        "teamId": 42,
-        "team": "Arsenal",
-        "played": 3,
-        "win": 3,
-        "draw": 0,
-        "loss": 0,
-        "gf": 6,
-        "ga": 1,
-        "gd": 5,
-        "points": 9,
-        "form": "WWW"
-      },
-      {
         "rank": 3,
         "teamId": 64,
         "team": "Hull City",
-        "played": 3,
+        "played": 4,
         "win": 2,
-        "draw": 1,
-        "loss": 0,
-        "gf": 3,
-        "ga": 0,
-        "gd": 3,
-        "points": 7,
-        "form": "DWW"
-      },
-      {
-        "rank": 4,
-        "teamId": 49,
-        "team": "Chelsea",
-        "played": 3,
-        "win": 2,
-        "draw": 0,
-        "loss": 1,
-        "gf": 8,
-        "ga": 7,
-        "gd": 1,
-        "points": 6,
-        "form": "LWW"
-      },
-      {
-        "rank": 5,
-        "teamId": 55,
-        "team": "Brentford",
-        "played": 3,
-        "win": 1,
         "draw": 2,
         "loss": 0,
         "gf": 5,
         "ga": 2,
         "gd": 3,
-        "points": 5,
-        "form": "DDW"
+        "points": 8,
+        "form": "DDWW"
+      },
+      {
+        "rank": 4,
+        "teamId": 49,
+        "team": "Chelsea",
+        "played": 4,
+        "win": 2,
+        "draw": 1,
+        "loss": 1,
+        "gf": 10,
+        "ga": 9,
+        "gd": 1,
+        "points": 7,
+        "form": "DLWW"
+      },
+      {
+        "rank": 5,
+        "teamId": 55,
+        "team": "Brentford",
+        "played": 4,
+        "win": 1,
+        "draw": 3,
+        "loss": 0,
+        "gf": 7,
+        "ga": 4,
+        "gd": 3,
+        "points": 6,
+        "form": "DDDW"
       },
       {
         "rank": 6,
         "teamId": 40,
         "team": "Liverpool",
-        "played": 3,
+        "played": 4,
         "win": 1,
-        "draw": 2,
+        "draw": 3,
         "loss": 0,
         "gf": 6,
         "ga": 4,
         "gd": 2,
-        "points": 5,
-        "form": "WDD"
+        "points": 6,
+        "form": "DWDD"
       },
       {
         "rank": 7,
+        "teamId": 45,
+        "team": "Everton",
+        "played": 4,
+        "win": 1,
+        "draw": 3,
+        "loss": 0,
+        "gf": 5,
+        "ga": 3,
+        "gd": 2,
+        "points": 6,
+        "form": "DDDW"
+      },
+      {
+        "rank": 8,
+        "teamId": 57,
+        "team": "Ipswich",
+        "played": 4,
+        "win": 2,
+        "draw": 0,
+        "loss": 2,
+        "gf": 7,
+        "ga": 10,
+        "gd": -3,
+        "points": 6,
+        "form": "WLLW"
+      },
+      {
+        "rank": 9,
         "teamId": 34,
         "team": "Newcastle",
         "played": 3,
@@ -2418,21 +2644,7 @@
         "form": "DWD"
       },
       {
-        "rank": 8,
-        "teamId": 45,
-        "team": "Everton",
-        "played": 3,
-        "win": 1,
-        "draw": 2,
-        "loss": 0,
-        "gf": 5,
-        "ga": 3,
-        "gd": 2,
-        "points": 5,
-        "form": "DDW"
-      },
-      {
-        "rank": 9,
+        "rank": 10,
         "teamId": 63,
         "team": "Leeds",
         "played": 3,
@@ -2446,7 +2658,21 @@
         "form": "DDW"
       },
       {
-        "rank": 10,
+        "rank": 11,
+        "teamId": 65,
+        "team": "Nottingham Forest",
+        "played": 4,
+        "win": 1,
+        "draw": 2,
+        "loss": 1,
+        "gf": 4,
+        "ga": 4,
+        "gd": 0,
+        "points": 5,
+        "form": "WDDL"
+      },
+      {
+        "rank": 12,
         "teamId": 51,
         "team": "Brighton",
         "played": 3,
@@ -2460,7 +2686,7 @@
         "form": "DLW"
       },
       {
-        "rank": 11,
+        "rank": 13,
         "teamId": 33,
         "team": "Manchester United",
         "played": 3,
@@ -2474,116 +2700,88 @@
         "form": "DWL"
       },
       {
-        "rank": 12,
+        "rank": 14,
         "teamId": 746,
         "team": "Sunderland",
-        "played": 3,
+        "played": 4,
         "win": 1,
         "draw": 1,
-        "loss": 1,
+        "loss": 2,
         "gf": 3,
-        "ga": 3,
-        "gd": 0,
+        "ga": 5,
+        "gd": -2,
         "points": 4,
-        "form": "DWL"
-      },
-      {
-        "rank": 13,
-        "teamId": 52,
-        "team": "Crystal Palace",
-        "played": 3,
-        "win": 1,
-        "draw": 0,
-        "loss": 2,
-        "gf": 4,
-        "ga": 8,
-        "gd": -4,
-        "points": 3,
-        "form": "WLL"
-      },
-      {
-        "rank": 14,
-        "teamId": 57,
-        "team": "Ipswich",
-        "played": 3,
-        "win": 1,
-        "draw": 0,
-        "loss": 2,
-        "gf": 4,
-        "ga": 8,
-        "gd": -4,
-        "points": 3,
-        "form": "LLW"
+        "form": "LDWL"
       },
       {
         "rank": 15,
         "teamId": 35,
         "team": "Bournemouth",
-        "played": 3,
+        "played": 4,
         "win": 0,
-        "draw": 2,
+        "draw": 3,
         "loss": 1,
-        "gf": 4,
-        "ga": 5,
+        "gf": 6,
+        "ga": 7,
         "gd": -1,
-        "points": 2,
-        "form": "DDL"
+        "points": 3,
+        "form": "DDDL"
       },
       {
         "rank": 16,
-        "teamId": 65,
-        "team": "Nottingham Forest",
-        "played": 3,
-        "win": 0,
-        "draw": 2,
-        "loss": 1,
-        "gf": 2,
-        "ga": 3,
-        "gd": -1,
-        "points": 2,
-        "form": "DDL"
+        "teamId": 52,
+        "team": "Crystal Palace",
+        "played": 4,
+        "win": 1,
+        "draw": 0,
+        "loss": 3,
+        "gf": 6,
+        "ga": 11,
+        "gd": -5,
+        "points": 3,
+        "form": "LWLL"
       },
       {
         "rank": 17,
-        "teamId": 66,
-        "team": "Aston Villa",
-        "played": 3,
+        "teamId": 47,
+        "team": "Tottenham",
+        "played": 4,
         "win": 0,
-        "draw": 1,
+        "draw": 2,
         "loss": 2,
         "gf": 0,
         "ga": 5,
         "gd": -5,
-        "points": 1,
-        "form": "DLL"
+        "points": 2,
+        "form": "DDLL"
       },
       {
         "rank": 18,
-        "teamId": 47,
-        "team": "Tottenham",
-        "played": 3,
-        "win": 0,
-        "draw": 1,
-        "loss": 2,
-        "gf": 0,
-        "ga": 5,
-        "gd": -5,
-        "points": 1,
-        "form": "DLL"
-      },
-      {
-        "rank": 19,
         "teamId": 36,
         "team": "Fulham",
-        "played": 3,
+        "played": 4,
         "win": 0,
-        "draw": 0,
+        "draw": 1,
         "loss": 3,
         "gf": 4,
         "ga": 7,
         "gd": -3,
-        "points": 0,
-        "form": "LLL"
+        "points": 1,
+        "form": "DLLL"
+      },
+      {
+        "rank": 19,
+        "teamId": 66,
+        "team": "Aston Villa",
+        "played": 4,
+        "win": 0,
+        "draw": 1,
+        "loss": 3,
+        "gf": 1,
+        "ga": 7,
+        "gd": -6,
+        "points": 1,
+        "form": "LDLL"
       },
       {
         "rank": 20,

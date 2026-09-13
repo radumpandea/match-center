@@ -1,10 +1,11 @@
 {
   "teamId": 157,
   "name": "Bayern München",
-  "fetchedAt": "2026-09-10T09:58:32.624Z",
+  "fetchedAt": "2026-09-13T11:29:36.100Z",
   "source": "https://www.api-football.com/",
   "coach": {
-    "name": "V. Kompany",
+    "apiId": 12590,
+    "name": "Vincent Jean Mpoy Kompany",
     "country": "Belgium",
     "age": 39,
     "tenureFrom": "2024-07",
@@ -28,9 +29,13 @@
   },
   "squad": [
     {
+      "apiId": 432595,
       "number": 35,
       "name": "Jannis Bärtl",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 19,
       "height": null,
@@ -46,13 +51,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 432595
+      "stats": null
     },
     {
+      "apiId": 497,
       "number": 1,
-      "name": "M. Neuer",
-      "pos": null,
+      "name": "Manuel Peter Neuer",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 39,
       "height": 193,
@@ -75,14 +83,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 7.18
-      },
-      "apiId": 497
+        "rating": 7.4
+      }
     },
     {
+      "apiId": 568316,
       "number": 37,
       "name": "L. Prescott",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 16,
       "height": null,
@@ -98,13 +109,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 568316
+      "stats": null
     },
     {
+      "apiId": 498,
       "number": 26,
-      "name": "S. Ulreich",
-      "pos": null,
+      "name": "Sven Ulreich",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 37,
       "height": 192,
@@ -128,13 +142,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 498
+      }
     },
     {
+      "apiId": 203376,
       "number": 40,
-      "name": "J. Urbig",
-      "pos": null,
+      "name": "Jonas Kurt Urbig",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 22,
       "height": 189,
@@ -153,26 +170,29 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
+        "minutes": null,
         "apps": 0,
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 203376
+      }
     },
     {
-      "number": 93,
-      "name": "S. Boey",
-      "pos": null,
+      "apiId": 2195,
+      "number": 23,
+      "name": "Sacha Boey",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 25,
-      "height": null,
-      "weight": null,
+      "height": 178,
+      "weight": 70,
       "foot": null,
-      "nat": null,
+      "nat": "FRA",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "France",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -180,14 +200,26 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 2195
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "minutes": 0,
+        "apps": 0,
+        "yellow": 0,
+        "red": null,
+        "rating": null
+      }
     },
     {
+      "apiId": 280074,
       "number": 11,
-      "name": "N. Brown",
-      "pos": null,
-      "role": "MID",
+      "name": "Nathaniel Brown",
+      "pos": "DEF",
+      "positions": [
+        "DEF",
+        "MID"
+      ],
+      "role": "DEF",
       "age": 22,
       "height": 176,
       "weight": 60,
@@ -209,14 +241,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.53
-      },
-      "apiId": 280074
+        "rating": 6.55
+      }
     },
     {
+      "apiId": 509,
       "number": 19,
-      "name": "A. Davies",
-      "pos": null,
+      "name": "Alphonso Boyle Davies",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 25,
       "height": 183,
@@ -239,14 +274,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 7.38
-      },
-      "apiId": 509
+        "rating": 7.45
+      }
     },
     {
+      "apiId": 32893,
       "number": 21,
-      "name": "H. Ito",
-      "pos": null,
+      "name": "Hiroki Ito",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 26,
       "height": 188,
@@ -265,18 +303,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
+        "minutes": null,
         "apps": 0,
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 32893
+      }
     },
     {
+      "apiId": 524214,
       "number": 30,
       "name": "Cassiano Kiala",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 16,
       "height": null,
@@ -292,13 +333,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 524214
+      "stats": null
     },
     {
+      "apiId": 2897,
       "number": 3,
       "name": "Kim Min-Jae",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 29,
       "height": 190,
@@ -321,14 +365,17 @@
         "apps": 1,
         "yellow": 1,
         "red": null,
-        "rating": 3.6
-      },
-      "apiId": 2897
+        "rating": 7.2
+      }
     },
     {
+      "apiId": 356353,
       "number": 41,
       "name": "Vincent Manuba",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 20,
       "height": null,
@@ -344,13 +391,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 356353
+      "stats": null
     },
     {
+      "apiId": 628356,
       "number": 43,
       "name": "F. Pavic",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 15,
       "height": null,
@@ -366,13 +416,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 628356
+      "stats": null
     },
     {
+      "apiId": 125171,
       "number": 44,
-      "name": "J. Stanišić",
-      "pos": null,
+      "name": "Josip Stanišić",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 25,
       "height": 186,
@@ -395,14 +448,17 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 3.3
-      },
-      "apiId": 125171
+        "rating": 6.6
+      }
     },
     {
+      "apiId": 972,
       "number": 4,
-      "name": "J. Tah",
-      "pos": null,
+      "name": "Jonathan Glao Tah",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 29,
       "height": 195,
@@ -425,14 +481,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.89
-      },
-      "apiId": 972
+        "rating": 7.75
+      }
     },
     {
+      "apiId": 1149,
       "number": 2,
-      "name": "D. Upamecano",
-      "pos": null,
+      "name": "Dayotchanculle Oswald Upamecano",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 27,
       "height": 186,
@@ -455,14 +514,17 @@
         "apps": 2,
         "yellow": 1,
         "red": null,
-        "rating": 7.44
-      },
-      "apiId": 1149
+        "rating": 8.1
+      }
     },
     {
+      "apiId": 325975,
       "number": 8,
-      "name": "T. Bischof",
-      "pos": null,
+      "name": "Tom Bischof",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 20,
       "height": 176,
@@ -485,14 +547,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 7.04
-      },
-      "apiId": 325975
+        "rating": 6.9
+      }
     },
     {
+      "apiId": 568042,
       "number": 49,
       "name": "M. Cardozo",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 17,
       "height": null,
@@ -516,13 +581,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 568042
+      }
     },
     {
+      "apiId": 453964,
       "number": 31,
       "name": "G. Della Rovere",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 18,
       "height": null,
@@ -538,13 +606,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 453964
+      "stats": null
     },
     {
+      "apiId": 494131,
       "number": 42,
-      "name": "L. Karl",
-      "pos": null,
+      "name": "Lennart Karl",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 17,
       "height": 168,
@@ -567,14 +638,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.54
-      },
-      "apiId": 494131
+        "rating": 6.35
+      }
     },
     {
+      "apiId": 502,
       "number": 6,
-      "name": "J. Kimmich",
-      "pos": null,
+      "name": "Joshua Walter Kimmich",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 30,
       "height": 177,
@@ -597,14 +671,18 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 8.05
-      },
-      "apiId": 502
+        "rating": 8.6
+      }
     },
     {
+      "apiId": 1157,
       "number": 27,
-      "name": "K. Laimer",
-      "pos": null,
+      "name": "Konrad Laimer",
+      "pos": "DEF",
+      "positions": [
+        "DEF",
+        "MID"
+      ],
       "role": "DEF",
       "age": 28,
       "height": 180,
@@ -627,14 +705,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.39
-      },
-      "apiId": 1157
+        "rating": 6.4
+      }
     },
     {
+      "apiId": 181812,
       "number": 10,
-      "name": "J. Musiala",
-      "pos": null,
+      "name": "Jamal Musiala",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 22,
       "height": 184,
@@ -657,14 +738,17 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 6.28
-      },
-      "apiId": 181812
+        "rating": 5.9
+      }
     },
     {
+      "apiId": 19617,
       "number": 17,
-      "name": "M. Olise",
-      "pos": null,
+      "name": "Michael Akpovie Olise",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 24,
       "height": 184,
@@ -687,14 +771,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 7.54
-      },
-      "apiId": 19617
+        "rating": 7.5
+      }
     },
     {
+      "apiId": 648615,
       "number": 38,
       "name": "Erblin Osmani",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 16,
       "height": null,
@@ -710,13 +797,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 648615
+      "stats": null
     },
     {
+      "apiId": 328033,
       "number": 45,
-      "name": "A. Pavlović",
-      "pos": null,
+      "name": "Aleksandar Pavlović",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 21,
       "height": 188,
@@ -740,14 +830,17 @@
         "yellow": 1,
         "red": null,
         "rating": 7.75
-      },
-      "apiId": 328033
+      }
     },
     {
+      "apiId": 161897,
       "number": 34,
-      "name": "I. Saibari",
-      "pos": null,
-      "role": "ATT",
+      "name": "Ismael Saibari Ben El Basra",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
+      "role": "MID",
       "age": 24,
       "height": 185,
       "weight": 83,
@@ -769,14 +862,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 7.52
-      },
-      "apiId": 161897
+        "rating": 7.4
+      }
     },
     {
+      "apiId": 630895,
       "number": 39,
       "name": "Bara Ndiaye",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 18,
       "height": null,
@@ -795,18 +891,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
+        "minutes": null,
         "apps": 0,
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 630895
+      }
     },
     {
+      "apiId": 657672,
       "number": 33,
       "name": "B. Assomo",
-      "pos": null,
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 16,
       "height": null,
@@ -822,13 +921,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 657672
+      "stats": null
     },
     {
+      "apiId": 2489,
       "number": 14,
-      "name": "L. Díaz",
-      "pos": null,
+      "name": "Luis Fernando Díaz Marulanda",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 29,
       "height": 178,
@@ -851,14 +953,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 7.09
-      },
-      "apiId": 2489
+        "rating": 6.95
+      }
     },
     {
+      "apiId": 510,
       "number": 7,
       "name": "S. Gnabry",
-      "pos": null,
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 30,
       "height": null,
@@ -874,13 +979,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 510
+      "stats": null
     },
     {
+      "apiId": 184,
       "number": 9,
-      "name": "H. Kane",
-      "pos": null,
+      "name": "Harry Edward Kane",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 32,
       "height": 188,
@@ -903,9 +1011,8 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 7.08
-      },
-      "apiId": 184
+        "rating": 6.75
+      }
     }
   ]
 }

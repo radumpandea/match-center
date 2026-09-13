@@ -1,10 +1,11 @@
 {
   "teamId": 517,
   "name": "Venezia",
-  "fetchedAt": "2026-09-10T09:55:30.259Z",
+  "fetchedAt": "2026-09-13T11:35:18.293Z",
   "source": "https://www.api-football.com/",
   "coach": {
-    "name": "G. Stroppa",
+    "apiId": 1604,
+    "name": "Giovanni Stroppa",
     "country": "Italy",
     "age": 57,
     "tenureFrom": "2025-07",
@@ -68,9 +69,13 @@
   },
   "squad": [
     {
+      "apiId": 31565,
       "number": 23,
-      "name": "M. Grandi",
-      "pos": null,
+      "name": "Matteo Grandi",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 33,
       "height": 190,
@@ -94,13 +99,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 31565
+      }
     },
     {
+      "apiId": 30611,
       "number": 96,
-      "name": "L. Montipò",
-      "pos": null,
+      "name": "Lorenzo Montipò",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 29,
       "height": 191,
@@ -124,13 +132,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 30611
+      }
     },
     {
+      "apiId": 557120,
       "number": 28,
       "name": "A. Pozzi",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 24,
       "height": null,
@@ -154,13 +165,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 557120
+      }
     },
     {
+      "apiId": 162445,
       "number": 1,
-      "name": "F. Stanković",
-      "pos": null,
+      "name": "Filip Stanković",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 23,
       "height": 187,
@@ -179,18 +193,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 360,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.13
-      },
-      "apiId": 162445
+        "rating": 7.48
+      }
     },
     {
+      "apiId": 25061,
       "number": 17,
-      "name": "A. Bella-Kotchap",
-      "pos": null,
+      "name": "Armel Bella-Kotchap",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 24,
       "height": 190,
@@ -214,13 +231,17 @@
         "yellow": 0,
         "red": null,
         "rating": 6.93
-      },
-      "apiId": 25061
+      }
     },
     {
+      "apiId": 1482,
       "number": 14,
       "name": "Thierry Correia",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF",
+        "MID"
+      ],
       "role": "DEF",
       "age": 27,
       "height": 176,
@@ -239,18 +260,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 88,
-        "apps": 2,
+        "minutes": 109,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.25
-      },
-      "apiId": 1482
+        "rating": 6.4
+      }
     },
     {
+      "apiId": 610145,
       "number": 95,
       "name": "A. Gomes",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 17,
       "height": null,
@@ -274,13 +298,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 610145
+      }
     },
     {
+      "apiId": 326183,
       "number": 25,
-      "name": "R. Halhal",
-      "pos": null,
+      "name": "Redouane Halhal",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 22,
       "height": 187,
@@ -304,14 +331,17 @@
         "yellow": 1,
         "red": null,
         "rating": 6.1
-      },
-      "apiId": 326183
+      }
     },
     {
+      "apiId": 37144,
       "number": 5,
-      "name": "R. Haps",
-      "pos": null,
-      "role": "MID",
+      "name": "Ridgeciano Delano Leandro Haps",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
+      "role": "DEF",
       "age": 32,
       "height": 175,
       "weight": 74,
@@ -328,19 +358,22 @@
       "statusNote": null,
       "stats": {
         "goals": 0,
-        "assists": 0,
-        "minutes": 167,
-        "apps": 3,
+        "assists": 1,
+        "minutes": 257,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.73
-      },
-      "apiId": 37144
+        "rating": 6.68
+      }
     },
     {
+      "apiId": 774,
       "number": 15,
       "name": "Juan Jesus",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 34,
       "height": 185,
@@ -359,18 +392,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
-        "apps": 0,
+        "minutes": 21,
+        "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": null
-      },
-      "apiId": 774
+        "rating": 6.7
+      }
     },
     {
+      "apiId": 340127,
       "number": 20,
       "name": "C. Ligue",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 20,
       "height": null,
@@ -386,13 +422,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 340127
+      "stats": null
     },
     {
+      "apiId": 31390,
       "number": 70,
-      "name": "P. Mazzocchi",
-      "pos": null,
+      "name": "Pasquale Mazzocchi",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 30,
       "height": 183,
@@ -416,21 +455,24 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 31390
+      }
     },
     {
-      "number": 2,
-      "name": "R. Mohammed",
-      "pos": null,
+      "apiId": 466346,
+      "number": 16,
+      "name": "Rufai Mohammed",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 19,
       "height": null,
       "weight": null,
       "foot": null,
-      "nat": null,
+      "nat": "GHA",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Ghana",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -438,13 +480,24 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 466346
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "minutes": null,
+        "apps": 0,
+        "yellow": 0,
+        "red": null,
+        "rating": null
+      }
     },
     {
+      "apiId": 421807,
       "number": 2,
-      "name": "M. Moreno",
-      "pos": null,
+      "name": "Matías Agustín Moreno",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 22,
       "height": 193,
@@ -463,19 +516,23 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 15,
-        "apps": 1,
+        "minutes": 84,
+        "apps": 2,
         "yellow": 1,
         "red": null,
-        "rating": 6.3
-      },
-      "apiId": 421807
+        "rating": 6.45
+      }
     },
     {
+      "apiId": 375321,
       "number": 20,
-      "name": "R. Sagrado",
-      "pos": null,
-      "role": "DEF",
+      "name": "Richie Sagrado Sebastiao",
+      "pos": "MID",
+      "positions": [
+        "MID",
+        "DEF"
+      ],
+      "role": "MID",
       "age": 21,
       "height": 182,
       "weight": 76,
@@ -493,18 +550,21 @@
       "stats": {
         "goals": 1,
         "assists": 0,
-        "minutes": 83,
-        "apps": 2,
+        "minutes": 152,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.45
-      },
-      "apiId": 375321
+        "rating": 6.4
+      }
     },
     {
+      "apiId": 373825,
       "number": 3,
-      "name": "J. Schingtienne",
-      "pos": null,
+      "name": "Joël Marcel Schingtienne",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 23,
       "height": 188,
@@ -523,18 +583,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
-        "yellow": 1,
+        "minutes": 360,
+        "apps": 4,
+        "yellow": 2,
         "red": null,
-        "rating": 6.23
-      },
-      "apiId": 373825
+        "rating": 6.25
+      }
     },
     {
+      "apiId": 26095,
       "number": 33,
       "name": "M. Šverko",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 27,
       "height": null,
@@ -550,13 +613,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 26095
+      "stats": null
     },
     {
+      "apiId": 1266,
       "number": 26,
-      "name": "T. Bašić",
-      "pos": null,
+      "name": "Toma Bašić",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 29,
       "height": 189,
@@ -580,13 +646,16 @@
         "yellow": 0,
         "red": null,
         "rating": 6.75
-      },
-      "apiId": 1266
+      }
     },
     {
+      "apiId": 513179,
       "number": 36,
-      "name": "L. Berardi",
-      "pos": null,
+      "name": "Lorenzo Berardi",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 20,
       "height": null,
@@ -610,13 +679,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 513179
+      }
     },
     {
+      "apiId": 51266,
       "number": 6,
-      "name": "G. Busio",
-      "pos": null,
+      "name": "Gianluca Cristiano Busio",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 23,
       "height": 172,
@@ -634,19 +706,22 @@
       "statusNote": null,
       "stats": {
         "goals": 0,
-        "assists": 1,
-        "minutes": 270,
-        "apps": 3,
+        "assists": 2,
+        "minutes": 314,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 7.2
-      },
-      "apiId": 51266
+        "rating": 7.15
+      }
     },
     {
+      "apiId": 342025,
       "number": 30,
-      "name": "M. Dagasso",
-      "pos": null,
+      "name": "Matteo Dagasso",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 21,
       "height": null,
@@ -670,13 +745,16 @@
         "yellow": 1,
         "red": null,
         "rating": 6.2
-      },
-      "apiId": 342025
+      }
     },
     {
+      "apiId": 30532,
       "number": 32,
       "name": "A. Duncan",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 32,
       "height": null,
@@ -692,13 +770,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 30532
+      "stats": null
     },
     {
+      "apiId": 415517,
       "number": 8,
       "name": "Lamine Dabo",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 21,
       "height": 185,
@@ -722,13 +803,17 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 415517
+      }
     },
     {
+      "apiId": 14704,
       "number": 4,
-      "name": "B. Franjić",
-      "pos": null,
+      "name": "Bartol Franjić",
+      "pos": "MID",
+      "positions": [
+        "MID",
+        "DEF"
+      ],
       "role": "MID",
       "age": 25,
       "height": 186,
@@ -752,13 +837,16 @@
         "yellow": 0,
         "red": null,
         "rating": 7.05
-      },
-      "apiId": 14704
+      }
     },
     {
+      "apiId": 275394,
       "number": 18,
-      "name": "A. Hainaut",
-      "pos": null,
+      "name": "Antoine Hainaut",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 23,
       "height": 187,
@@ -775,20 +863,23 @@
       "status": "available",
       "statusNote": null,
       "stats": {
-        "goals": 0,
+        "goals": 1,
         "assists": 1,
-        "minutes": 265,
-        "apps": 3,
+        "minutes": 355,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.07
-      },
-      "apiId": 275394
+        "rating": 7.23
+      }
     },
     {
+      "apiId": 28744,
       "number": 21,
-      "name": "Þ. Helgason",
-      "pos": null,
+      "name": "Þórir Jóhann Helgason",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 25,
       "height": 187,
@@ -807,18 +898,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": null,
-        "apps": 0,
+        "minutes": 46,
+        "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": null
-      },
-      "apiId": 28744
+        "rating": 6.3
+      }
     },
     {
+      "apiId": 162010,
       "number": 55,
-      "name": "S. Panada",
-      "pos": null,
+      "name": "Simone Panada",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 23,
       "height": null,
@@ -842,13 +936,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 162010
+      }
     },
     {
+      "apiId": 107153,
       "number": 71,
       "name": "Kike Pérez",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 28,
       "height": 184,
@@ -867,18 +964,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 240,
-        "apps": 3,
+        "minutes": 330,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.9
-      },
-      "apiId": 107153
+        "rating": 6.75
+      }
     },
     {
+      "apiId": 1014,
       "number": 19,
-      "name": "S. Sohm",
-      "pos": null,
+      "name": "Simon Solomon Junior Sohm",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 24,
       "height": 188,
@@ -897,18 +997,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 70,
-        "apps": 2,
-        "yellow": 1,
+        "minutes": 150,
+        "apps": 3,
+        "yellow": 2,
         "red": null,
-        "rating": 6.25
-      },
-      "apiId": 1014
+        "rating": 6.27
+      }
     },
     {
+      "apiId": 25414,
       "number": 10,
-      "name": "J. Yeboah",
-      "pos": null,
+      "name": "John Yeboah Zamora",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 25,
       "height": 170,
@@ -927,18 +1030,21 @@
       "stats": {
         "goals": 1,
         "assists": 0,
-        "minutes": 215,
-        "apps": 3,
+        "minutes": 295,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.3
-      },
-      "apiId": 25414
+        "rating": 7.2
+      }
     },
     {
+      "apiId": 57446,
       "number": 45,
-      "name": "A. Adams",
-      "pos": null,
+      "name": "Akor Jerome Adams",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 25,
       "height": 190,
@@ -955,20 +1061,23 @@
       "status": "available",
       "statusNote": null,
       "stats": {
-        "goals": 0,
+        "goals": 1,
         "assists": 0,
-        "minutes": 250,
-        "apps": 3,
+        "minutes": 340,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.5
-      },
-      "apiId": 57446
+        "rating": 6.7
+      }
     },
     {
+      "apiId": 212,
       "number": 9,
       "name": "A. Adorante",
-      "pos": null,
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 25,
       "height": null,
@@ -984,13 +1093,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 212
+      "stats": null
     },
     {
+      "apiId": 445973,
       "number": 77,
       "name": "Toni Fernández",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 17,
       "height": 174,
@@ -1009,18 +1121,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 45,
-        "apps": 1,
+        "minutes": 55,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.2
-      },
-      "apiId": 445973
+        "rating": 6.45
+      }
     },
     {
+      "apiId": 26438,
       "number": 29,
-      "name": "L. Lauberbach",
-      "pos": null,
+      "name": "Lion Lauberbach",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 27,
       "height": 194,
@@ -1039,18 +1154,22 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 30,
-        "apps": 2,
+        "minutes": 40,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.5
-      },
-      "apiId": 26438
+        "rating": 6.43
+      }
     },
     {
+      "apiId": 425255,
       "number": 56,
-      "name": "K. Lisman",
-      "pos": null,
+      "name": "Kornel Lisman",
+      "pos": "ATT",
+      "positions": [
+        "ATT",
+        "MID"
+      ],
       "role": "ATT",
       "age": 19,
       "height": 186,
@@ -1074,13 +1193,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 425255
+      }
     },
     {
+      "apiId": 318546,
       "number": 7,
-      "name": "A. Rrahmani",
-      "pos": null,
+      "name": "Albion Rrahmani",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 25,
       "height": 187,
@@ -1104,8 +1226,7 @@
         "yellow": 0,
         "red": null,
         "rating": 6.47
-      },
-      "apiId": 318546
+      }
     }
   ]
 }

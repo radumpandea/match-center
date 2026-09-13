@@ -1,36 +1,56 @@
 {
   "teamId": 65,
   "name": "Nottingham Forest",
-  "fetchedAt": "2026-09-10T09:56:52.356Z",
+  "fetchedAt": "2026-09-13T11:33:58.976Z",
   "source": "https://www.api-football.com/",
   "coach": {
-    "name": "S. Dyche",
-    "country": null,
-    "age": null,
-    "tenureFrom": "2025-07",
+    "apiId": 1534,
+    "name": "Oliver Glasner",
+    "country": "Austria",
+    "age": 51,
+    "tenureFrom": "2026-08",
     "career": [
       {
         "club": "Nottingham Forest",
-        "period": "2025–prezent",
+        "period": "2026–prezent",
         "note": null
       },
       {
-        "club": "Everton",
-        "period": "2023–2025",
+        "club": "Crystal Palace",
+        "period": "2024–prezent",
         "note": null
       },
       {
-        "club": "Burnley",
-        "period": "2016–2022",
+        "club": "Eintracht Frankfurt",
+        "period": "2021–2023",
+        "note": null
+      },
+      {
+        "club": "Wolfsburg",
+        "period": "2019–2021",
+        "note": null
+      },
+      {
+        "club": "LASK",
+        "period": "2015–2019",
+        "note": null
+      },
+      {
+        "club": "Ried",
+        "period": "2014–2015",
         "note": null
       }
     ]
   },
   "squad": [
     {
+      "apiId": 19312,
       "number": 13,
       "name": "S. Benda",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 27,
       "height": null,
@@ -46,13 +66,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 19312
+      "stats": null
     },
     {
+      "apiId": 329358,
       "number": 1,
       "name": "Aaron Bott",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 21,
       "height": null,
@@ -68,13 +91,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 329358
+      "stats": null
     },
     {
+      "apiId": 70366,
       "number": 12,
       "name": "John",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 29,
       "height": 196,
@@ -98,13 +124,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 70366
+      }
     },
     {
+      "apiId": 2919,
       "number": 26,
-      "name": "M. Sels",
-      "pos": null,
+      "name": "Matz Willy Els Sels",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 33,
       "height": 188,
@@ -123,18 +152,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 360,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.53
-      },
-      "apiId": 2919
+        "rating": 6.72
+      }
     },
     {
+      "apiId": 357238,
       "number": 1,
       "name": "Keehan Willows",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 20,
       "height": null,
@@ -150,13 +182,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 357238
+      "stats": null
     },
     {
+      "apiId": 2771,
       "number": 34,
-      "name": "O. Aina",
-      "pos": null,
+      "name": "Temitayo Olufisayo Olaoluwa Aina",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 29,
       "height": 184,
@@ -175,18 +210,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 219,
-        "apps": 3,
+        "minutes": 309,
+        "apps": 4,
         "yellow": 2,
         "red": null,
-        "rating": 6.89
-      },
-      "apiId": 2771
+        "rating": 6.95
+      }
     },
     {
+      "apiId": 362711,
       "number": 23,
       "name": "Jair",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 20,
       "height": 198,
@@ -209,14 +247,17 @@
         "apps": 3,
         "yellow": 1,
         "red": null,
-        "rating": 6.58
-      },
-      "apiId": 362711
+        "rating": 6.8
+      }
     },
     {
+      "apiId": 354753,
       "number": 2,
-      "name": "O. Diomande",
-      "pos": null,
+      "name": "Ousmane Diomande",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 22,
       "height": 190,
@@ -235,18 +276,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 1,
-        "apps": 1,
+        "minutes": 91,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 0
-      },
-      "apiId": 354753
+        "rating": 7.15
+      }
     },
     {
+      "apiId": 2817,
       "number": 31,
-      "name": "N. Milenković",
-      "pos": null,
+      "name": "Nikola Milenković",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 28,
       "height": 195,
@@ -269,14 +313,17 @@
         "apps": 3,
         "yellow": 1,
         "red": null,
-        "rating": 6.48
-      },
-      "apiId": 2817
+        "rating": 6.67
+      }
     },
     {
+      "apiId": 13736,
       "number": 27,
-      "name": "D. Muñoz",
-      "pos": null,
+      "name": "Daniel Muñoz Mejía",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 29,
       "height": 180,
@@ -295,18 +342,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 31,
-        "apps": 1,
+        "minutes": 121,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.57
-      },
-      "apiId": 13736
+        "rating": 7.1
+      }
     },
     {
+      "apiId": 363695,
       "number": 5,
       "name": "Murillo",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 23,
       "height": 180,
@@ -324,19 +374,22 @@
       "statusNote": null,
       "stats": {
         "goals": 0,
-        "assists": 0,
-        "minutes": 268,
-        "apps": 3,
-        "yellow": 0,
+        "assists": 1,
+        "minutes": 358,
+        "apps": 4,
+        "yellow": 1,
         "red": null,
-        "rating": 6.8
-      },
-      "apiId": 363695
+        "rating": 6.87
+      }
     },
     {
+      "apiId": 163069,
       "number": 25,
-      "name": "L. Netz",
-      "pos": null,
+      "name": "Luca Netz",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 22,
       "height": 180,
@@ -360,13 +413,16 @@
         "yellow": 0,
         "red": null,
         "rating": 4.3
-      },
-      "apiId": 163069
+      }
     },
     {
+      "apiId": 380663,
       "number": 2,
       "name": "J. Sinclair",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 19,
       "height": null,
@@ -382,13 +438,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 380663
+      "stats": null
     },
     {
+      "apiId": 329345,
       "number": 26,
       "name": "Jack Ethan Thompson",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 20,
       "height": null,
@@ -404,13 +463,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 329345
+      "stats": null
     },
     {
+      "apiId": 138780,
       "number": 3,
-      "name": "N. Williams",
-      "pos": null,
+      "name": "Neco Shay Williams",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 24,
       "height": 183,
@@ -429,18 +491,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 360,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.19
-      },
-      "apiId": 138780
+        "rating": 7.23
+      }
     },
     {
+      "apiId": 6056,
       "number": 8,
-      "name": "N. Domínguez",
-      "pos": null,
+      "name": "Nicolás Martín Domínguez",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 27,
       "height": 179,
@@ -464,13 +529,16 @@
         "yellow": 0,
         "red": null,
         "rating": 0
-      },
-      "apiId": 6056
+      }
     },
     {
+      "apiId": 18746,
       "number": 10,
-      "name": "M. Gibbs-White",
-      "pos": null,
+      "name": "Morgan Anthony Gibbs-White",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 25,
       "height": 171,
@@ -488,19 +556,22 @@
       "statusNote": null,
       "stats": {
         "goals": 1,
-        "assists": 1,
-        "minutes": 270,
-        "apps": 3,
+        "assists": 2,
+        "minutes": 360,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.94
-      },
-      "apiId": 18746
+        "rating": 7.28
+      }
     },
     {
+      "apiId": 2298,
       "number": 7,
-      "name": "C. Hudson-Odoi",
-      "pos": null,
+      "name": "Callum James Hudson-Odoi",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 25,
       "height": 182,
@@ -524,13 +595,16 @@
         "yellow": 0,
         "red": null,
         "rating": 0
-      },
-      "apiId": 2298
+      }
     },
     {
+      "apiId": 158697,
       "number": 24,
-      "name": "J. McAtee",
-      "pos": null,
+      "name": "James John McAtee",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 23,
       "height": 180,
@@ -549,18 +623,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 253,
-        "apps": 3,
-        "yellow": 1,
+        "minutes": 335,
+        "apps": 4,
+        "yellow": 2,
         "red": null,
-        "rating": 7
-      },
-      "apiId": 158697
+        "rating": 6.77
+      }
     },
     {
+      "apiId": 444508,
       "number": 10,
       "name": "G. McDonnell",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 17,
       "height": null,
@@ -576,13 +653,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 551288
+      "stats": null
     },
     {
+      "apiId": 22149,
       "number": 6,
-      "name": "I. Sangaré",
-      "pos": null,
+      "name": "Ibrahim Sangaré",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 28,
       "height": 191,
@@ -601,18 +681,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 90,
-        "apps": 1,
+        "minutes": 98,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.9
-      },
-      "apiId": 22149
+        "rating": 6.66
+      }
     },
     {
+      "apiId": 1095,
       "number": 21,
-      "name": "X. Schlager",
-      "pos": null,
+      "name": "Xaver Schlager",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 28,
       "height": 174,
@@ -631,18 +714,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 196,
-        "apps": 3,
-        "yellow": 0,
+        "minutes": 286,
+        "apps": 4,
+        "yellow": 1,
         "red": null,
-        "rating": 6.82
-      },
-      "apiId": 1095
+        "rating": 7.01
+      }
     },
     {
+      "apiId": 353968,
       "number": 8,
       "name": "A. Whitehall",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 19,
       "height": null,
@@ -658,13 +744,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 353968
+      "stats": null
     },
     {
+      "apiId": 19305,
       "number": 22,
-      "name": "R. Yates",
-      "pos": null,
+      "name": "Ryan James Yates",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 28,
       "height": 190,
@@ -688,13 +777,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 19305
+      }
     },
     {
+      "apiId": 383771,
       "number": 17,
       "name": "Z. Blake",
-      "pos": null,
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 2025,
       "height": null,
@@ -710,13 +802,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 383771
+      "stats": null
     },
     {
+      "apiId": 161948,
       "number": 19,
-      "name": "L. Delap",
-      "pos": null,
+      "name": "Liam Rory Delap",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 22,
       "height": 186,
@@ -733,20 +828,23 @@
       "status": "available",
       "statusNote": null,
       "stats": {
-        "goals": 0,
+        "goals": 1,
         "assists": 0,
-        "minutes": 98,
-        "apps": 2,
-        "yellow": 0,
+        "minutes": 187,
+        "apps": 3,
+        "yellow": 1,
         "red": null,
-        "rating": 6.5
-      },
-      "apiId": 161948
+        "rating": 6.98
+      }
     },
     {
+      "apiId": 9366,
       "number": 11,
       "name": "Igor Jesus",
-      "pos": null,
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 24,
       "height": 180,
@@ -763,20 +861,23 @@
       "status": "available",
       "statusNote": null,
       "stats": {
-        "goals": 0,
+        "goals": 1,
         "assists": 0,
-        "minutes": 210,
-        "apps": 3,
+        "minutes": 225,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.55
-      },
-      "apiId": 9366
+        "rating": 6.92
+      }
     },
     {
+      "apiId": 147831,
       "number": 15,
-      "name": "A. Kalimuendo",
-      "pos": null,
+      "name": "Arnaud Kalimuendo-Muinga",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 23,
       "height": 178,
@@ -799,14 +900,17 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": null
-      },
-      "apiId": 147831
+        "rating": 0
+      }
     },
     {
+      "apiId": 48648,
       "number": 14,
-      "name": "D. Ndoye",
-      "pos": null,
+      "name": "Dan Assane Ndoye",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 25,
       "height": 184,
@@ -825,18 +929,21 @@
       "stats": {
         "goals": 1,
         "assists": 0,
-        "minutes": 187,
-        "apps": 3,
-        "yellow": 0,
+        "minutes": 262,
+        "apps": 4,
+        "yellow": 1,
         "red": null,
-        "rating": 6.82
-      },
-      "apiId": 48648
+        "rating": 6.62
+      }
     },
     {
+      "apiId": 18931,
       "number": 9,
-      "name": "C. Wood",
-      "pos": null,
+      "name": "Christopher Grant Wood",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 34,
       "height": 191,
@@ -855,18 +962,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 44,
-        "apps": 2,
+        "minutes": 45,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.36
-      },
-      "apiId": 18931
+        "rating": 4.33
+      }
     },
     {
+      "apiId": 284428,
       "number": 20,
-      "name": "O. Hutchinson",
-      "pos": null,
+      "name": "Omari Elijah Giraud-Hutchinson",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 22,
       "height": 174,
@@ -890,8 +1000,7 @@
         "yellow": 0,
         "red": null,
         "rating": 6.9
-      },
-      "apiId": 284428
+      }
     }
   ]
 }

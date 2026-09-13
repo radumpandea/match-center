@@ -1,10 +1,11 @@
 {
   "teamId": 163,
   "name": "Borussia Mönchengladbach",
-  "fetchedAt": "2026-09-10T09:56:29.064Z",
+  "fetchedAt": "2026-09-13T11:33:28.638Z",
   "source": "https://www.api-football.com/",
   "coach": {
-    "name": "G. Seoane",
+    "apiId": 2017,
+    "name": "Gerardo Seoane Castro",
     "country": "Switzerland",
     "age": 47,
     "tenureFrom": "2023-06",
@@ -38,9 +39,13 @@
   },
   "squad": [
     {
+      "apiId": 90829,
       "number": 33,
-      "name": "D. Batz",
-      "pos": null,
+      "name": "Daniel Batz",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 34,
       "height": 191,
@@ -59,18 +64,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
+        "minutes": null,
         "apps": 0,
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 90829
+      }
     },
     {
+      "apiId": 25626,
       "number": 1,
-      "name": "M. Nicolas",
-      "pos": null,
+      "name": "Moritz Nicolas",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 28,
       "height": 193,
@@ -93,14 +101,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 7.76
-      },
-      "apiId": 25626
+        "rating": 7.65
+      }
     },
     {
+      "apiId": 178405,
       "number": 23,
       "name": "J. Olschowsky",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 24,
       "height": null,
@@ -116,13 +127,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 178405
+      "stats": null
     },
     {
+      "apiId": 25627,
       "number": 21,
       "name": "T. Sippel",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 37,
       "height": null,
@@ -138,13 +152,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 25627
+      "stats": null
     },
     {
+      "apiId": 322627,
       "number": 2,
-      "name": "F. Chiarodia",
-      "pos": null,
+      "name": "Fabio Christian Chiarodia",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 20,
       "height": 186,
@@ -163,18 +180,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
+        "minutes": null,
         "apps": 0,
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 322627
+      }
     },
     {
+      "apiId": 31043,
       "number": 4,
-      "name": "K. Diks",
-      "pos": null,
+      "name": "Kevin Diks Bakarbessy",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 29,
       "height": 182,
@@ -197,14 +217,17 @@
         "apps": 2,
         "yellow": 1,
         "red": null,
-        "rating": 6.01
-      },
-      "apiId": 31043
+        "rating": 6.3
+      }
     },
     {
+      "apiId": 585708,
       "number": null,
       "name": "E. Fard",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 17,
       "height": null,
@@ -220,13 +243,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 585708
+      "stats": null
     },
     {
+      "apiId": 33095,
       "number": 14,
-      "name": "D. Hashioka",
-      "pos": null,
+      "name": "Daiki Hashioka",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 26,
       "height": 184,
@@ -250,13 +276,16 @@
         "yellow": 0,
         "red": null,
         "rating": 5.9
-      },
-      "apiId": 33095
+      }
     },
     {
+      "apiId": 162536,
       "number": 20,
-      "name": "D. Herold",
-      "pos": null,
+      "name": "David Herold",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 22,
       "height": 185,
@@ -279,14 +308,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.28
-      },
-      "apiId": 162536
+        "rating": 6.5
+      }
     },
     {
+      "apiId": 38114,
       "number": 6,
-      "name": "K. Itakura",
-      "pos": null,
+      "name": "Ko Itakura",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 28,
       "height": 188,
@@ -309,14 +341,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.11
-      },
-      "apiId": 38114
+        "rating": 5.7
+      }
     },
     {
+      "apiId": 125418,
       "number": 26,
       "name": "Y. Konoplya",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 26,
       "height": null,
@@ -332,13 +367,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 125418
+      "stats": null
     },
     {
+      "apiId": 462217,
       "number": 5,
-      "name": "J. Leszczyński",
-      "pos": null,
+      "name": "Jan Leszczyński",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 18,
       "height": 184,
@@ -361,14 +399,17 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 5.84
-      },
-      "apiId": 462217
+        "rating": 6.3
+      }
     },
     {
+      "apiId": 50852,
       "number": 29,
-      "name": "J. Scally",
-      "pos": null,
+      "name": "Joseph Michael Scally",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 23,
       "height": 184,
@@ -388,17 +429,20 @@
         "goals": 1,
         "assists": 0,
         "minutes": 91,
-        "apps": 1,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.77
-      },
-      "apiId": 50852
+        "rating": 6.75
+      }
     },
     {
+      "apiId": 327646,
       "number": 26,
-      "name": "L. Ullrich",
-      "pos": null,
+      "name": "Lukas Ullrich",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 21,
       "height": 180,
@@ -421,14 +465,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 5.8
-      },
-      "apiId": 327646
+        "rating": 6.2
+      }
     },
     {
+      "apiId": 651914,
       "number": 45,
       "name": "Simon Walde",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 21,
       "height": null,
@@ -444,13 +491,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 651914
+      "stats": null
     },
     {
+      "apiId": 335095,
       "number": 38,
-      "name": "H. Bolin",
-      "pos": null,
+      "name": "Axel Hugo Bolin",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 22,
       "height": 179,
@@ -473,14 +523,17 @@
         "apps": 2,
         "yellow": 1,
         "red": null,
-        "rating": 7.96
-      },
-      "apiId": 335095
+        "rating": 8.05
+      }
     },
     {
+      "apiId": 280358,
       "number": 17,
       "name": "J. Castrop",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 22,
       "height": null,
@@ -496,13 +549,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 280358
+      "stats": null
     },
     {
+      "apiId": 178250,
       "number": 8,
-      "name": "E. Leopold",
-      "pos": null,
+      "name": "Enzo Leopold",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 25,
       "height": 174,
@@ -526,13 +582,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 178250
+      }
     },
     {
+      "apiId": 501906,
       "number": 36,
-      "name": "W. Mohya",
-      "pos": null,
+      "name": "Wael Mohya",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 17,
       "height": 174,
@@ -555,14 +614,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.3
-      },
-      "apiId": 501906
+        "rating": 6.55
+      }
     },
     {
+      "apiId": 25638,
       "number": 10,
       "name": "F. Neuhaus",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 28,
       "height": null,
@@ -578,13 +640,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 25638
+      "stats": null
     },
     {
+      "apiId": 621893,
       "number": 34,
       "name": "M. Nguefack",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 18,
       "height": null,
@@ -607,14 +672,17 @@
         "apps": 2,
         "yellow": 1,
         "red": null,
-        "rating": 6.63
-      },
-      "apiId": 621893
+        "rating": 6.45
+      }
     },
     {
+      "apiId": 24969,
       "number": 16,
-      "name": "P. Sander",
-      "pos": null,
+      "name": "Philipp Sander",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 27,
       "height": 186,
@@ -637,14 +705,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.47
-      },
-      "apiId": 24969
+        "rating": 6.75
+      }
     },
     {
+      "apiId": 25461,
       "number": 7,
-      "name": "K. Stöger",
-      "pos": null,
+      "name": "Kevin Stöger",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 32,
       "height": 175,
@@ -667,14 +738,17 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 3.1
-      },
-      "apiId": 25461
+        "rating": 6.2
+      }
     },
     {
+      "apiId": 351084,
       "number": 6,
       "name": "Z. Uno",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 22,
       "height": null,
@@ -690,13 +764,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 351084
+      "stats": null
     },
     {
+      "apiId": 585705,
       "number": 39,
       "name": "I. M. Danfa",
-      "pos": null,
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 19,
       "height": null,
@@ -720,13 +797,17 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 585705
+      }
     },
     {
+      "apiId": 585704,
       "number": 27,
       "name": "F. Fleck",
-      "pos": null,
+      "pos": "ATT",
+      "positions": [
+        "ATT",
+        "MID"
+      ],
       "role": "ATT",
       "age": 18,
       "height": null,
@@ -750,13 +831,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 585704
+      }
     },
     {
+      "apiId": 725,
       "number": 25,
-      "name": "R. Hack",
-      "pos": null,
+      "name": "Robin Hack",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 27,
       "height": 176,
@@ -779,14 +863,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 5.96
-      },
-      "apiId": 725
+        "rating": 6.25
+      }
     },
     {
+      "apiId": 20784,
       "number": 9,
-      "name": "F. Honorat",
-      "pos": null,
+      "name": "Franck Honorat",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 29,
       "height": 180,
@@ -809,14 +896,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 7.16
-      },
-      "apiId": 20784
+        "rating": 7.3
+      }
     },
     {
+      "apiId": 26256,
       "number": 11,
-      "name": "T. Kleindienst",
-      "pos": null,
+      "name": "Tim Kleindienst",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 30,
       "height": 194,
@@ -839,14 +929,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.37
-      },
-      "apiId": 26256
+        "rating": 6.6
+      }
     },
     {
+      "apiId": 38753,
       "number": 19,
-      "name": "N. Kühn",
-      "pos": null,
+      "name": "Nicolas-Gerrit Kühn",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 25,
       "height": 174,
@@ -869,14 +962,17 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 6.92
-      },
-      "apiId": 38753
+        "rating": 7.2
+      }
     },
     {
+      "apiId": 47895,
       "number": 3,
-      "name": "I. Lidberg",
-      "pos": null,
+      "name": "Isac Alexi Sivert Lidberg",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 27,
       "height": 186,
@@ -899,14 +995,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.53
-      },
-      "apiId": 47895
+        "rating": 6.5
+      }
     },
     {
+      "apiId": 106851,
       "number": 18,
-      "name": "S. Machino",
-      "pos": null,
+      "name": "Shuto Machino",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 26,
       "height": 185,
@@ -925,13 +1024,12 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
-        "apps": 1,
+        "minutes": null,
+        "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": 0
-      },
-      "apiId": 106851
+        "rating": null
+      }
     }
   ]
 }

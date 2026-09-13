@@ -1,9 +1,10 @@
 {
   "teamId": 546,
   "name": "Getafe",
-  "fetchedAt": "2026-09-10T09:58:37.867Z",
+  "fetchedAt": "2026-09-13T11:29:41.694Z",
   "source": "https://www.api-football.com/",
   "coach": {
+    "apiId": 1596,
     "name": "José Bordalás",
     "country": "Spain",
     "age": 61,
@@ -48,9 +49,13 @@
   },
   "squad": [
     {
+      "apiId": 432080,
       "number": 35,
       "name": "Jorge Benito",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 19,
       "height": null,
@@ -66,13 +71,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 432080
+      "stats": null
     },
     {
+      "apiId": 482071,
       "number": 35,
       "name": "Diego Ferrer",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 18,
       "height": 185,
@@ -91,18 +99,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
+        "minutes": null,
         "apps": 0,
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 482071
+      }
     },
     {
+      "apiId": 66491,
       "number": 1,
-      "name": "J. Letáček",
-      "pos": null,
+      "name": "Jiří Letáček",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 26,
       "height": 196,
@@ -121,18 +132,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
+        "minutes": null,
         "apps": 0,
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 66491
+      }
     },
     {
+      "apiId": 47247,
       "number": 13,
       "name": "David Soria",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 32,
       "height": 192,
@@ -155,14 +169,17 @@
         "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.16
-      },
-      "apiId": 47247
+        "rating": 7.4
+      }
     },
     {
+      "apiId": 46813,
       "number": 5,
-      "name": "A. Abqar",
-      "pos": null,
+      "name": "Abdelkabir Abqar",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 26,
       "height": 188,
@@ -186,13 +203,16 @@
         "yellow": 0,
         "red": null,
         "rating": 6.3
-      },
-      "apiId": 46813
+      }
     },
     {
+      "apiId": 316516,
       "number": 15,
-      "name": "S. Boselli",
-      "pos": null,
+      "name": "Juan Sebastián Boselli Graf",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 22,
       "height": 183,
@@ -215,22 +235,25 @@
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 4.17
-      },
-      "apiId": 316516
+        "rating": 6.25
+      }
     },
     {
+      "apiId": 427182,
       "number": 29,
       "name": "Francisco Burgos",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 21,
       "height": null,
       "weight": null,
       "foot": null,
-      "nat": null,
+      "nat": "ESP",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Spain",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -238,13 +261,25 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 591933
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "minutes": null,
+        "apps": 0,
+        "yellow": 0,
+        "red": null,
+        "rating": null
+      }
     },
     {
+      "apiId": 471478,
       "number": 3,
       "name": "Davinchi",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF",
+        "MID"
+      ],
       "role": "DEF",
       "age": 18,
       "height": 182,
@@ -267,14 +302,17 @@
         "apps": 1,
         "yellow": 1,
         "red": null,
-        "rating": 3.35
-      },
-      "apiId": 471478
+        "rating": 6.7
+      }
     },
     {
+      "apiId": 47250,
       "number": 2,
-      "name": "D. Dakonam",
-      "pos": null,
+      "name": "Djené Dakonam Ortega",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 34,
       "height": 178,
@@ -297,14 +335,18 @@
         "apps": 4,
         "yellow": 2,
         "red": null,
-        "rating": 6.39
-      },
-      "apiId": 47250
+        "rating": 6.45
+      }
     },
     {
+      "apiId": 388013,
       "number": 21,
       "name": "Andrés García",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF",
+        "ATT"
+      ],
       "role": "DEF",
       "age": 22,
       "height": 185,
@@ -327,14 +369,18 @@
         "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.65
-      },
-      "apiId": 388013
+        "rating": 6.83
+      }
     },
     {
+      "apiId": 18794,
       "number": 17,
       "name": "Kiko Femenía",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF",
+        "MID"
+      ],
       "role": "DEF",
       "age": 34,
       "height": 176,
@@ -357,14 +403,18 @@
         "apps": 3,
         "yellow": 0,
         "red": 1,
-        "rating": 6.28
-      },
-      "apiId": 18794
+        "rating": 6.37
+      }
     },
     {
+      "apiId": 64268,
       "number": 22,
-      "name": "J. Mojica",
-      "pos": null,
+      "name": "Johan Andrés Mojica Palacio",
+      "pos": "DEF",
+      "positions": [
+        "DEF",
+        "MID"
+      ],
       "role": "DEF",
       "age": 33,
       "height": 185,
@@ -387,14 +437,17 @@
         "apps": 3,
         "yellow": 2,
         "red": null,
-        "rating": 6.8
-      },
-      "apiId": 64268
+        "rating": 6.9
+      }
     },
     {
+      "apiId": 625636,
       "number": 41,
       "name": "Jorge Montes",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 21,
       "height": null,
@@ -410,13 +463,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 625636
+      "stats": null
     },
     {
+      "apiId": 180927,
       "number": 24,
-      "name": "Z. Romero",
-      "pos": null,
+      "name": "Zaid Abner Romero",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 26,
       "height": 193,
@@ -439,14 +495,17 @@
         "apps": 4,
         "yellow": 1,
         "red": 1,
-        "rating": 6.61
-      },
-      "apiId": 180927
+        "rating": 6.65
+      }
     },
     {
+      "apiId": 268728,
       "number": 4,
-      "name": "S. Sazonov",
-      "pos": null,
+      "name": "Saba Sazonov",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 23,
       "height": 192,
@@ -469,14 +528,17 @@
         "apps": 2,
         "yellow": 1,
         "red": null,
-        "rating": 4.2
-      },
-      "apiId": 268728
+        "rating": 6.3
+      }
     },
     {
+      "apiId": 484474,
       "number": 26,
-      "name": "J. Valou",
-      "pos": null,
+      "name": "Jean Yves Valou",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 20,
       "height": 188,
@@ -499,14 +561,17 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 2.95
-      },
-      "apiId": 484474
+        "rating": 5.9
+      }
     },
     {
+      "apiId": 465838,
       "number": 28,
       "name": "Alberto Risco",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 20,
       "height": 157,
@@ -530,13 +595,16 @@
         "yellow": 0,
         "red": null,
         "rating": 6.2
-      },
-      "apiId": 465838
+      }
     },
     {
+      "apiId": 162249,
       "number": 16,
       "name": "Francho Serrano",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 24,
       "height": 180,
@@ -560,13 +628,17 @@
         "yellow": 0,
         "red": null,
         "rating": 6.55
-      },
-      "apiId": 162249
+      }
     },
     {
+      "apiId": 1489,
       "number": 8,
-      "name": "N. Gudelj",
-      "pos": null,
+      "name": "Nemanja Gudelj",
+      "pos": "DEF",
+      "positions": [
+        "DEF",
+        "MID"
+      ],
       "role": "DEF",
       "age": 34,
       "height": 187,
@@ -589,14 +661,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.37
-      },
-      "apiId": 1489
+        "rating": 6.4
+      }
     },
     {
+      "apiId": 671625,
       "number": 33,
       "name": "Alvaro Gutierrez",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 17,
       "height": null,
@@ -612,21 +687,24 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 671625
+      "stats": null
     },
     {
+      "apiId": 499908,
       "number": 30,
-      "name": "O. Lopez",
-      "pos": null,
+      "name": "Óscar David López Raslan",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 19,
-      "height": null,
-      "weight": null,
+      "height": 180,
+      "weight": 70,
       "foot": null,
-      "nat": null,
+      "nat": "BOL",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Spain",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -641,14 +719,17 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 0
-      },
-      "apiId": 575281
+        "rating": null
+      }
     },
     {
+      "apiId": 669800,
       "number": null,
       "name": "Mady Macalou",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": null,
       "height": null,
@@ -664,13 +745,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 669800
+      "stats": null
     },
     {
+      "apiId": 24882,
       "number": 23,
-      "name": "O. Mangala",
-      "pos": null,
+      "name": "Orel Johnson Mangala",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 27,
       "height": 178,
@@ -693,14 +777,17 @@
         "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.66
-      },
-      "apiId": 24882
+        "rating": 6.63
+      }
     },
     {
+      "apiId": 343205,
       "number": 6,
       "name": "Mario Martín",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 21,
       "height": 178,
@@ -723,14 +810,17 @@
         "apps": 2,
         "yellow": 1,
         "red": null,
-        "rating": 6.66
-      },
-      "apiId": 343205
+        "rating": 6.8
+      }
     },
     {
+      "apiId": 631889,
       "number": 44,
       "name": "Adrián Riquelme",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 19,
       "height": null,
@@ -746,13 +836,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 631889
+      "stats": null
     },
     {
+      "apiId": 187987,
       "number": 11,
       "name": "Ramón Terrats",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 25,
       "height": 181,
@@ -775,14 +868,17 @@
         "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.89
-      },
-      "apiId": 187987
+        "rating": 6.95
+      }
     },
     {
+      "apiId": 403554,
       "number": 12,
       "name": "Christantus Uche",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 22,
       "height": null,
@@ -798,13 +894,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 403554
+      "stats": null
     },
     {
+      "apiId": 161590,
       "number": 20,
       "name": "Iván Azón",
-      "pos": null,
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 23,
       "height": 182,
@@ -827,14 +926,18 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 6.48
-      },
-      "apiId": 161590
+        "rating": 6.3
+      }
     },
     {
+      "apiId": 671518,
       "number": 27,
       "name": "Ebrahima Drammeh",
-      "pos": null,
+      "pos": "ATT",
+      "positions": [
+        "ATT",
+        "MID"
+      ],
       "role": "ATT",
       "age": 19,
       "height": null,
@@ -853,18 +956,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
+        "minutes": null,
         "apps": 0,
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 671518
+      }
     },
     {
+      "apiId": 333369,
       "number": 32,
       "name": "Joselu",
-      "pos": null,
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 21,
       "height": null,
@@ -888,13 +994,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 333369
+      }
     },
     {
+      "apiId": 47472,
       "number": 9,
       "name": "Borja Mayoral",
-      "pos": null,
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 28,
       "height": 182,
@@ -917,14 +1026,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 3.25
-      },
-      "apiId": 47472
+        "rating": 6.5
+      }
     },
     {
+      "apiId": 195512,
       "number": 10,
-      "name": "M. Satriano",
-      "pos": null,
+      "name": "Martín Adrián Satriano Costa",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 24,
       "height": 187,
@@ -947,14 +1059,17 @@
         "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.64
-      },
-      "apiId": 195512
+        "rating": 6.63
+      }
     },
     {
+      "apiId": 47499,
       "number": 19,
-      "name": "E. Ünal",
-      "pos": null,
+      "name": "Enes Ünal",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 28,
       "height": 187,
@@ -977,9 +1092,8 @@
         "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.64
-      },
-      "apiId": 47499
+        "rating": 6.68
+      }
     }
   ]
 }
