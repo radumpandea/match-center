@@ -47,7 +47,9 @@ for (const f of files) {
     ok = false;
     console.error(`✗ ${f}: schema invalid`);
     for (const err of validate.errors) {
-      console.error(`  ${err.instancePath || '/'} ${err.message}`);
+      const extra = err.params && err.params.additionalProperty
+        ? ` (property: "${err.params.additionalProperty}")` : '';
+      console.error(`  ${err.instancePath || '/'} ${err.message}${extra}`);
     }
   }
 }
