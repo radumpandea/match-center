@@ -19,7 +19,9 @@
 //   - the coach's trophy record (competition, season, place) -> coach.trophies[]
 //   - API-Football's own algorithmic pre-match model (win/draw/away percent,
 //     an advice string, attack/defence/form/poisson comparison) -> predictions
-//   - raw dated RSS headlines -> teams.<side>.newsCandidates[] (no key)
+//   - raw dated RSS headlines, from curated per-league outlet feeds
+//     (scripts/news-sources.mjs) plus a Google News search per team ->
+//     teams.<side>.newsCandidates[] (no key)
 //   - kickoff-hour weather forecast at the venue -> venue.weather (Open-Meteo,
 //     free, no key — geocoded from venue.city)
 //
@@ -49,6 +51,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
+import { NEWS_SOURCES } from './news-sources.mjs';
 
 const HOST = 'https://v3.football.api-sports.io';
 const API_KEY = process.env.APIFOOTBALL_KEY;
@@ -767,7 +770,7 @@ async function applyCareers(doc, cache) {
   }
 }
 
-/* ---------- RSS news candidates (Google News) — unchanged, no key ---------- */
+/* ---------- RSS news candidates (curated outlet feeds + Google News), no key ---------- */
 const RSS_DAYS = 4;
 const NEWS_PER_TEAM = 8;
 function decodeEntities(s) {
@@ -783,17 +786,7 @@ function isoDay(d) {
   const dt = new Date(d);
   return Number.isNaN(dt.getTime()) ? null : dt.toISOString().slice(0, 10);
 }
-async function fetchRss(query) {
-  const url = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`;
-  let xml;
-  try {
-    const r = await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 (match-center prefetch)' } });
-    if (!r.ok) { console.error(`  rss "${query}": HTTP ${r.status}`); return []; }
-    xml = await r.text();
-  } catch (e) {
-    console.error(`  rss "${query}": ${e.message}`);
-    return [];
-  }
+function parseRssItems(xml, defaultSource) {
   const items = [];
   for (const m of xml.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
     const block = m[1];
@@ -802,26 +795,67 @@ async function fetchRss(query) {
     const pub = (block.match(/<pubDate>([\s\S]*?)<\/pubDate>/) || [])[1] || '';
     const src = (block.match(/<source[^>]*>([\s\S]*?)<\/source>/) || [])[1] || '';
     let title = decodeEntities(rawTitle);
-    const source = decodeEntities(src) || null;
+    const source = decodeEntities(src) || defaultSource || null;
     if (source && title.endsWith(' - ' + source)) title = title.slice(0, -(source.length + 3)).trim();
     if (!title) continue;
     items.push({ title, url: link.trim() || null, source, published: isoDay(pub) });
   }
   return items;
 }
-async function teamNews(teamName, oppName) {
+async function fetchRss(query) {
+  const url = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`;
+  try {
+    const r = await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 (match-center prefetch)' } });
+    if (!r.ok) { console.error(`  rss "${query}": HTTP ${r.status}`); return []; }
+    return parseRssItems(await r.text(), null);
+  } catch (e) {
+    console.error(`  rss "${query}": ${e.message}`);
+    return [];
+  }
+}
+// Curated per-outlet feeds (docs: scripts/news-sources.mjs) -- one fetch per
+// feed URL per script run, cached and reused across every team/fixture that
+// shares a competition (a league's feed is the same regardless of which of
+// its 20 clubs we're currently building news for).
+const _curatedFeedCache = new Map();
+async function fetchCuratedFeed(name, url) {
+  if (_curatedFeedCache.has(url)) return _curatedFeedCache.get(url);
+  let items = [];
+  try {
+    const r = await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 (match-center prefetch)' } });
+    if (r.ok) items = parseRssItems(await r.text(), name);
+    else console.error(`  news source "${name}": HTTP ${r.status}`);
+  } catch (e) {
+    console.error(`  news source "${name}": ${e.message}`);
+  }
+  _curatedFeedCache.set(url, items);
+  return items;
+}
+async function teamNews(teamName, oppName, comp) {
   const cutoff = new Date(Date.now() - RSS_DAYS * 86400000).toISOString().slice(0, 10);
-  const queries = [`"${teamName}" when:${RSS_DAYS}d`, `"${teamName}" "${oppName}" when:7d`];
   const seen = new Set();
   const out = [];
-  for (const q of queries) {
-    for (const it of await fetchRss(q)) {
-      const k = norm(it.title);
-      if (!k || seen.has(k)) continue;
-      if (it.published && it.published < cutoff) continue;
-      seen.add(k);
-      out.push(it);
+  const add = (it) => {
+    const k = norm(it.title);
+    if (!k || seen.has(k)) return;
+    if (it.published && it.published < cutoff) return;
+    seen.add(k);
+    out.push(it);
+  };
+  // Curated outlet feeds first (higher signal, zero token cost) -- exact
+  // normalized team-name match only, deliberately strict: a short-form match
+  // ("United", "Sport") risks pulling in a different club entirely, and this
+  // is a supplement to the Google News query below, not the only source.
+  const teamKey = norm(teamName);
+  for (const src of NEWS_SOURCES[comp] || []) {
+    for (const it of await fetchCuratedFeed(src.name, src.url)) {
+      if (!norm(it.title).includes(teamKey)) continue;
+      add(it);
     }
+  }
+  const queries = [`"${teamName}" when:${RSS_DAYS}d`, `"${teamName}" "${oppName}" when:7d`];
+  for (const q of queries) {
+    for (const it of await fetchRss(q)) add(it);
   }
   out.sort((a, b) => (b.published || '').localeCompare(a.published || ''));
   return out.slice(0, NEWS_PER_TEAM);
@@ -876,8 +910,8 @@ async function buildMatch(fx, season, cache) {
     fx.homeId != null ? getSquad(fx.homeId, fx.home, leagueId, season) : Promise.resolve(null),
     fx.awayId != null ? getSquad(fx.awayId, fx.away, leagueId, season) : Promise.resolve(null),
     eventId != null ? getFixtureMeta(eventId, cache) : Promise.resolve({ referee: null, venue: null, lineups: null }),
-    teamNews(fx.home, fx.away),
-    teamNews(fx.away, fx.home),
+    teamNews(fx.home, fx.away, fx.comp),
+    teamNews(fx.away, fx.home, fx.comp),
     eventId != null ? getPredictions(eventId) : Promise.resolve(null),
   ]);
 
@@ -1087,7 +1121,7 @@ async function main() {
     let touched = false;
 
     if (needNews) {
-      const [hn, an] = await Promise.all([teamNews(f.home, f.away), teamNews(f.away, f.home)]);
+      const [hn, an] = await Promise.all([teamNews(f.home, f.away, f.comp), teamNews(f.away, f.home, f.comp)]);
       if (hn.length) { doc.teams.home.newsCandidates = hn; touched = true; }
       if (an.length) { doc.teams.away.newsCandidates = an; touched = true; }
     }
