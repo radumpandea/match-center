@@ -1,11 +1,13 @@
 name: Sync Entities
 
-# Manual for now (workflow_dispatch only) until a few runs are verified
-# against the real Supabase project. Once trusted, add a schedule here (e.g.
-# after Prefetch Preview) so coach/player-name corrections reach every match
-# automatically. Writes to Supabase only — no repo files change, so no
-# commit step and no `contents: write` permission needed.
+# Runs daily after Prefetch Preview (05:30 UTC, up to 45 min on a cold run)
+# so freshly-set apiId values are already on disk. Verified manually first
+# (coach/player/referee syncs all green against the real Supabase project)
+# before adding this schedule. Writes to Supabase only — no repo files
+# change, so no commit step and no `contents: write` permission needed.
 on:
+  schedule:
+    - cron: "15 6 * * *"   # 06:15 UTC daily
   workflow_dispatch: {}
 
 jobs:
