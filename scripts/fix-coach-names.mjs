@@ -1,10 +1,19 @@
-// One-off: fix already-built match packs whose coach.name is still
+// One-off: (1) fix already-built match packs whose coach.name is still
 // API-Football's abbreviated "X. Surname" form (see the getCoach() fix in
-// prefetch-preview.mjs, which only applies to future builds). Re-fetches
-// /coachs for each team, picks the current coach the same way (latest start
-// date among end:null rows -- API-Football doesn't reliably backfill `end`
-// on a departure), and reconstructs the full name with the same
-// surname-preservation safety check used for squad names.
+// prefetch-preview.mjs, which only applies to future builds), and (2)
+// backfill coach.apiId so these existing files can use the live mc_entities
+// overlay (docs/app/match.js connectEntities()) instead of waiting to be
+// rebuilt. Re-fetches /coachs for each team, picks the current coach the same
+// way (latest start date among end:null rows -- API-Football doesn't
+// reliably backfill `end` on a departure).
+//
+// Safety: apiId is only set when the fetched current-coach's surname is
+// actually found in the file's existing coach.name (or the name is empty) --
+// same principle as the surname-preservation check for squad names. This is
+// what protects against the Everton case (the "latest start" heuristic once
+// picked Leighton Baines, an assistant, over David Moyes): if the file
+// already holds a name that doesn't match, apiId is left unset and a mismatch
+// is logged instead of silently linking the wrong person.
 //
 // Usage: APIFOOTBALL_KEY=... node scripts/fix-coach-names.mjs <slug> [<slug> ...]
 //        node scripts/fix-coach-names.mjs --all   (every match file with a fixtures.json entry)
@@ -35,7 +44,7 @@ async function af(path, params) {
   return r.json();
 }
 
-async function currentCoachFullName(teamId) {
+async function currentCoachInfo(teamId) {
   const j = await af('coachs', { team: teamId });
   const list = (j && j.response) || [];
   let cur = null;
@@ -45,11 +54,11 @@ async function currentCoachFullName(teamId) {
     if (row && (row.start || '') > curStart) { cur = c; curStart = row.start || ''; }
   }
   if (!cur || !cur.name) return null;
-  if (!looksAbbreviated(cur.name)) return null;   // nothing to fix
-  const surname = cur.name.replace(/^\S+\.\s*/, '');
+  const abbrev = looksAbbreviated(cur.name);
+  const surname = abbrev ? cur.name.replace(/^\S+\.\s*/, '') : (has(cur.lastname) ? cur.lastname : cur.name.split(/\s+/).pop());
   const full = has(cur.firstname) && has(cur.lastname) ? `${cur.firstname} ${cur.lastname}`.trim() : null;
-  if (full && norm(full).includes(norm(surname))) return full;
-  return null;
+  const name = (abbrev && full && norm(full).includes(norm(surname))) ? full : cur.name;
+  return { apiId: cur.id, name, surname };
 }
 
 async function main() {
@@ -69,13 +78,19 @@ async function main() {
     let touched = 0;
     for (const [side, teamId] of [['home', fx && fx.homeId], ['away', fx && fx.awayId]]) {
       const coach = doc.teams && doc.teams[side] && doc.teams[side].coach;
-      if (!coach || !looksAbbreviated(coach.name) || teamId == null) continue;
-      const full = await currentCoachFullName(teamId);
-      if (full && full !== coach.name) {
-        console.log(`${slug} (${side}): "${coach.name}" -> "${full}"`);
-        coach.name = full;
-        touched++;
+      if (!coach || teamId == null) continue;
+      if (coach.apiId != null && !looksAbbreviated(coach.name)) continue;   // already fine
+      const info = await currentCoachInfo(teamId);
+      if (!info) continue;
+      const matches = !has(coach.name) || norm(coach.name).includes(norm(info.surname));
+      if (!matches) {
+        console.log(`${slug} (${side}): SKIP -- existing "${coach.name}" doesn't match current-coach surname "${info.surname}" (af:${info.apiId})`);
+        continue;
       }
+      if (info.name !== coach.name) console.log(`${slug} (${side}): "${coach.name}" -> "${info.name}"`);
+      coach.name = info.name;
+      if (coach.apiId !== info.apiId) { coach.apiId = info.apiId; console.log(`${slug} (${side}): apiId -> af:${info.apiId}`); }
+      touched++;
     }
     if (touched) writeFileSync(path, JSON.stringify(doc, null, 2) + '\n');
   }
