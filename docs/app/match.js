@@ -115,21 +115,26 @@
       render(data);
     });
   }
-  // Overlays the canonical, shared coach record (mc_entities, via collab.js)
-  // onto this match's embedded copy, once, on load. `coach.apiId` only exists
-  // on files built after this was added; older files simply have no apiId and
-  // this is a silent no-op, keeping the embedded coach as-is. This is what
-  // makes a coach correction apply to every match referencing that coach
-  // instead of needing a file-by-file bulk patch (the Wagner/Baum, Baines/
-  // Moyes bugs from 2026-09).
+  // Overlays ONLY the coach's name from the canonical, shared record
+  // (mc_entities, via collab.js) onto this match's embedded copy, once, on
+  // load. `coach.apiId` only exists on files built after this was added;
+  // older files simply have no apiId and this is a silent no-op, keeping the
+  // embedded coach as-is. Name-only is deliberate: mc_entities is synced by a
+  // deterministic, API-only script (scripts/sync-entities.mjs) with no
+  // editorial research behind it, so its career[]/trophies[] are much
+  // thinner than what the match-data-json skill writes into the file
+  // directly — overlaying the whole object would clobber that research with
+  // a worse copy. Name is the one field that genuinely goes stale between a
+  // match file's build date and kickoff (the Wagner/Baum, Baines/Moyes bugs
+  // from 2026-09), and is cheap to keep fresh this way everywhere at once.
   function connectEntities(data) {
     if (!window.MC_COLLAB) return;
     ['home', 'away'].forEach(function (side) {
       var coach = data.teams[side] && data.teams[side].coach;
       if (!coach || coach.apiId == null) return;
       window.MC_COLLAB.getEntity('coach', coach.apiId).then(function (entity) {
-        if (!entity || !has(entity.name)) return;
-        Object.assign(coach, entity);
+        if (!entity || !has(entity.name) || entity.name === coach.name) return;
+        coach.name = entity.name;
         render(data);
       });
     });
