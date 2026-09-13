@@ -1,0 +1,15 @@
+name: TMP verify Simakha addition
+on:
+  workflow_dispatch: {}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - run: node scripts/validate-match.mjs docs/data/matches/l1-e4-lille-estac-troyes.json
