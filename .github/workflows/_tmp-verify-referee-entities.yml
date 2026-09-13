@@ -1,0 +1,38 @@
+name: TMP verify referee entities plumbing
+on:
+  workflow_dispatch: {}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-audit --no-fund
+      - name: Syntax-check touched scripts
+        run: |
+          node --check scripts/sync-referee-entities.mjs
+          echo "syntax OK"
+      - name: Sanity-check refKey() key derivation
+        run: |
+          node -e "
+            function refKey(name) {
+              const n = String(name || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+                .replace(/[^a-z\s.]/g, '').replace(/\./g, '').trim();
+              const tokens = n.split(/\s+/).filter(Boolean);
+              if (!tokens.length) return null;
+              const surname = tokens[tokens.length - 1];
+              const initial = tokens.length > 1 ? tokens[0][0] : '';
+              return 'name:' + surname + (initial ? '-' + initial : '');
+            }
+            const abbrev = refKey('F. Maresca'), full = refKey('Fabio Maresca');
+            console.log('F. Maresca ->', abbrev, '| Fabio Maresca ->', full);
+            if (abbrev !== full) { console.error('MISMATCH: abbreviated and full form of the same referee produced different keys'); process.exit(1); }
+            console.log('Michael Oliver ->', refKey('Michael Oliver'));
+            console.log('M. Oliver ->', refKey('M. Oliver'));
+          "
+      - name: Validate every existing match file against the schema
+        run: node scripts/validate-match.mjs docs/data/matches/*.json

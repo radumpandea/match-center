@@ -127,41 +127,58 @@
   // a worse copy. Name is the one field that genuinely goes stale between a
   // match file's build date and kickoff (the Wagner/Baum, Baines/Moyes bugs
   // from 2026-09), and is cheap to keep fresh this way everywhere at once.
+  function afKey(apiId) { return apiId == null ? null : 'af:' + apiId; }
+  // Referees have no id from API-Football, so the surname (+ first initial,
+  // to cut down on two different referees who happen to share a surname) is
+  // the closest thing to a stable identity -- same key derivation as
+  // scripts/sync-referee-entities.mjs, duplicated here on purpose (small,
+  // pure function; this codebase already duplicates norm()/has() across
+  // scripts rather than sharing a module).
+  function refKey(name) {
+    var n = String(name || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-z\s.]/g, '').replace(/\./g, '').trim();
+    var tokens = n.split(/\s+/).filter(Boolean);
+    if (!tokens.length) return null;
+    var surname = tokens[tokens.length - 1];
+    var initial = tokens.length > 1 ? tokens[0][0] : '';
+    return 'name:' + surname + (initial ? '-' + initial : '');
+  }
   function connectEntities(data) {
     if (!window.MC_COLLAB) return;
     ['home', 'away'].forEach(function (side) {
       var coach = data.teams[side] && data.teams[side].coach;
       if (!coach || coach.apiId == null) return;
-      window.MC_COLLAB.getEntity('coach', coach.apiId).then(function (entity) {
+      window.MC_COLLAB.getEntity('coach', afKey(coach.apiId)).then(function (entity) {
         if (!entity || !has(entity.name) || entity.name === coach.name) return;
         coach.name = entity.name;
         render(data);
       });
     });
     connectPlayerEntities(data);
+    connectRefereeEntity(data);
   }
   // Same name-only overlay as coaches, batched for every squad/predictedXI/
   // confirmedXI entry that carries an apiId (see scripts/sync-player-entities.mjs
   // and fix-squad-names.mjs, which backfills apiId onto existing files). One
   // round trip for the whole match instead of one query per player.
   function connectPlayerEntities(data) {
-    var ids = [];
+    var keys = [];
     ['home', 'away'].forEach(function (side) {
       var t = data.teams[side];
       if (!t) return;
       [t.squad, t.predictedXI, t.confirmedXI].forEach(function (list) {
-        (list || []).forEach(function (p) { if (p && p.apiId != null) ids.push(p.apiId); });
+        (list || []).forEach(function (p) { if (p && p.apiId != null) keys.push(afKey(p.apiId)); });
       });
     });
-    if (!ids.length || !window.MC_COLLAB) return;
-    window.MC_COLLAB.getEntities('player', ids).then(function (map) {
+    if (!keys.length || !window.MC_COLLAB) return;
+    window.MC_COLLAB.getEntities('player', keys).then(function (map) {
       var touched = false;
       ['home', 'away'].forEach(function (side) {
         var t = data.teams[side];
         if (!t) return;
         [t.squad, t.predictedXI, t.confirmedXI].forEach(function (list) {
           (list || []).forEach(function (p) {
-            var entity = p && p.apiId != null && map[p.apiId];
+            var entity = p && p.apiId != null && map[afKey(p.apiId)];
             if (!entity || !has(entity.name) || entity.name === p.name) return;
             p.name = entity.name;
             touched = true;
@@ -169,6 +186,24 @@
         });
       });
       if (touched) render(data);
+    });
+  }
+  // Same name-only overlay, keyed by surname+initial instead of apiId (see
+  // refKey() above and scripts/sync-referee-entities.mjs). Lower confidence
+  // than the apiId-based overlays -- a shared surname could in principle
+  // belong to a different referee -- so this only ever proposes a LONGER
+  // name for the same surname+initial, never a same-length rewrite, and is
+  // named "referee" everywhere so it's easy to disable in one place if it
+  // ever misfires.
+  function connectRefereeEntity(data) {
+    if (!window.MC_COLLAB || !data.referee || !has(data.referee.name)) return;
+    var key = refKey(data.referee.name);
+    if (!key) return;
+    window.MC_COLLAB.getEntity('referee', key).then(function (entity) {
+      if (!entity || !has(entity.name) || entity.name === data.referee.name) return;
+      if (entity.name.length <= data.referee.name.length) return;
+      data.referee.name = entity.name;
+      render(data);
     });
   }
 

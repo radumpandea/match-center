@@ -174,39 +174,40 @@
   }
 
   // Canonical cross-match entity (team/player/coach/referee), keyed by
-  // API-Football's own id — see docs/supabase.sql, mc_entities. Public read,
-  // no login required, since it replaces facts that used to be copy-pasted
-  // into every match file that mentions the same real person. Returns null on
-  // any failure (not configured, row missing, offline) so callers keep using
-  // their embedded match-file copy as the fallback — this is a read-through
-  // enhancement, never a hard dependency.
-  async function getEntity(kind, apiId) {
-    if (!enabled || apiId == null) return null;
+  // `entityKey` -- 'af:<API-Football id>' for team/player/coach, or
+  // 'name:<surname>[-<first-initial>]' for referees (API-Football gives no
+  // referee id, so the surname is the closest thing to a stable identity —
+  // see scripts/sync-referee-entities.mjs). See docs/supabase.sql,
+  // mc_entities. Public read, no login required, since it replaces facts
+  // that used to be copy-pasted into every match file that mentions the same
+  // real person. Returns null on any failure (not configured, row missing,
+  // offline) so callers keep using their embedded match-file copy as the
+  // fallback — this is a read-through enhancement, never a hard dependency.
+  async function getEntity(kind, entityKey) {
+    if (!enabled || !entityKey) return null;
     try {
       var res = await client.from('mc_entities').select('base,overrides')
-        .eq('kind', kind).eq('entity_key', 'af:' + apiId).maybeSingle();
+        .eq('kind', kind).eq('entity_key', entityKey).maybeSingle();
       if (res.error || !res.data) return null;
       return Object.assign({}, res.data.base || {}, res.data.overrides || {});
     } catch (e) { return null; }
   }
 
-  // Batched version of getEntity() -- one round trip for many ids (e.g. an
-  // entire squad's worth of player apiIds) instead of one query per player.
-  // Returns a map of apiId -> merged entity (base || overrides); ids with no
-  // row or that fail are simply absent from the map, same fallback contract
-  // as getEntity().
-  async function getEntities(kind, apiIds) {
-    var ids = Array.from(new Set((apiIds || []).filter(function (id) { return id != null; })));
-    if (!enabled || !ids.length) return {};
+  // Batched version of getEntity() -- one round trip for many keys (e.g. an
+  // entire squad's worth of player entity keys) instead of one query per
+  // player. Returns a map of entityKey -> merged entity (base || overrides);
+  // keys with no row or that fail are simply absent from the map, same
+  // fallback contract as getEntity().
+  async function getEntities(kind, entityKeys) {
+    var keys = Array.from(new Set((entityKeys || []).filter(Boolean)));
+    if (!enabled || !keys.length) return {};
     try {
-      var keys = ids.map(function (id) { return 'af:' + id; });
       var res = await client.from('mc_entities').select('entity_key,base,overrides')
         .eq('kind', kind).in('entity_key', keys);
       if (res.error || !res.data) return {};
       var out = {};
       res.data.forEach(function (row) {
-        var apiId = parseInt(String(row.entity_key).slice(3), 10);
-        out[apiId] = Object.assign({}, row.base || {}, row.overrides || {});
+        out[row.entity_key] = Object.assign({}, row.base || {}, row.overrides || {});
       });
       return out;
     } catch (e) { return {}; }
