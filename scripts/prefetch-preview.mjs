@@ -964,39 +964,67 @@ async function buildMatch(fx, season, cache) {
   return out;
 }
 
-async function applyStandingsAndForm(doc, fx, season, cache) {
-  const leagueId = AF_LEAGUE_ID[fx.comp] || fx.leagueId || null;
-  if (!leagueId) return;
+// Standings change every matchday -- unlike most other prefill fields, a
+// value here is never "done" just because it's non-null. Always overwrites
+// doc.standings and each side's form.{table,position,last5,ppg,homeAway,note}
+// with whatever getStandings() currently has, instead of only filling empty
+// fields; this used to fill-once-and-freeze, so a match file built at
+// matchday 3 kept showing "3 meciuri" for every team well into matchday 5+
+// (reported 2026-09-13). Cheap to call every run regardless: getStandings()
+// has its own STANDINGS_TTL-day cache and only re-hits the API when that
+// expires, so calling this unconditionally does not add API cost, only lets
+// the already-fresh cached value actually reach the file. Returns true if
+// anything actually changed, so callers can track `touched` correctly.
+async function refreshStandings(doc, fx, leagueId, season, cache) {
   const st = await getStandings(leagueId, season, cache);
+  if (!st || !Array.isArray(st.rows) || !st.rows.length) return false;
+  let changed = false;
 
-  if (st && Array.isArray(st.rows) && st.rows.length && !doc.standings) {
-    doc.standings = { league: fx.comp, season, rows: st.rows };
+  const newStandings = { league: fx.comp, season, rows: st.rows };
+  if (JSON.stringify(doc.standings) !== JSON.stringify(newStandings)) {
+    doc.standings = newStandings;
+    changed = true;
   }
 
   for (const side of ['home', 'away']) {
     const t = doc.teams[side];
     const id = fx[side + 'Id'];
-    const row = st && (st.byId[id] || st.byName[norm(t.name)]);
-    const f = t.form || { last5: [], ppg: null, homeAway: null, position: null, note: null };
+    const row = st.byId[id] || st.byName[norm(t.name)];
+    if (!row) continue;
+    const f = t.form || (t.form = { last5: [], ppg: null, homeAway: null, position: null, note: null });
+    const before = JSON.stringify(f);
 
-    if (row) {
-      if (f.position == null && row.position != null) f.position = row.position;
-      if (f.table == null && row.played != null) {
-        f.table = {
-          played: row.played, win: row.win, draw: row.draw, loss: row.loss,
-          gf: row.gf, ga: row.ga, points: row.points,
-        };
-      }
-      if (!f.last5 || !f.last5.length) {
-        f.last5 = String(row.form || '').toUpperCase().split('').filter((x) => 'WDL'.includes(x)).slice(-5);
-      }
-      if (row.played) f.ppg = Math.round((row.points / row.played) * 100) / 100;
-      if (!has(f.homeAway)) f.homeAway = splitText(row.home, row.away);
-      if (!has(f.note) && row.points != null && row.played) {
-        f.note = `Clasament ${season}/${(season + 1) % 100}: locul ${row.position}, ${row.points}p` +
-          (row.gf != null ? ` (${row.gf}-${row.ga})` : '');
-      }
+    if (row.position != null) f.position = row.position;
+    if (row.played != null) {
+      f.table = {
+        played: row.played, win: row.win, draw: row.draw, loss: row.loss,
+        gf: row.gf, ga: row.ga, points: row.points,
+      };
     }
+    const last5 = String(row.form || '').toUpperCase().split('').filter((x) => 'WDL'.includes(x)).slice(-5);
+    if (last5.length) f.last5 = last5;
+    if (row.played) f.ppg = Math.round((row.points / row.played) * 100) / 100;
+    const homeAway = splitText(row.home, row.away);
+    if (homeAway) f.homeAway = homeAway;
+    if (row.points != null && row.played) {
+      f.note = `Clasament ${season}/${(season + 1) % 100}: locul ${row.position}, ${row.points}p` +
+        (row.gf != null ? ` (${row.gf}-${row.ga})` : '');
+    }
+
+    if (JSON.stringify(f) !== before) changed = true;
+  }
+  return changed;
+}
+
+async function applyStandingsAndForm(doc, fx, season, cache) {
+  const leagueId = AF_LEAGUE_ID[fx.comp] || fx.leagueId || null;
+  if (!leagueId) return;
+  await refreshStandings(doc, fx, leagueId, season, cache);
+
+  for (const side of ['home', 'away']) {
+    const t = doc.teams[side];
+    const id = fx[side + 'Id'];
+    const f = t.form || (t.form = { last5: [], ppg: null, homeAway: null, position: null, note: null });
 
     if ((!f.recent || !f.recent.length) && id != null) {
       const guide = await getFormGuide(id, season);
@@ -1092,7 +1120,12 @@ async function main() {
     if (!doc || doc.partial) continue;
     const leagueId = AF_LEAGUE_ID[f.comp] || f.leagueId || null;
     const needCareer = ['home', 'away'].some((s) => (doc.teams[s].squad || []).some((p) => !has(p.career)));
-    const needStandings = !doc.standings || !(doc.standings.rows || []).length;
+    // Standings/form.table go stale every matchday, unlike most fields here —
+    // always attempt a refresh (refreshStandings() no-ops cheaply via
+    // getStandings()'s own TTL cache when nothing's actually changed), not
+    // just when doc.standings happens to be empty. See refreshStandings()'s
+    // comment for the bug this fixes.
+    const needStandings = !!leagueId;
     const needNext = ['home', 'away'].some((s) => {
       const fm = doc.teams[s].form;
       return !fm || !fm.next || !fm.next.length;
@@ -1153,9 +1186,8 @@ async function main() {
       const pr = await getPredictions(f.eventId);
       if (pr) { doc.predictions = pr; touched = true; }
     }
-    if (needStandings && leagueId) {
-      const st = await getStandings(leagueId, season, cache);
-      if (st && (st.rows || []).length) { doc.standings = { league: f.comp, season, rows: st.rows }; touched = true; }
+    if (needStandings) {
+      if (await refreshStandings(doc, f, leagueId, season, cache)) touched = true;
     }
     for (const side of ['home', 'away']) {
       const id = f[side + 'Id'];

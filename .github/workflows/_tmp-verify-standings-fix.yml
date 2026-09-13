@@ -1,0 +1,18 @@
+name: TMP verify standings refresh fix
+on:
+  workflow_dispatch: {}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Syntax-check
+        run: node --check scripts/prefetch-preview.mjs
+      - name: Validate every existing match file against the schema (no data change expected)
+        run: node scripts/validate-match.mjs docs/data/matches/*.json
