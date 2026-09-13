@@ -138,6 +138,38 @@
         render(data);
       });
     });
+    connectPlayerEntities(data);
+  }
+  // Same name-only overlay as coaches, batched for every squad/predictedXI/
+  // confirmedXI entry that carries an apiId (see scripts/sync-player-entities.mjs
+  // and fix-squad-names.mjs, which backfills apiId onto existing files). One
+  // round trip for the whole match instead of one query per player.
+  function connectPlayerEntities(data) {
+    var ids = [];
+    ['home', 'away'].forEach(function (side) {
+      var t = data.teams[side];
+      if (!t) return;
+      [t.squad, t.predictedXI, t.confirmedXI].forEach(function (list) {
+        (list || []).forEach(function (p) { if (p && p.apiId != null) ids.push(p.apiId); });
+      });
+    });
+    if (!ids.length || !window.MC_COLLAB) return;
+    window.MC_COLLAB.getEntities('player', ids).then(function (map) {
+      var touched = false;
+      ['home', 'away'].forEach(function (side) {
+        var t = data.teams[side];
+        if (!t) return;
+        [t.squad, t.predictedXI, t.confirmedXI].forEach(function (list) {
+          (list || []).forEach(function (p) {
+            var entity = p && p.apiId != null && map[p.apiId];
+            if (!entity || !has(entity.name) || entity.name === p.name) return;
+            p.name = entity.name;
+            touched = true;
+          });
+        });
+      });
+      if (touched) render(data);
+    });
   }
 
   function notesFor(id) { return (store.notes && store.notes[id]) || []; }

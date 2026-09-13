@@ -190,5 +190,27 @@
     } catch (e) { return null; }
   }
 
-  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes, getEntity: getEntity };
+  // Batched version of getEntity() -- one round trip for many ids (e.g. an
+  // entire squad's worth of player apiIds) instead of one query per player.
+  // Returns a map of apiId -> merged entity (base || overrides); ids with no
+  // row or that fail are simply absent from the map, same fallback contract
+  // as getEntity().
+  async function getEntities(kind, apiIds) {
+    var ids = Array.from(new Set((apiIds || []).filter(function (id) { return id != null; })));
+    if (!enabled || !ids.length) return {};
+    try {
+      var keys = ids.map(function (id) { return 'af:' + id; });
+      var res = await client.from('mc_entities').select('entity_key,base,overrides')
+        .eq('kind', kind).in('entity_key', keys);
+      if (res.error || !res.data) return {};
+      var out = {};
+      res.data.forEach(function (row) {
+        var apiId = parseInt(String(row.entity_key).slice(3), 10);
+        out[apiId] = Object.assign({}, row.base || {}, row.overrides || {});
+      });
+      return out;
+    } catch (e) { return {}; }
+  }
+
+  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes, getEntity: getEntity, getEntities: getEntities };
 })();

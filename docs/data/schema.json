@@ -475,6 +475,7 @@
       "additionalProperties": false,
       "required": ["name", "pos"],
       "properties": {
+        "apiId": { "type": ["integer", "null"], "description": "API-Football player id — the identity key in the mc_entities table (docs/supabase.sql), so a name correction applies everywhere this player appears" },
         "number": { "type": ["integer", "null"] },
         "name": { "type": "string" },
         "pos": {

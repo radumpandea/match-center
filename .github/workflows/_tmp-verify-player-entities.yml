@@ -1,0 +1,22 @@
+name: TMP verify player entities plumbing
+on:
+  workflow_dispatch: {}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-audit --no-fund
+      - name: Syntax-check touched scripts
+        run: |
+          node --check scripts/prefetch-preview.mjs
+          node --check scripts/fix-squad-names.mjs
+          node --check scripts/sync-player-entities.mjs
+          echo "syntax OK"
+      - name: Validate every existing match file against the updated schema
+        run: node scripts/validate-match.mjs docs/data/matches/*.json

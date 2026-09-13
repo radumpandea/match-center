@@ -258,6 +258,11 @@ Reguli de mapare:
 - `predictedXI` = 11 intrări, ordonate GK → apărare → mijloc → atac. `pos` = etichetă de
   poziție din lista din schemă (GK, LB, LCB, CB, RCB, RB, LWB, RWB, DM, LCM, CM, RCM, LM, RM,
   CAM, LW, RW, LF, RF, ST, LST, RST). Ecranul așază jucătorii pe teren din `pos` + `formation`.
+  Fiecare intrare are un `apiId` (id-ul jucătorului la API-Football) — copiază-l din intrarea
+  corespunzătoare din `squad[]` (potrivire după nume) când poți identifica jucătorul acolo; e
+  cheia care leagă numele afișat pe teren de `mc_entities` (bază de date comună pentru nume),
+  deci lipsa lui înseamnă doar că acel jucător nu beneficiază de corectarea automată a numelui
+  — nu invalidează pachetul.
 - `confirmedXI` = `null` dacă alinierea oficială nu era publică la momentul build-ului.
 - `squad[]` = tot lotul. `role` ∈ GK/DEF/MID/ATT (obligatoriu). `foot` ∈ L/R/B/null.
   Coduri de țară cu 3 litere (DNK, FRA, ITA...).

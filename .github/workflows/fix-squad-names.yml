@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       slugs:
-        description: "Space-separated match slugs to patch"
+        description: "Space-separated match slugs to patch, or --all"
         required: true
 
 jobs:
@@ -30,10 +30,7 @@ jobs:
         run: node scripts/fix-squad-names.mjs ${{ inputs.slugs }}
 
       - name: Validate patched files
-        run: |
-          for s in ${{ inputs.slugs }}; do
-            node scripts/validate-match.mjs "docs/data/matches/$s.json"
-          done
+        run: node scripts/validate-match.mjs docs/data/matches/*.json
 
       - name: Commit if changed
         run: |

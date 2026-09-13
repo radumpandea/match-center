@@ -498,7 +498,7 @@ async function getFixtureMeta(eventId, cache) {
     for (const side of lu) {
       const xi = (side.startXI || []).map((e) => e.player)
         .filter((p) => p && p.name)
-        .map((p) => ({ number: num(p.number), name: p.name, pos: p.pos || 'n/d' }));
+        .map((p) => ({ apiId: p.id != null ? p.id : null, number: num(p.number), name: p.name, pos: p.pos || 'n/d' }));
       lineups[side.team.id] = { xi, formation: side.formation || 'n/d' };
       const pc = side.team && side.team.colors && side.team.colors.player;
       if (pc && pc.primary) {
