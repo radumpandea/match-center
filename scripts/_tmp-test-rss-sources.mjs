@@ -20,11 +20,19 @@ const CANDIDATES = [
   ['Kicker 2.Bundesliga', 'https://newsfeed.kicker.de/news/2bundesliga'],
   ['Bundesliga.com', 'https://www.bundesliga.com/en/bundesliga/rss'],
   // Romania
-  ['GSP.ro', 'https://www.gsp.ro/rss'],
   ['Digi Sport', 'https://www.digisport.ro/rss'],
-  ['Sport.ro', 'https://www.sport.ro/rss.xml'],
-  ['ProSport', 'https://www.prosport.ro/rss.xml'],
-  ['Fanatik Superliga', 'https://www.fanatik.ro/rss/superliga'],
+  ['GSP.ro (feed)', 'https://www.gsp.ro/feed'],
+  ['GSP.ro (rss.xml)', 'https://www.gsp.ro/rss.xml'],
+  ['ProSport (feed)', 'https://www.prosport.ro/feed'],
+  ['Fanatik (feed)', 'https://www.fanatik.ro/feed/'],
+  ['Sport.ro (feed)', 'https://www.sport.ro/feed'],
+  // Italy retest
+  ['Football Italia', 'https://www.football-italia.net/rss.xml'],
+  ['Sky Sport IT Calcio', 'https://sport.sky.it/rss/calcio.xml'],
+  ['ANSA Calcio', 'https://www.ansa.it/sito/notizie/sport/calcio/calcio_rss.xml'],
+  // France retest
+  ["L'Équipe (alt path)", 'https://dwh.lequipe.fr/api/edito/rss?path=/Football'],
+  ['Foot Mercato', 'https://www.footmercato.net/rss'],
 ];
 
 function decodeEntities(s) {
@@ -43,13 +51,13 @@ async function probe(name, url) {
     const xml = await r.text();
     const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)];
     const entryItems = items.length ? items : [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)];   // Atom fallback
-    const first = entryItems[0];
-    let sampleTitle = null, samplePub = null;
-    if (first) {
-      sampleTitle = decodeEntities((first[1].match(/<title[^>]*>([\s\S]*?)<\/title>/) || [])[1] || '');
-      samplePub = (first[1].match(/<(?:pubDate|published|updated)>([\s\S]*?)<\/(?:pubDate|published|updated)>/) || [])[1] || null;
-    }
-    console.log(`${r.ok ? 'OK  ' : 'FAIL'} [${r.status}] ${name} -- ${entryItems.length} item(s)${sampleTitle ? ` | "${sampleTitle.slice(0, 70)}" (${samplePub})` : ''}`);
+    const samples = entryItems.slice(0, 3).map((it) => {
+      const t = decodeEntities((it[1].match(/<title[^>]*>([\s\S]*?)<\/title>/) || [])[1] || '');
+      const p = (it[1].match(/<(?:pubDate|published|updated)>([\s\S]*?)<\/(?:pubDate|published|updated)>/) || [])[1] || '?';
+      return `"${t.slice(0, 55)}" (${p})`;
+    });
+    console.log(`${r.ok ? 'OK  ' : 'FAIL'} [${r.status}] ${name} -- ${entryItems.length} item(s)`);
+    samples.forEach((s) => console.log(`       ${s}`));
   } catch (e) {
     console.log(`ERR  ${name} -- ${e.message}`);
   }
