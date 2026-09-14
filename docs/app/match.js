@@ -35,7 +35,7 @@
     data._partial = partial;
     render(data);
     connectCollaboration(data);
-    connectEntities(data);
+    connectEntities(data, fixture);
   });
 
   function fail(html) { root.innerHTML = '<div class="errbox">' + html + '</div>'; }
@@ -163,7 +163,7 @@
     var initial = tokens.length > 1 ? tokens[0][0] : '';
     return 'name:' + surname + (initial ? '-' + initial : '');
   }
-  function connectEntities(data) {
+  function connectEntities(data, fixture) {
     if (!window.MC_COLLAB) return;
     ['home', 'away'].forEach(function (side) {
       var coach = data.teams[side] && data.teams[side].coach;
@@ -176,6 +176,37 @@
     });
     connectPlayerEntities(data);
     connectRefereeEntity(data);
+    connectTeamEntities(data, fixture);
+  }
+  // Team-level facts (nickname, stadium/city trivia) have no API-Football
+  // source -- they're researched once by the AI editorial skill and pushed
+  // into mc_entities by scripts/sync-entities.mjs (from docs/data/teams/
+  // <teamId>.json). Overlaying them here means a team researched on ONE
+  // match immediately shows the same facts on every OTHER match involving
+  // that team, without waiting for the prefetch top-up loop to touch each
+  // file individually. Fill-only (never overwrites an already-present
+  // value): unlike coach.name, these never go stale, so there's nothing to
+  // correct, only to backfill.
+  function connectTeamEntities(data, fixture) {
+    if (!window.MC_COLLAB || !fixture) return;
+    var ids = { home: fixture.homeId, away: fixture.awayId };
+    var keys = [];
+    ['home', 'away'].forEach(function (side) { if (ids[side] != null) keys.push(afKey(ids[side])); });
+    if (!keys.length) return;
+    window.MC_COLLAB.getEntities('team', keys).then(function (map) {
+      var touched = false;
+      ['home', 'away'].forEach(function (side) {
+        var entity = ids[side] != null && map[afKey(ids[side])];
+        if (!entity) return;
+        var t = data.teams[side];
+        if (t && !has(t.nickname) && has(entity.nickname)) { t.nickname = entity.nickname; touched = true; }
+        if (side === 'home' && (!data.venue.stories || !data.venue.stories.length) &&
+            entity.venueStories && entity.venueStories.length) {
+          data.venue.stories = entity.venueStories; touched = true;
+        }
+      });
+      if (touched) render(data);
+    });
   }
   // Same name-only overlay as coaches, batched for every squad/predictedXI/
   // confirmedXI entry that carries an apiId (see scripts/sync-player-entities.mjs

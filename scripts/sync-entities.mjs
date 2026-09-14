@@ -40,6 +40,11 @@ const AF_THROTTLE_MS = 250;
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const FIXTURES = ROOT + 'docs/data/fixtures.json';
+const TEAMS_DIR = ROOT + 'docs/data/teams';
+
+function readJSON(path) {
+  try { return JSON.parse(readFileSync(path, 'utf8')); } catch { return null; }
+}
 
 function has(v) { return v != null && v !== '' && v !== 'n/d'; }
 function num(v) { const n = parseInt(v, 10); return Number.isNaN(n) ? null : n; }
@@ -141,26 +146,50 @@ async function main() {
   console.log(`${teamIds.length} distinct team(s) across ${fixtures.length} fixture(s).`);
 
   const rows = [];
+  const teamRows = [];
   const now = new Date().toISOString();
   for (const teamId of teamIds) {
     let coach;
     try { coach = await currentCoach(teamId); }
     catch (e) { console.error(`  team ${teamId}: ${e.message}`); continue; }
-    if (!coach) { console.log(`  team ${teamId}: no current coach found, skipping`); continue; }
-    rows.push({
-      kind: 'coach',
-      entity_key: `af:${coach.apiId}`,
-      api_id: coach.apiId,
-      base: coach,
-      base_synced_at: now,
-    });
-    console.log(`  team ${teamId}: ${coach.name} (af:${coach.apiId})`);
+    if (!coach) { console.log(`  team ${teamId}: no current coach found, skipping`); }
+    else {
+      rows.push({
+        kind: 'coach',
+        entity_key: `af:${coach.apiId}`,
+        api_id: coach.apiId,
+        base: coach,
+        base_synced_at: now,
+      });
+      console.log(`  team ${teamId}: ${coach.name} (af:${coach.apiId})`);
+    }
+
+    // nickname / venueStories have no API-Football source -- they're
+    // researched by the AI editorial skill (match-data-json) and cached
+    // locally on docs/data/teams/<teamId>.json (see prefetch-preview.mjs's
+    // getSquad()). This is the promotion step: once researched for a team,
+    // push it into mc_entities so match.js can overlay it onto EVERY match
+    // that references this team at render time, not just the one file the
+    // skill happened to touch.
+    const teamCache = readJSON(`${TEAMS_DIR}/${teamId}.json`);
+    const hasNickname = teamCache && teamCache.nickname;
+    const hasVenueStories = teamCache && Array.isArray(teamCache.venueStories) && teamCache.venueStories.length;
+    if (hasNickname || hasVenueStories) {
+      teamRows.push({
+        kind: 'team',
+        entity_key: `af:${teamId}`,
+        api_id: teamId,
+        base: { nickname: teamCache.nickname || null, venueStories: teamCache.venueStories || null },
+        base_synced_at: now,
+      });
+    }
   }
 
   // Batch upserts, Supabase/PostgREST-friendly chunk size.
   const CHUNK = 50;
   for (let i = 0; i < rows.length; i += CHUNK) await upsertEntities(rows.slice(i, i + CHUNK));
-  console.log(`Synced ${rows.length} coach entit${rows.length === 1 ? 'y' : 'ies'}.`);
+  for (let i = 0; i < teamRows.length; i += CHUNK) await upsertEntities(teamRows.slice(i, i + CHUNK));
+  console.log(`Synced ${rows.length} coach entit${rows.length === 1 ? 'y' : 'ies'} and ${teamRows.length} team entit${teamRows.length === 1 ? 'y' : 'ies'}.`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
