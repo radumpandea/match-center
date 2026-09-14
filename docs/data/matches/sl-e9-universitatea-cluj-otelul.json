@@ -92,10 +92,10 @@
     "notes": null,
     "weather": {
       "tempC": 19,
-      "condition": "parțial noros",
-      "windKph": 10,
+      "condition": "cer noros",
+      "windKph": 9,
       "precipitationMm": 0,
-      "forecastAt": "2026-09-14T10:50:33.674Z"
+      "forecastAt": "2026-09-14T15:23:26.777Z"
     }
   },
   "referee": {
@@ -191,7 +191,10 @@
     "home": {
       "name": "Universitatea Cluj",
       "shortName": "UCJ",
-      "colors": { "primary": "#FFFFFF", "secondary": "#000000" },
+      "colors": {
+        "primary": "#FFFFFF",
+        "secondary": "#000000"
+      },
       "coach": {
         "apiId": 25916,
         "name": "Cristiano Bergodi",
@@ -199,41 +202,235 @@
         "age": 61,
         "tenureFrom": "2025-10",
         "career": [
-          { "club": "Imolese", "period": "2002–2003", "note": null },
-          { "club": "Sassuolo", "period": "2003–2004", "note": null },
-          { "club": "FC Naţional Bucureşti", "period": "2005–2006", "note": "Finalist Cupa României 2005–06" },
-          { "club": "CFR Cluj", "period": "2006–2007", "note": "Calificare în Cupa UEFA" },
-          { "club": "Rapid Bucureşti", "period": "2007", "note": "Câştigător Supercupa României 2007" },
-          { "club": "Politehnica Iaşi", "period": "2009 (ian–iun)", "note": null },
-          { "club": "Steaua Bucureşti", "period": "2009 (iul–sep)", "note": "Demis după eliminarea din Cupa UEFA" },
-          { "club": "Modena", "period": "2010–2012", "note": null },
-          { "club": "Pescara", "period": "2012–2013", "note": null },
-          { "club": "Brescia", "period": "2013–2014", "note": null },
-          { "club": "Rapid Bucureşti", "period": "2015", "note": "Revenire, încercare de evitare a retrogradării" },
-          { "club": "ASA Târgu Mureş", "period": "2015", "note": null },
-          { "club": "Modena", "period": "2016", "note": "A treia perioadă" },
-          { "club": "Voluntari", "period": "2018–2020", "note": null },
-          { "club": "Universitatea Craiova", "period": "2020", "note": null },
-          { "club": "Sepsi OSK", "period": "2021–2023", "note": "Câştigător Cupa României 2021–22 şi 2022–23, Supercupa României 2022" },
-          { "club": "Rapid Bucureşti", "period": "2023–2024", "note": "A treia perioadă la Rapid" },
-          { "club": "Universitatea Cluj", "period": "2025–prezent", "note": null }
+          {
+            "club": "Imolese",
+            "period": "2002–2003",
+            "note": null
+          },
+          {
+            "club": "Sassuolo",
+            "period": "2003–2004",
+            "note": null
+          },
+          {
+            "club": "FC Naţional Bucureşti",
+            "period": "2005–2006",
+            "note": "Finalist Cupa României 2005–06"
+          },
+          {
+            "club": "CFR Cluj",
+            "period": "2006–2007",
+            "note": "Calificare în Cupa UEFA"
+          },
+          {
+            "club": "Rapid Bucureşti",
+            "period": "2007",
+            "note": "Câştigător Supercupa României 2007"
+          },
+          {
+            "club": "Politehnica Iaşi",
+            "period": "2009 (ian–iun)",
+            "note": null
+          },
+          {
+            "club": "Steaua Bucureşti",
+            "period": "2009 (iul–sep)",
+            "note": "Demis după eliminarea din Cupa UEFA"
+          },
+          {
+            "club": "Modena",
+            "period": "2010–2012",
+            "note": null
+          },
+          {
+            "club": "Pescara",
+            "period": "2012–2013",
+            "note": null
+          },
+          {
+            "club": "Brescia",
+            "period": "2013–2014",
+            "note": null
+          },
+          {
+            "club": "Rapid Bucureşti",
+            "period": "2015",
+            "note": "Revenire, încercare de evitare a retrogradării"
+          },
+          {
+            "club": "ASA Târgu Mureş",
+            "period": "2015",
+            "note": null
+          },
+          {
+            "club": "Modena",
+            "period": "2016",
+            "note": "A treia perioadă"
+          },
+          {
+            "club": "Voluntari",
+            "period": "2018–2020",
+            "note": null
+          },
+          {
+            "club": "Universitatea Craiova",
+            "period": "2020",
+            "note": null
+          },
+          {
+            "club": "Sepsi OSK",
+            "period": "2021–2023",
+            "note": "Câştigător Cupa României 2021–22 şi 2022–23, Supercupa României 2022"
+          },
+          {
+            "club": "Rapid Bucureşti",
+            "period": "2023–2024",
+            "note": "A treia perioadă la Rapid"
+          },
+          {
+            "club": "Universitatea Cluj",
+            "period": "2025–prezent",
+            "note": null
+          }
         ]
       },
-      "formation": "4-1-2-3",
+      "formation": "4-2-3-1",
       "predictedXI": [
-        { "apiId": 170161, "number": 1, "name": "Ştefan Daniel Lefter", "pos": "GK" },
-        { "apiId": 81756, "number": 24, "name": "D. Mikanović", "pos": "RB" },
-        { "apiId": 43014, "number": 6, "name": "I. Cristea", "pos": "RCB" },
-        { "apiId": 42918, "number": 8, "name": "D. Codrea", "pos": "LCB" },
-        { "apiId": 55967, "number": 27, "name": "A. Chipciu", "pos": "LB" },
-        { "apiId": 43049, "number": 94, "name": "O. Bic", "pos": "DM" },
-        { "apiId": 43192, "number": 10, "name": "D. Nistor", "pos": "LCM" },
-        { "apiId": 86819, "number": 7, "name": "M. Drammeh", "pos": "RCM" },
-        { "apiId": 179429, "number": 19, "name": "I. Macalou", "pos": "LW" },
-        { "apiId": 77037, "number": 17, "name": "J. Lukić", "pos": "ST" },
-        { "apiId": 179402, "number": 29, "name": "O. Mendy", "pos": "RW" }
+        {
+          "apiId": 170161,
+          "number": 1,
+          "name": "Ştefan Daniel Lefter",
+          "pos": "GK"
+        },
+        {
+          "apiId": 81756,
+          "number": 24,
+          "name": "D. Mikanović",
+          "pos": "RB"
+        },
+        {
+          "apiId": 43014,
+          "number": 6,
+          "name": "I. Cristea",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 42918,
+          "number": 8,
+          "name": "D. Codrea",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 55967,
+          "number": 27,
+          "name": "A. Chipciu",
+          "pos": "LB"
+        },
+        {
+          "apiId": 43049,
+          "number": 94,
+          "name": "O. Bic",
+          "pos": "DM"
+        },
+        {
+          "apiId": 43192,
+          "number": 10,
+          "name": "D. Nistor",
+          "pos": "LCM"
+        },
+        {
+          "apiId": 86819,
+          "number": 7,
+          "name": "M. Drammeh",
+          "pos": "RCM"
+        },
+        {
+          "apiId": 179429,
+          "number": 19,
+          "name": "I. Macalou",
+          "pos": "LW"
+        },
+        {
+          "apiId": 77037,
+          "number": 17,
+          "name": "J. Lukić",
+          "pos": "ST"
+        },
+        {
+          "apiId": 179402,
+          "number": 29,
+          "name": "O. Mendy",
+          "pos": "RW"
+        }
       ],
-      "confirmedXI": null,
+      "confirmedXI": [
+        {
+          "apiId": 170161,
+          "number": 1,
+          "name": "Ştefan Daniel Lefter",
+          "pos": "G"
+        },
+        {
+          "apiId": 81756,
+          "number": 24,
+          "name": "D. Mikanović",
+          "pos": "D"
+        },
+        {
+          "apiId": 43014,
+          "number": 6,
+          "name": "I. Cristea",
+          "pos": "D"
+        },
+        {
+          "apiId": 42918,
+          "number": 8,
+          "name": "D. Codrea",
+          "pos": "D"
+        },
+        {
+          "apiId": 55967,
+          "number": 27,
+          "name": "A. Chipciu",
+          "pos": "D"
+        },
+        {
+          "apiId": 86819,
+          "number": 7,
+          "name": "M. Drammeh",
+          "pos": "M"
+        },
+        {
+          "apiId": 43049,
+          "number": 94,
+          "name": "O. Bic",
+          "pos": "M"
+        },
+        {
+          "apiId": 179429,
+          "number": 19,
+          "name": "I. Macalou",
+          "pos": "M"
+        },
+        {
+          "apiId": 43192,
+          "number": 10,
+          "name": "D. Nistor",
+          "pos": "M"
+        },
+        {
+          "apiId": 179402,
+          "number": 29,
+          "name": "O. Mendy",
+          "pos": "M"
+        },
+        {
+          "apiId": 77037,
+          "number": 17,
+          "name": "J. Lukić",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "apiId": 170161,
@@ -1104,31 +1301,102 @@
         }
       },
       "absences": [
-        { "name": "Jug Stanojev", "reason": "injury", "detail": null, "since": null }
+        {
+          "name": "Jug Stanojev",
+          "reason": "injury",
+          "detail": null,
+          "since": null
+        }
       ],
       "mercatoIn": [
-        { "name": "N. Michael", "from": "Pafos", "fee": null },
-        { "name": "A. Friday", "from": "FC Botoşani", "fee": null },
-        { "name": "N. Loosli", "from": "VfL Bochum", "fee": null },
-        { "name": "F. Poulolo", "from": "Uta Arad", "fee": null },
-        { "name": "Pedro Pinho", "from": "Chaves", "fee": null },
-        { "name": "A. Aliev", "from": "CFR 1907 Cluj", "fee": null },
-        { "name": "M. Ştefănescu", "from": "FCSB", "fee": null },
-        { "name": "Atanas Trică", "from": "CSM Slatina", "fee": null },
-        { "name": "Jonathan Cissé", "from": "Oţelul", "fee": null },
-        { "name": "Jovo Lukić", "from": "Universitatea Craiova", "fee": "liber de contract" }
+        {
+          "name": "N. Michael",
+          "from": "Pafos",
+          "fee": null
+        },
+        {
+          "name": "A. Friday",
+          "from": "FC Botoşani",
+          "fee": null
+        },
+        {
+          "name": "N. Loosli",
+          "from": "VfL Bochum",
+          "fee": null
+        },
+        {
+          "name": "F. Poulolo",
+          "from": "Uta Arad",
+          "fee": null
+        },
+        {
+          "name": "Pedro Pinho",
+          "from": "Chaves",
+          "fee": null
+        },
+        {
+          "name": "A. Aliev",
+          "from": "CFR 1907 Cluj",
+          "fee": null
+        },
+        {
+          "name": "M. Ştefănescu",
+          "from": "FCSB",
+          "fee": null
+        },
+        {
+          "name": "Atanas Trică",
+          "from": "CSM Slatina",
+          "fee": null
+        },
+        {
+          "name": "Jonathan Cissé",
+          "from": "Oţelul",
+          "fee": null
+        },
+        {
+          "name": "Jovo Lukić",
+          "from": "Universitatea Craiova",
+          "fee": "liber de contract"
+        }
       ],
       "mercatoOut": [
-        { "name": "Edvinas Gertmonas", "to": "FC Servette", "fee": "liber de contract" },
-        { "name": "Andrej Fabry", "to": "Corvinul Hunedoara", "fee": null },
-        { "name": "Andrei Artean", "to": "Poli Timişoara", "fee": null },
-        { "name": "Ştefan Opriş", "to": "Dinamo Bucureşti", "fee": null },
-        { "name": "Vasile Coubiş", "to": "Sampdoria", "fee": null }
+        {
+          "name": "Edvinas Gertmonas",
+          "to": "FC Servette",
+          "fee": "liber de contract"
+        },
+        {
+          "name": "Andrej Fabry",
+          "to": "Corvinul Hunedoara",
+          "fee": null
+        },
+        {
+          "name": "Andrei Artean",
+          "to": "Poli Timişoara",
+          "fee": null
+        },
+        {
+          "name": "Ştefan Opriş",
+          "to": "Dinamo Bucureşti",
+          "fee": null
+        },
+        {
+          "name": "Vasile Coubiş",
+          "to": "Sampdoria",
+          "fee": null
+        }
       ],
       "preseason": [],
       "news": [
-        { "date": "2026-09-14", "text": "\"U\" Cluj trece printr-o perioadă dificilă: trei înfrângeri consecutive în campionat (cu Dinamo, Petrolul şi Universitatea Craiova) au dus echipa lui Bergodi pe locul 14, la un singur punct de zona roşie." },
-        { "date": "2026-09-14", "text": "Meciul cu Oţelul se joacă de la ora 18:00 pe Cluj Arena şi este transmis de Digi Sport 1." }
+        {
+          "date": "2026-09-14",
+          "text": "\"U\" Cluj trece printr-o perioadă dificilă: trei înfrângeri consecutive în campionat (cu Dinamo, Petrolul şi Universitatea Craiova) au dus echipa lui Bergodi pe locul 14, la un singur punct de zona roşie."
+        },
+        {
+          "date": "2026-09-14",
+          "text": "Meciul cu Oţelul se joacă de la ora 18:00 pe Cluj Arena şi este transmis de Digi Sport 1."
+        }
       ],
       "stories": [
         {
@@ -1154,42 +1422,245 @@
             "Internaţional bosniac, a fost convocat la echipa naţională de selecţionerul Sergej Barbarez."
           ]
         }
+      ],
+      "newsCandidates": [
+        {
+          "title": "Ce se întâmplă cu Jovo Lukic, după ce s-a scris că poate pleca de la Universitatea Cluj",
+          "url": "https://www.digisport.ro/fotbal/liga-1/ce-se-intampla-cu-jovo-lukic-dupa-ce-s-a-scris-ca-poate-pleca-de-la-universitatea-cluj-4486201",
+          "source": "Digi Sport",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "FC Universitatea Cluj",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPYXM2LUctc1oxQ0dwS1c1cHZORXNENXBTNWthRVNPZEQzV1NnbS0xUlVLVFB3ZVRsQ1VoSUVsVjBmTDdaUGgzdnhvWk81TVppT21UeTdWN2RDMmM2cTIxeFdrNFduY05nblNDWEVuTnNTZVE4TzVYYmZ0eWpDQnc3OG1fZTQyT1lzdjJmeG44Y1F3WHU2aEZmXzNsNExNaVp4bWdnYVR3?oc=5",
+          "source": "Transfermarkt",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Universitatea Cluj vs Otelul Galati Prediction, Betting Tips, Lineups & Odds | 14 Sep 2026",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNWjRXUVdzekdHczhYMGFCMnFCX3MybGp6TDJvcWUxb25xbWRZQUhSdUphZ1o2eXJUdU1VTjR0a3pkVlRhNW02YmI3aFpVWlppZG5iZ0xtVGRWTTFFZ1BzUHV2Vzhob1BDbTlwSkRaRTd0NUJNUVhXUEVLclFESF9FVEFmdXZXUXp4Wk15TFRoM1h0c3BJbUVSYWJlQ3FlNzlxN3B0aWxSRWctdUk4MVF2MVNuUzNBS1B6WFYtOUptYUE?oc=5",
+          "source": "Sportsgambler",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Corvinul Hunedoara vs Universitatea Craiova Prediction, Betting Tips, Lineups & Odds | 13 Sep 2026",
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOSGpCclhDZkR2aXBNek1jRWN0bEdVXzQyekprZTNCcTJmZkVCNW10TUJ2Y0ZUN2VDbXFMR3hNTGZJM3VXMmhQZFN3MnpqQ05qeDBLblNwemFEVW1UQmFYRl9pVEdDN0VBbURlZnM5dVBMUFQ4RmlvNTN4OWowUW1wRjRRc2FxeVliVV93R0VpNVBhUUxSQ1R2M3BFQmRhRTdHN3JXSDM1S0NEU1dKSWxLNU40OVpiZk9oSzhPZU1aWU41aEwzYWNwd3Jhbw?oc=5",
+          "source": "Sportsgambler",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "[[[Fox^Sports]] Universitatea Cluj vs Otelul Live Free",
+          "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxQM19iQW9NU2YzM1pEYy1KQmZQOTI1dE9GbmV1Z000WWhsVmk3Z0hMaFdvUlNPMGNieGtnWlg0SC1DSlpqUzFkRURza3pYNXo5QlQ5d2ZGWGROV0ZEZUN6M1V2Y2g3Y0FEUktQRXRaRGVGNFRpZmJTbi0tUnRDMGlNcW9pa2dlNm96YmdUdTdic0x5MUpwUGtBQjRJakZ0WjQ0UEpwaFNDdHZHTzE3OG1wRHdFWXBXNVBTb1VOZ2ZRMUs3dTZCR2MzUzFnUWotU2cxNXNQTEJlZWVBWTExdnFOOHN0VXhTUE9oM0hzbkRocG9tb1dkbHJhVlZLQ1N2a3YzcjZTbjVPX3N1NVFxUFhObGNkdFltTGg4enpTaG83RWRTLVVnTlVnVVM5MjU3cUNjNDQ1OVJnVWU?oc=5",
+          "source": "大分トリニータオフィシャルサイト",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Universitatea Cluj U18 - Foreigners (Detailed view)",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5UMzlBUE51ajdoQ0RIbTktaTlHQzlNZzlnRm9FOTdKTFIzdTl5Q1NDYlFiSVJDalE1VjB0cFJzQTA3NWxmNnBjSmFmdTIzVjhldnJ1ZTZLV0kxemxTNnJLVTlPQ2VRbzRZd3pnUXI0RlhUYTJ5?oc=5",
+          "source": "Transfermarkt",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Pre-match Universitatea Craiova vs Dinamo Bucureşti, Superliga Round 17",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE40MGpYWGJNNG0wV0lucXRDZU12UVJoQXBVaDNLOUNMREZJV2FTZTlQZDVCQmFBNTQ3UFZHOEd4M3BrM01xOGVhTkVURHF6T3EwNkhUSk1uVU9NWG5NUWRDU3liQ0hpZ0ptc3haZ1M3TXdBLUk3Z3ZhQUFB?oc=5",
+          "source": "BeSoccer Livescore",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Corvinul Hunedoara și Universitatea Craiova încheie remiză albă în Superligă",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPcjI2T3Q3TTlnNlNvRzBENG5TejBuNVdyWjV5Q2dPcjNYZ2RMZFQ1ZmY1a3NjNzd3dERwVGpBODR3aHhoQ2RhN3JsRDFyVDNXN05WUUdiZUZKYl9pY1lMRXpkQXBNRHVERmc0R3FsLTVWdGZ6dk5ybnVTMjR6NmJON0ZYb1NLdlJfenV4TzNKY0dXeXVVSjJUSzFlTVdrcXNsbTQ2eFBB?oc=5",
+          "source": "SSBCrack",
+          "published": "2026-09-13"
+        }
       ]
     },
     "away": {
       "name": "Oţelul",
       "shortName": "OTL",
-      "colors": { "primary": "#E30613", "secondary": "#00205B" },
+      "colors": {
+        "primary": "#E30613",
+        "secondary": "#00205B"
+      },
       "coach": {
         "name": "Stjepan Tomas",
         "country": "CRO",
         "age": 50,
         "tenureFrom": "2026-03",
         "career": [
-          { "club": "Antalyaspor", "period": "2019", "note": null },
-          { "club": "Çaykur Rizespor", "period": "2020–2021", "note": null },
-          { "club": "Göztepe", "period": "2022", "note": null },
-          { "club": "Sheriff Tiraspol", "period": "2022", "note": null },
-          { "club": "NK Osijek", "period": "2023", "note": null },
-          { "club": "Al-Okhdood", "period": "2024–2025", "note": "Arabia Saudită, Liga I" },
-          { "club": "Oţelul", "period": "2026–prezent", "note": "Numit pe 17 martie 2026, după demisia lui Laszlo Balint" }
+          {
+            "club": "Antalyaspor",
+            "period": "2019",
+            "note": null
+          },
+          {
+            "club": "Çaykur Rizespor",
+            "period": "2020–2021",
+            "note": null
+          },
+          {
+            "club": "Göztepe",
+            "period": "2022",
+            "note": null
+          },
+          {
+            "club": "Sheriff Tiraspol",
+            "period": "2022",
+            "note": null
+          },
+          {
+            "club": "NK Osijek",
+            "period": "2023",
+            "note": null
+          },
+          {
+            "club": "Al-Okhdood",
+            "period": "2024–2025",
+            "note": "Arabia Saudită, Liga I"
+          },
+          {
+            "club": "Oţelul",
+            "period": "2026–prezent",
+            "note": "Numit pe 17 martie 2026, după demisia lui Laszlo Balint"
+          }
         ]
       },
-      "formation": "4-3-3",
+      "formation": "4-4-2",
       "predictedXI": [
-        { "apiId": 42534, "number": 1, "name": "C. Dur-Bozoancă", "pos": "GK" },
-        { "apiId": 279280, "number": 5, "name": "H. Sylla", "pos": "LB" },
-        { "apiId": 26826, "number": 3, "name": "G. Christopoulos", "pos": "LCB" },
-        { "apiId": 43086, "number": 6, "name": "P. Iacob", "pos": "RCB" },
-        { "apiId": 11063, "number": 2, "name": "M. Zhelev", "pos": "RB" },
-        { "apiId": 41127, "number": 27, "name": "Pedro Nuno", "pos": "LCM" },
-        { "apiId": 112902, "number": 39, "name": "T. Lungu", "pos": "DM" },
-        { "apiId": 43082, "number": 17, "name": "A. Ciobanu", "pos": "RCM" },
-        { "apiId": 527132, "number": 30, "name": "M. Frunză", "pos": "LW" },
-        { "apiId": 76124, "number": 11, "name": "Zé Turbo", "pos": "ST" },
-        { "apiId": 119291, "number": 10, "name": "Andrézinho", "pos": "RW" }
+        {
+          "apiId": 42534,
+          "number": 1,
+          "name": "C. Dur-Bozoancă",
+          "pos": "GK"
+        },
+        {
+          "apiId": 279280,
+          "number": 5,
+          "name": "H. Sylla",
+          "pos": "LB"
+        },
+        {
+          "apiId": 26826,
+          "number": 3,
+          "name": "G. Christopoulos",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 43086,
+          "number": 6,
+          "name": "P. Iacob",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 11063,
+          "number": 2,
+          "name": "M. Zhelev",
+          "pos": "RB"
+        },
+        {
+          "apiId": 41127,
+          "number": 27,
+          "name": "Pedro Nuno",
+          "pos": "LCM"
+        },
+        {
+          "apiId": 112902,
+          "number": 39,
+          "name": "T. Lungu",
+          "pos": "DM"
+        },
+        {
+          "apiId": 43082,
+          "number": 17,
+          "name": "A. Ciobanu",
+          "pos": "RCM"
+        },
+        {
+          "apiId": 527132,
+          "number": 30,
+          "name": "M. Frunză",
+          "pos": "LW"
+        },
+        {
+          "apiId": 76124,
+          "number": 11,
+          "name": "Zé Turbo",
+          "pos": "ST"
+        },
+        {
+          "apiId": 119291,
+          "number": 10,
+          "name": "Andrézinho",
+          "pos": "RW"
+        }
       ],
-      "confirmedXI": null,
+      "confirmedXI": [
+        {
+          "apiId": 42534,
+          "number": 1,
+          "name": "C. Dur-Bozoancă",
+          "pos": "G"
+        },
+        {
+          "apiId": 11063,
+          "number": 2,
+          "name": "M. Zhelev",
+          "pos": "D"
+        },
+        {
+          "apiId": 26826,
+          "number": 3,
+          "name": "G. Christopoulos",
+          "pos": "D"
+        },
+        {
+          "apiId": 43086,
+          "number": 6,
+          "name": "P. Iacob",
+          "pos": "D"
+        },
+        {
+          "apiId": 279280,
+          "number": 5,
+          "name": "H. Sylla",
+          "pos": "D"
+        },
+        {
+          "apiId": 527132,
+          "number": 30,
+          "name": "M. Frunză",
+          "pos": "M"
+        },
+        {
+          "apiId": 43082,
+          "number": 17,
+          "name": "A. Ciobanu",
+          "pos": "M"
+        },
+        {
+          "apiId": 112902,
+          "number": 39,
+          "name": "T. Lungu",
+          "pos": "M"
+        },
+        {
+          "apiId": 119291,
+          "number": 10,
+          "name": "Andrézinho",
+          "pos": "M"
+        },
+        {
+          "apiId": 76124,
+          "number": 11,
+          "name": "Zé Turbo",
+          "pos": "F"
+        },
+        {
+          "apiId": 41127,
+          "number": 27,
+          "name": "Pedro Nuno",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "number": 13,
@@ -2194,33 +2665,114 @@
         }
       },
       "absences": [
-        { "name": "Patrick", "reason": "suspension", "detail": "Cartonaş roşu în min. 78 la meciul cu Rapid (etapa 8)", "since": "2026-09-06" },
-        { "name": "Né Lopes", "reason": "injury", "detail": null, "since": null },
-        { "name": "Kazu", "reason": "injury", "detail": null, "since": null },
-        { "name": "Miguel Silva", "reason": "other", "detail": "Clauză convenită între cluburi — nu poate evolua împotriva fostei sale echipe la primul meci după revenire.", "since": null }
+        {
+          "name": "Patrick",
+          "reason": "suspension",
+          "detail": "Cartonaş roşu în min. 78 la meciul cu Rapid (etapa 8)",
+          "since": "2026-09-06"
+        },
+        {
+          "name": "Né Lopes",
+          "reason": "injury",
+          "detail": null,
+          "since": null
+        },
+        {
+          "name": "Kazu",
+          "reason": "injury",
+          "detail": null,
+          "since": null
+        },
+        {
+          "name": "Miguel Silva",
+          "reason": "other",
+          "detail": "Clauză convenită între cluburi — nu poate evolua împotriva fostei sale echipe la primul meci după revenire.",
+          "since": null
+        }
       ],
       "mercatoIn": [
-        { "name": "M. Contra", "from": "Chindia Târgovişte", "fee": null },
-        { "name": "G. Christopoulos", "from": "OFI Creta", "fee": null },
-        { "name": "T. Lungu", "from": "Petrocub", "fee": null },
-        { "name": "H. Sylla", "from": "União de Leiria", "fee": null },
-        { "name": "M. Frunză", "from": null, "fee": null },
-        { "name": "Miguel Silva", "from": "Universitatea Cluj", "fee": null }
+        {
+          "name": "M. Contra",
+          "from": "Chindia Târgovişte",
+          "fee": null
+        },
+        {
+          "name": "G. Christopoulos",
+          "from": "OFI Creta",
+          "fee": null
+        },
+        {
+          "name": "T. Lungu",
+          "from": "Petrocub",
+          "fee": null
+        },
+        {
+          "name": "H. Sylla",
+          "from": "União de Leiria",
+          "fee": null
+        },
+        {
+          "name": "M. Frunză",
+          "from": null,
+          "fee": null
+        },
+        {
+          "name": "Miguel Silva",
+          "from": "Universitatea Cluj",
+          "fee": null
+        }
       ],
       "mercatoOut": [
-        { "name": "Iustin Popescu", "to": null, "fee": null },
-        { "name": "Silviu Rus", "to": null, "fee": null },
-        { "name": "Cristian Chira", "to": null, "fee": null },
-        { "name": "Daniel Sandu", "to": null, "fee": null },
-        { "name": "Gabriel Debeljuh", "to": null, "fee": null },
-        { "name": "Ştefan Bană", "to": "Universitatea Craiova", "fee": "revenire din împrumut" },
-        { "name": "Jonathan Cissé", "to": "Universitatea Cluj", "fee": null }
+        {
+          "name": "Iustin Popescu",
+          "to": null,
+          "fee": null
+        },
+        {
+          "name": "Silviu Rus",
+          "to": null,
+          "fee": null
+        },
+        {
+          "name": "Cristian Chira",
+          "to": null,
+          "fee": null
+        },
+        {
+          "name": "Daniel Sandu",
+          "to": null,
+          "fee": null
+        },
+        {
+          "name": "Gabriel Debeljuh",
+          "to": null,
+          "fee": null
+        },
+        {
+          "name": "Ştefan Bană",
+          "to": "Universitatea Craiova",
+          "fee": "revenire din împrumut"
+        },
+        {
+          "name": "Jonathan Cissé",
+          "to": "Universitatea Cluj",
+          "fee": null
+        }
       ],
       "preseason": [],
       "news": [
-        { "date": "2026-09-14", "text": "Oţelul vrea să rupă seria neagră de pe Cluj Arena: 0 puncte şi 0 goluri marcate în ultimele trei vizite acolo, cu opt goluri încasate." },
-        { "date": "2026-09-14", "text": "Antrenorul Stjepan Tomas, instalat pe bancă din 17 martie: \"Cu un joc bun, o prestaţie solidă, putem lua puncte.\"" },
-        { "date": "2026-09-06", "text": "Patrick a fost eliminat în min. 78 la înfrângerea cu Rapid (0-1) pentru un cot aplicat lui Cristi Manea şi va lipsi la Cluj." }
+        {
+          "date": "2026-09-14",
+          "text": "Oţelul vrea să rupă seria neagră de pe Cluj Arena: 0 puncte şi 0 goluri marcate în ultimele trei vizite acolo, cu opt goluri încasate."
+        },
+        {
+          "date": "2026-09-14",
+          "text": "Antrenorul Stjepan Tomas, instalat pe bancă din 17 martie: \"Cu un joc bun, o prestaţie solidă, putem lua puncte.\""
+        },
+        {
+          "date": "2026-09-06",
+          "text": "Patrick a fost eliminat în min. 78 la înfrângerea cu Rapid (0-1) pentru un cot aplicat lui Cristi Manea şi va lipsi la Cluj."
+        }
       ],
       "stories": [
         {
@@ -2245,6 +2797,32 @@
             "Miguel Silva revine la Oţelul după un sezon la \"U\" Cluj, dar nu joacă azi împotriva fostei sale echipe, conform clauzei stabilite la transfer.",
             "Pedro Nuno e cel mai prolific pasator al echipei — 6 assisturi în 8 meciuri."
           ]
+        }
+      ],
+      "newsCandidates": [
+        {
+          "title": "\"U\" Cluj - Oțelul Galați 0-0, ACUM, pe Digi Sport 1. Ardelenii au avut prima ocazie a meciului",
+          "url": "https://www.digisport.ro/fotbal/liga-1/u-cluj-otelul-galati-live-video-1800-digi-sport-1-ardelenii-sunt-intr-o-situatie-dificila-4485673",
+          "source": "Digi Sport",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "U Cluj - Oțelul, în etapa 9 a Superligii » Start de partidă",
+          "url": "https://www.gsp.ro/fotbal/liga-1/live-u-cluj-otelul-runda-9-supeliga-978313.html",
+          "source": "GSP",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "U Cluj – Oțelul 0-0, LIVE VIDEO în SuperLiga, etapa 9. Gazdele caută să deschidă scorul!",
+          "url": "https://www.fanatik.ro/u-cluj-otelul-live-in-superliga-etapa-9-echipele-de-start-statistici-opta-si-desfasurare-in-timp-real-21541261",
+          "source": "Fanatik",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Oţelul vs Corvinul Hunedoara » Best Odds and Stats",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1lcDE2QmxoWjlLVmwtTHRnaVpNeUxUSE9WWEhxYzR4M3hpMlhwWV95UkZ4azJGaFVDTnhja2dWdGMwbmRfRG9SYzA3WFBIYXdfc0hkXy1fSWI3SnZXaGtYc2tWRl9GV1kteUYta0V2UQ?oc=5",
+          "source": "Odds Scanner",
+          "published": "2026-09-13"
         }
       ]
     }
