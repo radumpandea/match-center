@@ -55,6 +55,26 @@
     return n;
   }
   function has(v) { return v != null && v !== '' && v !== 'n/d'; }
+  // Season stat blurb for a squad/lineup entry: appearances + goals/assists
+  // for outfield players, appearances + goals conceded for goalkeepers (API-
+  // Football doesn't expose per-player clean sheets, only conceded/saves).
+  function statLine(p) {
+    var s = p.stats;
+    if (!s) return '';
+    if (s.apps != null) {
+      var line = s.apps + (s.apps === 1 ? ' meci' : ' meciuri');
+      if (p.role === 'GK') {
+        if (s.conceded != null) line += ', ' + s.conceded + ' primite';
+      } else if (s.goals || s.assists) {
+        line += ', ' + (s.goals || 0) + 'G/' + (s.assists || 0) + 'A';
+      }
+      return line;
+    }
+    if (p.role !== 'GK' && (s.goals || s.assists)) {
+      return (s.goals || 0) + 'G/' + (s.assists || 0) + 'A';
+    }
+    return '';
+  }
   function initials(name) {
     return String(name || '?').split(/\s+/).map(function (w) { return w[0]; }).slice(0, 2).join('').toUpperCase();
   }
@@ -1026,6 +1046,9 @@
           el('div', { class: 'lbl', text: isEmpty ? 'Adaugă' : (view.fullNames ? (slot.name || '') : shortName(slot.name)) }),
           (!isEmpty && full && (has(full.age) || has(full.nat)))
             ? el('div', { class: 'lbl-sub', text: '(' + [has(full.age) ? full.age + ' ani' : null, full.nat].filter(Boolean).join(', ') + ')' })
+            : null,
+          (!isEmpty && full && statLine(full))
+            ? el('div', { class: 'lbl-stat', text: statLine(full) })
             : null
         ]);
         makeDraggable(node, shell, function (p) {
@@ -1543,24 +1566,13 @@
         wrap.appendChild(el('h4', { text: ({ GK: 'Portari', DEF: 'Fundași', MID: 'Mijlocași', ATT: 'Atacanți' })[g] }));
         var list = el('ul');
         groups[g].forEach(function (p) {
-          var s = p.stats;
-          var statBit = '';
-          if (s && s.apps != null) {
-            statBit = ' · ' + s.apps + (s.apps === 1 ? ' meci' : ' meciuri');
-            if (p.role === 'GK') {
-              if (s.conceded != null) statBit += ', ' + s.conceded + ' primite';
-            } else if (s.goals || s.assists) {
-              statBit += ', ' + (s.goals || 0) + 'G/' + (s.assists || 0) + 'A';
-            }
-          } else if (p.role !== 'GK' && s && (s.goals || s.assists)) {
-            statBit = ' · ' + (s.goals || 0) + 'G/' + (s.assists || 0) + 'A';
-          }
+          var sl = statLine(p);
           var li = el('li', {}, [
             el('a', { href: '#', onclick: function (e) { e.preventDefault(); openPlayer(d, side, p); },
               text: (p.number != null ? p.number + '. ' : '') + p.name +
                 (has(p.age) || has(p.nat)
                   ? ' (' + [has(p.age) ? p.age + ' ani' : null, p.nat].filter(Boolean).join(', ') + ')' : '') +
-                statBit +
+                (sl ? ' · ' + sl : '') +
                 (p.status && p.status !== 'available' ? ' · ' + p.status : '') })
           ]);
           list.appendChild(li);
