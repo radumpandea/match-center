@@ -524,7 +524,9 @@
             "apps": { "type": ["integer", "null"], "description": "appearances / matches" },
             "yellow": { "type": ["integer", "null"] },
             "red": { "type": ["integer", "null"] },
-            "rating": { "type": ["number", "null"] }
+            "rating": { "type": ["number", "null"] },
+            "conceded": { "type": ["integer", "null"], "description": "goals conceded while on the pitch (goalkeepers)" },
+            "saves": { "type": ["integer", "null"], "description": "goalkeeper saves" }
           }
         }
       }

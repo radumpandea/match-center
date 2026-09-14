@@ -222,6 +222,7 @@ function statsFrom(row) {
     minutes: num(g.minutes), apps: num(g.appearences),
     yellow: num(c.yellow), red: red || null,
     rating: num(g.appearences) ? fnum(g.rating) : null,   // a 0-app "rating" of 0 is noise
+    conceded: num(go.conceded), saves: num(go.saves),
   };
   return Object.values(s).some((v) => v != null) ? s : null;
 }
@@ -332,6 +333,40 @@ async function getSquad(teamId, teamName, leagueId, season) {
     const g = row.statistics && statRowFor(row.statistics, leagueId);
     if (!g || !(g.games && g.games.minutes)) continue;
     pushPlayer(id, row.player.name, row.player.age, g.games.number, g.games.position);
+  }
+
+  // `players?team=&season=` (used above) sometimes has no row at all for a
+  // squad member — seen for players just transferred in, or whose current
+  // season stats API-Football hasn't aggregated under this team yet — which
+  // leaves bio (nat/height/weight) and stats null even though the data
+  // exists. Backfill with a direct per-player lookup (no team filter, so
+  // it isn't limited to this team-season pairing).
+  for (const p of squad) {
+    if (p.apiId == null) continue;
+    if (p.nat != null && p.stats != null) continue;
+    const j = await af('players', { id: p.apiId, season });
+    const row = j && j.response && j.response[0];
+    const pl = row && row.player;
+    if (pl) {
+      if (p.nat == null) p.nat = cc3(pl.nationality);
+      if (p.height == null) p.height = num(String(pl.height || '').replace(/[^0-9]/g, ''));
+      if (p.weight == null) p.weight = num(String(pl.weight || '').replace(/[^0-9]/g, ''));
+      if (p.birthCountry == null) p.birthCountry = (pl.birth && pl.birth.country) || null;
+      if (p.stats == null) p.stats = statsFrom(statRowFor(row.statistics, leagueId));
+    }
+    // bio-only fallback to the previous season (immutable fields only — never
+    // mislabel a prior season's apps/goals as the current season's stats).
+    if (p.nat == null) {
+      const j2 = await af('players', { id: p.apiId, season: season - 1 });
+      const row2 = j2 && j2.response && j2.response[0];
+      const pl2 = row2 && row2.player;
+      if (pl2) {
+        p.nat = cc3(pl2.nationality);
+        if (p.height == null) p.height = num(String(pl2.height || '').replace(/[^0-9]/g, ''));
+        if (p.weight == null) p.weight = num(String(pl2.weight || '').replace(/[^0-9]/g, ''));
+        if (p.birthCountry == null) p.birthCountry = (pl2.birth && pl2.birth.country) || null;
+      }
+    }
   }
 
   if (!squad.length) {

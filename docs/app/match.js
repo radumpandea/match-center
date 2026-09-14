@@ -1543,13 +1543,24 @@
         wrap.appendChild(el('h4', { text: ({ GK: 'Portari', DEF: 'Fundași', MID: 'Mijlocași', ATT: 'Atacanți' })[g] }));
         var list = el('ul');
         groups[g].forEach(function (p) {
+          var s = p.stats;
+          var statBit = '';
+          if (s && s.apps != null) {
+            statBit = ' · ' + s.apps + (s.apps === 1 ? ' meci' : ' meciuri');
+            if (p.role === 'GK') {
+              if (s.conceded != null) statBit += ', ' + s.conceded + ' primite';
+            } else if (s.goals || s.assists) {
+              statBit += ', ' + (s.goals || 0) + 'G/' + (s.assists || 0) + 'A';
+            }
+          } else if (p.role !== 'GK' && s && (s.goals || s.assists)) {
+            statBit = ' · ' + (s.goals || 0) + 'G/' + (s.assists || 0) + 'A';
+          }
           var li = el('li', {}, [
             el('a', { href: '#', onclick: function (e) { e.preventDefault(); openPlayer(d, side, p); },
               text: (p.number != null ? p.number + '. ' : '') + p.name +
                 (has(p.age) || has(p.nat)
                   ? ' (' + [has(p.age) ? p.age + ' ani' : null, p.nat].filter(Boolean).join(', ') + ')' : '') +
-                (p.stats && (p.stats.goals || p.stats.assists)
-                  ? ' · ' + (p.stats.goals || 0) + 'G/' + (p.stats.assists || 0) + 'A' : '') +
+                statBit +
                 (p.status && p.status !== 'available' ? ' · ' + p.status : '') })
           ]);
           list.appendChild(li);
@@ -1821,11 +1832,15 @@
           var posBadge = positionsBadge(p);
           if (posBadge) body.appendChild(posBadge);
           var s = p.stats || {};
-          var rows = [
+          var rows = (p.role === 'GK' ? [
+            ['Meciuri', s.apps], ['Minute', s.minutes], ['Goluri primite', s.conceded],
+            ['Intervenții', s.saves], ['Galbene', s.yellow], ['Roșii', s.red],
+            ['Rating', s.rating]
+          ] : [
             ['Meciuri', s.apps], ['Minute', s.minutes], ['Goluri', s.goals],
             ['Pase decisive', s.assists], ['Galbene', s.yellow], ['Roșii', s.red],
             ['Rating', s.rating]
-          ].filter(function (r) { return r[1] != null; });
+          ]).filter(function (r) { return r[1] != null; });
           if (rows.length) {
             body.appendChild(el('h4', { class: 'stat-h', text: 'Sezonul curent' }));
             var g = el('div', { class: 'stat-grid' });
