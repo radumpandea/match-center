@@ -107,7 +107,8 @@ async function apiFixtures(leagueId, season, from, to) {
 }
 
 // One API-Football fixture object -> our manifest entry, preserving slug /
-// venue / ready from an existing entry for the same pairing when present.
+// venue / ready / researchDepth from an existing entry for the same pairing
+// when present.
 function toEntry(c, f, byMatch) {
   const iso = f.fixture.date;                 // already Europe/Bucharest offset
   const date = iso.slice(0, 10);
@@ -117,7 +118,7 @@ function toEntry(c, f, byMatch) {
   const round = roundLabel(f.league.round);
   const n = roundNumber(round);
   const existing = byMatch.get(home + '|' + away);
-  return {
+  const entry = {
     slug: existing ? existing.slug : makeSlug(c.abbr, n, home, away),
     comp: c.comp,
     country: c.country,
@@ -134,6 +135,15 @@ function toEntry(c, f, byMatch) {
     awayId: f.teams.away.id ?? (existing && existing.awayId) ?? null,
     ready: existing ? !!existing.ready : false,
   };
+  // researchDepth is set by the build-match-data workflows once a pack is
+  // built (docs.index.html reads it from here, not from the match file, to
+  // show the "PACHET PREMIUM" tag without an extra fetch) -- it was being
+  // silently dropped on every daily refresh because this function rebuilds
+  // each entry from the live API response and never carried it over, so a
+  // deep pack's premium tag vanished the next time fixtures.json refreshed
+  // (reported 2026-09-14, right after a batch of manual deep builds).
+  if (existing && existing.researchDepth) entry.researchDepth = existing.researchDepth;
+  return entry;
 }
 
 async function main() {
