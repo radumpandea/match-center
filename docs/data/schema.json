@@ -60,6 +60,11 @@
         "capacity": { "type": ["integer", "null"] },
         "city": { "type": ["string", "null"] },
         "notes": { "type": ["string", "null"] },
+        "stories": {
+          "type": "array",
+          "description": "2-3 short, commentary-ready trivia bits about the stadium or its city (history, records, a notable event) — sourced from Wikipedia or equivalent, never invented",
+          "items": { "type": "string" }
+        },
         "weather": {
           "type": ["object", "null"],
           "description": "day-before forecast for kickoff time, from Open-Meteo (free, no key) — geocoded from the venue city and refreshed daily in the 3 days before kickoff, since forecast accuracy improves the closer it gets.",
@@ -216,6 +221,7 @@
       "properties": {
         "name": { "type": "string" },
         "shortName": { "type": ["string", "null"], "description": "3-letter code" },
+        "nickname": { "type": ["string", "null"], "description": "the club's common nickname(s) (e.g. \"Câinii Roșii\"), from Wikipedia's infobox or equivalent — never invented" },
         "colors": {
           "type": ["object", "null"],
           "additionalProperties": false,

@@ -889,9 +889,15 @@
     var head = el('div', { class: 'mc-head' }, [
       el('a', { class: 'mc-back', href: 'index.html', text: '← toate meciurile' }),
       el('div', { class: 'mc-teams' }, [
-        el('span', { text: data.teams.home.name }),
+        el('span', {}, [
+          document.createTextNode(data.teams.home.name),
+          has(data.teams.home.nickname) ? el('small', { class: 'nickname', text: ' „' + data.teams.home.nickname + '"' }) : null
+        ]),
         el('span', { class: 'vs', text: 'vs' }),
-        el('span', { text: data.teams.away.name })
+        el('span', {}, [
+          document.createTextNode(data.teams.away.name),
+          has(data.teams.away.nickname) ? el('small', { class: 'nickname', text: ' „' + data.teams.away.nickname + '"' }) : null
+        ])
       ]),
       metaWrap,
       (data._skeleton || data._partial) ? skeletonBanner(data) : null,
@@ -1550,6 +1556,10 @@
       }
       var vb = el('div', {}, [v]);
       if (has(d.venue.notes)) vb.appendChild(el('p', { text: d.venue.notes }));
+      if (d.venue.stories && d.venue.stories.length) {
+        vb.appendChild(el('h4', { class: 'stat-h', text: 'Curiozități' }));
+        vb.appendChild(ul(d.venue.stories));
+      }
       add('venue', panel('Stadion', vb));
     }
 

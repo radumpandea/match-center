@@ -164,6 +164,19 @@ Calitatea în limita bugetului bate acoperirea exhaustivă.
    de obicei cu arbitru principal + cei 2 asistenți + arbitru de rezervă + observator + VAR/AVAR.
    Nu accesa direct hailafotbal.ro cu WebFetch — e o aplicație Angular, conținutul se randează
    cu JS și fetch-ul static nu arată nimic util; caută prin presă, nu direct pe site.
+   **`venue.stories[]`** (2-3 fapte) — istoricul stadionului sau al orașului: an de
+   construcție/renovare, un record, un eveniment notabil (concert, meci internațional,
+   tragedie/incendiu, schimbare de nume). Wikipedia (pagina stadionului sau a orașului) e
+   suficientă ca sursă — utilizatorul a confirmat că e ok să fie doar de-acolo, important
+   e să existe efectiv pe pagină, nu inventat. **Cache, nu re-cercetează**: dacă
+   `docs/data/teams/<teamId>.json` (Nivelul 1) are deja `venueStories` pentru acest stadion
+   (de la un meci anterior pe același teren), copiază-le direct în `venue.stories` fără să
+   mai cauți; altfel, după ce le găsești, scrie-le și în acel fișier de cache (câmp nou
+   `venueStories: string[]`) ca să nu le recercetezi la următorul meci pe același stadion.
+   **`teams.<side>.nickname`** — porecla comună a clubului (ex. „Câinii Roșii", „Vulturii").
+   De obicei în infobox-ul de Wikipedia al clubului, secțiunea „Nickname(s)"/"Porecl(e)".
+   La fel, **cache** în `docs/data/teams/<teamId>.json` (câmp nou `nickname`) — e o
+   proprietate a clubului, nu a meciului, nu se re-cercetează de fiecare dată.
 4. **Antrenori** → `coach`: `country`, `age`, `tenureFrom`, și cariera COMPLETĂ cronologică
    (`career[]`: club, perioadă, realizare/motiv plecare). Sursă: Wikipedia (infobox
    „Managerial career") sau Transfermarkt (via search). **Nu numi mandatul curent „revenire"

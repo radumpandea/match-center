@@ -381,6 +381,13 @@ async function getSquad(teamId, teamName, leagueId, season) {
     fetchedAt: todayISO(), source: SOURCE.url,
     coach, squad,
   };
+  // `nickname` / `venueStories` are researched and written here by the AI
+  // editorial skill (match-data-json), not by this deterministic script --
+  // carry them over so a routine cache rebuild (SQUAD_TTL_DAYS) doesn't
+  // silently wipe them, the same class of bug fixed for other overlay fields
+  // this session.
+  if (cached && cached.nickname) rec.nickname = cached.nickname;
+  if (cached && cached.venueStories) rec.venueStories = cached.venueStories;
   writeJSON(cachePath, rec);
   console.log(`  team ${teamId} (${rec.name}): cached ${squad.length} players`);
   return rec;
@@ -929,7 +936,7 @@ async function getPredictions(eventId) {
 /* ---------- build one match file ---------- */
 function emptyTeamBlock(name) {
   return {
-    name, shortName: null, colors: null,
+    name, shortName: null, nickname: null, colors: null,
     coach: { name: 'n/d' },
     formation: 'n/d', predictedXI: [], confirmedXI: null, squad: [],
     form: null, absences: [], mercatoIn: [], mercatoOut: [], preseason: [],
@@ -969,6 +976,11 @@ async function buildMatch(fx, season, cache) {
     const tv = await getTeamVenue(fx.homeId, cache);
     if (tv) out.venue = tv;
   }
+  // Researched and cached by the AI editorial skill on `docs/data/teams/
+  // <homeTeamId>.json` (venueStories), not fetched here -- see getSquad().
+  if (homeSquad && homeSquad.venueStories && homeSquad.venueStories.length) {
+    out.venue.stories = homeSquad.venueStories;
+  }
   if (has(out.venue.city) && has(out.kickoff)) {
     const w = await getWeather(out.venue, out.kickoff, cache);
     if (w) out.venue.weather = w;
@@ -984,6 +996,7 @@ async function buildMatch(fx, season, cache) {
     if (sq && sq.squad && sq.squad.length) {
       t.squad = sq.squad;   // apiId kept on each entry now (mc_entities identity key)
       if (sq.coach && sq.coach.name) t.coach = sq.coach;
+      if (sq.nickname) t.nickname = sq.nickname;
       t.absences = await getAbsences(id, season);
     }
     if (news && news.length) t.newsCandidates = news;
@@ -1235,6 +1248,13 @@ async function main() {
       // effectively immutable, so those are only filled when still null.
       {
         const sq = await getSquad(id, f[side === 'home' ? 'home' : 'away'], leagueId, season);
+        if (sq && sq.nickname && !doc.teams[side].nickname) {
+          doc.teams[side].nickname = sq.nickname; touched = true;
+        }
+        if (side === 'home' && sq && sq.venueStories && sq.venueStories.length &&
+            (!doc.venue.stories || !doc.venue.stories.length)) {
+          doc.venue.stories = sq.venueStories; touched = true;
+        }
         const ids = sq && sq.squad || [];
         for (const p of doc.teams[side].squad || []) {
           const match = ids.find((x) => norm(x.name) === norm(p.name) || (p.number != null && x.number === p.number));
