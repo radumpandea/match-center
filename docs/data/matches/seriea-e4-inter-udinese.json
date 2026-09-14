@@ -199,7 +199,10 @@
     "home": {
       "name": "Inter",
       "shortName": "INT",
-      "colors": { "primary": "#010E80", "secondary": "#000000" },
+      "colors": {
+        "primary": "#010E80",
+        "secondary": "#000000"
+      },
       "coach": {
         "name": "C. Chivu",
         "country": "Romania",
@@ -347,17 +350,72 @@
       },
       "formation": "3-5-2",
       "predictedXI": [
-        { "apiId": 46988, "number": 1, "name": "Josep Martínez", "pos": "GK" },
-        { "apiId": 31009, "number": 95, "name": "A. Bastoni", "pos": "LCB" },
-        { "apiId": 626, "number": 6, "name": "J. Stones", "pos": "CB" },
-        { "apiId": 5, "number": 25, "name": "M. Akanji", "pos": "RCB" },
-        { "apiId": 10238, "number": 30, "name": "Carlos Augusto", "pos": "LWB" },
-        { "apiId": 348205, "number": 8, "name": "P. Sučić", "pos": "LCM" },
-        { "apiId": 329, "number": 7, "name": "P. Zieliński", "pos": "CM" },
-        { "apiId": 30558, "number": 23, "name": "N. Barella", "pos": "RCM" },
-        { "apiId": 270509, "number": 17, "name": "A. Diouf", "pos": "RWB" },
-        { "apiId": 345808, "number": 94, "name": "F. Esposito", "pos": "LST" },
-        { "apiId": 217, "number": 10, "name": "Lautaro Martínez", "pos": "RST" }
+        {
+          "apiId": 46988,
+          "number": 1,
+          "name": "Josep Martínez",
+          "pos": "GK"
+        },
+        {
+          "apiId": 31009,
+          "number": 95,
+          "name": "A. Bastoni",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 626,
+          "number": 6,
+          "name": "J. Stones",
+          "pos": "CB"
+        },
+        {
+          "apiId": 5,
+          "number": 25,
+          "name": "M. Akanji",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 10238,
+          "number": 30,
+          "name": "Carlos Augusto",
+          "pos": "LWB"
+        },
+        {
+          "apiId": 348205,
+          "number": 8,
+          "name": "P. Sučić",
+          "pos": "LCM"
+        },
+        {
+          "apiId": 329,
+          "number": 7,
+          "name": "P. Zieliński",
+          "pos": "CM"
+        },
+        {
+          "apiId": 30558,
+          "number": 23,
+          "name": "N. Barella",
+          "pos": "RCM"
+        },
+        {
+          "apiId": 270509,
+          "number": 17,
+          "name": "A. Diouf",
+          "pos": "RWB"
+        },
+        {
+          "apiId": 345808,
+          "number": 94,
+          "name": "F. Esposito",
+          "pos": "LST"
+        },
+        {
+          "apiId": 217,
+          "number": 10,
+          "name": "Lautaro Martínez",
+          "pos": "RST"
+        }
       ],
       "confirmedXI": null,
       "squad": [
@@ -725,12 +783,11 @@
           "nat": "TUR",
           "natTeam": null,
           "birthCountry": "Germany",
-          "pronunciation": null,
+          "pronunciation": "cial-ha-NO-lu",
           "career": "Karlsruher SC (2011–2012) · Hamburger SV (2013) · Bayer Leverkusen (2014–2016) · AC Milan (2017–2020) · Inter (2021–prezent)",
           "lastSeason": null,
           "funfact": "Golgheterul Interului în acest start de sezon (2 goluri) și rigoristul principal al echipei — 55 din 62 reușite în carieră.",
           "linkLine": null,
-          "pronunciation": "cial-ha-NO-lu",
           "status": "available",
           "statusNote": null,
           "stats": {
@@ -1357,24 +1414,80 @@
         }
       ],
       "mercatoIn": [
-        { "name": "J. Stones", "from": "Manchester City", "fee": "liber de contract" },
-        { "name": "D. Spence", "from": "Tottenham", "fee": "~30M£" },
-        { "name": "C. Jones", "from": "Liverpool", "fee": "~30M€ + bonusuri" },
-        { "name": "A. Stanković", "from": "Club Brugge", "fee": "contra-răscumpărare, ~12M€" },
-        { "name": "I. Provedel", "from": "Lazio", "fee": "~3M€" },
-        { "name": "M. Marello", "from": "Udinese", "fee": null }
+        {
+          "name": "J. Stones",
+          "from": "Manchester City",
+          "fee": "liber de contract"
+        },
+        {
+          "name": "D. Spence",
+          "from": "Tottenham",
+          "fee": "~30M£"
+        },
+        {
+          "name": "C. Jones",
+          "from": "Liverpool",
+          "fee": "~30M€ + bonusuri"
+        },
+        {
+          "name": "A. Stanković",
+          "from": "Club Brugge",
+          "fee": "contra-răscumpărare, ~12M€"
+        },
+        {
+          "name": "I. Provedel",
+          "from": "Lazio",
+          "fee": "~3M€"
+        },
+        {
+          "name": "M. Marello",
+          "from": "Udinese",
+          "fee": null
+        }
       ],
       "mercatoOut": [
-        { "name": "D. Dumfries", "to": "Real Madrid", "fee": "~20M€" },
-        { "name": "Y. Sommer", "to": "Club Brugge", "fee": "liber de contract" },
-        { "name": "S. de Vrij", "to": "Panathinaikos", "fee": "liber de contract" },
-        { "name": "D. Frattesi", "to": "Lazio", "fee": "împrumut cu obligație de răscumpărare, ~14M€" },
-        { "name": "F. Acerbi", "to": null, "fee": "liber de contract" },
-        { "name": "M. Darmian", "to": null, "fee": "liber de contract" }
+        {
+          "name": "D. Dumfries",
+          "to": "Real Madrid",
+          "fee": "~20M€"
+        },
+        {
+          "name": "Y. Sommer",
+          "to": "Club Brugge",
+          "fee": "liber de contract"
+        },
+        {
+          "name": "S. de Vrij",
+          "to": "Panathinaikos",
+          "fee": "liber de contract"
+        },
+        {
+          "name": "D. Frattesi",
+          "to": "Lazio",
+          "fee": "împrumut cu obligație de răscumpărare, ~14M€"
+        },
+        {
+          "name": "F. Acerbi",
+          "to": null,
+          "fee": "liber de contract"
+        },
+        {
+          "name": "M. Darmian",
+          "to": null,
+          "fee": "liber de contract"
+        }
       ],
       "preseason": [
-        { "opp": "Real Betis", "score": "1-0", "date": "2026-08-15" },
-        { "opp": "Juventus", "score": "2-1", "date": "2026-08-08" }
+        {
+          "opp": "Real Betis",
+          "score": "1-0",
+          "date": "2026-08-15"
+        },
+        {
+          "opp": "Juventus",
+          "score": "2-1",
+          "date": "2026-08-08"
+        }
       ],
       "news": [
         {
@@ -1421,12 +1534,65 @@
             "Sommer a plecat la Brugge, iar Josep Martínez e acum titular cert în poartă."
           ]
         }
+      ],
+      "newsCandidates": [
+        {
+          "title": "Serie A: Inter vs. Udinese – probable line-ups, where to watch on TV",
+          "url": "https://football-italia.net/inter-v-udinese-probable-line-ups-watch-on-tv/",
+          "source": "Football Italia",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Inter Miami vs Nashville SC: Major League Soccer stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE12OWdYZUlCM3pTMXFoejc3b0RJV2I3WmQwRGMzQ0o3Q255UTRZXzFCSllOS3lqX3JVMkVibGFrbUp0elN0R08xaDZTMHMyUVNyUkVhZENibERsU1FvOGExQXdyMEp6dw?oc=5",
+          "source": "BBC",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Inter Milan vs Udinese: Italian Serie A stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBPZVBZM2hVYVpfRVFqeVFNeTZZMjlzZ25NLUlXNWN0bXhfbkEyamN4LVNaaWxVcXM3LUxOYXZvaGZKdlMxQm53SGF1VlpYcjJ1dFVBOVp6UVRsMmU2UGYzbkRIcw?oc=5",
+          "source": "BBC",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Huntsville City FC Defeats Inter Miami II 4-1",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNdGJ4c3M4U1J6aWEtVVFpaDROeFJNMHJ5SWdGNjJjbFZuX3REZUVsc0pRRkVucGZJT3ZTUlMtaUFmb05DV05jSE5yVGE2b2E2UXhIREcwMUJUY1dJbVFFdFBuN1BJZ1BMci1yMjlHR3NudW9ZVDZrZjFQd19MTE5WM2hYTQ?oc=5",
+          "source": "MLSNEXTPro.com",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "As Messi and Co. prepare to face Cruz Azul, is Inter Miami in crisis?",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPTVc5TjBjTDZ0MUdtLUtWbS12MUVCenBlWEEwcGpHWkRwZjRkek82eEFDdmtxclhRR1NPYW91UGQ2QTZmR2lrUTd2T0lKa09RcUtiWm1TQzl4Mmk5Ry1hTHhyZjJ2YTd4dGxJOURIY052Ny00UGI4VGdJSDJVa1NpT3YzdmtNVDh5TDlYbEt2TUxhWkRCTi1BY0hpOUlZSlFkeUVkbtIBuAFBVV95cUxNenAxTlNNTVdqWlRZSjFJeGJ3Vzg3Wl95QlhYWGxfMHRUbWNzYld3RE93MGRldlI4SGVLZ25VUUpzRTdVY3pKMEpZMjlxYmgwZ1N1SFNvbkhNa1A2T05TejYwVDdmcFhCdlBzbU5Wa0NOb0duTVNqekJNZW9vLWVZWTZieThmZC1ad1FfdVVtYkgyVWtyQnFNUVczbGdodXF6bnBUVDhWSmJRRzJXR0ZTLXlBaEtMZGtQ?oc=5",
+          "source": "en.as.com",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Kalispell Council weighs donating city-owned land for affordable housing",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNVmtqeDZIeTUzVmF2eXZMb3c5MEd0am9oYnhvVHVkaVlBTE93bmN3UTdTR2tpLUlMbzZlVGZaeHJ5OFhiM2hKTmxodkZCaUNzR01iOWJ0SzJJbGFKekVidm9MMGljbXg1T1VoQjY3cHEzaHdxV1Z1OWdyQ2NkYzNsSmFReXlObU1MZXNUN1YzNHJJN2liLTBHcmlicVdiaVV2OXV5Q3hWVVBsa0Jfd09aSXRHR3lTUkNCWVJlS3N6bm9zMmdYUzhsZw?oc=5",
+          "source": "Daily Inter Lake",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "MLS Roundup: Sam Surridge's brace ruins Lionel Messi and Inter Miami's party while Cavan Sullivan dazzles again for Philadelphia Union",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPNU94dTNvQXhUeFJRUkQ0WWNqaUJFaTczaERlMENfd29QSE95aW1ZcFZJdmZZOS1aYmNnSmpvVWNYdzZ6NXFCdEFfVEtlRC0zV3NaOVNNYnBCMVRfa2w0QVpWRFVYRFd2bDlLcF9ocklrYVh5Z21HeEk0YlZxUVBhYk81bVplQ2xoSzRSV2E2UjlQV3JSMW42d3BoU2V0MUdyaUoyVGRiN0k0ZmhlWFNieVhPMF8tbDl1R0dOaUF0VVV0R1pmTjIwSDhTQ21FSUJQYkZ3?oc=5",
+          "source": "Goal.com",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Inter Milan’s 2026/27 Third Shirt Is a Stylish Throwback to the Glory Days of the '90s",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPeWhmNDAzZTFEMG40S3BmczY2NUs1N2dFcy05c1k1eG9jNThHZzR6cmN6UC1jR1lZU2xJQ3JNNmFJNEVjOGFvOXRCb21uY3hJRmZIWlR2YUZodEtNSjNuemZsb01oelFEMUFMMnljWFJ3VjNrM0hJeWdLOWVVWjZRTmIyNHJoN29Vck44T1FLTXpvX3oyVm1IRm9hX1JEalBqZkctZmdzNF8xMUFoTlVfSmswMF9XUG80V0R0dk82Qk95Q3c0MHVLXzFrTFRzQzdWcVZFSXFpY1B4NEdtY00xUEtqb3I?oc=5",
+          "source": "SoccerBible",
+          "published": "2026-09-14"
+        }
       ]
     },
     "away": {
       "name": "Udinese",
       "shortName": "UDI",
-      "colors": { "primary": "#000000", "secondary": "#FFFFFF" },
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      },
       "coach": {
         "apiId": 1217,
         "name": "Kosta Runjaić",
@@ -1493,17 +1659,72 @@
       },
       "formation": "3-4-2-1",
       "predictedXI": [
-        { "apiId": 143648, "number": 40, "name": "Maduka Okoye", "pos": "GK" },
-        { "apiId": 20656, "number": 77, "name": "Enzo Ebosse", "pos": "LCB" },
-        { "apiId": 18797, "number": 27, "name": "Christian Kabasele", "pos": "CB" },
-        { "apiId": 320335, "number": 14, "name": "James Abankwah", "pos": "RCB" },
-        { "apiId": 22007, "number": 11, "name": "Hassane Kamara", "pos": "LWB" },
-        { "apiId": 343558, "number": 38, "name": "Lennon Miller", "pos": "LCM" },
-        { "apiId": 48047, "number": 8, "name": "Jesper Karlström", "pos": "RCM" },
-        { "apiId": 8586, "number": 23, "name": "Mërgim Vojvoda", "pos": "RWB" },
-        { "apiId": 332308, "number": 46, "name": "Unai Gómez", "pos": "LW" },
-        { "apiId": 541, "number": 32, "name": "Jurgen Ekkelenkamp", "pos": "CAM" },
-        { "apiId": 19185, "number": 9, "name": "Keinan Davis", "pos": "ST" }
+        {
+          "apiId": 143648,
+          "number": 40,
+          "name": "Maduka Okoye",
+          "pos": "GK"
+        },
+        {
+          "apiId": 20656,
+          "number": 77,
+          "name": "Enzo Ebosse",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 18797,
+          "number": 27,
+          "name": "Christian Kabasele",
+          "pos": "CB"
+        },
+        {
+          "apiId": 320335,
+          "number": 14,
+          "name": "James Abankwah",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 22007,
+          "number": 11,
+          "name": "Hassane Kamara",
+          "pos": "LWB"
+        },
+        {
+          "apiId": 343558,
+          "number": 38,
+          "name": "Lennon Miller",
+          "pos": "LCM"
+        },
+        {
+          "apiId": 48047,
+          "number": 8,
+          "name": "Jesper Karlström",
+          "pos": "RCM"
+        },
+        {
+          "apiId": 8586,
+          "number": 23,
+          "name": "Mërgim Vojvoda",
+          "pos": "RWB"
+        },
+        {
+          "apiId": 332308,
+          "number": 46,
+          "name": "Unai Gómez",
+          "pos": "LW"
+        },
+        {
+          "apiId": 541,
+          "number": 32,
+          "name": "Jurgen Ekkelenkamp",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 19185,
+          "number": 9,
+          "name": "Keinan Davis",
+          "pos": "ST"
+        }
       ],
       "confirmedXI": null,
       "squad": [
@@ -2685,27 +2906,95 @@
         }
       ],
       "mercatoIn": [
-        { "name": "N. Zaniolo", "from": "Galatasaray", "fee": null },
-        { "name": "A. Zanoli", "from": "Napoli", "fee": null },
-        { "name": "I. Gueye", "from": "Metz", "fee": null },
-        { "name": "G. Chakvetadze", "from": "Watford", "fee": null },
-        { "name": "Unai Gómez", "from": "Athletic Club", "fee": null },
-        { "name": "M. Vojvoda", "from": "Como", "fee": null },
-        { "name": "B. Mrozek", "from": "Lech Poznan", "fee": null },
-        { "name": "L. Jovanović", "from": "VfB Stuttgart", "fee": "~8M€" }
+        {
+          "name": "N. Zaniolo",
+          "from": "Galatasaray",
+          "fee": null
+        },
+        {
+          "name": "A. Zanoli",
+          "from": "Napoli",
+          "fee": null
+        },
+        {
+          "name": "I. Gueye",
+          "from": "Metz",
+          "fee": null
+        },
+        {
+          "name": "G. Chakvetadze",
+          "from": "Watford",
+          "fee": null
+        },
+        {
+          "name": "Unai Gómez",
+          "from": "Athletic Club",
+          "fee": null
+        },
+        {
+          "name": "M. Vojvoda",
+          "from": "Como",
+          "fee": null
+        },
+        {
+          "name": "B. Mrozek",
+          "from": "Lech Poznan",
+          "fee": null
+        },
+        {
+          "name": "L. Jovanović",
+          "from": "VfB Stuttgart",
+          "fee": "~8M€"
+        }
       ],
       "mercatoOut": [
-        { "name": "R. Sava", "to": "Universitatea Craiova", "fee": null },
-        { "name": "M. Marello", "to": "Inter", "fee": null },
-        { "name": "A. Atta", "to": "Fiorentina", "fee": null },
-        { "name": "I. Bravo", "to": "Watford", "fee": null },
-        { "name": "M. Payero", "to": "Watford", "fee": null },
-        { "name": "T. Kristensen", "to": "Atalanta", "fee": "împrumut cu obligație de cumpărare" },
-        { "name": "A. Buksa", "to": "RCD Mallorca", "fee": "împrumut cu obligație condiționată" },
-        { "name": "S. Goglichidze", "to": "Monza", "fee": "împrumut cu opțiune de cumpărare" }
+        {
+          "name": "R. Sava",
+          "to": "Universitatea Craiova",
+          "fee": null
+        },
+        {
+          "name": "M. Marello",
+          "to": "Inter",
+          "fee": null
+        },
+        {
+          "name": "A. Atta",
+          "to": "Fiorentina",
+          "fee": null
+        },
+        {
+          "name": "I. Bravo",
+          "to": "Watford",
+          "fee": null
+        },
+        {
+          "name": "M. Payero",
+          "to": "Watford",
+          "fee": null
+        },
+        {
+          "name": "T. Kristensen",
+          "to": "Atalanta",
+          "fee": "împrumut cu obligație de cumpărare"
+        },
+        {
+          "name": "A. Buksa",
+          "to": "RCD Mallorca",
+          "fee": "împrumut cu obligație condiționată"
+        },
+        {
+          "name": "S. Goglichidze",
+          "to": "Monza",
+          "fee": "împrumut cu opțiune de cumpărare"
+        }
       ],
       "preseason": [
-        { "opp": "Barcelona", "score": "1-0", "date": "2026-08-08" }
+        {
+          "opp": "Barcelona",
+          "score": "1-0",
+          "date": "2026-08-08"
+        }
       ],
       "news": [
         {
@@ -2748,6 +3037,56 @@
             "Kamara (2 goluri, 1 assist) e golgheterul echipei; Davis rămâne rigoristul principal, cu Solet — accidentat — ca opțiune secundă.",
             "Karlström, Okoye și Kamara sunt singurii integraliști ai Udinesei — au jucat toate cele 270 de minute posibile."
           ]
+        }
+      ],
+      "newsCandidates": [
+        {
+          "title": "Serie A: Inter vs. Udinese – probable line-ups, where to watch on TV",
+          "url": "https://football-italia.net/inter-v-udinese-probable-line-ups-watch-on-tv/",
+          "source": "Football Italia",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Inter Milan vs Udinese: Italian Serie A stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBPZVBZM2hVYVpfRVFqeVFNeTZZMjlzZ25NLUlXNWN0bXhfbkEyamN4LVNaaWxVcXM3LUxOYXZvaGZKdlMxQm53SGF1VlpYcjJ1dFVBOVp6UVRsMmU2UGYzbkRIcw?oc=5",
+          "source": "BBC",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Internazionale vs Udinese - Where to Watch, Stream Info, TV Channel, and Live Updates (September 14, 2026)",
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQSkU3Qk9TWXpHZnBzMEx3akpsTmxPRGp1NlhLdEJzN1loNHpiRmp3QnlYeVdJUzU2UnJZSDhENEhJX2hUSnBKTExJMHZsOFYzcW5fX1dyMzR4RVljVk96RFZOT05ITDhkcEZ4NGNLOEo1OFF0X2pURjNlbS1mWWJydkk5RXdDaWYxSndhMWE1TEtud0xUS1c0clFoTTFqMXRRUHpJRTc4YU84dWhOWnByaGdXa0Z5cEpCaTVTYllhUTY1bjBHMEZLc3AwVQ?oc=5",
+          "source": "Fubo",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Watch Inter vs Udinese Serie A soccer game LIVE: Online streams, TV channel, early teams news, start time",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQVWY4VFNDQ0tZc1NWeEdDd25iSWNpU2FJZEVpdi1kd1FpUVJLOWFOdDFHbkJTNm1KU1NkN2lraU5meWhxV21GUUltZVQtaFVrTy1CRTUySHJCaDhZd3JEOGhHcnVzOGt4aDdTYURCY1NGSGFDT3djT3p4d0s1Smo5b2pQc1JnSnljWmZwNHBVaXp2Qm5naGk4QzRiVlYxVklLd2VQVXl3?oc=5",
+          "source": "Goal.com",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Inter Milan vs. Udinese Prediction, Picks, Live Odds – Sept. 14",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOQnFQZlZOYnBLXzlpWExrQVdQeDRuRENxVWxpVlNVdURHZFUtdU9GUVQ1eS1oVDFnMUs1c0pwOF9WLTdiUTBtVDNNSDRuMmdVOEFiRjQ0MUwwcFBUNEJ3SnNQYXhWRmp2UnoyMi1LU1E3andPbG5OSm9kSzBYVDBvTG1LMGplVTVWRXAyZTdwVVgyYnNpbXVXeFoyNXVwMVRXd3BrOHBMdTYwZw?oc=5",
+          "source": "Bleacher Nation",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "The complete guide to Inter vs. Udinese",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBKZTNvcHgyMzdSdDZDNWpneVcyZ2pLMmRmcTRVTFNNRkF1TUpjdThKV1g3LUhKay1lZ2NmeURSYk0xZ0IycGo5LTJNd3liTHdwbzdwMWdwT1prRXdud0dfS2lzS0xjVkV5dmx4eXNJOA?oc=5",
+          "source": "Inter.it",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Udinese Under 17 - Transfers 26/27",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNSWdhVUJodGhrQXFMMDRqUmVXSm40ZEtUd0JCZF9ENERZS0pmaTd0bk9rd1B5NmxDOUQyNXEyS1h6aFA0dEJQRVY0M0U1NDQ1QjlWdkotMTlIeDBDTjVKSzNjZ29Dd0VqWkp5LWJCRUVkQWEwcXJJcG1jVEVMd1dDZHFLXzRkdlFsRVQ4Nw?oc=5",
+          "source": "Transfermarkt",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Inter Milan vs Udinese predictions: Visitors to put up a fight",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPaWQ1NjNVR3lTbXB2eGFtRmktdEU5VGR1SlhDdWRKWXVEdmpFekJCSDlxT2REa2twdjJhVkx0ZW1pc1EzajB3ejhjOU1faTdvWUZIaVRLeG9JWlByYkUwbGF4RWlpNEpaUjBnVmZYRTYyQ1pLV1QtUmtyRlZhRjVSMjBkbmVDbkdqeGJaUllBSlhDWG01OFhScGMwQ28xRE1EeTd1WHdYT3FJTTZRNmc?oc=5",
+          "source": "Goal.com",
+          "published": "2026-09-14"
         }
       ]
     }

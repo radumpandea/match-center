@@ -1,10 +1,11 @@
 {
   "teamId": 185,
   "name": "SC Paderborn 07",
-  "fetchedAt": "2026-09-10T09:56:34.561Z",
+  "fetchedAt": "2026-09-14T10:57:03.730Z",
   "source": "https://www.api-football.com/",
   "coach": {
-    "name": "L. Kwasniok",
+    "apiId": 1414,
+    "name": "Lukas Kwasniok",
     "country": "Germany",
     "age": 44,
     "tenureFrom": "2021-07",
@@ -38,9 +39,13 @@
   },
   "squad": [
     {
+      "apiId": 203329,
       "number": 15,
-      "name": "N. Noll",
-      "pos": null,
+      "name": "Nahuel Nicolas Noll",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 22,
       "height": 190,
@@ -59,18 +64,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 180,
-        "apps": 2,
+        "minutes": 270,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 7.81
-      },
-      "apiId": 203329
+        "rating": 7.84
+      }
     },
     {
+      "apiId": 25114,
       "number": 1,
-      "name": "M. Schubert",
-      "pos": null,
+      "name": "Markus Schubert",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 27,
       "height": 187,
@@ -94,13 +102,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 25114
+      }
     },
     {
+      "apiId": 373443,
       "number": 23,
       "name": "N. Awortwie-Grant",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 25,
       "height": null,
@@ -116,13 +127,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 373443
+      "stats": null
     },
     {
+      "apiId": 163078,
       "number": 17,
-      "name": "L. Curda",
-      "pos": null,
+      "name": "Laurin Curda",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 24,
       "height": 185,
@@ -141,26 +155,29 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 180,
-        "apps": 2,
+        "minutes": 247,
+        "apps": 3,
         "yellow": 1,
         "red": null,
-        "rating": 7
-      },
-      "apiId": 163078
+        "rating": 7.02
+      }
     },
     {
+      "apiId": 25289,
       "number": 20,
-      "name": "F. Götze",
-      "pos": null,
+      "name": "Felix Götze",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 27,
-      "height": null,
-      "weight": null,
+      "height": 185,
+      "weight": 80,
       "foot": null,
-      "nat": null,
+      "nat": "GER",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Germany",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -168,13 +185,24 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 25289
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "minutes": 0,
+        "apps": 0,
+        "yellow": 0,
+        "red": null,
+        "rating": null
+      }
     },
     {
+      "apiId": 119173,
       "number": 33,
       "name": "M. Hoffmeier",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 26,
       "height": null,
@@ -190,13 +218,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 119173
+      "stats": null
     },
     {
+      "apiId": 619522,
       "number": null,
       "name": "A. Kitos",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 17,
       "height": null,
@@ -212,13 +243,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 619522
+      "stats": null
     },
     {
+      "apiId": 432554,
       "number": 29,
-      "name": "C. Lippmann",
-      "pos": null,
+      "name": "Clemens Lippmann",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 19,
       "height": 183,
@@ -237,18 +271,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 1,
-        "apps": 1,
+        "minutes": 24,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 0
-      },
-      "apiId": 432554
+        "rating": 5.59
+      }
     },
     {
+      "apiId": 526403,
       "number": 24,
       "name": "N. Mohr",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 21,
       "height": null,
@@ -271,14 +308,17 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 6.25
-      },
-      "apiId": 526403
+        "rating": null
+      }
     },
     {
+      "apiId": 203015,
       "number": 25,
-      "name": "T. Scheller",
-      "pos": null,
+      "name": "Tjark Lasse Scheller",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 23,
       "height": 192,
@@ -297,18 +337,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 180,
-        "apps": 2,
+        "minutes": 270,
+        "apps": 3,
         "yellow": 1,
         "red": null,
-        "rating": 6.97
-      },
-      "apiId": 203015
+        "rating": 7.19
+      }
     },
     {
+      "apiId": 334146,
       "number": 3,
       "name": "Jonah Benedict Sticker",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 21,
       "height": 180,
@@ -331,14 +374,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.59
-      },
-      "apiId": 334146
+        "rating": 4.6
+      }
     },
     {
+      "apiId": 203132,
       "number": 21,
-      "name": "J. ter Horst",
-      "pos": null,
+      "name": "Jano ter Horst",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 23,
       "height": 181,
@@ -357,18 +403,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 172,
-        "apps": 2,
+        "minutes": 262,
+        "apps": 3,
         "yellow": 1,
         "red": null,
-        "rating": 6.87
-      },
-      "apiId": 203132
+        "rating": 6.59
+      }
     },
     {
+      "apiId": 25059,
       "number": 6,
-      "name": "T. Baack",
-      "pos": null,
+      "name": "Tom Baack",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 26,
       "height": 186,
@@ -392,13 +441,16 @@
         "yellow": 0,
         "red": null,
         "rating": 3.35
-      },
-      "apiId": 25059
+      }
     },
     {
+      "apiId": 70099,
       "number": 7,
-      "name": "O. Batista Meier",
-      "pos": null,
+      "name": "Oliver Batista Meier",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 24,
       "height": 180,
@@ -417,18 +469,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 16,
-        "apps": 1,
+        "minutes": 39,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.09
-      },
-      "apiId": 70099
+        "rating": 6.27
+      }
     },
     {
+      "apiId": 363156,
       "number": 5,
-      "name": "S. Castañeda",
-      "pos": null,
+      "name": "Santiago Castañeda",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 21,
       "height": 188,
@@ -447,18 +502,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 180,
-        "apps": 2,
+        "minutes": 270,
+        "apps": 3,
         "yellow": 1,
         "red": null,
-        "rating": 6.95
-      },
-      "apiId": 363156
+        "rating": 6.82
+      }
     },
     {
+      "apiId": 279913,
       "number": 8,
-      "name": "L. Đurić",
-      "pos": null,
+      "name": "Luka Đurić",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 22,
       "height": 179,
@@ -477,18 +535,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
-        "apps": 0,
+        "minutes": 13,
+        "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": null
-      },
-      "apiId": 279913
+        "rating": 5.77
+      }
     },
     {
+      "apiId": 535086,
       "number": 8,
       "name": "L. Duric",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 22,
       "height": null,
@@ -512,13 +573,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 535086
+      }
     },
     {
+      "apiId": 108640,
       "number": 30,
       "name": "T. Gayret",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 27,
       "height": null,
@@ -534,13 +598,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 108640
+      "stats": null
     },
     {
+      "apiId": 334331,
       "number": 22,
-      "name": "M. Hansen",
-      "pos": null,
+      "name": "Mattes Hansen",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 21,
       "height": 183,
@@ -559,18 +626,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 164,
-        "apps": 2,
+        "minutes": 246,
+        "apps": 3,
         "yellow": 1,
         "red": null,
-        "rating": 6.84
-      },
-      "apiId": 334331
+        "rating": 6.8
+      }
     },
     {
+      "apiId": 26333,
       "number": 26,
       "name": "S. Klaas",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 27,
       "height": null,
@@ -586,13 +656,17 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 26333
+      "stats": null
     },
     {
+      "apiId": 573737,
       "number": 19,
       "name": "A. Millgramm",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID",
+        "ATT"
+      ],
       "role": "MID",
       "age": 21,
       "height": null,
@@ -616,13 +690,16 @@
         "yellow": 0,
         "red": null,
         "rating": 6
-      },
-      "apiId": 573737
+      }
     },
     {
+      "apiId": 380512,
       "number": 2,
       "name": "Ruben Müller",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 20,
       "height": null,
@@ -638,13 +715,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 380512
+      "stats": null
     },
     {
+      "apiId": 7592,
       "number": 23,
-      "name": "R. Obermair",
-      "pos": null,
+      "name": "Raphael Sanchez Obermair",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 29,
       "height": 182,
@@ -663,18 +743,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 180,
-        "apps": 2,
+        "minutes": 270,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.66
-      },
-      "apiId": 7592
+        "rating": 6.61
+      }
     },
     {
+      "apiId": 342268,
       "number": 28,
-      "name": "L. Ulrich",
-      "pos": null,
+      "name": "Laurin Ulrich",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 20,
       "height": 180,
@@ -693,18 +776,22 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 149,
-        "apps": 2,
-        "yellow": 0,
+        "minutes": 226,
+        "apps": 3,
+        "yellow": 1,
         "red": null,
-        "rating": 6.37
-      },
-      "apiId": 342268
+        "rating": 6.32
+      }
     },
     {
+      "apiId": 280334,
       "number": 40,
-      "name": "G. Vidović",
-      "pos": null,
+      "name": "Gabriel Vidović",
+      "pos": "MID",
+      "positions": [
+        "MID",
+        "ATT"
+      ],
       "role": "MID",
       "age": 22,
       "height": 180,
@@ -723,18 +810,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 180,
-        "apps": 2,
+        "minutes": 247,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.46
-      },
-      "apiId": 280334
+        "rating": 6.5
+      }
     },
     {
+      "apiId": 328235,
       "number": 30,
-      "name": "S. Marino",
-      "pos": null,
+      "name": "Stefano Marino",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 21,
       "height": 186,
@@ -753,18 +843,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 75,
-        "apps": 2,
+        "minutes": 142,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.38
-      },
-      "apiId": 328235
+        "rating": 6.53
+      }
     },
     {
+      "apiId": 24826,
       "number": 11,
       "name": "S. Michel",
-      "pos": null,
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 35,
       "height": null,
@@ -780,13 +873,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 24826
+      "stats": null
     },
     {
+      "apiId": 129693,
       "number": 9,
-      "name": "R. Philippe",
-      "pos": null,
+      "name": "Rayan Philippe",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 25,
       "height": 182,
@@ -805,18 +901,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 45,
-        "apps": 1,
+        "minutes": 53,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.61
-      },
-      "apiId": 129693
+        "rating": 6.5
+      }
     },
     {
+      "apiId": 178106,
       "number": 18,
-      "name": "M. Pieringer",
-      "pos": null,
+      "name": "Marvin Pieringer",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 26,
       "height": 191,
@@ -835,18 +934,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 171,
-        "apps": 2,
+        "minutes": 261,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.45
-      },
-      "apiId": 178106
+        "rating": 6.09
+      }
     },
     {
+      "apiId": 26343,
       "number": 27,
-      "name": "S. Tigges",
-      "pos": null,
+      "name": "Steffen Tigges",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 27,
       "height": 193,
@@ -865,18 +967,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 68,
-        "apps": 2,
+        "minutes": 91,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.44
-      },
-      "apiId": 26343
+        "rating": 6.51
+      }
     },
     {
+      "apiId": 407043,
       "number": 38,
-      "name": "D. Zeitler",
-      "pos": null,
+      "name": "Deniz Zeitler",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 19,
       "height": 181,
@@ -900,8 +1005,7 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 407043
+      }
     }
   ]
 }

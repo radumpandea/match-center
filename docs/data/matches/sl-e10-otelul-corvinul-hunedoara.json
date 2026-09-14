@@ -1,12 +1,12 @@
 {
   "slug": "sl-e10-otelul-corvinul-hunedoara",
-  "generatedAt": "2026-09-13T12:59:09.142Z",
+  "generatedAt": "2026-09-14T10:54:45.840Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-09-13"
+      "accessed": "2026-09-14"
     }
   ],
   "competition": {
@@ -19,7 +19,14 @@
     "name": "Stadionul Otelul",
     "capacity": null,
     "city": "Galati",
-    "notes": null
+    "notes": null,
+    "weather": {
+      "tempC": 21,
+      "condition": "parțial noros",
+      "windKph": 6,
+      "precipitationMm": 0,
+      "forecastAt": "2026-09-14T10:54:46.354Z"
+    }
   },
   "referee": {
     "name": "n/d",
@@ -52,22 +59,22 @@
     "winOrDraw": true,
     "advice": "Combo Double chance : Oţelul or draw and -3.5 goals",
     "percent": {
-      "home": 35,
-      "draw": 35,
-      "away": 30
+      "home": 45,
+      "draw": 45,
+      "away": 10
     },
     "comparison": {
       "form": {
-        "home": 45,
-        "away": 55
+        "home": 50,
+        "away": 50
       },
       "attack": {
         "home": 50,
         "away": 50
       },
       "defense": {
-        "home": 38,
-        "away": 63
+        "home": 44,
+        "away": 56
       },
       "poisson": {
         "home": 100,
@@ -89,69 +96,15 @@
       "shortName": null,
       "colors": null,
       "coach": {
-        "name": "L. Balint",
-        "country": "Romania",
-        "age": 46,
-        "tenureFrom": "2025-03",
+        "apiId": 28876,
+        "name": "Stjepan Tomas",
+        "country": null,
+        "age": null,
+        "tenureFrom": "2026-07",
         "career": [
           {
             "club": "Oţelul",
-            "period": "2025–prezent",
-            "note": null
-          },
-          {
-            "club": "Petrolul 52",
-            "period": "2024–2024",
-            "note": null
-          },
-          {
-            "club": "UTA Arad",
-            "period": "2022–2023",
-            "note": null
-          },
-          {
-            "club": "Universitatea Craiova",
-            "period": "2022–2022",
-            "note": null
-          },
-          {
-            "club": "UTA Arad",
-            "period": "2019–2022",
-            "note": null
-          },
-          {
-            "club": "Metaloglobus",
-            "period": "2019–2019",
-            "note": null
-          },
-          {
-            "club": "Sportul Snagov",
-            "period": "2018–2019",
-            "note": null
-          },
-          {
-            "club": "Csikszereda",
-            "period": "2017–2018",
-            "note": null
-          },
-          {
-            "club": "Târgu Mureş",
-            "period": "2017–2017",
-            "note": null
-          },
-          {
-            "club": "Academica Clinceni",
-            "period": "2015–2016",
-            "note": null
-          },
-          {
-            "club": "Inter Clinceni",
-            "period": "2015–2015",
-            "note": null
-          },
-          {
-            "club": "Unirea Tărlungeni",
-            "period": "2011–2014",
+            "period": "2026–prezent",
             "note": null
           }
         ]
@@ -161,9 +114,13 @@
       "confirmedXI": null,
       "squad": [
         {
+          "apiId": 42904,
           "number": 13,
-          "name": "M. Contra",
-          "pos": null,
+          "name": "Mario Roberto Mihai Contra",
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 26,
           "height": null,
@@ -182,18 +139,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 42904
+          }
         },
         {
+          "apiId": 42534,
           "number": 1,
-          "name": "C. Dur-Bozoancă",
-          "pos": null,
+          "name": "Cosmin Andrei Dur-Bozoancă",
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 27,
           "height": 179,
@@ -216,14 +176,17 @@
             "apps": 8,
             "yellow": 0,
             "red": null,
-            "rating": 6.96
-          },
-          "apiId": 42534
+            "rating": 7.06
+          }
         },
         {
+          "apiId": 308613,
           "number": 12,
-          "name": "D. Paharnicu",
-          "pos": null,
+          "name": "Darius Ionuț Paharnicu",
+          "pos": "GK",
+          "positions": [
+            "GK"
+          ],
           "role": "GK",
           "age": 20,
           "height": null,
@@ -242,18 +205,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 308613
+          }
         },
         {
+          "apiId": 26826,
           "number": 3,
-          "name": "G. Christopoulos",
-          "pos": null,
+          "name": "Giannis Christopoulos",
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 25,
           "height": 191,
@@ -276,14 +242,17 @@
             "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 7.12
-          },
-          "apiId": 26826
+            "rating": 7.1
+          }
         },
         {
+          "apiId": 96326,
           "number": 28,
           "name": "Miguel Silva",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 30,
           "height": 191,
@@ -306,14 +275,17 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.83
-          },
-          "apiId": 96326
+            "rating": 6.9
+          }
         },
         {
+          "apiId": 43086,
           "number": 6,
-          "name": "P. Iacob",
-          "pos": null,
+          "name": "Paul Alexandru Iacob",
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 29,
           "height": 184,
@@ -336,14 +308,17 @@
             "apps": 8,
             "yellow": 0,
             "red": null,
-            "rating": 7.04
-          },
-          "apiId": 43086
+            "rating": 7.05
+          }
         },
         {
+          "apiId": 197451,
           "number": 88,
           "name": "Kazu",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 26,
           "height": 176,
@@ -366,14 +341,17 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.9
-          },
-          "apiId": 197451
+            "rating": 6.87
+          }
         },
         {
+          "apiId": 129779,
           "number": 4,
           "name": "Né Lopes",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 25,
           "height": 185,
@@ -396,14 +374,17 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.8
-          },
-          "apiId": 129779
+            "rating": 6.45
+          }
         },
         {
+          "apiId": 325053,
           "number": 16,
-          "name": "D. Neicu",
-          "pos": null,
+          "name": "Dan-Emilian Neicu",
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 21,
           "height": null,
@@ -426,14 +407,17 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": null
-          },
-          "apiId": 325053
+            "rating": 0
+          }
         },
         {
+          "apiId": 666923,
           "number": null,
           "name": "P. Rotaru",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": null,
           "height": null,
@@ -449,13 +433,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 666923
+          "stats": null
         },
         {
+          "apiId": 667898,
           "number": 5,
           "name": "Habib Sylla",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 27,
           "height": null,
@@ -471,13 +458,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 667898
+          "stats": null
         },
         {
+          "apiId": 78468,
           "number": 4,
           "name": "D. Zator",
-          "pos": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 31,
           "height": null,
@@ -493,13 +483,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 78468
+          "stats": null
         },
         {
+          "apiId": 11063,
           "number": 2,
-          "name": "M. Zhelev",
-          "pos": null,
+          "name": "Milen Zhivkov Zhelev",
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
           "role": "DEF",
           "age": 33,
           "height": null,
@@ -522,14 +515,17 @@
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 6.72
-          },
-          "apiId": 11063
+            "rating": 5.6
+          }
         },
         {
+          "apiId": 647409,
           "number": 18,
           "name": "D. Aftene",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 16,
           "height": null,
@@ -548,18 +544,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 647409
+          }
         },
         {
+          "apiId": 134822,
           "number": 8,
           "name": "Rafael Brito",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 24,
           "height": null,
@@ -575,13 +574,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 134822
+          "stats": null
         },
         {
+          "apiId": 43082,
           "number": 17,
-          "name": "A. Ciobanu",
-          "pos": null,
+          "name": "Andrei Virgil Ciobanu",
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 27,
           "height": 174,
@@ -604,14 +606,17 @@
             "apps": 8,
             "yellow": 0,
             "red": null,
-            "rating": 7.1
-          },
-          "apiId": 43082
+            "rating": 7.06
+          }
         },
         {
+          "apiId": 666924,
           "number": null,
           "name": "R. Cojoc",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": null,
           "height": null,
@@ -627,13 +632,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 666924
+          "stats": null
         },
         {
+          "apiId": 112902,
           "number": 39,
-          "name": "T. Lungu",
-          "pos": null,
+          "name": "Teodor Lungu",
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 30,
           "height": null,
@@ -656,14 +664,17 @@
             "apps": 7,
             "yellow": 2,
             "red": null,
-            "rating": 6.77
-          },
-          "apiId": 112902
+            "rating": 6.83
+          }
         },
         {
+          "apiId": 41127,
           "number": 27,
           "name": "Pedro Nuno",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 31,
           "height": 174,
@@ -686,14 +697,17 @@
             "apps": 8,
             "yellow": 1,
             "red": null,
-            "rating": 6.99
-          },
-          "apiId": 41127
+            "rating": 7.03
+          }
         },
         {
+          "apiId": 119291,
           "number": 10,
           "name": "Andrézinho",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 29,
           "height": 174,
@@ -716,14 +730,17 @@
             "apps": 8,
             "yellow": 1,
             "red": null,
-            "rating": 6.93
-          },
-          "apiId": 119291
+            "rating": 6.86
+          }
         },
         {
+          "apiId": 666925,
           "number": 77,
           "name": "A. Balanica",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 19,
           "height": null,
@@ -746,14 +763,17 @@
             "apps": 3,
             "yellow": 1,
             "red": null,
-            "rating": 6.4
-          },
-          "apiId": 666925
+            "rating": 6.13
+          }
         },
         {
+          "apiId": 368748,
           "number": 24,
-          "name": "D. Bordun",
-          "pos": null,
+          "name": "Denis Marian Bordun",
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 18,
           "height": null,
@@ -776,14 +796,17 @@
             "apps": 8,
             "yellow": 0,
             "red": null,
-            "rating": 6.63
-          },
-          "apiId": 368748
+            "rating": 6.54
+          }
         },
         {
+          "apiId": 195915,
           "number": 30,
           "name": "Tommaso Saccavino",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 21,
           "height": null,
@@ -807,17 +830,20 @@
             "yellow": 0,
             "red": null,
             "rating": 6.43
-          },
-          "apiId": 195915
+          }
         },
         {
+          "apiId": 142016,
           "number": 7,
           "name": "João Paulino",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 27,
-          "height": null,
-          "weight": null,
+          "height": 180,
+          "weight": 77,
           "foot": null,
           "nat": "CPV",
           "natTeam": null,
@@ -836,14 +862,17 @@
             "apps": 5,
             "yellow": 1,
             "red": null,
-            "rating": 6.52
-          },
-          "apiId": 142016
+            "rating": 6.48
+          }
         },
         {
+          "apiId": 195248,
           "number": 15,
           "name": "Mehmet Titiz",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 20,
           "height": null,
@@ -866,14 +895,17 @@
             "apps": 3,
             "yellow": 0,
             "red": 1,
-            "rating": 5.7
-          },
-          "apiId": 195248
+            "rating": 4.28
+          }
         },
         {
+          "apiId": 41452,
           "number": 9,
           "name": "Patrick",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 32,
           "height": 190,
@@ -896,14 +928,17 @@
             "apps": 8,
             "yellow": 1,
             "red": 1,
-            "rating": 6.84
-          },
-          "apiId": 41452
+            "rating": 6.75
+          }
         },
         {
+          "apiId": 522180,
           "number": 19,
           "name": "Radu Postelnicu",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 17,
           "height": null,
@@ -913,19 +948,22 @@
           "natTeam": null,
           "birthCountry": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Oţelul (2025)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 522180
+          "stats": null
         },
         {
+          "apiId": 554319,
           "number": 11,
           "name": "Ze Turbo",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 28,
           "height": null,
@@ -941,13 +979,16 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null,
-          "apiId": 554319
+          "stats": null
         },
         {
+          "apiId": 41727,
           "number": 8,
           "name": "João Lameira",
-          "pos": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
           "role": "MID",
           "age": 26,
           "height": 175,
@@ -970,14 +1011,17 @@
             "apps": 7,
             "yellow": 2,
             "red": null,
-            "rating": 7.14
-          },
-          "apiId": 41727
+            "rating": 7.11
+          }
         },
         {
+          "apiId": 76124,
           "number": 11,
           "name": "Zé Turbo",
-          "pos": null,
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
           "role": "ATT",
           "age": 29,
           "height": 188,
@@ -1001,14 +1045,15 @@
             "yellow": 0,
             "red": null,
             "rating": null
-          },
-          "apiId": 76124
+          }
         },
         {
-          "number": 5,
-          "name": "H. Sylla",
+          "apiId": 279280,
+          "number": null,
+          "name": "Habib Sylla",
           "pos": null,
-          "role": "DEF",
+          "positions": [],
+          "role": "MID",
           "age": 27,
           "height": 178,
           "weight": 73,
@@ -1031,38 +1076,7 @@
             "yellow": 1,
             "red": null,
             "rating": null
-          },
-          "apiId": 279280
-        },
-        {
-          "number": 30,
-          "name": "M. Frunză",
-          "pos": null,
-          "role": "MID",
-          "age": null,
-          "height": null,
-          "weight": null,
-          "foot": null,
-          "nat": null,
-          "natTeam": null,
-          "birthCountry": null,
-          "pronunciation": null,
-          "career": "Oţelul (2026–prezent)",
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": {
-            "goals": 0,
-            "assists": 0,
-            "minutes": 72,
-            "apps": 1,
-            "yellow": 0,
-            "red": null,
-            "rating": 6.01
-          },
-          "apiId": 527132
+          }
         }
       ],
       "form": {
@@ -1211,7 +1225,26 @@
       "mercatoOut": [],
       "preseason": [],
       "news": [],
-      "newsCandidates": [],
+      "newsCandidates": [
+        {
+          "title": "\"U\" Cluj - Oțelul Galați, LIVE VIDEO 18:00, Digi Sport 1. Ardelenii sunt într-o situație dificilă",
+          "url": "https://www.digisport.ro/fotbal/liga-1/u-cluj-otelul-galati-live-video-1800-digi-sport-1-ardelenii-sunt-intr-o-situatie-dificila-4485673",
+          "source": "Digi Sport",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "U Cluj - Oțelul, din runda #9 a Superligii, un duel între două echipe din a doua jumătate a clasamentului » Echipe probabile + cele mai interesante informații",
+          "url": "https://www.gsp.ro/fotbal/liga-1/live-u-cluj-otelul-runda-9-supeliga-978313.html",
+          "source": "GSP",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Oţelul vs Corvinul Hunedoara » Best Odds and Stats",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1lcDE2QmxoWjlLVmwtTHRnaVpNeUxUSE9WWEhxYzR4M3hpMlhwWV95UkZ4azJGaFVDTnhja2dWdGMwbmRfRG9SYzA3WFBIYXdfc0hkXy1fSWI3SnZXaGtYc2tWRl9GV1kteUYta0V2UQ?oc=5",
+          "source": "oddsscanner.com",
+          "published": "2026-09-13"
+        }
+      ],
       "stories": []
     },
     "away": {
@@ -2221,6 +2254,14 @@
         },
         "recent": [
           {
+            "date": "2026-09-13",
+            "opp": "Universitatea Craiova",
+            "homeAway": "H",
+            "comp": "Liga I",
+            "score": "0-1",
+            "result": "L"
+          },
+          {
             "date": "2026-09-06",
             "opp": "Petrolul Ploiesti",
             "homeAway": "A",
@@ -2259,23 +2300,9 @@
             "comp": "Cupa României",
             "score": "3-2",
             "result": "W"
-          },
-          {
-            "date": "2026-08-16",
-            "opp": "CFR 1907 Cluj",
-            "homeAway": "H",
-            "comp": "Liga I",
-            "score": "3-0",
-            "result": "W"
           }
         ],
         "next": [
-          {
-            "date": "2026-09-13",
-            "opp": "Universitatea Craiova",
-            "homeAway": "H",
-            "comp": "Liga I"
-          },
           {
             "date": "2026-09-19",
             "opp": "Oţelul",
@@ -2286,6 +2313,12 @@
             "date": "2026-10-10",
             "opp": "FC Voluntari",
             "homeAway": "H",
+            "comp": "Liga I"
+          },
+          {
+            "date": "2026-10-17",
+            "opp": "Rapid",
+            "homeAway": "A",
             "comp": "Liga I"
           }
         ],
@@ -2349,52 +2382,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Corvinul Hunedoara - Universitatea Craiova, duel interesant în Superligă » Echipele probabile + cele mai tari cote",
-          "url": "https://www.gsp.ro/fotbal/liga-1/live-corvinul-hunedoara-universitatea-craiova-etapa-9-superliga-978750.html",
+          "title": "Corvinul Hunedoara vs Universitatea Craiova Prediction, Betting Tips, Lineups & Odds | 13 Sep 2026",
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOSGpCclhDZkR2aXBNek1jRWN0bEdVXzQyekprZTNCcTJmZkVCNW10TUJ2Y0ZUN2VDbXFMR3hNTGZJM3VXMmhQZFN3MnpqQ05qeDBLblNwemFEVW1UQmFYRl9pVEdDN0VBbURlZnM5dVBMUFQ4RmlvNTN4OWowUW1wRjRRc2FxeVliVV93R0VpNVBhUUxSQ1R2M3BFQmRhRTdHN3JXSDM1S0NEU1dKSWxLNU40OVpiZk9oSzhPZU1aWU41aEwzYWNwd3Jhbw?oc=5",
+          "source": "Sportsgambler",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Corvinul Hunedoara - Universitatea Craiova 0-1. Alex Cicâldău i-a adus victoria campioanei",
+          "url": "https://www.digisport.ro/fotbal/liga-1/corvinul-hunedoara-universitatea-craiova-0-1-alex-cicaldau-i-a-adus-victoria-campioanei-4481793",
+          "source": "Digi Sport",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Note GSP la Corvinul Hunedoara - Universitatea Craiova » Cine e „pretendentul neașteptat pentru un loc de titular la echipa națională”",
+          "url": "https://www.gsp.ro/fotbal/liga-1/note-gsp-corvinul-hunedoara-universitatea-craiova-0-0-978947.html",
           "source": "GSP",
           "published": "2026-09-13"
         },
         {
-          "title": "Ștefan Baiaram, out pentru Corvinul Hunedoara – Universitatea Craiova! Ultimele informații despre transfer",
-          "url": "https://www.fanatik.ro/stefan-baiaram-out-pentru-meciul-u-craiova-corvinul-hunedoara-sanse-sub-10-sa-joace-21542117",
-          "source": "Fanatik",
-          "published": "2026-09-13"
-        },
-        {
-          "title": "𝚆𝙰𝚃𝙲𝙷 (𝐓ODAY) Corvinul Hunedoara vs Universitatea Craiova 𝐋𝐈𝐕𝐄 Ｆｒｅｅ Ｓｔｒｅａｍｓ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ 13 September 2136, Full Live Coverage of Corvinul Hunedoara vs Universitatea Craiova: Watch the Coppa Italia match live with full coverage on ESPN. G",
-          "url": "https://news.google.com/rss/articles/CBMijANBVV95cUxPdE9rNkp2NnhvLUFXQjZwRmc1WC1yYWo3cXBXOE5acDZlSjEyU0g3cE9UY0NRUFc5OC04RXNEdVAxa2tpbTBZazBSWl91UVg2N3pIQ280WDhoOGQ4bnhLTjh3bHoxNXZ1WUo0QURWcEZIX0NSM2dKeTBBRWk2czN2LU9QS0VGT1oyX0NUUHNzZzBJTXV6VDRMblVkXzZtRTYta0MwMld2cDBvRGN1TmYwSGM4R01ZM1o1NTM1enZVZ0RmWHhzV3BZUFVLSHVNcG9tMVliQ1hGTlZwamVVak93cDBDLThPeXh2U0tBVTdtUWZDd1NxbmtpU0x5TjV5N3BFU3pJRmtFTVc2RjZwSWxCSHBwOFN2VFM0Zl94Y0JIQ2VxTlJuNGotOHdQM1d1T0M5NGpwS2s3UGJCYTdlY2xzTGpvSG5SRm9XRTNtaUxIbklHUDV3UFJPcWJOdnNqN0RaTG4ybEZSZ3BwMjg4RWRBYmNQQU1sbm94MHdqdXVaa2QyRFdOZTUxc1BNVXA?oc=5",
+          "title": "[▔YOUTUBE-LIVE▔]! Corvinul Hunedoara vs Universitatea Craiova Live Free TV",
+          "url": "https://news.google.com/rss/articles/CBMijANBVV95cUxOc0hvbHFFZFhtblROWl84aDVOQ1F1dWFHZ25RRXlrMUdsQUFEdVdSeDRHNVYzdVFuU0tTSDB1aTI4YlN2NnZfMk5fakMwUUU3TzVNVXVkZ2haV3p1OHY5cUduSDM1aTRnVmpMaVpUaXpuU2NmSC1hV3lOeHJfUUN4ME83cjMwUW4xTXQ1T1Vla2ZseVpfX1M0dzM1cnB4SlpCTEdzSzkwNzBIQWljT0I5Mk8yb05wNkRweXZlZVl1d1hjeFUxWTVueVBSZUFYWEg5aGUxbnFUV0hYZlRrMmlUalNxWVI3S24zY2JETVlWVGp6Z05rZ0p6UlNxa3BYYm10bzJQVGFOaHZQRzBLX0xVMHZfOXNDQzBJb1dYeGVsLTEyTDA5ajNLSi1yQXg1MGJwNTVVYlJDR1IwR2VQcHRSa2JhSHZQNk92c2gxa3RmM3VpcnM4MHNSR3lHd3Z1UHNJLTJHSGl1M0oxS2xuM2xGaDRKQlBYUExaSVlxUF9CRjdLd2oyd1NZdW9MZVY?oc=5",
           "source": "Loughborough University",
           "published": "2026-09-13"
         },
         {
-          "title": "Corvinul - CS U Craiova - lineups, stats, timeline, where to watch and standings in Romanian Liga 1",
-          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBZRTFPQVY0cFpIQVNtMGNENjJ6NHNOTE5ZRXZjYnZSa0Z3WlFnM3dNbDh1d2lTdVhiTnBSTmpXQjM2VldORW0xaFA3X3pzLWVEamR3d3RjTmthN2ppUF9NbkI0UQ?oc=5",
-          "source": "Tribuna.com",
+          "title": "Corvinul Hunedoara U17 - Record arrivals (Gallery)",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQUkhRSWNlVEE1LTMxODVPaHJMZ2lpMDZZNjBVTk5INW1FS2g0Wk9jaERVeXhLU0p4YUc4YXhvZWU2RGZlbzNzeXpUcDZiRm9YM3BsQXgxVzB4Si1YTmtBRm1tZWgwQzV1VmJPczA2dFJBaWpMMGhlUG1naFd5RHhoOXIyUV9Hd1ZXWTkzQzdPMjFjN2RTcVZxdzFfZ1JTZ3EtN2NlWDJZandLYTBNSWUtYVY1cWJ4TzkyZXYwSWJEWXJoZTRsd0pKcWk3RW1EYWRDVHo3X0d3?oc=5",
+          "source": "Transfermarkt",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "Corvinul - Univ. Craiova 0-1",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNZHVLbWIyYU43bVJDXzk4TWktTTFrVmxpMVhpQ3I5clpPbXl3UFJoVTF3ZE9OSlN6Wm5RbUEwZUZZQTFQWXc2dnNOcXZWNlBGYW1XLXVzME1HNG1RSEJIU0NOTGx4a3FmSzRoaExieUQtYWZvWFh3cTg1SFhZTThCdnBmZFBTa01LSHR3Y2V5djRfa2FzOVdSZmFlQ1ZORFExaFZpZE1xTno1UQ?oc=5",
+          "source": "Flashscore.com",
           "published": "2026-09-13"
         },
         {
           "title": "Corvinul Hunedoara U19",
-          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOc1NlN0dqRVh6YW5wWGNIUDFXUldQWDQzbGFhTlVxd0JseVhXdm43aHRUNGQweFlHeXVqZU1FMEFwZXJEXzNPNTZOWE51c1RrU2l0UGQwdFFhYWg5cGROQVp2T2ZaSVhoLUdjeEdfSzBkNHozSVhvWmJrRG9aMUJmeENzZw?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPdm1CUHJMVUoybzZrUmxZOG9EQkMzVm5wNVRueTYyX0REMTYxSHhYc1NNRUJ2eHpodGFyMzJBaTN0M0h5c0xXNlVtRHBmUkJnZmVaZmlkYlREWjdMUFN0a3hwSDRJcGZxY3h6N3RuazF2N005bTE5X05FS3diQTQ2clNBN1JLT1dfLXA1S2oxQXE?oc=5",
           "source": "Transfermarkt",
-          "published": "2026-09-12"
+          "published": "2026-09-13"
         },
         {
-          "title": "FC Rapid București U15 vs FC Corvinul Hunedoara U15 live score, H2H and lineups",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPY3gya3c1cldCZ0VQbWtvUHdkUWpPOGFUOGNUSmdJU0JTbTBZVVd2dmtKX25XZFdvMmRXM09hbHNMdG1fU2FnTHgxbHZQTDE4aW9Cc0RCdFJKbV9QSGpqejVINkJKQWtlOTEzQmNPM2FSSDNDbXB4ZFF6S3kzM2h0QTg4V0E5UTYyUTVpQlBCVzJOQV9mQjdEY0x5ZTNhVUlQ?oc=5",
-          "source": "Sofascore",
-          "published": "2026-09-12"
-        },
-        {
-          "title": "Corvinul Hunedoara U17 - Detailed squad 26/27 (Detailed view)",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPY2VISUpUeVJhS1hFeDI3bm53MGJTaE9wVkNNN0tJWUV0NE1URHJYLWQ0eW1ZU0Y5VVlZZ3dGN1VYeWlhRkRvV3JXbHNkemUyZWFIYnVLQzYwRlhyem5ab1FVNDA0R2cwZWVkRmJ3T2VRQ1NUTUJqUzVtdm15b21nck1CM3NaenVwaEpQeW5pblkzQnpyM0djQzhB?oc=5",
+          "title": "Corvinul Hunedoara U17 - Detailed squad 26/27",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPSDI1WE14LVhWM2tHV0NlUUI5bFVkSkhLUnVYOUJKdDJYNFc1cDdNYnBfNlJ4OE5peXBGOUNyVzhqMjRPUVY2WGN6Y3hjWWNEUV91Z3FreTZIWGZsQ3docTRUQXNTUE5zTFVBa3lNem1hRG9MSFNDelllWTF0Q1gtbTBKM0pEcVRIdnl5akEwMV9BUnp0TTVHTGt5aw?oc=5",
           "source": "Transfermarkt",
-          "published": "2026-09-11"
-        },
-        {
-          "title": "Corvinul Hunedoara U17",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPQUowaWphSUpib0VtbW5mT2doc2V6TmZXS1RyZHRUeEl0TzJ4LWNPMkI4YjVEd2FhWmhwQ3V2MUJtbUdrbVozdk02LWVSLUhMTVpwUEFUVkJfN3YzVVVZMmlmQmMxUlNtQldxeUE2c05IOXpITDhodmdJX2U2cU9LZ3R0YWFhcG5lQ0NyaFdXa0FuVGpfOGc?oc=5",
-          "source": "Transfermarkt",
-          "published": "2026-09-11"
+          "published": "2026-09-13"
         }
       ],
       "stories": []

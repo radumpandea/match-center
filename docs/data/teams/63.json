@@ -1,10 +1,11 @@
 {
   "teamId": 63,
   "name": "Leeds",
-  "fetchedAt": "2026-09-11T07:38:46.492Z",
+  "fetchedAt": "2026-09-14T10:51:14.012Z",
   "source": "https://www.api-football.com/",
   "coach": {
-    "name": "D. Farke",
+    "apiId": 2,
+    "name": "Daniel Farke",
     "country": "Germany",
     "age": 49,
     "tenureFrom": "2023-07",
@@ -43,9 +44,13 @@
   },
   "squad": [
     {
+      "apiId": 20068,
       "number": 21,
-      "name": "A. Cairns",
-      "pos": null,
+      "name": "Alexander Thomas Cairns",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 32,
       "height": 183,
@@ -69,13 +74,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 20068
+      }
     },
     {
+      "apiId": 538541,
       "number": 48,
       "name": "R. Mahady",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 19,
       "height": null,
@@ -91,13 +99,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 538541
+      "stats": null
     },
     {
+      "apiId": 328116,
       "number": 1,
       "name": "Darryl Merveil Ombang",
-      "pos": null,
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 20,
       "height": null,
@@ -113,13 +124,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 328116
+      "stats": null
     },
     {
+      "apiId": 162489,
       "number": 1,
-      "name": "J. Trafford",
-      "pos": null,
+      "name": "James Harrington Trafford",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 23,
       "height": 197,
@@ -142,14 +156,17 @@
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 7.05
-      },
-      "apiId": 162489
+        "rating": 7
+      }
     },
     {
+      "apiId": 7288,
       "number": 16,
-      "name": "M. Zetterer",
-      "pos": null,
+      "name": "Michael Zetterer",
+      "pos": "GK",
+      "positions": [
+        "GK"
+      ],
       "role": "GK",
       "age": 30,
       "height": 187,
@@ -168,18 +185,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
+        "minutes": null,
         "apps": 0,
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 7288
+      }
     },
     {
+      "apiId": 2279,
       "number": 4,
-      "name": "E. Ampadu",
-      "pos": null,
+      "name": "Ethan Kwame Colm Raymond Ampadu",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 25,
       "height": 182,
@@ -202,14 +222,18 @@
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.76
-      },
-      "apiId": 2279
+        "rating": 6.97
+      }
     },
     {
+      "apiId": 162465,
       "number": 26,
-      "name": "M. Bard",
-      "pos": null,
+      "name": "Melvin Michel Maxence Bard",
+      "pos": "DEF",
+      "positions": [
+        "DEF",
+        "MID"
+      ],
       "role": "DEF",
       "age": 25,
       "height": 173,
@@ -228,18 +252,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
+        "minutes": null,
         "apps": 0,
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 162465
+      }
     },
     {
+      "apiId": 833,
       "number": 15,
-      "name": "J. Bijol",
-      "pos": null,
+      "name": "Jaka Bijol",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 26,
       "height": 190,
@@ -262,15 +289,19 @@
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.88
-      },
-      "apiId": 833
+        "rating": 6.9
+      }
     },
     {
+      "apiId": 19201,
       "number": 2,
-      "name": "J. Bogle",
-      "pos": null,
-      "role": "MID",
+      "name": "Jayden Ian Bogle",
+      "pos": "DEF",
+      "positions": [
+        "DEF",
+        "MID"
+      ],
+      "role": "DEF",
       "age": 25,
       "height": 178,
       "weight": 69,
@@ -292,22 +323,26 @@
         "apps": 3,
         "yellow": 1,
         "red": null,
-        "rating": 7
-      },
-      "apiId": 19201
+        "rating": 6.87
+      }
     },
     {
+      "apiId": 389303,
       "number": 4,
-      "name": "A. Cresswell",
-      "pos": null,
+      "name": "Alfie Cresswell",
+      "pos": "DEF",
+      "positions": [
+        "DEF",
+        "MID"
+      ],
       "role": "DEF",
       "age": 18,
       "height": null,
       "weight": null,
       "foot": null,
-      "nat": null,
+      "nat": "ENG",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "England",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -315,13 +350,24 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 557342
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "minutes": null,
+        "apps": 0,
+        "yellow": 0,
+        "red": null,
+        "rating": null
+      }
     },
     {
+      "apiId": 2803,
       "number": 30,
-      "name": "N. Elvedi",
-      "pos": null,
+      "name": "Nico Elvedi",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 29,
       "height": 189,
@@ -344,15 +390,18 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.73
-      },
-      "apiId": 2803
+        "rating": 6.65
+      }
     },
     {
+      "apiId": 47969,
       "number": 3,
-      "name": "G. Gudmundsson",
-      "pos": null,
-      "role": "MID",
+      "name": "Gabriel Johan Gudmundsson",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
+      "role": "DEF",
       "age": 26,
       "height": 180,
       "weight": 74,
@@ -374,14 +423,18 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 6.28
-      },
-      "apiId": 47969
+        "rating": 6.9
+      }
     },
     {
+      "apiId": 19760,
       "number": 24,
-      "name": "J. Justin",
-      "pos": null,
+      "name": "James Michael Justin",
+      "pos": "DEF",
+      "positions": [
+        "DEF",
+        "MID"
+      ],
       "role": "DEF",
       "age": 27,
       "height": 183,
@@ -404,14 +457,17 @@
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 7.05
-      },
-      "apiId": 19760
+        "rating": 6.97
+      }
     },
     {
+      "apiId": 545996,
       "number": 5,
       "name": "J. Lienou",
-      "pos": null,
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 17,
       "height": null,
@@ -435,13 +491,16 @@
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 545996
+      }
     },
     {
+      "apiId": 271350,
       "number": 5,
-      "name": "T. Muharemović",
-      "pos": null,
+      "name": "Tarik Muharemović",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 22,
       "height": 182,
@@ -464,14 +523,17 @@
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 7.07
-      },
-      "apiId": 271350
+        "rating": 7.1
+      }
     },
     {
+      "apiId": 19321,
       "number": 6,
-      "name": "J. Rodon",
-      "pos": null,
+      "name": "Joseph Peter Rodon",
+      "pos": "DEF",
+      "positions": [
+        "DEF"
+      ],
       "role": "DEF",
       "age": 28,
       "height": 193,
@@ -495,13 +557,17 @@
         "yellow": 0,
         "red": null,
         "rating": 6.95
-      },
-      "apiId": 19321
+      }
     },
     {
+      "apiId": 50739,
       "number": 11,
-      "name": "B. Aaronson",
-      "pos": null,
+      "name": "Brenden Russell Aaronson",
+      "pos": "MID",
+      "positions": [
+        "MID",
+        "ATT"
+      ],
       "role": "MID",
       "age": 25,
       "height": 177,
@@ -524,14 +590,17 @@
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.42
-      },
-      "apiId": 50739
+        "rating": 6.37
+      }
     },
     {
+      "apiId": 369674,
       "number": 23,
-      "name": "J. Bahoya",
-      "pos": null,
+      "name": "Jean-Mattéo Bahoya Négoce",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 20,
       "height": 180,
@@ -550,18 +619,21 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
+        "minutes": null,
         "apps": 0,
         "yellow": 0,
         "red": null,
         "rating": null
-      },
-      "apiId": 369674
+      }
     },
     {
+      "apiId": 557343,
       "number": 8,
       "name": "R. Chadwick-Chaplin",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 18,
       "height": null,
@@ -577,13 +649,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 557343
+      "stats": null
     },
     {
+      "apiId": 129142,
       "number": 44,
       "name": "I. Gruev",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 25,
       "height": null,
@@ -599,14 +674,19 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 129142
+      "stats": null
     },
     {
+      "apiId": 19329,
       "number": 7,
-      "name": "D. James",
-      "pos": null,
-      "role": "ATT",
+      "name": "Daniel Owen James",
+      "pos": "DEF",
+      "positions": [
+        "DEF",
+        "MID",
+        "ATT"
+      ],
+      "role": "DEF",
       "age": 28,
       "height": 171,
       "weight": 63,
@@ -628,14 +708,17 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 3.35
-      },
-      "apiId": 19329
+        "rating": 6.7
+      }
     },
     {
+      "apiId": 449237,
       "number": 3,
       "name": "F. Lane",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 18,
       "height": null,
@@ -651,13 +734,17 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 449237
+      "stats": null
     },
     {
+      "apiId": 18901,
       "number": 8,
-      "name": "S. Longstaff",
-      "pos": null,
+      "name": "Sean David Longstaff",
+      "pos": "MID",
+      "positions": [
+        "MID",
+        "ATT"
+      ],
       "role": "MID",
       "age": 28,
       "height": 180,
@@ -680,14 +767,17 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 3.35
-      },
-      "apiId": 18901
+        "rating": 6.7
+      }
     },
     {
+      "apiId": 579147,
       "number": 11,
       "name": "C. Mills",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 17,
       "height": null,
@@ -703,13 +793,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 579147
+      "stats": null
     },
     {
+      "apiId": 557507,
       "number": 10,
       "name": "O. Pickles",
-      "pos": null,
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 18,
       "height": null,
@@ -725,13 +818,16 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null,
-      "apiId": 557507
+      "stats": null
     },
     {
+      "apiId": 177665,
       "number": 18,
-      "name": "A. Stach",
-      "pos": null,
+      "name": "Anton Levi Stach",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 27,
       "height": 193,
@@ -754,14 +850,17 @@
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 7.26
-      },
-      "apiId": 177665
+        "rating": 7.2
+      }
     },
     {
+      "apiId": 32966,
       "number": 22,
-      "name": "A. Tanaka",
-      "pos": null,
+      "name": "Ao Tanaka",
+      "pos": "MID",
+      "positions": [
+        "MID"
+      ],
       "role": "MID",
       "age": 27,
       "height": 180,
@@ -784,15 +883,19 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.98
-      },
-      "apiId": 32966
+        "rating": 6.95
+      }
     },
     {
+      "apiId": 19221,
       "number": 10,
-      "name": "H. Wilson",
-      "pos": null,
-      "role": "ATT",
+      "name": "Harry Wilson",
+      "pos": "MID",
+      "positions": [
+        "MID",
+        "ATT"
+      ],
+      "role": "MID",
       "age": 28,
       "height": 173,
       "weight": 63,
@@ -814,14 +917,17 @@
         "apps": 3,
         "yellow": 1,
         "red": null,
-        "rating": 6.87
-      },
-      "apiId": 19221
+        "rating": 6.8
+      }
     },
     {
+      "apiId": 18766,
       "number": 9,
-      "name": "D. Calvert-Lewin",
-      "pos": null,
+      "name": "Dominic Nathaniel Calvert-Lewin",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 28,
       "height": 187,
@@ -844,14 +950,17 @@
         "apps": 3,
         "yellow": 2,
         "red": null,
-        "rating": 6.57
-      },
-      "apiId": 18766
+        "rating": 6.87
+      }
     },
     {
+      "apiId": 19461,
       "number": 14,
-      "name": "L. Nmecha",
-      "pos": null,
+      "name": "Lukas Okechukwu Nmecha",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 27,
       "height": 185,
@@ -874,14 +983,17 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.62
-      },
-      "apiId": 19461
+        "rating": 6.5
+      }
     },
     {
+      "apiId": 48389,
       "number": 19,
-      "name": "N. Okafor",
-      "pos": null,
+      "name": "Noah Arinzechukwu Okafor",
+      "pos": "ATT",
+      "positions": [
+        "ATT"
+      ],
       "role": "ATT",
       "age": 25,
       "height": 185,
@@ -904,9 +1016,8 @@
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.61
-      },
-      "apiId": 48389
+        "rating": 6.7
+      }
     }
   ]
 }

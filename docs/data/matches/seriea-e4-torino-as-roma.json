@@ -74,9 +74,9 @@
     "weather": {
       "tempC": 29,
       "condition": "cer clar",
-      "windKph": 6,
+      "windKph": 7,
       "precipitationMm": 0,
-      "forecastAt": "2026-09-13T12:55:40.889Z"
+      "forecastAt": "2026-09-14T10:50:39.388Z"
     }
   },
   "referee": {
@@ -222,17 +222,72 @@
       },
       "formation": "3-4-1-2",
       "predictedXI": [
-        { "apiId": 80296, "number": 20, "name": "Lucas Perri", "pos": "GK" },
-        { "apiId": 396637, "number": 15, "name": "Pietro Comuzzo", "pos": "RCB" },
-        { "apiId": 14329, "number": 44, "name": "Ardian Ismajli", "pos": "CB" },
-        { "apiId": 48372, "number": 5, "name": "Eray Cömert", "pos": "LCB" },
-        { "apiId": 303362, "number": 45, "name": "Rafik Belghali", "pos": "RWB" },
-        { "apiId": 30810, "number": 8, "name": "Rolando Mandragora", "pos": "LCM" },
-        { "apiId": 36895, "number": 28, "name": "Kian Fitz-Jim", "pos": "RCM" },
-        { "apiId": 471040, "number": 77, "name": "Alessio Cacciamani", "pos": "LWB" },
-        { "apiId": 842, "number": 10, "name": "Nikola Vlašić", "pos": "CAM" },
-        { "apiId": 19524, "number": 19, "name": "Ché Adams", "pos": "LST" },
-        { "apiId": 30414, "number": 18, "name": "Giovanni Simeone", "pos": "RST" }
+        {
+          "apiId": 80296,
+          "number": 20,
+          "name": "Lucas Perri",
+          "pos": "GK"
+        },
+        {
+          "apiId": 396637,
+          "number": 15,
+          "name": "Pietro Comuzzo",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 14329,
+          "number": 44,
+          "name": "Ardian Ismajli",
+          "pos": "CB"
+        },
+        {
+          "apiId": 48372,
+          "number": 5,
+          "name": "Eray Cömert",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 303362,
+          "number": 45,
+          "name": "Rafik Belghali",
+          "pos": "RWB"
+        },
+        {
+          "apiId": 30810,
+          "number": 8,
+          "name": "Rolando Mandragora",
+          "pos": "LCM"
+        },
+        {
+          "apiId": 36895,
+          "number": 28,
+          "name": "Kian Fitz-Jim",
+          "pos": "RCM"
+        },
+        {
+          "apiId": 471040,
+          "number": 77,
+          "name": "Alessio Cacciamani",
+          "pos": "LWB"
+        },
+        {
+          "apiId": 842,
+          "number": 10,
+          "name": "Nikola Vlašić",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 19524,
+          "number": 19,
+          "name": "Ché Adams",
+          "pos": "LST"
+        },
+        {
+          "apiId": 30414,
+          "number": 18,
+          "name": "Giovanni Simeone",
+          "pos": "RST"
+        }
       ],
       "confirmedXI": null,
       "squad": [
@@ -1319,7 +1374,12 @@
           ]
         }
       ],
-      "news": [],
+      "news": [
+        {
+          "date": "2026-09-13",
+          "text": "Presa italiană anticipează Torino-Roma cu giallorossii favoriți categorici: opt victorii consecutive în Serie A și 71 de șuturi încercate în primele 3 etape, față de doar 22 ale Torinei."
+        }
+      ],
       "form": {
         "last5": [
           "W",
@@ -1478,42 +1538,194 @@
         }
       ],
       "mercatoIn": [
-        { "name": "Rafik Belghali", "from": "Hellas Verona", "fee": null },
-        { "name": "Nathan Patterson", "from": "Everton", "fee": null },
-        { "name": "Daniel Bragança", "from": "Sporting CP", "fee": null },
-        { "name": "Rolando Mandragora", "from": "Fiorentina", "fee": null },
-        { "name": "Gaetano Oristanio", "from": "Venezia", "fee": "împrumut cu drept de cumpărare" },
-        { "name": "Pietro Comuzzo", "from": "Fiorentina", "fee": "împrumut cu drept de cumpărare" },
-        { "name": "Eray Cömert", "from": "Valencia", "fee": "liber de contract" },
-        { "name": "Kian Fitz-Jim", "from": "Ajax", "fee": null },
-        { "name": "Niccolò Fortini", "from": "Fiorentina", "fee": "liber de contract" },
-        { "name": "Diego Mascardi", "from": "Spezia", "fee": null },
-        { "name": "Lucas Perri", "from": "Leeds United", "fee": "împrumut, £850.000, cu opțiune de cumpărare £11,9M" }
+        {
+          "name": "Rafik Belghali",
+          "from": "Hellas Verona",
+          "fee": null
+        },
+        {
+          "name": "Nathan Patterson",
+          "from": "Everton",
+          "fee": null
+        },
+        {
+          "name": "Daniel Bragança",
+          "from": "Sporting CP",
+          "fee": null
+        },
+        {
+          "name": "Rolando Mandragora",
+          "from": "Fiorentina",
+          "fee": null
+        },
+        {
+          "name": "Gaetano Oristanio",
+          "from": "Venezia",
+          "fee": "împrumut cu drept de cumpărare"
+        },
+        {
+          "name": "Pietro Comuzzo",
+          "from": "Fiorentina",
+          "fee": "împrumut cu drept de cumpărare"
+        },
+        {
+          "name": "Eray Cömert",
+          "from": "Valencia",
+          "fee": "liber de contract"
+        },
+        {
+          "name": "Kian Fitz-Jim",
+          "from": "Ajax",
+          "fee": null
+        },
+        {
+          "name": "Niccolò Fortini",
+          "from": "Fiorentina",
+          "fee": "liber de contract"
+        },
+        {
+          "name": "Diego Mascardi",
+          "from": "Spezia",
+          "fee": null
+        },
+        {
+          "name": "Lucas Perri",
+          "from": "Leeds United",
+          "fee": "împrumut, £850.000, cu opțiune de cumpărare £11,9M"
+        }
       ],
       "mercatoOut": [
-        { "name": "Valentino Lazaro", "to": "liber de contract", "fee": null },
-        { "name": "Guillermo Maripán", "to": "liber de contract", "fee": null },
-        { "name": "Adrien Tameze", "to": "liber de contract", "fee": null },
-        { "name": "Michael Walukiewicz", "to": "Sassuolo", "fee": null },
-        { "name": "Ivan Ilić", "to": "Lecce", "fee": "împrumut cu drept de cumpărare" },
-        { "name": "Samuel Acquah", "to": "Modena", "fee": "împrumut" },
-        { "name": "Marcus Pedersen", "to": "Olympiacos", "fee": null },
-        { "name": "Antoine Njie", "to": "Fiorentina", "fee": "împrumut" },
-        { "name": "Bianay Balcot", "to": null, "fee": null },
-        { "name": "Nicola Gabellini", "to": null, "fee": null }
+        {
+          "name": "Valentino Lazaro",
+          "to": "liber de contract",
+          "fee": null
+        },
+        {
+          "name": "Guillermo Maripán",
+          "to": "liber de contract",
+          "fee": null
+        },
+        {
+          "name": "Adrien Tameze",
+          "to": "liber de contract",
+          "fee": null
+        },
+        {
+          "name": "Michael Walukiewicz",
+          "to": "Sassuolo",
+          "fee": null
+        },
+        {
+          "name": "Ivan Ilić",
+          "to": "Lecce",
+          "fee": "împrumut cu drept de cumpărare"
+        },
+        {
+          "name": "Samuel Acquah",
+          "to": "Modena",
+          "fee": "împrumut"
+        },
+        {
+          "name": "Marcus Pedersen",
+          "to": "Olympiacos",
+          "fee": null
+        },
+        {
+          "name": "Antoine Njie",
+          "to": "Fiorentina",
+          "fee": "împrumut"
+        },
+        {
+          "name": "Bianay Balcot",
+          "to": null,
+          "fee": null
+        },
+        {
+          "name": "Nicola Gabellini",
+          "to": null,
+          "fee": null
+        }
       ],
       "preseason": [
-        { "opp": "Pinzolo Valrendena", "score": "Torino 13-0 Pinzolo Valrendena", "date": "2026-07-18" },
-        { "opp": "Alcione Milano", "score": "Torino 1-0 Alcione Milano", "date": "2026-07-22" },
-        { "opp": "Cittadella", "score": "Torino 0-1 Cittadella", "date": "2026-07-25" },
-        { "opp": "Burnley", "score": "Burnley 0-1 Torino", "date": "2026-08-02" },
-        { "opp": "Vado", "score": "Torino 3-1 Vado", "date": "2026-08-05" },
-        { "opp": "Avellino", "score": "Avellino 1-1 Torino (4-2 la penalty-uri)", "date": "2026-08-08" }
-      ],
-      "news": [
         {
-          "date": "2026-09-13",
-          "text": "Presa italiană anticipează Torino-Roma cu giallorossii favoriți categorici: opt victorii consecutive în Serie A și 71 de șuturi încercate în primele 3 etape, față de doar 22 ale Torinei."
+          "opp": "Pinzolo Valrendena",
+          "score": "Torino 13-0 Pinzolo Valrendena",
+          "date": "2026-07-18"
+        },
+        {
+          "opp": "Alcione Milano",
+          "score": "Torino 1-0 Alcione Milano",
+          "date": "2026-07-22"
+        },
+        {
+          "opp": "Cittadella",
+          "score": "Torino 0-1 Cittadella",
+          "date": "2026-07-25"
+        },
+        {
+          "opp": "Burnley",
+          "score": "Burnley 0-1 Torino",
+          "date": "2026-08-02"
+        },
+        {
+          "opp": "Vado",
+          "score": "Torino 3-1 Vado",
+          "date": "2026-08-05"
+        },
+        {
+          "opp": "Avellino",
+          "score": "Avellino 1-1 Torino (4-2 la penalty-uri)",
+          "date": "2026-08-08"
+        }
+      ],
+      "newsCandidates": [
+        {
+          "title": "Serie A: Torino vs. Roma – probable line-ups, where to watch on TV",
+          "url": "https://football-italia.net/torino-v-roma-probable-line-ups-watch-tv/",
+          "source": "Football Italia",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Torino vs Roma: Italian Serie A stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBXWFlUWHdJQVN4UTZxZTZkTzhZUG1SNUpWTGg0V2kyYWtpTURoNnY4dGhjU0VGdS1DazY2aUFKemZ4QzRNbHQzUTlHdXRNaDRvUkMyZUNJd0Z6b2VTdU5IWUZqOA?oc=5",
+          "source": "BBC",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Torino vs AS Roma - Where to Watch, Stream Info, TV Channel, and Live Updates (September 14, 2026)",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNWHMtOGN3LXNtb2NEbzE5OUU0YmdjaW4zT0FfQ0FyMjVqeTdCRzh4N00tNG16N003WW0xSmdERm1sS2FaYjJQUUpsbVEzUUhldGczTkhMYjFhMk9DVlF4d2VIRnVJSWh1RFVGRlY0YXN2cUdOZjJVUnpfbEV5Y09DNHlxZUFDMDIybUZ3bW96V0JXTks5YXpsWXc4MkdDaDVEY0NQYURXVFZkbTlFSU1nZTJSU3JVMFlfdlBFZ2pqa1M?oc=5",
+          "source": "Fubo",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Wesley suffers injury in lead-up to Torino",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE8zNER6MUxUM3gxNGVVOGVoQUtlQjJvb01GRUpSV2ZrbU5OZFRVZHpWa3FpbkRrVDJibGpVS2FLbWtUS3VmTGViTDJxNWR6VXJWYllFeTBzVnlnMmpSLWlrMWNRNFJjX0JNZS01T3J4eUgyZk0?oc=5",
+          "source": "RomaPress",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "AS Roma XI vs Torino – Predicted lineup and team news",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQRWZldnB0WnBUU0tCLTVncnVGTDhtV1FqM1RvWV96QXNpTGRWVldWVWJsbUl1a1Z6RU5WYjkxNFY1SVFQZHF0QTdIMG9qR2lBM0xiaHo2M3NTOHdWdHRYazJCT0d0blFvWW9vcFVNS3ZobU9RSUlSVEpHanZXc18taw?oc=5",
+          "source": "Yahoo Sports Canada",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Dybala crowned Serie A’s top assist-man in first 3 matchdays since 2004/05",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNYUxkeWJGZmxfYnRoTlVYSHB1bGEzS0RhQTdEUDAzVHRwR2V0R2YzN2lQcDFkUzJOSktrY0dXVWkxU0ZESlpkVUFiUDZOQXRzMDB1UW1YYXEtUVl6SXdNcVlkejN4dnB3M0doc0JsUE1jNkVyV0s2blJZSlE0WkNxM0k2Y2ZZZTd3ZEtnV0FZM3B6R0RfbmptOWMtejg?oc=5",
+          "source": "RomaPress",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Tourism in Umbria 2026: growth, recognitions and authentic experiences",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQV09nQzVETWFlSkswam5kbkhpVHUzblFqTHE1aDNyWmlSdm15a2l1bW1FRk1FTXI3NTA4c1dnSEdXSnBvUG9PLWtFa2QzUklmcHRpNFlsQzBqUEpLQXgyQWJaTFdSbTcyeTBwQzRoUkVpTTZpbzM5ci1YNGctLXJud3BrV1FyRU05aHR3WHlkMmtNM0tKa1VCbjRUTUVIX1hCSUN2VFUxWWktZmViMXM0?oc=5",
+          "source": "inItaly",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Torino vs Roma: Lineups, Prediction, Odds & Bet Builder Tip",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOaXBRLXFUYm1idllYeFo2dkNaVk9MaktyS0RIaFNlTXlZVDVsdHNFdTVWNWZRRC03dmlQaUtrTWFLLWNRY1B2alRWVWZ2bnJPV1JLUVdfLXctbWtBdW82VnRhQmgxY3Y2alB3SC1GVnpqZHFHZkIzeTJUcFpTbzBzc1FHVlU2eXlhcDFESHdfZlNzS1laZFRqaFItQU10dF9vZlZnZ0k3aWVtMlU2?oc=5",
+          "source": "WhoScored.com",
+          "published": "2026-09-14"
         }
       ]
     },
@@ -1613,17 +1825,72 @@
       },
       "formation": "3-4-2-1",
       "predictedXI": [
-        { "apiId": 556, "number": 99, "name": "Mile Svilar", "pos": "GK" },
-        { "apiId": 30425, "number": 23, "name": "Gianluca Mancini", "pos": "RCB" },
-        { "apiId": 1807, "number": 5, "name": "Evan Ndicka", "pos": "CB" },
-        { "apiId": 342019, "number": 87, "name": "Daniele Ghilardi", "pos": "LCB" },
-        { "apiId": 6503, "number": 20, "name": "Nahuel Molina", "pos": "RWB" },
-        { "apiId": 778, "number": 4, "name": "Bryan Cristante", "pos": "RCM" },
-        { "apiId": 356888, "number": 61, "name": "Niccolò Pisilli", "pos": "LCM" },
-        { "apiId": 349001, "number": 43, "name": "Wesley", "pos": "LWB" },
-        { "apiId": 323936, "number": 18, "name": "Matías Soulé", "pos": "RW" },
-        { "apiId": 404097, "number": 86, "name": "Rodrigo Mora", "pos": "LW" },
-        { "apiId": 249, "number": 14, "name": "Donyell Malen", "pos": "ST" }
+        {
+          "apiId": 556,
+          "number": 99,
+          "name": "Mile Svilar",
+          "pos": "GK"
+        },
+        {
+          "apiId": 30425,
+          "number": 23,
+          "name": "Gianluca Mancini",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 1807,
+          "number": 5,
+          "name": "Evan Ndicka",
+          "pos": "CB"
+        },
+        {
+          "apiId": 342019,
+          "number": 87,
+          "name": "Daniele Ghilardi",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 6503,
+          "number": 20,
+          "name": "Nahuel Molina",
+          "pos": "RWB"
+        },
+        {
+          "apiId": 778,
+          "number": 4,
+          "name": "Bryan Cristante",
+          "pos": "RCM"
+        },
+        {
+          "apiId": 356888,
+          "number": 61,
+          "name": "Niccolò Pisilli",
+          "pos": "LCM"
+        },
+        {
+          "apiId": 349001,
+          "number": 43,
+          "name": "Wesley",
+          "pos": "LWB"
+        },
+        {
+          "apiId": 323936,
+          "number": 18,
+          "name": "Matías Soulé",
+          "pos": "RW"
+        },
+        {
+          "apiId": 404097,
+          "number": 86,
+          "name": "Rodrigo Mora",
+          "pos": "LW"
+        },
+        {
+          "apiId": 249,
+          "number": 14,
+          "name": "Donyell Malen",
+          "pos": "ST"
+        }
       ],
       "confirmedXI": null,
       "squad": [
@@ -1811,7 +2078,9 @@
           "number": 3,
           "name": "Konstantinos Koulierakis",
           "pos": null,
-          "positions": ["CB"],
+          "positions": [
+            "CB"
+          ],
           "role": "DEF",
           "age": 22,
           "height": 188,
@@ -2601,31 +2870,115 @@
         }
       ],
       "mercatoIn": [
-        { "name": "Santiago Castro", "from": "Bologna", "fee": "35 mil. € + 2 mil. € bonusuri" },
-        { "name": "Konstantinos Koulierakis", "from": "VfL Wolfsburg", "fee": "16,5 mil. € + 1,5 mil. € bonusuri" },
-        { "name": "Nahuel Molina", "from": "Atletico Madrid", "fee": "13 mil. € + 4 mil. € bonusuri" },
-        { "name": "Rodrigo Mora", "from": "FC Porto", "fee": "25 mil. € garantați + 25 mil. € opțiune" },
-        { "name": "Marten de Roon", "from": "Atalanta", "fee": "liber de contract + 650 mii € bonusuri" },
-        { "name": "Leonardo Balerdi", "from": "Marseille", "fee": null },
-        { "name": "Daniele Ghilardi", "from": "Hellas Verona", "fee": "8 mil. € + 1 mil. € bonusuri" }
+        {
+          "name": "Santiago Castro",
+          "from": "Bologna",
+          "fee": "35 mil. € + 2 mil. € bonusuri"
+        },
+        {
+          "name": "Konstantinos Koulierakis",
+          "from": "VfL Wolfsburg",
+          "fee": "16,5 mil. € + 1,5 mil. € bonusuri"
+        },
+        {
+          "name": "Nahuel Molina",
+          "from": "Atletico Madrid",
+          "fee": "13 mil. € + 4 mil. € bonusuri"
+        },
+        {
+          "name": "Rodrigo Mora",
+          "from": "FC Porto",
+          "fee": "25 mil. € garantați + 25 mil. € opțiune"
+        },
+        {
+          "name": "Marten de Roon",
+          "from": "Atalanta",
+          "fee": "liber de contract + 650 mii € bonusuri"
+        },
+        {
+          "name": "Leonardo Balerdi",
+          "from": "Marseille",
+          "fee": null
+        },
+        {
+          "name": "Daniele Ghilardi",
+          "from": "Hellas Verona",
+          "fee": "8 mil. € + 1 mil. € bonusuri"
+        }
       ],
       "mercatoOut": [
-        { "name": "Zeki Çelik", "to": "Juventus", "fee": "liber de contract" },
-        { "name": "Stephan El Shaarawy", "to": "Genoa", "fee": "liber de contract" },
-        { "name": "Eldor Shomurodov", "to": "İstanbul Başakşehir", "fee": "2,8 mil. €" },
-        { "name": "Tommaso Baldanzi", "to": "Genoa", "fee": null },
-        { "name": "Edoardo Romano", "to": "Cagliari", "fee": null },
-        { "name": "Artem Dovbyk", "to": "Bologna", "fee": null },
-        { "name": "José Ángel Esmorís Tasende (Angeliño)", "to": "Deportivo La Coruña", "fee": null },
-        { "name": "Marash Kumbulla", "to": "Rayo Vallecano", "fee": null },
-        { "name": "Neil El Aynaoui", "to": "RB Leipzig", "fee": null }
+        {
+          "name": "Zeki Çelik",
+          "to": "Juventus",
+          "fee": "liber de contract"
+        },
+        {
+          "name": "Stephan El Shaarawy",
+          "to": "Genoa",
+          "fee": "liber de contract"
+        },
+        {
+          "name": "Eldor Shomurodov",
+          "to": "İstanbul Başakşehir",
+          "fee": "2,8 mil. €"
+        },
+        {
+          "name": "Tommaso Baldanzi",
+          "to": "Genoa",
+          "fee": null
+        },
+        {
+          "name": "Edoardo Romano",
+          "to": "Cagliari",
+          "fee": null
+        },
+        {
+          "name": "Artem Dovbyk",
+          "to": "Bologna",
+          "fee": null
+        },
+        {
+          "name": "José Ángel Esmorís Tasende (Angeliño)",
+          "to": "Deportivo La Coruña",
+          "fee": null
+        },
+        {
+          "name": "Marash Kumbulla",
+          "to": "Rayo Vallecano",
+          "fee": null
+        },
+        {
+          "name": "Neil El Aynaoui",
+          "to": "RB Leipzig",
+          "fee": null
+        }
       ],
       "preseason": [
-        { "opp": "Cannes", "score": "Cannes 3-3 AS Roma", "date": "2026-07-26" },
-        { "opp": "Cardiff City", "score": "Cardiff 4-1 AS Roma", "date": "2026-08-01" },
-        { "opp": "Newport County", "score": "Newport County 1-4 AS Roma", "date": "2026-08-04" },
-        { "opp": "Brighton", "score": "Brighton 3-0 AS Roma", "date": "2026-08-08" },
-        { "opp": "Borussia Dortmund", "score": "Borussia Dortmund 2-2 AS Roma", "date": "2026-08-15" }
+        {
+          "opp": "Cannes",
+          "score": "Cannes 3-3 AS Roma",
+          "date": "2026-07-26"
+        },
+        {
+          "opp": "Cardiff City",
+          "score": "Cardiff 4-1 AS Roma",
+          "date": "2026-08-01"
+        },
+        {
+          "opp": "Newport County",
+          "score": "Newport County 1-4 AS Roma",
+          "date": "2026-08-04"
+        },
+        {
+          "opp": "Brighton",
+          "score": "Brighton 3-0 AS Roma",
+          "date": "2026-08-08"
+        },
+        {
+          "opp": "Borussia Dortmund",
+          "score": "Borussia Dortmund 2-2 AS Roma",
+          "date": "2026-08-15"
+        }
       ],
       "news": [
         {
@@ -2679,6 +3032,56 @@
             "M. Bah, accidentat la genunchi, indisponibil.",
             "Paulo Dybala, menajat posibil din cauza calendarului aglomerat, cu Rodrigo Mora sau Santiago Castro ca alternative."
           ]
+        }
+      ],
+      "newsCandidates": [
+        {
+          "title": "Torino vs AS Roma - Where to Watch, Stream Info, TV Channel, and Live Updates (September 14, 2026)",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNWHMtOGN3LXNtb2NEbzE5OUU0YmdjaW4zT0FfQ0FyMjVqeTdCRzh4N00tNG16N003WW0xSmdERm1sS2FaYjJQUUpsbVEzUUhldGczTkhMYjFhMk9DVlF4d2VIRnVJSWh1RFVGRlY0YXN2cUdOZjJVUnpfbEV5Y09DNHlxZUFDMDIybUZ3bW96V0JXTks5YXpsWXc4MkdDaDVEY0NQYURXVFZkbTlFSU1nZTJSU3JVMFlfdlBFZ2pqa1M?oc=5",
+          "source": "Fubo",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Fiorentina 2-4 AS Roma (5 Nov, 2017) Final Score",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBjVWkwOTFuQUdFNEpGWnJncGJYTzA4WW8zTE01cF9WNkY3UHZUYVBJaHJpTjVOWDBDVHFEdldSUXZydlhfT0h3RUFxbDNXWFlkUUxocXdmSWlJNW9TOEFQQXJNS0hhNDI0RUtQUFZaNjd5S1pfbF9lYw?oc=5",
+          "source": "ESPN",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "AS Roma XI vs Torino – Predicted lineup and team news",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQRWZldnB0WnBUU0tCLTVncnVGTDhtV1FqM1RvWV96QXNpTGRWVldWVWJsbUl1a1Z6RU5WYjkxNFY1SVFQZHF0QTdIMG9qR2lBM0xiaHo2M3NTOHdWdHRYazJCT0d0blFvWW9vcFVNS3ZobU9RSUlSVEpHanZXc18taw?oc=5",
+          "source": "Yahoo Sports Canada",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Serie A: Torino vs. Roma – probable line-ups, where to watch on TV",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5lSHBkNWdYbzgxNFVRLVJTWHBydHp4eEE2VVNlR0JUQUF5TnFsaFZXSFRKVTV3SlFYeW8yclo5N3dpQWN1dVZ6dzB0NDdRMFpKcWhEcU1sdE5QRUpGT1hjWmJMTExhQ0xQdGN3NDh5N2QzZ3NWMnY4dNIBfkFVX3lxTE1PUUFlUnA4RnVVNnpsb1EwZjBiNWxwbmJyZnZJYkRGbW16X1NRTXUyQVZjMDh1LXRNb2E4NmltbEVScl8xNlBmNDRNc2FZcHlsME9fbUZ5eHJ6bHdNMk1ybFNwXzg0MWU1aVNLOF8xQnNiWF9nTS1YQ1BsOHFqQQ?oc=5",
+          "source": "Football Italia",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Roma vs Inter Milan Serie A preview: Everything you need to know",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPN3hOVEV6aHA1TnZlUjZMVzByelk0QjNZcWVVOE93UkZiMXMwX1ZlMm5sakVmS1FOeEp0T1ozVGpVN1llUENBNGtlQTdPME44TWhqSkxPNnFiclF4bktyTGhwMExUdjJUbk9PMUZZZ2tNdy1qY3BnSzBHNGFrX1FkNGpycGVBalhu?oc=5",
+          "source": "Goal.com",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Torino vs Roma: Lineups, Prediction, Odds & Bet Builder Tip",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOaXBRLXFUYm1idllYeFo2dkNaVk9MaktyS0RIaFNlTXlZVDVsdHNFdTVWNWZRRC03dmlQaUtrTWFLLWNRY1B2alRWVWZ2bnJPV1JLUVdfLXctbWtBdW82VnRhQmgxY3Y2alB3SC1GVnpqZHFHZkIzeTJUcFpTbzBzc1FHVlU2eXlhcDFESHdfZlNzS1laZFRqaFItQU10dF9vZlZnZ0k3aWVtMlU2?oc=5",
+          "source": "WhoScored.com",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Como enjoy dream debut, big wins for Man Utd, Bayern",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNTjItRk9sTDNHcHJsMXgxaWFEa25jZGd2U2Zoc2stdHRUTFdPYlBCMmU1QTE1VFoybksyLVBBang4VFpLTjZIYk5VX2o4UUQ5QlhxUks1M19jSnlNOXdTZ1lGZE5DTnFWSjZKMWJrc2NQa3ZHeXdHb1FDNDV4cUhienNOWkRrSmViWW1QRXc4RnU2cjRSREE5Nzh3MFlGZXR6MHYxcnlBUQ?oc=5",
+          "source": "The Daily Star",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Gasp's Philosophy: One Roma, No Hierarchies",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPRGFoaE54R0ZsQU1aZXZXM0xndGJ0OXRucXlsMTQ2R2Ezd1FKaUlwMG1VZkxpR0VRRmVJVXJ2M2hHMkZWVGFaNzBDRkhxa3VCcUUtbEVGOXdNOW1pUXZRd21kd203X0luQzM1Rm1CdnZrMTNiWkRlSVpTT21WSUxySGpKZURYVEk2Q3BTQml2dzVSM0HSAZMBQVVfeXFMT0RhaGhOeEdGbEFNWmV2VzNMZ3RidDl0bnF5bDE0NkdhM3dRSmlJcDBtVWZMaUdFUUZlSVVydjNoRzJGVlRhWjcwQ0ZIcWt1QnFFLWxFRjl3TTltaVF2UXdtZHdtN19JbkMzNUZtQnZ2azEzYlpEZUlaU09tVklMckhqSmVEWFRJNkNwU0Jpdnc1UjNB?oc=5",
+          "source": "Il Messaggero",
+          "published": "2026-09-14"
         }
       ]
     }
