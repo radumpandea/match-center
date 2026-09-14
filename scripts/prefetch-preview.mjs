@@ -1227,15 +1227,29 @@ async function main() {
     for (const side of ['home', 'away']) {
       const id = f[side + 'Id'];
       if (id == null) continue;
-      if (needCareer) {
+      // Squad bio (nat/height/weight/birthCountry) and season stats
+      // (apps/goals/minutes/...) were only ever copied onto a published
+      // pack's squad[] once, at initial build -- never refreshed after,
+      // the same "fill once, freeze forever" bug already fixed for
+      // standings above. Stats go stale every matchday; bio fields are
+      // effectively immutable, so those are only filled when still null.
+      {
         const sq = await getSquad(id, f[side === 'home' ? 'home' : 'away'], leagueId, season);
         const ids = sq && sq.squad || [];
         for (const p of doc.teams[side].squad || []) {
-          if (has(p.career)) continue;
           const match = ids.find((x) => norm(x.name) === norm(p.name) || (p.number != null && x.number === p.number));
-          if (!match || match.apiId == null) continue;
-          const c = await getCareer(match.apiId, cache);
-          if (c) { p.career = c; touched = true; }
+          if (!match) continue;
+          if (!has(p.career) && match.apiId != null) {
+            const c = await getCareer(match.apiId, cache);
+            if (c) { p.career = c; touched = true; }
+          }
+          if (p.nat == null && match.nat != null) { p.nat = match.nat; touched = true; }
+          if (p.height == null && match.height != null) { p.height = match.height; touched = true; }
+          if (p.weight == null && match.weight != null) { p.weight = match.weight; touched = true; }
+          if (p.birthCountry == null && match.birthCountry != null) { p.birthCountry = match.birthCountry; touched = true; }
+          if (match.stats && JSON.stringify(match.stats) !== JSON.stringify(p.stats)) {
+            p.stats = match.stats; touched = true;
+          }
         }
       }
       const fm = doc.teams[side].form;
