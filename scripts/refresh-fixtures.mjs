@@ -64,17 +64,23 @@ function slugify(s) {
 function roundLabel(round) {
   if (round == null || round === '') return 'n/d';
   const raw = String(round).trim();
-  const tail = raw.match(/(\d+)\s*$/);
-  if (tail) return 'Etapa ' + tail[1];
+  // Check named cup rounds BEFORE the generic trailing-number fallback --
+  // "Round of 32"/"Round of 16" end in a digit too, so the fallback used to
+  // fire first and mislabel a Coppa Italia round of 32 as "Etapa 32" (looks
+  // like league matchday 32, not a cup round). Named stages take priority;
+  // only a genuine "Regular Season - N" style round falls through to that.
   const k = raw.toLowerCase().replace(/[-_/]+/g, ' ').replace(/\s+/g, ' ').trim();
   const exact = {
     final: 'Finala', 'semi finals': 'Semifinale', 'semi final': 'Semifinale',
     'quarter finals': 'Sferturi de finala', 'quarter final': 'Sferturi de finala',
     'round of 16': 'Optimi de finala', 'round of 32': 'Saisprezecimi',
+    'round of 36': 'Turul 3', 'round of 64': 'Turul 2', 'round of 128': 'Turul 1',
     'group stage': 'Faza grupelor', 'play offs': 'Baraj', 'play off': 'Baraj',
     'relegation round': 'Play-out', 'championship round': 'Play-off',
   };
   if (exact[k]) return exact[k];
+  const tail = raw.match(/(\d+)\s*$/);
+  if (tail) return 'Etapa ' + tail[1];
   return raw;
 }
 
