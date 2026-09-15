@@ -246,6 +246,35 @@ function positionsFrom(position, row) {
   return [...new Set(raw.map(positionCode).filter(Boolean))];
 }
 
+// API-Football's own `name` field is inconsistent: for well-known players
+// it's already abbreviated ("B. Samba"), for fringe/academy players it's
+// already a normal full name ("António Silva", "Ayoube Akabou") — that
+// second case needs no fixing. Only reconstruct from firstname+lastname
+// (present on a detailed /players bio object) when the given name actually
+// looks like the abbreviated "X. Surname" form, so the UI's own shortName()
+// has something to abbreviate for pitch labels. Reconstructing
+// unconditionally risks an incomplete legal name for multi-part surnames
+// (firstname/lastname splits are themselves inconsistent on API-Football).
+// Returns the expanded name, or null if no (safe) expansion applies — the
+// caller keeps whatever name it already had in that case. Shared by
+// pushPlayer() (first pass, using the team-scoped bulk lookup) and the
+// per-player backfill loop below (which often succeeds with a bio object
+// even when the team-scoped lookup had none at all — that gap used to leave
+// the name permanently abbreviated even after nat/height/photo got filled).
+function expandAbbreviatedName(baseName, pl) {
+  if (!baseName || !pl) return null;
+  if (!/^\S+\.\s/.test(baseName)) return null;
+  if (!has(pl.firstname) || !has(pl.lastname)) return null;
+  const reconstructed = `${pl.firstname} ${pl.lastname}`.trim();
+  // Sanity check: API-Football's firstname/lastname split can silently drop
+  // part of a compound surname (seen for "J. Maja" -> reconstructed name
+  // missing "Maja" entirely). Reject the reconstruction if it doesn't even
+  // contain the surname everyone already knows the player by; keep the
+  // abbreviated form instead of publishing a subtly wrong name.
+  const surname = baseName.replace(/^\S+\.\s*/, '');
+  return norm(reconstructed).includes(norm(surname)) ? reconstructed : null;
+}
+
 async function getSquad(teamId, teamName, leagueId, season) {
   const cachePath = `${TEAMS_DIR}/${teamId}.json`;
   const cached = readJSON(cachePath);
@@ -280,27 +309,8 @@ async function getSquad(teamId, teamName, leagueId, season) {
     const st = statsFrom(statRowFor(row && row.statistics, leagueId));
     const positions = positionsFrom(position || (st && st.position), row);
     const injured = !!(pl && pl.injured);
-    // API-Football's own `name` field is inconsistent: for well-known players
-    // it's already abbreviated ("B. Samba"), for fringe/academy players it's
-    // already a normal full name ("António Silva", "Ayoube Akabou") — that
-    // second case needs no fixing. Only reconstruct from firstname+lastname
-    // (present on the detailed /players object) when the given name actually
-    // looks like the abbreviated "X. Surname" form, so the UI's own
-    // shortName() has something to abbreviate for pitch labels. Reconstructing
-    // unconditionally risks an incomplete legal name for multi-part surnames
-    // (firstname/lastname splits are themselves inconsistent on API-Football).
     const baseName = name || (pl && pl.name) || null;
-    const looksAbbreviated = baseName != null && /^\S+\.\s/.test(baseName);
-    const reconstructed = looksAbbreviated && pl && has(pl.firstname) && has(pl.lastname)
-      ? `${pl.firstname} ${pl.lastname}`.trim() : null;
-    // Sanity check: API-Football's firstname/lastname split can silently drop
-    // part of a compound surname (seen for "J. Maja" -> reconstructed name
-    // missing "Maja" entirely). Reject the reconstruction if it doesn't even
-    // contain the surname everyone already knows the player by; keep the
-    // abbreviated form instead of publishing a subtly wrong name.
-    const surname = looksAbbreviated ? baseName.replace(/^\S+\.\s*/, '') : null;
-    const fullName = reconstructed && surname && norm(reconstructed).includes(norm(surname))
-      ? reconstructed : null;
+    const fullName = expandAbbreviatedName(baseName, pl);
     squad.push({
       apiId: id,   // API-Football player id — stable identity for the mc_entities table (docs/supabase.sql)
       number: num(number),
@@ -345,7 +355,14 @@ async function getSquad(teamId, teamName, leagueId, season) {
   // it isn't limited to this team-season pairing).
   for (const p of squad) {
     if (p.apiId == null) continue;
-    if (p.nat != null && p.stats != null && p.photo != null) continue;
+    // Still attempt the id-scoped lookup when only the name is left
+    // abbreviated, even if nat/stats/photo are already filled -- the
+    // team-scoped bulk endpoint used for the initial pass sometimes returns
+    // a sparser bio (no firstname/lastname) than this same id-scoped lookup
+    // for the exact same player, which otherwise left the name permanently
+    // stuck as "G. Ursu" even once everything else was complete.
+    const stillAbbreviated = /^\S+\.\s/.test(p.name || '');
+    if (p.nat != null && p.stats != null && p.photo != null && !stillAbbreviated) continue;
     const j = await af('players', { id: p.apiId, season });
     const row = j && j.response && j.response[0];
     const pl = row && row.player;
@@ -356,6 +373,8 @@ async function getSquad(teamId, teamName, leagueId, season) {
       if (p.birthCountry == null) p.birthCountry = (pl.birth && pl.birth.country) || null;
       if (p.photo == null) p.photo = pl.photo || null;
       if (p.stats == null) p.stats = statsFrom(statRowFor(row.statistics, leagueId));
+      const expanded = expandAbbreviatedName(p.name, pl);
+      if (expanded) p.name = expanded;
     }
     // bio-only fallback to the previous season (immutable fields only — never
     // mislabel a prior season's apps/goals as the current season's stats).
@@ -369,6 +388,8 @@ async function getSquad(teamId, teamName, leagueId, season) {
         if (p.weight == null) p.weight = num(String(pl2.weight || '').replace(/[^0-9]/g, ''));
         if (p.birthCountry == null) p.birthCountry = (pl2.birth && pl2.birth.country) || null;
         if (p.photo == null) p.photo = pl2.photo || null;
+        const expanded2 = expandAbbreviatedName(p.name, pl2);
+        if (expanded2) p.name = expanded2;
       }
     }
   }
@@ -1299,6 +1320,9 @@ async function main() {
           if (p.weight == null && match.weight != null) { p.weight = match.weight; touched = true; }
           if (p.birthCountry == null && match.birthCountry != null) { p.birthCountry = match.birthCountry; touched = true; }
           if (p.photo == null && match.photo != null) { p.photo = match.photo; touched = true; }
+          if (/^\S+\.\s/.test(p.name || '') && match.name && !/^\S+\.\s/.test(match.name)) {
+            p.name = match.name; touched = true;
+          }
           if (match.stats && JSON.stringify(match.stats) !== JSON.stringify(p.stats)) {
             p.stats = match.stats; touched = true;
           }
