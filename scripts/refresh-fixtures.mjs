@@ -140,6 +140,12 @@ function toEntry(c, f, byMatch) {
     leagueId: c.id,
     homeId: f.teams.home.id ?? (existing && existing.homeId) ?? null,
     awayId: f.teams.away.id ?? (existing && existing.awayId) ?? null,
+    // Already present on this same fixture response (f.teams.*.logo,
+    // f.league.logo) -- zero extra API calls. index.html reads these
+    // straight from here for the fixture list crests.
+    homeLogo: f.teams.home.logo || (existing && existing.homeLogo) || null,
+    awayLogo: f.teams.away.logo || (existing && existing.awayLogo) || null,
+    compLogo: (f.league && f.league.logo) || (existing && existing.compLogo) || null,
     ready: existing ? !!existing.ready : false,
   };
   // researchDepth is set by the build-match-data workflows once a pack is

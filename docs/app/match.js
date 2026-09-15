@@ -55,6 +55,17 @@
     return n;
   }
   function has(v) { return v != null && v !== '' && v !== 'n/d'; }
+  // Shared avatar for player/coach modal heads: a real headshot photo from
+  // API-Football (media.api-sports.io) when we have one, the existing
+  // initials-on-a-colored-circle fallback otherwise (referees have no photo
+  // field in the API at all, so that one stays initials-only).
+  function avatarEl(photo, label, bg) {
+    var attrs = { class: 'avatar' + (photo ? ' has-photo' : '') };
+    if (bg) attrs.style = 'background:' + bg;
+    if (photo) return el('div', attrs, [el('img', { src: photo, alt: '' })]);
+    attrs.text = label;
+    return el('div', attrs);
+  }
   // Season stat blurb for a squad/lineup entry: appearances + goals/assists
   // for outfield players, appearances + goals conceded for goalkeepers (API-
   // Football doesn't expose per-player clean sheets, only conceded/saves).
@@ -913,7 +924,10 @@
     });
 
     // header
-    var metaWrap = el('div', { class: 'mc-meta' }, [document.createTextNode(metaLine(data))]);
+    var metaWrap = el('div', { class: 'mc-meta' }, [
+      data.competition.logo ? el('img', { class: 'comp-logo', src: data.competition.logo, alt: '' }) : null,
+      document.createTextNode(metaLine(data))
+    ]);
     if (!has(data.venue && data.venue.name)) {
       metaWrap.appendChild(el('button', { class: 'meta-add', text: '+ adaugă stadion', onclick: function () { openEditVenue(data); } }));
     }
@@ -921,11 +935,13 @@
       el('a', { class: 'mc-back', href: 'index.html', text: '← toate meciurile' }),
       el('div', { class: 'mc-teams' }, [
         el('span', {}, [
+          data.teams.home.logo ? el('img', { class: 'team-logo', src: data.teams.home.logo, alt: '' }) : null,
           document.createTextNode(data.teams.home.name),
           has(data.teams.home.nickname) ? el('small', { class: 'nickname', text: ' „' + data.teams.home.nickname + '"' }) : null
         ]),
         el('span', { class: 'vs', text: 'vs' }),
         el('span', {}, [
+          data.teams.away.logo ? el('img', { class: 'team-logo', src: data.teams.away.logo, alt: '' }) : null,
           document.createTextNode(data.teams.away.name),
           has(data.teams.away.nickname) ? el('small', { class: 'nickname', text: ' „' + data.teams.away.nickname + '"' }) : null
         ])
@@ -1609,6 +1625,7 @@
         groups[g].forEach(function (p) {
           var sl = statLine(p);
           var li = el('li', {}, [
+            p.photo ? el('img', { class: 'li-photo', src: p.photo, alt: '' }) : null,
             el('a', { href: '#', onclick: function (e) { e.preventDefault(); openPlayer(d, side, p); },
               text: (p.number != null ? p.number + '. ' : '') + p.name +
                 (has(p.age) || has(p.nat)
@@ -1827,7 +1844,7 @@
     var id = 'player:' + side + ':' + (p.number != null ? p.number : p.name);
     modal(function (close) {
       return el('div', { class: 'modal-head' }, [
-        el('div', { class: 'avatar', style: 'background:' + (side === 'home' ? 'var(--home)' : 'var(--away)'), text: initials(p.name) }),
+        avatarEl(p.photo, initials(p.name), side === 'home' ? 'var(--home)' : 'var(--away)'),
         el('div', {}, [
           el('h3', { text: (p.number != null ? '#' + p.number + '  ' : '') + p.name + (isCaptain(side, p) ? '  (C)' : '') }),
           el('div', { class: 'sub', text: [pos(p), has(p.age) ? p.age + ' ani' : null, has(p.height) ? p.height + ' cm' : null, has(p.weight) ? p.weight + ' kg' : null, footLabel(p.foot)].filter(Boolean).join('  ·  ') }),
@@ -2179,7 +2196,7 @@
     var c = d.teams[side].coach, id = 'coach:' + side;
     modal(function (close) {
       return el('div', { class: 'modal-head' }, [
-        el('div', { class: 'avatar', style: 'background:' + (side === 'home' ? 'var(--home)' : 'var(--away)'), text: initials(c.name) }),
+        avatarEl(c.photo, initials(c.name), side === 'home' ? 'var(--home)' : 'var(--away)'),
         el('div', {}, [
           el('h3', { text: c.name }),
           el('div', { class: 'sub', text: ['Antrenor · ' + d.teams[side].name, has(c.country) ? c.country : null, has(c.age) ? c.age + ' ani' : null, has(c.tenureFrom) ? 'din ' + c.tenureFrom : null].filter(Boolean).join('  ·  ') })

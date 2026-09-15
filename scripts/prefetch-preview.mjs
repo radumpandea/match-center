@@ -305,6 +305,7 @@ async function getSquad(teamId, teamName, leagueId, season) {
       apiId: id,   // API-Football player id — stable identity for the mc_entities table (docs/supabase.sql)
       number: num(number),
       name: fullName || baseName,
+      photo: (pl && pl.photo) || null,
       pos: positions[0] || null,
       positions,
       role: roleFrom(position || (st && st.position)),
@@ -344,7 +345,7 @@ async function getSquad(teamId, teamName, leagueId, season) {
   // it isn't limited to this team-season pairing).
   for (const p of squad) {
     if (p.apiId == null) continue;
-    if (p.nat != null && p.stats != null) continue;
+    if (p.nat != null && p.stats != null && p.photo != null) continue;
     const j = await af('players', { id: p.apiId, season });
     const row = j && j.response && j.response[0];
     const pl = row && row.player;
@@ -353,6 +354,7 @@ async function getSquad(teamId, teamName, leagueId, season) {
       if (p.height == null) p.height = num(String(pl.height || '').replace(/[^0-9]/g, ''));
       if (p.weight == null) p.weight = num(String(pl.weight || '').replace(/[^0-9]/g, ''));
       if (p.birthCountry == null) p.birthCountry = (pl.birth && pl.birth.country) || null;
+      if (p.photo == null) p.photo = pl.photo || null;
       if (p.stats == null) p.stats = statsFrom(statRowFor(row.statistics, leagueId));
     }
     // bio-only fallback to the previous season (immutable fields only — never
@@ -366,6 +368,7 @@ async function getSquad(teamId, teamName, leagueId, season) {
         if (p.height == null) p.height = num(String(pl2.height || '').replace(/[^0-9]/g, ''));
         if (p.weight == null) p.weight = num(String(pl2.weight || '').replace(/[^0-9]/g, ''));
         if (p.birthCountry == null) p.birthCountry = (pl2.birth && pl2.birth.country) || null;
+        if (p.photo == null) p.photo = pl2.photo || null;
       }
     }
   }
@@ -432,6 +435,7 @@ async function getCoach(teamId) {
   return {
     apiId: cur.id,   // API-Football coach id — used for trophies?coach= and as the mc_entities identity key
     name: coachName,
+    photo: cur.photo || null,
     country: cur.nationality || null,
     age: num(cur.age),
     tenureFrom: tenure && tenure.start ? tenure.start.slice(0, 7) : null,
@@ -555,18 +559,39 @@ async function getFixtureMeta(eventId, cache) {
   return { referee, venue, lineups, colors };
 }
 
-// the home team's registered stadium — a reliable fallback when the fixture
-// object has no venue (common in the lower leagues). Cached forever.
-async function getTeamVenue(teamId, cache) {
-  cache.teamVenues = cache.teamVenues || {};
-  if (String(teamId) in cache.teamVenues) return cache.teamVenues[teamId];
+// One fetch of the teams endpoint serves both the home team's registered
+// stadium (a reliable fallback when the fixture object has no venue, common
+// in the lower leagues) and the team crest — both effectively permanent, so
+// cached forever under one key instead of hitting the API twice per team.
+async function getTeamMeta(teamId, cache) {
+  cache.teamMeta = cache.teamMeta || {};
+  if (String(teamId) in cache.teamMeta) return cache.teamMeta[teamId];
   const j = await af('teams', { id: teamId });
-  const v = j && j.response && j.response[0] && j.response[0].venue;
-  const rec = (v && v.name)
-    ? { name: v.name, capacity: num(v.capacity), city: v.city || null, notes: null }
-    : null;
-  cache.teamVenues[teamId] = rec;
+  const row = j && j.response && j.response[0];
+  const v = row && row.venue;
+  const rec = {
+    venue: (v && v.name) ? { name: v.name, capacity: num(v.capacity), city: v.city || null, notes: null } : null,
+    logo: (row && row.team && row.team.logo) || null,
+  };
+  cache.teamMeta[teamId] = rec;
   return rec;
+}
+async function getTeamVenue(teamId, cache) {
+  return (await getTeamMeta(teamId, cache)).venue;
+}
+async function getTeamLogo(teamId, cache) {
+  return (await getTeamMeta(teamId, cache)).logo;
+}
+
+// League/competition crest — one fetch per tracked league, cached forever.
+async function getLeagueLogo(leagueId, cache) {
+  cache.leagueLogos = cache.leagueLogos || {};
+  if (String(leagueId) in cache.leagueLogos) return cache.leagueLogos[leagueId];
+  const j = await af('leagues', { id: leagueId });
+  const row = j && j.response && j.response[0];
+  const logo = (row && row.league && row.league.logo) || null;
+  cache.leagueLogos[leagueId] = logo;
+  return logo;
 }
 
 /* ---------- weather forecast at the venue (Open-Meteo, free, no key) ---------- */
@@ -937,7 +962,7 @@ async function getPredictions(eventId) {
 /* ---------- build one match file ---------- */
 function emptyTeamBlock(name) {
   return {
-    name, shortName: null, nickname: null, colors: null,
+    name, shortName: null, nickname: null, logo: null, colors: null,
     coach: { name: 'n/d' },
     formation: 'n/d', predictedXI: [], confirmedXI: null, squad: [],
     form: null, absences: [], mercatoIn: [], mercatoOut: [], preseason: [],
@@ -963,7 +988,7 @@ async function buildMatch(fx, season, cache) {
     generatedAt: todayISO(),
     partial: true,
     sources: [{ ...SOURCE, accessed: todayDate() }],
-    competition: { name: fx.comp, round: fx.round, country: fx.country || 'n/d' },
+    competition: { name: fx.comp, round: fx.round, country: fx.country || 'n/d', logo: leagueId ? await getLeagueLogo(leagueId, cache) : null },
     kickoff: fx.kickoff || 'n/d',
     venue: (meta && meta.venue) || { name: has(fx.venue) ? fx.venue : 'n/d', capacity: null, city: null, notes: null },
     referee: (meta && meta.referee) || { name: 'n/d', country: null, age: null, apps: null, ycPerMatch: null, rcPerMatch: null, history: null },
@@ -994,6 +1019,7 @@ async function buildMatch(fx, season, cache) {
   for (const side of ['home', 'away']) {
     const t = out.teams[side];
     const { id, cache: sq, news } = bySide[side];
+    if (id != null) t.logo = await getTeamLogo(id, cache);
     if (sq && sq.squad && sq.squad.length) {
       t.squad = sq.squad;   // apiId kept on each entry now (mc_entities identity key)
       if (sq.coach && sq.coach.name) t.coach = sq.coach;
@@ -1241,6 +1267,10 @@ async function main() {
     for (const side of ['home', 'away']) {
       const id = f[side + 'Id'];
       if (id == null) continue;
+      if (!doc.teams[side].logo) {
+        const logo = await getTeamLogo(id, cache);
+        if (logo) { doc.teams[side].logo = logo; touched = true; }
+      }
       // Squad bio (nat/height/weight/birthCountry) and season stats
       // (apps/goals/minutes/...) were only ever copied onto a published
       // pack's squad[] once, at initial build -- never refreshed after,
@@ -1268,6 +1298,7 @@ async function main() {
           if (p.height == null && match.height != null) { p.height = match.height; touched = true; }
           if (p.weight == null && match.weight != null) { p.weight = match.weight; touched = true; }
           if (p.birthCountry == null && match.birthCountry != null) { p.birthCountry = match.birthCountry; touched = true; }
+          if (p.photo == null && match.photo != null) { p.photo = match.photo; touched = true; }
           if (match.stats && JSON.stringify(match.stats) !== JSON.stringify(p.stats)) {
             p.stats = match.stats; touched = true;
           }
@@ -1279,13 +1310,22 @@ async function main() {
         if (nx.length) { fm.next = nx; touched = true; }
       }
       const coach = doc.teams[side].coach;
-      if (needTrophies && coach && has(coach.name) && (!coach.trophies || !coach.trophies.length)) {
+      const needCoachInfo = coach && has(coach.name) &&
+        ((needTrophies && (!coach.trophies || !coach.trophies.length)) || !coach.photo);
+      if (needCoachInfo) {
         const cinfo = await getCoach(id);
         if (cinfo && cinfo.apiId != null) {
-          const list = await getTrophies('coach', cinfo.apiId, cache);
-          if (list.length) { coach.trophies = list; touched = true; }
+          if (!coach.photo && cinfo.photo) { coach.photo = cinfo.photo; touched = true; }
+          if (needTrophies && (!coach.trophies || !coach.trophies.length)) {
+            const list = await getTrophies('coach', cinfo.apiId, cache);
+            if (list.length) { coach.trophies = list; touched = true; }
+          }
         }
       }
+    }
+    if (!doc.competition.logo && leagueId) {
+      const logo = await getLeagueLogo(leagueId, cache);
+      if (logo) { doc.competition.logo = logo; touched = true; }
     }
     if (touched) { writeJSON(path, doc); console.log(`- ${f.slug}: topped up`); }
   }

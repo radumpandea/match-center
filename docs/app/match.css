@@ -33,7 +33,9 @@ button{font-family:inherit}
 .mc-teams{display:flex;align-items:center;gap:var(--space-4);font:600 26px/1.1 "Inter",sans-serif;letter-spacing:-.01em;flex-wrap:wrap}
 .mc-teams .vs{color:var(--color-neutral-600);font-weight:400;font-size:18px}
 .mc-teams .nickname{font-weight:400;font-size:14px;color:var(--color-neutral-500)}
+.mc-teams .team-logo{height:26px;width:26px;object-fit:contain;vertical-align:-5px;margin-right:6px}
 .mc-meta{font-size:12.5px;color:var(--color-neutral-400)}
+.mc-meta .comp-logo{height:14px;width:14px;object-fit:contain;vertical-align:-2px;margin-right:5px}
 .mc-toolbar{display:flex;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-3)}
 .mc-toolbar button{
   font-size:11.5px;padding:var(--space-2) var(--space-4);border-radius:999px;cursor:pointer;
@@ -266,6 +268,7 @@ button.pick.warn{color:var(--color-neutral-400)}
 .panel .body{padding:0 var(--space-4) var(--space-4);font-size:12.5px;color:var(--color-neutral-400);container-type:inline-size}
 .panel .body ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:4px}
 .panel .body li{text-wrap:pretty}
+.li-photo{width:20px;height:20px;border-radius:50%;object-fit:cover;vertical-align:-5px;margin-right:6px;background:var(--color-neutral-800,#222)}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)}
 /* stack the two team columns when the panel itself is narrow (so the form
    guide isn't cramped); the per-panel "⤢" widen toggle also fixes this */
@@ -410,7 +413,9 @@ table.mc.standings tr.is-mine td{background:var(--color-accent-900,rgba(120,140,
 .modal-back{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:flex-start;justify-content:center;padding:5vh var(--space-4);z-index:50}
 .modal{background:var(--color-bg);border:1px solid var(--color-divider);border-radius:var(--radius-lg);max-width:640px;width:100%;max-height:90vh;overflow:auto}
 .modal-head{display:flex;gap:var(--space-4);align-items:flex-start;padding:var(--space-6);border-bottom:1px solid var(--color-divider)}
-.modal-head .avatar{width:52px;height:52px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-weight:600;color:#fff;font-size:16px}
+.modal-head .avatar{width:52px;height:52px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-weight:600;color:#fff;font-size:16px;overflow:hidden}
+.modal-head .avatar.has-photo{background:var(--color-neutral-800,#222)}
+.modal-head .avatar.has-photo img{width:100%;height:100%;object-fit:cover}
 .modal-head h3{margin:0 0 3px;font-size:18px}
 .modal-head .sub{font-size:12px;color:var(--color-neutral-400)}
 .modal-close{margin-left:auto;background:none;border:none;color:var(--color-neutral-400);font-size:20px;cursor:pointer;line-height:1}

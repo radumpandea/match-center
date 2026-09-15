@@ -46,7 +46,8 @@
       "properties": {
         "name": { "type": "string" },
         "round": { "type": "string" },
-        "country": { "type": "string" }
+        "country": { "type": "string" },
+        "logo": { "type": ["string", "null"], "description": "API-Football league crest URL (media.api-sports.io), from the leagues endpoint" }
       }
     },
     "kickoff": { "type": "string", "description": "ISO 8601 with timezone offset, or \"n/d\"" },
@@ -222,6 +223,7 @@
         "name": { "type": "string" },
         "shortName": { "type": ["string", "null"], "description": "3-letter code" },
         "nickname": { "type": ["string", "null"], "description": "the club's common nickname(s) (e.g. \"Câinii Roșii\"), from Wikipedia's infobox or equivalent — never invented" },
+        "logo": { "type": ["string", "null"], "description": "API-Football team crest URL (media.api-sports.io), from the teams endpoint" },
         "colors": {
           "type": ["object", "null"],
           "additionalProperties": false,
@@ -237,6 +239,7 @@
           "properties": {
             "apiId": { "type": ["integer", "null"], "description": "API-Football coach id — the identity key in the mc_entities table (docs/supabase.sql), so a correction applies everywhere this coach appears" },
             "name": { "type": "string" },
+            "photo": { "type": ["string", "null"], "description": "API-Football coach headshot URL (media.api-sports.io), from the coachs endpoint" },
             "country": { "type": ["string", "null"] },
             "age": { "type": ["integer", "null"] },
             "tenureFrom": { "type": ["string", "null"], "description": "YYYY-MM or free text" },
@@ -498,6 +501,7 @@
         "apiId": { "type": ["integer", "null"], "description": "API-Football player id — the identity key in the mc_entities table (docs/supabase.sql), so a correction applies everywhere this player appears" },
         "number": { "type": ["integer", "null"] },
         "name": { "type": "string" },
+        "photo": { "type": ["string", "null"], "description": "API-Football player headshot URL (media.api-sports.io), from the players endpoint" },
         "pos": { "type": ["string", "null"], "description": "detailed position label" },
         "positions": {
           "type": "array",
