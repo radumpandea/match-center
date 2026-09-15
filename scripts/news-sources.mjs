@@ -32,6 +32,10 @@ export const NEWS_SOURCES = {
     { name: 'Football Italia', url: 'https://www.football-italia.net/rss.xml' },
     { name: 'ANSA', url: 'https://www.ansa.it/sito/notizie/sport/calcio/calcio_rss.xml' },
   ],
+  'Coppa Italia': [
+    { name: 'Football Italia', url: 'https://www.football-italia.net/rss.xml' },
+    { name: 'ANSA', url: 'https://www.ansa.it/sito/notizie/sport/calcio/calcio_rss.xml' },
+  ],
   'Bundesliga': [
     { name: 'Kicker', url: 'https://newsfeed.kicker.de/news/bundesliga' },
     { name: 'Bundesliga.com', url: 'https://www.bundesliga.com/en/bundesliga/rss' },

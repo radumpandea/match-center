@@ -30,6 +30,7 @@ const COMPS = [
   { id: 61,  comp: 'Ligue 1', abbr: 'l1', country: 'FR' },
   { id: 140, comp: 'LaLiga', abbr: 'laliga', country: 'ES' },
   { id: 135, comp: 'Serie A', abbr: 'seriea', country: 'IT' },
+  { id: 137, comp: 'Coppa Italia', abbr: 'coppa', country: 'IT' },
   { id: 78,  comp: 'Bundesliga', abbr: 'bundesliga', country: 'DE' },
   { id: 79,  comp: '2. Bundesliga', abbr: 'bl2', country: 'DE' },
   { id: 283, comp: 'Superliga', abbr: 'sl', country: 'RO' },

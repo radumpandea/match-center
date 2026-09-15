@@ -86,6 +86,7 @@ const SOURCE = {
 const AF_LEAGUE_ID = {
   'Premier League': 39, 'Ligue 1': 61, 'LaLiga': 140, 'Serie A': 135,
   'Bundesliga': 78, '2. Bundesliga': 79, 'Superliga': 283, 'Liga 2': 284,
+  'Coppa Italia': 137,
 };
 
 /* ---------- small helpers ---------- */
