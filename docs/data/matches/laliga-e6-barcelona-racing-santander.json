@@ -11,14 +11,22 @@
   "competition": {
     "name": "LaLiga",
     "round": "Etapa 6",
-    "country": "ES"
+    "country": "ES",
+    "logo": "https://media.api-sports.io/football/leagues/140.png"
   },
   "kickoff": "2026-09-16T22:30:00+03:00",
   "venue": {
     "name": "Spotify Camp Nou",
     "capacity": 55926,
     "city": "Barcelona",
-    "notes": null
+    "notes": null,
+    "weather": {
+      "tempC": 21,
+      "condition": "furtună",
+      "windKph": 5,
+      "precipitationMm": 6,
+      "forecastAt": "2026-09-15T15:28:16.209Z"
+    }
   },
   "referee": {
     "name": "n/d",
@@ -254,7 +262,8 @@
             "season": "1985/1986",
             "place": "Winner"
           }
-        ]
+        ],
+        "photo": "https://media.api-sports.io/football/coachs/6472.png"
       },
       "formation": "n/d",
       "predictedXI": [],
@@ -980,20 +989,28 @@
           ],
           "role": "MID",
           "age": 16,
-          "height": null,
-          "weight": null,
+          "height": 186,
+          "weight": 82,
           "foot": null,
-          "nat": null,
+          "nat": "ESP",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Spain",
           "pronunciation": null,
-          "career": null,
+          "career": "Cornellà (2019–2022) · Barcelona (2023–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 270,
+            "apps": 3,
+            "yellow": 0,
+            "red": null,
+            "rating": 7.37
+          }
         },
         {
           "apiId": 538,
@@ -1103,7 +1120,7 @@
           "natTeam": null,
           "birthCountry": null,
           "pronunciation": null,
-          "career": null,
+          "career": "FC Copenhagen (2021–2024) · Barcelona (2025)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1128,7 +1145,7 @@
           "natTeam": null,
           "birthCountry": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Club Brugge II (2023–2025)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1443,7 +1460,58 @@
             "Raphinha - 6 goluri"
           ]
         }
-      ]
+      ],
+      "newsCandidates": [
+        {
+          "title": "Munich's Allianz Arena, Barcelona's Camp Nou to host Champions League finals",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPTFRSRk01T3Jwd2FnRGFzOTY1U2xYemxnUmxRSG1tY1VHa3dMUFFqclBlV2RyYldJN1RYNmNXSkwwT1dGc2hNQXRwQkx4ZXYzTFRlQnRyWlBIRXpxYTdlUHYwMDdudnpaWWFFdnV6V1hlX2JuNy1HNjlVeFFLaXNGMVhlTkFRQUd1WXg5RV9GQWFZZmFSanRZUVhubVczN19raHVjcklPc1U5OVVldURGTlY1UGZhamF1MFVZQg?oc=5",
+          "source": "Reuters",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Barcelona boss Hansi Flick backs Lamine Yamal's Ballon d'Or claim",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxObHF0Z1NwNm1EZFBGZ3hURG4zOTZLLWVmQ0RjcVRKY1lOcU9Vb3dlcjJTTEw0cUhBQlM4cjl3VzFjSE9jTTkwYXowemJtMzRSQTA2elYxZlNYLVdfdUFvcVpTR2M0TlZGRzJaaV9ka2ZaQjJpZUhudkhSTUJsRnM1ZDEwak1IWXUzX3lyN0NCVGR6RTZfd29lcVlxQVdyUjd4dUNQcEFPeHVXeGVGbEJr?oc=5",
+          "source": "ESPN",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Barcelona's Camp Nou beats Wembley to host 2029 Champions League final. Munich confirmed for 2028",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOODN1T3Zyd2M3OUlpN19QdXVFRUplTnVPS25xYkdJWnRSSU5XRWFHQ3hVbTBrZGg2cE5tTTRrSXRKUEFRcUg4cWJURGFSZmZwNHc2azMyaFpmY2cxcjhpYTJzQnBrYWlfRTlRT056X3ZiQ0ZmQnNxbEdvV1ZuR05TNE91NkhvQWNxTFNzaEFwb0xESjd4RUpfelpSbGJxTjlWNTNRSWd5WGs?oc=5",
+          "source": "AP News",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Mobility and accessibility for FC Barcelona v Racing Santander",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOWDl6TjBxME9ocFJaWkx0T2prenhleE1udjlPM3Z6RFlYb3dRZFJWQUxVc0xmdm9HS1lHR3hTMGtQZks5ejRIU3F0Qm5KWmJRYUllc212SVoyZlRLQ3UyX29PajZSRkR6OEN1cUE3WFdtejlva1hXR2N2a3hnU3pqclRJWmZaajdPMkxnbng2SWlYeGcyOXJacjNVVVU1Vml5WUF5aUk3dzZ5VWpOaVR3Sg?oc=5",
+          "source": "FC Barcelona",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Munich and Barcelona to host UEFA Champions League finals",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNZ09XRnU4Zm1rUE44aDhZREZVNWRuanZDcWhTMDZoZHQ4WTBGam94VzBzTTl2UFpSbXl3cmxRWkN1MElXdVBINVNZdVBwUEdjQWF3dFU3aWV6TVhNNDNlaV91YzBpdFRiZDZiZUFqNXdQSlByMWRqTmJKN1FFN0FhX01fNkpUT2trcEpXSlpKcXFVZGxjVHpiSlRaNUVfalNFM0U2TWx0TnpVWFR3SEJ4cFNNdzh2cWoyM2xmS0lvLUlJRGcxNDAtOXZWeEo?oc=5",
+          "source": "UEFA.com",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "FC Barcelona News: 15 September 2026",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNZXoyV3dNSWY4bGkzdW9fQVNaX0VKYzBMWkRHdGtZTlMtSzZzRGlvYl9KUVVsNThGd09OVWhrdTRVcmFUOWtlSXNqYzRCSXN4Umk1anFGc0J0b1E2Z3pKMDRVcXpTMnROdXJqSGZQNkFoc0pYY1YtbjJ4LUZMRnhGWUloT29RM0dz?oc=5",
+          "source": "Currently.com",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Barcelona’s Serielizados Pro Reveals Program and Mind the Gap Co-Pro Pitch: Carlos Marques-Marcet, Vilapuig Sisters Make the Cut (EXCLUSIVE)",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQUmY1dFozUTA2SGZDc0F3bGNleUpiZk9XZnFGVGRwVWtBLWgzcUVoWnFEUXMwS2tGMnIwbzZGLVJpamxBUU5tdV9XTTdFSmdfeElKNjdDSFVGcGJJZzlnRnlqcl9rREZGcXFVeHdyUkgzVWViS0o0VTY1V0MxUmxIMG5qNE02eVktYjhURGhHdW1OSnF2b0t6Z05wZXQ1ZkVOUHRWS2RNR08?oc=5",
+          "source": "Variety",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Barcelona’s Camp Nou wins bid to host 2029 Champions League final",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQdUh1YWhOSndxcWNWRGZpQVdUR2lqeV9oajZxZklYZU9GbDhOWktZUldIcU1LYXFpTlBLLU1QSUdabGZyRV9scWVJeVZiQ05qSWxPTVBBY1NYNWsxNHNyckhiNHQyRHM2UDJaaDVFSWs2QVlJeGM3T2cwc3NaSW9EeXc0YnhsV3RDSnY4UFFJSEd6djJiVjBoUHIzcXczSHU4eWRuQmpFUnRZcVk?oc=5",
+          "source": "dailysabah.com",
+          "published": "2026-09-15"
+        }
+      ],
+      "logo": "https://media.api-sports.io/football/teams/529.png"
     },
     "away": {
       "name": "Racing Santander",
@@ -1462,7 +1530,8 @@
             "period": "2025–prezent",
             "note": null
           }
-        ]
+        ],
+        "photo": "https://media.api-sports.io/football/coachs/26030.png"
       },
       "formation": "n/d",
       "predictedXI": [],
@@ -2047,7 +2116,7 @@
           "natTeam": null,
           "birthCountry": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Almeria (2025) · Racing Santander (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2146,7 +2215,7 @@
           "natTeam": null,
           "birthCountry": "Spain",
           "pronunciation": null,
-          "career": null,
+          "career": "Racing Santander (2017–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2204,7 +2273,7 @@
           "natTeam": null,
           "birthCountry": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Racing Santander (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2271,7 +2340,7 @@
           "natTeam": null,
           "birthCountry": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Racing Santander (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2363,20 +2432,28 @@
           ],
           "role": "ATT",
           "age": 20,
-          "height": null,
-          "weight": null,
+          "height": 175,
+          "weight": 66,
           "foot": null,
-          "nat": null,
+          "nat": "GEO",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Georgia",
           "pronunciation": null,
-          "career": null,
+          "career": "FC Iberia 1999 (2018–2021) · FK Sarajevo (2022–2024) · Racing Santander (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 21,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.2
+          }
         },
         {
           "apiId": 47209,
@@ -2537,11 +2614,11 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 268,
-            "apps": 3,
-            "yellow": 1,
+            "minutes": 35,
+            "apps": 1,
+            "yellow": 0,
             "red": null,
-            "rating": 7.07
+            "rating": 7.2
           }
         },
         {
@@ -2780,7 +2857,58 @@
             "Mohamed Yassir Zabiri - 3 goluri"
           ]
         }
-      ]
+      ],
+      "newsCandidates": [
+        {
+          "title": "Barcelona Predicted Lineup vs. Racing Santander: Goal-Hungry Raphinha Eyes More",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNVzhXOEFyWVFkUDZGaUtCSElTdy1VdVdPNUVadlpiTDU0RHZLNGUtc0FnQUlqOElTRzZscnJsSUpqWnd2WlEza0RILU5hZC1fX2tWSlEtekRkdEpoUDJ6N1U4QXdZTGJ6dGk0Q2Qwc0kwUEtNOUdwVFVWNzhSR040UFNmNVdCMnM?oc=5",
+          "source": "Sports Illustrated",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Mobility and accessibility for FC Barcelona v Racing Santander",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOWDl6TjBxME9ocFJaWkx0T2prenhleE1udjlPM3Z6RFlYb3dRZFJWQUxVc0xmdm9HS1lHR3hTMGtQZks5ejRIU3F0Qm5KWmJRYUllc212SVoyZlRLQ3UyX29PajZSRkR6OEN1cUE3WFdtejlva1hXR2N2a3hnU3pqclRJWmZaajdPMkxnbng2SWlYeGcyOXJacjNVVVU1Vml5WUF5aUk3dzZ5VWpOaVR3Sg?oc=5",
+          "source": "FC Barcelona",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "How will Barcelona line up against Racing Santander seeking to continue perfect La Liga start?",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNQnNMODBRb25rS1pNcklObmlZNDRjek56X3BTOVJqZGRhdXlHZ2VpelJGbkdoWG1qRkF1UDFCd2lSemZmNjZOLVFMSWpmdEhfM2p3X2RWMXlGbUNQNjJIdTVvRDg3UERCTGdWZEdWOVpiY3FIVHN5RWRSRHgzeWFXX25ibnZjczA0TURnbGx5SWZxVUY3bFYtaGI3dDltMkNfNVJ6dVhZOVpFQ2w3?oc=5",
+          "source": "Barca Blaugranes",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Racing Santander coach refuses to throw in the towel against Barcelona: 'We have to dig deep'",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQX3FSdlBnNXdzTjE3RlJLNXh4R1ExQmRCZVpyUUlLNkZ5Tlg0aXZKU0ZTRVZKQk1pS0NRMUpLUUh2ejJrZ0YyaWtock5WOU1rM0lQVHNMbVQ1QWhDTkRuVGJBRVlfM0NGLXlYb2FfR054Ul80eGxMRWk3QkJ2U2U3NkxGV2pvWHR5dWw5S3pFeGJ4YnBKLVh4amh4Nk81Vl8xNUxyS1NaMEh6RXpURUo0UnhkQVVteFZueEE?oc=5",
+          "source": "Barca Universal",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Barcelona against Racing: numbers point to a one-sided clash in La Liga",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPTGxNTTJTb0Q2RFQwM1pER09BZ1ZMTm5fRGREcGh5UFJGQnlWM1BhM292T0VfTmxmR09zUnlRM3B0aVp4ejhvd0oxeXRvSkJmbVc5VnFhMU5DV21UbmFMbmtHNElzb1VfRlV2NWtBRjlfeWpaaWY3ZDdwRmY1a1RSZGo3WXVBVm52QTR1dUwxOVE4aHNlSDBBMURXWDlCMGlyY2dFT0dRZktRTmlTOThqWDg5eGdadU1PZVln?oc=5",
+          "source": "goal.com",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Barcelona aim to keep their red-hot run going against Racing",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQckcweUd6RDBqXzRQcHFjSndLLS1LNGxvbFAxOW4wbUhrUmUtVmEzdUp6T2FfSWlMNWFZNEU4Ulg5NnYzRFhEY0c2dHlldU5ranhfVEcyLUtta2NNbXBZeDNEbUZWMmNtNXlyM2NqTzJVYWpzdVZHd0I4ejAzUXBtQWk1ejd0bTlObC1BTnRyZ2J6T0ZlYURZemlRMWk1dDVUQUM0UjdR?oc=5",
+          "source": "dailysabah.com",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Hansi Flick praises Racing Santander but hints at Barcelona rotations",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQRVZNMUtfQU5WbE5qZmFtRmx1MzZFdndaUnlfNU5HakRxZG1IcWtZa1RDQ2FBX193MlU2cVU1aGQ0NXRkcVpKeUVWQzhnVnZ2TGNHM1FkVXVTR2xfZ0lxZzVUMk9FVjY3N0JJUXJydVpyRUphLWR3MFdBTTRheHN5SUFYM1BlaHFRaG9yc0Q2c3VjMXZrb2JqSm9nbnFLcWR2cW5HeVk0WldzYWhFTF9FSmJYMTZxUDdCT3ZVRDFnUWtIb09vQ2Nr0gHUAUFVX3lxTFBqM2VncnhJUEZMRFFZbjEyci1nWFBCWExGN2NqLTJ2MFloUGtFNlE0WkFSaHN6azRxUUVwRmZsWDh0MjBlMElQT0VBSklLS2NYUlBRWS12b2ZISUZib1U3TGctZ09IWHFaSEJXYzhnY1BKRHp2YXZSRU9janF4ekNHZnk3US0xZkhiZTRuMzA3ekdkRzhRRV8xakpGS29rOGwxOWlFY2VaQUd4OWJyUU01bzExM0tXZkNJRDNuWktNamFjUkhlZjc0LU5vRjczekJkWWxB?oc=5",
+          "source": "Mundo Deportivo",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "FC Barcelona vs Racing Santander Predictions, Picks & Odds – 16/09/2026",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOaVNOREN6ZjFvMTU0RlRkQVdhMjRzb25LbnVQT0FfMG5UWEE3a0d1ZTgxMzRyX1NHSG02RjhXbzdmTi14OU5Ddm4xTXlNS0RZQ0kzRVM0dEtEbVlZRThVWHpXQUZOX05SdkMxVVdacWJYd3hRX1pVTHVBbjNuZWY3VF9mZ3RqN1NfM3g5NDZKSGhKRTFUSjNHaldseFB0Zw?oc=5",
+          "source": "ToffeeWeb",
+          "published": "2026-09-15"
+        }
+      ],
+      "logo": "https://media.api-sports.io/football/teams/4665.png"
     }
   },
   "standings": {

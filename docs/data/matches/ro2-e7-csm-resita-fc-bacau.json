@@ -116,7 +116,8 @@
   "competition": {
     "name": "Liga 2",
     "round": "Etapa 7",
-    "country": "RO"
+    "country": "RO",
+    "logo": "https://media.api-sports.io/football/leagues/284.png"
   },
   "kickoff": "2026-09-15T17:00:00+03:00",
   "broadcast": "Digi Sport 1 / Prima Sport",
@@ -129,7 +130,14 @@
       "Construit în 1926, e unul dintre cele mai vechi stadioane din România și găzduiește fotbal aproape de un secol.",
       "Poartă numele lui Mircea Chivu, tatăl fostului internațional și căpitan al naționalei României, Cristian Chivu.",
       "A trecut printr-o renovare majoră în 2009, când peluzele au fost transformate în tribune cu scaune; autoritățile locale discută de ani buni înlocuirea lui cu o arenă modernă."
-    ]
+    ],
+    "weather": {
+      "tempC": 24,
+      "condition": "cer noros",
+      "windKph": 8,
+      "precipitationMm": 0,
+      "forecastAt": "2026-09-15T15:27:35.274Z"
+    }
   },
   "referee": {
     "name": "Bădărău Raul-Sebastian",
@@ -222,41 +230,173 @@
         "age": 58,
         "tenureFrom": "2026-06",
         "career": [
-          { "club": "CFR Cluj", "period": "2005–2006", "note": "finalistă Cupa Intertoto 2005" },
-          { "club": "Argeș Pitești", "period": "2006–2007", "note": null },
-          { "club": "FC Vaslui", "period": "2007–2008", "note": null },
-          { "club": "Universitatea Cluj", "period": "2008", "note": null },
-          { "club": "Steaua București", "period": "2008", "note": null },
-          { "club": "Universitatea Cluj", "period": "2009", "note": "al doilea mandat" },
-          { "club": "Oțelul Galați", "period": "2009–2012", "note": "campion Liga I 2010–11, Supercupa României 2011" },
-          { "club": "Dinamo București", "period": "2012", "note": null },
-          { "club": "Mordovia Saransk", "period": "2012–2013", "note": null },
-          { "club": "Kuban Krasnodar", "period": "2013", "note": null },
-          { "club": "Gabala", "period": "2014", "note": null },
-          { "club": "Astra Giurgiu", "period": "2015", "note": null },
-          { "club": "Zakho", "period": "2016–2017", "note": null },
-          { "club": "Concordia Chiajna", "period": "2018–2019", "note": null },
-          { "club": "CSM Reşiţa", "period": "2019–2020", "note": "primul mandat la Reșița" },
-          { "club": "Oțelul Galați", "period": "2021–2024", "note": "campion Liga III 2021–22, finalistă Cupa României 2023–24" },
-          { "club": "Sepsi OSK", "period": "2025", "note": null },
-          { "club": "Hermannstadt", "period": "2025–2026", "note": "retrogradare din Liga I" },
-          { "club": "CSM Reşiţa", "period": "2026–prezent", "note": "al treilea mandat la club — revenire" }
+          {
+            "club": "CFR Cluj",
+            "period": "2005–2006",
+            "note": "finalistă Cupa Intertoto 2005"
+          },
+          {
+            "club": "Argeș Pitești",
+            "period": "2006–2007",
+            "note": null
+          },
+          {
+            "club": "FC Vaslui",
+            "period": "2007–2008",
+            "note": null
+          },
+          {
+            "club": "Universitatea Cluj",
+            "period": "2008",
+            "note": null
+          },
+          {
+            "club": "Steaua București",
+            "period": "2008",
+            "note": null
+          },
+          {
+            "club": "Universitatea Cluj",
+            "period": "2009",
+            "note": "al doilea mandat"
+          },
+          {
+            "club": "Oțelul Galați",
+            "period": "2009–2012",
+            "note": "campion Liga I 2010–11, Supercupa României 2011"
+          },
+          {
+            "club": "Dinamo București",
+            "period": "2012",
+            "note": null
+          },
+          {
+            "club": "Mordovia Saransk",
+            "period": "2012–2013",
+            "note": null
+          },
+          {
+            "club": "Kuban Krasnodar",
+            "period": "2013",
+            "note": null
+          },
+          {
+            "club": "Gabala",
+            "period": "2014",
+            "note": null
+          },
+          {
+            "club": "Astra Giurgiu",
+            "period": "2015",
+            "note": null
+          },
+          {
+            "club": "Zakho",
+            "period": "2016–2017",
+            "note": null
+          },
+          {
+            "club": "Concordia Chiajna",
+            "period": "2018–2019",
+            "note": null
+          },
+          {
+            "club": "CSM Reşiţa",
+            "period": "2019–2020",
+            "note": "primul mandat la Reșița"
+          },
+          {
+            "club": "Oțelul Galați",
+            "period": "2021–2024",
+            "note": "campion Liga III 2021–22, finalistă Cupa României 2023–24"
+          },
+          {
+            "club": "Sepsi OSK",
+            "period": "2025",
+            "note": null
+          },
+          {
+            "club": "Hermannstadt",
+            "period": "2025–2026",
+            "note": "retrogradare din Liga I"
+          },
+          {
+            "club": "CSM Reşiţa",
+            "period": "2026–prezent",
+            "note": "al treilea mandat la club — revenire"
+          }
         ],
-        "apiId": null
+        "apiId": null,
+        "photo": "https://media.api-sports.io/football/coachs/25920.png"
       },
       "formation": "4-3-3",
       "predictedXI": [
-        { "apiId": 42506, "number": 77, "name": "I. Popescu", "pos": "GK" },
-        { "apiId": 674923, "number": 14, "name": "D. Besca", "pos": "LB" },
-        { "apiId": 45342, "number": 44, "name": "D. Mijić", "pos": "LCB" },
-        { "apiId": 671775, "number": 15, "name": "S. Rimovecz", "pos": "RCB" },
-        { "apiId": 42658, "number": 7, "name": "V. Chera", "pos": "RB" },
-        { "apiId": 270286, "number": 21, "name": "M. Zavnik", "pos": "DM" },
-        { "apiId": 594686, "number": 4, "name": "Mohammed Salhi", "pos": "CM" },
-        { "apiId": 323172, "number": 40, "name": "C. Chira", "pos": "CAM" },
-        { "apiId": 554037, "number": 20, "name": "E. Lenghel", "pos": "LW" },
-        { "apiId": 108008, "number": 9, "name": "S. Visic", "pos": "ST" },
-        { "apiId": 43059, "number": 22, "name": "C. Bărbuț", "pos": "RW" }
+        {
+          "apiId": 42506,
+          "number": 77,
+          "name": "I. Popescu",
+          "pos": "GK"
+        },
+        {
+          "apiId": 674923,
+          "number": 14,
+          "name": "D. Besca",
+          "pos": "LB"
+        },
+        {
+          "apiId": 45342,
+          "number": 44,
+          "name": "D. Mijić",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 671775,
+          "number": 15,
+          "name": "S. Rimovecz",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 42658,
+          "number": 7,
+          "name": "V. Chera",
+          "pos": "RB"
+        },
+        {
+          "apiId": 270286,
+          "number": 21,
+          "name": "M. Zavnik",
+          "pos": "DM"
+        },
+        {
+          "apiId": 594686,
+          "number": 4,
+          "name": "Mohammed Salhi",
+          "pos": "CM"
+        },
+        {
+          "apiId": 323172,
+          "number": 40,
+          "name": "C. Chira",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 554037,
+          "number": 20,
+          "name": "E. Lenghel",
+          "pos": "LW"
+        },
+        {
+          "apiId": 108008,
+          "number": 9,
+          "name": "S. Visic",
+          "pos": "ST"
+        },
+        {
+          "apiId": 43059,
+          "number": 22,
+          "name": "C. Bărbuț",
+          "pos": "RW"
+        }
       ],
       "confirmedXI": null,
       "squad": [
@@ -1125,21 +1265,69 @@
         }
       ],
       "mercatoIn": [
-        { "name": "Matic Zavnik", "from": "ND Primorje (Slovenia)", "fee": null },
-        { "name": "Ștefan Šavija", "from": "FK Kabel Novi Sad (Serbia)", "fee": null },
-        { "name": "Lawal Sulaimon", "from": null, "fee": null },
-        { "name": "Franck Tchassem", "from": "FC Argeș", "fee": null },
-        { "name": "Robert Vișan", "from": "SCM Zalău", "fee": null },
-        { "name": "Ianis Droană", "from": "SCM Zalău", "fee": null },
-        { "name": "Andrei Dima", "from": "CS Afumați", "fee": null },
-        { "name": "Cristian Chira", "from": "Oțelul Galați", "fee": null },
-        { "name": "Ștefan Visic", "from": "Metaloglobus București", "fee": null }
+        {
+          "name": "Matic Zavnik",
+          "from": "ND Primorje (Slovenia)",
+          "fee": null
+        },
+        {
+          "name": "Ștefan Šavija",
+          "from": "FK Kabel Novi Sad (Serbia)",
+          "fee": null
+        },
+        {
+          "name": "Lawal Sulaimon",
+          "from": null,
+          "fee": null
+        },
+        {
+          "name": "Franck Tchassem",
+          "from": "FC Argeș",
+          "fee": null
+        },
+        {
+          "name": "Robert Vișan",
+          "from": "SCM Zalău",
+          "fee": null
+        },
+        {
+          "name": "Ianis Droană",
+          "from": "SCM Zalău",
+          "fee": null
+        },
+        {
+          "name": "Andrei Dima",
+          "from": "CS Afumați",
+          "fee": null
+        },
+        {
+          "name": "Cristian Chira",
+          "from": "Oțelul Galați",
+          "fee": null
+        },
+        {
+          "name": "Ștefan Visic",
+          "from": "Metaloglobus București",
+          "fee": null
+        }
       ],
       "mercatoOut": [],
       "preseason": [
-        { "opp": "Cetatea Suceava", "score": "2-0", "date": "2026-07-04" },
-        { "opp": "Gloria Bistrița", "score": "0-0", "date": null },
-        { "opp": "CSC Dumbrăvița", "score": "0-0", "date": "2026-07-17" }
+        {
+          "opp": "Cetatea Suceava",
+          "score": "2-0",
+          "date": "2026-07-04"
+        },
+        {
+          "opp": "Gloria Bistrița",
+          "score": "0-0",
+          "date": null
+        },
+        {
+          "opp": "CSC Dumbrăvița",
+          "score": "0-0",
+          "date": "2026-07-17"
+        }
       ],
       "news": [
         {
@@ -1181,7 +1369,58 @@
             "Toți patru sunt achiziții/promovări recente ale flancului stâng, tocmai zona cea mai afectată de accidentări."
           ]
         }
-      ]
+      ],
+      "newsCandidates": [
+        {
+          "title": "CSM Reșița - FC Bacău 0-0 DGS 1. Ultimul meci din etapa 7 a Ligii 2",
+          "url": "https://www.digisport.ro/fotbal/liga-2/csm-resita-fc-bacau-1700-live-video-dgs-1-echipele-programul-si-rezultatele-etapei-a-7-a-4481451",
+          "source": "Digi Sport",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "ACSM Reșița – FC Bacău se joacă ACUM. Moldovenii au trei mari ocazii de gol înainte de pauză, dar bănățenii au noroc",
+          "url": "https://www.prosport.ro/fotbal-intern/liga-2/acsm-resita-fc-bacau-incepe-de-la-ora-1700-este-ultimul-meci-al-etapei-a-7-a-a-ligii-2-trupa-lui-dorinel-munteanu-are-nevoie-de-victorie-pentru-a-reveni-pe-locul-2-20524935",
+          "source": "ProSport",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "CSM Resita v FC Bacau (15/09/2026)",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOZ2RBb1hOcllZLUtJQnlFUTBRT3RqOS1EVVNDX1BaWm4xMlQxYlV3V0MwWWZnTHJZQVVKZTJsVW4xRTVYNGZhTk9SMmZxS1dmMnRVc1Q1VlBsdmtfSnlOZ1V5NFdIWG5TeVlRanZTckpOQ0ROYlZuYjZqV1Qwb1A0N25TOS1BN2I4UWkwN1JlRlpPU0gxQmpQX050T0hPVHNjVEs3Qw?oc=5",
+          "source": "Flashscore.com",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Latest Football News , Live Scores , Goals",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFB5ZU5jd2gtMVNDUEJEbWxOc0RnRXktVzVfWUx5TGpLZlNNSVpOd3AwVTRWLTVRMTFHMEhvUWx5MUFKVWVlRTdJbzdYQlJCazQ?oc=5",
+          "source": "Tembah Football",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Alexandru Fotescu",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPWDJHRnlObVhfWGczNUhjUUFSQl9vbFBJRWRzYXViQThEaWJRSU5lckFTalRWVW5mVWJRUnY0S0JNQllEWGZ1Z3lmZTU0b3lVWTBjZTN0ZTBMSFU5NWpmNlBHWlMxdGg3N2ZZUDlBVVVFNVdxc3dVQkw2TVJNaUF2bDdCMXR6MDRocEdDOWNqV29ZZjFtOG9UTnJzek1uNVc3TU1XRDFuZ2xRdHV5UThoY2J4REhBTVE0VEVlZU95M3VnSVhKeHQ2QThCZWI4UQ?oc=5",
+          "source": "Transfermarkt",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "ACSM Resita",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPeEprcTNqUDZWdDdSN19lZzM5eUlRdEQzajdzNHA4OHFpRU5USzFpVVFVT2VRYVB4Z3Nad2NOLU9QU1JCV2xyaVkxV05NX1NwVGVaM0puUUs2TUFSWDIwa2VOdnVGMFM3aW0wVVhYeV92QlJFR0tOWGJwMGFsRFVzTU1YaC1jZ085U3c?oc=5",
+          "source": "Transfermarkt",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "FC Cetatea Suceava vs CSM Râmnicu Vâlcea: predictions, odds, head to head, where to watch, and more!",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOWEdqUkZzalR2Rl9pQUVDa25iRVJoMzFaMWp5ekpxNTNBb1BmY091NHpMaUg2N0lMcm5McHptQ2FPREJCa0ZlZ0QxQ0w4ZDBjbzBvU25zVVhkU0UxX3pmOWhRWnJPam1NZjFqb2FXWUQ0alB0WVBRSXh3Nl90THpQQ3NvYlI3OXNZZjRBM2cxM1hIdW95bE1JMmlKMjNlMkI5enczcHB5azY?oc=5",
+          "source": "APWin",
+          "published": "2026-09-12"
+        },
+        {
+          "title": "ACSM Reșița U19",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNLURUVVNmTDU2d1JYMHZFZVVBYmN2ei1Jak9DaVNNaEhVcV81ZzJ2YWxzam9HY0dKVWNjdVVNZVJsaUhYWG15c2NqYzJ0YjNPQk1Wbmx6Ni1NaEpwN0FNcUVoVVJOZDNCSlo4ekFBY0EtTGwxbHdSdUctd1hmRy1yOTFBYw?oc=5",
+          "source": "Transfermarkt",
+          "published": "2026-09-11"
+        }
+      ],
+      "logo": "https://media.api-sports.io/football/teams/6229.png"
     },
     "away": {
       "name": "FC Bacau",
@@ -1197,18 +1436,66 @@
         "age": 53,
         "tenureFrom": "2023-07",
         "career": [
-          { "club": "Petrotub Roman", "period": "2008–2011", "note": null },
-          { "club": "Ceahlăul Piatra Neamț", "period": "2011–2013", "note": null },
-          { "club": "CSMS/Politehnica Iași", "period": "2013–2015", "note": null },
-          { "club": "România U-21", "period": "2015–2017", "note": null },
-          { "club": "FC Botoșani", "period": "2017–2018", "note": null },
-          { "club": "Astra Giurgiu", "period": "2018–2019", "note": "finalistă Cupa României 2018–19" },
-          { "club": "Hermannstadt", "period": "2019", "note": null },
-          { "club": "Petrolul Ploiești", "period": "2019–2020", "note": null },
-          { "club": "Universitatea Cluj", "period": "2020–2021", "note": null },
-          { "club": "Politehnica Iași", "period": "2021–2022", "note": null },
-          { "club": "Unirea Slobozia", "period": "2022", "note": null },
-          { "club": "FC Bacău", "period": "2023–prezent", "note": "reconstrucție de la zero, obiectiv play-off" }
+          {
+            "club": "Petrotub Roman",
+            "period": "2008–2011",
+            "note": null
+          },
+          {
+            "club": "Ceahlăul Piatra Neamț",
+            "period": "2011–2013",
+            "note": null
+          },
+          {
+            "club": "CSMS/Politehnica Iași",
+            "period": "2013–2015",
+            "note": null
+          },
+          {
+            "club": "România U-21",
+            "period": "2015–2017",
+            "note": null
+          },
+          {
+            "club": "FC Botoșani",
+            "period": "2017–2018",
+            "note": null
+          },
+          {
+            "club": "Astra Giurgiu",
+            "period": "2018–2019",
+            "note": "finalistă Cupa României 2018–19"
+          },
+          {
+            "club": "Hermannstadt",
+            "period": "2019",
+            "note": null
+          },
+          {
+            "club": "Petrolul Ploiești",
+            "period": "2019–2020",
+            "note": null
+          },
+          {
+            "club": "Universitatea Cluj",
+            "period": "2020–2021",
+            "note": null
+          },
+          {
+            "club": "Politehnica Iași",
+            "period": "2021–2022",
+            "note": null
+          },
+          {
+            "club": "Unirea Slobozia",
+            "period": "2022",
+            "note": null
+          },
+          {
+            "club": "FC Bacău",
+            "period": "2023–prezent",
+            "note": "reconstrucție de la zero, obiectiv play-off"
+          }
         ],
         "apiId": 1204,
         "trophies": [
@@ -1218,21 +1505,77 @@
             "season": "2018/2019",
             "place": "2nd Place"
           }
-        ]
+        ],
+        "photo": "https://media.api-sports.io/football/coachs/29102.png"
       },
       "formation": "4-3-3",
       "predictedXI": [
-        { "apiId": 556171, "number": 1, "name": "L. Anton", "pos": "GK" },
-        { "apiId": 556126, "number": 14, "name": "A. Coaja", "pos": "LB" },
-        { "apiId": 14614, "number": 23, "name": "M. Jurić", "pos": "LCB" },
-        { "apiId": 197890, "number": 4, "name": "Carlos Inglada", "pos": "RCB" },
-        { "apiId": 556172, "number": 13, "name": "M. Bordea", "pos": "RB" },
-        { "apiId": 613838, "number": 29, "name": "T. Lacerda", "pos": "DM" },
-        { "apiId": 555969, "number": 10, "name": "G. Cirstean", "pos": "CM" },
-        { "apiId": 43115, "number": 27, "name": "R. Moise", "pos": "CAM" },
-        { "apiId": 104466, "number": 24, "name": "P. Petre", "pos": "RW" },
-        { "apiId": 42752, "number": 7, "name": "P. Mitrică", "pos": "ST" },
-        { "apiId": 96868, "number": 22, "name": "A. Pavel", "pos": "LW" }
+        {
+          "apiId": 556171,
+          "number": 1,
+          "name": "L. Anton",
+          "pos": "GK"
+        },
+        {
+          "apiId": 556126,
+          "number": 14,
+          "name": "A. Coaja",
+          "pos": "LB"
+        },
+        {
+          "apiId": 14614,
+          "number": 23,
+          "name": "M. Jurić",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 197890,
+          "number": 4,
+          "name": "Carlos Inglada",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 556172,
+          "number": 13,
+          "name": "M. Bordea",
+          "pos": "RB"
+        },
+        {
+          "apiId": 613838,
+          "number": 29,
+          "name": "T. Lacerda",
+          "pos": "DM"
+        },
+        {
+          "apiId": 555969,
+          "number": 10,
+          "name": "G. Cirstean",
+          "pos": "CM"
+        },
+        {
+          "apiId": 43115,
+          "number": 27,
+          "name": "R. Moise",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 104466,
+          "number": 24,
+          "name": "P. Petre",
+          "pos": "RW"
+        },
+        {
+          "apiId": 42752,
+          "number": 7,
+          "name": "P. Mitrică",
+          "pos": "ST"
+        },
+        {
+          "apiId": 96868,
+          "number": 22,
+          "name": "A. Pavel",
+          "pos": "LW"
+        }
       ],
       "confirmedXI": null,
       "squad": [
@@ -2093,20 +2436,60 @@
       },
       "absences": [],
       "mercatoIn": [
-        { "name": "Carlos Inglada", "from": "Politehnica Iași", "fee": "transfer liber" },
-        { "name": "Tomás Lacerda", "from": null, "fee": null },
-        { "name": "Marko Jurić", "from": null, "fee": "revenit fără echipă în iunie 2026, contract pe un sezon" }
+        {
+          "name": "Carlos Inglada",
+          "from": "Politehnica Iași",
+          "fee": "transfer liber"
+        },
+        {
+          "name": "Tomás Lacerda",
+          "from": null,
+          "fee": null
+        },
+        {
+          "name": "Marko Jurić",
+          "from": null,
+          "fee": "revenit fără echipă în iunie 2026, contract pe un sezon"
+        }
       ],
       "mercatoOut": [
-        { "name": "Vlăduț Cimbru", "to": null, "fee": null },
-        { "name": "Andreas Niță", "to": null, "fee": null }
+        {
+          "name": "Vlăduț Cimbru",
+          "to": null,
+          "fee": null
+        },
+        {
+          "name": "Andreas Niță",
+          "to": null,
+          "fee": null
+        }
       ],
       "preseason": [
-        { "opp": "FCM Ungheni", "score": "1-0", "date": "2026-06-27" },
-        { "opp": "Metalul Buzău", "score": "2-7", "date": null },
-        { "opp": "Oțelul Galați", "score": "1-3", "date": null },
-        { "opp": "Gloria Bistrița", "score": "0-1", "date": "2026-07-17" },
-        { "opp": "KSE Târgu Secuiesc", "score": "4-0", "date": null }
+        {
+          "opp": "FCM Ungheni",
+          "score": "1-0",
+          "date": "2026-06-27"
+        },
+        {
+          "opp": "Metalul Buzău",
+          "score": "2-7",
+          "date": null
+        },
+        {
+          "opp": "Oțelul Galați",
+          "score": "1-3",
+          "date": null
+        },
+        {
+          "opp": "Gloria Bistrița",
+          "score": "0-1",
+          "date": "2026-07-17"
+        },
+        {
+          "opp": "KSE Târgu Secuiesc",
+          "score": "4-0",
+          "date": null
+        }
       ],
       "news": [
         {
@@ -2148,7 +2531,40 @@
             "O remiză ar propulsa echipa peste Chindia, pe locul 6."
           ]
         }
-      ]
+      ],
+      "newsCandidates": [
+        {
+          "title": "CSM Reșița - FC Bacău 0-0 DGS 1. Ultimul meci din etapa 7 a Ligii 2",
+          "url": "https://www.digisport.ro/fotbal/liga-2/csm-resita-fc-bacau-1700-live-video-dgs-1-echipele-programul-si-rezultatele-etapei-a-7-a-4481451",
+          "source": "Digi Sport",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "ACSM Reșița – FC Bacău se joacă ACUM. Moldovenii au trei mari ocazii de gol înainte de pauză, dar bănățenii au noroc",
+          "url": "https://www.prosport.ro/fotbal-intern/liga-2/acsm-resita-fc-bacau-incepe-de-la-ora-1700-este-ultimul-meci-al-etapei-a-7-a-a-ligii-2-trupa-lui-dorinel-munteanu-are-nevoie-de-victorie-pentru-a-reveni-pe-locul-2-20524935",
+          "source": "ProSport",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "FC Bacau",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE8wSmVhd3JKZTlXUklILUc1V1BRNmJ1eGozOHF4N2ZlSTJ3U2J2cW5Md211eG0zQW9namlHLWYxSFk0Zk9XMzNaOFhBbDBJX21hcjRWMkp6bElrZHF0TzBkaVZQdC14ZVJsamdVRWcxWFB4UnFS?oc=5",
+          "source": "Transfermarkt",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "Liga 2 și SuperLiga: Meciuri importante și schimbări la FCSB",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOd1NtaXA1anFrMXNRMVJkeGVaNjRJZnUwQVlhbTBSbjFxR0E2eTV1MEt4b3JrdERUUlFwUjY2QmM3cW1qVlQwdm9SVXlrd2E4enVZdUF4SHN3cGg5eXcxNjFBdUNPNlhYdVpfWHB0YjdvRHR3QVRaaGxaVjNRRjFkSnJ6QXJyS3ptdHpNMjhJRQ?oc=5",
+          "source": "SSBCrack",
+          "published": "2026-09-14"
+        },
+        {
+          "title": "ACSM Resita",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPeEprcTNqUDZWdDdSN19lZzM5eUlRdEQzajdzNHA4OHFpRU5USzFpVVFVT2VRYVB4Z3Nad2NOLU9QU1JCV2xyaVkxV05NX1NwVGVaM0puUUs2TUFSWDIwa2VOdnVGMFM3aW0wVVhYeV92QlJFR0tOWGJwMGFsRFVzTU1YaC1jZ085U3c?oc=5",
+          "source": "Transfermarkt",
+          "published": "2026-09-13"
+        }
+      ],
+      "logo": "https://media.api-sports.io/football/teams/22000.png"
     }
   },
   "standings": {

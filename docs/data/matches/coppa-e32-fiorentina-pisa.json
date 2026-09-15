@@ -193,7 +193,8 @@
   "competition": {
     "name": "Coppa Italia",
     "round": "Șaisprezecimi de finală",
-    "country": "IT"
+    "country": "IT",
+    "logo": "https://media.api-sports.io/football/leagues/137.png"
   },
   "kickoff": "2026-09-15T22:00:00+03:00",
   "broadcast": "Italia1 (Mediaset, în clar)",
@@ -206,7 +207,14 @@
       "Proiectat de inginerul Pier Luigi Nervi, stadionul a fost inaugurat în 1931 — unul dintre primele stadioane moderne din Italia, cu turnul Maratona și rampele elicoidale rămase repere de arhitectură.",
       "A fost redenumit „Artemio Franchi” în 1991, în onoarea fostului președinte al FIGC și UEFA; a găzduit trei meciuri de grupă și un sfert de finală la Campionatul Mondial din 1990.",
       "Actuala renovare a adus deja noua Curvă Fiesole și extinderi pe Maratona; capacitatea finală, la finele lucrărilor, va ajunge la circa 40.000 de locuri."
-    ]
+    ],
+    "weather": {
+      "tempC": 23,
+      "condition": "cer clar",
+      "windKph": 5,
+      "precipitationMm": 0,
+      "forecastAt": "2026-09-15T15:27:46.780Z"
+    }
   },
   "referee": {
     "name": "Livio Marinelli",
@@ -263,7 +271,42 @@
     "Un fir aparte: Samuele Angori, fundașul stânga al Pisei de diseară, s-a format chiar în academia Fiorentinei, înainte să ajungă, via Perugia și Torino, la actualul club.",
     "Arbitrul Livio Marinelli (41 ani, Tivoli) are un bilanț pozitiv cu viola (5v-4e-2î în 11 meciuri), dar a acordat un penalty controversat la VAR în Milan-Fiorentina anul trecut; cu Pisa nu s-a mai întâlnit din 2020-21."
   ],
-  "predictions": null,
+  "predictions": {
+    "winnerName": "Fiorentina",
+    "winOrDraw": false,
+    "advice": "Combo Winner : Fiorentina and +1.5 goals",
+    "percent": {
+      "home": 45,
+      "draw": 45,
+      "away": 10
+    },
+    "comparison": {
+      "form": {
+        "home": 50,
+        "away": 50
+      },
+      "attack": {
+        "home": 67,
+        "away": 33
+      },
+      "defense": {
+        "home": 50,
+        "away": 50
+      },
+      "poisson": {
+        "home": 0,
+        "away": 0
+      },
+      "h2h": {
+        "home": 80,
+        "away": 20
+      },
+      "goals": {
+        "home": 100,
+        "away": 0
+      }
+    }
+  },
   "standings": null,
   "teams": {
     "home": {
@@ -325,6 +368,87 @@
             "club": "Domegliara",
             "period": "2007-2009",
             "note": null
+          }
+        ],
+        "photo": "https://media.api-sports.io/football/coachs/2902.png",
+        "trophies": [
+          {
+            "competition": "Serie B",
+            "country": "Italy",
+            "season": "2022/2023",
+            "place": "Winner"
+          },
+          {
+            "competition": "Youth Viareggio Cup",
+            "country": "World",
+            "season": "2016",
+            "place": "Winner"
+          },
+          {
+            "competition": "Campionato Primavera 1",
+            "country": "Italy",
+            "season": "2015/2016",
+            "place": "2nd Place"
+          },
+          {
+            "competition": "Coppa Italia Primavera",
+            "country": "Italy",
+            "season": "2015/2016",
+            "place": "2nd Place"
+          },
+          {
+            "competition": "Serie A",
+            "country": "Italy",
+            "season": "2011/2012",
+            "place": "Winner"
+          },
+          {
+            "competition": "Coppa Italia",
+            "country": "Italy",
+            "season": "2011/2012",
+            "place": "2nd Place"
+          },
+          {
+            "competition": "Trophée des Champions",
+            "country": "France",
+            "season": "2008/2009",
+            "place": "2nd Place"
+          },
+          {
+            "competition": "Ligue 1",
+            "country": "France",
+            "season": "2007/2008",
+            "place": "Winner"
+          },
+          {
+            "competition": "Coupe de France",
+            "country": "France",
+            "season": "2007/2008",
+            "place": "Winner"
+          },
+          {
+            "competition": "Serie A",
+            "country": "Italy",
+            "season": "2006/2007",
+            "place": "Winner"
+          },
+          {
+            "competition": "Super Cup",
+            "country": "Italy",
+            "season": "2006/2007",
+            "place": "Winner"
+          },
+          {
+            "competition": "FIFA World Cup",
+            "country": "World",
+            "season": "2006 Germany",
+            "place": "Winner"
+          },
+          {
+            "competition": "Serie B",
+            "country": "Italy",
+            "season": "2003/2004",
+            "place": "Winner"
           }
         ]
       },
@@ -416,7 +540,7 @@
           "natTeam": null,
           "birthCountry": "Denmark",
           "pronunciation": null,
-          "career": null,
+          "career": "Odense (2016–2020) · Hertha BSC (2021–2022) · Fiorentina (2023–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -449,7 +573,7 @@
           "natTeam": null,
           "birthCountry": "Italy",
           "pronunciation": null,
-          "career": null,
+          "career": "Fiorentina (2013–prezent) · Venezia (2018–2021) · Brescia (2022–2024)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -837,7 +961,7 @@
           "natTeam": null,
           "birthCountry": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Fiorentina (2025)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -994,7 +1118,7 @@
           "natTeam": null,
           "birthCountry": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Fiorentina (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1060,7 +1184,7 @@
           "natTeam": null,
           "birthCountry": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Fiorentina (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1161,7 +1285,7 @@
           "natTeam": null,
           "birthCountry": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Fiorentina (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1591,7 +1715,58 @@
             "Radu Dragusin a venit sub forma de imprumut de la Tottenham, dar inca poarta urmele rupturii de ligamente din 2025."
           ]
         }
-      ]
+      ],
+      "newsCandidates": [
+        {
+          "title": "La Fiorentina premiata per il centenario in Lega, Commisso 'grande orgoglio'",
+          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/15/la-fiorentina-premiata-per-il-centenario-in-lega-commisso-grande-orgoglio_5ccc8dc9-c0b5-4659-bb43-bffbd6b37c44.html",
+          "source": "ANSA",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Fiorentina v Pisa Odds",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMUFaSlZpd3pYSTQ1MnNMX1RCeWVvdlpBN09fa0dITm9vcG1oejVncnlmdlBGNExGZ1FEbWhONEh3MTVCUlk4d2ZRWFA3aEdRTXd1QUhlQzJRR0hVWVRjZGR3alNzX1luWU9YdEQ1Z19Rd2J0bmpOMnhncVJLN3JvQW04UUxadkFZaVRwWG1R?oc=5",
+          "source": "FanDuel Sportsbook",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Fiorentina vs Pisa: Coppa Italia stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBQZ1Y1dzVPbTZ5SzZheFBTYURudnhmckNpejZCUFctZnM1a0VDMURxb2dyRkdvVGt3STB1dTRqc3R0NS0tUGRRbWtJblNQVHNtR3BOTHFDeDl6MkJQV1NpcGpSTGM2UQ?oc=5",
+          "source": "BBC",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "President Giuseppe B Commisso receives the Pegaso d'Oro -",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1BN3V0S3l0QnpqNFQ2YWxYRjNQMWNjaFRyeG9CcDVNYUEtZU1iQzd0alhWcmhKQzNybm02eXZuc3ZKVFhjc2pwOGZON3k4aFA4Q09MQzUtdTg3anhXeThGeQ?oc=5",
+          "source": "ACF Fiorentina",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Watch Fiorentina vs Pisa Coppa Italia soccer game LIVE: Online streams, TV channel, early teams news, start time",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPM09ja2tyMWxXRmVtSUNEWmFiNHVLTlFVbGhBZjZzMl9iZ0VJLTRlSVNKOG00SGM4azlWSDlZN2FpUlB5YmlQTTlFQlFDX01pWVFaWUMtNTdnWHlaUFc1RlRLMWIzTlpXVE56dG9MdVRTMUlVSGdRZkdVdlJzZTJBamxQeGI1OGhTcVRIcUhDMDU3M0dwZnB3M3hfekRkM0JWbTZQQV9YOTk?oc=5",
+          "source": "goal.com",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Roma vs. Fiorentina: live game updates, stats, play-by-play",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5pNXB2eDhfa0xoUUNQSzl1TEQ1WE9yWUhmei1kR2xCb1hxSnB1ZWFXcHpXbW03VVc3RUlURFVXQXZmZlI4SnJJZ0FWZHR2R1EzY0FrY0NiQTllLUgwam1nNnF0MlhPT0xqLWxOQ200cmxqZUNxM21uVHpB?oc=5",
+          "source": "Yahoo Sports UK",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Pisa vs. Fiorentina: live game updates, stats, play-by-play",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPRHpOQW9qWHVVaXg4ZF94ODlJWkt2RkxmaDd0djNLWlRDTVdkUjJSbnhTeUFNSnV1cGZJcUJIamZUMmR6SE1hcllkajVxOVZYY1FXQmZVT1RWTE5GRUtxckFZMFEySjNzWV9CRG0tYmxyN1FaZGVSQm9DWG9DNUE5Uw?oc=5",
+          "source": "Yahoo Sports UK",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Fiorentina vs Pisa Prediction and Betting Tips | September 15th 2026",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQWDdlQmRaQmM3VTVoWGJfX0xFaTkzSlBKNGpMYmVoejJsaFAwd2FSSloxUUpLX1BfdzYyWGE5b3JoM3N4S09sU1d6anJ0RWIyT1N4Y1pNQTdlWmdlN3I3RW9TeFlUTDRWbUprVmw2LVhXeGZwSU5LNWl5bkI3QXktOVZLNWJkY2x0M0lHdUEwSzRWSENVZG8xQnVUSUoxRDRT?oc=5",
+          "source": "sportskeeda.com",
+          "published": "2026-09-15"
+        }
+      ],
+      "logo": "https://media.api-sports.io/football/teams/502.png"
     },
     "away": {
       "name": "Pisa",
@@ -1632,6 +1807,15 @@
             "club": "Siracusa / Sicula Leonzio",
             "period": "n/d",
             "note": "Primele experiente ca antrenor principal, in Serie C."
+          }
+        ],
+        "photo": "https://media.api-sports.io/football/coachs/3728.png",
+        "trophies": [
+          {
+            "competition": "Serie B",
+            "country": "Italy",
+            "season": "2012/2013",
+            "place": "Winner"
           }
         ]
       },
@@ -1716,20 +1900,31 @@
           ],
           "role": "GK",
           "age": 28,
-          "height": null,
-          "weight": null,
+          "height": 193,
+          "weight": 77,
           "foot": null,
           "nat": "CRO",
           "natTeam": null,
           "birthCountry": "Croatia",
           "pronunciation": null,
-          "career": null,
+          "career": "Udinese (2012–2020) · Kasımpaşa (2019) · Apoel Nicosia (2021) · CFR 1907 Cluj (2022) · Cagliari (2023) · Pisa (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 0,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
+          },
+          "photo": "https://media.api-sports.io/football/players/50054.png"
         },
         {
           "apiId": null,
@@ -1766,20 +1961,31 @@
           ],
           "role": "GK",
           "age": 38,
-          "height": null,
-          "weight": null,
+          "height": 195,
+          "weight": 75,
           "foot": null,
           "nat": "BRA",
           "natTeam": null,
           "birthCountry": "Brazil",
           "pronunciation": null,
-          "career": null,
+          "career": "Juventus (2016–2017) · Pisa (2020–prezent) · SS Monopoli (2021) · Frosinone (2022)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/56267.png"
         },
         {
           "apiId": null,
@@ -1791,20 +1997,31 @@
           ],
           "role": "GK",
           "age": 27,
-          "height": null,
-          "weight": null,
+          "height": 195,
+          "weight": 75,
           "foot": null,
           "nat": "ITA",
           "natTeam": null,
           "birthCountry": "Italy",
           "pronunciation": null,
-          "career": null,
+          "career": "Juventus (2016–2017) · Pisa (2020–prezent) · SS Monopoli (2021) · Frosinone (2022)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/56267.png"
         },
         {
           "apiId": null,
@@ -1823,13 +2040,14 @@
           "natTeam": null,
           "birthCountry": "Italy",
           "pronunciation": null,
-          "career": null,
+          "career": "Pisa (2025)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": null,
+          "photo": "https://media.api-sports.io/football/players/635992.png"
         },
         {
           "apiId": null,
@@ -1841,20 +2059,31 @@
           ],
           "role": "GK",
           "age": 28,
-          "height": null,
-          "weight": null,
+          "height": 194,
+          "weight": 73,
           "foot": null,
           "nat": "ITA",
           "natTeam": null,
           "birthCountry": "Italy",
           "pronunciation": null,
-          "career": null,
+          "career": "Chievo (2015–2017) · Reggina (2018) · Robur Siena (2019) · Catania (2020) · Vicenza Virtus (2021–2024) · Juve Stabia (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 360,
+            "apps": 4,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.68,
+            "conceded": 1,
+            "saves": 10
+          },
+          "photo": "https://media.api-sports.io/football/players/56864.png"
         },
         {
           "apiId": null,
@@ -1866,20 +2095,31 @@
           ],
           "role": "DEF",
           "age": 25,
-          "height": null,
+          "height": 193,
           "weight": null,
           "foot": null,
           "nat": "ITA",
           "natTeam": null,
           "birthCountry": "Italy",
           "pronunciation": null,
-          "career": null,
+          "career": "CSKA Sofia (2021) · CSKA 1948 Sofia II (2022) · CSKA 1948 (2023) · Antwerp (2024) · Pisa (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/342310.png"
         },
         {
           "apiId": null,
@@ -1891,20 +2131,31 @@
           ],
           "role": "DEF",
           "age": 21,
-          "height": null,
-          "weight": null,
+          "height": 185,
+          "weight": 83,
           "foot": null,
           "nat": "BUL",
           "natTeam": null,
           "birthCountry": "Bulgaria",
           "pronunciation": null,
-          "career": null,
+          "career": "Bari (2009) · Gubbio (2010–2011) · Brescia (2012–2015) · Cremonese (2013–2018) · Hellas Verona (2016–2017) · Pisa (2019–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "out",
           "statusNote": "Indisponibil, motiv neprecizat de club.",
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 90,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 7,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/31604.png"
         },
         {
           "apiId": null,
@@ -1917,7 +2168,7 @@
           "role": "DEF",
           "age": 26,
           "height": 195,
-          "weight": null,
+          "weight": 85,
           "foot": null,
           "nat": "ITA",
           "natTeam": null,
@@ -1929,7 +2180,18 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 90,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.2,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/91503.png"
         },
         {
           "apiId": null,
@@ -1941,20 +2203,31 @@
           ],
           "role": "DEF",
           "age": 20,
-          "height": null,
+          "height": 189,
           "weight": null,
           "foot": null,
           "nat": "ITA",
           "natTeam": null,
           "birthCountry": "Italy",
           "pronunciation": null,
-          "career": null,
+          "career": "Pisa (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/475090.png"
         },
         {
           "apiId": null,
@@ -1966,20 +2239,31 @@
           ],
           "role": "DEF",
           "age": 24,
-          "height": null,
-          "weight": null,
+          "height": 180,
+          "weight": 72,
           "foot": null,
           "nat": "POR",
           "natTeam": null,
           "birthCountry": "Portugal",
           "pronunciation": null,
-          "career": null,
+          "career": "FC Porto (2019–2021) · Pisa (2022–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "doubt",
           "statusNote": "Probleme la adductor inainte de ultimul meci de campionat; sanse de recuperare pentru diseara.",
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 21,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.6,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/129790.png"
         },
         {
           "apiId": null,
@@ -1998,13 +2282,24 @@
           "natTeam": null,
           "birthCountry": "Italy",
           "pronunciation": null,
-          "career": null,
+          "career": "Pisa (2022–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 1,
+            "assists": 0,
+            "minutes": 139,
+            "apps": 2,
+            "yellow": 1,
+            "red": null,
+            "rating": 4.39,
+            "conceded": 0,
+            "saves": 0
+          },
+          "photo": "https://media.api-sports.io/football/players/419603.png"
         },
         {
           "apiId": null,
@@ -2042,7 +2337,7 @@
           "role": "DEF",
           "age": 30,
           "height": 186,
-          "weight": null,
+          "weight": 75,
           "foot": null,
           "nat": "ITA",
           "natTeam": null,
@@ -2054,7 +2349,18 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/30469.png"
         },
         {
           "apiId": null,
@@ -2091,20 +2397,31 @@
           ],
           "role": "DEF",
           "age": 22,
-          "height": null,
-          "weight": null,
+          "height": 187,
+          "weight": 85,
           "foot": null,
           "nat": "SUI",
           "natTeam": null,
           "birthCountry": "Switzerland",
           "pronunciation": null,
-          "career": null,
+          "career": "FC Zurich (2024) · Pisa (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 25,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 2.07,
+            "conceded": 0,
+            "saves": 0
+          },
+          "photo": "https://media.api-sports.io/football/players/485960.png"
         },
         {
           "apiId": null,
@@ -2116,8 +2433,8 @@
           ],
           "role": "DEF",
           "age": 22,
-          "height": null,
-          "weight": null,
+          "height": 186,
+          "weight": 77,
           "foot": null,
           "nat": "ITA",
           "natTeam": null,
@@ -2129,7 +2446,18 @@
           "linkLine": "S-a format chiar in academia Fiorentinei, inainte sa ajunga la Pisa via Perugia si Torino — o legatura directa cu adversarul de diseara.",
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 270,
+            "apps": 3,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.54,
+            "conceded": 0,
+            "saves": 0
+          },
+          "photo": "https://media.api-sports.io/football/players/302069.png"
         },
         {
           "apiId": null,
@@ -2166,20 +2494,31 @@
           ],
           "role": "MID",
           "age": 28,
-          "height": null,
+          "height": 185,
           "weight": null,
           "foot": null,
           "nat": "ALG",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Italy",
           "pronunciation": null,
-          "career": null,
+          "career": "Virtus Verona (2020) · Cesena (2021) · Feralpisalo (2022) · Cittadella (2023) · Catanzaro (2024–2025) · Pisa (2026–prezent)",
           "lastSeason": null,
           "funfact": "Eliminat cu rosu direct in infrangerea cu Virtus Entella (11 septembrie) si suspendat pentru urmatoarea etapa de campionat — dar sanctiunea nu se aplica si in Cupa, asa ca e disponibil diseara.",
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 1,
+            "minutes": 90,
+            "apps": 2,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.81,
+            "conceded": 0,
+            "saves": 0
+          },
+          "photo": "https://media.api-sports.io/football/players/266331.png"
         },
         {
           "apiId": null,
@@ -2191,20 +2530,31 @@
           ],
           "role": "MID",
           "age": 25,
-          "height": null,
-          "weight": null,
+          "height": 175,
+          "weight": 72,
           "foot": null,
           "nat": "DEN",
           "natTeam": null,
           "birthCountry": "Denmark",
           "pronunciation": null,
-          "career": null,
+          "career": "Ajaccio II (2015–2016) · Ajaccio (2017–2019) · Cagliari (2020) · Brescia (2021) · Pisa (2022–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 75,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 7.3,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/20959.png"
         },
         {
           "apiId": null,
@@ -2216,20 +2566,31 @@
           ],
           "role": "MID",
           "age": 26,
-          "height": null,
+          "height": 171,
           "weight": null,
           "foot": null,
           "nat": "ITA",
           "natTeam": null,
           "birthCountry": "Italy",
           "pronunciation": null,
-          "career": null,
+          "career": "Lille II (2021) · Lille (2022–2023) · Rouen (2024) · Cambuur (2025) · Pisa (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 1,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/361445.png"
         },
         {
           "apiId": null,
@@ -2241,8 +2602,8 @@
           ],
           "role": "MID",
           "age": 20,
-          "height": null,
-          "weight": null,
+          "height": 180,
+          "weight": 76,
           "foot": null,
           "nat": "FRA",
           "natTeam": null,
@@ -2254,7 +2615,18 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 21,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 7,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/298165.png"
         },
         {
           "apiId": null,
@@ -2266,20 +2638,31 @@
           ],
           "role": "MID",
           "age": 20,
-          "height": null,
+          "height": 175,
           "weight": null,
           "foot": null,
           "nat": "TUR",
           "natTeam": null,
           "birthCountry": "Turkey",
           "pronunciation": null,
-          "career": null,
+          "career": "Fenerbahçe (2022) · Hammarby FF (2023–2024) · Pisa (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 69,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.2,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/364600.png"
         },
         {
           "apiId": null,
@@ -2304,7 +2687,18 @@
           "linkLine": null,
           "status": "out",
           "statusNote": "Indisponibil, motiv neprecizat de club.",
-          "stats": null
+          "stats": {
+            "goals": 1,
+            "assists": 0,
+            "minutes": 90,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 9.5,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/436271.png"
         },
         {
           "apiId": null,
@@ -2323,13 +2717,24 @@
           "natTeam": null,
           "birthCountry": "France",
           "pronunciation": null,
-          "career": null,
+          "career": "PSG II (2021) · Koper (2022) · Triestina (2023–2024) · Juve Stabia (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 1,
+            "assists": 1,
+            "minutes": 298,
+            "apps": 4,
+            "yellow": 0,
+            "red": null,
+            "rating": 7.14,
+            "conceded": 0,
+            "saves": 0
+          },
+          "photo": "https://media.api-sports.io/football/players/333161.png"
         },
         {
           "apiId": null,
@@ -2341,20 +2746,31 @@
           ],
           "role": "MID",
           "age": 19,
-          "height": null,
-          "weight": null,
+          "height": 184,
+          "weight": 76,
           "foot": null,
           "nat": "ITA",
           "natTeam": null,
           "birthCountry": "Italy",
           "pronunciation": null,
-          "career": null,
+          "career": "Pisa (2021–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 69,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.5,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/325387.png"
         },
         {
           "apiId": null,
@@ -2366,20 +2782,31 @@
           ],
           "role": "MID",
           "age": 25,
-          "height": null,
-          "weight": null,
+          "height": 184,
+          "weight": 76,
           "foot": null,
           "nat": "ITA",
           "natTeam": null,
           "birthCountry": "Italy",
           "pronunciation": null,
-          "career": null,
+          "career": "Pisa (2021–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 69,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.5,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/325387.png"
         },
         {
           "apiId": null,
@@ -2391,8 +2818,8 @@
           ],
           "role": "MID",
           "age": 25,
-          "height": null,
-          "weight": null,
+          "height": 183,
+          "weight": 67,
           "foot": null,
           "nat": "ITA",
           "natTeam": null,
@@ -2404,7 +2831,18 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 89,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.9,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/56289.png"
         },
         {
           "apiId": null,
@@ -2441,20 +2879,31 @@
           ],
           "role": "ATT",
           "age": 29,
-          "height": null,
-          "weight": null,
+          "height": 192,
+          "weight": 83,
           "foot": null,
           "nat": "ITA",
           "natTeam": null,
           "birthCountry": "Italy",
           "pronunciation": null,
-          "career": null,
+          "career": "Fremad Amager (2021–2022) · Sarpsborg 08 FF (2023) · Pisa (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 21,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.9,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/331678.png"
         },
         {
           "apiId": null,
@@ -2466,20 +2915,31 @@
           ],
           "role": "ATT",
           "age": 22,
-          "height": null,
-          "weight": null,
+          "height": 175,
+          "weight": 72,
           "foot": null,
           "nat": "DEN",
           "natTeam": null,
           "birthCountry": "Denmark",
           "pronunciation": null,
-          "career": null,
+          "career": "Ajaccio II (2015–2016) · Ajaccio (2017–2019) · Cagliari (2020) · Brescia (2021) · Pisa (2022–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 75,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 7.3,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/20959.png"
         },
         {
           "apiId": null,
@@ -2491,20 +2951,31 @@
           ],
           "role": "ATT",
           "age": 26,
-          "height": null,
-          "weight": null,
+          "height": 175,
+          "weight": 72,
           "foot": null,
           "nat": "FRA",
           "natTeam": null,
           "birthCountry": "France",
           "pronunciation": null,
-          "career": null,
+          "career": "Ajaccio II (2015–2016) · Ajaccio (2017–2019) · Cagliari (2020) · Brescia (2021) · Pisa (2022–prezent)",
           "lastSeason": null,
           "funfact": "A ajuns recent la a suta aparitie in tricoul Pisei.",
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 75,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 7.3,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/20959.png"
         },
         {
           "apiId": null,
@@ -2523,13 +2994,24 @@
           "natTeam": null,
           "birthCountry": "Italy",
           "pronunciation": null,
-          "career": null,
+          "career": "Pisa (2024–prezent)",
           "lastSeason": null,
           "funfact": "Fiul lui Gianluigi Buffon si al Alenei Seredova; spre deosebire de tatal sau portar, joaca atacant si a ales sa reprezinte nationala Cehiei (tara mamei) la nivel de tineret. A debutat in Serie B la 17 ani, intrand in Spezia-Pisa.",
           "linkLine": null,
           "status": "out",
           "statusNote": "Indisponibil, motiv neprecizat de club.",
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/510473.png"
         },
         {
           "apiId": null,
@@ -2548,13 +3030,24 @@
           "natTeam": null,
           "birthCountry": "Italy",
           "pronunciation": null,
-          "career": null,
+          "career": "Spal (2022–2024) · Bari (2025) · Pisa (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 15,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/392492.png"
         },
         {
           "apiId": null,
@@ -2566,8 +3059,8 @@
           ],
           "role": "ATT",
           "age": 31,
-          "height": null,
-          "weight": null,
+          "height": 190,
+          "weight": 85,
           "foot": null,
           "nat": "ITA",
           "natTeam": null,
@@ -2579,7 +3072,18 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 270,
+            "apps": 4,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.69,
+            "conceded": 0,
+            "saves": 0
+          },
+          "photo": "https://media.api-sports.io/football/players/30879.png"
         },
         {
           "apiId": null,
@@ -2591,8 +3095,8 @@
           ],
           "role": "ATT",
           "age": 33,
-          "height": null,
-          "weight": null,
+          "height": 191,
+          "weight": 86,
           "foot": null,
           "nat": "ITA",
           "natTeam": null,
@@ -2604,7 +3108,18 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 69,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.9,
+            "conceded": 0,
+            "saves": null
+          },
+          "photo": "https://media.api-sports.io/football/players/31560.png"
         },
         {
           "apiId": null,
@@ -2801,7 +3316,58 @@
             "Fundasul Samuele Angori s-a format chiar in academia Fiorentinei, inainte sa ajunga la Pisa via Perugia si Torino — un fir direct spre adversarul de diseara."
           ]
         }
-      ]
+      ],
+      "newsCandidates": [
+        {
+          "title": "Pisa results: England bucks global decline in reading and Wales falls behind",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNQkFqMF9vdWFGRGpIVWJZdGVDZ0tKaXlVY2J5UnpkRUVqQXpUemV2aFBmTWxsbjRqdmZTc01jU3c0YS1xdS1UcWppRGV6SnBFQ1JyVTE2Zm9ON1kybDVqcHdDUTcwOUxlcmJWZUl0X2F3UHAxdEJqRHdLeExUd0lhMWlpOEstZ0VSRDZ2Vm9tVXFHOHNGMHJPN2NMSDhpREVyMDF6UnExcWgyMDlfTnI4?oc=5",
+          "source": "The Conversation",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Fiorentina v Pisa Odds",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMUFaSlZpd3pYSTQ1MnNMX1RCeWVvdlpBN09fa0dITm9vcG1oejVncnlmdlBGNExGZ1FEbWhONEh3MTVCUlk4d2ZRWFA3aEdRTXd1QUhlQzJRR0hVWVRjZGR3alNzX1luWU9YdEQ1Z19Rd2J0bmpOMnhncVJLN3JvQW04UUxadkFZaVRwWG1R?oc=5",
+          "source": "FanDuel Sportsbook",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Vietnam outpaces regional peers in science: PISA 2025",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOcm5GUjQ2RENCNk9vWGdERFl1ZTBNNW1jZW96QWVMZFRTVTRSUUx4ckJkU2xySElCSHpRNncxQW14MlZiM09sSGZkU3piaHQ1c1lYS1kzM0xIUzVOU1o0ZnJFeGNfOGhVWEdJYzFGNm1iWExVbVdVRUVZc3J4WVltQVlzOVU?oc=5",
+          "source": "Asia News Network",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Fiorentina vs Pisa: Coppa Italia stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBQZ1Y1dzVPbTZ5SzZheFBTYURudnhmckNpejZCUFctZnM1a0VDMURxb2dyRkdvVGt3STB1dTRqc3R0NS0tUGRRbWtJblNQVHNtR3BOTHFDeDl6MkJQV1NpcGpSTGM2UQ?oc=5",
+          "source": "BBC",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "PISA Update",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5fWEk2ZnNGX1B4eWhpZFhrS3Jab29jX01JakZhY0FEYTZFSGRsTExDdDAzN3NIQk1LbGZpUnd6MVQyTkpvVlpuVk14TnJfZl8ydXJGUFd1VjhmNFVDMjZjRDFTWQ?oc=5",
+          "source": "Bella Caledonia",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Watch Fiorentina vs Pisa Coppa Italia soccer game LIVE: Online streams, TV channel, early teams news, start time",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPM09ja2tyMWxXRmVtSUNEWmFiNHVLTlFVbGhBZjZzMl9iZ0VJLTRlSVNKOG00SGM4azlWSDlZN2FpUlB5YmlQTTlFQlFDX01pWVFaWUMtNTdnWHlaUFc1RlRLMWIzTlpXVE56dG9MdVRTMUlVSGdRZkdVdlJzZTJBamxQeGI1OGhTcVRIcUhDMDU3M0dwZnB3M3hfekRkM0JWbTZQQV9YOTk?oc=5",
+          "source": "goal.com",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "What are PISA 2025 Results telling us about AI in education?",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPclYyN2dkeU5Vbk9PSlhIZm83cDlpUTB3aDJoR3RHXzRWTjFxQlZtLVg5OUp5SDEyVlh4XzlNeUZTN0g4bml3X0pPMllkZTR1QzBJaS1RSjVjRWZNaURXTklVeXphYnhCVlYxLVF2ZnJ5VW9QV1RFdnE5Nzd6em5pTTJobldkOGRLX21ZdjlLUk1NZFdXejdUdjBSaXdKalItd2JBV3pUc25rcndXVFdDclZnMnLSAbsBQVVfeXFMT09tbVhySWZBYWY4MXBISWlGUUxoVVU0Rmpzd19STlk4SXdKOFRidFdycFVsaEt6OVpzSWlFSTF2TG9YUWJ2bXZGQWQzeVBlSUctVUU5dV8tZWl2U1F3VF9yWVFPOUJRTTZhd0VCLWlMWFJSbGJkaDJ1REdkMnJKZkctV2hFMjNzUjlNT0ZtS29CVFU3MGJwdU1qYXN6UVY2LUpvdFR5OG1IcFJFcHk1OU1VTkxrcEtFdjNYdw?oc=5",
+          "source": "The Hindu",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Cantieri di Pisa owner Enrico Gennasio takes over operational control",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOdnlGVGRzd0tUdUZGQl85X0hkbElXRlRtRzVjWTFOZXpJdTFrUVZpMFVYS2IteGtkbFpaUDVlWVgtQjJ6cUdtWEI3YVlHbmxEclBFVDV3dUhNRnFEZWJRLVlDcmdmbVNwS1VmZG1rT3lZMlVFTW9raEFmUzlZX1BlYXhEMm1kQ0RYYVZVSnM2dUJjVHZZVUhYZGw1bDhYc1lnWFc4MVlR?oc=5",
+          "source": "Marine Industry News",
+          "published": "2026-09-15"
+        }
+      ],
+      "logo": "https://media.api-sports.io/football/teams/801.png"
     }
   }
 }
