@@ -1,6 +1,6 @@
 {
   "slug": "coppa-e32-genoa-sudtirol",
-  "generatedAt": "2026-09-15T15:28:26.787Z",
+  "generatedAt": "2026-09-15T15:37:03.856Z",
   "partial": true,
   "sources": [
     {
@@ -20,14 +20,7 @@
     "name": "Stadio Luigi Ferraris",
     "capacity": null,
     "city": "Genoa",
-    "notes": null,
-    "weather": {
-      "tempC": 25,
-      "condition": "parțial noros",
-      "windKph": 5,
-      "precipitationMm": 0,
-      "forecastAt": "2026-09-15T15:28:27.372Z"
-    }
+    "notes": null
   },
   "referee": {
     "name": "n/d",
@@ -102,9 +95,10 @@
       "colors": null,
       "coach": {
         "apiId": 18685,
-        "name": "Daniele De Rossi",
-        "country": "Italy",
-        "age": 42,
+        "name": "D. De Rossi",
+        "photo": "https://media.api-sports.io/football/coachs/18685.png",
+        "country": null,
+        "age": null,
         "tenureFrom": "2025-07",
         "career": [
           {
@@ -113,12 +107,12 @@
             "note": null
           },
           {
-            "club": "Roma",
+            "club": "AS Roma",
             "period": "2024–2024",
             "note": null
           },
           {
-            "club": "SPAL",
+            "club": "Spal",
             "period": "2022–2023",
             "note": null
           }
@@ -247,13 +241,148 @@
         ]
       },
       "formation": "n/d",
-      "predictedXI": [],
-      "confirmedXI": null,
+      "predictedXI": [
+        {
+          "apiId": 405239,
+          "number": 4,
+          "name": "Alexsandro Amorim",
+          "pos": "M"
+        },
+        {
+          "apiId": 7228,
+          "number": 99,
+          "name": "F. Stolz",
+          "pos": "G"
+        },
+        {
+          "apiId": 611384,
+          "number": 71,
+          "name": "S. Wiafe",
+          "pos": "F"
+        },
+        {
+          "apiId": 281408,
+          "number": 9,
+          "name": "Vítinha",
+          "pos": "F"
+        },
+        {
+          "apiId": 362813,
+          "number": 31,
+          "name": "D. Puczka",
+          "pos": "D"
+        },
+        {
+          "apiId": 387128,
+          "number": 34,
+          "name": "S. Otoa",
+          "pos": "D"
+        },
+        {
+          "apiId": 475672,
+          "number": 11,
+          "name": "E. Meichtry",
+          "pos": "M"
+        },
+        {
+          "apiId": 281826,
+          "number": 27,
+          "name": "A. Marcandalli",
+          "pos": "D"
+        },
+        {
+          "apiId": 153411,
+          "number": 16,
+          "name": "C. Drameh",
+          "pos": "D"
+        },
+        {
+          "apiId": 288769,
+          "number": 8,
+          "name": "T. Baldanzi",
+          "pos": "M"
+        },
+        {
+          "apiId": 270613,
+          "number": 2,
+          "name": "M. Mitaj",
+          "pos": "D"
+        }
+      ],
+      "confirmedXI": [
+        {
+          "apiId": 405239,
+          "number": 4,
+          "name": "Alexsandro Amorim",
+          "pos": "M"
+        },
+        {
+          "apiId": 7228,
+          "number": 99,
+          "name": "F. Stolz",
+          "pos": "G"
+        },
+        {
+          "apiId": 611384,
+          "number": 71,
+          "name": "S. Wiafe",
+          "pos": "F"
+        },
+        {
+          "apiId": 281408,
+          "number": 9,
+          "name": "Vítinha",
+          "pos": "F"
+        },
+        {
+          "apiId": 362813,
+          "number": 31,
+          "name": "D. Puczka",
+          "pos": "D"
+        },
+        {
+          "apiId": 387128,
+          "number": 34,
+          "name": "S. Otoa",
+          "pos": "D"
+        },
+        {
+          "apiId": 475672,
+          "number": 11,
+          "name": "E. Meichtry",
+          "pos": "M"
+        },
+        {
+          "apiId": 281826,
+          "number": 27,
+          "name": "A. Marcandalli",
+          "pos": "D"
+        },
+        {
+          "apiId": 153411,
+          "number": 16,
+          "name": "C. Drameh",
+          "pos": "D"
+        },
+        {
+          "apiId": 288769,
+          "number": 8,
+          "name": "T. Baldanzi",
+          "pos": "M"
+        },
+        {
+          "apiId": 270613,
+          "number": 2,
+          "name": "M. Mitaj",
+          "pos": "D"
+        }
+      ],
       "squad": [
         {
           "apiId": 37137,
           "number": 1,
           "name": "Justin Bijlow",
+          "photo": "https://media.api-sports.io/football/players/37137.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -276,17 +405,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 360,
-            "apps": 4,
+            "minutes": 90,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.73
+            "rating": 6.2,
+            "conceded": 1,
+            "saves": 1
           }
         },
         {
           "apiId": 31445,
           "number": 39,
           "name": "Daniele Sommariva",
+          "photo": "https://media.api-sports.io/football/players/31445.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -313,13 +445,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 7228,
           "number": 99,
           "name": "Franz Valentin Stolz",
+          "photo": "https://media.api-sports.io/football/players/7228.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -346,13 +481,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 441134,
           "number": 74,
           "name": "Mamedi Doucoure",
+          "photo": "https://media.api-sports.io/football/players/441134.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -379,13 +517,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 153411,
           "number": 16,
           "name": "Cody Callum Pierre Drameh",
+          "photo": "https://media.api-sports.io/football/players/153411.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -412,13 +553,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 36916,
           "number": 3,
           "name": "Kingsley Osezele Ehizibue",
+          "photo": "https://media.api-sports.io/football/players/36916.png",
           "pos": "MID",
           "positions": [
             "MID",
@@ -446,13 +590,16 @@
             "apps": 2,
             "yellow": 1,
             "red": null,
-            "rating": 6.5
+            "rating": 6.5,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 616217,
           "number": 3,
           "name": "Kris Gecaj",
+          "photo": "https://media.api-sports.io/football/players/616217.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -478,6 +625,7 @@
           "apiId": 616219,
           "number": 40,
           "name": "Klisys",
+          "photo": "https://media.api-sports.io/football/players/616219.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -503,6 +651,7 @@
           "apiId": 567646,
           "number": 18,
           "name": "G. Lauricella",
+          "photo": null,
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -528,6 +677,7 @@
           "apiId": 281826,
           "number": 27,
           "name": "Alessandro Marcandalli",
+          "photo": "https://media.api-sports.io/football/players/281826.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -548,19 +698,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 0,
+            "goals": 1,
             "assists": 0,
-            "minutes": 351,
-            "apps": 4,
+            "minutes": 90,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.3
+            "rating": 8.3,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 270613,
           "number": 2,
           "name": "Mario Mitaj",
+          "photo": "https://media.api-sports.io/football/players/270613.png",
           "pos": "DEF",
           "positions": [
             "DEF",
@@ -583,18 +736,21 @@
           "statusNote": null,
           "stats": {
             "goals": 0,
-            "assists": 0,
-            "minutes": null,
-            "apps": 0,
+            "assists": 1,
+            "minutes": 45,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": 7.3,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 18967,
           "number": 5,
           "name": "Leo Skiri Østigård",
+          "photo": "https://media.api-sports.io/football/players/18967.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -617,17 +773,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 336,
-            "apps": 4,
-            "yellow": 3,
+            "minutes": 45,
+            "apps": 1,
+            "yellow": 1,
             "red": null,
-            "rating": 7.03
+            "rating": 6.3,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 387128,
           "number": 34,
           "name": "Sebastian Otoa",
+          "photo": "https://media.api-sports.io/football/players/387128.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -650,17 +809,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 24,
+            "minutes": 45,
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.2
+            "rating": 6.3,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 362813,
           "number": 31,
           "name": "David Puczka",
+          "photo": "https://media.api-sports.io/football/players/362813.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -683,17 +845,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
-            "apps": 0,
+            "minutes": 12,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": 6.9,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 31137,
           "number": 20,
           "name": "Stefano Sabelli",
+          "photo": "https://media.api-sports.io/football/players/31137.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -716,17 +881,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 45,
-            "apps": 1,
-            "yellow": 1,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
             "red": null,
-            "rating": 6.2
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 675895,
           "number": null,
           "name": "Alessio Scelta",
+          "photo": null,
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -752,6 +920,7 @@
           "apiId": 35544,
           "number": 22,
           "name": "J. Vásquez",
+          "photo": "https://media.api-sports.io/football/players/35544.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -772,19 +941,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 1,
+            "goals": 0,
             "assists": 0,
-            "minutes": 341,
-            "apps": 4,
-            "yellow": 1,
-            "red": 1,
-            "rating": 6.53
+            "minutes": 90,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.5,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 626523,
           "number": 85,
           "name": "M. Vaz",
+          "photo": "https://media.api-sports.io/football/players/626523.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -811,13 +983,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 405239,
           "number": 4,
           "name": "Alexsandro Amorim",
+          "photo": "https://media.api-sports.io/football/players/405239.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -831,7 +1006,7 @@
           "natTeam": null,
           "birthCountry": "Brazil",
           "pronunciation": null,
-          "career": "Fortaleza EC (2023–2024) · Genoa (2025–prezent)",
+          "career": null,
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -840,17 +1015,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 113,
-            "apps": 4,
-            "yellow": 1,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
             "red": null,
-            "rating": 6.93
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 288769,
           "number": 8,
           "name": "Tommaso Baldanzi",
+          "photo": "https://media.api-sports.io/football/players/288769.png",
           "pos": "MID",
           "positions": [
             "MID",
@@ -872,19 +1050,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 0,
+            "goals": 1,
             "assists": 0,
-            "minutes": 255,
-            "apps": 4,
+            "minutes": 78,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.58
+            "rating": 8.2,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 89520,
           "number": 77,
           "name": "Mikael Egill Ellertsson",
+          "photo": "https://media.api-sports.io/football/players/89520.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -907,17 +1088,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 350,
-            "apps": 4,
+            "minutes": 78,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.55
+            "rating": 6.3,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 15881,
           "number": 32,
           "name": "Morten Wetche Frendrup",
+          "photo": "https://media.api-sports.io/football/players/15881.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -939,30 +1123,33 @@
           "statusNote": null,
           "stats": {
             "goals": 0,
-            "assists": 0,
-            "minutes": 360,
-            "apps": 4,
+            "assists": 1,
+            "minutes": 90,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.9
+            "rating": 7.5,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 393926,
           "number": 75,
           "name": "Gaël Lafont",
+          "photo": "https://media.api-sports.io/football/players/393926.png",
           "pos": "MID",
           "positions": [
             "MID"
           ],
           "role": "MID",
           "age": 19,
-          "height": null,
-          "weight": null,
+          "height": 175,
+          "weight": 59,
           "foot": null,
-          "nat": null,
+          "nat": "FRA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "France",
           "pronunciation": null,
           "career": null,
           "lastSeason": null,
@@ -976,6 +1163,7 @@
           "apiId": 475672,
           "number": 11,
           "name": "Franz-Ethan Meichtry",
+          "photo": "https://media.api-sports.io/football/players/475672.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1002,13 +1190,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.55
+            "rating": 6.55,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 197500,
           "number": 7,
           "name": "Nikita Solodchenko",
+          "photo": "https://media.api-sports.io/football/players/197500.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1018,22 +1209,33 @@
           "height": null,
           "weight": null,
           "foot": null,
-          "nat": null,
+          "nat": "RUS",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Russia",
           "pronunciation": null,
-          "career": null,
+          "career": "Walter Ferretti (2019–2020) · Santos (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 99,
+            "apps": 5,
+            "yellow": 1,
+            "red": null,
+            "rating": 6.5,
+            "conceded": 0,
+            "saves": null
+          }
         },
         {
           "apiId": 957,
           "number": 97,
           "name": "Mohameth Djibril Ibrahima Sow",
+          "photo": "https://media.api-sports.io/football/players/957.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1055,18 +1257,21 @@
           "statusNote": null,
           "stats": {
             "goals": 0,
-            "assists": 1,
-            "minutes": 227,
-            "apps": 4,
-            "yellow": 1,
+            "assists": 0,
+            "minutes": 45,
+            "apps": 1,
+            "yellow": 0,
             "red": null,
-            "rating": 6.78
+            "rating": 6.3,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 567684,
           "number": null,
           "name": "N. Tondi",
+          "photo": null,
           "pos": "MID",
           "positions": [
             "MID"
@@ -1092,6 +1297,7 @@
           "apiId": 31057,
           "number": 25,
           "name": "Hamed Junior Traorè",
+          "photo": "https://media.api-sports.io/football/players/31057.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1118,13 +1324,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 263481,
           "number": 29,
           "name": "Lorenzo Colombo",
+          "photo": "https://media.api-sports.io/football/players/263481.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1145,19 +1354,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 0,
-            "assists": 1,
-            "minutes": 300,
-            "apps": 4,
+            "goals": 1,
+            "assists": 0,
+            "minutes": 66,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.38
+            "rating": 7.3,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 791,
           "number": 92,
           "name": "Stephan Kareem El Shaarawy",
+          "photo": "https://media.api-sports.io/football/players/791.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1184,13 +1396,16 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.7
+            "rating": 6.7,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 162561,
           "number": 17,
           "name": "Elias Havel",
+          "photo": "https://media.api-sports.io/football/players/162561.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1203,6 +1418,42 @@
           "nat": "AUT",
           "natTeam": null,
           "birthCountry": "Austria",
+          "pronunciation": null,
+          "career": "FC Liefering (2020–2022) · Lask Linz (2023–2025) · Genoa (2026–prezent)",
+          "lastSeason": null,
+          "funfact": null,
+          "linkLine": null,
+          "status": "available",
+          "statusNote": null,
+          "stats": {
+            "goals": 1,
+            "assists": 0,
+            "minutes": 24,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 7.6,
+            "conceded": 0,
+            "saves": null
+          }
+        },
+        {
+          "apiId": 56396,
+          "number": 10,
+          "name": "Junior Messias",
+          "photo": "https://media.api-sports.io/football/players/56396.png",
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
+          "role": "ATT",
+          "age": 34,
+          "height": 174,
+          "weight": 70,
+          "foot": null,
+          "nat": "BRA",
+          "natTeam": null,
+          "birthCountry": "Brazil",
           "pronunciation": null,
           "career": null,
           "lastSeason": null,
@@ -1217,46 +1468,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
-          }
-        },
-        {
-          "apiId": 56396,
-          "number": 10,
-          "name": "Junior Messias",
-          "pos": "ATT",
-          "positions": [
-            "ATT"
-          ],
-          "role": "ATT",
-          "age": 34,
-          "height": 174,
-          "weight": 70,
-          "foot": null,
-          "nat": "BRA",
-          "natTeam": null,
-          "birthCountry": "Brazil",
-          "pronunciation": null,
-          "career": "Gozzano (2017–2018) · Crotone (2019–2020) · AC Milan (2021–2022) · Genoa (2023–prezent)",
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": {
-            "goals": 0,
-            "assists": 0,
-            "minutes": 125,
-            "apps": 4,
-            "yellow": 0,
-            "red": null,
-            "rating": 7.33
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 66761,
           "number": 18,
           "name": "Milutin Osmajić",
+          "photo": "https://media.api-sports.io/football/players/66761.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1283,13 +1504,16 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.97
+            "rating": 6.97,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 616229,
           "number": 97,
           "name": "Elia Spicuglia",
+          "photo": "https://media.api-sports.io/football/players/616229.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1315,18 +1539,19 @@
           "apiId": 452033,
           "number": 20,
           "name": "L. Venturino",
+          "photo": "https://media.api-sports.io/football/players/452033.png",
           "pos": "ATT",
           "positions": [
             "ATT"
           ],
           "role": "ATT",
           "age": 19,
-          "height": null,
-          "weight": null,
+          "height": 169,
+          "weight": 57,
           "foot": null,
-          "nat": null,
+          "nat": "ITA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Italy",
           "pronunciation": null,
           "career": null,
           "lastSeason": null,
@@ -1340,6 +1565,7 @@
           "apiId": 281408,
           "number": 9,
           "name": "Vítinha",
+          "photo": "https://media.api-sports.io/football/players/281408.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1362,17 +1588,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 218,
-            "apps": 4,
+            "minutes": 90,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.43
+            "rating": 6.9,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 611384,
           "number": 71,
           "name": "S. Wiafe",
+          "photo": "https://media.api-sports.io/football/players/611384.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1385,6 +1614,42 @@
           "nat": null,
           "natTeam": null,
           "birthCountry": null,
+          "pronunciation": null,
+          "career": "Modena (2025) · Genoa (2026–prezent)",
+          "lastSeason": null,
+          "funfact": null,
+          "linkLine": null,
+          "status": "available",
+          "statusNote": null,
+          "stats": {
+            "goals": 0,
+            "assists": 1,
+            "minutes": 12,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 7.2,
+            "conceded": 0,
+            "saves": null
+          }
+        },
+        {
+          "apiId": 478201,
+          "number": 80,
+          "name": "Adam Žulevič",
+          "photo": "https://media.api-sports.io/football/players/478201.png",
+          "pos": "ATT",
+          "positions": [
+            "ATT"
+          ],
+          "role": "ATT",
+          "age": 18,
+          "height": null,
+          "weight": null,
+          "foot": null,
+          "nat": "SVK",
+          "natTeam": null,
+          "birthCountry": "Slovakia",
           "pronunciation": null,
           "career": null,
           "lastSeason": null,
@@ -1399,46 +1664,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
-          }
-        },
-        {
-          "apiId": 478201,
-          "number": 80,
-          "name": "Adam Žulevič",
-          "pos": "ATT",
-          "positions": [
-            "ATT"
-          ],
-          "role": "ATT",
-          "age": 18,
-          "height": null,
-          "weight": null,
-          "foot": null,
-          "nat": "SVK",
-          "natTeam": null,
-          "birthCountry": "Slovakia",
-          "pronunciation": null,
-          "career": "Zemplín Michalovce (2024–2025) · Genoa (2026–prezent)",
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": {
-            "goals": 0,
-            "assists": 0,
-            "minutes": 9,
-            "apps": 1,
-            "yellow": 0,
-            "red": null,
-            "rating": 6.5
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 284570,
           "number": 15,
           "name": "Brooke Dion Nelson Norton-Cuffy",
+          "photo": "https://media.api-sports.io/football/players/284570.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1460,12 +1695,14 @@
           "statusNote": null,
           "stats": {
             "goals": 0,
-            "assists": 0,
-            "minutes": 180,
-            "apps": 2,
+            "assists": 1,
+            "minutes": 90,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.6
+            "rating": 7.2,
+            "conceded": 0,
+            "saves": null
           }
         }
       ],
@@ -1596,21 +1833,27 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Genoa vs Südtirol: Coppa Italia stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5mTEtsek1tcmQ1U3psTUFibUNRZVNyR0ZtVjVXUk9HUGNjUGtpY1FhQlAyUUZpbVgwS1BOc2tNVWVqYXJhbVBtWjBMZ29LcEFRUHpzeXVGNEl6Z3lManhtSWx5aw?oc=5",
-          "source": "bbc.com",
-          "published": "2026-09-15"
-        },
-        {
           "title": "Genoa Man Facing Stalking Charge Following Complaint",
           "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQWEwzRUdsVzlJcDJ0MEw2MzBEMG9teHZlOWNTWHJGNW5hYTF4WEllaDNMUi1tSUc3OWRQb1QwTy1oUjhJV0djelI4T1Y2bWs0Y05hNTFHZkVRaDFVX0JpSVNLU0E2Mlh1MFg4Q0FpeTg5d1hPM2UtTWpJRDVRdWdlY2NfbERGNEd2MUR2ck5fNDlmbE43OXJ4S3JPTG9NRDNlWHhrbWI4MGg?oc=5",
           "source": "Finger Lakes Daily News",
           "published": "2026-09-15"
         },
         {
+          "title": "Here Are the Best Kappa Football Drops of 2026 So Far",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5BVVZLUlU2NGRzOTZXLU8zUXluamN3enZqM2ZKT1A1V0xndVBwUWVZZ05adzJDSlBqbkFFSWY3RUhwSWlqVzJNZjVYQ1pWRk4tNUMwVmY1YWFhdGdEbGkxRkZBY1BXQ28zVGNYQ2d3QWM?oc=5",
+          "source": "Hypebeast",
+          "published": "2026-09-15"
+        },
+        {
           "title": "Watch Genoa vs Sudtirol Coppa Italia soccer game LIVE: Online streams, TV channel, early teams news, start time",
           "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPWFRkcXJKTXAzeGxSZnBKOWRDNVJlZU1lbnFIbzJJWkNJY2RsSWJUMS15N3lyUDBDUUk0eHpOczlXTW93ZkNIWGhzVUU3WDhaRmVGTlNCX0NveXZhZ0V4ZGV4dGJSZDVtWFI5SkxXVTFYLWE0Ny1aandlU2tQYW8tNzE1cmtVdXgyU1JxbThRdXJoRmFtc3lwaS1ZQ1dibVVfelhNbVlpQQ?oc=5",
-          "source": "goal.com",
+          "source": "Goal.com",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Genoa vs Südtirol: Coppa Italia stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5mTEtsek1tcmQ1U3psTUFibUNRZVNyR0ZtVjVXUk9HUGNjUGtpY1FhQlAyUUZpbVgwS1BOc2tNVWVqYXJhbVBtWjBMZ29LcEFRUHpzeXVGNEl6Z3lManhtSWx5aw?oc=5",
+          "source": "BBC",
           "published": "2026-09-15"
         },
         {
@@ -1628,19 +1871,13 @@
         {
           "title": "Parma vs. Genoa (20 Sep, 2026) Live Score",
           "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9VLWZaQlcycWxTSk9zQ0dDRE5obU1va3VrT25KV2llcUxKWlY1WVpFWUF2X0hMeTdyTFRPYzg5Rml6anpLX2lrZDJueGNJM0hzTGhpYjVUMWdySzJYekRucWY2UnhHNGJrSktiVGQtQ3BvUQ?oc=5",
-          "source": "ESPN India",
+          "source": "espn.in",
           "published": "2026-09-15"
         },
         {
-          "title": "Harmony Grove Varsity Baseball @ Genoa Central",
-          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQUWpQN1h1Smk5NUlIYmFpTXB0ZUhJRF9MNGhUQXFhWFYwQ3JQTzVfQVdLSkFIb0dGcklUcm8zMGhEYmlDaldJZHZfUG12VVUyTFZUMDhxNk5Ka2I0eVZvQ21xSXllaDBMUlN2SFh3R2MwLTFROGR3TVZiZWRyX3dTWVZzVDg3UzBOTkxEeUs5ek1pT1BkcjZPeDRzM3FRR29Wc0J0dG43UzBBRVdfcTI0Q0dMc2RFRlBSZE5VUnJfSEY4UmtaMVhkdXVNZlVMWVd4REFlOHJn?oc=5",
-          "source": "MaxPreps",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Genoa Boat Show: the number of large boats up to 50 metres is on the rise",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPYmk4OGNfUElEdzhwVmRGUVhpbWZmS2ZuY2RRY1A1Xzk5X2JCS3FJdDJERWp5RzVlSU85SlBaVlAxTllpcXNnT25Sa243MFNVb2pOejk0LVdFS2ltdDdTYkFTY2lCVUlqaHhWcFN3bU5BNEpQSENZbWJTdkhWN2RuRG9OMEpVd1VoSktpSXJSeS1zZHV5S3RzdjJNRUhMYUJYRENaQVd3?oc=5",
-          "source": "Il Sole 24 ORE",
+          "title": "Coppa Italia, Genoa v Südtirol LIVE, the official line-ups: Baldanzi and Meichtry are there",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNVmwzQ2x5Wk5mYTQtUUZJM3R2QU5VMjYyRTFMNHo5Y0hXUzRiZ0tMWTZLdHlseWNwa0Ywc1h0R0tzZXJqX1BPVWhyYmVUcXdPT3VGYzdVQUxXcHhXTGxodjVrU3Bia3cya0hRUGxIMkRGVWFycGd4R0premFXZmkwT1JibHB4VWh0SU5aQl9uWC1vZ1VncDZxdkJyUjRDbkU1Wi1waTJCa3ZsZjNoMkNZUGtZQVN4Um8zQU11Yk9fZGlsMFFUUTVUOWZqalR0Nm9KVkFYTV84UlNxQQ?oc=5",
+          "source": "Goal.com",
           "published": "2026-09-15"
         }
       ],
@@ -1737,8 +1974,142 @@
         ]
       },
       "formation": "n/d",
-      "predictedXI": [],
-      "confirmedXI": null,
+      "predictedXI": [
+        {
+          "apiId": 349218,
+          "number": 17,
+          "name": "L. Anghelè",
+          "pos": "F"
+        },
+        {
+          "apiId": 470787,
+          "number": 46,
+          "name": "D. Brik",
+          "pos": "M"
+        },
+        {
+          "apiId": 327763,
+          "number": 9,
+          "name": "R. Burnete",
+          "pos": "F"
+        },
+        {
+          "apiId": 378281,
+          "number": 23,
+          "name": "F. Davi",
+          "pos": "D"
+        },
+        {
+          "apiId": 133638,
+          "number": 24,
+          "name": "S. Davì",
+          "pos": "D"
+        },
+        {
+          "apiId": 137098,
+          "number": 55,
+          "name": "A. Giorgini",
+          "pos": "D"
+        },
+        {
+          "apiId": 1623,
+          "number": 22,
+          "name": "A. Plizzari",
+          "pos": "G"
+        },
+        {
+          "apiId": 370876,
+          "number": 25,
+          "name": "K. Mixtur",
+          "pos": "F"
+        },
+        {
+          "apiId": 598593,
+          "number": 19,
+          "name": "M. Pellini",
+          "pos": "D"
+        },
+        {
+          "apiId": 31109,
+          "number": 21,
+          "name": "F. Tait",
+          "pos": "M"
+        },
+        {
+          "apiId": 333033,
+          "number": 3,
+          "name": "D. Veroli",
+          "pos": "D"
+        }
+      ],
+      "confirmedXI": [
+        {
+          "apiId": 349218,
+          "number": 17,
+          "name": "L. Anghelè",
+          "pos": "F"
+        },
+        {
+          "apiId": 470787,
+          "number": 46,
+          "name": "D. Brik",
+          "pos": "M"
+        },
+        {
+          "apiId": 327763,
+          "number": 9,
+          "name": "R. Burnete",
+          "pos": "F"
+        },
+        {
+          "apiId": 378281,
+          "number": 23,
+          "name": "F. Davi",
+          "pos": "D"
+        },
+        {
+          "apiId": 133638,
+          "number": 24,
+          "name": "S. Davì",
+          "pos": "D"
+        },
+        {
+          "apiId": 137098,
+          "number": 55,
+          "name": "A. Giorgini",
+          "pos": "D"
+        },
+        {
+          "apiId": 1623,
+          "number": 22,
+          "name": "A. Plizzari",
+          "pos": "G"
+        },
+        {
+          "apiId": 370876,
+          "number": 25,
+          "name": "K. Mixtur",
+          "pos": "F"
+        },
+        {
+          "apiId": 598593,
+          "number": 19,
+          "name": "M. Pellini",
+          "pos": "D"
+        },
+        {
+          "apiId": 31109,
+          "number": 21,
+          "name": "F. Tait",
+          "pos": "M"
+        },
+        {
+          "apiId": 333033,
+          "number": 3,
+          "name": "D. Veroli",
+          "pos": "D"
+        }
+      ],
       "squad": [
         {
           "apiId": 677815,
@@ -2922,7 +3293,7 @@
         {
           "title": "Watch Genoa vs Sudtirol Coppa Italia soccer game LIVE: Online streams, TV channel, early teams news, start time",
           "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPWFRkcXJKTXAzeGxSZnBKOWRDNVJlZU1lbnFIbzJJWkNJY2RsSWJUMS15N3lyUDBDUUk0eHpOczlXTW93ZkNIWGhzVUU3WDhaRmVGTlNCX0NveXZhZ0V4ZGV4dGJSZDVtWFI5SkxXVTFYLWE0Ny1aandlU2tQYW8tNzE1cmtVdXgyU1JxbThRdXJoRmFtc3lwaS1ZQ1dibVVfelhNbVlpQQ?oc=5",
-          "source": "goal.com",
+          "source": "Goal.com",
           "published": "2026-09-15"
         },
         {
@@ -2932,9 +3303,15 @@
           "published": "2026-09-15"
         },
         {
+          "title": "Coppa Italia, Genoa v Südtirol LIVE, the official line-ups: Baldanzi and Meichtry are there",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNVmwzQ2x5Wk5mYTQtUUZJM3R2QU5VMjYyRTFMNHo5Y0hXUzRiZ0tMWTZLdHlseWNwa0Ywc1h0R0tzZXJqX1BPVWhyYmVUcXdPT3VGYzdVQUxXcHhXTGxodjVrU3Bia3cya0hRUGxIMkRGVWFycGd4R0premFXZmkwT1JibHB4VWh0SU5aQl9uWC1vZ1VncDZxdkJyUjRDbkU1Wi1waTJCa3ZsZjNoMkNZUGtZQVN4Um8zQU11Yk9fZGlsMFFUUTVUOWZqalR0Nm9KVkFYTV84UlNxQQ?oc=5",
+          "source": "Goal.com",
+          "published": "2026-09-15"
+        },
+        {
           "title": "Genoa vs Sudtirol Prediction and Betting Tips | September 15th 2026",
           "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPZHk1akhyT0NpSHFiOTFLNnNwNklGaXpaR3hveHZrOEctZmg5M1J6WktvRnIyaUgwbHZ1NlJKQVJ5NFBlMUtralM3ZFU0VUYzUnp4MmItZG9GbEVabkJ5UHdpM1E0T2NCZXdtSFpVYUdUeHVrZWVXTFJGVnh3ZzNPS0FfQWdrcnlXTVhicXk1T05XcmptZDZNM2pTTi1DQkE?oc=5",
-          "source": "sportskeeda.com",
+          "source": "Sportskeeda",
           "published": "2026-09-15"
         },
         {
@@ -2950,15 +3327,9 @@
           "published": "2026-09-15"
         },
         {
-          "title": "Football matches live on TV this week",
-          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5PaHFlcEduZ2I2VFM2M2g2aExleG1lbHVIajBxODVqVXZKWnEzWmlQSmJMMHZsV2lYdzc4U0hIUFRtanBUV2UwTEJGdzZRcU5GSHNTMzBuOTNac3dMdVNJMFNNRFdIZjByYlVaRnJhVQ?oc=5",
-          "source": "Fan Banter",
-          "published": "2026-09-15"
-        },
-        {
           "title": "Genoa v Sudtirol Odds",
           "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPaTNwbVNqNkI0RkNYTzNJY0dQN1NoQ1Z0aFVwek95WW42SWhPT3BkVkdiNXJfQnJheDFlUWtsS3FfalRxQ1VPUS1hT09PeTlSUmpjNGJCVjFxVWI2UWZjanpoQXA2MTg2c0RFcWhoaHg4NmhYVUNyOXRmX2lLVVZhNnB1cEFSZWNxa1V5Zg?oc=5",
-          "source": "FanDuel Sportsbook",
+          "source": "sportsbook.fanduel.com",
           "published": "2026-09-14"
         },
         {
