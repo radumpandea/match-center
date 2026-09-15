@@ -206,16 +206,26 @@ def build_api_call_payload(model: str, prompt: str):
             "auth": api_key if api_key != "unused" else None,
         }
 
+    payload = {
+        "model": model,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.1,
+        "max_tokens": 3500,
+        "response_format": {"type": "json_object"},
+    }
+    if provider == "openrouter":
+        # OpenRouter's web plugin bolts live search grounding onto ANY routed
+        # model (billed separately by OpenRouter, a few cents per run) — the
+        # one thing this fallback previously had no way to get, since it only
+        # ever saw the Level 1 pack + newsCandidates already in the repo. It
+        # still can't run the ~50 distinct lookups the real deep skill does;
+        # this is one grounded pass, not a research loop.
+        payload["plugins"] = [{"id": "web", "max_results": 5}]
+
     return {
         "url": base_url + "/chat/completions",
         "headers": headers,
-        "payload": {
-            "model": model,
-            "messages": [{"role": "user", "content": prompt}],
-            "temperature": 0.1,
-            "max_tokens": 3500,
-            "response_format": {"type": "json_object"},
-        },
+        "payload": payload,
         "auth": None,
     }
 
@@ -310,15 +320,19 @@ If you cannot support a value, omit it. No markdown and no commentary.
     return parsed
 
 
-# This model has no web research access, so it cannot back up a sentence with
-# a source the way the real match-data-json skill does. The only cheap, fairly
-# reliable signal that a sentence states an actual researched fact rather than
-# generic filler ("echipa cauta victoria", "jucatorii sunt motivati") is that
-# it names a concrete number: a score, a standings position, a points total,
-# a streak length, a date. Sentences without one get dropped rather than kept
-# on trust - see the "Reject generic commentator claims" history for why a
-# denylist of bad phrases alone was not enough (fresh generic phrasings kept
-# slipping through untouched by the denylist).
+# Most routes through this script (Ollama, a plain OpenAI-compatible endpoint,
+# or OpenRouter without the web plugin) have no research access beyond the
+# Level 1 pack + newsCandidates already in the prompt, so a sentence can't
+# carry a source the way the real match-data-json skill does. Even the
+# OpenRouter route's web plugin (see build_api_call_payload) is one grounded
+# pass, not a lookup loop. The only cheap, fairly reliable signal that a
+# sentence states an actual researched fact rather than generic filler
+# ("echipa cauta victoria", "jucatorii sunt motivati") is that it names a
+# concrete number: a score, a standings position, a points total, a streak
+# length, a date. Sentences without one get dropped rather than kept on trust
+# - see the "Reject generic commentator claims" history for why a denylist of
+# bad phrases alone was not enough (fresh generic phrasings kept slipping
+# through untouched by the denylist).
 HAS_NUMERIC_EVIDENCE = re.compile(r"\d")
 
 
@@ -553,6 +567,11 @@ def main():
             cwd=str(ROOT),
             check=True,
         )
+
+    github_output = os.environ.get("GITHUB_OUTPUT")
+    if github_output:
+        with open(github_output, "a", encoding="utf-8") as fh:
+            fh.write(f"slugs={', '.join(targets)}\n")
 
     print(f"Fallback build completed for: {', '.join(targets)}")
     return 0

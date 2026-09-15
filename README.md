@@ -21,6 +21,9 @@ build-match-data-favourites.yml → the same editorial pass, once per match ANY 
                                  favourited, at the deep depth (Sonnet, ~50 lookups) — the
                                  shared logic lives in build-match-data-run.yml, called by
                                  both workflows (and by workflow_dispatch for a one-off run)
+build-match-data-fallback.yml → a lighter editorial patch over OpenRouter/OpenAI/Ollama,
+                                 for when the Claude budget above is exhausted — see
+                                 "Fallback editorial pass" below
 docs/index.html               →  fixture list — sign in here to see/pick favourites
 docs/match.html?m=<slug>      →  the Match Center: pitch + predicted XI, player/coach/referee
                                  cards, story / H2H / form / absences / mercato / news panels,
@@ -137,6 +140,26 @@ Both deterministic Actions need only the `APIFOOTBALL_KEY` repo secret (server-s
 key is embedded in the page — `docs/app/config.js` is an empty stub and `match.html` makes
 no API calls of its own.
 
+### Fallback editorial pass — `build-match-data-fallback.yml`
+
+A manual/scheduled safety net for when the Claude subscription session limit or API credit
+is exhausted and the Level 2 pass above can't run. `scripts/build-match-data-openai-compatible.py`
+talks to any OpenAI-compatible chat-completions endpoint — OpenRouter, the OpenAI API, or a
+self-hosted Ollama — and asks for a small **editorial patch** (`storyOfTheMatch`, per-team
+`stories`, `news`, `mercatoIn/Out`, `preseason`, `coach` gaps, `funfact`/`linkLine` for named
+players) over the existing Level 1 pack, not a full rebuild. It never touches squads, form,
+standings, H2H, or the lineup, and drops any generated sentence that doesn't carry a concrete
+number (score, position, points, streak, date) — the cheapest signal available that a claim
+is an actual fact and not filler, since this path can't cite a source the way the real skill
+does.
+
+Default provider is **OpenRouter** with `google/gemini-3.1-pro-preview` — the closest match
+in research/JSON quality to the Claude models used above, and the only one of the three
+providers this script gets live web grounding for (OpenRouter's `web` plugin, billed
+separately by OpenRouter per run, a few cents at 5 results). Run it by hand from the Actions
+tab (`workflow_dispatch`) once tokens run low, or leave the `30 6 * * *` daily cron as a
+standing safety net — it's a no-op on days when nothing needs it.
+
 ## Local preview
 
 ```bash
@@ -152,6 +175,9 @@ cd docs && python -m http.server 8000
 | `CLAUDE_CODE_OAUTH_TOKEN` | build-match-data.yml (**currently preferred**), claude.yml, claude-code-review.yml | `claude setup-token` output — the Claude subscription. No credit cost, but shares one rolling 5-hour session limit with all other Claude usage on that login, so the 06:00 UTC cron can collide with interactive sessions. The build Action prefers this while `ANTHROPIC_API_KEY` is out of credit. |
 | `ANTHROPIC_API_KEY` | build-match-data.yml (fallback) | Anthropic Console API key — billed per token, no session cap. Preferred for a daily unattended run **when funded**; it ran dry on 2026-09-05 (`Credit balance is too low`). Used only when `CLAUDE_CODE_OAUTH_TOKEN` is unset. Re-fund it and flip the priority back in `build-match-data.yml`. |
 | `ANTHROPIC_WORKSPACE_ID` | build-match-data.yml | **only if** the `ANTHROPIC_API_KEY` fallback is in use AND it is an identity-linked key (error: `anthropic-workspace-id is required`). Value looks like `wrkspc_...`, from the Anthropic Console. Not needed for a plain workspace-scoped key or when running on the OAuth token. |
+| `OPENROUTER_API_KEY` | build-match-data-fallback.yml (**preferred provider**) | An [OpenRouter](https://openrouter.ai/keys) key, for the editorial-patch safety net above. Optional `OPENROUTER_MODEL` (default `google/gemini-3.1-pro-preview`) and `OPENROUTER_BASE_URL` secrets override the model/endpoint. |
+| `OPENAI_API_KEY` | build-match-data-fallback.yml | Used only if `OPENROUTER_API_KEY` is unset. Optional `OPENAI_MODEL` / `OPENAI_BASE_URL` secrets. |
+| `OLLAMA_BASE_URL` | build-match-data-fallback.yml | Self-hosted Ollama endpoint, used only if neither of the two above is set. Optional `OLLAMA_API_KEY` (if the endpoint needs auth) / `OLLAMA_MODEL` (default `llama3.1`). Has no web access at all — the weakest of the three fallback routes. |
 
 ## Shared edits and favourites (Supabase)
 

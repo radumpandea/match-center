@@ -10,7 +10,7 @@ on:
         required: false
         default: ""
       model:
-        description: "Model override (example: llama3.1, mistral, deepseek-r1)."
+        description: "Model override. Default provider is OpenRouter with google/gemini-3.1-pro-preview (closest quality match to the main Claude pipeline, with live web-search grounding via OpenRouter's web plugin). Other examples: openai/gpt-5.1, x-ai/grok-4.3, llama3.1 (Ollama)."
         required: false
         default: ""
 
@@ -42,6 +42,7 @@ jobs:
           python-version: "3.11"
 
       - name: Build via OpenAI-compatible model
+        id: build
         env:
           MATCH: ${{ github.event.inputs.match || '' }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -49,7 +50,7 @@ jobs:
           OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || github.event.inputs.model || 'meta-llama/llama-3.3-70b-instruct' }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENROUTER_BASE_URL: ${{ secrets.OPENROUTER_BASE_URL }}
-          OPENROUTER_MODEL: ${{ secrets.OPENROUTER_MODEL || github.event.inputs.model || 'meta-llama/llama-3.3-70b-instruct' }}
+          OPENROUTER_MODEL: ${{ secrets.OPENROUTER_MODEL || github.event.inputs.model || 'google/gemini-3.1-pro-preview' }}
           OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
           OLLAMA_BASE_URL: ${{ secrets.OLLAMA_BASE_URL }}
           OLLAMA_MODEL: ${{ secrets.OLLAMA_MODEL || github.event.inputs.model || 'llama3.1' }}
@@ -84,5 +85,10 @@ jobs:
             echo "No changes to commit."
             exit 0
           fi
-          git commit -m "Match data: fallback build"
+          SLUGS="${{ steps.build.outputs.slugs }}"
+          if [ -n "$SLUGS" ]; then
+            git commit -m "Match data: fallback build ($SLUGS)"
+          else
+            git commit -m "Match data: fallback build"
+          fi
           git push
