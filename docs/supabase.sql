@@ -93,6 +93,79 @@ $$;
 grant execute on function public.mc_favourite_slugs() to anon, authenticated;
 
 -- ============================================================================
+-- Instant favourite -> deep build. Previously the "PACHET PREMIUM" pass for
+-- a favourited match only happened on the 06:20 UTC daily cron
+-- (build-match-data-favourites.yml). This fires the SAME workflow (its own
+-- pick-favourite-matches.mjs step re-derives what still needs the deep pass
+-- and skips anything already at that level, so a redundant favourite/
+-- unfavourite/favourite click is harmless) the moment ANYONE favourites a
+-- match, instead of waiting for the next cron tick.
+--
+-- pg_net.http_post is fire-and-forget/async (queues the request and returns
+-- immediately), so this never slows down the favourite click itself.
+--
+-- ONE-TIME MANUAL SETUP REQUIRED (do this in the Supabase SQL Editor,
+-- AFTER running this file) -- deliberately not a literal value in this
+-- committed file, since it's a real credential:
+--   1. Create a GitHub fine-grained PAT scoped to ONLY radumpandea/match-center,
+--      with "Actions: write" + "Contents: read" permissions (and an expiry --
+--      rotate it before it lapses, or this silently stops firing).
+--      https://github.com/settings/personal-access-tokens/new
+--   2. In the SQL Editor:
+--        select vault.create_secret('<paste the PAT here>', 'github_actions_pat');
+--   Until step 2 is done, the trigger below is a harmless no-op (it checks
+--   for the secret and returns early if missing) -- favouriting still works
+--   normally, it just won't auto-trigger a build yet.
+--
+-- Uses the SAME shared Claude subscription session limit as an interactive
+-- Claude Code session (see build-match-data-run.yml) -- a favourite click
+-- from any device can kick off a deep build that competes with whatever
+-- else is using that limit at the time.
+create extension if not exists pg_net;
+
+create or replace function public.mc_trigger_favourite_deep_build()
+returns trigger
+language plpgsql
+security definer
+as $$
+declare
+  gh_token text;
+begin
+  select decrypted_secret into gh_token
+  from vault.decrypted_secrets
+  where name = 'github_actions_pat'
+  limit 1;
+
+  if gh_token is null then
+    return new;   -- secret not set up yet -- silent no-op, never blocks the insert
+  end if;
+
+  perform net.http_post(
+    url := 'https://api.github.com/repos/radumpandea/match-center/actions/workflows/build-match-data-favourites.yml/dispatches',
+    headers := jsonb_build_object(
+      'Authorization', 'Bearer ' || gh_token,
+      'Accept', 'application/vnd.github+json',
+      'Content-Type', 'application/json',
+      'X-GitHub-Api-Version', '2022-11-28'
+    ),
+    body := jsonb_build_object('ref', 'main')
+  );
+
+  return new;
+exception when others then
+  -- A GitHub API hiccup (rate limit, expired token) must never block the
+  -- user's favourite from saving -- it'll get picked up by tomorrow's cron
+  -- regardless.
+  return new;
+end;
+$$;
+
+drop trigger if exists mc_favourites_trigger_deep_build on public.mc_favourites;
+create trigger mc_favourites_trigger_deep_build
+  after insert on public.mc_favourites
+  for each row execute function public.mc_trigger_favourite_deep_build();
+
+-- ============================================================================
 -- Canonical entities: teams, players, coaches, referees.
 --
 -- Today every match-data JSON file carries its own copy of a coach's career,
