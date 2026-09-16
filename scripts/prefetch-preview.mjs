@@ -278,7 +278,17 @@ function expandAbbreviatedName(baseName, pl) {
 async function getSquad(teamId, teamName, leagueId, season) {
   const cachePath = `${TEAMS_DIR}/${teamId}.json`;
   const cached = readJSON(cachePath);
-  if (cached && cached.fetchedAt && daysBetween(todayISO(), cached.fetchedAt) < SQUAD_TTL_DAYS) {
+  // pushPlayer() has written an explicit `photo` key (even when null) on
+  // every squad entry since the player.photo field was added -- a cache
+  // that predates that still has the key entirely absent. Force a rebuild
+  // for that one-time migration regardless of TTL, otherwise a team fetched
+  // just before the field shipped sits with zero player photos for up to
+  // SQUAD_TTL_DAYS (seen for Barcelona: fetched 3 days before the field
+  // existed, still not due for a routine refresh). Runs once per team, since
+  // the rebuilt cache always carries the key from then on.
+  const cacheHasPhotoField = !!(cached && cached.squad && cached.squad.length &&
+    Object.prototype.hasOwnProperty.call(cached.squad[0], 'photo'));
+  if (cached && cached.fetchedAt && cacheHasPhotoField && daysBetween(todayISO(), cached.fetchedAt) < SQUAD_TTL_DAYS) {
     return cached;
   }
 
