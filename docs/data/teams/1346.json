@@ -1,23 +1,19 @@
 {
   "teamId": 1346,
   "name": "Coventry",
-  "fetchedAt": "2026-09-13T11:28:50.947Z",
+  "fetchedAt": "2026-09-16T07:37:21.944Z",
   "source": "https://www.api-football.com/",
   "coach": {
     "apiId": 20,
-    "name": "Frank James Lampard",
-    "country": "England",
-    "age": 47,
+    "name": "F. Lampard",
+    "photo": "https://media.api-sports.io/football/coachs/20.png",
+    "country": null,
+    "age": null,
     "tenureFrom": "2024-11",
     "career": [
       {
-        "club": "Coventry City",
+        "club": "Coventry",
         "period": "2024–prezent",
-        "note": null
-      },
-      {
-        "club": "Chelsea",
-        "period": "2023–2023",
         "note": null
       },
       {
@@ -31,7 +27,7 @@
         "note": null
       },
       {
-        "club": "Derby County",
+        "club": "Derby",
         "period": "2018–2019",
         "note": null
       }
@@ -42,6 +38,7 @@
       "apiId": 19341,
       "number": 25,
       "name": "Daniel Ian Bentley",
+      "photo": "https://media.api-sports.io/football/players/19341.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -68,13 +65,16 @@
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 278088,
       "number": 19,
       "name": "Carl Andrew Rushworth",
+      "photo": "https://media.api-sports.io/football/players/278088.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -97,17 +97,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 360,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.8
+        "rating": 6.6,
+        "conceded": 5,
+        "saves": 7
       }
     },
     {
       "apiId": 20484,
       "number": 13,
       "name": "Ben Wilson",
+      "photo": "https://media.api-sports.io/football/players/20484.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -134,13 +137,16 @@
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 162414,
       "number": 24,
       "name": "Aurèle Florian Amenda",
+      "photo": "https://media.api-sports.io/football/players/162414.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -163,17 +169,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 360,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.93
+        "rating": 6.62,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 19574,
       "number": 21,
       "name": "Jake Brian Bidwell",
+      "photo": "https://media.api-sports.io/football/players/19574.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -200,13 +209,16 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 5.9
+        "rating": 5.9,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 19260,
       "number": 3,
       "name": "Jay Rhys Dasilva",
+      "photo": "https://media.api-sports.io/football/players/19260.png",
       "pos": "MID",
       "positions": [
         "MID",
@@ -230,29 +242,32 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 265,
-        "apps": 3,
+        "minutes": 355,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.49
+        "rating": 6.53,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 298128,
       "number": 20,
-      "name": "K. Kesler-Hayden",
+      "name": "Kaine Kesler-Hayden",
+      "photo": "https://media.api-sports.io/football/players/298128.png",
       "pos": "DEF",
       "positions": [
         "DEF"
       ],
       "role": "DEF",
       "age": 23,
-      "height": null,
+      "height": 175,
       "weight": null,
       "foot": null,
-      "nat": null,
+      "nat": "ENG",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "England",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -264,8 +279,9 @@
     },
     {
       "apiId": 382358,
-      "number": 21,
-      "name": "S. Mfuni",
+      "number": 12,
+      "name": "Stephen Mfuni",
+      "photo": "https://media.api-sports.io/football/players/382358.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -275,9 +291,9 @@
       "height": null,
       "weight": null,
       "foot": null,
-      "nat": null,
+      "nat": "ENG",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "England",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -285,12 +301,23 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "minutes": 0,
+        "apps": 0,
+        "yellow": 0,
+        "red": null,
+        "rating": null,
+        "conceded": 0,
+        "saves": 0
+      }
     },
     {
       "apiId": 19789,
       "number": 2,
       "name": "Ethan Rupert Pinnock",
+      "photo": "https://media.api-sports.io/football/players/19789.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -313,17 +340,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 102,
-        "apps": 2,
+        "minutes": 192,
+        "apps": 3,
         "yellow": 1,
         "red": null,
-        "rating": 6.27
+        "rating": 6.36,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 264437,
       "number": 4,
       "name": "Bobby Craig Thomas",
+      "photo": "https://media.api-sports.io/football/players/264437.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -346,29 +376,32 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 258,
-        "apps": 3,
+        "minutes": 348,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.67
+        "rating": 7.14,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 17714,
       "number": 26,
-      "name": "L. Woolfenden",
+      "name": "Luke Matthew Woolfenden",
+      "photo": "https://media.api-sports.io/football/players/17714.png",
       "pos": "DEF",
       "positions": [
         "DEF"
       ],
       "role": "DEF",
       "age": 27,
-      "height": null,
-      "weight": null,
+      "height": 193,
+      "weight": 70,
       "foot": null,
-      "nat": null,
+      "nat": "ENG",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "England",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -382,6 +415,7 @@
       "apiId": 37961,
       "number": 27,
       "name": "Milan Fabrizio van Ewijk",
+      "photo": "https://media.api-sports.io/football/players/37961.png",
       "pos": "MID",
       "positions": [
         "MID",
@@ -405,17 +439,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 360,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.3
+        "rating": 6.3,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 19984,
       "number": 28,
       "name": "Joshua Elliot Eccles",
+      "photo": "https://media.api-sports.io/football/players/19984.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -442,13 +479,16 @@
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 19328,
       "number": 6,
       "name": "Matthew Jacob Grimes",
+      "photo": "https://media.api-sports.io/football/players/19328.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -471,17 +511,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 354,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.83
+        "rating": 6.62,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 36929,
       "number": 38,
       "name": "Gustavo Martin Emilio Hamer",
+      "photo": "https://media.api-sports.io/football/players/36929.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -504,22 +547,26 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 32,
+        "minutes": 38,
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.29
+        "rating": 4.78,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 145538,
       "number": 22,
       "name": "Joel Owen Latibeaudiere",
-      "pos": "DEF",
+      "photo": "https://media.api-sports.io/football/players/145538.png",
+      "pos": "MID",
       "positions": [
+        "MID",
         "DEF"
       ],
-      "role": "DEF",
+      "role": "MID",
       "age": 25,
       "height": 180,
       "weight": 81,
@@ -537,17 +584,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 0,
+        "minutes": null,
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 15799,
       "number": 16,
       "name": "Ogochukwu Frank Onyeka",
+      "photo": "https://media.api-sports.io/football/players/15799.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -570,23 +620,25 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 153,
-        "apps": 2,
+        "minutes": 226,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.09
+        "rating": 6.29,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 20372,
       "number": 5,
       "name": "Jack Edward Rudoni",
-      "pos": "ATT",
+      "photo": "https://media.api-sports.io/football/players/20372.png",
+      "pos": "MID",
       "positions": [
-        "ATT",
         "MID"
       ],
-      "role": "ATT",
+      "role": "MID",
       "age": 24,
       "height": 186,
       "weight": 77,
@@ -604,17 +656,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 154,
-        "apps": 3,
+        "minutes": 227,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.52
+        "rating": 6.37,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 33462,
       "number": 7,
       "name": "Tatsuhiro Sakamoto",
+      "photo": "https://media.api-sports.io/football/players/33462.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -641,18 +696,22 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 3.35
+        "rating": 3.35,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 138786,
       "number": 9,
       "name": "Ellis Reco Simms",
-      "pos": "ATT",
+      "photo": "https://media.api-sports.io/football/players/138786.png",
+      "pos": "MID",
       "positions": [
+        "MID",
         "ATT"
       ],
-      "role": "ATT",
+      "role": "MID",
       "age": 24,
       "height": 191,
       "weight": 73,
@@ -674,13 +733,16 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.52
+        "rating": 6.5,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 16046,
       "number": 29,
       "name": "Victor Torp Overgaard",
+      "photo": "https://media.api-sports.io/football/players/16046.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -703,17 +765,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 47,
-        "apps": 2,
+        "minutes": 53,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 4.27
+        "rating": 6.2,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 475575,
       "number": 8,
       "name": "Caleb Marfo Yirenkyi",
+      "photo": "https://media.api-sports.io/football/players/475575.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -736,17 +801,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 160,
-        "apps": 3,
+        "minutes": 177,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.47
+        "rating": 6.34,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 8598,
       "number": 14,
       "name": "Taiwo Micheal Awoniyi",
+      "photo": "https://media.api-sports.io/football/players/8598.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -769,17 +837,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 181,
-        "apps": 3,
+        "minutes": 234,
+        "apps": 4,
         "yellow": 0,
-        "red": null,
-        "rating": 6.49
+        "red": 1,
+        "rating": 6.27,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 421875,
       "number": 49,
       "name": "Sidiki Cherif",
+      "photo": "https://media.api-sports.io/football/players/421875.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -802,29 +873,32 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 20,
+        "minutes": 30,
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 6.6
+        "rating": 6.37,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 84128,
       "number": 10,
-      "name": "Y. Gboho",
+      "name": "Gnantin Yann Gboho",
+      "photo": "https://media.api-sports.io/football/players/84128.png",
       "pos": "ATT",
       "positions": [
         "ATT"
       ],
       "role": "ATT",
       "age": 24,
-      "height": null,
-      "weight": null,
+      "height": 178,
+      "weight": 63,
       "foot": null,
-      "nat": null,
+      "nat": "FRA",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Côte d'Ivoire",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -832,18 +906,28 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null
+      "stats": {
+        "goals": 0,
+        "assists": 1,
+        "minutes": 170,
+        "apps": 2,
+        "yellow": 0,
+        "red": null,
+        "rating": 6.8,
+        "conceded": 0,
+        "saves": null
+      }
     },
     {
       "apiId": 18404,
       "number": 10,
       "name": "Ephron Jardell Mason-Clark",
-      "pos": "ATT",
+      "photo": "https://media.api-sports.io/football/players/18404.png",
+      "pos": "MID",
       "positions": [
-        "ATT",
         "MID"
       ],
-      "role": "ATT",
+      "role": "MID",
       "age": 26,
       "height": 178,
       "weight": 76,
@@ -861,17 +945,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 129,
-        "apps": 2,
+        "minutes": 189,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.23
+        "rating": 6.21,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 161621,
-      "number": 18,
+      "number": 17,
       "name": "Loum Tchaouna",
+      "photo": "https://media.api-sports.io/football/players/161621.png",
       "pos": "ATT",
       "positions": [
         "ATT",
@@ -899,13 +986,16 @@
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.74
+        "rating": 5,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 82090,
       "number": 23,
       "name": "Solomon Brandon Michael Clarke Thomas-Asante",
+      "photo": "https://media.api-sports.io/football/players/82090.png",
       "pos": "ATT",
       "positions": [
         "ATT",
@@ -929,29 +1019,32 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 121,
-        "apps": 3,
+        "minutes": 138,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.35
+        "rating": 6.41,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 427,
       "number": 11,
-      "name": "H. Wright",
+      "name": "Haji Amir Wright",
+      "photo": "https://media.api-sports.io/football/players/427.png",
       "pos": "ATT",
       "positions": [
         "ATT"
       ],
       "role": "ATT",
       "age": 27,
-      "height": null,
-      "weight": null,
+      "height": 193,
+      "weight": 80,
       "foot": null,
-      "nat": null,
+      "nat": "USA",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "USA",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -959,7 +1052,17 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "minutes": 2,
+        "apps": 2,
+        "yellow": 0,
+        "red": null,
+        "rating": null,
+        "conceded": 0,
+        "saves": null
+      }
     }
   ]
 }

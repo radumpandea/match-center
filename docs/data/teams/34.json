@@ -1,13 +1,14 @@
 {
   "teamId": 34,
   "name": "Newcastle",
-  "fetchedAt": "2026-09-14T10:51:15.009Z",
+  "fetchedAt": "2026-09-16T07:36:35.832Z",
   "source": "https://www.api-football.com/",
   "coach": {
     "apiId": 13959,
-    "name": "Matthias Jaissle",
-    "country": "Germany",
-    "age": 37,
+    "name": "M. Jaissle",
+    "photo": "https://media.api-sports.io/football/coachs/13959.png",
+    "country": null,
+    "age": null,
     "tenureFrom": "2026-08",
     "career": [
       {
@@ -16,28 +17,18 @@
         "note": null
       },
       {
-        "club": "Al Ahli",
-        "period": "2023–prezent",
+        "club": "Al-Ahli Jeddah",
+        "period": "2023–2026",
         "note": null
       },
       {
-        "club": "Salzburg",
+        "club": "Red Bull Salzburg",
         "period": "2021–2023",
         "note": null
       },
       {
-        "club": "Liefering",
+        "club": "FC Liefering",
         "period": "2021–2021",
-        "note": null
-      },
-      {
-        "club": "Salzburg U19",
-        "period": "2020–2021",
-        "note": null
-      },
-      {
-        "club": "Red Bull Akademie U18",
-        "period": "2019–2021",
         "note": null
       }
     ]
@@ -46,19 +37,20 @@
     {
       "apiId": 44912,
       "number": 29,
-      "name": "M. Gillespie",
+      "name": "Mark Joseph Gillespie",
+      "photo": "https://media.api-sports.io/football/players/44912.png",
       "pos": "GK",
       "positions": [
         "GK"
       ],
       "role": "GK",
       "age": 33,
-      "height": null,
-      "weight": null,
+      "height": 192,
+      "weight": 83,
       "foot": null,
-      "nat": null,
+      "nat": "ENG",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "England",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -72,6 +64,7 @@
       "apiId": 365988,
       "number": 1,
       "name": "Aidan Harris",
+      "photo": "https://media.api-sports.io/football/players/365988.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -81,9 +74,9 @@
       "height": null,
       "weight": null,
       "foot": null,
-      "nat": null,
+      "nat": "ENG",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "England",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -97,6 +90,7 @@
       "apiId": 269349,
       "number": 21,
       "name": "Lukáš Horníček",
+      "photo": "https://media.api-sports.io/football/players/269349.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -119,17 +113,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 360,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 7.7
+        "rating": 7.15,
+        "conceded": 4,
+        "saves": 16
       }
     },
     {
       "apiId": 329640,
       "number": 24,
       "name": "Ewen Jaouen",
+      "photo": "https://media.api-sports.io/football/players/329640.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -156,13 +153,16 @@
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 18911,
       "number": 1,
       "name": "Nicholas David Pope",
+      "photo": "https://media.api-sports.io/football/players/18911.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -185,17 +185,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": null,
+        "minutes": 0,
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 38734,
       "number": 4,
       "name": "Sven Adriaan Botman",
+      "photo": "https://media.api-sports.io/football/players/38734.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -218,29 +221,32 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 360,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.73
+        "rating": 6.63,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 18961,
       "number": 33,
-      "name": "D. Burn",
+      "name": "Daniel Johnson Burn",
+      "photo": "https://media.api-sports.io/football/players/18961.png",
       "pos": "DEF",
       "positions": [
         "DEF"
       ],
       "role": "DEF",
       "age": 33,
-      "height": null,
-      "weight": null,
+      "height": 198,
+      "weight": 87,
       "foot": null,
-      "nat": null,
+      "nat": "ENG",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "England",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -248,12 +254,23 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "minutes": 90,
+        "apps": 1,
+        "yellow": 0,
+        "red": null,
+        "rating": 8.2,
+        "conceded": 0,
+        "saves": null
+      }
     },
     {
       "apiId": 7318,
       "number": 37,
       "name": "Amar Dedić",
+      "photo": "https://media.api-sports.io/football/players/7318.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -276,17 +293,20 @@
       "stats": {
         "goals": 0,
         "assists": 1,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 328,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.77
+        "rating": 6.39,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 284492,
       "number": 3,
       "name": "Lewis Kieran Hall",
+      "photo": "https://media.api-sports.io/football/players/284492.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -309,17 +329,20 @@
       "stats": {
         "goals": 0,
         "assists": 1,
-        "minutes": 269,
-        "apps": 3,
+        "minutes": 359,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.7
+        "rating": 7.38,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 158694,
       "number": 2,
       "name": "Valentino Francisco Livramento",
+      "photo": "https://media.api-sports.io/football/players/158694.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -342,17 +365,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 1,
-        "apps": 1,
-        "yellow": 0,
+        "minutes": 33,
+        "apps": 2,
+        "yellow": 1,
         "red": null,
-        "rating": null
+        "rating": 5.66,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 2806,
       "number": 5,
       "name": "Fabian Lukas Schär",
+      "photo": "https://media.api-sports.io/football/players/2806.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -379,46 +405,16 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": null
-      }
-    },
-    {
-      "apiId": 337934,
-      "number": 51,
-      "name": "Leo Shahar",
-      "pos": "DEF",
-      "positions": [
-        "DEF"
-      ],
-      "role": "DEF",
-      "age": 18,
-      "height": null,
-      "weight": null,
-      "foot": null,
-      "nat": "ENG",
-      "natTeam": null,
-      "birthCountry": "England",
-      "pronunciation": null,
-      "career": null,
-      "lastSeason": null,
-      "funfact": null,
-      "linkLine": null,
-      "status": "available",
-      "statusNote": null,
-      "stats": {
-        "goals": 0,
-        "assists": 0,
-        "minutes": null,
-        "apps": 0,
-        "yellow": 0,
-        "red": null,
-        "rating": null
+        "rating": 0,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 163189,
       "number": 12,
       "name": "Malick Laye Thiaw",
+      "photo": "https://media.api-sports.io/football/players/163189.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -441,17 +437,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 360,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.53
+        "rating": 6.37,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 453792,
       "number": 8,
       "name": "Aladji Bamba",
+      "photo": "https://media.api-sports.io/football/players/453792.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -474,29 +473,32 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 14,
-        "apps": 1,
+        "minutes": 24,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.7
+        "rating": 6.25,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 723,
       "number": 7,
       "name": "Joelinton",
+      "photo": "https://media.api-sports.io/football/players/723.png",
       "pos": "MID",
       "positions": [
         "MID"
       ],
       "role": "MID",
       "age": 29,
-      "height": null,
-      "weight": null,
+      "height": 186,
+      "weight": 81,
       "foot": null,
-      "nat": null,
+      "nat": "BRA",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Brazil",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -504,12 +506,23 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "minutes": 160,
+        "apps": 5,
+        "yellow": 1,
+        "red": 1,
+        "rating": 6.3,
+        "conceded": 0,
+        "saves": null
+      }
     },
     {
       "apiId": 328105,
       "number": 67,
       "name": "Lewis Miley",
+      "photo": "https://media.api-sports.io/football/players/328105.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -532,17 +545,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 229,
-        "apps": 3,
+        "minutes": 309,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 7.03
+        "rating": 6.62,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 19163,
       "number": 23,
       "name": "Jacob Kai Murphy",
+      "photo": "https://media.api-sports.io/football/players/19163.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -565,17 +581,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 35,
-        "apps": 3,
-        "yellow": 1,
+        "minutes": 92,
+        "apps": 4,
+        "yellow": 2,
         "red": null,
-        "rating": 6.57
+        "rating": 6.31,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 161933,
       "number": 6,
       "name": "Nico González",
+      "photo": "https://media.api-sports.io/football/players/161933.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -598,29 +617,32 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 148,
-        "apps": 2,
+        "minutes": 167,
+        "apps": 3,
         "yellow": 1,
         "red": null,
-        "rating": 6.6
+        "rating": 6.32,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 423714,
       "number": 16,
       "name": "Park Seung-Soo",
+      "photo": "https://media.api-sports.io/football/players/423714.png",
       "pos": "MID",
       "positions": [
         "MID"
       ],
       "role": "MID",
       "age": 18,
-      "height": null,
-      "weight": null,
+      "height": 183,
+      "weight": 62,
       "foot": null,
-      "nat": null,
+      "nat": "KOR",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Korea Republic",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -634,6 +656,7 @@
       "apiId": 19192,
       "number": 41,
       "name": "Jacob Matthew Ramsey",
+      "photo": "https://media.api-sports.io/football/players/19192.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -660,13 +683,16 @@
         "apps": 3,
         "yellow": 1,
         "red": null,
-        "rating": 6.9
+        "rating": 5.18,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 469321,
       "number": 14,
       "name": "Sean Steur",
+      "photo": "https://media.api-sports.io/football/players/469321.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -689,17 +715,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 88,
-        "apps": 3,
+        "minutes": 159,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.67
+        "rating": 6.55,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 387643,
       "number": 17,
       "name": "Bazoumana Touré",
+      "photo": "https://media.api-sports.io/football/players/387643.png",
       "pos": "ATT",
       "positions": [
         "ATT",
@@ -721,19 +750,22 @@
       "status": "available",
       "statusNote": null,
       "stats": {
-        "goals": 0,
+        "goals": 1,
         "assists": 0,
-        "minutes": 1,
-        "apps": 1,
+        "minutes": 34,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": 7.27,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 1463,
       "number": 28,
       "name": "Joseph George Willock",
+      "photo": "https://media.api-sports.io/football/players/1463.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -756,17 +788,20 @@
       "stats": {
         "goals": 1,
         "assists": 0,
-        "minutes": 168,
-        "apps": 3,
+        "minutes": 200,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.77
+        "rating": 6.61,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 18778,
       "number": 11,
       "name": "Harvey Lewis Barnes",
+      "photo": "https://media.api-sports.io/football/players/18778.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -789,17 +824,20 @@
       "stats": {
         "goals": 1,
         "assists": 0,
-        "minutes": 269,
-        "apps": 3,
+        "minutes": 359,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.93
+        "rating": 6.69,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 153430,
       "number": 19,
       "name": "Anthony David Junior Elanga",
+      "photo": "https://media.api-sports.io/football/players/153430.png",
       "pos": "ATT",
       "positions": [
         "ATT",
@@ -827,18 +865,22 @@
         "apps": 3,
         "yellow": 1,
         "red": null,
-        "rating": 7.37
+        "rating": 7.37,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 340077,
       "number": 20,
       "name": "Matias Fernandez-Pardo",
-      "pos": "ATT",
+      "photo": "https://media.api-sports.io/football/players/340077.png",
+      "pos": "MID",
       "positions": [
+        "MID",
         "ATT"
       ],
-      "role": "ATT",
+      "role": "MID",
       "age": 20,
       "height": 183,
       "weight": 70,
@@ -856,17 +898,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 27,
-        "apps": 1,
+        "minutes": 85,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.5
+        "rating": 6.2,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 315237,
       "number": 10,
       "name": "William Idamudia Daugaard Osula",
+      "photo": "https://media.api-sports.io/football/players/315237.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -893,13 +938,16 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 6.6
+        "rating": 6.6,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 395773,
       "number": 9,
-      "name": "V. Salia",
+      "name": "Vakhtang Salia",
+      "photo": "https://media.api-sports.io/football/players/395773.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -909,9 +957,9 @@
       "height": null,
       "weight": null,
       "foot": null,
-      "nat": null,
+      "nat": "GEO",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Georgia",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -919,24 +967,35 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null
+      "stats": {
+        "goals": 1,
+        "assists": 0,
+        "minutes": 70,
+        "apps": 1,
+        "yellow": 0,
+        "red": null,
+        "rating": 7.57,
+        "conceded": 0,
+        "saves": 0
+      }
     },
     {
       "apiId": 401389,
       "number": 11,
-      "name": "T. Sanusi",
+      "name": "Trevan Sanusi",
+      "photo": "https://media.api-sports.io/football/players/401389.png",
       "pos": "ATT",
       "positions": [
         "ATT"
       ],
       "role": "ATT",
       "age": 18,
-      "height": null,
-      "weight": null,
+      "height": 178,
+      "weight": 60,
       "foot": null,
-      "nat": null,
+      "nat": "ENG",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "England",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -950,6 +1009,7 @@
       "apiId": 20649,
       "number": 9,
       "name": "Yoane Wissa",
+      "photo": "https://media.api-sports.io/football/players/20649.png",
       "pos": "ATT",
       "positions": [
         "ATT",
@@ -973,17 +1033,20 @@
       "stats": {
         "goals": 1,
         "assists": 1,
-        "minutes": 261,
-        "apps": 3,
+        "minutes": 351,
+        "apps": 4,
         "yellow": 2,
         "red": null,
-        "rating": 7
+        "rating": 6.85,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 158054,
       "number": 27,
       "name": "Nick Woltemade",
+      "photo": "https://media.api-sports.io/football/players/158054.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -1010,7 +1073,9 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 6.9
+        "rating": 6.9,
+        "conceded": 0,
+        "saves": null
       }
     }
   ]

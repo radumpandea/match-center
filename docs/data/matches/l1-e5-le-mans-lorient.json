@@ -1,12 +1,12 @@
 {
   "slug": "l1-e5-le-mans-lorient",
-  "generatedAt": "2026-09-15T15:55:55.822Z",
+  "generatedAt": "2026-09-16T07:40:23.606Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-09-15"
+      "accessed": "2026-09-16"
     }
   ],
   "competition": {
@@ -23,10 +23,10 @@
     "notes": null,
     "weather": {
       "tempC": 22,
-      "condition": "parțial noros",
-      "windKph": 13,
+      "condition": "cer noros",
+      "windKph": 8,
       "precipitationMm": 0,
-      "forecastAt": "2026-09-15T15:55:55.965Z"
+      "forecastAt": "2026-09-16T07:40:24.086Z"
     }
   },
   "referee": {
@@ -116,6 +116,7 @@
       "coach": {
         "apiId": 12500,
         "name": "Patrick Videira",
+        "photo": "https://media.api-sports.io/football/coachs/12500.png",
         "country": "France",
         "age": 48,
         "tenureFrom": "2024-07",
@@ -148,6 +149,7 @@
           "apiId": 633362,
           "number": 55,
           "name": "Augustin Delbecque",
+          "photo": "https://media.api-sports.io/football/players/633362.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -174,13 +176,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 179480,
           "number": 1,
           "name": "Ewan Hatfout",
+          "photo": "https://media.api-sports.io/football/players/179480.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -203,17 +208,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 99,
-            "apps": 2,
+            "minutes": 189,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.4
+            "rating": 6.56,
+            "conceded": 2,
+            "saves": 5
           }
         },
         {
           "apiId": 24189,
           "number": 98,
           "name": "Nicolas Kocik",
+          "photo": "https://media.api-sports.io/football/players/24189.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -240,13 +248,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 7.6
+            "rating": 5.07,
+            "conceded": 4,
+            "saves": 9
           }
         },
         {
           "apiId": 363226,
           "number": 26,
           "name": "Rayan Bamba",
+          "photo": "https://media.api-sports.io/football/players/363226.png",
           "pos": "MID",
           "positions": [
             "MID",
@@ -270,17 +281,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 180,
-            "apps": 2,
+            "minutes": 270,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.7
+            "rating": 6.69,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 483116,
           "number": 15,
           "name": "Noa Boissé",
+          "photo": "https://media.api-sports.io/football/players/483116.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -303,17 +317,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 270,
-            "apps": 3,
-            "yellow": 1,
+            "minutes": 315,
+            "apps": 4,
+            "yellow": 2,
             "red": null,
-            "rating": 6.43
+            "rating": 6.35,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 21448,
           "number": 18,
           "name": "Lucas Buadés",
+          "photo": "https://media.api-sports.io/football/players/21448.png",
           "pos": "DEF",
           "positions": [
             "DEF",
@@ -341,13 +358,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.75
+            "rating": 6.75,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 504965,
           "number": 14,
           "name": "Enzo Vágner",
+          "photo": "https://media.api-sports.io/football/players/504965.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -357,9 +377,9 @@
           "height": null,
           "weight": null,
           "foot": null,
-          "nat": null,
+          "nat": "BRA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Brazil",
           "pronunciation": null,
           "career": "Sport Recife (2025) · Coritiba (2026–prezent)",
           "lastSeason": null,
@@ -367,12 +387,23 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 17,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": 6,
+            "conceded": 0,
+            "saves": null
+          }
         },
         {
           "apiId": 270515,
           "number": 21,
           "name": "Théo Eyoum Mouen",
+          "photo": "https://media.api-sports.io/football/players/270515.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -399,13 +430,52 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.25
+            "rating": 6.25,
+            "conceded": 0,
+            "saves": null
+          }
+        },
+        {
+          "apiId": 505579,
+          "number": 16,
+          "name": "João Vitor",
+          "photo": "https://media.api-sports.io/football/players/505579.png",
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
+          "role": "DEF",
+          "age": 19,
+          "height": null,
+          "weight": null,
+          "foot": null,
+          "nat": "BRA",
+          "natTeam": null,
+          "birthCountry": "Brazil",
+          "pronunciation": null,
+          "career": "Coritiba (2025–prezent)",
+          "lastSeason": null,
+          "funfact": null,
+          "linkLine": null,
+          "status": "available",
+          "statusNote": null,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 4,
+            "apps": 1,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 138828,
           "number": 76,
           "name": "Yasser Larouci",
+          "photo": "https://media.api-sports.io/football/players/138828.png",
           "pos": "DEF",
           "positions": [
             "DEF",
@@ -433,13 +503,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.6
+            "rating": 4.4,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 102,
           "number": 19,
           "name": "Djibril Sidibé",
+          "photo": "https://media.api-sports.io/football/players/102.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -462,17 +535,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 0,
-            "apps": 1,
+            "minutes": 45,
+            "apps": 2,
             "yellow": 0,
             "red": 1,
-            "rating": null
+            "rating": 6.58,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 290215,
           "number": 16,
           "name": "Raúl Torrente",
+          "photo": "https://media.api-sports.io/football/players/290215.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -495,17 +571,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 61,
-            "apps": 1,
+            "minutes": 74,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.9
+            "rating": 6.58,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 174605,
           "number": 5,
           "name": "Harold Voyer",
+          "photo": "https://media.api-sports.io/football/players/174605.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -528,17 +607,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 180,
-            "apps": 2,
+            "minutes": 270,
+            "apps": 3,
             "yellow": 1,
             "red": null,
-            "rating": 6.8
+            "rating": 6.74,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 20602,
           "number": 17,
           "name": "Samuel Rodrigue Wouahi Yohou",
+          "photo": "https://media.api-sports.io/football/players/20602.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -561,17 +643,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 29,
-            "apps": 1,
+            "minutes": 106,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.6
+            "rating": 6.8,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 608142,
           "number": 11,
           "name": "A. Bourabaa",
+          "photo": "https://media.api-sports.io/football/players/608142.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -592,19 +677,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 1,
-            "assists": 1,
-            "minutes": 223,
-            "apps": 3,
+            "goals": 2,
+            "assists": 2,
+            "minutes": 313,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.03
+            "rating": 7.27,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 274254,
           "number": 29,
           "name": "Lucas Bretelle",
+          "photo": "https://media.api-sports.io/football/players/274254.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -627,17 +715,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 87,
-            "apps": 2,
+            "minutes": 152,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.55
+            "rating": 6.47,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 179414,
           "number": 22,
           "name": "Lucas Calodat",
+          "photo": "https://media.api-sports.io/football/players/179414.png",
           "pos": "MID",
           "positions": [
             "MID",
@@ -659,19 +750,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 0,
+            "goals": 1,
             "assists": 1,
-            "minutes": 155,
-            "apps": 3,
+            "minutes": 245,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.17
+            "rating": 7.33,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 1258,
           "number": 8,
           "name": "Alexandre Lauray",
+          "photo": "https://media.api-sports.io/football/players/1258.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -694,29 +788,32 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 243,
-            "apps": 3,
+            "minutes": 268,
+            "apps": 4,
             "yellow": 3,
             "red": null,
-            "rating": 6.7
+            "rating": 6.55,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 24259,
           "number": 6,
-          "name": "E. Quarshie",
+          "name": "Edwin Quarshie",
+          "photo": "https://media.api-sports.io/football/players/24259.png",
           "pos": "MID",
           "positions": [
             "MID"
           ],
           "role": "MID",
           "age": 30,
-          "height": null,
-          "weight": null,
+          "height": 179,
+          "weight": 75,
           "foot": null,
-          "nat": null,
+          "nat": "GHA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Ghana",
           "pronunciation": null,
           "career": "Reims II (2013) · Sablé (2015–2016) · Villefranche (2017) · Bourg-en-bresse 01 (2018) · Sedan (2019–2020) · Chasselay MDA (2021) · Le Mans (2022–2025)",
           "lastSeason": null,
@@ -729,7 +826,8 @@
         {
           "apiId": 349631,
           "number": 27,
-          "name": "M. Rossignol",
+          "name": "Martin Rossignol",
+          "photo": "https://media.api-sports.io/football/players/349631.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -739,9 +837,9 @@
           "height": null,
           "weight": null,
           "foot": null,
-          "nat": null,
+          "nat": "FRA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "France",
           "pronunciation": null,
           "career": "Le Mans (2021–2025)",
           "lastSeason": null,
@@ -755,6 +853,7 @@
           "apiId": 375578,
           "number": 23,
           "name": "Daouda Traoré",
+          "photo": "https://media.api-sports.io/football/players/375578.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -777,17 +876,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
-            "apps": 0,
+            "minutes": 25,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": 6.02,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 162706,
           "number": 10,
           "name": "Jean Vercruysse",
+          "photo": "https://media.api-sports.io/football/players/162706.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -810,17 +912,20 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 91,
-            "apps": 2,
-            "yellow": 0,
+            "minutes": 156,
+            "apps": 3,
+            "yellow": 1,
             "red": null,
-            "rating": 6.7
+            "rating": 6.59,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 669862,
           "number": null,
           "name": "Lenny Videira",
+          "photo": null,
           "pos": "MID",
           "positions": [
             "MID"
@@ -846,6 +951,7 @@
           "apiId": 19250,
           "number": 7,
           "name": "Billal Brahimi",
+          "photo": "https://media.api-sports.io/football/players/19250.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -872,13 +978,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.6
+            "rating": 4.4,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 174939,
           "number": 28,
           "name": "Erwan Colas",
+          "photo": "https://media.api-sports.io/football/players/174939.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -905,13 +1014,16 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.6
+            "rating": 6.6,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 20535,
           "number": 13,
           "name": "Mouhamadou Habibou Diallo",
+          "photo": "https://media.api-sports.io/football/players/20535.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -934,17 +1046,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 29,
-            "apps": 1,
+            "minutes": 54,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.3
+            "rating": 6.56,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 4743,
           "number": 25,
           "name": "Dame Guèye",
+          "photo": "https://media.api-sports.io/football/players/4743.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -967,17 +1082,20 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 201,
-            "apps": 3,
+            "minutes": 266,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.57
+            "rating": 6.51,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 381116,
           "number": 20,
           "name": "William Harhouz",
+          "photo": "https://media.api-sports.io/football/players/381116.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1004,13 +1122,16 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.5
+            "rating": 6.5,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 85558,
           "number": 14,
           "name": "Louis Didace Mafouta",
+          "photo": "https://media.api-sports.io/football/players/85558.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1033,17 +1154,20 @@
           "stats": {
             "goals": 3,
             "assists": 1,
-            "minutes": 243,
-            "apps": 3,
+            "minutes": 333,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.47
+            "rating": 7.22,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 21048,
           "number": 9,
           "name": "Antoine Rabillard",
+          "photo": "https://media.api-sports.io/football/players/21048.png",
           "pos": "ATT",
           "positions": [
             "ATT",
@@ -1071,13 +1195,16 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.8
+            "rating": 5.1,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 191202,
           "number": 24,
           "name": "Milan Robin",
+          "photo": "https://media.api-sports.io/football/players/191202.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1104,7 +1231,9 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.5
+            "rating": 6.5,
+            "conceded": 0,
+            "saves": null
           }
         }
       ],
@@ -1289,51 +1418,51 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Design the Official ELMS Livery and Become a Le Mans Ultimate Legend",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOSzR0blZOekdEdU1vYS1RRjlObDJNdUE1MlZmX0QzNjFuRGNJVE1KWU1fc0tOWVBDQjUzRExDYXBBdmp1SkY5VkJwR200N1RTY0R2WDU1czlxRTZLTDNRNGNDVjlxNDlLSE9tZVowb25xYkJaRnQ0YlZWeHJzb05zWUtKdkhxS05iQ3JfMUV1UDlTMDR0ZTF1Nkcyb0dsSWxpRFYtX0ptY3FZaEwycjFOY2Fza3paa1U4SXl3?oc=5",
-          "source": "europeanlemansseries.com",
-          "published": "2026-09-15"
+          "title": "1992 Le Mans Racer from Britain’s First Formula 1 Team Is Fully Restored and Ready to Race",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQeERDV05COU00VUQ1cEcyUTltZ2tXT01HdG1kMm0tWUtvaWxYYW1wc1BDU0dxWk9jdXhvUV9EbGR5ckxETW5sSHFCWnNYNUphOHJzUWJYbG9ZckQxSzF2VHBUMWw0Q1ZPOVdqQ3NuNHJmUUJta1BWTXRxTlZRUTZGTG9kcTlKSnB6RDBHUV9xdnhEUXhrbVBLNGJuN1gwNkJQNm9RblgyOWRMcmJhYTlIWm9aRGlZdGVra0poTEl3dnhRMjlMT18wTG42Uk9rVWotM0E?oc=5",
+          "source": "autoevolution",
+          "published": "2026-09-16"
         },
         {
-          "title": "BRM resurrects its only Le Mans prototype",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNWkJOQ01EQndmRUFCVmFmSnZqQ3ZLUkJOenpTeVlwTks2UXB4cWxDY0YwYnljTkN6dW9IUHJJSWstaTVNaUc2a3NrQkQtMjQ0ZHpWR0V0bFlMS2R6S3hkcTB2eEdoaU1TX1FaTWdVdGVJTm5Yd3A1VVdobFEzeERIcy1JbVBPWVlUOXdua1NHZlo?oc=5",
+          "title": "2027 F1 calendar to block Verstappen from Le Mans and Spa 24h",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPX2cyVnVDU1Z0UlRPaHlyWFhXYkczTnRnWEFxeU5HWkUzeDdYOGd3S016dG01ZFVqbkhDM2JsQnVzZnJwT3dxQ19ZekhvcGdaRjB5MUVweS14d2xsSE9zaVdLUlpZVGNoQ2d4UENWbFZESjVvZHdMb1BZSGFGWjg5eUJESUQtZEVYd2owNkt6TG1BbjFZVWR6bkMxMmxRa1ZlZV9tYXQteXhndGhIUkE?oc=5",
+          "source": "GPblog",
+          "published": "2026-09-16"
+        },
+        {
+          "title": "Lando Norris and Le Mans, an inevitable marriage?",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOLTg0ZmJpYTU0VzJZWjg4UFNldFZ1cndBM0RSVUpxZFlLRHpycUg2RkxkSGFzbVo5Sy03VnlhekdUMnpwUlM2Q21JR0pJdFR3SkJFYXA4OEFZTmRPb1F2WTh5OW1RdnNueGU1eGhoUk0xRGtETjI5bnBVUTJPZndGcEw5NHVUTVpWdUhtNnZQaHdLS1J1d1E?oc=5",
           "source": "autohebdof1.com",
+          "published": "2026-09-16"
+        },
+        {
+          "title": "Laval vs. Le Mans: live game updates, stats, play-by-play",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE40THl1Q1NHSlVydXFBQzZqcFd1SFUtRFgtZmpNanczUWZvYmVHWFQyUGh2T3NpLVdCQTNCQm5DZHBiSE5BODc4U2V6TFJYM1haa0N1dmxRWWJ0QWk1RnNNX0h0NjcyeXk3MWpJWGVkbXlYSVFTY3c0?oc=5",
+          "source": "uk.sports.yahoo.com",
+          "published": "2026-09-16"
+        },
+        {
+          "title": "Le Mans vs. Troyes: live game updates, stats, play-by-play",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE53ZEVoOUVHX3A2Z1NCQTZoOWh2SEQ4YW1EUjBDWUs1ZWk5VmI0X0p0Ymk1b2JocU9taFgtczZ4X3BsQnBzTkNoQWViVU5yLUZIT253NUZTUU1oN0VWaUlMcTRZaWpSb2VPTlVHWkExa0FicEpOQ0lFNg?oc=5",
+          "source": "uk.sports.yahoo.com",
+          "published": "2026-09-16"
+        },
+        {
+          "title": "Podcast Wednesday: Latest Kiwi motorsport news from The Inside Line",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOUUFUd2wwb2czSlBlRjdkVVVQcnVKd1QteXRqOEdlRTM5VWdTdm5takFsa0NtRG40VmdScnAzSC1ZbXB0bzVCNjRaWXh6cDFFazZnVWNFN3I3ZXNSOWstVmNEZExfazdqN0ExcU15aXFuTHR1dlNyUElKVHRxbHJwdERCYTcwR2NVYjhnTlZwSV9vSG9xSXB5U3p3TWFaYW14V2ZF?oc=5",
+          "source": "Talk Motorsport",
+          "published": "2026-09-16"
+        },
+        {
+          "title": "Next World Champion to be Crowned During Unmissable Weekend of Karting Action in Le Mans",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQSlZGTFVRX3Q0VmdtX3d1QUx1OFRQd2Q1Vk1Fa3dvQkhRNzJTdHpHV1pMWFc5ZkZQanNmOGZSSnFQWWk2MUpFc3JaM2R6NTlDam14MW9qOGZrN3NsNDJaZ3VHeHdRTmllZ1R0SlNZMTc4cnRBc0NldVFzcnpWbGtfTjN0TEJKdVVpVVlMMUlEdTA2cVZkVjNUUHk1a0RRZm4xZzZLS1V2RQ?oc=5",
+          "source": "Federation Internationale de l'Automobile",
           "published": "2026-09-15"
         },
         {
-          "title": "BRM restores its sole P351 V12 prototype ahead of planned racing return",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOY2xkNXdRcjlOeVR6V0VPZHhlbGh5bV8zRC1reGJENE01RFlkUFNGanBmbjlPZG44UkNZN2lMVURBOHQ2a1NmU2s5dDlwR1NkSUc4aUdQVTlRaUpGV21JZk5NMFgwQ0IyMFRYcXpEYmpSSlpoVklZbEFXU2JmWFhYYXFWR0U1d2lrNVg4amdWVFVNT2VvNFNNVHR4N2FkQlpERUVobGJ1alkzOWFObkdjT0k1SQ?oc=5",
-          "source": "magnetomagazine.com",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Lone Star Le Mans: Ferrari wins a strategy thriller as Toyota’s late charge ends in heartbreak",
-          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxObWUyRlYwdDBOODBGY0h1cHhUMDd1Tlo5VzltVHNnMmVBMXBaMjVNSE1Bd0lrTDBvQmxzQlctUHJHVHlsSFdMM09xS2NDYkNOaFpSSzVDVnhKVEZ6LVA0M05xcHZCbllmbkxKQ1Fpa0VpR0xkZnY1OUEwR0VjSHAtWTFqNEE5QlZaMnA1Wi1EVUdubEFDZXZNODhrOHhURk9LT1FJc0MtUTdhOFYtdXpaOVg3N1FmQ2oxb3VPWXBfOVB3N215WW5uRll1X0o4bExP?oc=5",
-          "source": "Motorsport Week",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Key netcode patch released for Le Mans Ultimate",
-          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5TdU8tQ19wYVBHRjREYk9uZ1RST2tCQ0ZXTTZkYUszMHZHdGtTMVJTTVZ5aEpiYkJVXzZrTjUwcmM0akh5RzdNUVlMNjI3enhqa0VpanZHSzV1ZEFLeFh4dlpQdmUtdk5oUk4tV0dCSUVuTG9fYmc?oc=5",
-          "source": "Traxion.GG",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Lando Norris fuels Le Mans debut speculation after McLaren Hypercar test",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNUnBBN1A2S2xiVm9scFRRVF9BZmJtY3N3ZzZabXl6bmRKbHAyRTUwRWQ0UERzbDBvaG9jVUs5SnczZE1BNEFRNjNzcmdydjFfOXJGbUlURzY1SVg4b3VVZUo5Z0dxRjdERXdDbkN2Zi1EVHBxRlNsMW9WQ0daNUNUMzNzWXR3TjlXWmFPbHVvOEhwTV9aQ3JmbVhWWG1PWFJSSnlKTkdZMFBGNFNsZHpJeDV3?oc=5",
-          "source": "Crash.net",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Aron: “Universe Pays You Back” in Second Win Since Comeback",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOTm5OMXFIMVdFdEhRY0JPNl9rSTdCN18zelZYREwyOXhRdG1LaTEtQ010U1p1WHNGUGJmcXd3NWx0Z2V5cDQ2c3B0WE1fOEZOOXdKNHhyc1BNSVR6Z2N3aE9EQmh6ZExidXNIQXlaRmFQMlhvcVBPd21oWmhISGN0VFhRSnpEY1pobmZKR01Kd2xTbV9jQ3h5Mktn?oc=5",
-          "source": "Sportscar365",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Match sheet (Toulouse FC - LE Mans FC) - GW 23 - SEASON 26/27",
-          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9rQlVUUHQ1cVd0bzV0Rmg2UU4xTnNHNUtTUzlrR2lFLVlCbjNEVDQ1ZUNjVXZPOHRRRGotVmlrZGlQc0twbFEyM2JrMDdFUUp3am9CSjJ0YnJKcWVremNZdlphY1JXbVI2VDUtM3Y2OEFYRmVRTkY0Sw?oc=5",
-          "source": "ligue1.com",
+          "title": "From F1 to Le Mans: Lando Leaves Madrid and Puts McLaren’s MCL-HY WEC Hypercar to the Test",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPZTVMSzBQaGgxYmNMSGpJSk9KN0xtOC1ObmJtMU1IeDNmLWVibFBGanViM1FZUTRNdHFFam5qLWFJWEppRE5DSDBod01rLTBfYXNQMU1DUU1HTng2bWNwQzlka3RVdG1kZHpScjdQR1duc2dRdGo0S3ZzeHJ6M1ZkY2huTkNRVkZqbGxWRWN6c080UTVJYzI5WmNocUtnWEV1Y1N0RHNGSzQybEZDOXh4Wnd3SlpmWV9lbG5CMkNpenZDZFlFdnJ2b0gzUmJTZWs3X0FvcUcycUE3QjVYdDJORGNyU24?oc=5",
+          "source": "speedwaydigest.com",
           "published": "2026-09-15"
         }
       ],
@@ -1348,6 +1477,7 @@
       "coach": {
         "apiId": 19560,
         "name": "Alexandre Dujeux",
+        "photo": "https://media.api-sports.io/football/coachs/19560.png",
         "country": "France",
         "age": 49,
         "tenureFrom": "2026-07",
@@ -1385,6 +1515,7 @@
           "apiId": 22241,
           "number": 21,
           "name": "Bingourou Kamara",
+          "photo": "https://media.api-sports.io/football/players/22241.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1411,25 +1542,28 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 20936,
           "number": 1,
-          "name": "B. Leroy",
+          "name": "Benjamin Leroy",
+          "photo": "https://media.api-sports.io/football/players/20936.png",
           "pos": "GK",
           "positions": [
             "GK"
           ],
           "role": "GK",
           "age": 36,
-          "height": null,
-          "weight": null,
+          "height": 184,
+          "weight": 75,
           "foot": null,
-          "nat": null,
+          "nat": "FRA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "France",
           "pronunciation": null,
           "career": "Tours (2010–2013) · Evian TG (2014–2015) · Dijon (2016–2017) · Ajaccio (2018–2022) · Quevilly (2023) · Lorient (2024–2025)",
           "lastSeason": null,
@@ -1443,6 +1577,7 @@
           "apiId": 1142,
           "number": 38,
           "name": "Yvon Landry Mvogo Nganoma",
+          "photo": "https://media.api-sports.io/football/players/1142.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1469,13 +1604,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.78
+            "rating": 6.78,
+            "conceded": 2,
+            "saves": 9
           }
         },
         {
           "apiId": 214310,
           "number": 32,
           "name": "Nathaniel Adjei",
+          "photo": "https://media.api-sports.io/football/players/214310.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1502,13 +1640,16 @@
             "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 7.35
+            "rating": 7.35,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 399903,
           "number": 33,
-          "name": "I. Akakpo",
+          "name": "Izak Akakpo",
+          "photo": "https://media.api-sports.io/football/players/399903.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1518,9 +1659,9 @@
           "height": null,
           "weight": null,
           "foot": null,
-          "nat": null,
+          "nat": "FRA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "France",
           "pronunciation": null,
           "career": "Dijon II (2022–2023) · Dijon (2024) · Lorient II (2025)",
           "lastSeason": null,
@@ -1534,6 +1675,7 @@
           "apiId": 85773,
           "number": 2,
           "name": "Alec Mathieu Georgen",
+          "photo": "https://media.api-sports.io/football/players/85773.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1560,17 +1702,19 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 3.65
+            "rating": 3.65,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 384112,
           "number": 77,
           "name": "Panos Katseris",
+          "photo": "https://media.api-sports.io/football/players/384112.png",
           "pos": "MID",
           "positions": [
-            "MID",
-            "DEF"
+            "MID"
           ],
           "role": "MID",
           "age": 24,
@@ -1594,13 +1738,16 @@
             "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 7.05
+            "rating": 7.05,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 402386,
           "number": 43,
           "name": "Kan Guy Arsène Kouassi",
+          "photo": "https://media.api-sports.io/football/players/402386.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1627,25 +1774,28 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.6
+            "rating": 6.6,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 278556,
           "number": 30,
-          "name": "S. Kuzmić",
+          "name": "Srđan Kuzmić",
+          "photo": "https://media.api-sports.io/football/players/278556.png",
           "pos": "DEF",
           "positions": [
             "DEF"
           ],
           "role": "DEF",
           "age": 21,
-          "height": null,
-          "weight": null,
+          "height": 183,
+          "weight": 75,
           "foot": null,
-          "nat": null,
+          "nat": "SVN",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Slovenia",
           "pronunciation": null,
           "career": "Ilirija (2020–2021) · Mura (2022) · Viborg (2023–prezent)",
           "lastSeason": null,
@@ -1653,24 +1803,35 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 488,
+            "apps": 6,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.79,
+            "conceded": 0,
+            "saves": 0
+          }
         },
         {
           "apiId": 162236,
           "number": 27,
-          "name": "F. Mendy",
+          "name": "Formose Mendy",
+          "photo": "https://media.api-sports.io/football/players/162236.png",
           "pos": "DEF",
           "positions": [
             "DEF"
           ],
           "role": "DEF",
           "age": 24,
-          "height": null,
-          "weight": null,
+          "height": 191,
+          "weight": 76,
           "foot": null,
-          "nat": null,
+          "nat": "SEN",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Senegal",
           "pronunciation": null,
           "career": "Club Brugge II (2020) · Amiens (2021–2022) · Lorient (2023–2024) · Watford (2025)",
           "lastSeason": null,
@@ -1684,6 +1845,7 @@
           "apiId": 336688,
           "number": 55,
           "name": "Nosa Edward Obaretin",
+          "photo": "https://media.api-sports.io/football/players/336688.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1710,13 +1872,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 446829,
           "number": 97,
-          "name": "S. Siba",
+          "name": "Stevan Siba",
+          "photo": "https://media.api-sports.io/football/players/446829.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1726,9 +1891,9 @@
           "height": null,
           "weight": null,
           "foot": null,
-          "nat": null,
+          "nat": "FRA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "France",
           "pronunciation": null,
           "career": "Lorient II (2023–2025)",
           "lastSeason": null,
@@ -1742,6 +1907,7 @@
           "apiId": 193507,
           "number": 20,
           "name": "Dembo Sylla",
+          "photo": "https://media.api-sports.io/football/players/193507.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1768,13 +1934,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.89
+            "rating": 6.89,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 50030,
           "number": 3,
           "name": "Montassar Omar Talbi",
+          "photo": "https://media.api-sports.io/football/players/50030.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1801,13 +1970,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.31
+            "rating": 7.31,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 195893,
           "number": 95,
           "name": "Souleymane Isaak Touré",
+          "photo": "https://media.api-sports.io/football/players/195893.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1834,13 +2006,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 402265,
           "number": 62,
           "name": "Arthur Ebong Avom",
+          "photo": "https://media.api-sports.io/football/players/402265.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1867,18 +2042,21 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.07
+            "rating": 7.07,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 483118,
           "number": 33,
           "name": "Gabin Bernardeau",
-          "pos": "ATT",
+          "photo": "https://media.api-sports.io/football/players/483118.png",
+          "pos": "MID",
           "positions": [
-            "ATT"
+            "MID"
           ],
-          "role": "ATT",
+          "role": "MID",
           "age": 19,
           "height": null,
           "weight": null,
@@ -1900,13 +2078,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.7
+            "rating": 6.7,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 23363,
           "number": 8,
           "name": "Noah Cadiou",
+          "photo": "https://media.api-sports.io/football/players/23363.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1933,13 +2114,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.92
+            "rating": 6.92,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 162018,
           "number": 7,
           "name": "Bandiougou Fadiga",
+          "photo": "https://media.api-sports.io/football/players/162018.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1966,13 +2150,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 174703,
           "number": 11,
           "name": "Théo Le Bris",
+          "photo": "https://media.api-sports.io/football/players/174703.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1999,18 +2186,21 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.72
+            "rating": 6.72,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 22171,
           "number": 17,
           "name": "Jean-Victor Makengo",
-          "pos": "ATT",
+          "photo": "https://media.api-sports.io/football/players/22171.png",
+          "pos": "MID",
           "positions": [
-            "ATT"
+            "MID"
           ],
-          "role": "ATT",
+          "role": "MID",
           "age": 27,
           "height": 177,
           "weight": 75,
@@ -2032,13 +2222,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.94
+            "rating": 6.94,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 298006,
           "number": 72,
           "name": "Noah Mbamba-Muanda",
+          "photo": "https://media.api-sports.io/football/players/298006.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2065,13 +2258,16 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 7.03
+            "rating": 7.03,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 422690,
           "number": 23,
-          "name": "Daniel Xavier Semedo",
+          "name": "Daniel Semedo",
+          "photo": "https://media.api-sports.io/football/players/422690.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2098,13 +2294,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 274278,
           "number": 18,
           "name": "Ibrahima Baldé",
+          "photo": "https://media.api-sports.io/football/players/274278.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2131,25 +2330,28 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 7.14
+            "rating": 7.14,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 200873,
           "number": 9,
-          "name": "M. Bamba",
+          "name": "Muhamad Bamba",
+          "photo": "https://media.api-sports.io/football/players/200873.png",
           "pos": "ATT",
           "positions": [
             "ATT"
           ],
           "role": "ATT",
           "age": 24,
-          "height": null,
-          "weight": null,
+          "height": 185,
+          "weight": 75,
           "foot": null,
-          "nat": null,
+          "nat": "CÔT",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Côte d'Ivoire",
           "pronunciation": null,
           "career": "Hapoel Rishon LeZion (2019–2022) · Lorient (2023–2025)",
           "lastSeason": null,
@@ -2162,7 +2364,8 @@
         {
           "apiId": 434785,
           "number": 34,
-          "name": "M. Bley",
+          "name": "Martin Nogoto Bley",
+          "photo": "https://media.api-sports.io/football/players/434785.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2172,9 +2375,9 @@
           "height": null,
           "weight": null,
           "foot": null,
-          "nat": null,
+          "nat": "BFA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Burkina Faso",
           "pronunciation": null,
           "career": "Etoile Filante (2023) · Lorient II (2025)",
           "lastSeason": null,
@@ -2188,6 +2391,7 @@
           "apiId": 353771,
           "number": 19,
           "name": "Souleymane Faye",
+          "photo": "https://media.api-sports.io/football/players/353771.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2214,13 +2418,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 4.4
+            "rating": 4.4,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 289670,
           "number": 10,
           "name": "Isak Steiner Jensen",
+          "photo": "https://media.api-sports.io/football/players/289670.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2247,13 +2454,16 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.69
+            "rating": 6.69,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 608028,
           "number": 42,
           "name": "M. Kone",
+          "photo": "https://media.api-sports.io/football/players/608028.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2280,13 +2490,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.61
+            "rating": 6.61,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 72457,
           "number": 15,
           "name": "Aiyegun Oluwatosin Tosin",
+          "photo": "https://media.api-sports.io/football/players/72457.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2313,7 +2526,9 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 4.3
+            "rating": 4.3,
+            "conceded": 0,
+            "saves": 0
           }
         }
       ],
@@ -2455,9 +2670,27 @@
       "news": [],
       "newsCandidates": [
         {
+          "title": "Lorient Opens New York Office as Healthcare Investment Platform Expands",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQUFRSdFl3RjBDaTlTMkc3YmxYeTVCV2FCMUpseFZDdDQ5TnIwaGdIU2g5WnRjS3VPZjBKcWxxRXZhSHJHZlpQLXptbXZaM2dPUnFFYjZCWjRreUxmcE1YV0hzTjlyRG5kMFdQRFFrZ0tPc0dRTGVDVmRsUWNrMURaLWdCcG9UZ0hhZk9Ob0tmemRyNHZRTWNIcUZsMk1UN1dXc3JjLWtkM1JhNjZfeTNJ?oc=5",
+          "source": "citybiz",
+          "published": "2026-09-15"
+        },
+        {
           "title": "Lorient Opens New York Office, Expanding U.S. Footprint",
           "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNNlBPWHRrcE5BNkZqMHBleUpNb2J3YjREa1ctRXY2RmZJdndsdkxIekNjZVFmLTZFX0tqYlY4dE9OTHNORGk4SXZKbjk3a0tqYWpiSVFhWUZqRmxqX0ljZTVKTGhxbU51bFhPc01mQndCLXkxVThjRjYxX01QQkRsdkZYcGU3UmJPSEtON1pjVGN5M1phc3BsQjhhUjMzcFhfZlN0VDRfWXFCRXNYc0NBcQ?oc=5",
           "source": "Business Wire",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "A day dedicated to sharing",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBpNVg2NFU5WGZBZ2tyQjNaaFc3T19JMWk3cHFabm5hdHlVQ0VJX1VBaWtDSk9PSV9uT1NmdVVPMVE3V3VGNkdEMjBmZmZtUE1wWHljdjFCX3VqY3hQdXZqMGZTdXpRamFsbzJOVVJTVzRaQlk?oc=5",
+          "source": "Sail-World.com",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Pre-match Lorient vs Olympique Lyonnais, Ligue 1 Round 33",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5jTXEzQzFMdVVPTmRjSTJCcFh0STdzX2V4TXZlSC05a1dHT3ZvMHVyWHNuQVVoYmxRVGJCMDJndUlGSFM4X05VNi0yWW5fWG5nX3JSVUVLMmJFTlJtRmx1aWJ4Yk5SUWNCNTRTcG5PX2Z5cXZh?oc=5",
+          "source": "BeSoccer Livescore",
           "published": "2026-09-15"
         },
         {
@@ -2467,40 +2700,22 @@
           "published": "2026-09-15"
         },
         {
-          "title": "Le Mans vs Lorient Preview: Team News & Prediction",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQbmxfZFR1NHFsMUhjQVVubXVFSWYtZ0Y5SVU2UVVZQmhEa1U1MFdlYXRrUDJFN1hzVU1zaUZQbENkQ1k0LVZzMURqc0VCSVlHYVREVkdZeTVWemdjY2M2MVpDQTZzT0p0MjJnbjhQbXRrZXZjdFBHdDVHaE9PX1A2blZfMmdtUUpFTXNJ?oc=5",
-          "source": "The Stats Zone",
+          "title": "The IMOCA fleet gathers at Lorient La Base",
+          "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9MOU5QWVlZYVFDMC1CWkNFTXpLSWJqdDlTY2xZUnA4SnR3YW9QLU5HZzZUbHBWUFhQUkZ5bVlDWmFCMVc5OGhKWkhySmozaUg1?oc=5",
+          "source": "Sail-World.com",
           "published": "2026-09-15"
         },
         {
-          "title": "RC Lens decide to sack Dino Toppmöller after 4 matche…",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNeHBsSEJrVGw0RGFaTmsxMFNsdlQ0dHAySnRUYkFteEJtOVJ5Zk1DU0RqZjBnZzhodmg3VGhDdVBQOENxOTFvZHFnOWYwZE9LOUg0T1ZmdEFHcEZVdGthSjVuWDdTcFBCVFg3Y3JMRHlselRlbUlicFAyR1ZiSWNId04wNzE5SU15eXdlODdueEg1MGlyVGpHdnN2REJaMjQ2b1Zv?oc=5",
+          "title": "Match Highlights Lorient - Toulouse",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFB1Q3FEdmFDY3Q2d3VLUjM5UGhLWm03RWZLOWFmc0k0WGk0M1MtNURnc3FtX1VrWTRzVk9lRTllMzJ2Q0YwSVU2Ti0zM1l0anl4LVE?oc=5",
           "source": "YSscores",
           "published": "2026-09-15"
         },
         {
-          "title": "IMOCA stages student design workshop competition in Lorient to promote sustainable boat building",
-          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQWTcweE0wLUhvc1FVQnNPeGRSRHFHQ3g1MlRERW1iWXlyajJBSVgzcHh4LXdfWS1MNzE4T3ExTWFtZEdtbHpfMHlyYWthSWtCWjVWczNfdnBaeklZT3dFdF9pX20xRGN0ODlTOVAzY1RWR3poZVBfSTlZYVc0Mld6UTc3Tjc3ekhCdElXR2JSbm8tS2pMZGZuT1dUdGd1eVN3Y1ltb2ZFQ04zQkN3U2tTeVBTMzBXU0szd29JM1FqWG45bExXR2pNXzFGZw?oc=5",
-          "source": "IMOCA",
-          "published": "2026-09-14"
-        },
-        {
-          "title": "Line up Lorient vs Troyes, Ligue 1 2026/2027",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOc3hOVVdWYTdEZWFkMG8zT0tjMExJS195WWQ1MGN4STVvcEFRUTFRZWl6ZVItLUcwaWZhcmlHU2xsWTlaTnBvNHI0Umxud3JiQ21MNHB3dWNYMGVRcG8xa2FXNUdnZTFzYm1NQnJESGRxTDE5WUY2WkpHTWhWWUxpcjZaR3hGUHhEdVpscGxvSmtZYkRNbGVjSVZ0SEdkYTV6X2lZU1dR?oc=5",
-          "source": "Diario AS",
-          "published": "2026-09-14"
-        },
-        {
-          "title": "ALLAGRANDE MAPEI SPREADS HER NEW WINGS AHEAD OF THE ROUTE DU RHUM",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOVlpSbXh2UDg2LWE2VVE4YkVNLWRjS1Y0a1FmeDk4LTFGcjFvVzYyRnBoTWF2NHFSb3UxMW5BLTNLOGN4VHFEUDduRjdBUXh4ZzlPMFdvLXJyVEVodkpzXzFpaUtCeXIyVlZ0dXFqOVNzb0M5OUVrQzlXMWRKM1RXRHZnc3pmQW13TW03RVkzd28tQVhUWExHX3RzejM3RzFFeGc?oc=5",
-          "source": "IMOCA",
-          "published": "2026-09-14"
-        },
-        {
-          "title": "FC Lorient U19",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQejZWellFNU1CY19lVGwwMjJDQlZBNDVnVW9jd0JLNGhjSURUbnlYdnlJTzdWb1RyWVdhalFLc1A2c2d1amhHZEVWTlhmWDR6LWxVcXBXdndHWHhJZXVIQkNaQlozejl2OENzU293MGJYak9neG1KcEE0YXpIbzI1UTdZaTU1R0o5VXVDY1oyU200UTdTUlE?oc=5",
-          "source": "Transfermarkt",
-          "published": "2026-09-14"
+          "title": "Le Mans vs Lorient Preview: Team News & Prediction",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQbmxfZFR1NHFsMUhjQVVubXVFSWYtZ0Y5SVU2UVVZQmhEa1U1MFdlYXRrUDJFN1hzVU1zaUZQbENkQ1k0LVZzMURqc0VCSVlHYVREVkdZeTVWemdjY2M2MVpDQTZzT0p0MjJnbjhQbXRrZXZjdFBHdDVHaE9PX1A2blZfMmdtUUpFTXNJ?oc=5",
+          "source": "The Stats Zone",
+          "published": "2026-09-15"
         }
       ],
       "stories": []

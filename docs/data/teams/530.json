@@ -1,11 +1,12 @@
 {
   "teamId": 530,
   "name": "Atletico Madrid",
-  "fetchedAt": "2026-09-13T11:29:56.442Z",
+  "fetchedAt": "2026-09-16T07:27:59.154Z",
   "source": "https://www.api-football.com/",
   "coach": {
     "apiId": 1595,
     "name": "Diego Pablo Simeone González",
+    "photo": "https://media.api-sports.io/football/coachs/1595.png",
     "country": "Argentina",
     "age": 55,
     "tenureFrom": "2011-12",
@@ -50,20 +51,21 @@
   "squad": [
     {
       "apiId": 393198,
-      "number": 13,
+      "number": 25,
       "name": "Salvador Esquivel",
+      "photo": "https://media.api-sports.io/football/players/393198.png",
       "pos": "GK",
       "positions": [
         "GK"
       ],
       "role": "GK",
       "age": 20,
-      "height": null,
-      "weight": null,
+      "height": 190,
+      "weight": 85,
       "foot": null,
-      "nat": null,
+      "nat": "ESP",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Spain",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -71,12 +73,23 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "minutes": 0,
+        "apps": 0,
+        "yellow": 0,
+        "red": null,
+        "rating": null,
+        "conceded": 0,
+        "saves": 0
+      }
     },
     {
       "apiId": 646997,
       "number": 51,
       "name": "Álvaro Moreno",
+      "photo": "https://media.api-sports.io/football/players/646997.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -102,6 +115,7 @@
       "apiId": 2465,
       "number": 1,
       "name": "Juan Agustín Musso",
+      "photo": "https://media.api-sports.io/football/players/2465.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -124,17 +138,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": null,
+        "minutes": 0,
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 29,
       "number": 13,
       "name": "Jan Oblak",
+      "photo": "https://media.api-sports.io/football/players/29.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -157,29 +174,32 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 360,
-        "apps": 4,
+        "minutes": 450,
+        "apps": 5,
         "yellow": 0,
         "red": null,
-        "rating": 6.78
+        "rating": 6.84,
+        "conceded": 6,
+        "saves": 13
       }
     },
     {
       "apiId": 189997,
       "number": 1,
       "name": "Mario de Luis",
+      "photo": "https://media.api-sports.io/football/players/189997.png",
       "pos": "GK",
       "positions": [
         "GK"
       ],
       "role": "GK",
       "age": 23,
-      "height": null,
-      "weight": null,
+      "height": 185,
+      "weight": 75,
       "foot": null,
-      "nat": null,
+      "nat": "ESP",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Spain",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -193,6 +213,7 @@
       "apiId": 567861,
       "number": 27,
       "name": "Jorge Dominguez",
+      "photo": "https://media.api-sports.io/football/players/567861.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -202,9 +223,9 @@
       "height": null,
       "weight": null,
       "foot": null,
-      "nat": null,
+      "nat": "ESP",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Spain",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -219,18 +240,22 @@
         "apps": 1,
         "yellow": 1,
         "red": null,
-        "rating": 6.7
+        "rating": 3.35,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 563,
       "number": 22,
       "name": "Álex Grimaldo",
-      "pos": "DEF",
+      "photo": "https://media.api-sports.io/football/players/563.png",
+      "pos": "MID",
       "positions": [
+        "MID",
         "DEF"
       ],
-      "role": "DEF",
+      "role": "MID",
       "age": 30,
       "height": 171,
       "weight": 63,
@@ -246,19 +271,22 @@
       "status": "available",
       "statusNote": null,
       "stats": {
-        "goals": 0,
-        "assists": 0,
-        "minutes": 270,
-        "apps": 3,
+        "goals": 1,
+        "assists": 1,
+        "minutes": 360,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.5
+        "rating": 6.8,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 30399,
       "number": 17,
       "name": "Dávid Hancko",
+      "photo": "https://media.api-sports.io/football/players/30399.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -280,18 +308,21 @@
       "statusNote": null,
       "stats": {
         "goals": 0,
-        "assists": 1,
-        "minutes": 360,
-        "apps": 4,
+        "assists": 2,
+        "minutes": 450,
+        "apps": 5,
         "yellow": 1,
         "red": null,
-        "rating": 7.25
+        "rating": 7.19,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 47301,
       "number": 24,
       "name": "Robin Le Normand",
+      "photo": "https://media.api-sports.io/football/players/47301.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -318,13 +349,16 @@
         "apps": 2,
         "yellow": 0,
         "red": 1,
-        "rating": 6.45
+        "rating": 4.3,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 753,
       "number": 14,
       "name": "Marcos Llorente",
+      "photo": "https://media.api-sports.io/football/players/753.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -347,17 +381,20 @@
       "stats": {
         "goals": 0,
         "assists": 1,
-        "minutes": 225,
-        "apps": 4,
+        "minutes": 285,
+        "apps": 5,
         "yellow": 1,
         "red": null,
-        "rating": 6.93
+        "rating": 6.92,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 386869,
       "number": 30,
       "name": "Dani MartÃ­nez",
+      "photo": "https://media.api-sports.io/football/players/386869.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -384,13 +421,16 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 6.7
+        "rating": 3.35,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 295793,
       "number": 18,
       "name": "Marc Pubill",
+      "photo": "https://media.api-sports.io/football/players/295793.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -413,29 +453,32 @@
       "stats": {
         "goals": 1,
         "assists": 0,
-        "minutes": 246,
-        "apps": 3,
+        "minutes": 336,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 7.03
+        "rating": 7.15,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 428799,
-      "number": 15,
-      "name": "A. Puric",
+      "number": 12,
+      "name": "Aleksa Puric",
+      "photo": "https://media.api-sports.io/football/players/428799.png",
       "pos": "DEF",
       "positions": [
         "DEF"
       ],
       "role": "DEF",
       "age": 22,
-      "height": null,
+      "height": 185,
       "weight": null,
       "foot": null,
-      "nat": null,
+      "nat": "SRB",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Serbia",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -449,6 +492,7 @@
       "apiId": 30776,
       "number": 21,
       "name": "Cristian Gabriel Romero",
+      "photo": "https://media.api-sports.io/football/players/30776.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -471,29 +515,32 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 31,
-        "apps": 1,
+        "minutes": 121,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.6
+        "rating": 7.18,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 402280,
       "number": 4,
-      "name": "A. Yaakobishvili",
+      "name": "Antal Yaakobishvili",
+      "photo": "https://media.api-sports.io/football/players/402280.png",
       "pos": "DEF",
       "positions": [
         "DEF"
       ],
       "role": "DEF",
       "age": 21,
-      "height": null,
-      "weight": null,
+      "height": 193,
+      "weight": 86,
       "foot": null,
-      "nat": null,
+      "nat": "HUN",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Hungary",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -501,12 +548,23 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "minutes": null,
+        "apps": 0,
+        "yellow": 0,
+        "red": null,
+        "rating": null,
+        "conceded": 0,
+        "saves": null
+      }
     },
     {
       "apiId": 336594,
       "number": 8,
       "name": "Pablo Barrios",
+      "photo": "https://media.api-sports.io/football/players/336594.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -533,38 +591,16 @@
         "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.35
+        "rating": 7.35,
+        "conceded": 0,
+        "saves": null
       }
-    },
-    {
-      "apiId": 443668,
-      "number": 37,
-      "name": "Rayane Belid",
-      "pos": "MID",
-      "positions": [
-        "MID"
-      ],
-      "role": "MID",
-      "age": 20,
-      "height": null,
-      "weight": null,
-      "foot": null,
-      "nat": null,
-      "natTeam": null,
-      "birthCountry": null,
-      "pronunciation": null,
-      "career": null,
-      "lastSeason": null,
-      "funfact": null,
-      "linkLine": null,
-      "status": "available",
-      "statusNote": null,
-      "stats": null
     },
     {
       "apiId": 133185,
       "number": 5,
       "name": "João Lucas de Souza Cardoso",
+      "photo": "https://media.api-sports.io/football/players/133185.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -587,17 +623,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 26,
-        "apps": 2,
-        "yellow": 0,
+        "minutes": 57,
+        "apps": 3,
+        "yellow": 1,
         "red": null,
-        "rating": 6.8
+        "rating": 6.73,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 548790,
       "number": 46,
       "name": "J. Castillo",
+      "photo": "https://media.api-sports.io/football/players/548790.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -620,17 +659,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": null,
+        "minutes": 0,
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 7712,
       "number": 23,
       "name": "Morten Blom Due Hjulmand",
+      "photo": "https://media.api-sports.io/football/players/7712.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -653,17 +695,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 246,
-        "apps": 4,
+        "minutes": 336,
+        "apps": 5,
         "yellow": 1,
         "red": null,
-        "rating": 6.85
+        "rating": 6.92,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 50,
       "number": 6,
       "name": "Koke",
+      "photo": "https://media.api-sports.io/football/players/50.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -686,23 +731,26 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 193,
-        "apps": 4,
+        "minutes": 223,
+        "apps": 5,
         "yellow": 0,
         "red": null,
-        "rating": 7.2
+        "rating": 7.24,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 927,
       "number": 7,
       "name": "Lee Kang-In",
-      "pos": "ATT",
+      "photo": "https://media.api-sports.io/football/players/927.png",
+      "pos": "MID",
       "positions": [
-        "ATT",
-        "MID"
+        "MID",
+        "ATT"
       ],
-      "role": "ATT",
+      "role": "MID",
       "age": 24,
       "height": 173,
       "weight": 66,
@@ -720,17 +768,20 @@
       "stats": {
         "goals": 1,
         "assists": 1,
-        "minutes": 230,
-        "apps": 4,
+        "minutes": 290,
+        "apps": 5,
         "yellow": 1,
         "red": null,
-        "rating": 7.2
+        "rating": 7.03,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 341371,
       "number": 4,
       "name": "Rodrigo Mendoza",
+      "photo": "https://media.api-sports.io/football/players/341371.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -757,13 +808,16 @@
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.7
+        "rating": 5.03,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 443748,
       "number": 18,
       "name": "Taufik Seidu",
+      "photo": "https://media.api-sports.io/football/players/443748.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -789,6 +843,7 @@
       "apiId": 313383,
       "number": 3,
       "name": "Obed Gómez Vargas",
+      "photo": "https://media.api-sports.io/football/players/313383.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -811,17 +866,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": null,
+        "minutes": 0,
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 6009,
       "number": 19,
       "name": "Julián Álvarez",
+      "photo": "https://media.api-sports.io/football/players/6009.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -848,13 +906,16 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.5
+        "rating": 6.5,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 182219,
       "number": 10,
       "name": "Álex Baena",
+      "photo": "https://media.api-sports.io/football/players/182219.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -877,17 +938,20 @@
       "stats": {
         "goals": 3,
         "assists": 1,
-        "minutes": 239,
-        "apps": 4,
+        "minutes": 298,
+        "apps": 5,
         "yellow": 1,
         "red": null,
-        "rating": 7.38
+        "rating": 7.34,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 548707,
       "number": 10,
       "name": "M. Llorente",
+      "photo": "https://media.api-sports.io/football/players/548707.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -914,13 +978,16 @@
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 8489,
       "number": 15,
       "name": "Jonathan Christian David",
+      "photo": "https://media.api-sports.io/football/players/8489.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -941,19 +1008,22 @@
       "status": "available",
       "statusNote": null,
       "stats": {
-        "goals": 0,
+        "goals": 1,
         "assists": 0,
-        "minutes": null,
-        "apps": 0,
+        "minutes": 30,
+        "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": 7.77,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 491091,
       "number": 9,
       "name": "Sergio Esteban",
+      "photo": "https://media.api-sports.io/football/players/491091.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -979,6 +1049,7 @@
       "apiId": 18767,
       "number": 11,
       "name": "Ademola Lookman Olajade Alade Aylola Lookman",
+      "photo": "https://media.api-sports.io/football/players/18767.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -1001,17 +1072,20 @@
       "stats": {
         "goals": 1,
         "assists": 0,
-        "minutes": 293,
-        "apps": 4,
+        "minutes": 369,
+        "apps": 5,
         "yellow": 0,
         "red": null,
-        "rating": 6.8
+        "rating": 6.7,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 183948,
       "number": 16,
       "name": "Arnau Ortiz",
+      "photo": "https://media.api-sports.io/football/players/183948.png",
       "pos": "ATT",
       "positions": [
         "ATT",
@@ -1035,17 +1109,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 113,
-        "apps": 3,
+        "minutes": 127,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.57
+        "rating": 6.58,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 323935,
       "number": 20,
       "name": "Giuliano Simeone Baldini",
+      "photo": "https://media.api-sports.io/football/players/323935.png",
       "pos": "MID",
       "positions": [
         "MID",
@@ -1067,19 +1144,22 @@
       "status": "available",
       "statusNote": null,
       "stats": {
-        "goals": 1,
+        "goals": 2,
         "assists": 1,
-        "minutes": 272,
-        "apps": 4,
+        "minutes": 362,
+        "apps": 5,
         "yellow": 0,
         "red": null,
-        "rating": 6.58
+        "rating": 6.8,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 8492,
       "number": 9,
       "name": "Alexander Sørloth",
+      "photo": "https://media.api-sports.io/football/players/8492.png",
       "pos": "ATT",
       "positions": [
         "ATT",
@@ -1107,13 +1187,16 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 7
+        "rating": 7,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 31,
       "number": 2,
       "name": "José María Giménez de Vargas",
+      "photo": "https://media.api-sports.io/football/players/31.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -1140,13 +1223,16 @@
         "apps": 2,
         "yellow": 1,
         "red": null,
-        "rating": 6.7
+        "rating": 6.7,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 324750,
       "number": 12,
       "name": "Carlos Martín",
+      "photo": "https://media.api-sports.io/football/players/324750.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -1173,7 +1259,9 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 6.5
+        "rating": 6.5,
+        "conceded": 0,
+        "saves": null
       }
     }
   ]

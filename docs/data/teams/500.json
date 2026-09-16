@@ -1,11 +1,12 @@
 {
   "teamId": 500,
   "name": "Bologna",
-  "fetchedAt": "2026-09-13T11:29:39.668Z",
+  "fetchedAt": "2026-09-16T07:35:41.195Z",
   "source": "https://www.api-football.com/",
   "coach": {
     "apiId": 3081,
     "name": "Domenico Tedesco",
+    "photo": "https://media.api-sports.io/football/coachs/3081.png",
     "country": "Italy",
     "age": 40,
     "tenureFrom": "2026-08",
@@ -55,8 +56,9 @@
   "squad": [
     {
       "apiId": 616142,
-      "number": 22,
+      "number": 82,
       "name": "Matteo Franceschelli",
+      "photo": "https://media.api-sports.io/football/players/616142.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -76,12 +78,23 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "minutes": null,
+        "apps": 0,
+        "yellow": 0,
+        "red": null,
+        "rating": null,
+        "conceded": 0,
+        "saves": null
+      }
     },
     {
       "apiId": 616196,
       "number": null,
       "name": "Giacomo Giacomone",
+      "photo": "https://media.api-sports.io/football/players/616196.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -107,6 +120,7 @@
       "apiId": 491232,
       "number": 34,
       "name": "R. Gnudi",
+      "photo": "https://media.api-sports.io/football/players/491232.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -132,6 +146,7 @@
       "apiId": 416518,
       "number": 72,
       "name": "Ukko Happonen",
+      "photo": "https://media.api-sports.io/football/players/416518.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -158,13 +173,16 @@
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 446089,
       "number": 25,
       "name": "Massimo Pessina",
+      "photo": "https://media.api-sports.io/football/players/446089.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -187,17 +205,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": null,
-        "apps": 0,
+        "minutes": 90,
+        "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": 6.7,
+        "conceded": 1,
+        "saves": 3
       }
     },
     {
       "apiId": 2998,
       "number": 1,
       "name": "Łukasz Skorupski",
+      "photo": "https://media.api-sports.io/football/players/2998.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -224,13 +245,16 @@
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.4
+        "rating": 6.4,
+        "conceded": 4,
+        "saves": 7
       }
     },
     {
       "apiId": 295223,
       "number": 23,
       "name": "Abdel Rahim Alhassane Bonkano",
+      "photo": "https://media.api-sports.io/football/players/295223.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -257,13 +281,16 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.45
+        "rating": 6.45,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 31099,
       "number": 16,
       "name": "Nicolò Casale",
+      "photo": "https://media.api-sports.io/football/players/31099.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -290,13 +317,16 @@
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 30498,
       "number": 29,
       "name": "Lorenzo De Silvestri",
+      "photo": "https://media.api-sports.io/football/players/30498.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -323,13 +353,16 @@
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 416062,
       "number": 5,
       "name": "Eivind Fauske Helland",
+      "photo": "https://media.api-sports.io/football/players/416062.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -356,13 +389,16 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 7
+        "rating": 7,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 616147,
       "number": 3,
       "name": "Ali Jaber",
+      "photo": null,
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -388,6 +424,7 @@
       "apiId": 39254,
       "number": 14,
       "name": "Torbjørn Lysaker Heggem",
+      "photo": "https://media.api-sports.io/football/players/39254.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -410,17 +447,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 360,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.9
+        "rating": 6.9,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 134,
       "number": 33,
       "name": "Juan Miranda",
+      "photo": "https://media.api-sports.io/football/players/134.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -443,17 +483,20 @@
       "stats": {
         "goals": 0,
         "assists": 1,
-        "minutes": 135,
-        "apps": 2,
+        "minutes": 225,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.8
+        "rating": 6.87,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 204043,
       "number": 3,
       "name": "Arthur Nicolas Theate",
+      "photo": "https://media.api-sports.io/football/players/204043.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -476,17 +519,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 90,
-        "apps": 1,
+        "minutes": 180,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.3
+        "rating": 6.5,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 287564,
       "number": 41,
       "name": "Martin Vitík",
+      "photo": "https://media.api-sports.io/football/players/287564.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -513,13 +559,16 @@
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 426626,
       "number": 8,
       "name": "Mikel Jesús Amondarain",
+      "photo": "https://media.api-sports.io/football/players/426626.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -542,17 +591,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 29,
-        "apps": 2,
-        "yellow": 0,
+        "minutes": 95,
+        "apps": 3,
+        "yellow": 1,
         "red": null,
-        "rating": 6.45
+        "rating": 6.3,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 319919,
       "number": 17,
       "name": "Oussama El Azzouzi",
+      "photo": "https://media.api-sports.io/football/players/319919.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -579,13 +631,16 @@
         "apps": 1,
         "yellow": 1,
         "red": null,
-        "rating": 6.9
+        "rating": 6.9,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 44814,
       "number": 19,
       "name": "Lewis Ferguson",
+      "photo": "https://media.api-sports.io/football/players/44814.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -608,17 +663,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 270,
-        "apps": 3,
+        "minutes": 360,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.57
+        "rating": 7.48,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 47985,
       "number": 2,
       "name": "Emil Alfons Holm",
+      "photo": "https://media.api-sports.io/football/players/47985.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -641,17 +699,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 183,
-        "apps": 3,
+        "minutes": 273,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 7.33
+        "rating": 7.33,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 605412,
       "number": 6,
       "name": "Besalet Krasniqi",
+      "photo": null,
       "pos": "MID",
       "positions": [
         "MID"
@@ -677,6 +738,7 @@
       "apiId": 559723,
       "number": null,
       "name": "L. Kusic",
+      "photo": null,
       "pos": "MID",
       "positions": [
         "MID"
@@ -702,6 +764,7 @@
       "apiId": 606953,
       "number": 18,
       "name": "M. Libra",
+      "photo": "https://media.api-sports.io/football/players/606953.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -724,17 +787,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 45,
-        "apps": 1,
+        "minutes": 77,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.3
+        "rating": 6.25,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 1322,
       "number": 6,
       "name": "Nikola Moro",
+      "photo": "https://media.api-sports.io/football/players/1322.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -757,17 +823,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 55,
-        "apps": 2,
+        "minutes": 79,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.8
+        "rating": 6.87,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 31273,
       "number": 4,
       "name": "Tommaso Pobega",
+      "photo": "https://media.api-sports.io/football/players/31273.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -790,17 +859,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 117,
-        "apps": 2,
+        "minutes": 175,
+        "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.5
+        "rating": 6.63,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 128461,
       "number": 20,
       "name": "Nadir Zortea",
+      "photo": "https://media.api-sports.io/football/players/128461.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -827,13 +899,16 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.25
+        "rating": 6.25,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 873,
       "number": 10,
       "name": "Federico Bernardeschi",
+      "photo": "https://media.api-sports.io/football/players/873.png",
       "pos": "MID",
       "positions": [
         "MID",
@@ -857,17 +932,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 206,
-        "apps": 3,
+        "minutes": 288,
+        "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.13
+        "rating": 7.08,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 30438,
       "number": 28,
       "name": "Nicolò Cambiaghi",
+      "photo": "https://media.api-sports.io/football/players/30438.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -890,17 +968,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 216,
-        "apps": 3,
+        "minutes": 298,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.5
+        "rating": 6.43,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 584426,
       "number": null,
       "name": "F. Castaldo",
+      "photo": "https://media.api-sports.io/football/players/584426.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -926,6 +1007,7 @@
       "apiId": 15811,
       "number": 9,
       "name": "Artem Dovbyk",
+      "photo": "https://media.api-sports.io/football/players/15811.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -952,13 +1034,16 @@
         "apps": 3,
         "yellow": 1,
         "red": null,
-        "rating": 6.57
+        "rating": 6.57,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 349185,
       "number": 22,
       "name": "Jay Ifeanyi-Junior Enem",
+      "photo": "https://media.api-sports.io/football/players/349185.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -981,17 +1066,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": null,
-        "apps": 0,
+        "minutes": 8,
+        "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": 6.3,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 346866,
       "number": 11,
       "name": "Samuel-Germain Kinduelu Mbangula Tshifunda",
+      "photo": "https://media.api-sports.io/football/players/346866.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -1014,22 +1102,26 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 10,
-        "apps": 1,
+        "minutes": 18,
+        "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.3
+        "rating": 6.4,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 30542,
       "number": 21,
       "name": "Jens Odgaard",
-      "pos": "MID",
+      "photo": "https://media.api-sports.io/football/players/30542.png",
+      "pos": "ATT",
       "positions": [
+        "ATT",
         "MID"
       ],
-      "role": "MID",
+      "role": "ATT",
       "age": 26,
       "height": 188,
       "weight": 83,
@@ -1047,17 +1139,20 @@
       "stats": {
         "goals": 0,
         "assists": 0,
-        "minutes": 195,
-        "apps": 3,
+        "minutes": 227,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.53
+        "rating": 6.45,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 30488,
       "number": 7,
       "name": "Riccardo Orsolini",
+      "photo": "https://media.api-sports.io/football/players/30488.png",
       "pos": "ATT",
       "positions": [
         "ATT",
@@ -1085,13 +1180,16 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 6.6
+        "rating": 6.6,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 30440,
       "number": 91,
       "name": "Roberto Piccoli",
+      "photo": "https://media.api-sports.io/football/players/30440.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -1114,17 +1212,20 @@
       "stats": {
         "goals": 1,
         "assists": 0,
-        "minutes": 210,
-        "apps": 3,
+        "minutes": 268,
+        "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 6.9
+        "rating": 6.8,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 679113,
       "number": null,
       "name": "C. Piro",
+      "photo": null,
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -1150,6 +1251,7 @@
       "apiId": 278095,
       "number": 11,
       "name": "Jonathan David Henry Rowe",
+      "photo": "https://media.api-sports.io/football/players/278095.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -1176,7 +1278,9 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 6.6
+        "rating": 6.6,
+        "conceded": 0,
+        "saves": null
       }
     }
   ]

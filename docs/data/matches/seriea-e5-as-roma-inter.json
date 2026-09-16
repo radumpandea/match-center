@@ -1,12 +1,12 @@
 {
   "slug": "seriea-e5-as-roma-inter",
-  "generatedAt": "2026-09-15T15:55:24.806Z",
+  "generatedAt": "2026-09-16T07:37:17.195Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-09-15"
+      "accessed": "2026-09-16"
     }
   ],
   "competition": {
@@ -64,8 +64,8 @@
   "storyOfTheMatch": [
     "AS Roma — locul 1 după 4 etape, 12 puncte, golaveraj 12-1.",
     "AS Roma — 6 meciuri fără înfrângere.",
-    "AS Roma a păstrat poarta intactă în 2 din 4 etape.",
-    "Donyell Malen e cel mai bun marcator al echipei AS Roma în acest start de sezon (5 goluri).",
+    "AS Roma a păstrat poarta intactă în 3 din 4 etape.",
+    "Donyell Malen e cel mai bun marcator al echipei AS Roma în acest start de sezon (6 goluri).",
     "Inter — locul 2 după 4 etape, 12 puncte, golaveraj 13-6.",
     "Hakan Çalhanoğlu e cel mai bun marcator al echipei Inter în acest start de sezon (2 goluri).",
     "Cap la cap (10 meciuri): AS Roma 2 - 0 - 8 Inter."
@@ -116,6 +116,7 @@
       "coach": {
         "apiId": 2393,
         "name": "Gian Piero Gasperini",
+        "photo": "https://media.api-sports.io/football/coachs/2393.png",
         "country": "Italy",
         "age": 67,
         "tenureFrom": "2025-07",
@@ -213,6 +214,7 @@
           "apiId": 483676,
           "number": 70,
           "name": "Giorgio De Marzi",
+          "photo": "https://media.api-sports.io/football/players/483676.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -239,13 +241,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 30418,
           "number": 95,
           "name": "Pierluigi Gollini",
+          "photo": "https://media.api-sports.io/football/players/30418.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -272,13 +277,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 556,
           "number": 99,
           "name": "Mile Svilar",
+          "photo": "https://media.api-sports.io/football/players/556.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -301,17 +309,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 270,
-            "apps": 3,
+            "minutes": 366,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.93
+            "rating": 7.03,
+            "conceded": 1,
+            "saves": 10
           }
         },
         {
           "apiId": 6,
           "number": 26,
           "name": "Leonardo Julián Balerdi Rosa",
+          "photo": "https://media.api-sports.io/football/players/6.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -334,17 +345,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 23,
-            "apps": 1,
+            "minutes": 119,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 7.2
+            "rating": 7.2,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 342019,
           "number": 87,
           "name": "Daniele Ghilardi",
+          "photo": "https://media.api-sports.io/football/players/342019.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -371,13 +385,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 7.3
+            "rating": 7.3,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 2669,
           "number": 22,
           "name": "Hermoso",
+          "photo": "https://media.api-sports.io/football/players/2669.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -400,17 +417,20 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 248,
-            "apps": 3,
-            "yellow": 1,
+            "minutes": 344,
+            "apps": 4,
+            "yellow": 2,
             "red": null,
-            "rating": 8
+            "rating": 7.8,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 162409,
           "number": 3,
           "name": "Konstantinos Koulierakis",
+          "photo": "https://media.api-sports.io/football/players/162409.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -437,19 +457,22 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.9
+            "rating": 6.9,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 598615,
           "number": 77,
           "name": "E. Lulli",
-          "pos": "DEF",
+          "photo": "https://media.api-sports.io/football/players/598615.png",
+          "pos": "MID",
           "positions": [
-            "DEF",
-            "MID"
+            "MID",
+            "DEF"
           ],
-          "role": "DEF",
+          "role": "MID",
           "age": 18,
           "height": null,
           "weight": null,
@@ -467,17 +490,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 234,
-            "apps": 3,
+            "minutes": 322,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.07
+            "rating": 7.03,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 30425,
           "number": 23,
           "name": "Gianluca Mancini",
+          "photo": "https://media.api-sports.io/football/players/30425.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -500,22 +526,26 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 242,
-            "apps": 3,
+            "minutes": 338,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.27
+            "rating": 7.18,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 6503,
           "number": 20,
           "name": "Nahuel Molina Lucero",
-          "pos": "DEF",
+          "photo": "https://media.api-sports.io/football/players/6503.png",
+          "pos": "MID",
           "positions": [
+            "MID",
             "DEF"
           ],
-          "role": "DEF",
+          "role": "MID",
           "age": 27,
           "height": 179,
           "weight": 70,
@@ -533,42 +563,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 66,
-            "apps": 2,
+            "minutes": 162,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 7.1
+            "rating": 7.07,
+            "conceded": 0,
+            "saves": null
           }
-        },
-        {
-          "apiId": 449806,
-          "number": 33,
-          "name": "F. Nardin",
-          "pos": "DEF",
-          "positions": [
-            "DEF"
-          ],
-          "role": "DEF",
-          "age": 18,
-          "height": null,
-          "weight": null,
-          "foot": null,
-          "nat": null,
-          "natTeam": null,
-          "birthCountry": null,
-          "pronunciation": null,
-          "career": "AS Roma (2024)",
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": null
         },
         {
           "apiId": 1807,
           "number": 5,
           "name": "Obite Evan Ndicka",
+          "photo": "https://media.api-sports.io/football/players/1807.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -595,19 +603,22 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.85
+            "rating": 6.85,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 162452,
           "number": 2,
           "name": "Devyne Fabian Jairo Rensch",
-          "pos": "MID",
+          "photo": "https://media.api-sports.io/football/players/162452.png",
+          "pos": "DEF",
           "positions": [
-            "MID",
-            "DEF"
+            "DEF",
+            "MID"
           ],
-          "role": "MID",
+          "role": "DEF",
           "age": 22,
           "height": 181,
           "weight": 75,
@@ -625,17 +636,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
-            "apps": 0,
+            "minutes": 8,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": 6.6,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 626713,
           "number": 3,
           "name": "M. Seck",
+          "photo": "https://media.api-sports.io/football/players/626713.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -661,11 +675,13 @@
           "apiId": 349001,
           "number": 43,
           "name": "Wesley",
-          "pos": "MID",
+          "photo": "https://media.api-sports.io/football/players/349001.png",
+          "pos": "DEF",
           "positions": [
+            "DEF",
             "MID"
           ],
-          "role": "MID",
+          "role": "DEF",
           "age": 22,
           "height": 173,
           "weight": 73,
@@ -687,13 +703,16 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 7.5
+            "rating": 7.5,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 626686,
           "number": 8,
           "name": "M. Bah",
+          "photo": "https://media.api-sports.io/football/players/626686.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -719,6 +738,7 @@
           "apiId": 778,
           "number": 4,
           "name": "Bryan Cristante",
+          "photo": "https://media.api-sports.io/football/players/778.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -741,17 +761,46 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 270,
-            "apps": 3,
+            "minutes": 334,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.67
+            "rating": 7.33,
+            "conceded": 0,
+            "saves": null
           }
+        },
+        {
+          "apiId": 552679,
+          "number": 19,
+          "name": "G. Giammattei",
+          "photo": null,
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
+          "role": "MID",
+          "age": 17,
+          "height": null,
+          "weight": null,
+          "foot": null,
+          "nat": null,
+          "natTeam": null,
+          "birthCountry": null,
+          "pronunciation": null,
+          "career": null,
+          "lastSeason": null,
+          "funfact": null,
+          "linkLine": null,
+          "status": "available",
+          "statusNote": null,
+          "stats": null
         },
         {
           "apiId": 22147,
           "number": 17,
           "name": "Kouadio Emmanuel Koné",
+          "photo": "https://media.api-sports.io/football/players/22147.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -774,17 +823,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 236,
-            "apps": 3,
+            "minutes": 268,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 7.33
+            "rating": 7.13,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 404097,
           "number": 86,
           "name": "Rodrigo Mora",
+          "photo": "https://media.api-sports.io/football/players/404097.png",
           "pos": "MID",
           "positions": [
             "MID",
@@ -808,29 +860,32 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 138,
-            "apps": 3,
+            "minutes": 177,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.9
+            "rating": 7,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 782,
           "number": 7,
-          "name": "L. Pellegrini",
+          "name": "Lorenzo Pellegrini",
+          "photo": "https://media.api-sports.io/football/players/782.png",
           "pos": "MID",
           "positions": [
             "MID"
           ],
           "role": "MID",
           "age": 29,
-          "height": null,
-          "weight": null,
+          "height": 186,
+          "weight": 77,
           "foot": null,
-          "nat": null,
+          "nat": "ITA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Italy",
           "pronunciation": null,
           "career": "AS Roma (2013–2025) · Sassuolo (2015–2016)",
           "lastSeason": null,
@@ -838,12 +893,23 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null
+          }
         },
         {
           "apiId": 356888,
           "number": 61,
           "name": "Niccolò Pisilli",
+          "photo": "https://media.api-sports.io/football/players/356888.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -864,19 +930,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 1,
+            "goals": 2,
             "assists": 0,
-            "minutes": 34,
-            "apps": 2,
-            "yellow": 0,
+            "minutes": 130,
+            "apps": 3,
+            "yellow": 1,
             "red": null,
-            "rating": 7.1
+            "rating": 7.23,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 30432,
           "number": 15,
           "name": "Marten Elco de Roon",
+          "photo": "https://media.api-sports.io/football/players/30432.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -899,17 +968,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 12,
-            "apps": 1,
+            "minutes": 44,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.7
+            "rating": 6.65,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 484027,
           "number": 68,
           "name": "Antonio Arena",
+          "photo": "https://media.api-sports.io/football/players/484027.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -936,13 +1008,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 675841,
-          "number": null,
+          "number": 17,
           "name": "M. Camara",
+          "photo": null,
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -968,6 +1043,7 @@
           "apiId": 311067,
           "number": 9,
           "name": "Santiago Thomas Castro",
+          "photo": "https://media.api-sports.io/football/players/311067.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -990,23 +1066,26 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 72,
-            "apps": 3,
+            "minutes": 111,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.2
+            "rating": 6.28,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 875,
           "number": 21,
           "name": "Paulo Exequiel Dybala",
-          "pos": "MID",
+          "photo": "https://media.api-sports.io/football/players/875.png",
+          "pos": "ATT",
           "positions": [
-            "MID",
-            "ATT"
+            "ATT",
+            "MID"
           ],
-          "role": "MID",
+          "role": "ATT",
           "age": 32,
           "height": 177,
           "weight": 75,
@@ -1024,17 +1103,20 @@
           "stats": {
             "goals": 0,
             "assists": 4,
-            "minutes": 253,
-            "apps": 3,
+            "minutes": 317,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 8.63
+            "rating": 8.2,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 249,
           "number": 14,
           "name": "Donyell Malen",
+          "photo": "https://media.api-sports.io/football/players/249.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1055,25 +1137,28 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 5,
+            "goals": 6,
             "assists": 0,
-            "minutes": 198,
-            "apps": 3,
+            "minutes": 255,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 8.17
+            "rating": 8.1,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 323936,
           "number": 18,
           "name": "Matías Soulé Malvano",
-          "pos": "MID",
+          "photo": "https://media.api-sports.io/football/players/323936.png",
+          "pos": "ATT",
           "positions": [
-            "MID",
-            "ATT"
+            "ATT",
+            "MID"
           ],
-          "role": "MID",
+          "role": "ATT",
           "age": 22,
           "height": 182,
           "weight": 76,
@@ -1091,17 +1176,20 @@
           "stats": {
             "goals": 2,
             "assists": 1,
-            "minutes": 132,
-            "apps": 3,
+            "minutes": 189,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.47
+            "rating": 7.43,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 277003,
           "number": 8,
           "name": "Neil El Aynaoui",
+          "photo": "https://media.api-sports.io/football/players/277003.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1128,7 +1216,9 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.6
+            "rating": 6.6,
+            "conceded": 0,
+            "saves": null
           }
         }
       ],
@@ -1226,9 +1316,10 @@
           "goalsForByInterval": {
             "0-15": 1,
             "16-30": 3,
+            "31-45": 1,
             "46-60": 2,
             "61-75": 1,
-            "76-90": 3
+            "76-90": 4
           },
           "goalsAgainstByInterval": {
             "46-60": 1
@@ -1236,18 +1327,19 @@
           "cardsYellowByInterval": {
             "0-15": 1,
             "31-45": 1,
-            "46-60": 1
+            "46-60": 1,
+            "61-75": 2
           },
-          "goalsForAvg": 3.3,
+          "goalsForAvg": 3,
           "goalsAgainstAvg": 0.3,
-          "cleanSheets": 2,
+          "cleanSheets": 3,
           "failedToScore": 0,
           "penaltyScored": 0,
           "penaltyScoredPct": 0,
           "formations": [
             {
               "formation": "3-4-2-1",
-              "played": 2
+              "played": 3
             },
             {
               "formation": "3-4-1-2",
@@ -1255,7 +1347,7 @@
             }
           ],
           "biggestStreak": {
-            "wins": 3,
+            "wins": 4,
             "draws": 0,
             "loses": 0
           }
@@ -1281,21 +1373,39 @@
       "news": [],
       "newsCandidates": [
         {
+          "title": "AMAN - ANSA - Soccer: Roma and Inter continue perfect starts to remain top",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1vdGRYbkJsQ1dKdVdvVUlVX3JSbE5JT040NThidkxCQzFRUzlkQW8wQzJwOGJEaHNGeEVtMVdHbktDY1A5SlBPcS1FcUZXNXZPalJtSlplSFFYdUdjNDJNN2RGdDJVQQ?oc=5",
+          "source": "Alliance of Mediterranean News Agencies",
+          "published": "2026-09-16"
+        },
+        {
+          "title": "Inter midfielder Hakan Calhanoglu to miss Roma showdown after sustaining thigh injury",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNNXFiTFZuUzV5ek1iT2l5akkzeFd4YnRzMFQ5ZEkwN0dvU2pSNUhjaGdjUjJONzZ4LThoYzVLUmlkb3V4cHh1TVg3U016dUs2NC1XUF9QcDc5dWNlLTJxNG0tX3lMd05NSENkeFBPQTFmWllIeHNVUVJ0U0dlMG5ZZ0NFeEdzbU5YczE5ekduaw?oc=5",
+          "source": "uk.sports.yahoo.com",
+          "published": "2026-09-16"
+        },
+        {
           "title": "AS Roma sign agreement with NTS Sport",
           "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE0zcnRlMmtnZ2dTQnFzYlg2ZkxXZGtxeU9ENWhxRk9wNWxiUm94aldrbEpEUDhteWg0eXN4UERPMzhaYktNQU1IbUFIcWdLeWtjMUZJaG9PaE9FWFItTWh4RU02VVp2cXlzM2JhQy1pRDBPaTdEbVpvZk1qWmFobDg?oc=5",
           "source": "AS Roma",
           "published": "2026-09-15"
         },
         {
-          "title": "Official injury update on Calhanoglu as Inter star set to miss Roma clash",
-          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxONkdKZlA5bGVzVDhqM3ZLMndFa0pURWU1TW5NOE94Q01Ga3F1a0VZdmNVbWt0UFlmSURMbWY0T0lXeHltbDF6UkR1Y0lTWk5ZYVBqWTZxeF9vZnpIdF83d092OV8tX1g4YnZMR1cwdnhzYjNVUjlMdXdRV2NycncwdTVxMHpUOUZzTTZJdVdDSQ?oc=5",
-          "source": "sports.yahoo.com",
+          "title": "AS Roma - Genoa",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1relc3eFh3NzZPd0ZEWmVKSFA0WG5SRjcwLS1Wb2ZFbEpIa0Rzdnl4aUNlQmtTTzdqV1dNM0s5X0pSMmsxNWpNMXFzQ3ZNOVNjUUtZOEtiSGJmOTdSZnZfcXl4S1AzU0ZYbThwQTdYTjFaT0FtU25lYVJyTFNieE0?oc=5",
+          "source": "Flashscore.com",
           "published": "2026-09-15"
         },
         {
-          "title": "Sinners & Saints: Torino 0, Roma 2",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOR0NhaGd1WHBlMDdwekhaSW5yTUlmTlVJdWluNjdoZk5TQkpZekR6b19Cem5abGY5RUgySTA5blNrejB0Ti1COGRicl92aUFWN3AzT1g2S0FtR3ZPYnMwYnYzWjBqcWhPejlxQWVtN3VUTnpwUGwteWxsSHBMcU1lb0VtZGpWZWVVRFFLYVVCUEVOTWM?oc=5",
+          "title": "Four Key Figures From Roma’s 2-0 Win Over Torino",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPZndOX0RmaERneS0wbkMtTzVfT1NtNEJweHJsWnk3VHdTamVjaXdjcWQ4QTJmZ205WDFQV2lhOTZ6NzllOWpITjFFNk00aHhYdm1oMDRfMHlmSXVKa1FKZmt6OEprN0pISklfYVNwb2hTRTN5cUZZc0FGRnJGMEt2WEdQWXljZ2s0RkFuMHFZOVhMUXV0UFBVeVpYdDJkN1doUkFwcExKNA?oc=5",
           "source": "Chiesa Di Totti",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Football Italia Show: Inter, Roma & Como keep running, why Ausilio could save Tottenham",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQSUdHbFB0SVJDbU1ydU5WbFFvV2tCRlNGR1M1ZGRraGRISWRrVzJVZi1wZVRUNWtjMHpwajRZb1pMdy1ESzU5YS1TY3MyamF4eUd3NGZrZ1ppNDR5b3BwcjZ6RG5zc0E1UjdHOGFLY2hEd0MtdXlQWS0tMDh4bGRmUFZGRUdEejA?oc=5",
+          "source": "Yahoo Sports",
           "published": "2026-09-15"
         },
         {
@@ -1305,27 +1415,9 @@
           "published": "2026-09-15"
         },
         {
-          "title": "Rodrigo Mora on at 57 minutes in AS Roma win over Torino",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOODg3V0d0OUJqVmJaY2dmRWVrLS1PMmpWcEJDa1FMZDZQSm5OdFdVS0JFaG16a2F0SUhScktvdVdzWlRQR21WcDBjUzVFVjc0bkVmOUhKeE1MMGFkR25kU05pWkMyTHdjalZ2cFgxQUVabUZfZnh0VjFDa0tPTWNIVE5iazlkd2J5VDcyYUFsSjNHRzJIRnBEeHZuRUhVQQ?oc=5",
-          "source": "OneFootball",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Gasperini speaks after Torino triumph",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5BZTY3MzhKVHBFWWtzNU9mWks5dlhvWjdlVFRmTEJiV2U0TlRkVXdxTkxtb3pVSlNhOHl3UEJXS0N5SElJWkZCaFhIa3N2MW44OGlvaElTcnJNY3VoQnhxT0J4OTdGSHFMV0R2MzRneFBpaHVfdzgwVHp3YVYtM1k?oc=5",
-          "source": "AS Roma",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Calhanoglu at risk of missing Roma clash after being ruled out of Inter 5-3 Udinese",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNZFV3LWtjT3BqMlNkUlAzYjVaN1ZvZDBOcFo1alJ0N3dwOHpYaVZ6WmVBZVdtaURrZHpzbVV2Zl9JTDVkWlNRaFp6emlDV3VFMGhEdXhSaDRlWHA1Z2J3LTRFRXY3RXAyaDhJZks3Q0o1Qy02eDlLYTdfU1hKdVlabmMtSFJMRmNsTFJB?oc=5",
-          "source": "sports.yahoo.com",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Rodrigo Mora comes on after 57 mins in AS Roma win over Torino",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOaU5ndXQtbEp5VXhuODNrcFhzODdCVk1FaGx1b3AyLXo0d2JTcmxwX1h5TUxoanVpaXFLaU9QYXo4c2tJVjVnVXNsYVgyRjB1ZEFEaDAyVE01Q1MtaUttWXJlS0dxWWdfc3ltTk9ITGJsTFZYLW96akNXblU4eXJuVVp0SVpfRzQ5aHp1T1psUDQzZzIxT0JiRU5IZExMTFl2SVJnZDB3?oc=5",
-          "source": "OneFootball",
+          "title": "Sinners & Saints: Torino 0, Roma 2",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNSUd5cGg5SVNHQkJuNGo5cTk3X2lJOXdpVFB5OHJubllibWdVQi1iT3BpWlQ1NjM5bWFSUVM3UTdfbDUtSGVVVTFXY0hwN3JTUzl2eGRfaVBXNUxXWDYySmVhZVlLZXh4OWV5NkE0eTJER0E0Sm5nbU9SYzNUNVJRTXpGbw?oc=5",
+          "source": "Yahoo Sports",
           "published": "2026-09-15"
         }
       ],
@@ -1340,6 +1432,7 @@
       "coach": {
         "apiId": 15642,
         "name": "Cristian Eugen Chivu",
+        "photo": "https://media.api-sports.io/football/coachs/15642.png",
         "country": "Romania",
         "age": 45,
         "tenureFrom": "2025-06",
@@ -1491,6 +1584,7 @@
           "apiId": 91488,
           "number": 12,
           "name": "Raffaele Di Gennaro",
+          "photo": "https://media.api-sports.io/football/players/91488.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1517,13 +1611,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 46988,
           "number": 1,
           "name": "Josep Martínez",
+          "photo": "https://media.api-sports.io/football/players/46988.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1546,17 +1643,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 270,
-            "apps": 3,
+            "minutes": 360,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.1
+            "rating": 6.83,
+            "conceded": 6,
+            "saves": 10
           }
         },
         {
           "apiId": 31037,
           "number": 49,
           "name": "Ivan Provedel",
+          "photo": "https://media.api-sports.io/football/players/31037.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1583,13 +1683,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 5,
           "number": 25,
           "name": "Manuel Obafemi Akanji",
+          "photo": "https://media.api-sports.io/football/players/5.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1612,17 +1715,20 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 233,
-            "apps": 3,
+            "minutes": 323,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 7.27
+            "rating": 7.03,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 31009,
           "number": 95,
           "name": "Alessandro Bastoni",
+          "photo": "https://media.api-sports.io/football/players/31009.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1645,17 +1751,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 259,
-            "apps": 3,
+            "minutes": 329,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.3
+            "rating": 7.2,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 24953,
           "number": 31,
           "name": "Yann Aurel Ludger Bisseck",
+          "photo": "https://media.api-sports.io/football/players/24953.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1682,13 +1791,16 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 7.27
+            "rating": 7.27,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 568287,
           "number": 75,
           "name": "L. Bovio",
+          "photo": "https://media.api-sports.io/football/players/568287.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1715,18 +1827,22 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 31010,
           "number": 32,
           "name": "Federico Dimarco",
-          "pos": "MID",
+          "photo": "https://media.api-sports.io/football/players/31010.png",
+          "pos": "DEF",
           "positions": [
+            "DEF",
             "MID"
           ],
-          "role": "MID",
+          "role": "DEF",
           "age": 28,
           "height": 175,
           "weight": 75,
@@ -1744,17 +1860,20 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 242,
-            "apps": 3,
+            "minutes": 262,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.57
+            "rating": 7.33,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 2725,
           "number": 28,
           "name": "Benjamin Jacques Marcel Pavard",
+          "photo": "https://media.api-sports.io/football/players/2725.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1777,29 +1896,32 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 1,
+            "minutes": 118,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 7.3
+            "rating": 6.8,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 19235,
           "number": 24,
-          "name": "D. Spence",
+          "name": "Diop Tehuti Djed-Hotep Spence",
+          "photo": "https://media.api-sports.io/football/players/19235.png",
           "pos": "DEF",
           "positions": [
             "DEF"
           ],
           "role": "DEF",
           "age": 25,
-          "height": null,
-          "weight": null,
+          "height": 185,
+          "weight": 71,
           "foot": null,
-          "nat": null,
+          "nat": "ENG",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "England",
           "pronunciation": null,
           "career": "Middlesbrough (2018–2020) · Nottingham Forest (2021) · Tottenham (2022–2025)",
           "lastSeason": null,
@@ -1807,12 +1929,23 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 415,
+            "apps": 8,
+            "yellow": 0,
+            "red": null,
+            "rating": 7.03,
+            "conceded": 0,
+            "saves": null
+          }
         },
         {
           "apiId": 626,
           "number": 6,
           "name": "John Stones",
+          "photo": "https://media.api-sports.io/football/players/626.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1835,17 +1968,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 37,
-            "apps": 2,
+            "minutes": 99,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 7
+            "rating": 6.83,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 30558,
           "number": 23,
           "name": "Nicolò Barella",
+          "photo": "https://media.api-sports.io/football/players/30558.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1866,19 +2002,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 0,
+            "goals": 1,
             "assists": 1,
-            "minutes": 270,
-            "apps": 3,
+            "minutes": 360,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.93
+            "rating": 7.38,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 1640,
           "number": 20,
           "name": "Hakan Çalhanoğlu",
+          "photo": "https://media.api-sports.io/football/players/1640.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1905,13 +2044,16 @@
             "apps": 3,
             "yellow": 1,
             "red": null,
-            "rating": 7.73
+            "rating": 7.73,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 10238,
           "number": 30,
           "name": "Carlos Augusto",
+          "photo": "https://media.api-sports.io/football/players/10238.png",
           "pos": "MID",
           "positions": [
             "MID",
@@ -1933,19 +2075,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 0,
+            "goals": 1,
             "assists": 1,
-            "minutes": 28,
-            "apps": 1,
+            "minutes": 118,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 7
+            "rating": 7.6,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 270509,
           "number": 17,
           "name": "Andy Alune Diouf",
+          "photo": "https://media.api-sports.io/football/players/270509.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1967,18 +2112,21 @@
           "statusNote": null,
           "stats": {
             "goals": 0,
-            "assists": 2,
-            "minutes": 165,
-            "apps": 2,
+            "assists": 3,
+            "minutes": 255,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 7.95
+            "rating": 7.37,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 293,
           "number": 21,
           "name": "Curtis Julian Jones",
+          "photo": "https://media.api-sports.io/football/players/293.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2001,17 +2149,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 70,
-            "apps": 2,
+            "minutes": 98,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.75
+            "rating": 6.9,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 552669,
           "number": 3,
           "name": "M. Marello",
+          "photo": null,
           "pos": "MID",
           "positions": [
             "MID"
@@ -2037,6 +2188,7 @@
           "apiId": 1457,
           "number": 22,
           "name": "Henrikh Hamlet Mkhitaryan",
+          "photo": "https://media.api-sports.io/football/players/1457.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2059,17 +2211,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
-            "apps": 0,
-            "yellow": 0,
+            "minutes": 62,
+            "apps": 1,
+            "yellow": 1,
             "red": null,
-            "rating": null
+            "rating": 6.9,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 342230,
           "number": 5,
           "name": "Aleksandar Stanković",
+          "photo": "https://media.api-sports.io/football/players/342230.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2092,17 +2247,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 11,
-            "apps": 1,
+            "minutes": 19,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.6
+            "rating": 6.45,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 348205,
           "number": 8,
           "name": "Petar Sučić",
+          "photo": "https://media.api-sports.io/football/players/348205.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2129,13 +2287,16 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 7.23
+            "rating": 7.23,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 329,
           "number": 7,
           "name": "Piotr Sebastian Zieliński",
+          "photo": "https://media.api-sports.io/football/players/329.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2157,18 +2318,21 @@
           "statusNote": null,
           "stats": {
             "goals": 1,
-            "assists": 0,
-            "minutes": 180,
-            "apps": 3,
+            "assists": 1,
+            "minutes": 262,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.43
+            "rating": 7.4,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 275651,
           "number": 14,
           "name": "Ange-Yoan Bonny",
+          "photo": "https://media.api-sports.io/football/players/275651.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2189,19 +2353,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 0,
+            "goals": 1,
             "assists": 0,
-            "minutes": 47,
-            "apps": 2,
+            "minutes": 67,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.65
+            "rating": 6.73,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 345808,
           "number": 94,
           "name": "Francesco Pio Esposito",
+          "photo": "https://media.api-sports.io/football/players/345808.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2222,19 +2389,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 1,
+            "goals": 2,
             "assists": 1,
-            "minutes": 200,
-            "apps": 3,
+            "minutes": 290,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.1
+            "rating": 7.15,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 565689,
           "number": 9,
           "name": "J. Iddrissou",
+          "photo": "https://media.api-sports.io/football/players/565689.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2261,25 +2431,28 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 461830,
           "number": 45,
-          "name": "M. Lavelli",
+          "name": "Matteo Lavelli",
+          "photo": "https://media.api-sports.io/football/players/461830.png",
           "pos": "ATT",
           "positions": [
             "ATT"
           ],
           "role": "ATT",
           "age": 19,
-          "height": null,
-          "weight": null,
+          "height": 185,
+          "weight": 78,
           "foot": null,
-          "nat": null,
+          "nat": "ITA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Italy",
           "pronunciation": null,
           "career": "Inter (2024–2025)",
           "lastSeason": null,
@@ -2293,6 +2466,7 @@
           "apiId": 10077,
           "number": 11,
           "name": "Luis Henrique",
+          "photo": "https://media.api-sports.io/football/players/10077.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2319,13 +2493,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.75
+            "rating": 6.75,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 217,
           "number": 10,
           "name": "Lautaro Martínez",
+          "photo": "https://media.api-sports.io/football/players/217.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2352,25 +2529,28 @@
             "apps": 3,
             "yellow": 2,
             "red": null,
-            "rating": 7.13
+            "rating": 7.13,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 437678,
-          "number": 30,
-          "name": "M. Mosconi",
+          "number": 48,
+          "name": "Mattia Mosconi",
+          "photo": "https://media.api-sports.io/football/players/437678.png",
           "pos": "ATT",
           "positions": [
             "ATT"
           ],
           "role": "ATT",
           "age": 18,
-          "height": null,
-          "weight": null,
+          "height": 176,
+          "weight": 72,
           "foot": null,
-          "nat": null,
+          "nat": "ITA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Italy",
           "pronunciation": null,
           "career": "Inter (2025)",
           "lastSeason": null,
@@ -2378,24 +2558,35 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null
+          }
         },
         {
           "apiId": 436238,
           "number": 7,
-          "name": "M. Spinaccè",
+          "name": "Matteo Spinaccè",
+          "photo": "https://media.api-sports.io/football/players/436238.png",
           "pos": "ATT",
           "positions": [
             "ATT"
           ],
           "role": "ATT",
           "age": 19,
-          "height": null,
-          "weight": null,
+          "height": 189,
+          "weight": 75,
           "foot": null,
-          "nat": null,
+          "nat": "ITA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Italy",
           "pronunciation": null,
           "career": "Inter (2024–2025)",
           "lastSeason": null,
@@ -2403,12 +2594,23 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 0,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
+          }
         },
         {
           "apiId": 21509,
           "number": 9,
           "name": "Marcus Lilian Thuram-Ulien",
+          "photo": "https://media.api-sports.io/football/players/21509.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2429,13 +2631,15 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 1,
-            "assists": 0,
-            "minutes": 70,
-            "apps": 2,
+            "goals": 2,
+            "assists": 1,
+            "minutes": 140,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 7
+            "rating": 7.57,
+            "conceded": 0,
+            "saves": null
           }
         }
       ],
@@ -2532,22 +2736,26 @@
         "stats": {
           "goalsForByInterval": {
             "0-15": 2,
-            "46-60": 3,
-            "61-75": 1,
-            "76-90": 2
+            "16-30": 1,
+            "31-45": 1,
+            "46-60": 4,
+            "61-75": 2,
+            "76-90": 3
           },
           "goalsAgainstByInterval": {
-            "16-30": 1,
-            "46-60": 2
+            "0-15": 1,
+            "16-30": 2,
+            "46-60": 2,
+            "76-90": 1
           },
           "cardsYellowByInterval": {
             "0-15": 1,
             "31-45": 1,
-            "46-60": 1,
+            "46-60": 2,
             "61-75": 1
           },
-          "goalsForAvg": 2.7,
-          "goalsAgainstAvg": 1,
+          "goalsForAvg": 3.3,
+          "goalsAgainstAvg": 1.5,
           "cleanSheets": 1,
           "failedToScore": 0,
           "penaltyScored": 0,
@@ -2555,11 +2763,11 @@
           "formations": [
             {
               "formation": "3-5-2",
-              "played": 3
+              "played": 4
             }
           ],
           "biggestStreak": {
-            "wins": 3,
+            "wins": 4,
             "draws": 0,
             "loses": 0
           }
@@ -2585,52 +2793,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Official injury update on Calhanoglu as Inter star set to miss Roma clash",
-          "url": "https://football-italia.net/official-injury-update-calhanoglu-inter-roma/",
-          "source": "Football Italia",
-          "published": "2026-09-15"
+          "title": "Who really has the most expensive team: Cruz Azul or Inter Miami?",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPZnlqYTNaM2FCYm02U3FoRFgyWjhQSkNlakNFcjRqZE9LUjhIRUs0OGlMZy1ZTGRBYXBHamdHdGp4X2RFY3E2b05GQU5GQ0FINVJtaTRya3Y5V2ZDMkpxWEx5M2toaFpiT01XanNvYjZHRUotV2NWSGdyTm8yRGUtaVR1ZlJpdWl6Y2dYWm1sSEZHaUJtcWhOSGdMRlRnSUh60gG0AUFVX3lxTFA1TzJhUHlrcXRrckJxR0tBdWs1UHRXU3VsYXVxWkZ5Uk1XMTR3RjBENjV5a2V2Sm80NUNjdC14SjAxanRZTW9TMTlQT2VBU1lsc2N4czc2alJobVphZDhOeTNPNzc3NVpsTlhzR3pfclhEdU5DM3lZODlQSmgzZEdleF9FUG0wMDVpeHhIQXhuRlVJU0ExUks4WXJXTE5yMjFUejY0MzQzSzJaWWdfM01XcXYwZg?oc=5",
+          "source": "Diario AS",
+          "published": "2026-09-16"
         },
         {
-          "title": "Inter have Martinez concerns after back-to-back Real Madrid and Udinese errors",
-          "url": "https://football-italia.net/inter-martinez-concerns-madrid-udinese-errors/",
-          "source": "Football Italia",
-          "published": "2026-09-15"
+          "title": "North Korea ordered to pay $32 million for destroying inter-Korean office",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOWS1SLXFfOVlIVkpES0lPX2JjZEtyZDJra2RYc3N3Vkw1U2xwTWpWN3RUTEtaUkRjUFZXeUVlU0V5QjhTY005MDUxVDg1NkN2TEFTcDhidFRVU0VQOXktbVpyVjIwUERiVXA3Wl9TUUJwODRoSU9PeWFCdTFtRmFka1RLVEtuTFhBblRPZUlvUDlicWE3VmRKaXNVSDdWNmlFZExUSjh0NA?oc=5",
+          "source": "nknews.org",
+          "published": "2026-09-16"
         },
         {
-          "title": "Calhanoglu at risk of missing Roma clash after being ruled out of Inter 5-3 Udinese",
-          "url": "https://football-italia.net/calhanoglu-at-risk-of-missing-roma-clash/",
-          "source": "Football Italia",
-          "published": "2026-09-15"
+          "title": "Lionel Messi back on trophy trail with Inter Miami up against Cruz Azul in Campeones Cup",
+          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNU3pvUUVhVjJIRktsenFpUFEwUXN6dGg1ZDZLczg1am1vWVRUZ0FPSjhLd2hhSW1od2RIRVlHOVpFRURiaEhtUjBveHJhUkFmZVMtdENfSDFvUFQtRU5GWmJwX2RzRjBsR2kzME1waHFZRWItbWVSMkh1dU10NkozRXFmMTJ0QVY4MGNIMWFxQUlYWG9CN0dJR3ZIaEQxbTBNbWZnMUJDenptUlVaM0JpU1lCd1BmdFdKRGNIamlpT2Zxall6SXZfSHM3bURvanJ1b1BqV2V1M3AydUtfZUVITQ?oc=5",
+          "source": "thenationalnews.com",
+          "published": "2026-09-16"
         },
         {
-          "title": "Ausilio closing in on agreement with Tottenham after 28 years with Inter",
-          "url": "https://football-italia.net/ex-inter-ausilio-closing-in-spurs-agreement/",
-          "source": "Football Italia",
-          "published": "2026-09-15"
+          "title": "Wesley to return to Roma’s line-up vs Inter",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5RQmFiLVlfcW9DT2VLaDBSUzQ2cXdLdHFsWEtpRUhRUkdQVnJOQW41MEl2VUdoWENqd2xleThpUnBsNi1BNGM5cEUxZjU0VlJBdmpIRVh1LUJnX0txTnJXYXVXeVJNTHlEd0RwTXp4QzF6NEk?oc=5",
+          "source": "RomaPress",
+          "published": "2026-09-16"
         },
         {
-          "title": "Today’s Papers: Inter and Roma table for two, Como party on the lake",
-          "url": "https://football-italia.net/today-papers-inter-roma-table-for-two/",
-          "source": "Football Italia",
-          "published": "2026-09-15"
+          "title": "S. Korean court orders North Korea to pay $32M for demolishing inter-Korean office",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNZmJsMkZEWi1GeWxWNDktR2UxOVp4OUJWNFBwN1FmdmVmSzNpTThWMXZpaVFnd1Z5aUdybHMxNzRYellWa0tzYm4wVDkyUkdsTThFMFhCLTF6SmJoSVp6eVViT3MzS2hlSkdpRGc2Y05FdHkyRjB5Y29JQ2ZCNVRuSVUwUHBxWF9EdFRBMG1FY1JTTF9OVlRxSUQ2Y3hCMFd5RTByX1Z6WTF1RHpIaDFTN0F6NEVOdjNuTFdnbVlDbFdNTVFj?oc=5",
+          "source": "aa.com.tr",
+          "published": "2026-09-16"
         },
         {
-          "title": "Cristian “Kily” González Ready to Take the Helm at Inter Miami CF",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPUFFyclhyamlxMHBVUmRuN3N6eWljYi1TWGd4UXFmbS1ZWjNuTVExZlRuTG9sOVBqU3l0MFh0RlF2LWRtNXVGUmJFYl9iNjhjQ0xiMnRnYVJfYnRJbnBNU2xJVEtXTkY0RFJNcTlGUW5uc0kyaThVLXRQUHJIRGNCQldyaGVzRE5tc1djMW9OMVpPdFFEV2dFVlM5d1NuZw?oc=5",
-          "source": "Inter Miami CF",
-          "published": "2026-09-15"
+          "title": "AMAN - ANSA - Soccer: Roma and Inter continue perfect starts to remain top",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1vdGRYbkJsQ1dKdVdvVUlVX3JSbE5JT040NThidkxCQzFRUzlkQW8wQzJwOGJEaHNGeEVtMVdHbktDY1A5SlBPcS1FcUZXNXZPalJtSlplSFFYdUdjNDJNN2RGdDJVQQ?oc=5",
+          "source": "Alliance of Mediterranean News Agencies",
+          "published": "2026-09-16"
         },
         {
-          "title": "Inter Miami announce arrival of new manager 'Kily' Gonzalez",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOMzFBbHJFTF9DeFFrZTRUSzRUOURrUXlHd0hUVEtndHotMTVQRHlMRmlVenJKcHdiWldVQjRucFJLbWE4ZjltX1dlSTBPRFdjbnVkMk92a1Q5Q3pqbXhiVnJ6YXpvdEt1a0JFMVFtbzYtSVNLVnBqUFkxUThVdzNtTlVrSDFJOGxJc2VnOTJNTzd4WV90LXUtMXdCZ19kSEFKRmlxRTlaRQ?oc=5",
-          "source": "Reuters",
-          "published": "2026-09-15"
+          "title": "Seoul court orders N. Korea to pay W44.6b for blowing up inter-Korean liaison office",
+          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBCSEFRbE1sWWh0WE03UnoxMTByd0NTbzVfZXR1SDhoRXAtdTVxSFhwMXZLbWl4X0tlRDl4eWdfbkpOaVBPVkJmR2ZBaHpYUklhbk1nVUpJcw?oc=5",
+          "source": "The Korea Herald",
+          "published": "2026-09-16"
         },
         {
-          "title": "John Stones limps off on first Inter Milan start in injury concern for England and Thomas Tuchel",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOZ0VKVERPYW5Ddjl6ckVQNDlzdUFkZGpQa2ZaV3lHblpQTHk2WlJfaGR6TnFTcFJFSGZUN3BpZFpYZ1dpaExrRk9aT2lTM2Nwb0pmMlNFVmZxaTY3Mmhrb3NzOHB2YzBvTHU4SFp2ckI3T0FvMjljcGNQZHdMUFlwODNHYkhkTVkza2tKZF8tWjJHSlVZVDVnQWk5UnhpekM0LWVXbWtpN3lzaVhtZXY0TVpxdHpVQ1pmdUhMZW8wUQ?oc=5",
-          "source": "ESPN",
-          "published": "2026-09-15"
+          "title": "Messi’s Inter Miami to face Cruz Azul in the Campeones Cup in the US",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxORUNEcGVaa202b0JaaXlFT2hGREh3cTVtMUY1SE05Zjl1VGg0NHowYl9qN0JHYV90RW8zRE4yX2RfUTR2M2twdTEwNldZXy1GWHhlNEl1NHBUdFI4VWpHSHY4ZFV0ZjI1SnllXy1VXzdHV3RfTkNLM2x3al84QklsRmZjTEpYVll2S01COGF1cw?oc=5",
+          "source": "UA.NEWS",
+          "published": "2026-09-16"
         }
       ],
       "stories": []

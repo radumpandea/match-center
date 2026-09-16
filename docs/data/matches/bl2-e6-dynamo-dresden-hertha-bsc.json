@@ -1,12 +1,12 @@
 {
   "slug": "bl2-e6-dynamo-dresden-hertha-bsc",
-  "generatedAt": "2026-09-15T15:55:46.493Z",
+  "generatedAt": "2026-09-16T07:39:18.579Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-09-15"
+      "accessed": "2026-09-16"
     }
   ],
   "competition": {
@@ -22,11 +22,11 @@
     "city": "Dresden",
     "notes": null,
     "weather": {
-      "tempC": 17,
-      "condition": "cer clar",
-      "windKph": 4,
+      "tempC": 19,
+      "condition": "cer noros",
+      "windKph": 5,
       "precipitationMm": 0,
-      "forecastAt": "2026-09-15T15:55:46.636Z"
+      "forecastAt": "2026-09-16T07:39:19.026Z"
     }
   },
   "referee": {
@@ -73,7 +73,7 @@
     "Jonas Sterner e cel mai bun marcator al echipei Dynamo Dresden în acest start de sezon (2 goluri).",
     "Hertha BSC — locul 1 după 5 etape, 15 puncte, golaveraj 15-6.",
     "Hertha BSC vine după 3 victorii la rând.",
-    "Oluwaseun Adewumi e cel mai bun marcator al echipei Hertha BSC în acest start de sezon (3 goluri).",
+    "Josip Brekalo e cel mai bun marcator al echipei Hertha BSC în acest start de sezon (4 goluri).",
     "Cap la cap (5 meciuri): Dynamo Dresden 1 - 1 - 3 Hertha BSC."
   ],
   "predictions": {
@@ -121,10 +121,11 @@
       "colors": null,
       "coach": {
         "apiId": 8168,
-        "name": "T. Stamm",
-        "country": null,
-        "age": null,
-        "tenureFrom": "2024-08",
+        "name": "Thomas Stamm",
+        "photo": "https://media.api-sports.io/football/coachs/8168.png",
+        "country": "Switzerland",
+        "age": 42,
+        "tenureFrom": "2024-07",
         "career": [
           {
             "club": "Dynamo Dresden",
@@ -138,7 +139,7 @@
           },
           {
             "club": "Freiburg U19",
-            "period": "2016–2020",
+            "period": "2015–2021",
             "note": null
           }
         ],
@@ -171,6 +172,7 @@
           "apiId": 273884,
           "number": 40,
           "name": "Elias Bethke",
+          "photo": "https://media.api-sports.io/football/players/273884.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -197,13 +199,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 656961,
           "number": 45,
           "name": "M. Grafe",
+          "photo": null,
           "pos": "GK",
           "positions": [
             "GK"
@@ -228,19 +233,20 @@
         {
           "apiId": 25802,
           "number": 22,
-          "name": "L. Grill",
+          "name": "Hannes Lennart Grill",
+          "photo": "https://media.api-sports.io/football/players/25802.png",
           "pos": "GK",
           "positions": [
             "GK"
           ],
           "role": "GK",
           "age": 26,
-          "height": null,
-          "weight": null,
+          "height": 192,
+          "weight": 85,
           "foot": null,
-          "nat": null,
+          "nat": "GER",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Germany",
           "pronunciation": null,
           "career": "1. FC Kaiserslautern (2016–2019) · Bayer Leverkusen (2020) · Brann (2021) · Union Berlin (2022–2023) · SpVgg Greuther Fürth (2024) · Dynamo Dresden (2025)",
           "lastSeason": null,
@@ -253,19 +259,20 @@
         {
           "apiId": 25254,
           "number": 37,
-          "name": "D. Mesenhöler",
+          "name": "Daniel Mesenhöler",
+          "photo": "https://media.api-sports.io/football/players/25254.png",
           "pos": "GK",
           "positions": [
             "GK"
           ],
           "role": "GK",
           "age": 30,
-          "height": null,
-          "weight": null,
+          "height": 188,
+          "weight": 83,
           "foot": null,
-          "nat": null,
+          "nat": "GER",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Germany",
           "pronunciation": null,
           "career": "Köln II (2012–2013) · 1. FC Köln (2014–2015) · Union Berlin (2016–2017) · MSV Duisburg (2018) · FC Viktoria Köln (2019) · Heracles (2020) · Hallescher FC (2021) · Dynamo Dresden (2022–2025)",
           "lastSeason": null,
@@ -279,6 +286,7 @@
           "apiId": 129139,
           "number": 1,
           "name": "Tim Stanislaw Schreiber",
+          "photo": "https://media.api-sports.io/football/players/129139.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -305,13 +313,16 @@
             "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.52
+            "rating": 6.52,
+            "conceded": 5,
+            "saves": 18
           }
         },
         {
           "apiId": 24816,
           "number": 29,
           "name": "Lukas Boeder",
+          "photo": "https://media.api-sports.io/football/players/24816.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -338,25 +349,28 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.43
+            "rating": 6.43,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 91178,
           "number": 23,
-          "name": "L. Bünning",
+          "name": "Lars Bünning",
+          "photo": "https://media.api-sports.io/football/players/91178.png",
           "pos": "DEF",
           "positions": [
             "DEF"
           ],
           "role": "DEF",
           "age": 27,
-          "height": null,
-          "weight": null,
+          "height": 187,
+          "weight": 78,
           "foot": null,
-          "nat": null,
+          "nat": "GER",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Germany",
           "pronunciation": null,
           "career": "Werder Bremen II (2017–2018) · Borussia Dortmund II (2019) · SV Meppen (2020–2021) · 1. FC Kaiserslautern (2022) · Dynamo Dresden (2023–2025)",
           "lastSeason": null,
@@ -370,6 +384,7 @@
           "apiId": 203160,
           "number": 14,
           "name": "Brooklyn Kevin Ezeh",
+          "photo": "https://media.api-sports.io/football/players/203160.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -396,13 +411,16 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 3.45
+            "rating": 3.45,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 125723,
           "number": 39,
           "name": "Thomas Leon Keller",
+          "photo": "https://media.api-sports.io/football/players/125723.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -429,13 +447,16 @@
             "apps": 4,
             "yellow": 3,
             "red": 1,
-            "rating": 6.48
+            "rating": 6.48,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 7408,
           "number": 17,
           "name": "Ahmet Muhamedbegović",
+          "photo": "https://media.api-sports.io/football/players/7408.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -462,13 +483,16 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.51
+            "rating": 6.51,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 583659,
           "number": 42,
           "name": "F. Muller",
+          "photo": "https://media.api-sports.io/football/players/583659.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -495,13 +519,16 @@
             "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.24
+            "rating": 6.24,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 435086,
           "number": 34,
           "name": "Till Neininger",
+          "photo": "https://media.api-sports.io/football/players/435086.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -528,13 +555,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 25179,
           "number": 19,
           "name": "Alexander Rossipal",
+          "photo": "https://media.api-sports.io/football/players/25179.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -561,25 +591,28 @@
             "apps": 5,
             "yellow": 1,
             "red": null,
-            "rating": 6.56
+            "rating": 6.56,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 202843,
           "number": 4,
-          "name": "K. Schmidt",
+          "name": "Tan-Kenneth Jerico Leka-Schmidt",
+          "photo": "https://media.api-sports.io/football/players/202843.png",
           "pos": "DEF",
           "positions": [
             "DEF"
           ],
           "role": "DEF",
           "age": 23,
-          "height": null,
-          "weight": null,
+          "height": 187,
+          "weight": 81,
           "foot": null,
-          "nat": null,
+          "nat": "GER",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Germany",
           "pronunciation": null,
           "career": "Freiburg II (2020) · SC Freiburg (2021–2023) · Hannover 96 II (2024) · Fortuna Düsseldorf (2025)",
           "lastSeason": null,
@@ -593,6 +626,7 @@
           "apiId": 202481,
           "number": 32,
           "name": "Jonas Sterner",
+          "photo": "https://media.api-sports.io/football/players/202481.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -619,13 +653,16 @@
             "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.72
+            "rating": 6.72,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 128822,
           "number": 44,
           "name": "Simon Straudi",
+          "photo": "https://media.api-sports.io/football/players/128822.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -652,13 +689,16 @@
             "apps": 2,
             "yellow": 1,
             "red": null,
-            "rating": 4.14
+            "rating": 4.14,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 448468,
           "number": 24,
           "name": "Patrice Čović",
+          "photo": "https://media.api-sports.io/football/players/448468.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -685,13 +725,16 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.13
+            "rating": 6.13,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 583661,
           "number": null,
           "name": "Q. Enold",
+          "photo": null,
           "pos": "MID",
           "positions": [
             "MID"
@@ -717,6 +760,7 @@
           "apiId": 48232,
           "number": 16,
           "name": "Nils Gustav Georg Fröling",
+          "photo": "https://media.api-sports.io/football/players/48232.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -743,13 +787,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 4.3
+            "rating": 4.3,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 24800,
           "number": 27,
           "name": "Niklas Hauptmann",
+          "photo": "https://media.api-sports.io/football/players/24800.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -776,13 +823,16 @@
             "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.51
+            "rating": 6.51,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 178107,
           "number": 8,
           "name": "Luca Valentin Herrmann",
+          "photo": "https://media.api-sports.io/football/players/178107.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -809,13 +859,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 4.43
+            "rating": 4.43,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 24843,
           "number": 6,
           "name": "Nicolai Rapp",
+          "photo": "https://media.api-sports.io/football/players/24843.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -842,13 +895,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.9
+            "rating": 6.9,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 129131,
           "number": 21,
           "name": "Tobias Raschl",
+          "photo": "https://media.api-sports.io/football/players/129131.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -875,13 +931,16 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.25
+            "rating": 6.25,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 666801,
           "number": null,
           "name": "A. Riedel",
+          "photo": null,
           "pos": "MID",
           "positions": [
             "MID"
@@ -907,6 +966,7 @@
           "apiId": 280024,
           "number": 18,
           "name": "Robert Wagner",
+          "photo": "https://media.api-sports.io/football/players/280024.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -933,13 +993,16 @@
             "apps": 5,
             "yellow": 1,
             "red": null,
-            "rating": 6.68
+            "rating": 6.68,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 287932,
           "number": 20,
           "name": "Ben Bobzien",
+          "photo": "https://media.api-sports.io/football/players/287932.png",
           "pos": "MID",
           "positions": [
             "MID",
@@ -967,13 +1030,16 @@
             "apps": 5,
             "yellow": 2,
             "red": null,
-            "rating": 7.13
+            "rating": 7.13,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 26254,
           "number": 33,
           "name": "Christoph Daferner",
+          "photo": "https://media.api-sports.io/football/players/26254.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1000,13 +1066,16 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 3
+            "rating": 3,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 440315,
           "number": 11,
           "name": "Kaan İnanoğlu",
+          "photo": "https://media.api-sports.io/football/players/440315.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1033,13 +1102,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 5.12
+            "rating": 5.12,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 178084,
           "number": 10,
           "name": "Jakob Lemmer",
+          "photo": "https://media.api-sports.io/football/players/178084.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1066,20 +1138,23 @@
             "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.31
+            "rating": 6.31,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 413122,
           "number": 7,
           "name": "Kennedy Onyedika Okpala",
+          "photo": "https://media.api-sports.io/football/players/413122.png",
           "pos": "MID",
           "positions": [
             "MID",
             "ATT"
           ],
           "role": "MID",
-          "age": 20,
+          "age": 21,
           "height": 185,
           "weight": null,
           "foot": null,
@@ -1100,13 +1175,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.43
+            "rating": 6.43,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 37473,
           "number": 9,
           "name": "Vincent Vermeij",
+          "photo": "https://media.api-sports.io/football/players/37473.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1133,13 +1211,16 @@
             "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.73
+            "rating": 6.73,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 327947,
           "number": 25,
           "name": "Jonas Oehmichen",
+          "photo": "https://media.api-sports.io/football/players/327947.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1166,7 +1247,9 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 5.78
+            "rating": 5.78,
+            "conceded": 0,
+            "saves": 0
           }
         }
       ],
@@ -1316,6 +1399,12 @@
           "published": "2026-09-15"
         },
         {
+          "title": "Pre-match Dynamo Dresden vs Zenit, Europa League 1/32",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOSTlMNHQtRFdCUGx4WjdzejA3WFBsb1hmS3FWcWpFNXJGdUQ3bGtsOHF6S2FvOTI0Qjhiampqb1p5eWp2RWhGUGVLNW4yVW1MNm5hMXdEUmlENmtkQnRMcXhyRVJrRXRaUmZ6YlVNM09VUUJOWlVfZG4xOWxULXdZRlkwVUVNNS1wcE01d0VRNA?oc=5",
+          "source": "BeSoccer Livescore",
+          "published": "2026-09-15"
+        },
+        {
           "title": "Dynamo Dresden U19",
           "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOYUdEODIzWW1GbndvS2NVUGhNNTZBWG9JNkxVbWlqNFo5Wm9fOGdqX0haeE5xMVNoWHBpNnFpbi11VXBRdW1mWnBkXzFXSHB2bUNudVlDanlvdXhvTFdHXzd1X180OEU2TUY4NGNrb2F1VXBaT0ZuSW95ZHRsOVFUUjhqVl92RWRGQTRubFhB?oc=5",
           "source": "Transfermarkt",
@@ -1346,15 +1435,9 @@
           "published": "2026-09-13"
         },
         {
-          "title": "Pre-match Dynamo Dresden vs Wolfsburg, 2. Bundesliga Round 17",
-          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPeGljUmZxSXVmel9VX0hhTFpBcm5ad3ZQZzB2eGRqS0d3cXBZX0xjYkZWa1VDZTVhTEs0NFU0cEFlX2paX0MzdkhQamVId1JtaDhGbHI4UXhKdnlCRE1ablJWVjhjVXBocTRyUmRoWG5WR3ZMVnhLN1hLVTRYMy02STVB?oc=5",
-          "source": "BeSoccer Livescore",
-          "published": "2026-09-13"
-        },
-        {
-          "title": "Justin Schau - Teammates | Page 10",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNT0prUWVSeUtFRkt1SnJtWkNlMDNtc0dmVjg2enJ4OVdrZXdtNllGUmJCWXFOSGhMVUdxSWg3WGtEQm5fSkFsRm13U1lnbXBwbVc5ZmVxT25ZSU9TVGR0NF9MWnMxdVpTZk1kRXNHYlhnQzJsVFJQLUR1ZWlYNWxWZWNOZUN1cnJPaEE?oc=5",
-          "source": "Transfermarkt",
+          "title": "After the tie, soccer takes a back seat",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPRUpGNjY3cDhtazVjcnRZeU5YV0xWVTBPTnNmeWNjQlhReWJzamQ5Q3cyZ3JnTmFPUVRId196S0FpT0ExZjVid2dNNkRMMWI4MUFVY0RBdEtLbUg4dlUxTDJ3bS1NVWlGczY3bVROQW45NnBTR24zcG83NUJwMnZGSjI5TEU3RFdzNkE?oc=5",
+          "source": "Die Sachsen News",
           "published": "2026-09-13"
         }
       ],
@@ -1369,6 +1452,7 @@
       "coach": {
         "apiId": 1340,
         "name": "Stefan Leitl",
+        "photo": "https://media.api-sports.io/football/coachs/1340.png",
         "country": "Germany",
         "age": 48,
         "tenureFrom": "2025-02",
@@ -1422,6 +1506,7 @@
           "apiId": 25334,
           "number": 35,
           "name": "Marius Gersbeck",
+          "photo": "https://media.api-sports.io/football/players/25334.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1444,17 +1529,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 360,
-            "apps": 4,
+            "minutes": 450,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.83
+            "rating": 7.02,
+            "conceded": 6,
+            "saves": 19
           }
         },
         {
           "apiId": 342266,
           "number": 43,
           "name": "Tim Goller",
+          "photo": "https://media.api-sports.io/football/players/342266.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1481,25 +1569,28 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 339228,
           "number": 13,
           "name": "Konstantin Heide",
+          "photo": "https://media.api-sports.io/football/players/339228.png",
           "pos": "GK",
           "positions": [
             "GK"
           ],
           "role": "GK",
           "age": 19,
-          "height": null,
-          "weight": null,
+          "height": 189,
+          "weight": 84,
           "foot": null,
-          "nat": null,
+          "nat": "GER",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Germany",
           "pronunciation": null,
           "career": "SpVgg Unterhaching (2023–2024) · Hertha BSC (2025)",
           "lastSeason": null,
@@ -1513,6 +1604,7 @@
           "apiId": 584939,
           "number": null,
           "name": "B. Ozkanli",
+          "photo": null,
           "pos": "GK",
           "positions": [
             "GK"
@@ -1538,6 +1630,7 @@
           "apiId": 199934,
           "number": 31,
           "name": "Márton Dárdai",
+          "photo": "https://media.api-sports.io/football/players/199934.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1564,13 +1657,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.47
+            "rating": 5.17,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 650564,
           "number": 29,
           "name": "J. Diallo",
+          "photo": "https://media.api-sports.io/football/players/650564.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1597,13 +1693,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 327659,
           "number": 2,
           "name": "Julian Eitschberger",
+          "photo": "https://media.api-sports.io/football/players/327659.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1626,17 +1725,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 349,
-            "apps": 4,
+            "minutes": 439,
+            "apps": 5,
             "yellow": 2,
             "red": null,
-            "rating": 6.61
+            "rating": 6.49,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 286711,
           "number": 44,
           "name": "Linus Jasper Gechter",
+          "photo": "https://media.api-sports.io/football/players/286711.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1659,17 +1761,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 360,
-            "apps": 4,
-            "yellow": 1,
+            "minutes": 450,
+            "apps": 5,
+            "yellow": 2,
             "red": null,
-            "rating": 7.01
+            "rating": 6.87,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 668865,
           "number": null,
           "name": "M. Grothe",
+          "photo": null,
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1695,6 +1800,7 @@
           "apiId": 90813,
           "number": 27,
           "name": "Niklas Kolbe",
+          "photo": "https://media.api-sports.io/football/players/90813.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1717,17 +1823,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 360,
-            "apps": 4,
+            "minutes": 450,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 7.01
+            "rating": 7.03,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 15901,
           "number": 22,
           "name": "Mads Giersing Valentin Pedersen",
+          "photo": "https://media.api-sports.io/football/players/15901.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1750,17 +1859,20 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 172,
-            "apps": 2,
+            "minutes": 249,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.45
+            "rating": 6.49,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 38120,
           "number": 42,
           "name": "Deyovaisio Evan Zeefuik",
+          "photo": "https://media.api-sports.io/football/players/38120.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1783,22 +1895,26 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 178,
-            "apps": 2,
+            "minutes": 191,
+            "apps": 3,
             "yellow": 1,
             "red": 1,
-            "rating": 6.93
+            "rating": 6.75,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 363479,
           "number": 19,
           "name": "Oluwaseun Adewumi",
-          "pos": "ATT",
+          "photo": "https://media.api-sports.io/football/players/363479.png",
+          "pos": "MID",
           "positions": [
+            "MID",
             "ATT"
           ],
-          "role": "ATT",
+          "role": "MID",
           "age": 20,
           "height": 187,
           "weight": 73,
@@ -1816,17 +1932,20 @@
           "stats": {
             "goals": 3,
             "assists": 0,
-            "minutes": 99,
-            "apps": 4,
+            "minutes": 176,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 7.35
+            "rating": 7.17,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 620686,
           "number": 33,
           "name": "S. Gouram",
+          "photo": "https://media.api-sports.io/football/players/620686.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1848,23 +1967,27 @@
           "statusNote": null,
           "stats": {
             "goals": 0,
-            "assists": 1,
-            "minutes": 238,
-            "apps": 4,
+            "assists": 2,
+            "minutes": 241,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.63
+            "rating": 6.62,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 382486,
           "number": 41,
           "name": "Pascal Klemens",
-          "pos": "DEF",
+          "photo": "https://media.api-sports.io/football/players/382486.png",
+          "pos": "MID",
           "positions": [
+            "MID",
             "DEF"
           ],
-          "role": "DEF",
+          "role": "MID",
           "age": 20,
           "height": 186,
           "weight": 80,
@@ -1882,17 +2005,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 51,
-            "apps": 4,
+            "minutes": 138,
+            "apps": 5,
             "yellow": 1,
             "red": null,
-            "rating": 6.48
+            "rating": 6.62,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 444958,
           "number": 21,
           "name": "Boris Manuzah Lum",
+          "photo": "https://media.api-sports.io/football/players/444958.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1919,13 +2045,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 25161,
           "number": 30,
           "name": "Paul Seguin",
+          "photo": "https://media.api-sports.io/football/players/25161.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1952,13 +2081,16 @@
             "apps": 4,
             "yellow": 3,
             "red": 1,
-            "rating": 6.35
+            "rating": 6.35,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 24909,
           "number": 8,
           "name": "Kevin Simone Sessa",
+          "photo": "https://media.api-sports.io/football/players/24909.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1979,19 +2111,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 0,
+            "goals": 1,
             "assists": 0,
-            "minutes": 353,
-            "apps": 4,
+            "minutes": 443,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.29
+            "rating": 6.63,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 414782,
           "number": 47,
           "name": "Selim Telib",
+          "photo": "https://media.api-sports.io/football/players/414782.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2014,17 +2149,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 0,
-            "apps": 0,
+            "minutes": 3,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": 1.56,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 633058,
           "number": null,
           "name": "K. Todorovic",
+          "photo": null,
           "pos": "MID",
           "positions": [
             "MID"
@@ -2050,6 +2188,7 @@
           "apiId": 389035,
           "number": 20,
           "name": "Farid Alfa-Ruprecht",
+          "photo": "https://media.api-sports.io/football/players/389035.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2070,19 +2209,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 0,
+            "goals": 1,
             "assists": 0,
-            "minutes": 8,
-            "apps": 1,
+            "minutes": 21,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 3.25
+            "rating": 4.69,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 2762,
           "number": 7,
           "name": "Josip Brekalo",
+          "photo": "https://media.api-sports.io/football/players/2762.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2103,19 +2245,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 3,
+            "goals": 4,
             "assists": 2,
-            "minutes": 356,
-            "apps": 4,
-            "yellow": 1,
+            "minutes": 446,
+            "apps": 5,
+            "yellow": 2,
             "red": null,
-            "rating": 7.59
+            "rating": 7.54,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 15776,
           "number": 17,
           "name": "Sebastian Grønning Andersen",
+          "photo": "https://media.api-sports.io/football/players/15776.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2138,17 +2283,20 @@
           "stats": {
             "goals": 2,
             "assists": 0,
-            "minutes": 257,
-            "apps": 4,
+            "minutes": 325,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 7.07
+            "rating": 6.92,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 584940,
           "number": 26,
           "name": "N. Hildebrandt",
+          "photo": "https://media.api-sports.io/football/players/584940.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2174,6 +2322,7 @@
           "apiId": 466239,
           "number": 28,
           "name": "Jelani Isi Ndi",
+          "photo": "https://media.api-sports.io/football/players/466239.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2200,13 +2349,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 15683,
           "number": 9,
           "name": "Håkan Gustaf Nilsson",
+          "photo": "https://media.api-sports.io/football/players/15683.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2229,17 +2381,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 0,
-            "apps": 0,
+            "minutes": 22,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": 3.21,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 178353,
           "number": 18,
           "name": "Jan-Luca Schuler",
+          "photo": "https://media.api-sports.io/football/players/178353.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2266,13 +2421,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.83
+            "rating": 5.46,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 15755,
           "number": 23,
           "name": "Jón Dagur Þorsteinsson",
+          "photo": "https://media.api-sports.io/football/players/15755.png",
           "pos": "MID",
           "positions": [
             "MID",
@@ -2296,17 +2454,20 @@
           "stats": {
             "goals": 1,
             "assists": 1,
-            "minutes": 190,
-            "apps": 4,
+            "minutes": 277,
+            "apps": 5,
             "yellow": 3,
             "red": null,
-            "rating": 6.74
+            "rating": 6.62,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 202614,
           "number": 22,
           "name": "Marten Winkler",
+          "photo": "https://media.api-sports.io/football/players/202614.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2333,7 +2494,9 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 8.26
+            "rating": 8.26,
+            "conceded": 0,
+            "saves": 0
           }
         }
       ],
@@ -2482,8 +2645,8 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Hertha BSC II - Stadium - Friedrich-Ludwig-Jahn-Sportpark",
-          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE82ZkFpbktWcExiQzNKRVgyYk9xNFBudzdUT2dKSVM5Q2FuRHV4MDFkOTY0LVliV2FfV0ltV0g5NUdXZTZZT3BrQ3A5enlaSmtURG5MVEZ5aXZtTTZXZDNaX1ZUYnZKSlkxbVd2WEQ1RjVnc2VQRWc?oc=5",
+          "title": "Hertha BSC Youth - Most expensive departures (Gallery) | Page 21",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOdzViTHlSVEtZajY4ckwxSXJCLWRBQ1JTY1NNYXhEUF9iR19Cc3JObVdkYllfaFRGYkVucVo2eDh5X25iSFA5NFdrSVVCcHVfNk14ME5WZW8ySXdjWC1Td3pOam0ydjBjTkYzd01jOHBfcVZ4STlxcEV1TDB5N0pENTJLQ0t2eGVsQXVLNHpmSzVzM2E4MjZ0UHV0VjgxSnN6cG9iZDVtWkRsVkpLeVBKYkFoX010VEJzMmZqSzRGZ003OE5zNnVwQ3l1cWxFdw?oc=5",
           "source": "Transfermarkt",
           "published": "2026-09-14"
         },
@@ -2494,8 +2657,8 @@
           "published": "2026-09-14"
         },
         {
-          "title": "Regionalliga Berlin (63/64 - 73/74)",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNRmhSZ2FoNDJGaDBUXzJ0NjV5N21CS3dfcmh6ZVRCbVMyd2k1c1R4cm9TVmRZa1FzdFBKVWt2Wkc3SVZlakFxUkJGVkF5VjlhT0puSXIxLXZqbExXa1IwS2FMMTRDZ240UFVCUjhyU2o0QlRaalVobWhYdkNhUUZ6YklWRWFQMGthdDl4UmhKaUlYUXRHNFFxODk0dHhZUQ?oc=5",
+          "title": "Hertha BSC II - Stadium - Friedrich-Ludwig-Jahn-Sportpark",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE82ZkFpbktWcExiQzNKRVgyYk9xNFBudzdUT2dKSVM5Q2FuRHV4MDFkOTY0LVliV2FfV0ltV0g5NUdXZTZZT3BrQ3A5enlaSmtURG5MVEZ5aXZtTTZXZDNaX1ZUYnZKSlkxbVd2WEQ1RjVnc2VQRWc?oc=5",
           "source": "Transfermarkt",
           "published": "2026-09-14"
         },
@@ -2512,12 +2675,6 @@
           "published": "2026-09-14"
         },
         {
-          "title": "2. Bundesliga: Hertha BSC maintain perfect start with 3-1 win at Osnabrück",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPRjBPcmRWWEtsT1R5UE1wMFpoQXBuLWhSQnNBNVdrYkN3N3YxWF9nYUIwWmtnc0w4Wkk0LUVuQ0E0UWg1cHQ5c2FsSnZVQ3l4cXZMbGJfdzVQMUhMMHpfY1VwR29hcVdFNmRrSDVNX3NHZnNFN2ttTEVSNERaaDQzb0pEUjVKc2s?oc=5",
-          "source": "Yahoo Sports Canada",
-          "published": "2026-09-13"
-        },
-        {
           "title": "2. Bundesliga - VfL Osnabrück 1-3 Hertha BSC",
           "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQcmlER1BwTmFqNF8zc0ZNdDgxdWdtVUFseUgxSkNoZm9mUUV4NEV4MVpyUUlBaGk5OGE0UG9vbnFzVjY3OVptWGxZUDBCRDR1cThhdHNDTFNsRkV1R3FoelBuYWtLMjZUeGptdWxkRG12VEdTUTUyUVplY1FtX0FhWlZGVFhDcUZqT3RRSg?oc=5",
           "source": "OneFootball",
@@ -2527,6 +2684,12 @@
           "title": "Hertha 1-0 Hamburg (24 Aug, 2013) Final Score",
           "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5vaUNrSGtFWVZVZXNCaUV2SHp2UWpreWIxUzl5U2FDVHRMdktsR3JRNnVBcFJhT01YVlh1cjRtU3hEMVItdkFLNnE4aWJYeTZOaXoxekctMC04U3BqRHN3bVExRTVZeHRvQ1hzMWlLODU2emU3Uml6Rw?oc=5",
           "source": "ESPN",
+          "published": "2026-09-13"
+        },
+        {
+          "title": "2. Bundesliga · Stats 2026-2027",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFA5VkxzV2RycnlRaU5lWTVrVVo0ODRuSmtlRVF3eDNVMGFTdk5LT3lZWWlhSEVQUW5oTDV4UjlVZnZsNVdUejlKQno5cjFkazA1cUQzYmhuX1duTWhrREVsNnl3?oc=5",
+          "source": "vavel.com",
           "published": "2026-09-13"
         }
       ],

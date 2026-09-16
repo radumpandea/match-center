@@ -1,12 +1,12 @@
 {
   "slug": "laliga-e7-atletico-madrid-real-madrid",
-  "generatedAt": "2026-09-15T15:56:53.961Z",
+  "generatedAt": "2026-09-16T07:43:13.031Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-09-15"
+      "accessed": "2026-09-16"
     }
   ],
   "competition": {
@@ -20,14 +20,7 @@
     "name": "Riyadh Air Metropolitano",
     "capacity": null,
     "city": "Madrid",
-    "notes": null,
-    "weather": {
-      "tempC": 30,
-      "condition": "cer noros",
-      "windKph": 4,
-      "precipitationMm": 0,
-      "forecastAt": "2026-09-15T15:56:54.528Z"
-    }
+    "notes": null
   },
   "referee": {
     "name": "n/d",
@@ -73,7 +66,8 @@
     "Atletico Madrid — 5 din 10 goluri marcate după minutul 75.",
     "Álex Baena e cel mai bun marcator al echipei Atletico Madrid în acest start de sezon (3 goluri).",
     "Real Madrid — locul 2 după 5 etape, 12 puncte, golaveraj 14-4.",
-    "Kylian Mbappé e cel mai bun marcator al echipei Real Madrid în acest start de sezon (4 goluri).",
+    "Real Madrid vine după 3 victorii la rând.",
+    "Kylian Mbappé e cel mai bun marcator al echipei Real Madrid în acest start de sezon (7 goluri).",
     "Cap la cap (10 meciuri): Atletico Madrid 3 - 3 - 4 Real Madrid."
   ],
   "predictions": {
@@ -91,16 +85,16 @@
         "away": 55
       },
       "attack": {
-        "home": 42,
-        "away": 58
-      },
-      "defense": {
         "home": 40,
         "away": 60
       },
+      "defense": {
+        "home": 45,
+        "away": 55
+      },
       "poisson": {
-        "home": 62,
-        "away": 38
+        "home": 57,
+        "away": 43
       },
       "h2h": {
         "home": 40,
@@ -122,6 +116,7 @@
       "coach": {
         "apiId": 1595,
         "name": "Diego Pablo Simeone González",
+        "photo": "https://media.api-sports.io/football/coachs/1595.png",
         "country": "Argentina",
         "age": 55,
         "tenureFrom": "2011-12",
@@ -279,20 +274,21 @@
       "squad": [
         {
           "apiId": 393198,
-          "number": 13,
+          "number": 25,
           "name": "Salvador Esquivel",
+          "photo": "https://media.api-sports.io/football/players/393198.png",
           "pos": "GK",
           "positions": [
             "GK"
           ],
           "role": "GK",
           "age": 20,
-          "height": null,
-          "weight": null,
+          "height": 190,
+          "weight": 85,
           "foot": null,
-          "nat": null,
+          "nat": "ESP",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Spain",
           "pronunciation": null,
           "career": "Atlético Madrid II (0–2024) · Atletico Madrid (2025)",
           "lastSeason": null,
@@ -300,12 +296,23 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 0,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
+          }
         },
         {
           "apiId": 646997,
           "number": 51,
           "name": "Álvaro Moreno",
+          "photo": "https://media.api-sports.io/football/players/646997.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -331,6 +338,7 @@
           "apiId": 2465,
           "number": 1,
           "name": "Juan Agustín Musso",
+          "photo": "https://media.api-sports.io/football/players/2465.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -353,17 +361,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 29,
           "number": 13,
           "name": "Jan Oblak",
+          "photo": "https://media.api-sports.io/football/players/29.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -386,29 +397,32 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 360,
-            "apps": 4,
+            "minutes": 450,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.78
+            "rating": 6.84,
+            "conceded": 6,
+            "saves": 13
           }
         },
         {
           "apiId": 189997,
           "number": 1,
           "name": "Mario de Luis",
+          "photo": "https://media.api-sports.io/football/players/189997.png",
           "pos": "GK",
           "positions": [
             "GK"
           ],
           "role": "GK",
           "age": 23,
-          "height": null,
-          "weight": null,
+          "height": 185,
+          "weight": 75,
           "foot": null,
-          "nat": null,
+          "nat": "ESP",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Spain",
           "pronunciation": null,
           "career": "Rayo Vallecano (2019) · Real Madrid II (2020) · Xerez Deportivo (2021) · Real Madrid (2022–2024) · Atletico Madrid (2025)",
           "lastSeason": null,
@@ -422,6 +436,7 @@
           "apiId": 567861,
           "number": 27,
           "name": "Jorge Dominguez",
+          "photo": "https://media.api-sports.io/football/players/567861.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -431,9 +446,9 @@
           "height": null,
           "weight": null,
           "foot": null,
-          "nat": null,
+          "nat": "ESP",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Spain",
           "pronunciation": null,
           "career": "Atlético Madrid II (2025) · Atletico Madrid (2026–prezent)",
           "lastSeason": null,
@@ -448,18 +463,22 @@
             "apps": 1,
             "yellow": 1,
             "red": null,
-            "rating": 6.7
+            "rating": 3.35,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 563,
           "number": 22,
           "name": "Álex Grimaldo",
-          "pos": "DEF",
+          "photo": "https://media.api-sports.io/football/players/563.png",
+          "pos": "MID",
           "positions": [
+            "MID",
             "DEF"
           ],
-          "role": "DEF",
+          "role": "MID",
           "age": 30,
           "height": 171,
           "weight": 63,
@@ -475,19 +494,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 0,
-            "assists": 0,
-            "minutes": 270,
-            "apps": 3,
+            "goals": 1,
+            "assists": 1,
+            "minutes": 360,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.5
+            "rating": 6.8,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 30399,
           "number": 17,
           "name": "Dávid Hancko",
+          "photo": "https://media.api-sports.io/football/players/30399.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -509,18 +531,21 @@
           "statusNote": null,
           "stats": {
             "goals": 0,
-            "assists": 1,
-            "minutes": 360,
-            "apps": 4,
+            "assists": 2,
+            "minutes": 450,
+            "apps": 5,
             "yellow": 1,
             "red": null,
-            "rating": 7.25
+            "rating": 7.19,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 47301,
           "number": 24,
           "name": "Robin Le Normand",
+          "photo": "https://media.api-sports.io/football/players/47301.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -547,13 +572,16 @@
             "apps": 2,
             "yellow": 0,
             "red": 1,
-            "rating": 6.45
+            "rating": 4.3,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 753,
           "number": 14,
           "name": "Marcos Llorente",
+          "photo": "https://media.api-sports.io/football/players/753.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -576,17 +604,20 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 225,
-            "apps": 4,
+            "minutes": 285,
+            "apps": 5,
             "yellow": 1,
             "red": null,
-            "rating": 6.93
+            "rating": 6.92,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 386869,
           "number": 30,
           "name": "Dani MartÃ­nez",
+          "photo": "https://media.api-sports.io/football/players/386869.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -613,13 +644,16 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.7
+            "rating": 3.35,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 295793,
           "number": 18,
           "name": "Marc Pubill",
+          "photo": "https://media.api-sports.io/football/players/295793.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -642,29 +676,32 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 246,
-            "apps": 3,
+            "minutes": 336,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 7.03
+            "rating": 7.15,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 428799,
-          "number": 15,
-          "name": "A. Puric",
+          "number": 12,
+          "name": "Aleksa Puric",
+          "photo": "https://media.api-sports.io/football/players/428799.png",
           "pos": "DEF",
           "positions": [
             "DEF"
           ],
           "role": "DEF",
           "age": 22,
-          "height": null,
+          "height": 185,
           "weight": null,
           "foot": null,
-          "nat": null,
+          "nat": "SRB",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Serbia",
           "pronunciation": null,
           "career": "Doxa (2023) · Racing Ferrol (2024) · Atletico Madrid (2025)",
           "lastSeason": null,
@@ -678,6 +715,7 @@
           "apiId": 30776,
           "number": 21,
           "name": "Cristian Gabriel Romero",
+          "photo": "https://media.api-sports.io/football/players/30776.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -700,29 +738,32 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 31,
-            "apps": 1,
+            "minutes": 121,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.6
+            "rating": 7.18,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 402280,
           "number": 4,
-          "name": "A. Yaakobishvili",
+          "name": "Antal Yaakobishvili",
+          "photo": "https://media.api-sports.io/football/players/402280.png",
           "pos": "DEF",
           "positions": [
             "DEF"
           ],
           "role": "DEF",
           "age": 21,
-          "height": null,
-          "weight": null,
+          "height": 193,
+          "weight": 86,
           "foot": null,
-          "nat": null,
+          "nat": "HUN",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Hungary",
           "pronunciation": null,
           "career": "Girona II (2022) · Girona (2023–prezent) · FC Andorra (2025)",
           "lastSeason": null,
@@ -730,12 +771,23 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null
+          }
         },
         {
           "apiId": 336594,
           "number": 8,
           "name": "Pablo Barrios",
+          "photo": "https://media.api-sports.io/football/players/336594.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -762,38 +814,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.35
+            "rating": 7.35,
+            "conceded": 0,
+            "saves": null
           }
-        },
-        {
-          "apiId": 443668,
-          "number": 37,
-          "name": "Rayane Belid",
-          "pos": "MID",
-          "positions": [
-            "MID"
-          ],
-          "role": "MID",
-          "age": 20,
-          "height": null,
-          "weight": null,
-          "foot": null,
-          "nat": null,
-          "natTeam": null,
-          "birthCountry": null,
-          "pronunciation": null,
-          "career": "Atletico Madrid (2023–2025) · Rayo Vallecano (2026–prezent)",
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": null
         },
         {
           "apiId": 133185,
           "number": 5,
           "name": "João Lucas de Souza Cardoso",
+          "photo": "https://media.api-sports.io/football/players/133185.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -816,17 +846,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 26,
-            "apps": 2,
-            "yellow": 0,
+            "minutes": 57,
+            "apps": 3,
+            "yellow": 1,
             "red": null,
-            "rating": 6.8
+            "rating": 6.73,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 548790,
           "number": 46,
           "name": "J. Castillo",
+          "photo": "https://media.api-sports.io/football/players/548790.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -849,17 +882,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 7712,
           "number": 23,
           "name": "Morten Blom Due Hjulmand",
+          "photo": "https://media.api-sports.io/football/players/7712.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -882,17 +918,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 246,
-            "apps": 4,
+            "minutes": 336,
+            "apps": 5,
             "yellow": 1,
             "red": null,
-            "rating": 6.85
+            "rating": 6.92,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 50,
           "number": 6,
           "name": "Koke",
+          "photo": "https://media.api-sports.io/football/players/50.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -915,23 +954,26 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 193,
-            "apps": 4,
+            "minutes": 223,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 7.2
+            "rating": 7.24,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 927,
           "number": 7,
           "name": "Lee Kang-In",
-          "pos": "ATT",
+          "photo": "https://media.api-sports.io/football/players/927.png",
+          "pos": "MID",
           "positions": [
-            "ATT",
-            "MID"
+            "MID",
+            "ATT"
           ],
-          "role": "ATT",
+          "role": "MID",
           "age": 24,
           "height": 173,
           "weight": 66,
@@ -949,17 +991,20 @@
           "stats": {
             "goals": 1,
             "assists": 1,
-            "minutes": 230,
-            "apps": 4,
+            "minutes": 290,
+            "apps": 5,
             "yellow": 1,
             "red": null,
-            "rating": 7.2
+            "rating": 7.03,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 341371,
           "number": 4,
           "name": "Rodrigo Mendoza",
+          "photo": "https://media.api-sports.io/football/players/341371.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -986,13 +1031,16 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.7
+            "rating": 5.03,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 443748,
           "number": 18,
           "name": "Taufik Seidu",
+          "photo": "https://media.api-sports.io/football/players/443748.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1018,6 +1066,7 @@
           "apiId": 313383,
           "number": 3,
           "name": "Obed Gómez Vargas",
+          "photo": "https://media.api-sports.io/football/players/313383.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1040,17 +1089,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 6009,
           "number": 19,
           "name": "Julián Álvarez",
+          "photo": "https://media.api-sports.io/football/players/6009.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1077,13 +1129,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.5
+            "rating": 6.5,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 182219,
           "number": 10,
           "name": "Álex Baena",
+          "photo": "https://media.api-sports.io/football/players/182219.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1106,17 +1161,20 @@
           "stats": {
             "goals": 3,
             "assists": 1,
-            "minutes": 239,
-            "apps": 4,
+            "minutes": 298,
+            "apps": 5,
             "yellow": 1,
             "red": null,
-            "rating": 7.38
+            "rating": 7.34,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 548707,
           "number": 10,
           "name": "M. Llorente",
+          "photo": "https://media.api-sports.io/football/players/548707.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1143,13 +1201,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 8489,
           "number": 15,
           "name": "Jonathan Christian David",
+          "photo": "https://media.api-sports.io/football/players/8489.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1163,26 +1224,29 @@
           "natTeam": null,
           "birthCountry": "USA",
           "pronunciation": null,
-          "career": null,
+          "career": "Gent (2017–2019) · Lille (2020–2023) · Juventus (2024–2025) · Atletico Madrid (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 0,
+            "goals": 1,
             "assists": 0,
-            "minutes": null,
-            "apps": 0,
+            "minutes": 30,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": 7.77,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 491091,
           "number": 9,
           "name": "Sergio Esteban",
+          "photo": "https://media.api-sports.io/football/players/491091.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1208,6 +1272,7 @@
           "apiId": 18767,
           "number": 11,
           "name": "Ademola Lookman Olajade Alade Aylola Lookman",
+          "photo": "https://media.api-sports.io/football/players/18767.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1230,17 +1295,20 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 293,
-            "apps": 4,
+            "minutes": 369,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.8
+            "rating": 6.7,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 183948,
           "number": 16,
           "name": "Arnau Ortiz",
+          "photo": "https://media.api-sports.io/football/players/183948.png",
           "pos": "ATT",
           "positions": [
             "ATT",
@@ -1264,17 +1332,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 113,
-            "apps": 3,
+            "minutes": 127,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.57
+            "rating": 6.58,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 323935,
           "number": 20,
           "name": "Giuliano Simeone Baldini",
+          "photo": "https://media.api-sports.io/football/players/323935.png",
           "pos": "MID",
           "positions": [
             "MID",
@@ -1296,19 +1367,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 1,
+            "goals": 2,
             "assists": 1,
-            "minutes": 272,
-            "apps": 4,
+            "minutes": 362,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.58
+            "rating": 6.8,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 8492,
           "number": 9,
           "name": "Alexander Sørloth",
+          "photo": "https://media.api-sports.io/football/players/8492.png",
           "pos": "ATT",
           "positions": [
             "ATT",
@@ -1336,13 +1410,16 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 7
+            "rating": 7,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 31,
           "number": 2,
           "name": "José María Giménez de Vargas",
+          "photo": "https://media.api-sports.io/football/players/31.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1369,13 +1446,16 @@
             "apps": 2,
             "yellow": 1,
             "red": null,
-            "rating": 6.7
+            "rating": 6.7,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 324750,
           "number": 12,
           "name": "Carlos Martín",
+          "photo": "https://media.api-sports.io/football/players/324750.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1402,7 +1482,9 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.5
+            "rating": 6.5,
+            "conceded": 0,
+            "saves": null
           }
         }
       ],
@@ -1549,21 +1631,15 @@
       },
       "absences": [
         {
-          "name": "P. Barrios",
-          "reason": "injury",
-          "detail": "Muscle Injury",
-          "since": "2026-09-16"
-        },
-        {
           "name": "J. Alvarez",
           "reason": "injury",
           "detail": "Muscle Injury",
           "since": "2026-09-16"
         },
         {
-          "name": "S. Esteban",
+          "name": "P. Barrios",
           "reason": "injury",
-          "detail": "Injury",
+          "detail": "Muscle Injury",
           "since": "2026-09-16"
         },
         {
@@ -1579,52 +1655,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Arsenal should consider loaning out this flop signing in January",
-          "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNUDVKLUp0Z1BCUjJ1SURqenBxbEEtMEhjQkRIUEdnNTAzdV9VblFsb0pfUnFCMnNDTVVtaFNSX0M3MWJXMzhmZUJpekxlOXdZLUhTZUpnSzNqTDFKNWUyS1h1OWVXdkRLR3pZakZSR1VuWlVVNTBZamJsaWIyQVA2b1lTRmdpSFAtc3R1SEhuWVBfLU5ONTVOTjFGSEExeUJIekRQQlFuM1RDS3pyZmJjMlZCak1FaXpESW5Hb284MFBLOVFyNEw1a1gwS3Jqc2RncjNWVEdJWjktNzMxM05OM2RXODNxR0g1aHc?oc=5",
-          "source": "Flashscore.com",
-          "published": "2026-09-15"
+          "title": "Atletico Madrid vs CA Osasuna - Where to Watch, Stream Info, TV Channel, and Live Updates (September 16, 2026)",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPUUdIVVFVM2VyUUZRcDNqdmZVSUtpSTV6SnRPZTdwY2U5TGExMzNwcUpvV0FvOGlJQXdxeDktRE53MDlNY1EzcmI0ZXI5TnM2SlZFdWZDUkd5b2FNY3ZJYnVEdy1ORmZZSEtBdERGQ2R3ZjUtaVBxMEt4Y2xtVVdWZF9lWGVLTndrN3VpTXA3SFBMRDBrZVNpdUMyTkp3MVE2MGRSaFhtR0ROSE5VVDBFMTZic3d2Zmh2S2xjZ3Q3bDE1eWQ2dlZnOW1PSTBYYkJh?oc=5",
+          "source": "fubo.tv",
+          "published": "2026-09-16"
         },
         {
-          "title": "Noni Madueke Eyed by Atletico Madrid, Juventus",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOekkzVWYxS0ZwT01pVnV0MWRZSWRDNjJYVmhBTGNidlNPa0NDTHhVTnh3N18xaThqdHVBOTFRWi1SRlRramxZRlk0X0RLeXpkamNKUG0yYUJ3N3Vmalppd3pTOWs4ckk1QjlOMmtaMlduNUV6c24tY1NxdkpNclNCQ2ljdkhyZw?oc=5",
-          "source": "chosun.com",
-          "published": "2026-09-15"
+          "title": "Atletico Madrid vs. CA Osasuna Prediction, Picks, Live Odds - Sept. 16",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxON2Mxdzd1cHowcWVlbXhURzdLZmdFc0JvSTU4dUtMOWJQNXRZU0JKNThwQmkxR2tPOXQ1eVpiSEE2X3pfczdJWVFINTIycmZCT0tCdUxCYnFLcUVvSnpFTkxxS3VCQzlweUtYYnd4bzdFNDlyUEtRdkdfUV95UTR0SlVPMDJ2Zm1wbjBTWXNjVzhoU0ZTSXlXdVczSHN2QkZ0TFJWUVRPdUttRFNVV0lLMW5CRQ?oc=5",
+          "source": "Bleacher Nation",
+          "published": "2026-09-16"
         },
         {
-          "title": "A blow at the toughest moment: what happened to Álvarez?",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPd1RmSGRIdTRIUHJzTG9EeWR4Tm4xYzdPc25UcUxndGFrVmQtSTFrOEpycGl2elBZLVRLc3dEaUJWUGROdl9yS1Nhek9KS0VzSjNZbmdxeXREUEtFNGVlaXBaM1YzU0tRRlY0cWVubF9uVElWMFJFeGtORUpPbDRCNjdTM3hWNWEzQ3ZDRzJDZU40VTMydDV3ckhkTnpFRjh4VTgyNnFMVVRndzNkZmQw?oc=5",
-          "source": "Goal.com",
-          "published": "2026-09-15"
+          "title": "Atletico Madrid have promised to lower Barcelona target Julian Alvarez's release clause on one condition - report",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQaXFiSHZSUUJaR2RHYVBYcXlmQWctUEg1ZnNIMWloMV9ZaEw4UUlyZDgwbzlQb1RQTldqZHprT0JiSTQxcXBzRHZ3ZGxuWVdEdkdBOEpTZG0xNnJmeVZLZVNtMUJER3k1NXFjNEJzZ0NlcXA2Slc0aHBoTXZhWkQ2Vy1kdEwwT2hLM1NVT0w0Y2UzXzNfa1JPaFZieUhvYWdybklkS1lGV3BOc1BjMDd4U3ZQX2ZTWmJkRWpyYWdMTjM1VEJDVUdZSWhRSzlUVW9XVWNRcg?oc=5",
+          "source": "barcauniversal.com",
+          "published": "2026-09-16"
         },
         {
-          "title": "Arsenal transfer rumours: Noni Madueke, Atletico Madrid, Juventus",
-          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNNHIwdlJUWlp2MjA2ZEZIRTFJLW13RnJpT0cwU0VzSHREb2RTVU1kcW01dGNhLXJuUXc4aXMzVDJIWHNlM1dudHVVOVEwMy1ydU1Ba0R5SHo3YV9wZk5WaFcwcHNWYkFlWkNucmNWZ2hZT1NsR19EdHpnZmtvMnZNRDJJNVFKQWNwVzNfZ01qRnRTa2o5Q2ZfZ21vS3Q1ZmFsSGFhZXliaEFtU1Z2aHVZaG1RdFVUbUhjX2p5Ylo0aGNjMDJMNVdqN0dVZlpnTkVlOXdKa09OZHVXU3IwLTNQUjNn?oc=5",
-          "source": "bbc.com",
-          "published": "2026-09-15"
+          "title": "Atletico Madrid vs Osasuna: Spanish La Liga stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBsYmZDUHdEbW9Wc3JPNTNJUVBLc3l1VTk5QXpMSzZnM0xlUXFTVjBFVmxaWkFyd0ZBaGFTRmJYTDBNQXdPNXVPOElLT25TYVhyeFBvMXJTMk9wZ3FJRk1RQlliUVFVZw?oc=5",
+          "source": "BBC",
+          "published": "2026-09-16"
         },
         {
-          "title": "Julián Álvarez Targets Madrid Derby Return After Injury",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPOFlhcWZRTGhtdFg1M28yZnI3cGY1Q0xIODM2WGJUZlpkdGM3WlhEdWlsaWV4TENiVTJ1Rzl0elNNb0FESlQxQnRxUDJIb01LN0lsNGlJQV9YS1F3QUlkc0FINmdnMkw4MUJRY2VTUm9CVUY4VVk4aTVZTFZyejEtYnVaZVdyZw?oc=5",
-          "source": "chosun.com",
-          "published": "2026-09-15"
+          "title": "Woori Investment & Securities has signed an official sports marketing alliance with Spain's prof..",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9CQ1RKZzEtVXVqTVFyOWlrSzBsS2ZqYVRvanNFRzhZaW14OWsyOXdIVkxhd19sLVRHLVV0Z3hzUDJpdHZieTJ1c09KWkJCMVE?oc=5",
+          "source": "매일경제",
+          "published": "2026-09-16"
         },
         {
-          "title": "From a knife in his father's back to Anoeta hero: Giuliano Simeone silences the critics with a practical response",
-          "url": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPSGc4SS1wRXMyRnZ1Z3JLbXpXZTAtVHlSQXBHRkE5b0VIVFB5aDVXa3JkbTVTMi05aUF0azAwNkd6M2hyYnVwMTc3NVVJWkE3T0hXMUJta2NtaG52Yk9oY0VjUWdvVVYzcEhtX254RzdNVVp1QTB6dEJPUl9FZ09PbXNVYUlpZU93NVNnTW83MHZKdnJ3b0k5SHVsSUVQQmRnRUFUQ3BKZUxaU3dIaDZTcUZqZ1p6QUNEMFVpT3VhR08yUzdvM3RjU0tobjdENEg4RkVZOWZtSVMwVFFHOF80cWhzLVU3MzBXNDFlUU9GUDQ1SzJYb1QyenlfYmF4QQ?oc=5",
-          "source": "Goal.com",
-          "published": "2026-09-15"
+          "title": "Lionel Messi deserves Ballon d'Or 2026: Simeone picks Argentine over Mbappe, Yamal",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPODRweG1vRjVUME1Hczg5TVc0ZnZzRjV3M2tnOTV5RmRRY1owQ2VhVFloSjBHa05TLWZsOHM1NHJyblZGQzhhekx4LUJNV0FGMDhNeTlRLWJ2TDRnUkZHTUkxbGJOV2pKMjQ0Zl8tVGdwZ2g2R1dIR1BqX3d0SWQ0TGZhM1otc2I4cWhPWDQ4cXkwaGhuUWJKNHh5dDRKMXdhTEotakpzODFSRzZYMlZfNVliWmlIaGJlZUtmMWI0eGt4SE5HZHZkZnZ1RmdpZDlQWXM40gHYAUFVX3lxTE1YeTUxLUM0Zmp4RzdkT01PYURxTVBrZ2duSVAzTldCQ2tPdFVPTkhSTDVDdlBlY0hsaHZKNWJTd2ZoNnQ0aEFYT1NncFl5YnVsdEdpQlRneVF1S2kxSWxuYTdCYmtoYmU0dW9KY3B0TWdmeTUxWWJaakVJdXUyOF9uaE15VlRzcUVoNEtlbnE3dmVqTHhHeVdpa2Ftb1c1bjNNcWdLYzNqWFYzTm1HazNPNE13RnhnQ2FzZWZQNDcwclhuMkVSbDVIZWtEZWRSMHF1WTJKUDBXRw?oc=5",
+          "source": "India Today",
+          "published": "2026-09-16"
         },
         {
-          "title": "Real Madrid taking no risks with key midfielder’s return after injury; could play 30 mins vs Elche",
-          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPNHN3ZXVGVDlwRFBNZUZLV2V0bVlYbUwyUnJPYVptSXdLbXcycHMxdm9MVjNHek90MTRTbUlLaFhoWlctSHZlcnBJOEhfMU9sdXE3T3owUDliOXZKT2dGVG1pQXh5aF9Zcm9FTUNwMEFGODVpZV9nZlVuU2ZfU3NOQg?oc=5",
-          "source": "Yahoo Sports Canada",
-          "published": "2026-09-15"
+          "title": "Liverpool Beat Tottenham 3-1 to Reach League Cup Fourth Round",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxObWJqTndwZFAyYzlrUi1PY2VJR3FpcElTQVh1RU9ScDFaNXkxMDE5ZXJVM2RTZlpUVXYybDlrQmc1cmpMUllZcGI1dUdzUnZZXzhIQ2x2R0ZzTFlCZmJ1R25hZGpIdUx2U2Jjb256eG4ycU9vSGRfeUxGd0tXcVBlV0JwWVNlY205MjNJSEhVdWcyUFFFQU1MaTRn?oc=5",
+          "source": "Tempo.co English",
+          "published": "2026-09-16"
         },
         {
-          "title": "Álvarez's future pushes him to the edge of the abyss: psychological crises and medical consultation",
-          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQbXVRcU5MMkswTWlEZDJPZ2xoWGI3clhDcWpyWnRlZ3VJck5rOTdFNzRDTXVuSXJxS09XY25sLWF0U1o5VFNnZW42Q25hb09RZng1elg3Zl9UeHphaFVsWm0ycmJoYng3MVdNQjl2RFhjaGZnZlptal9aYVV5OVJ4b24wVFFaRmZJZHJNSGpyek90OGFrLTd3Vmd6SmFSVThSS2Q0WGN0d0s1RWllSVdOSWpvbEZNbnh5d1NiNnlGRmRXQVpmVmhZckxkWnp5NE9jRzNuVDNRNFdiQjMwVC10aQ?oc=5",
-          "source": "Goal.com",
-          "published": "2026-09-15"
+          "title": "Elche 2 - 3 Real Madrid (09/15) - Match Report",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPOVdMN3hGR2xseENQc3haUS1kZ1lzbm1IdklJZkJVb2FQb0xoUmFQVGRlVFlyNFBrdEg2dzYzTnhjQ2dmb0dHQzMtbWZ1ZzdLUGZWeFJ1WC1fWDAyQTF0ZVNBd1lWQnVrY3g4dmJhUWVGVFZoNFdaNnVmaWcydlBsZTgzZ2JMYVJvbzB3WjRB?oc=5",
+          "source": "365Scores",
+          "published": "2026-09-16"
         }
       ],
       "stories": []
@@ -1638,6 +1714,7 @@
       "coach": {
         "apiId": 2462,
         "name": "José Mourinho",
+        "photo": "https://media.api-sports.io/football/coachs/2462.png",
         "country": "Portugal",
         "age": 62,
         "tenureFrom": "2026-07",
@@ -1834,6 +1911,7 @@
           "apiId": 730,
           "number": 1,
           "name": "Thibaut Nicolas Marc Courtois",
+          "photo": "https://media.api-sports.io/football/players/730.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1856,17 +1934,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 360,
-            "apps": 4,
+            "minutes": 540,
+            "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 6.63
+            "rating": 6.75,
+            "conceded": 4,
+            "saves": 16
           }
         },
         {
           "apiId": 47400,
           "number": 13,
           "name": "Andriy Lunin",
+          "photo": "https://media.api-sports.io/football/players/47400.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1889,17 +1970,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 386872,
           "number": 26,
           "name": "Sergio Mestre",
+          "photo": "https://media.api-sports.io/football/players/386872.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1926,13 +2010,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 494060,
           "number": 31,
           "name": "Javier Navarro",
+          "photo": "https://media.api-sports.io/football/players/494060.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1959,13 +2046,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 460594,
           "number": null,
           "name": "I. Voloshyn",
+          "photo": null,
           "pos": "GK",
           "positions": [
             "GK"
@@ -1991,18 +2081,19 @@
           "apiId": 451355,
           "number": 3,
           "name": "Diego Aguado",
+          "photo": "https://media.api-sports.io/football/players/451355.png",
           "pos": "DEF",
           "positions": [
             "DEF"
           ],
           "role": "DEF",
           "age": 18,
-          "height": null,
-          "weight": null,
+          "height": 180,
+          "weight": 70,
           "foot": null,
-          "nat": null,
+          "nat": "ESP",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Spain",
           "pronunciation": null,
           "career": "Real Madrid (2024–2025)",
           "lastSeason": null,
@@ -2016,12 +2107,13 @@
           "apiId": 283,
           "number": 12,
           "name": "Trent John Alexander-Arnold",
-          "pos": "MID",
+          "photo": "https://media.api-sports.io/football/players/283.png",
+          "pos": "DEF",
           "positions": [
-            "MID",
-            "DEF"
+            "DEF",
+            "MID"
           ],
-          "role": "MID",
+          "role": "DEF",
           "age": 27,
           "height": 175,
           "weight": 67,
@@ -2039,29 +2131,32 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 126,
-            "apps": 3,
+            "minutes": 213,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.07
+            "rating": 7.11,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 341640,
-          "number": 17,
+          "number": 2,
           "name": "Raúl Asencio",
+          "photo": "https://media.api-sports.io/football/players/341640.png",
           "pos": "DEF",
           "positions": [
             "DEF"
           ],
           "role": "DEF",
           "age": 22,
-          "height": null,
-          "weight": null,
+          "height": 184,
+          "weight": 79,
           "foot": null,
-          "nat": null,
+          "nat": "ESP",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Spain",
           "pronunciation": null,
           "career": "RSC Internacional (2022) · Real Madrid II (2023) · Real Madrid (2024–2025)",
           "lastSeason": null,
@@ -2069,12 +2164,23 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 0,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
+          }
         },
         {
           "apiId": 284300,
           "number": 18,
           "name": "Álvaro Fernández",
+          "photo": "https://media.api-sports.io/football/players/284300.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -2095,19 +2201,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 0,
+            "goals": 1,
             "assists": 0,
-            "minutes": 120,
-            "apps": 3,
+            "minutes": 210,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 6.7
+            "rating": 5.74,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 47380,
           "number": 17,
           "name": "Marc Cucurella",
+          "photo": "https://media.api-sports.io/football/players/47380.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -2130,17 +2239,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 249,
-            "apps": 4,
+            "minutes": 340,
+            "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 6.98
+            "rating": 6.89,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 226,
           "number": 24,
           "name": "Denzel Justus Morris Dumfries",
+          "photo": "https://media.api-sports.io/football/players/226.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -2163,29 +2275,32 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 234,
-            "apps": 3,
+            "minutes": 325,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.53
+            "rating": 6.4,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 372,
           "number": 3,
           "name": "Éder Militão",
+          "photo": "https://media.api-sports.io/football/players/372.png",
           "pos": "DEF",
           "positions": [
             "DEF"
           ],
           "role": "DEF",
           "age": 28,
-          "height": null,
-          "weight": null,
+          "height": 186,
+          "weight": 78,
           "foot": null,
-          "nat": null,
+          "nat": "BRA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Brazil",
           "pronunciation": null,
           "career": "Sao Paulo (2016–2018) · Real Madrid (2019–2025)",
           "lastSeason": null,
@@ -2193,12 +2308,23 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": null,
+            "minutes": 0,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": null,
+            "saves": null
+          }
         },
         {
           "apiId": 561032,
           "number": 23,
           "name": "L. Fati",
+          "photo": "https://media.api-sports.io/football/players/561032.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -2224,18 +2350,19 @@
           "apiId": 443595,
           "number": 2,
           "name": "Jesús Fortea",
+          "photo": "https://media.api-sports.io/football/players/443595.png",
           "pos": "DEF",
           "positions": [
             "DEF"
           ],
           "role": "DEF",
           "age": 18,
-          "height": null,
-          "weight": null,
+          "height": 174,
+          "weight": 62,
           "foot": null,
-          "nat": null,
+          "nat": "ESP",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Spain",
           "pronunciation": null,
           "career": "Real Madrid III (2024) · Real Madrid (2025)",
           "lastSeason": null,
@@ -2249,6 +2376,7 @@
           "apiId": 361497,
           "number": 4,
           "name": "Dean Donny Huijsen",
+          "photo": "https://media.api-sports.io/football/players/361497.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -2271,17 +2399,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 360,
-            "apps": 4,
+            "minutes": 450,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 7.25
+            "rating": 7.14,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 1145,
           "number": 16,
           "name": "Ibrahima Konaté",
+          "photo": "https://media.api-sports.io/football/players/1145.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -2304,17 +2435,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 270,
-            "apps": 3,
-            "yellow": 2,
+            "minutes": 450,
+            "apps": 5,
+            "yellow": 3,
             "red": null,
-            "rating": 6.93
+            "rating": 6.72,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 561033,
           "number": 5,
           "name": "J. Martinez",
+          "photo": "https://media.api-sports.io/football/players/561033.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -2339,21 +2473,22 @@
         {
           "apiId": 653,
           "number": 23,
-          "name": "F. Mendy",
+          "name": "Ferland Sinna Mendy",
+          "photo": "https://media.api-sports.io/football/players/653.png",
           "pos": "DEF",
           "positions": [
             "DEF"
           ],
           "role": "DEF",
           "age": 30,
-          "height": null,
-          "weight": null,
+          "height": 180,
+          "weight": 73,
           "foot": null,
-          "nat": null,
+          "nat": "FRA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "France",
           "pronunciation": null,
-          "career": "Le Havre II (2013) · Le Havre (2014–2016) · Lyon (2017–2018) · Real Madrid (2019–2025)",
+          "career": null,
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2365,6 +2500,7 @@
           "apiId": 456014,
           "number": 33,
           "name": "Mario Rivas",
+          "photo": "https://media.api-sports.io/football/players/456014.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -2391,13 +2527,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 2285,
           "number": 22,
           "name": "Antonio Rüdiger",
+          "photo": "https://media.api-sports.io/football/players/2285.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -2420,17 +2559,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 1,
+            "minutes": 180,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 7.3
+            "rating": 4.83,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 129718,
           "number": 5,
           "name": "Jude Victor William Bellingham",
+          "photo": "https://media.api-sports.io/football/players/129718.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2451,19 +2593,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 2,
+            "goals": 3,
             "assists": 2,
-            "minutes": 335,
-            "apps": 4,
+            "minutes": 447,
+            "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 8.18
+            "rating": 7.86,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 2207,
           "number": 6,
           "name": "Eduardo Celmi Camavinga",
+          "photo": "https://media.api-sports.io/football/players/2207.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2486,17 +2631,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 176,
-            "apps": 4,
+            "minutes": 221,
+            "apps": 5,
             "yellow": 2,
             "red": null,
-            "rating": 6.85
+            "rating": 5.77,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 560905,
           "number": 29,
           "name": "J. Cestero Sancho",
+          "photo": "https://media.api-sports.io/football/players/560905.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2523,13 +2671,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 744,
           "number": 21,
           "name": "Brahim Díaz",
+          "photo": "https://media.api-sports.io/football/players/744.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2552,17 +2703,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 77,
-            "apps": 2,
+            "minutes": 99,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.7
+            "rating": 6.5,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 291964,
           "number": 15,
           "name": "Arda Güler",
+          "photo": "https://media.api-sports.io/football/players/291964.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2584,18 +2738,21 @@
           "statusNote": null,
           "stats": {
             "goals": 1,
-            "assists": 1,
-            "minutes": 213,
-            "apps": 4,
+            "assists": 2,
+            "minutes": 299,
+            "apps": 6,
             "yellow": 1,
             "red": null,
-            "rating": 7.68
+            "rating": 7.62,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 509470,
           "number": 16,
           "name": "Thiago Pitarch",
+          "photo": "https://media.api-sports.io/football/players/509470.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2618,17 +2775,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 636,
           "number": 20,
           "name": "Bernardo Silva",
+          "photo": "https://media.api-sports.io/football/players/636.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2651,17 +2811,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 205,
-            "apps": 4,
+            "minutes": 274,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.58
+            "rating": 5.53,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 1271,
           "number": 14,
           "name": "Aurélien Djani Tchouaméni",
+          "photo": "https://media.api-sports.io/football/players/1271.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2684,17 +2847,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 11,
-            "apps": 1,
+            "minutes": 107,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.7
+            "rating": 6.76,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 756,
           "number": 8,
           "name": "Federico Santiago Valverde Dipetta",
+          "photo": "https://media.api-sports.io/football/players/756.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2717,17 +2883,20 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 339,
-            "apps": 4,
+            "minutes": 474,
+            "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 7.15
+            "rating": 7.01,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 548685,
           "number": 17,
           "name": "A. Ciria",
+          "photo": "https://media.api-sports.io/football/players/548685.png",
           "pos": "ATT",
           "positions": [
             "ATT",
@@ -2755,18 +2924,22 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 513776,
           "number": 25,
           "name": "Yan Diomande",
-          "pos": "ATT",
+          "photo": "https://media.api-sports.io/football/players/513776.png",
+          "pos": "MID",
           "positions": [
+            "MID",
             "ATT"
           ],
-          "role": "ATT",
+          "role": "MID",
           "age": 19,
           "height": null,
           "weight": null,
@@ -2784,17 +2957,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 87,
-            "apps": 4,
+            "minutes": 159,
+            "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 6.58
+            "rating": 6.65,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 377122,
           "number": 9,
           "name": "Endrick",
+          "photo": "https://media.api-sports.io/football/players/377122.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2808,7 +2984,7 @@
           "natTeam": null,
           "birthCountry": "Brazil",
           "pronunciation": null,
-          "career": null,
+          "career": "Palmeiras (2022–2023) · Real Madrid (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2817,17 +2993,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
-            "apps": 0,
+            "minutes": 4,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": 6.83,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 450497,
           "number": 19,
           "name": "Carlos Espí",
+          "photo": "https://media.api-sports.io/football/players/450497.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2854,25 +3033,28 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.97
+            "rating": 5.23,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 308998,
           "number": 11,
           "name": "Ávaro Leiva",
+          "photo": "https://media.api-sports.io/football/players/308998.png",
           "pos": "ATT",
           "positions": [
             "ATT"
           ],
           "role": "ATT",
           "age": 21,
-          "height": null,
-          "weight": null,
+          "height": 173,
+          "weight": 77,
           "foot": null,
-          "nat": null,
+          "nat": "ESP",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Spain",
           "pronunciation": null,
           "career": null,
           "lastSeason": null,
@@ -2886,6 +3068,7 @@
           "apiId": 278,
           "number": 10,
           "name": "Kylian Mbappé",
+          "photo": "https://media.api-sports.io/football/players/278.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2906,19 +3089,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 4,
-            "assists": 0,
-            "minutes": 360,
-            "apps": 4,
+            "goals": 7,
+            "assists": 2,
+            "minutes": 540,
+            "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 7.93
+            "rating": 8.31,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 762,
           "number": 7,
           "name": "Vinícius Júnior",
+          "photo": "https://media.api-sports.io/football/players/762.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2940,30 +3126,33 @@
           "statusNote": null,
           "stats": {
             "goals": 1,
-            "assists": 2,
-            "minutes": 354,
-            "apps": 4,
+            "assists": 3,
+            "minutes": 511,
+            "apps": 6,
             "yellow": 2,
             "red": null,
-            "rating": 7.35
+            "rating": 7.26,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 441497,
           "number": 7,
           "name": "Daniel Yañez",
+          "photo": "https://media.api-sports.io/football/players/441497.png",
           "pos": "ATT",
           "positions": [
             "ATT"
           ],
           "role": "ATT",
           "age": 18,
-          "height": null,
-          "weight": null,
+          "height": 177,
+          "weight": 73,
           "foot": null,
-          "nat": null,
+          "nat": "ESP",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Spain",
           "pronunciation": null,
           "career": null,
           "lastSeason": null,
@@ -2996,6 +3185,14 @@
           "points": 12
         },
         "recent": [
+          {
+            "date": "2026-09-15",
+            "opp": "Elche",
+            "homeAway": "A",
+            "comp": "La Liga",
+            "score": "3-2",
+            "result": "W"
+          },
           {
             "date": "2026-09-12",
             "opp": "Rayo Vallecano",
@@ -3035,23 +3232,9 @@
             "comp": "La Liga",
             "score": "4-1",
             "result": "W"
-          },
-          {
-            "date": "2026-08-22",
-            "opp": "Espanyol",
-            "homeAway": "A",
-            "comp": "La Liga",
-            "score": "2-1",
-            "result": "W"
           }
         ],
         "next": [
-          {
-            "date": "2026-09-15",
-            "opp": "Elche",
-            "homeAway": "A",
-            "comp": "La Liga"
-          },
           {
             "date": "2026-09-20",
             "opp": "Atletico Madrid",
@@ -3063,6 +3246,12 @@
             "opp": "Villarreal",
             "homeAway": "H",
             "comp": "La Liga"
+          },
+          {
+            "date": "2026-10-14",
+            "opp": "AS Roma",
+            "homeAway": "A",
+            "comp": "UEFA Champions League"
           }
         ],
         "stats": {
@@ -3133,52 +3322,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Elche - Real Madrid: horario y dónde ver hoy en TV y online el partido de la jornada 6 de LaLiga EA Sports",
-          "url": "https://www.marca.com/futbol/primera-division/2026/09/15/elche-real-madrid-horario-donde-ver-hoy-tv-online-partido-jornada-6-laliga-ea-sports.html",
-          "source": "Marca",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Real Madrid XI vs Elche – Predicted lineup and team news",
-          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE4zM1d6MzlUcnpuWENGVXJ1VzMzamR4OGkzSmlVQURKLUlyT2JycTQwbTBZZzNEQ1FTM2FQSTQ4WWJnQm1uMVZReWluX2FOZ1BWMWtzT05qTjFOMXRadGlERV9ycDA4eDZsTFZIU3IwZUxsUkgwZVFzQVVycXM?oc=5",
-          "source": "sports.yahoo.com",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Web oficial del Real Madrid CF",
-          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFAxSnhsenUtdHE5cThvcktGckFqb3lwYi1hcTBaR2JYQTVqdHR0clVpcURCUDJuUDN6dnZ5OEpmV1o1VF9jeDJ4a0QtNUJ2ZFd0TnEyT2pFdEZLRDlLLUx1b3h3c3ViUWszMEFTd0dKX3ZqZw?oc=5",
+          "title": "Official Announcement: Nick Smith Jr.",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxObVlvRExVRUE1RFpaV09UWTRjZHpocndkNGdCMS1WVnNmRlVyVzFwdUM5Uk5XRHZuS0VmWXlsX1dLTTdPTVZXVVZwQ1FnaUJaYVZUMWV1cmxDOUxXellGaE5lR0JyM1ZOMWhCbHliN0FNUWJOQ3hYWXJVczYxeFVLWW1jTW8xcEJjcmN4YWdUMlM3SnNTSE9n?oc=5",
           "source": "Real Madrid CF | Web Oficial",
-          "published": "2026-09-15"
+          "published": "2026-09-16"
         },
         {
-          "title": "How to watch Real Madrid vs. Elche CF in the U.S.: TV channel and streaming options for September 15",
-          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPWXpuc1ppY0h6aTl6UW4wQXFlRHFSWmFyVkxVemJuVUJZN3dQTGlCb0g3ZVhRYmZVWGNDMThPMGJqdXJwZEtseGhDQTdIb0Y0anMwODZLTE85X1BtcEIzbVUyWThNLW5CeGo2Ry1EdkF5V2JOaUdSNlBEUHFoNzQyZGFfWi1Ud1Q2YWtLTllnUnRDdXlNUzNMNXJSXzJ6Y0R1OXFEWjBQZmR1dkwzV183Ylg4LVhweVNEejByVlZJTENiS0pTYjIwTGlBZnF5RWRIQ1N1ZnNrWkpveW5YaXU1Q2tZYjc?oc=5",
-          "source": "The New York Times",
-          "published": "2026-09-15"
+          "title": "Real Madrid faces controversy after three star players refuse to wear pro-Ceuta solidarity shirts before match",
+          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOWm1FcFpHTFpUa1RoZW51VXV1QndtZHltQXBWQWtzTU0zRllCMzN5QmRKZzVpRzhsT0MxQmZQemlsaEVEeTVwYzdFcUloX2FMN0ZCS0lzMldxV2EtUWM4aWFtMlVPXzdQYkcwVEVWb2Exck93MF9ISjFjQjRnQUdxYjl1RFpMRk5CeVBnOTQ4cF91R3cwZmVHOUZtZlcwWHh2dzVBLWxneUxXYWsxZzE3MHJjVUtIeTUwTVdQTElDU2ZKZHRGVXNyMHNFOHl3WHBOQkpOakJEdw?oc=5",
+          "source": "Fox News",
+          "published": "2026-09-16"
         },
         {
-          "title": "Elche vs. Real Madrid: Preview, Predictions and Lineups",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOMVJ6UTBIVENxdmdvWlZSVU83ekhDOFFaZ1hRbHlfU0hDSHNtZVl6VEU1ZUdqWGF0QWxSX3BpN3JLT3NRdXJZZjFLLWFGdkJfdnJVVVVnVFAwVWVmWEtXMXhCM0puekNsanVhNTZGMmJGb0gyWHhMT0V1eWtWYzFBZ25rSzJoTzd4Unc?oc=5",
-          "source": "Sports Illustrated",
-          "published": "2026-09-15"
+          "title": "Real Madrid pulls off late La Liga win after squandering 2-goal lead at Elche. Mbappé scores again",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQbEdWY1ZZSXhOcHZNbmpRRm5WbnlLYkhNTklwUHRLdjBuNHhsaE5DR2swcFkyazl5bl9wSG9ESEg0NWtNWEVGME0wVFVQWnpVREI2VFo4VWxQREhiTl9xU3d1bFZhamVuQ2JDYTBvclBDTjlMbnYwbEw5QlhBeVlFa3Z2cVAyUThDNlRCYUdESmZ4YUlfYmJnT1VrTWc4c1RyMFc5ZE8tWG9LdmNfTmd6U1JXN1NXYW96THRJeWc0b0hRNzQ4bnNJWS1TekY?oc=5",
+          "source": "WRAL",
+          "published": "2026-09-16"
         },
         {
-          "title": "How to watch Elche vs. Real Madrid online for free",
-          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOLVZENHUyVVlVYzJKd1JPbHluMzc3cTJfNEFvMGU3ak9pX3hzcXZBWDV0ZWdINVM4RjJnVEowdVpkdEFfT0ZieURHQ05CNE9Ia2pMSUVKckY4SHd4TTRvRjdaRE02SGc4RGl3S3FMdVB5b1pod0NNSkcwWFB4ZERWajhsUFd1c0VRX3lEUGJYbw?oc=5",
-          "source": "Mashable",
-          "published": "2026-09-15"
+          "title": "After the Ceuta shirt controversy: Real Madrid decide their stance on Mbappé, Vinícius and Konaté",
+          "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPQlNKTEVoVWhlZjZ2MXJWbk1GcDh3UWM0MEdiZXdOV0UtVENpQTg0MG1WUTMwWkpob040UVdtM3IzSXY5XzFRX1FMc1gza21Ta1pobkpOV3pZUndnVU9JanZtV0ZkVnk2aEMxNkliV1lFWkM0YU9Da0R6aFV4TW9TNWk1a3NwcThIMWdCRS1BVm5MTUl2dTFsN2kwWlVMa2tMOUZOdy10WHhnTnpMM2xHbzduOUp0T3M2bGptWEpHUHJkcTFPb0tyejNtWG5DTnRreTA4THJCbW1IcExncjNsSmVrMA?oc=5",
+          "source": "Goal.com",
+          "published": "2026-09-16"
         },
         {
-          "title": "Elche vs Real Madrid, 2026 La Liga: Predicted lineups",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNdXlCX19nRUdnUkNGV2JrLVRiZFRxT2d5VzFxUUZlaWs2bDU4SXpYbUF4QWp2eU1IeW1sUTZsWV9tWGhTVzJQamxkQ0RyZ3l2UVR0VFJqbG9peHViN0JYaXItc2RxQ2p3ck10dVR5bmdwM3lQM1RrMlVucjFlTmVnTUIxZkVndw?oc=5",
+          "title": "Player Ratings: Elche 2 - 3 Real Madrid",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPbFdpUTNRUmNlVGNOaldidzBNRWJ0VEg1SnRBT3FubzU5eGFnNEl2RGlPZmZCanZTbFNzaUc0Q19tYUR2M2pHd29YdU14aWpsS1Vpa0NVVUtwZ0lZYXlOdkRVMmQxWDFHM0dNZzBwMXBVbnRLRkNMZ05JZHgzTGx4MDAyeGJ3Yk0weFpKZ1ZHMA?oc=5",
           "source": "Managing Madrid",
-          "published": "2026-09-15"
+          "published": "2026-09-16"
         },
         {
-          "title": "Real Madrid’s plan for Tchouameni",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1iZThvTTNvUGlzR0h3SmJ0YXh5a1hsd1REMnpjQ3Vsb2lKRTZXaWlzZ0FieUNwRHEyekZtNU5meFRpQ1dZWVp0ZGEzd3B0dHhGbzBLRjRKUjd2Z0JaQWdhcmZaeHpQNk5JTGx4TTBlZTRtWlhzWkxn0gGLAUFVX3lxTE53ckYyTE41RGNtWUFoeUhTS29fNG4xRy1jaGVPOFhnNGk4VGxNTW1TdktMNDlOeXQ1LXQ0NHY0M3Q0UkRRdXpQSUwzN3NqcnByWWdJMjQteWtVRmpraXprdVowWTBBR2hBblh2VE1TT3dhLWZfanRaTzlqMF9YWnNkRDYwbWVuVnBlNTQ?oc=5",
-          "source": "Diario AS",
-          "published": "2026-09-15"
+          "title": "Real Madrid ready to approve Manchester United move for Endrick in January",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPVEpjUDVOWERJM3pHT1hBd2xhUEllMzhrTGNkQlFzRzdnamtHMXZkOUVUZ2FWYzFfeFljMG9hb2lCc0I1T05pXzZiTDM1SWZQZE1jZjRwX1JYbW1Xb3NwTUxaX1lDeXJubmVUNlJ4NG9WLURKdkxDamN4LXNGdk9yTnhJbC11QWQ1elVIeENR?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-09-16"
+        },
+        {
+          "title": "Medical check-up of Nick Smith Jr.",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPYUpTUW4wSlF0VGJoUy1lZ3RyNk1kNmpHTkhlOVNxSk9qSENXTTBoakJOQUJWakxTZllHUHVaUm0xMEd5clVzZmp4R29BMFpnSHE0TGJIRDE0S1JiUVBmSmdqTTFOc1NpYms4Zl9uOUZCMjBtZl9rX3g0dnRqZGtlRDM4OFdWRUFpN0pMb0wxVTFMSUhBX0VNVk13SS1VUEcxanFZbDg1eFlpUmdsVWd0TWlvem1CenVu?oc=5",
+          "source": "Real Madrid CF | Web Oficial",
+          "published": "2026-09-16"
+        },
+        {
+          "title": "Sports - Football: Kylian Mbappé and Real Madrid defeat Elche despite late scare",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQRkdlb3BFTGpmYTFLeDl4STM2c2gzaWQwRWVyanlpdm5wN0JQRmdOdXZvdEN2SWlZYkU2VmZMRl94TmotYWdqVzBRUDEwVm1YNjJFWk41dm1nNllnX1dVbEhiUC1Lbmdrd2ZxdUlveWpxS1E4ejRBbEtTSHpBUTZTQ25CMU9MQ0RaVkV5VEc2dU8tM19yRnZHUGc5NElwMEhxV3F4dUs3NHhWb3BibTVyM3FKY3NEVGItOHRLSmZZSmYxTHJUaHB3?oc=5",
+          "source": "France 24",
+          "published": "2026-09-16"
         }
       ],
       "stories": []

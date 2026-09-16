@@ -1,11 +1,12 @@
 {
   "teamId": 97,
   "name": "Lorient",
-  "fetchedAt": "2026-09-13T11:35:14.790Z",
+  "fetchedAt": "2026-09-16T07:40:23.606Z",
   "source": "https://www.api-football.com/",
   "coach": {
     "apiId": 19560,
     "name": "Alexandre Dujeux",
+    "photo": "https://media.api-sports.io/football/coachs/19560.png",
     "country": "France",
     "age": 49,
     "tenureFrom": "2026-07",
@@ -32,6 +33,7 @@
       "apiId": 22241,
       "number": 21,
       "name": "Bingourou Kamara",
+      "photo": "https://media.api-sports.io/football/players/22241.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -58,25 +60,28 @@
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 20936,
       "number": 1,
-      "name": "B. Leroy",
+      "name": "Benjamin Leroy",
+      "photo": "https://media.api-sports.io/football/players/20936.png",
       "pos": "GK",
       "positions": [
         "GK"
       ],
       "role": "GK",
       "age": 36,
-      "height": null,
-      "weight": null,
+      "height": 184,
+      "weight": 75,
       "foot": null,
-      "nat": null,
+      "nat": "FRA",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "France",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -90,6 +95,7 @@
       "apiId": 1142,
       "number": 38,
       "name": "Yvon Landry Mvogo Nganoma",
+      "photo": "https://media.api-sports.io/football/players/1142.png",
       "pos": "GK",
       "positions": [
         "GK"
@@ -116,13 +122,16 @@
         "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.78
+        "rating": 6.78,
+        "conceded": 2,
+        "saves": 9
       }
     },
     {
       "apiId": 214310,
       "number": 32,
       "name": "Nathaniel Adjei",
+      "photo": "https://media.api-sports.io/football/players/214310.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -149,13 +158,16 @@
         "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 7.35
+        "rating": 7.35,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 399903,
       "number": 33,
-      "name": "I. Akakpo",
+      "name": "Izak Akakpo",
+      "photo": "https://media.api-sports.io/football/players/399903.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -165,9 +177,9 @@
       "height": null,
       "weight": null,
       "foot": null,
-      "nat": null,
+      "nat": "FRA",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "France",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -181,6 +193,7 @@
       "apiId": 85773,
       "number": 2,
       "name": "Alec Mathieu Georgen",
+      "photo": "https://media.api-sports.io/football/players/85773.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -207,17 +220,19 @@
         "apps": 1,
         "yellow": 0,
         "red": null,
-        "rating": 3.65
+        "rating": 3.65,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 384112,
       "number": 77,
       "name": "Panos Katseris",
+      "photo": "https://media.api-sports.io/football/players/384112.png",
       "pos": "MID",
       "positions": [
-        "MID",
-        "DEF"
+        "MID"
       ],
       "role": "MID",
       "age": 24,
@@ -241,13 +256,16 @@
         "apps": 4,
         "yellow": 1,
         "red": null,
-        "rating": 7.05
+        "rating": 7.05,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 402386,
       "number": 43,
       "name": "Kan Guy Arsène Kouassi",
+      "photo": "https://media.api-sports.io/football/players/402386.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -274,25 +292,28 @@
         "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.6
+        "rating": 6.6,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 278556,
       "number": 30,
-      "name": "S. Kuzmić",
+      "name": "Srđan Kuzmić",
+      "photo": "https://media.api-sports.io/football/players/278556.png",
       "pos": "DEF",
       "positions": [
         "DEF"
       ],
       "role": "DEF",
       "age": 21,
-      "height": null,
-      "weight": null,
+      "height": 183,
+      "weight": 75,
       "foot": null,
-      "nat": null,
+      "nat": "SVN",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Slovenia",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -300,24 +321,35 @@
       "linkLine": null,
       "status": "available",
       "statusNote": null,
-      "stats": null
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "minutes": 488,
+        "apps": 6,
+        "yellow": 0,
+        "red": null,
+        "rating": 6.79,
+        "conceded": 0,
+        "saves": 0
+      }
     },
     {
       "apiId": 162236,
       "number": 27,
-      "name": "F. Mendy",
+      "name": "Formose Mendy",
+      "photo": "https://media.api-sports.io/football/players/162236.png",
       "pos": "DEF",
       "positions": [
         "DEF"
       ],
       "role": "DEF",
       "age": 24,
-      "height": null,
-      "weight": null,
+      "height": 191,
+      "weight": 76,
       "foot": null,
-      "nat": null,
+      "nat": "SEN",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Senegal",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -331,6 +363,7 @@
       "apiId": 336688,
       "number": 55,
       "name": "Nosa Edward Obaretin",
+      "photo": "https://media.api-sports.io/football/players/336688.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -357,13 +390,16 @@
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 446829,
       "number": 97,
-      "name": "S. Siba",
+      "name": "Stevan Siba",
+      "photo": "https://media.api-sports.io/football/players/446829.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -373,9 +409,9 @@
       "height": null,
       "weight": null,
       "foot": null,
-      "nat": null,
+      "nat": "FRA",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "France",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -389,6 +425,7 @@
       "apiId": 193507,
       "number": 20,
       "name": "Dembo Sylla",
+      "photo": "https://media.api-sports.io/football/players/193507.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -415,13 +452,16 @@
         "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.89
+        "rating": 6.89,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 50030,
       "number": 3,
       "name": "Montassar Omar Talbi",
+      "photo": "https://media.api-sports.io/football/players/50030.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -448,13 +488,16 @@
         "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.31
+        "rating": 7.31,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 195893,
       "number": 95,
       "name": "Souleymane Isaak Touré",
+      "photo": "https://media.api-sports.io/football/players/195893.png",
       "pos": "DEF",
       "positions": [
         "DEF"
@@ -481,13 +524,16 @@
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 402265,
       "number": 62,
       "name": "Arthur Ebong Avom",
+      "photo": "https://media.api-sports.io/football/players/402265.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -514,18 +560,21 @@
         "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 7.07
+        "rating": 7.07,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 483118,
       "number": 33,
       "name": "Gabin Bernardeau",
-      "pos": "ATT",
+      "photo": "https://media.api-sports.io/football/players/483118.png",
+      "pos": "MID",
       "positions": [
-        "ATT"
+        "MID"
       ],
-      "role": "ATT",
+      "role": "MID",
       "age": 19,
       "height": null,
       "weight": null,
@@ -547,13 +596,16 @@
         "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.7
+        "rating": 6.7,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 23363,
       "number": 8,
       "name": "Noah Cadiou",
+      "photo": "https://media.api-sports.io/football/players/23363.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -580,13 +632,16 @@
         "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.92
+        "rating": 6.92,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 162018,
       "number": 7,
       "name": "Bandiougou Fadiga",
+      "photo": "https://media.api-sports.io/football/players/162018.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -613,13 +668,16 @@
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 174703,
       "number": 11,
       "name": "Théo Le Bris",
+      "photo": "https://media.api-sports.io/football/players/174703.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -646,18 +704,21 @@
         "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.72
+        "rating": 6.72,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 22171,
       "number": 17,
       "name": "Jean-Victor Makengo",
-      "pos": "ATT",
+      "photo": "https://media.api-sports.io/football/players/22171.png",
+      "pos": "MID",
       "positions": [
-        "ATT"
+        "MID"
       ],
-      "role": "ATT",
+      "role": "MID",
       "age": 27,
       "height": 177,
       "weight": 75,
@@ -679,13 +740,16 @@
         "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.94
+        "rating": 6.94,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 298006,
       "number": 72,
       "name": "Noah Mbamba-Muanda",
+      "photo": "https://media.api-sports.io/football/players/298006.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -712,13 +776,16 @@
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 7.03
+        "rating": 7.03,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 422690,
       "number": 23,
-      "name": "Daniel Xavier Semedo",
+      "name": "Daniel Semedo",
+      "photo": "https://media.api-sports.io/football/players/422690.png",
       "pos": "MID",
       "positions": [
         "MID"
@@ -745,13 +812,16 @@
         "apps": 0,
         "yellow": 0,
         "red": null,
-        "rating": null
+        "rating": null,
+        "conceded": 0,
+        "saves": null
       }
     },
     {
       "apiId": 274278,
       "number": 18,
       "name": "Ibrahima Baldé",
+      "photo": "https://media.api-sports.io/football/players/274278.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -778,25 +848,28 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 7.14
+        "rating": 7.14,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 200873,
       "number": 9,
-      "name": "M. Bamba",
+      "name": "Muhamad Bamba",
+      "photo": "https://media.api-sports.io/football/players/200873.png",
       "pos": "ATT",
       "positions": [
         "ATT"
       ],
       "role": "ATT",
       "age": 24,
-      "height": null,
-      "weight": null,
+      "height": 185,
+      "weight": 75,
       "foot": null,
-      "nat": null,
+      "nat": "CÔT",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Côte d'Ivoire",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -809,7 +882,8 @@
     {
       "apiId": 434785,
       "number": 34,
-      "name": "M. Bley",
+      "name": "Martin Nogoto Bley",
+      "photo": "https://media.api-sports.io/football/players/434785.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -819,9 +893,9 @@
       "height": null,
       "weight": null,
       "foot": null,
-      "nat": null,
+      "nat": "BFA",
       "natTeam": null,
-      "birthCountry": null,
+      "birthCountry": "Burkina Faso",
       "pronunciation": null,
       "career": null,
       "lastSeason": null,
@@ -835,6 +909,7 @@
       "apiId": 353771,
       "number": 19,
       "name": "Souleymane Faye",
+      "photo": "https://media.api-sports.io/football/players/353771.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -861,13 +936,16 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 4.4
+        "rating": 4.4,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 289670,
       "number": 10,
       "name": "Isak Steiner Jensen",
+      "photo": "https://media.api-sports.io/football/players/289670.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -894,13 +972,16 @@
         "apps": 3,
         "yellow": 0,
         "red": null,
-        "rating": 6.69
+        "rating": 6.69,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 608028,
       "number": 42,
       "name": "M. Kone",
+      "photo": "https://media.api-sports.io/football/players/608028.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -927,13 +1008,16 @@
         "apps": 4,
         "yellow": 0,
         "red": null,
-        "rating": 6.61
+        "rating": 6.61,
+        "conceded": 0,
+        "saves": 0
       }
     },
     {
       "apiId": 72457,
       "number": 15,
       "name": "Aiyegun Oluwatosin Tosin",
+      "photo": "https://media.api-sports.io/football/players/72457.png",
       "pos": "ATT",
       "positions": [
         "ATT"
@@ -960,7 +1044,9 @@
         "apps": 2,
         "yellow": 0,
         "red": null,
-        "rating": 4.3
+        "rating": 4.3,
+        "conceded": 0,
+        "saves": 0
       }
     }
   ]

@@ -1,12 +1,12 @@
 {
   "slug": "l1-e5-nice-lille",
-  "generatedAt": "2026-09-15T15:56:56.802Z",
+  "generatedAt": "2026-09-16T07:43:36.162Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-09-15"
+      "accessed": "2026-09-16"
     }
   ],
   "competition": {
@@ -22,11 +22,11 @@
     "city": "Nice",
     "notes": null,
     "weather": {
-      "tempC": 26,
-      "condition": "cer clar",
-      "windKph": 10,
+      "tempC": 25,
+      "condition": "cer noros",
+      "windKph": 11,
       "precipitationMm": 0,
-      "forecastAt": "2026-09-15T15:56:56.945Z"
+      "forecastAt": "2026-09-16T07:43:36.646Z"
     }
   },
   "referee": {
@@ -72,6 +72,7 @@
     "Nice — locul 18 după 4 etape, 2 puncte, golaveraj 1-5.",
     "Lille — locul 1 după 4 etape, 10 puncte, golaveraj 7-2.",
     "Lille a păstrat poarta intactă în 3 din 4 etape.",
+    "Tiago Santos e cel mai bun marcator al echipei Lille în acest start de sezon (2 goluri).",
     "Cap la cap (10 meciuri): Nice 4 - 4 - 2 Lille."
   ],
   "predictions": {
@@ -120,6 +121,7 @@
       "coach": {
         "apiId": 1466,
         "name": "Olivier Pantaloni",
+        "photo": "https://media.api-sports.io/football/coachs/1466.png",
         "country": "France",
         "age": 59,
         "tenureFrom": "2026-07",
@@ -178,6 +180,7 @@
           "apiId": 175171,
           "number": 77,
           "name": "Teddy Boulhendi",
+          "photo": "https://media.api-sports.io/football/players/175171.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -204,13 +207,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 20566,
           "number": 23,
           "name": "Yehvann Diouf",
+          "photo": "https://media.api-sports.io/football/players/20566.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -237,13 +243,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.6
+            "rating": 6.6,
+            "conceded": 4,
+            "saves": 9
           }
         },
         {
           "apiId": 671514,
           "number": null,
           "name": "Martin Ponsot",
+          "photo": null,
           "pos": "GK",
           "positions": [
             "GK"
@@ -269,6 +278,7 @@
           "apiId": 196343,
           "number": 5,
           "name": "Mohamed Abdelmonem",
+          "photo": "https://media.api-sports.io/football/players/196343.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -295,13 +305,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.05
+            "rating": 7.05,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 49583,
           "number": 2,
           "name": "Ali El Abdi",
+          "photo": "https://media.api-sports.io/football/players/49583.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -328,25 +341,28 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.45
+            "rating": 6.45,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 407017,
           "number": 64,
-          "name": "M. Lumpungu",
+          "name": "Moïse Bombito Lumpungu",
+          "photo": "https://media.api-sports.io/football/players/407017.png",
           "pos": "DEF",
           "positions": [
             "DEF"
           ],
           "role": "DEF",
           "age": 25,
-          "height": null,
-          "weight": null,
+          "height": 190,
+          "weight": 83,
           "foot": null,
-          "nat": null,
+          "nat": "CAN",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Canada",
           "pronunciation": null,
           "career": "Colorado Rapids II (2023) · Nice (2024–2025)",
           "lastSeason": null,
@@ -354,12 +370,23 @@
           "linkLine": null,
           "status": "available",
           "statusNote": null,
-          "stats": null
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 194,
+            "apps": 3,
+            "yellow": 0,
+            "red": null,
+            "rating": 6.47,
+            "conceded": 0,
+            "saves": null
+          }
         },
         {
           "apiId": 25008,
           "number": 92,
           "name": "Jonathan Clauss",
+          "photo": "https://media.api-sports.io/football/players/25008.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -386,13 +413,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.95
+            "rating": 6.95,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 417914,
           "number": 84,
           "name": "Hamza Koutoune",
+          "photo": "https://media.api-sports.io/football/players/417914.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -419,46 +449,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.25
-          }
-        },
-        {
-          "apiId": 611321,
-          "number": 36,
-          "name": "Brad-Hamilton Mantsounga",
-          "pos": "DEF",
-          "positions": [
-            "DEF"
-          ],
-          "role": "DEF",
-          "age": 18,
-          "height": null,
-          "weight": null,
-          "foot": null,
-          "nat": null,
-          "natTeam": null,
-          "birthCountry": null,
-          "pronunciation": null,
-          "career": "Nice (2025–prezent)",
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": {
-            "goals": 0,
-            "assists": 0,
-            "minutes": null,
-            "apps": 0,
-            "yellow": 0,
-            "red": null,
-            "rating": null
+            "rating": 6.25,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 313937,
           "number": 33,
           "name": "Antoine Mendy",
+          "photo": "https://media.api-sports.io/football/players/313937.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -485,13 +485,16 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.7
+            "rating": 6.7,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 156490,
           "number": 27,
           "name": "Niels Patrick Nkounkou",
+          "photo": "https://media.api-sports.io/football/players/156490.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -518,13 +521,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.54
+            "rating": 6.54,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 671608,
           "number": null,
           "name": "E. Sahraoui",
+          "photo": null,
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -549,19 +555,20 @@
         {
           "apiId": 128987,
           "number": 99,
-          "name": "S. Abdul Samed",
+          "name": "Salis Abdul Samed",
+          "photo": "https://media.api-sports.io/football/players/128987.png",
           "pos": "MID",
           "positions": [
             "MID"
           ],
           "role": "MID",
           "age": 25,
-          "height": null,
-          "weight": null,
+          "height": 179,
+          "weight": 69,
           "foot": null,
-          "nat": null,
+          "nat": "GHA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Ghana",
           "pronunciation": null,
           "career": "Clermont Foot (2019–2021) · Lens (2022–2023) · Sunderland (2024) · Nice (2025)",
           "lastSeason": null,
@@ -574,21 +581,22 @@
         {
           "apiId": 20917,
           "number": 6,
-          "name": "L. Abergel",
+          "name": "Laurent Abergel",
+          "photo": "https://media.api-sports.io/football/players/20917.png",
           "pos": "MID",
           "positions": [
             "MID"
           ],
           "role": "MID",
           "age": 32,
-          "height": null,
-          "weight": null,
+          "height": 185,
+          "weight": 65,
           "foot": null,
-          "nat": null,
+          "nat": "FRA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "France",
           "pronunciation": null,
-          "career": null,
+          "career": "Marseille (2012–2013) · Ajaccio (2014–2016) · Nancy (2017–2018) · Lorient (2019–2025)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -600,6 +608,7 @@
           "apiId": 4399,
           "number": 6,
           "name": "Hicham Boudaoui",
+          "photo": "https://media.api-sports.io/football/players/4399.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -626,13 +635,16 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.27
+            "rating": 6.27,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 670540,
           "number": 38,
           "name": "A. Camara",
+          "photo": "https://media.api-sports.io/football/players/670540.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -659,13 +671,16 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 3.45
+            "rating": 3.45,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 444561,
           "number": 22,
           "name": "Issiaga Camara",
+          "photo": "https://media.api-sports.io/football/players/444561.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -679,7 +694,7 @@
           "natTeam": null,
           "birthCountry": "Guinea",
           "pronunciation": null,
-          "career": null,
+          "career": "Nice (2023–prezent) · IF Brommapojkarna (2025)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -692,13 +707,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 504157,
           "number": 39,
           "name": "Djibril Coulibaly",
+          "photo": "https://media.api-sports.io/football/players/504157.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -725,13 +743,16 @@
             "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 6.54
+            "rating": 6.54,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 668718,
           "number": null,
           "name": "N. Laarej",
+          "photo": null,
           "pos": "MID",
           "positions": [
             "MID"
@@ -757,6 +778,7 @@
           "apiId": 668717,
           "number": 35,
           "name": "X. Mandza Tsiendi",
+          "photo": "https://media.api-sports.io/football/players/668717.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -783,13 +805,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.1
+            "rating": 7.1,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 3099,
           "number": 55,
           "name": "Youssouf Nyange Ndayishimiye",
+          "photo": "https://media.api-sports.io/football/players/3099.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -816,13 +841,16 @@
             "apps": 4,
             "yellow": 2,
             "red": null,
-            "rating": 6.62
+            "rating": 6.62,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 22148,
           "number": 29,
           "name": "Nathan Ngoumou Minpole",
+          "photo": "https://media.api-sports.io/football/players/22148.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -849,13 +877,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.43
+            "rating": 6.43,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 442866,
           "number": 87,
           "name": "Everton Pereira da Silva",
+          "photo": "https://media.api-sports.io/football/players/442866.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -882,25 +913,28 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 3.5
+            "rating": 3.5,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 1914,
           "number": 8,
-          "name": "M. Sanson",
+          "name": "Morgan Stéphane Sanson",
+          "photo": "https://media.api-sports.io/football/players/1914.png",
           "pos": "MID",
           "positions": [
             "MID"
           ],
           "role": "MID",
           "age": 31,
-          "height": null,
-          "weight": null,
+          "height": 180,
+          "weight": 73,
           "foot": null,
-          "nat": null,
+          "nat": "FRA",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "France",
           "pronunciation": null,
           "career": null,
           "lastSeason": null,
@@ -914,6 +948,7 @@
           "apiId": 20,
           "number": 28,
           "name": "Axel Laurent Angel Lambert Witsel",
+          "photo": "https://media.api-sports.io/football/players/20.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -940,13 +975,16 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.52
+            "rating": 6.52,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 200139,
           "number": 9,
           "name": "Mohammed El Amine Amoura",
+          "photo": "https://media.api-sports.io/football/players/200139.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -973,13 +1011,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.46
+            "rating": 6.46,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 603533,
           "number": 38,
           "name": "Enguerrand Bouard",
+          "photo": "https://media.api-sports.io/football/players/603533.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1005,6 +1046,7 @@
           "apiId": 362470,
           "number": 44,
           "name": "Zoumana Diallo",
+          "photo": "https://media.api-sports.io/football/players/362470.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1031,17 +1073,19 @@
             "apps": 1,
             "yellow": 1,
             "red": null,
-            "rating": 6.2
+            "rating": 6.2,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 107,
           "number": 10,
           "name": "Sofiane Diop",
+          "photo": "https://media.api-sports.io/football/players/107.png",
           "pos": "MID",
           "positions": [
-            "MID",
-            "ATT"
+            "MID"
           ],
           "role": "MID",
           "age": 25,
@@ -1065,17 +1109,19 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.75
+            "rating": 6.75,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 20529,
           "number": 7,
           "name": "Gauthier Hein",
+          "photo": "https://media.api-sports.io/football/players/20529.png",
           "pos": "MID",
           "positions": [
-            "MID",
-            "ATT"
+            "MID"
           ],
           "role": "MID",
           "age": 29,
@@ -1099,13 +1145,16 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.72
+            "rating": 6.72,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 105154,
           "number": 21,
           "name": "Isak Alexander Jansson",
+          "photo": "https://media.api-sports.io/football/players/105154.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1132,13 +1181,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.73
+            "rating": 6.73,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 677811,
           "number": 41,
           "name": "D. Morana",
+          "photo": "https://media.api-sports.io/football/players/677811.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -1165,17 +1217,19 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 3.15
+            "rating": 3.15,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 162707,
           "number": 11,
           "name": "Sepe Elye Wahi",
+          "photo": "https://media.api-sports.io/football/players/162707.png",
           "pos": "MID",
           "positions": [
-            "MID",
-            "ATT"
+            "MID"
           ],
           "role": "MID",
           "age": 22,
@@ -1199,73 +1253,9 @@
             "apps": 3,
             "yellow": 1,
             "red": null,
-            "rating": 6.86
-          }
-        },
-        {
-          "apiId": 162465,
-          "number": 26,
-          "name": "Melvin Michel Maxence Bard",
-          "pos": "MID",
-          "positions": [
-            "MID"
-          ],
-          "role": "MID",
-          "age": 25,
-          "height": 173,
-          "weight": 65,
-          "foot": null,
-          "nat": "FRA",
-          "natTeam": null,
-          "birthCountry": "France",
-          "pronunciation": null,
-          "career": "Olympique Lyonnais II (2017–2018) · Lyon (2019–2020) · Nice (2021–2025) · Leeds (2026–prezent)",
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": {
-            "goals": 0,
-            "assists": 0,
-            "minutes": 172,
-            "apps": 2,
-            "yellow": 0,
-            "red": null,
-            "rating": 6.9
-          }
-        },
-        {
-          "apiId": 274312,
-          "number": 25,
-          "name": "Mohamed-Ali Cho",
-          "pos": "ATT",
-          "positions": [
-            "ATT"
-          ],
-          "role": "ATT",
-          "age": 21,
-          "height": 181,
-          "weight": 66,
-          "foot": null,
-          "nat": "FRA",
-          "natTeam": null,
-          "birthCountry": "France",
-          "pronunciation": null,
-          "career": "Angers (2020–2021) · Real Sociedad (2022) · Nice (2023–prezent)",
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": {
-            "goals": 0,
-            "assists": 0,
-            "minutes": 30,
-            "apps": 1,
-            "yellow": 0,
-            "red": null,
-            "rating": 6.3
+            "rating": 6.86,
+            "conceded": 0,
+            "saves": 0
           }
         }
       ],
@@ -1427,52 +1417,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "High pressure makes a nice Tuesday with more rain chances ahead",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPYTV1bTFRXzZzN0lwZEs5U3N1elZRVk1nNWJkZm5kWFFhXzQyR3ZCXzZyc0ZwNHhQcEFpQ01sT212WV9xUGdJTGpsRnd6OTBxWWZBdFV0RkNRenp5R0QtS204NXVNdE9RRHhiZThINENHUTR3aElWTDZMcXN4T2tUUHgtUFJ1UDVseXNsUHcxVTlLazlDYmtoWG9CcnE2Tm9vV01kOF9Xdw?oc=5",
-          "source": "MPR News",
-          "published": "2026-09-15"
+          "title": "Temperatures soar today with nice sunshine",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOWG1qbjlGTUc1MExRc01YUUZiU1l2NEk2UmxFUFVDbGJPWHcyb0RXb0ZpZWNNLUtXbkY5UnVGdmtmdGlBeWFPZ05Lemd1X01LYW5tczZRYkN2aUFoOUVjanBLRU9EX1dMTVVFX1UyX21tSlZCODBpeWh0WkJUanFqR1ZR0gGWAUFVX3lxTE9FNFYybVZZSTk1TWxhMmNfT0RQVHdLSkRGcU9lRUEycVlaZTJTTGRKekNiWjNva3BzcHhTWVBBMV9kUWVLUmRlOWowTjdLRENPLThHT2hkdnVaYkFCYldtZHl3cUlBWVFtNkFmVkJ3cy1UYzMwYzhuT1dmRERPcUk0MWw2Yk9qd3IyaUEwSFZ2X2I4UnNHQQ?oc=5",
+          "source": "wdbj7.com",
+          "published": "2026-09-16"
         },
         {
-          "title": "Miss Manners: What’s wrong with these people who criticize our nice clothes?",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBTMzRNWjBkcTFBSnpFdXVmZ3dkdXUxRzZQaWpSUGxBSExDaVRJUkN3Rm1Za1FpQmNCbmZWNkJjMXk2NVJzNFRmSnEyTGdPVlFTcXZ3ZGVZdlBqaUYzM1MwY2d1a1JOTzM0bllOTEJHbnpyQjFIMUhF?oc=5",
-          "source": "Orlando Sentinel",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Cool start, nice afternoon before midweek warm up",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOQ1dPSlc5QndQcjlqdU1Hck1nVEVNejU3bmZCR3VaaXBfa3BocWZDX05UVDdyemlNREZyaTctY21DN2swZl8yTHFYVEFwUFp4STMwTnlvbFFPMjlrOC1xaDhIX21wdWU4c2J6Vkg4cC1DbmFJU2JEazhGVk5tMU1kaWFha0NVdTVQLUNsaHJmaW1VdTM1M284RGNzOEw4d9IBpgFBVV95cUxNZHNqaU5Bc2JtM3ZMV2QzOUl3N1huUzFvMGFfQlEtTFZfNGtzZmRhNEhjOHpwdXE4XzNwSkVlM0s3cGR0Z3dGYkN5cExtUDM4VjdpM2tIa2NXSHo5YjR2LVBtZjFSSUVBOFBXeGotSHozQldPbC1OR0VEc0J6c1NHX29EcFEzZnZZanR4eGg0cktMcWduQUxkc0Fha2xVMjhsSHJPTGl3?oc=5",
-          "source": "NBC10 Philadelphia",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "09/15/2026: Few More Clouds, but Another Nice One",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPTmRLQ21zbWJXSXJYRG5DVWs3d3JPaTZtNkJGZUpONnFSQlJxSEJyMU9ZVTZDbnNPbmIwam5aOGp0ZUtPLWpzTUZ2YV9NdWEyeG83YkRJWlY1YjgwWmJmSUxUUzNKd3Z3VWFjeTF6SVJ5YmpYTHZMcS0ydmp6aV9jekp0dG81d9IBiwFBVV95cUxQUjJPVEZBclN1YnBrbkNUZE0wTlBObWloSlRMWEQ3eE93X2l6R0k5Y1ItNmtCSFc2LXhsVTVDaEJJbGt1R2FRZUxvVzdmMmdmOGZzQ1p6UDB2bUhENGU3eUo0d1B0dTBzZGs0UENTT2JDVHppMXdrYzdaQ1U4eGdIVlp2ZVNnMW5yRWFz?oc=5",
-          "source": "NEWS10 ABC",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "AL BATT: If this isn’t nice, I don’t know what is",
-          "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNdVlDelEybGlQYjhlZllNN1gyM21uWEJkTWYwRHZ5N0NpTVBBZk5iM0NfYXhXUG9oUGtpbC0tbzBfMmQ1X19tUFN0bWFwaE1Cb3ZKX1RkZmVjcG9WcjBiXzdXUzMwVERybWtrSm1semtoNWNDRFpMNE9xanhTUHlwRGtVY0lndDVHMkw3aUVSQWN6cWNmZVp5VTdWc3NjN08tMmc4dkZ4QzhIS251M1EzRk5xM2pEVWVHRzBFNkstNGdrZk1Kc1o5VHVGamFTQXhoRjVHSlVFbGtCTEd0S0dISWNVOGF4cGVLc2Jr?oc=5",
-          "source": "southernminn.com",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Merlin Entertainments Elevates the Guest Experience Across Its Global Attractions with NiCE CXone",
-          "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPYUo3V2FLSzVNeWZvazgyUDd5cl9Xc3lTN2o3eDBHN0t0TXVQeEJqZ1Ayd2NZOWhmUmFaMlh6ZEZRZEF0V01MNFJ5LUZLM05KMHFkal9jR09yQ1FySm1RSzctZy04dVFLbFpyT25pNzdVcl9TN0Z6Ukp3dE9SOWJDc3NFYmpEWmZETjgtdVFSU01xdjFsQm1OdXJfdks2SHpIb1VNWUc2Y2piamtXcFRqN2Z5ZFVveUNYWHhoeWVSXzhqbzdvYll2bkUtX3RJR2xUTjkxclNYaFZicDRPUzNaODhhcEl0Ylh5RWc?oc=5",
-          "source": "Business Wire",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Nice Healthcare Supports Employers with Launch of New Health Plan",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOYUlvRkxaMS1wRzZ6dHpfSEd1a0NZdW92VHVQT0FEdmFET0lFRTgxUWdfal9jQV93MWpyME5kWHU3dDM0dkNNcUlha0ZRbno4RmFIRllpa0t5UjRKU05LZGx5WDJNUFgwZ0JLM0lSdDlpRjNPa19TVGN0NklBLTVJSkhreFFxV2pJRWc2M1F5em5EUHBGSkxOQklYWW5QZUhod054bGFjMm1TQzdRMTl0d09lTFhSakd1MkhGVUlwd0g5dw?oc=5",
-          "source": "markets.businessinsider.com",
-          "published": "2026-09-15"
-        },
-        {
-          "title": "Clear and very cool overnight with pleasant weather for Tuesday!",
-          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQUmFnYnl3OVVmd3VHUWVoRXc4MEItejZhSUhMTXczUDVZTlBCLXBtYmxGcnJxRlg4VVRwWnZRNnZ1a0tMQ3VqUEktd216dTRaVjRXa3VPcG55QTZfVDAyYnFuNVNISkRYdTU5b0RXZ1lneWJaNDNUN2xMT1RRV3BycEM5c2VJZ05acENPWWVFMVc0SW15R0hVSVc3U2lYRXU3VFFGS2JaZzNVQdIBrwFBVV95cUxNUURzMVkzWDQwQ1dlc19ubjc4RWpMTHJPMVRBalN4QjNXV0daek9FaDl3TTh6UTFYRTlLd0UyRWM1d25INm5zSmdDRkI3S0J3VHc3VjdwS2xXaTQwS2dxenhIZ1BRS0lzSkxWZklteVo3M0F3NERWclZoZUZhMGRCMEtjNGFaOWN6c21wUXNxbmxVaTVFWmZGTjE3VTNOTWxxZTBLZUpvdDVKYmRqLWZr?oc=5",
+          "title": "Showers to sunshine today-nice through Wednesday",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQbHkyQU9xQ0JfdWRZNHp5Z0FNZlVydWFNV08tSUppeGk4SndfWXZGaUJNYmVkRmozVTRVU1g3WTVvbjhWY2c1X2dBam81M1dqRG9XYnVzS3AxMkJ2WmQ3VXZyVnJXZGJRdG0zNnlVeWRfVFh4Slh5c0lodnNUeTNKNXBrcmtnb3BtbjhPbmZR?oc=5",
           "source": "WTNH.com",
-          "published": "2026-09-15"
+          "published": "2026-09-16"
+        },
+        {
+          "title": "Nice weather returns Wednesday",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFAwOU4tTkMyNkh2MDBrZmhFRnBvOS1JMi02c0s1TVJMcnBRTkpCenBKOWxIX2FZUlFNZ1ZLTDRVcUhpbHRROFV1OE9KUDhhbUdVaVlaSVA1SXFwbTlVMmJzSWdCU0REaXBCeEdlNVBRS0lyNFVMU3c?oc=5",
+          "source": "WBTW",
+          "published": "2026-09-16"
+        },
+        {
+          "title": "Storm threat Wednesday, then nice weekend",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQc21WXzNMZy1tU1BoTzJZRzhwWWpnVG5VdlQ5S285enJUckxvZWRLcTlwMTVyUzMteF9vZDB6dURReThibGVNMktidG9QdXRFVkVNV09OSXllMkRnTXlvLVlVc09Jcm9ZWjVlLWdVeXo1YjNIS1hmNXVMYnZoR3pkclZHdw?oc=5",
+          "source": "KTSM 9 News",
+          "published": "2026-09-16"
+        },
+        {
+          "title": "Fixing ‘tells’ would be a nice start for Hogs",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQNUtySDlnVFBEaUktQnlwSk5qQW5aNEpBMjVDUUlZbkhYOFVNRmJWSmlBMUpzd2tlby01X1BxUEJvUmpodXZsYVVzeWdwOGFoUFNYUWxjNHFMTnlyVC0zTGJLbFg0dUFuNkQ2aU5XakNMWUR6ZWM2c2p0YnJJUXNoUmR5Rm0yYjRUNWRnWlQ3MFU?oc=5",
+          "source": "Northwest Arkansas Democrat-Gazette",
+          "published": "2026-09-16"
+        },
+        {
+          "title": "An unsettled weekend on either side of a nice early fall weather",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOZEdPMkROZlp0cXI4LUpHUDRibWRKcFlOTXlCUHdkdW9yZDdDSE1rZkFEWjhpUEU0YXgxRldHbHUtTEpqX3lZcjFCZzhaVnV0ZkVSZmlUczdUTW14RGo1ODVJVy1kaVlqbUoyT1QtSi1NSlB3el9yV3pnRzNTLTh3NGRIMzMwcGVHV3lQOXBjTnhROUlQOS10c19tT0JOcW8tSHk0NUp0V2Fyd1NMblE?oc=5",
+          "source": "KXLF-TV",
+          "published": "2026-09-16"
+        },
+        {
+          "title": "One more nice day, then storms arrive",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBtQ1k2ZHFBd242SklOZ18xZVdRWF9QN3JaMVl6R0ZJanZtd2c1c3YxMGd3ek9Kc3ZNcmdpT2N6SUVLYlNBRVdyTU5hZGd5QzYyQnYtcUhoMkthNnVWejVPSnB4RjNGcUJrVEHSAWpBVV95cUxQbUNZNmRxQXduNkpJTmdfMWVXUVhfUDdyWjFZekdGSWp2bXdnNXN2MTBnd3pPSnN2TXJnaU9jeklFS2JTQUVXck1OYWRneUM2MkJ2LXFIaDJLYTZ1Vno1T0pweEYzRnFCa1RB?oc=5",
+          "source": "WOAY-TV",
+          "published": "2026-09-16"
+        },
+        {
+          "title": "Packers' Edgerrin Cooper: Nice showing in loss",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPSDNiRHJBR193b09SZ3EwaHhfRDdWd3Nrek1GT2E3OWpKUDlSb0VSdWc5ck1JRFA5UWJQbGFmVE1HdGpPWTNsb0lWSXdIdTh0akpSM1QtQjJyelFGVE41WldqMC1QWDlTNkRnOFUxWC1qamlhd1ZfRXZ0SFNfbWp3bWZPd0lTS05jazJTWDhSeDZTVEpOSE1yUg?oc=5",
+          "source": "CBS Sports",
+          "published": "2026-09-16"
         }
       ],
       "stories": []
@@ -1486,6 +1476,7 @@
       "coach": {
         "apiId": 25253,
         "name": "Davide Ancelotti",
+        "photo": "https://media.api-sports.io/football/coachs/25253.png",
         "country": null,
         "age": null,
         "tenureFrom": "2026-07",
@@ -1510,6 +1501,7 @@
           "apiId": 2096,
           "number": 16,
           "name": "Arnaud Bodart",
+          "photo": "https://media.api-sports.io/football/players/2096.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1536,13 +1528,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 70852,
           "number": 12,
           "name": "Orlando David Gill Noldin",
+          "photo": "https://media.api-sports.io/football/players/70852.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1565,17 +1560,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 628379,
           "number": 60,
           "name": "Zadig Lanssade",
+          "photo": "https://media.api-sports.io/football/players/628379.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1601,6 +1599,7 @@
           "apiId": 1337,
           "number": 1,
           "name": "Berke Özer",
+          "photo": "https://media.api-sports.io/football/players/1337.png",
           "pos": "GK",
           "positions": [
             "GK"
@@ -1623,17 +1622,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 270,
-            "apps": 3,
+            "minutes": 360,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 8.07
+            "rating": 7.77,
+            "conceded": 2,
+            "saves": 14
           }
         },
         {
           "apiId": 142691,
           "number": 4,
           "name": "Alexsandro Ribeiro",
+          "photo": "https://media.api-sports.io/football/players/142691.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1656,17 +1658,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 270,
-            "apps": 3,
+            "minutes": 360,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.5
+            "rating": 7.37,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 486136,
           "number": 26,
           "name": "Isaac Cossier",
+          "photo": "https://media.api-sports.io/football/players/486136.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1693,13 +1698,16 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.6
+            "rating": 6.6,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 669877,
           "number": null,
           "name": "Mouad Gounfissi",
+          "photo": null,
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1723,8 +1731,9 @@
         },
         {
           "apiId": 671921,
-          "number": null,
+          "number": 5,
           "name": "Hamadi Kebe",
+          "photo": null,
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1750,6 +1759,7 @@
           "apiId": 312964,
           "number": 3,
           "name": "Nathan Ngoy",
+          "photo": "https://media.api-sports.io/football/players/312964.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1772,17 +1782,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 270,
-            "apps": 3,
+            "minutes": 360,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.27
+            "rating": 7.2,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 133110,
           "number": 23,
           "name": "Tanguy-Austin Nianzou Kouassi",
+          "photo": "https://media.api-sports.io/football/players/133110.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1805,17 +1818,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 20600,
           "number": 15,
           "name": "Romain Paul Jean-Michel Perraud",
+          "photo": "https://media.api-sports.io/football/players/20600.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1838,17 +1854,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 211,
-            "apps": 3,
+            "minutes": 301,
+            "apps": 4,
             "yellow": 2,
             "red": null,
-            "rating": 6.73
+            "rating": 6.72,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 379329,
           "number": 22,
           "name": "Tiago Santos",
+          "photo": "https://media.api-sports.io/football/players/379329.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1869,19 +1888,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 1,
+            "goals": 2,
             "assists": 0,
-            "minutes": 270,
-            "apps": 3,
+            "minutes": 360,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.43
+            "rating": 7.51,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 562615,
           "number": 33,
           "name": "T. Sibiya",
+          "photo": "https://media.api-sports.io/football/players/562615.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1907,6 +1929,7 @@
           "apiId": 394211,
           "number": 2,
           "name": "Loun Srdanovic",
+          "photo": "https://media.api-sports.io/football/players/394211.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1933,13 +1956,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 37151,
           "number": 24,
           "name": "Calvin Ronald Verdonk",
+          "photo": "https://media.api-sports.io/football/players/37151.png",
           "pos": "DEF",
           "positions": [
             "DEF"
@@ -1966,13 +1992,16 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.5
+            "rating": 4.88,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 2204,
           "number": 21,
           "name": "Benjamin Michel Édouard André",
+          "photo": "https://media.api-sports.io/football/players/2204.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -1995,17 +2024,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 151,
-            "apps": 2,
+            "minutes": 155,
+            "apps": 3,
             "yellow": 1,
             "red": null,
-            "rating": 6.9
+            "rating": 6.76,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 409,
           "number": 6,
           "name": "Nabil Bentaleb",
+          "photo": "https://media.api-sports.io/football/players/409.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2028,17 +2060,20 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 251,
-            "apps": 3,
+            "minutes": 341,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7
+            "rating": 7.05,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 630699,
           "number": 42,
           "name": "Saad Boussadia",
+          "photo": "https://media.api-sports.io/football/players/630699.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2064,6 +2099,7 @@
           "apiId": 668708,
           "number": 4,
           "name": "K. Hamidi",
+          "photo": null,
           "pos": "MID",
           "positions": [
             "MID"
@@ -2089,6 +2125,7 @@
           "apiId": 115587,
           "number": 14,
           "name": "Maurits Kjærgaard",
+          "photo": "https://media.api-sports.io/football/players/115587.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2110,18 +2147,21 @@
           "statusNote": null,
           "stats": {
             "goals": 0,
-            "assists": 0,
-            "minutes": null,
-            "apps": 0,
+            "assists": 1,
+            "minutes": 29,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": 7.24,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 386287,
           "number": 8,
           "name": "Ethan Mbappé Lottin",
+          "photo": "https://media.api-sports.io/football/players/386287.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2142,19 +2182,22 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 0,
+            "goals": 1,
             "assists": 0,
-            "minutes": 189,
-            "apps": 3,
+            "minutes": 208,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.07
+            "rating": 7.25,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 375598,
           "number": 17,
           "name": "Ngal'ayel Mukau",
+          "photo": "https://media.api-sports.io/football/players/375598.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2177,22 +2220,26 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 151,
-            "apps": 3,
+            "minutes": 237,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.8
+            "rating": 6.81,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 129695,
           "number": 7,
           "name": "Dilane Bakwa",
-          "pos": "ATT",
+          "photo": "https://media.api-sports.io/football/players/129695.png",
+          "pos": "MID",
           "positions": [
+            "MID",
             "ATT"
           ],
-          "role": "ATT",
+          "role": "MID",
           "age": 23,
           "height": 180,
           "weight": 75,
@@ -2209,18 +2256,21 @@
           "statusNote": null,
           "stats": {
             "goals": 1,
-            "assists": 0,
-            "minutes": 67,
-            "apps": 2,
+            "assists": 1,
+            "minutes": 138,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.95
+            "rating": 7.01,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 487381,
           "number": 35,
           "name": "Soriba Diaoune",
+          "photo": "https://media.api-sports.io/football/players/487381.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2247,13 +2297,16 @@
             "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": null
+            "rating": null,
+            "conceded": 0,
+            "saves": null
           }
         },
         {
           "apiId": 2295,
           "number": 9,
           "name": "Olivier Jonathan Giroud",
+          "photo": "https://media.api-sports.io/football/players/2295.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2276,17 +2329,20 @@
           "stats": {
             "goals": 1,
             "assists": 2,
-            "minutes": 210,
-            "apps": 3,
-            "yellow": 0,
+            "minutes": 229,
+            "apps": 4,
+            "yellow": 1,
             "red": null,
-            "rating": 6.97
+            "rating": 6.8,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 67889,
           "number": 10,
           "name": "Hákon Arnar Haraldsson",
+          "photo": "https://media.api-sports.io/football/players/67889.png",
           "pos": "MID",
           "positions": [
             "MID"
@@ -2309,23 +2365,26 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 246,
-            "apps": 3,
+            "minutes": 307,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 7.23
+            "rating": 7.08,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 360032,
           "number": 19,
           "name": "Başar Önal",
-          "pos": "ATT",
+          "photo": "https://media.api-sports.io/football/players/360032.png",
+          "pos": "MID",
           "positions": [
-            "ATT",
-            "MID"
+            "MID",
+            "ATT"
           ],
-          "role": "ATT",
+          "role": "MID",
           "age": 21,
           "height": 173,
           "weight": null,
@@ -2343,23 +2402,26 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 76,
-            "apps": 2,
+            "minutes": 147,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.3
+            "rating": 6.27,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 20732,
           "number": 28,
           "name": "Gaëtan Perrin",
-          "pos": "MID",
+          "photo": "https://media.api-sports.io/football/players/20732.png",
+          "pos": "ATT",
           "positions": [
-            "MID",
-            "ATT"
+            "ATT",
+            "MID"
           ],
-          "role": "MID",
+          "role": "ATT",
           "age": 29,
           "height": 169,
           "weight": 63,
@@ -2377,17 +2439,20 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 56,
-            "apps": 2,
+            "minutes": 75,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.6
+            "rating": 6.56,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 99576,
           "number": 11,
           "name": "Osame Sahraoui",
+          "photo": "https://media.api-sports.io/football/players/99576.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2414,13 +2479,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.85
+            "rating": 4.57,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 72155,
           "number": 18,
           "name": "Ayase Ueda",
+          "photo": "https://media.api-sports.io/football/players/72155.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2443,17 +2511,20 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 33,
-            "apps": 1,
+            "minutes": 104,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 7
+            "rating": 6.67,
+            "conceded": 0,
+            "saves": 0
           }
         },
         {
           "apiId": 630702,
           "number": 41,
           "name": "Matah Yondjio",
+          "photo": "https://media.api-sports.io/football/players/630702.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2479,6 +2550,7 @@
           "apiId": 135749,
           "number": 27,
           "name": "Félix Correia",
+          "photo": "https://media.api-sports.io/football/players/135749.png",
           "pos": "ATT",
           "positions": [
             "ATT"
@@ -2505,7 +2577,9 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.65
+            "rating": 6.65,
+            "conceded": 0,
+            "saves": null
           }
         }
       ],
@@ -2650,9 +2724,21 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Ligue 1: Brest leader devant le PFC, Lille, Monaco et Rennes loin derrière... le surprenant classement via les expected goals",
-          "url": "https://rmcsport.bfmtv.com/football/ligue-1/ligue-1-brest-leader-devant-le-pfc-lille-monaco-et-rennes-loin-derriere-le-surprenant-classement-via-les-expected-goals_AV-202609150456.html",
-          "source": "RMC Sport",
+          "title": "Angers vs Troyes",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOZWxzcVIyczBfQkszazBBZjVhRlh1UXpaUFIycFVGdGZaemhxXzRqMDFxbm5mZkl6N040UTJFOXlSam1EWjlMVXRQTXR1ZnRqTjdNWEp6TnU4dmxEVE9jajNhRzNUekRNWnFWNE5YeXZnTkdDSzZYWHVqTlhWb29scHFiclc1c2dFa0pJbVV0YjI0dm9EaDhTNTk4UVZKeGVRcmFvQU04Qm1jODdfRkJvRmdXMzg1NC1PU2JIQVkwLUxETlVkdUNvelA5blVLeVFZdl80?oc=5",
+          "source": "beIN SPORTS",
+          "published": "2026-09-16"
+        },
+        {
+          "title": "Olivier Létang, le président de Lille qui avait laissé exploser sa colère après le match contre le PSG, devrait être mis à l'amende par la commission de discipline de la LFP",
+          "url": "https://www.lequipe.fr/Football/Actualites/Olivier-letang-le-president-de-lille-qui-avait-laisse-exploser-sa-colere-apres-le-match-contre-le-psg-devrait-etre-mis-a-l-amende-par-la-commission-de-discipline-de-la-lfp/1718978#at_medium=RSS_feeds",
+          "source": "L'Équipe",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Pre-match Olympique Lyonnais vs Lille, Ligue 1 Round 18",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNUmt3YjRLNjJ1V1l3Y2RMUUZGc2FVZWdraW9NeHNUV1dPelAzSGhZLWFqWFltV1dEYm01Wlh1N3BrNlFReWFMYWQyNTM3ZFpLVG1BdU8tT3p6Wjg1OWFPLUpjN2dlLWU5QUtxeWdGR00wVFVERmduYkh0eGs5bTdLMVB5MA?oc=5",
+          "source": "BeSoccer Livescore",
           "published": "2026-09-15"
         },
         {
@@ -2662,39 +2748,27 @@
           "published": "2026-09-15"
         },
         {
+          "title": "Once dubbed the new Dani Alves, injury-free Tiago Santos praised for “extraordinary quality” by Lille boss Ancelotti after golaço in France [video]",
+          "url": "https://news.google.com/rss/articles/CBMiowJBVV95cUxNN0laSTBFVlQtcGFybjk2aUNjX0gtOUJ6RUo2a2hkQjRYS0pWdnVGUW9FVGt3VkRuSDFtSmpkQ2o5dFFhb1R3MGY3cDZfTk1BM0Fsd0JHOFJkXzYtUkFBanB3MXkyV3M3Q0hQQmV3RlFXWWN0ZTA0UDEzbEx1ZFZGRERPR0FkZVR1NDJsX2hXanNtTjZTcXZPbGFIN1NscFBiRElGUndkeTV1eUNVcHM0N2sxbHVxVjBkUFExelFQcjJSV2Z0enBOeWE0Rm1TUDVjWXZyaFNkYldtXzkteU5yU293WXRWZmRxcXBqTkJHVGg4QnVranJvcGh5cGpVWUJyMVV5a05KTmJXUXV1RmxfbDJoUUJMeG5yS2JPMXZLY05WakE?oc=5",
+          "source": "portugoal.net",
+          "published": "2026-09-15"
+        },
+        {
           "title": "How to get Arsenal vs Lille tickets: Champions League prices, fixture information, last-minute sales & more",
-          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1jLWhOXy00ZG5TR1hNVHVKdjk4RllDZkNsbnFsbFU3dndLcG5IbTlxM2ppSndIQWREQkh3cjBQT1lxcGJXQzB5UF9iOFRaRDJ3OVV0cmhYSjhNT3U3QUQ4THd1QlA2LVpBN3NYX3pSczZ3RFBibkZqOEY2cWpOQQ?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1TR3Bral9jNmhibU44LUI2YWg5TjlHU3I2bDRUdmc4dWh6Z1ZwWHpBbl9rdW54VEd3MF9VOXNxUzFaNVhQY0dUZUlJR0xhUk1weEtDcm9DTDVTNUhkWnBMNHVHcFBBMHJYWWFOaVh6STVoZ185Q3BlNENQcnZwUQ?oc=5",
           "source": "Goal.com",
+          "published": "2026-09-15"
+        },
+        {
+          "title": "Match Highlights Lille - Troyes",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9PTmZScUFhYlJ4WlBYbC1KUW91MzJ5c0FxT1BwSWlBQXFYR1lIYWtEV3RWd2ptbFZGY216ZjdweHRWT3k2RWp3U1R2d2lHT01veFE?oc=5",
+          "source": "YSscores",
           "published": "2026-09-15"
         },
         {
           "title": "Arsenal v Lille Odds",
           "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNYXNyUk9GYUd5SXVSTFhsUGdqTmszd2M3ZjF0bkZZaE04Sm9JS2tNbDVNWEs4QjBMUkMwUC1mbmF0RlZrbjVMdTFVUnJuZThkQ2ZQa2hPTC1TU3p4MUNuSnUtYVQxaDNYRXN2c1RpZnZwUzhtWkFTdGZGcFlXSEZSdEc5dGNGUWFhNFNJZA?oc=5",
-          "source": "sportsbook.fanduel.com",
-          "published": "2026-09-14"
-        },
-        {
-          "title": "The Impressive Start to the Season for Davide Ancelotti With Lille in Ligue 1",
-          "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOY2V5Vkc3cjJrTGVaUjRjZ0ZlNjdjRXlna1VGMjRudm9NRFY4czNQRDBwdDEwS3BWZVRNeHBBV21GY0ptX1NaSWFBcjQteENRbFhVaDE1RTFtbEJfQngzT0t6X2pDZ1RyU2RnbXdIQW05bXBYZDllZWxkWmJaY3lzYmotM2pGQkxBUVY4ZkJxdjVYeVBwaXN0cEl3OFN4amNnZVJXdjhrcHpQRm5HeS1qU0tGZ1hxT2d0dXgxTFJ3LWRZenNYbVY3VC1ROXZoSy1RV1laQkd4VWtBRVJ6OUE?oc=5",
-          "source": "beIN SPORTS",
-          "published": "2026-09-14"
-        },
-        {
-          "title": "Lille vs. Troyes - Final Score - September 13, 2026",
-          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPTlNuWExLQkhtTzJ5dmU4aW1SVWc0bnZpQS1OYXkyX2tIakNqeEFMRFBsYUNVai1ZZjNfUGM0NC03ekpwZlpJYmhOM21BRk5IUjhLVThJNlgyWEZBQ2FfRUctajBrTzJna1pXNEhKZERPajZsdmg0R3VXTklCd2ZHOS1TUVY1dVAtUkpRQWJ2UG9fdw?oc=5",
-          "source": "FOX Sports",
-          "published": "2026-09-14"
-        },
-        {
-          "title": "Hamburger SV - Lille 2-2",
-          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNSlZUN0FET2RCQWV3ejdmY1N2aXh2dHV4TTA3SHVmdGxOUFpYQUlIY2o4RjhKczNFak9jWE9GcXpRVVJGYUR5aWltWjRycnF6NE1aSnJ3VV9HcmVaSGZuSWxNR2ttVzBSZ3pSOXZENWJON3pSVlY5Y2s1X0NXbnAtczZB?oc=5",
-          "source": "Flashscore.com",
-          "published": "2026-09-14"
-        },
-        {
-          "title": "Like father, like son: Ancelotti Jr.’s awesome start",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSnlpZ3BhN2dNYkdUNzNrVkpROGhtOVdTanhaNnQ5X2FHTExXY1ViOVlUemgxN1VYa2hIUUttUGw0X0R1RXNraS1oNUF1dWRvTHdfdnpXUWZrOV9sXy11aUxnZXlIalZpTlMtSmh0LTBYdkFyVEtVVFZEWmxaRmFLS1RfWmE5V043WFYxSTJ1S2hXTk5JZUJJblVvczh4UzlI0gGgAUFVX3lxTE1KeWlncGE3Z01iR1Q3M2tWSlE4aG05V1NqeFo2dDlfYUdMTFdjVWI5WVR6aDE3VVhraEhRS21QbDRfRHVFc2tpLWg1QXV1ZG9Md192eldRZms5X2xfLXVpTGdleUhqVmlOUy1KaHQtMFh2QXJUS1VUVkRabFpGYUtLVF9aYTlXTjdYVjFJMnVLaFdOTkllQkluVW9zOHhTOUg?oc=5",
-          "source": "Diario AS",
+          "source": "FanDuel Sportsbook",
           "published": "2026-09-14"
         }
       ],
