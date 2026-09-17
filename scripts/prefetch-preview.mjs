@@ -69,6 +69,14 @@ const H2H_TTL = 14;
 const CAREER_TTL = 30;
 const AF_CALL_BUDGET = 5500;   // ceiling on the 7500/day Pro tier (refresh-fixtures uses ~8, build-match-data 0)
 const AF_THROTTLE_MS = 250;    // ~240 req/min, under the 300/min Pro limit
+// One-off catch-up mode: re-fetch h2h.recent[] / teams.<side>.form.recent[]
+// for EVERY already-"ready" match file (not just upcoming ones), so the
+// `formation` / `events` fields added after those packs were built get
+// filled in too. Normal daily runs never need this -- a fresh match only
+// gets h2h/form once, while still partial, and that one fetch already
+// includes formation/events going forward. Set BACKFILL_HISTORY=1 to run it
+// (see the "Backfill match history" step in prefetch-preview.yml).
+const BACKFILL_HISTORY = !!process.env.BACKFILL_HISTORY;
 const CAREER_MAX_PLAYERS = 30; // per team, per match — cache careers for the full normal squad, not only the likely XI
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
@@ -848,11 +856,11 @@ async function getNextFixtures(teamId, season) {
   });
 }
 
-async function getH2H(homeId, awayId, homeName, awayName, cache) {
+async function getH2H(homeId, awayId, homeName, awayName, cache, force) {
   cache.h2h = cache.h2h || {};
   const key = [homeId, awayId].sort((a, b) => a - b).join('-');
   const hit = cache.h2h[key];
-  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < H2H_TTL) return hit;
+  if (!force && hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < H2H_TTL) return hit;
   const j = await af('fixtures/headtohead', { h2h: `${homeId}-${awayId}`, last: 10 });
   const rows = ((j && j.response) || []).filter((f) => f.goals && f.goals.home != null);
   if (!rows.length) return hit || null;
@@ -1257,6 +1265,15 @@ function computeStorySeeds(doc) {
 async function main() {
   const fixtures = readJSON(FIXTURES) || [];
   const season = currentSeason();
+
+  if (BACKFILL_HISTORY) {
+    const cache = readJSON(CACHE_FILE) || {};
+    await backfillHistory(fixtures, season, cache);
+    writeJSON(CACHE_FILE, cache);
+    console.log(`Backfill done. API-Football calls: ${_calls}`);
+    return;
+  }
+
   const from = todayDate();
   const to = new Date(Date.now() + DAYS_AHEAD * 86400000).toLocaleDateString('en-CA', { timeZone: 'Europe/Bucharest' });
 
@@ -1469,6 +1486,59 @@ function existingPartialSlugs() {
     .map((n) => ({ slug: n.replace(/\.json$/, ''), j: readJSON(`${MATCHES_DIR}/${n}`) }))
     .filter((x) => x.j && x.j.partial === true)
     .map((x) => x.slug);
+}
+
+function existingReadySlugs() {
+  let names = [];
+  try { names = readdirSync(MATCHES_DIR).filter((n) => n.endsWith('.json')); } catch { return []; }
+  return names
+    .map((n) => ({ slug: n.replace(/\.json$/, ''), j: readJSON(`${MATCHES_DIR}/${n}`) }))
+    .filter((x) => x.j && x.j.partial !== true)
+    .map((x) => x.slug);
+}
+
+// BACKFILL_HISTORY=1 one-off: every already-"ready" match file gets its
+// h2h.recent[] / teams.<side>.form.recent[] re-fetched so the `formation` /
+// `events` fields (added after these packs were originally built) get
+// filled in. getH2H(..., true) forces past its normal 14-day cache; the
+// per-fixture lineups/events lookups inside it are cached forever
+// (cache.fixtureDetails), so this costs real API calls only for fixtures
+// never looked up before.
+async function backfillHistory(fixtures, season, cache) {
+  const bySlug = {};
+  for (const f of fixtures) bySlug[f.slug] = f;
+  const slugs = existingReadySlugs();
+  console.log(`Backfilling match history for ${slugs.length} ready match file(s)...`);
+  let updated = 0;
+  for (const slug of slugs) {
+    const fx = bySlug[slug];
+    if (!fx) continue;   // fixture rolled out of fixtures.json's window -- no team ids to work with
+    const path = `${MATCHES_DIR}/${slug}.json`;
+    const doc = readJSON(path);
+    if (!doc || doc.partial) continue;
+    let touched = false;
+    if (fx.homeId != null && fx.awayId != null) {
+      const h = await getH2H(fx.homeId, fx.awayId, fx.home, fx.away, cache, true);
+      if (h && h.recent && h.recent.length) { doc.h2h.recent = h.recent; touched = true; }
+    }
+    for (const side of ['home', 'away']) {
+      const id = fx[side + 'Id'];
+      if (id == null) continue;
+      const guide = await getFormGuide(id, season, cache);
+      if (guide.length) {
+        doc.teams[side].form = doc.teams[side].form || {};
+        doc.teams[side].form.recent = guide;
+        touched = true;
+      }
+    }
+    if (touched) {
+      writeJSON(path, doc);
+      updated++;
+      console.log(`  ${slug}: updated`);
+    }
+    writeJSON(CACHE_FILE, cache);   // save progress incrementally in case the run gets interrupted
+  }
+  console.log(`Backfill: ${updated}/${slugs.length} match file(s) updated.`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

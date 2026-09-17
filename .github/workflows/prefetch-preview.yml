@@ -3,7 +3,12 @@ name: Prefetch Preview Data
 on:
   schedule:
     - cron: "30 5 * * *"   # 05:30 UTC daily — 20 min after Refresh Fixtures
-  workflow_dispatch: {}    # run on demand from the Actions tab
+  workflow_dispatch:        # run on demand from the Actions tab
+    inputs:
+      backfill_history:
+        description: "One-off: re-fetch formation/events for every already-ready match's h2h/form guide (see BACKFILL_HISTORY in prefetch-preview.mjs), instead of the normal daily pass"
+        type: boolean
+        default: false
 
 jobs:
   prefetch:
@@ -27,6 +32,7 @@ jobs:
       - name: Pre-fill docs/data/matches/*.json + docs/data/teams/*.json from API-Football
         env:
           APIFOOTBALL_KEY: ${{ secrets.APIFOOTBALL_KEY }}
+          BACKFILL_HISTORY: ${{ inputs.backfill_history && '1' || '' }}
         run: node scripts/prefetch-preview.mjs
 
       - name: Validate every partial pack against the schema
