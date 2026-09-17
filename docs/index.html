@@ -87,9 +87,12 @@
   <div class="wrap">
 
     <div style="display:flex;flex-direction:column;gap:var(--space-4)">
-      <div class="kicker">MATCH<span class="dot">·</span>CENTER</div>
-      <div class="title">Ecrane de meci pentru comentariu</div>
-      <div class="intro">Un ecran interactiv pre-meci pentru fiecare partidă: teren cu primul 11 probabil, carduri de jucător, antrenor și arbitru, panouri de formă, cap la cap, absențe și fire narative, plus un strat de notițe salvate local. Datele sunt culese automat înainte de start.</div>
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap">
+        <div class="kicker">MATCH<span class="dot">·</span>CENTER</div>
+        <div id="langSwitchHost"></div>
+      </div>
+      <div class="title" id="pageHeading">Ecrane de meci pentru comentariu</div>
+      <div class="intro" id="pageIntro">Un ecran interactiv pre-meci pentru fiecare partidă: teren cu primul 11 probabil, carduri de jucător, antrenor și arbitru, panouri de formă, cap la cap, absențe și fire narative, plus un strat de notițe salvate local. Datele sunt culese automat înainte de start.</div>
     </div>
 
     <div id="account" class="account" hidden></div>
@@ -102,18 +105,28 @@
     <div id="groups" class="groups"></div>
     <div id="empty" class="empty" hidden>Niciun meci pentru filtrele alese.</div>
 
-    <div class="foot">Fixture-le vin din feedul live de rezultate; datele fiecărui ecran (formă, cap la cap, loturi, absențe, brigadă, fire narative) sunt culese din presă și din surse oficiale de un job zilnic, cu sursa și data notate în fișier. Notițele tale se salvează în acest browser.</div>
+    <div class="foot" id="pageFooter">Fixture-le vin din feedul live de rezultate; datele fiecărui ecran (formă, cap la cap, loturi, absențe, brigadă, fire narative) sunt culese din presă și din surse oficiale de un job zilnic, cu sursa și data notate în fișier. Notițele tale se salvează în acest browser.</div>
 
   </div>
 </div>
 
+<script src="app/i18n.js?v=20260917b"></script>
 <script src="app/config.js?v=20260907h"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app/collab.js?v=20260911i"></script>
+<script src="app/collab.js?v=20260917b"></script>
 <script>
 (function(){
-  var MONTHS = ['ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
-  var DAYS = ['duminică','luni','marți','miercuri','joi','vineri','sâmbătă'];
+  var t = window.MC_I18N.t;
+  function applyStaticText() {
+    document.title = t('index.title');
+    document.getElementById('pageHeading').textContent = t('index.heading');
+    document.getElementById('pageIntro').textContent = t('index.intro');
+    document.getElementById('query').placeholder = t('index.searchPlaceholder');
+    document.getElementById('empty').textContent = t('index.empty');
+    document.getElementById('pageFooter').textContent = t('index.footer');
+  }
+  applyStaticText();
+  document.getElementById('langSwitchHost').appendChild(window.MC_I18N.switcherEl(function () { applyStaticText(); renderAccount(); render(); }));
 
   var state = { comp: null, query: '', favourites: false };
   var all = [];
@@ -125,23 +138,23 @@
     box.hidden = false;
     var s = window.MC_COLLAB.status();
     if (s.online) {
-      box.innerHTML = '<span>Conectat: <b>' + (s.name || 'utilizator') + '</b> — favoritele tale se văd pe orice dispozitiv (max. 4).</span>';
+      box.innerHTML = '<span>' + t('index.connectedAs', { name: s.name || t('collab.defaultUser') }) + '</span>';
       var out = document.createElement('button');
-      out.className = 'chip'; out.textContent = 'Deconectează-te';
+      out.className = 'chip'; out.textContent = t('index.signOut');
       out.onclick = async function(){ await window.MC_COLLAB.signOut(); renderAccount(); render(); };
       box.appendChild(out);
     } else {
       box.innerHTML =
-        '<span>Conectează-te ca să vezi meciurile favorite pe orice dispozitiv (max. 4):</span>' +
-        '<input id="acctEmail" class="input" type="email" placeholder="emailul-tău@exemplu.ro">' +
-        '<button id="acctSend" class="chip">Trimite link de conectare</button>' +
+        '<span>' + t('index.connectPrompt') + '</span>' +
+        '<input id="acctEmail" class="input" type="email" placeholder="' + t('collab.emailPlaceholder') + '">' +
+        '<button id="acctSend" class="chip">' + t('collab.sendMagicLink') + '</button>' +
         '<span id="acctMsg" class="account-msg"></span>';
       document.getElementById('acctSend').onclick = async function(){
         var msgEl = document.getElementById('acctMsg');
         try {
           var to = await window.MC_COLLAB.sendMagicLink(document.getElementById('acctEmail').value);
-          msgEl.textContent = 'Am trimis un link la ' + to + '. Deschide-l ca să revii conectat.';
-        } catch (e) { msgEl.textContent = e.message || 'Nu am putut trimite linkul.'; }
+          msgEl.textContent = t('index.sentLinkTo', { to: to });
+        } catch (e) { msgEl.textContent = e.message || t('collab.magicLinkFailed'); }
       };
     }
   }
@@ -149,7 +162,7 @@
   function dateLabel(iso){
     var d = new Date(iso + 'T12:00:00');
     if (isNaN(d)) return iso;
-    return DAYS[d.getDay()] + ', ' + d.getDate() + ' ' + MONTHS[d.getMonth()];
+    return d.toLocaleDateString(window.MC_I18N.localeTag(), { weekday: 'long', day: 'numeric', month: 'long' });
   }
 
   // keep only upcoming (or currently-live) fixtures — a match started more than
@@ -169,12 +182,12 @@
     chipsEl.innerHTML = '';
     var allChip = document.createElement('button');
     allChip.className = 'chip' + (state.comp === null ? ' active' : '');
-    allChip.textContent = 'Toate';
+    allChip.textContent = t('index.all');
     allChip.onclick = function(){ state.comp = null; render(); };
     chipsEl.appendChild(allChip);
     var favChip = document.createElement('button');
     favChip.className = 'chip' + (state.favourites ? ' active' : '');
-    favChip.textContent = '★ Favorite';
+    favChip.textContent = t('index.favourites');
     favChip.onclick = function(){ state.favourites = !state.favourites; render(); };
     chipsEl.appendChild(favChip);
     comps.forEach(function(c){
@@ -209,7 +222,7 @@
       head.className = 'group-head';
       head.innerHTML =
         '<div class="group-label">' + dateLabel(date).toUpperCase() + '</div>' +
-        '<div class="group-count">' + items.length + (items.length === 1 ? ' meci' : ' meciuri') + '</div>';
+        '<div class="group-count">' + items.length + (items.length === 1 ? t('index.matchOne') : t('index.matchMany')) + '</div>';
       group.appendChild(head);
 
       items.forEach(function(m){
@@ -220,7 +233,7 @@
         el.className = 'row' + (m.ready ? '' : ' pending');
         var isPremium = m.researchDepth === 'deep';
         var tagClass = isPremium ? 'premium' : (m.ready ? 'ready' : (partials[m.slug] ? 'partial' : 'pending'));
-        var tagText = isPremium ? 'PACHET PREMIUM' : (m.ready ? 'PREGĂTIT' : (partials[m.slug] ? 'DATE PARȚIALE' : 'LIVE / MANUAL'));
+        var tagText = isPremium ? t('index.tagPremium') : (m.ready ? t('index.tagReady') : (partials[m.slug] ? t('index.tagPartial') : t('index.tagLiveManual')));
         var homeLogo = m.homeLogo ? '<img class="row-logo" src="' + m.homeLogo + '" alt="">' : '';
         var awayLogo = m.awayLogo ? '<img class="row-logo" src="' + m.awayLogo + '" alt="">' : '';
         el.innerHTML =
@@ -232,7 +245,7 @@
         var isFav = window.MC_COLLAB && window.MC_COLLAB.isFavourite(m.slug);
         fav.className = 'fav' + (isFav ? ' on' : '');
         fav.textContent = isFav ? '★' : '☆';
-        fav.title = isFav ? 'Elimină din favorite' : 'Adaugă la favorite';
+        fav.title = isFav ? t('index.removeFav') : t('index.addFav');
         fav.onclick = async function(e){
           e.preventDefault(); e.stopPropagation();
           if (!window.MC_COLLAB) return;
@@ -246,7 +259,7 @@
             var staleSlugs = (window.MC_COLLAB.status().favourites || []).filter(function(s){ return !upcomingSlugs[s]; });
             var yes = await window.MC_COLLAB.toggleFavourite(m.slug, staleSlugs);
             fav.classList.toggle('on', yes); fav.textContent = yes ? '★' : '☆';
-          } catch (err) { alert(err && err.message ? err.message : 'Conectează-te mai sus pentru a salva favoritele pe toate dispozitivele.'); }
+          } catch (err) { alert(err && err.message ? err.message : t('collab.unavailableFallback')); }
         };
         el.appendChild(fav);
         group.appendChild(el);

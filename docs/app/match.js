@@ -7,11 +7,13 @@
 
   var $ = function (sel, el) { return (el || document).querySelector(sel); };
   var root = $('#root');
+  var I18N = window.MC_I18N;
+  var t = I18N.t;
   var allFixtures = [];   // set from data/fixtures.json below; used to prune stale favourites
 
   var params = new URLSearchParams(location.search);
   var slug = (params.get('m') || '').trim();
-  if (!slug) { fail('Lipsește parametrul ?m=<slug>. Deschide un meci din <a href="index.html">listă</a>.'); return; }
+  if (!slug) { fail(t('err.missingSlug')); return; }
 
   Promise.all([
     fetch('data/fixtures.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; }),
@@ -23,7 +25,7 @@
     var prep = results[1];
     var fixture = fixtures.filter(function (f) { return f.slug === slug; })[0];
     if (!prep && !fixture) {
-      fail('Nu găsesc meciul <code>' + esc(slug) + '</code> — nici date pregătite, nici în fixtures.<br>Înapoi la <a href="index.html">listă</a>.');
+      fail(t('err.notFound', { slug: esc(slug) }));
       return;
     }
     // A file with "partial": true is the deterministic prefetch (squads / coach /
@@ -92,9 +94,9 @@
     var s = p.stats;
     if (!s) return '';
     if (s.apps != null) {
-      var line = s.apps + (s.apps === 1 ? ' meci' : ' meciuri');
+      var line = s.apps + (s.apps === 1 ? ' ' + t('statLine.matchOne') : ' ' + t('statLine.matchMany'));
       if (p.role === 'GK') {
-        if (s.conceded != null) line += ', ' + s.conceded + ' primite';
+        if (s.conceded != null) line += ', ' + s.conceded + ' ' + t('statLine.conceded');
       } else if (s.goals || s.assists) {
         line += ', ' + (s.goals || 0) + 'G/' + (s.assists || 0) + 'A';
       }
@@ -332,17 +334,17 @@
           el('span', { text: k.pre + n.text }),
           el('span', {}, [
             el('time', { text: new Date(n.ts).toLocaleString('ro-RO', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) }),
-            el('button', { text: '✕', title: 'Șterge', onclick: function () { delNote(id, n.id); redraw(); } })
+            el('button', { text: '✕', title: t('common.delete'), onclick: function () { delNote(id, n.id); redraw(); } })
           ])
         ]));
       });
     }
-    var ta = el('textarea', { placeholder: 'Notiță — ' + (label || id) + '… (o linie pe rând; „- " = punct, „-- " sau indentare = subpunct)' });
+    var ta = el('textarea', { placeholder: t('notes.placeholder', { label: label || id }) });
     function commit() { addNote(id, ta.value, curKind); ta.value = ''; redraw(); ta.focus(); }
     var kindBtns = ['text', 'bullet', 'sub'].map(function (k) {
       return el('button', {
         class: 'note-kind' + (k === curKind ? ' on' : ''),
-        title: { text: 'Text', bullet: 'Punct', sub: 'Subpunct' }[k],
+        title: { text: t('notes.kindText'), bullet: t('notes.kindBullet'), sub: t('notes.kindSub') }[k],
         text: { text: '¶', bullet: '•', sub: '–' }[k],
         onclick: function () {
           curKind = k;
@@ -352,7 +354,7 @@
       });
     });
     var kindRow = el('span', { class: 'note-kinds' }, kindBtns);
-    var addBtn = el('button', { text: 'Adaugă', onclick: commit });
+    var addBtn = el('button', { text: t('common.add'), onclick: commit });
     ta.addEventListener('keydown', function (e) {
       if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') commit();
     });
@@ -364,19 +366,19 @@
   }
 
   function exportNotes(data) {
-    var lines = ['# Notițe — ' + data.teams.home.name + ' vs ' + data.teams.away.name,
-      '', '_' + (data.competition.name || '') + ' · ' + (data.competition.round || '') + ' · exportat ' + new Date().toLocaleString('ro-RO') + '_', ''];
+    var lines = [t('export.title', { home: data.teams.home.name, away: data.teams.away.name }),
+      '', '_' + (data.competition.name || '') + ' · ' + (data.competition.round || '') + ' · ' + t('export.generatedAt', { when: new Date().toLocaleString(I18N.localeTag()) }) + '_', ''];
     var n = store.notes || {};
     function nameOf(id) {
       var p = id.split(':');
-      if (p[0] === 'match') return 'General meci';
+      if (p[0] === 'match') return t('export.matchGeneral');
       if (p[0] === 'team') return data.teams[p[1]] ? data.teams[p[1]].name : p[1];
       if (p[0] === 'player') {
-        var t = data.teams[p[1]]; var pl = t && effSquad(data, p[1]).filter(function (x) { return String(x.number) === p[2] || x.name === p[2]; })[0];
-        return (pl ? pl.name : p[2]) + ' (' + (t ? t.name : p[1]) + ')';
+        var tm = data.teams[p[1]]; var pl = tm && effSquad(data, p[1]).filter(function (x) { return String(x.number) === p[2] || x.name === p[2]; })[0];
+        return (pl ? pl.name : p[2]) + ' (' + (tm ? tm.name : p[1]) + ')';
       }
-      if (p[0] === 'coach') return 'Antrenor ' + (data.teams[p[1]] ? data.teams[p[1]].name : p[1]);
-      if (p[0] === 'ref') return 'Arbitru';
+      if (p[0] === 'coach') return t('export.coach', { team: data.teams[p[1]] ? data.teams[p[1]].name : p[1] });
+      if (p[0] === 'ref') return t('export.referee');
       return id;
     }
     Object.keys(n).forEach(function (id) {
@@ -384,14 +386,14 @@
       lines.push('## ' + nameOf(id));
       n[id].forEach(function (note) {
         var ind = note.kind === 'sub' ? '  ' : '';
-        lines.push(ind + '- ' + note.text + '  \n  ' + ind + '_' + new Date(note.ts).toLocaleString('ro-RO') + '_');
+        lines.push(ind + '- ' + note.text + '  \n  ' + ind + '_' + new Date(note.ts).toLocaleString(I18N.localeTag()) + '_');
       });
       lines.push('');
     });
     var px = store.panelExtra || {};
     var pxKeys = Object.keys(px).filter(function (k) { return px[k] && px[k].length; });
     if (pxKeys.length) {
-      lines.push('## Informații adăugate');
+      lines.push('## ' + t('export.addedInfo'));
       pxKeys.forEach(function (k) {
         var head = k.indexOf('teaminfo:') === 0
           ? (data.teams[k.split(':')[1]] ? data.teams[k.split(':')[1]].name : k)
@@ -704,17 +706,12 @@
   }
 
   /* ---------- goals & cards per player (store.events) ---------- */
-  var EV_META = {
-    goal: { icon: '⚽', label: 'Gol' },
-    owngoal: { icon: '⚽', label: 'Autogol' },
-    yellow: { icon: '🟨', label: 'Cartonaș galben' },
-    red: { icon: '🟥', label: 'Cartonaș roșu' },
-    sub: { icon: '🔄', label: 'Schimbare' }
-  };
+  var EV_ICON = { goal: '⚽', owngoal: '⚽', yellow: '🟨', red: '🟥', sub: '🔄' };
+  function evMeta(type) { return EV_ICON[type] ? { icon: EV_ICON[type], label: t('events.' + type) } : null; }
   function evKey(side, p) { return side + ':' + (p && p.number != null ? p.number : (p && p.name)); }
   function eventsFor(side, p) { return (store.events && store.events[evKey(side, p)]) || []; }
   function addEvent(side, p, type, minute) {
-    if (!EV_META[type]) return;
+    if (!EV_ICON[type]) return;
     var m = parseInt(minute, 10);
     store.events = store.events || {};
     var k = evKey(side, p);
@@ -857,46 +854,46 @@
     panelsEl = null;
 
     var orientBtn = el('button', {
-      text: view.orientation === 'v' ? '⤢ Vedere orizontală' : '⤢ Vedere verticală',
+      text: view.orientation === 'v' ? t('toolbar.viewHorizontal') : t('toolbar.viewVertical'),
       onclick: function () {
         view.orientation = view.orientation === 'v' ? 'h' : 'v';
-        orientBtn.textContent = view.orientation === 'v' ? '⤢ Vedere orizontală' : '⤢ Vedere verticală';
+        orientBtn.textContent = view.orientation === 'v' ? t('toolbar.viewHorizontal') : t('toolbar.viewVertical');
         saveView();
         rerenderPitch(data);
       }
     });
     var swapBtn = el('button', {
-      text: '⇄ Schimbă părțile',
+      text: t('toolbar.swapSides'),
       onclick: function () { view.swapped = !view.swapped; saveView(); rerenderPitch(data); }
     });
     var resetPosBtn = el('button', {
-      text: '↺ Resetează pozițiile',
+      text: t('toolbar.resetPositions'),
       onclick: function () {
         if (store.lineup) { delete store.lineup; save(); rerenderPitch(data); }
       }
     });
     var namesBtn = el('button', {
-      text: view.fullNames ? '🔤 Nume scurte' : '🔤 Nume complete',
+      text: view.fullNames ? t('toolbar.shortNames') : t('toolbar.fullNames'),
       onclick: function () {
         view.fullNames = !view.fullNames;
-        namesBtn.textContent = view.fullNames ? '🔤 Nume scurte' : '🔤 Nume complete';
+        namesBtn.textContent = view.fullNames ? t('toolbar.shortNames') : t('toolbar.fullNames');
         saveView();
         rerenderPitch(data);
       }
     });
     var SIZE_LABELS = ['M', 'L', 'XL'];
     var fontBtn = el('button', {
-      text: '🔠 Text jucători: ' + SIZE_LABELS[view.labelSize],
+      text: t('toolbar.textSize', { size: SIZE_LABELS[view.labelSize] }),
       onclick: function () {
         view.labelSize = (view.labelSize + 1) % 3;
-        fontBtn.textContent = '🔠 Text jucători: ' + SIZE_LABELS[view.labelSize];
+        fontBtn.textContent = t('toolbar.textSize', { size: SIZE_LABELS[view.labelSize] });
         saveView();
         rerenderPitch(data);
       }
     });
     var resetOrderBtn = el('button', {
-      text: '↕ Aspect implicit panouri',
-      title: 'Resetează ordinea și lățimea panourilor',
+      text: t('toolbar.resetPanelLayout'),
+      title: t('toolbar.resetPanelLayoutTitle'),
       onclick: function () {
         var ch = false;
         if (store.panelOrder) { delete store.panelOrder; ch = true; }
@@ -907,7 +904,7 @@
     function discSwatch(side) {
       var inp = el('input', {
         type: 'color', class: 'ds-input', value: resolveDisc(data, side),
-        title: 'Culoarea bulinelor — ' + data.teams[side].name,
+        title: t('toolbar.discColorTitle', { team: data.teams[side].name }),
         oninput: function () {
           store.discColors = store.discColors || {};
           store.discColors[side] = inp.value;
@@ -920,27 +917,28 @@
       ]);
     }
     var discReset = el('button', {
-      text: '↺ Culori', title: 'Culori implicite pentru buline',
+      text: t('toolbar.resetColors'), title: t('toolbar.resetColorsTitle'),
       onclick: function () {
         if (store.discColors) { delete store.discColors; save(); render(data); }
       }
     });
     var favBtn = el('button', {
-      text: (window.MC_COLLAB && window.MC_COLLAB.isFavourite(slug)) ? '★ Favorit' : '☆ Favorit',
-      title: 'Păstrează acest meci în lista ta de favorite',
+      text: (window.MC_COLLAB && window.MC_COLLAB.isFavourite(slug)) ? t('toolbar.favourite') : t('toolbar.notFavourite'),
+      title: t('toolbar.favouriteTitle'),
       onclick: async function () {
         if (!window.MC_COLLAB) return;
         try {
           var yes = await window.MC_COLLAB.toggleFavourite(slug, staleFavouriteSlugs());
-          favBtn.textContent = yes ? '★ Favorit' : '☆ Favorit';
+          favBtn.textContent = yes ? t('toolbar.favourite') : t('toolbar.notFavourite');
         } catch (e) { openCollaboration(data); }
       }
     });
     var collabBtn = el('button', {
-      text: (window.MC_COLLAB && window.MC_COLLAB.status().online) ? '👥 Conectat: ' + (window.MC_COLLAB.status().name || 'utilizator') : '👥 Conectează-te',
-      title: 'Conectare, sincronizare și modificările echipei',
+      text: (window.MC_COLLAB && window.MC_COLLAB.status().online) ? t('toolbar.collabConnected', { name: window.MC_COLLAB.status().name || t('toolbar.collabUser') }) : t('toolbar.collabConnect'),
+      title: t('toolbar.collabTitle'),
       onclick: function () { openCollaboration(data); }
     });
+    var langSwitch = I18N.switcherEl(function () { render(data); });
 
     // header
     var metaWrap = el('div', { class: 'mc-meta' }, [
@@ -948,17 +946,18 @@
       document.createTextNode(metaLine(data))
     ]);
     if (!has(data.venue && data.venue.name)) {
-      metaWrap.appendChild(el('button', { class: 'meta-add', text: '+ adaugă stadion', onclick: function () { openEditVenue(data); } }));
+      metaWrap.appendChild(el('button', { class: 'meta-add', text: t('toolbar.addVenue'), onclick: function () { openEditVenue(data); } }));
     }
     var head = el('div', { class: 'mc-head' }, [
-      el('a', { class: 'mc-back', href: 'index.html', text: '← toate meciurile' }),
+      el('a', { class: 'mc-back', href: 'index.html', text: t('toolbar.backToList') }),
+      langSwitch,
       el('div', { class: 'mc-teams' }, [
         el('span', {}, [
           data.teams.home.logo ? el('img', { class: 'team-logo', src: data.teams.home.logo, alt: '' }) : null,
           document.createTextNode(data.teams.home.name),
           has(data.teams.home.nickname) ? el('small', { class: 'nickname', text: ' „' + data.teams.home.nickname + '"' }) : null
         ]),
-        el('span', { class: 'vs', text: 'vs' }),
+        el('span', { class: 'vs', text: t('common.vs') }),
         el('span', {}, [
           data.teams.away.logo ? el('img', { class: 'team-logo', src: data.teams.away.logo, alt: '' }) : null,
           document.createTextNode(data.teams.away.name),
@@ -981,11 +980,11 @@
         collabBtn,
         resetPosBtn,
         resetOrderBtn,
-        el('button', { text: '🖨 Print', onclick: function () { window.print(); } }),
-        el('button', { text: '⭳ Export notițe', onclick: function () { exportNotes(data); } }),
-        el('button', { text: '⇕ Extinde / restrânge', onclick: toggleAll }),
-        el('button', { text: '🗑 Șterge notițele acestui meci', onclick: function () {
-          if (confirm('Ștergi toate notițele pentru acest meci?')) { delete store.notes; save(); render(data); }
+        el('button', { text: t('toolbar.print'), onclick: function () { window.print(); } }),
+        el('button', { text: t('toolbar.exportNotes'), onclick: function () { exportNotes(data); } }),
+        el('button', { text: t('toolbar.expandCollapse'), onclick: toggleAll }),
+        el('button', { text: t('toolbar.deleteAllNotes'), onclick: function () {
+          if (confirm(t('toolbar.confirmDeleteAllNotes'))) { delete store.notes; save(); render(data); }
         } })
       ])
     ]);
@@ -1004,35 +1003,35 @@
     modal(function (close) {
       return el('div', { class: 'modal-head' }, [
         el('div', { class: 'avatar', text: '👥' }),
-        el('div', {}, [el('h3', { text: 'Colaborare' }), el('div', { class: 'sub', text: 'Schimbările sunt salvate cu numele persoanei care le-a făcut.' })]),
+        el('div', {}, [el('h3', { text: t('collab.title') }), el('div', { class: 'sub', text: t('collab.subtitle') })]),
         el('button', { class: 'modal-close', text: '×', onclick: close })
       ]);
     }, {
-      'Profil': function () {
+      [t('collab.tabProfile')]: function () {
         var s = window.MC_COLLAB ? window.MC_COLLAB.status() : { configured: false };
-        var field = el('input', { class: 'field', value: s.name || '', placeholder: 'Numele tău (ex. Radu)' });
-        var msg = el('div', { class: 'ev-empty', text: s.configured ? (s.online ? 'Conectat. Datele tale se sincronizează între dispozitive.' : 'Conectează-te cu emailul pentru a-ți păstra datele și favoritele pe orice dispozitiv.') : 'Mod local activ. Pentru colaborare, completează configurația Supabase din app/config.js.' });
-        var saveName = el('button', { class: 'pick', text: 'Salvează numele', onclick: async function () {
+        var field = el('input', { class: 'field', value: s.name || '', placeholder: t('collab.namePlaceholder') });
+        var msg = el('div', { class: 'ev-empty', text: s.configured ? (s.online ? t('collab.online') : t('collab.offlinePrompt')) : t('collab.localOnly') });
+        var saveName = el('button', { class: 'pick', text: t('collab.saveName'), onclick: async function () {
           if (!window.MC_COLLAB) return;
-          await window.MC_COLLAB.setName(field.value); msg.textContent = 'Numele a fost salvat: ' + (window.MC_COLLAB.status().name || 'Utilizator') + '.';
+          await window.MC_COLLAB.setName(field.value); msg.textContent = t('collab.nameSaved', { name: window.MC_COLLAB.status().name || t('collab.defaultUser') });
         } });
-        var email = el('input', { class: 'field', type: 'email', placeholder: 'emailul-tău@exemplu.ro' });
-        var sendLink = el('button', { class: 'pick', text: 'Trimite link de conectare', onclick: async function () {
-          try { var to = await window.MC_COLLAB.sendMagicLink(email.value); msg.textContent = 'Am trimis un link de conectare la ' + to + '. Deschide-l pe orice dispozitiv pentru a intra în același cont.'; } catch (e) { msg.textContent = e.message || 'Nu am putut trimite linkul.'; }
+        var email = el('input', { class: 'field', type: 'email', placeholder: t('collab.emailPlaceholder') });
+        var sendLink = el('button', { class: 'pick', text: t('collab.sendMagicLink'), onclick: async function () {
+          try { var to = await window.MC_COLLAB.sendMagicLink(email.value); msg.textContent = t('collab.magicLinkSent', { email: to }); } catch (e) { msg.textContent = e.message || t('collab.magicLinkFailed'); }
         } });
-        var logout = el('button', { class: 'pick', text: 'Deconectează-mă', onclick: async function () { await window.MC_COLLAB.signOut(); close(); render(data); } });
+        var logout = el('button', { class: 'pick', text: t('collab.signOut'), onclick: async function () { await window.MC_COLLAB.signOut(); close(); render(data); } });
         var auth = s.configured && !s.online
-          ? el('div', {}, [el('p', { text: 'Introdu adresa ta; primești un link fără parolă. Folosește același email pe telefon, laptop sau orice alt dispozitiv.' }), email, el('div', { class: 'ev-btns' }, [sendLink])])
+          ? el('div', {}, [el('p', { text: t('collab.authIntro') }), email, el('div', { class: 'ev-btns' }, [sendLink])])
           : (s.online ? el('div', { class: 'ev-btns' }, [logout]) : null);
-        return el('div', {}, [el('p', { text: 'Numele apare în jurnalul comun atunci când modifici primul 11, notițele, rezervele sau evenimentele.' }), field, el('div', { class: 'ev-btns' }, [saveName]), auth, msg]);
+        return el('div', {}, [el('p', { text: t('collab.profileHint') }), field, el('div', { class: 'ev-btns' }, [saveName]), auth, msg]);
       },
-      'Activitate': function () {
-        var wrap = el('div', {}, [el('div', { class: 'ev-empty', text: 'Se încarcă activitatea…' })]);
-        if (!window.MC_COLLAB || !window.MC_COLLAB.configured()) { wrap.firstChild.textContent = 'Activitatea comună devine disponibilă după configurarea Supabase.'; return wrap; }
+      [t('collab.tabActivity')]: function () {
+        var wrap = el('div', {}, [el('div', { class: 'ev-empty', text: t('collab.activityLoading') }) ]);
+        if (!window.MC_COLLAB || !window.MC_COLLAB.configured()) { wrap.firstChild.textContent = t('collab.activityUnavailable'); return wrap; }
         window.MC_COLLAB.changes(slug).then(function (items) {
           wrap.innerHTML = '';
-          if (!items.length) { wrap.appendChild(el('div', { class: 'ev-empty', text: 'Încă nu există modificări comune pentru acest meci.' })); return; }
-          items.forEach(function (item) { wrap.appendChild(el('div', { class: 'ev-row' }, [el('span', { text: item.display_name + ' — ' + item.summary }), el('time', { text: new Date(item.changed_at).toLocaleString('ro-RO', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) })])); });
+          if (!items.length) { wrap.appendChild(el('div', { class: 'ev-empty', text: t('collab.activityEmpty') })); return; }
+          items.forEach(function (item) { wrap.appendChild(el('div', { class: 'ev-row' }, [el('span', { text: item.display_name + ' — ' + item.summary }), el('time', { text: new Date(item.changed_at).toLocaleString(I18N.localeTag(), { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) })])); });
         });
         return wrap;
       }
@@ -1042,13 +1041,13 @@
   function skeletonBanner(d) {
     var haveSquads = (d.teams.home.squad || []).length && (d.teams.away.squad || []).length;
     var lead = d._partial
-      ? '⚠ Date parțiale (preîncărcare automată din API-Football): loturi cu statistici, antrenor, formă, clasament, cap la cap, accidentări, arbitru și stadion. Primul 11 probabil, fire narative, funfacts și pronunție vin cu pachetul editorial complet.'
-      : '⚠ Fără pachet de pregătire pentru acest meci încă.' +
-        (haveSquads ? ' Loturile sunt încărcate — ' : ' ') +
-        'completează manual restul.';
+      ? t('skeleton.partialLead')
+      : t('skeleton.noneLead') +
+        (haveSquads ? t('skeleton.squadsLoaded') : ' ') +
+        t('skeleton.fillRest');
     var tail = haveSquads
-      ? ' Click pe un slot gol de pe teren ca să alegi primul 11 din lot; „+ adaugă…” lângă antrenor / arbitru / stadion pentru rest.'
-      : ' Click pe un slot gol de pe teren, sau pe „+ adaugă…” de lângă antrenor / arbitru / stadion.';
+      ? t('skeleton.tailWithSquads')
+      : t('skeleton.tailNoSquads');
     return el('div', { class: 'skeleton-banner' }, [
       el('span', { text: lead + tail })
     ]);
@@ -1060,7 +1059,7 @@
     if (has(d.competition.round)) bits.push(d.competition.round);
     if (has(d.kickoff)) {
       var dt = new Date(d.kickoff);
-      bits.push(isNaN(dt) ? d.kickoff : dt.toLocaleString('ro-RO', { weekday: 'long', day: '2-digit', month: 'long', hour: '2-digit', minute: '2-digit' }));
+      bits.push(isNaN(dt) ? d.kickoff : dt.toLocaleString(I18N.localeTag(), { weekday: 'long', day: '2-digit', month: 'long', hour: '2-digit', minute: '2-digit' }));
     }
     if (has(d.venue && d.venue.name)) bits.push(d.venue.name + (has(d.venue.city) ? ', ' + d.venue.city : ''));
     if (has(d.broadcast)) bits.push('📺 ' + d.broadcast);
@@ -1077,7 +1076,7 @@
     ]);
 
     ['home', 'away'].forEach(function (side) {
-      var t = d.teams[side];
+      var tm = d.teams[side];
       var isNear = side === nearKey;
       var xi = effXI(d, side);
       var pts = layout(effFormation(d, side));
@@ -1103,7 +1102,7 @@
         var node = el('div', {
           class: 'node ' + side + (isEmpty ? ' empty' : (stat && stat !== 'available' ? ' status-' + stat : '')) + (override ? ' moved' : '') + (ec.red ? ' sent-off' : '') + (cap ? ' is-captain' : ''),
           style: 'left:' + pos.left.toFixed(2) + '%;top:' + pos.top.toFixed(2) + '%',
-          title: isEmpty ? 'Click pentru a adăuga un jucător aici' : 'Trage pentru a repoziționa · click pentru fișă, schimbări, goluri/cartonașe',
+          title: isEmpty ? t('pitch.addPlayerHere') : t('pitch.dragOrClick'),
           onclick: function () {
             if (node._dragged) { node._dragged = false; return; }
             if (isEmpty) openAddPlayer(d, side, i);
@@ -1115,9 +1114,9 @@
             cap ? el('span', { class: 'cap-mark', text: 'C' }) : null
           ]),
           badges,
-          el('div', { class: 'lbl', text: isEmpty ? 'Adaugă' : (view.fullNames ? (slot.name || '') : shortName(slot.name)) }),
+          el('div', { class: 'lbl', text: isEmpty ? t('pitch.emptySlot') : (view.fullNames ? (slot.name || '') : shortName(slot.name)) }),
           (!isEmpty && full && (has(full.age) || has(full.nat)))
-            ? el('div', { class: 'lbl-sub', text: '(' + [has(full.age) ? full.age + ' ani' : null, full.nat].filter(Boolean).join(', ') + ')' })
+            ? el('div', { class: 'lbl-sub', text: '(' + [has(full.age) ? t('player.ageValue', { n: full.age }) : null, full.nat].filter(Boolean).join(', ') + ')' })
             : null,
           (!isEmpty && full && statLine(full))
             ? el('div', { class: 'lbl-stat', text: statLine(full) })
@@ -1134,18 +1133,18 @@
       });
       // coach mini-card — near team's coach sits at the near end, far team's at the far end
       var coachCorner = vert ? (isNear ? 'bl' : 'tr') : (isNear ? 'tl' : 'tr');
-      if (t.coach && has(t.coach.name)) {
+      if (tm.coach && has(tm.coach.name)) {
         shell.appendChild(el('div', { class: 'card-slot ' + coachCorner }, [
           el('div', { class: 'mini-card', onclick: function () { openCoach(d, side); } }, [
-            el('div', { class: 'mc-role', text: 'Antrenor' }),
-            el('div', { class: 'mc-name', text: t.coach.name }),
-            el('div', { class: 'mc-line', text: [has(t.coach.country) ? t.coach.country : null, has(t.coach.age) ? t.coach.age + ' ani' : null, effFormation(d, side)].filter(Boolean).join(' · ') })
+            el('div', { class: 'mc-role', text: t('pitch.coach') }),
+            el('div', { class: 'mc-name', text: tm.coach.name }),
+            el('div', { class: 'mc-line', text: [has(tm.coach.country) ? tm.coach.country : null, has(tm.coach.age) ? t('player.ageValue', { n: tm.coach.age }) : null, effFormation(d, side)].filter(Boolean).join(' · ') })
           ])
         ]));
       } else {
         shell.appendChild(el('div', { class: 'card-slot ' + coachCorner }, [
           el('div', { class: 'mini-card add-card', onclick: function () { openEditCoach(d, side); } }, [
-            el('div', { class: 'mc-name', text: '+ Adaugă antrenor' })
+            el('div', { class: 'mc-name', text: t('pitch.addCoach') })
           ])
         ]));
       }
@@ -1155,15 +1154,15 @@
     if (d.referee && has(d.referee.name)) {
       shell.appendChild(el('div', { class: 'card-slot ref ' + (vert ? 'cr' : 'bc') }, [
         el('div', { class: 'mini-card', onclick: function () { openRef(d); } }, [
-          el('div', { class: 'mc-role', text: 'Arbitru' }),
+          el('div', { class: 'mc-role', text: t('pitch.referee') }),
           el('div', { class: 'mc-name', text: d.referee.name }),
-          el('div', { class: 'mc-line', text: [has(d.referee.country) ? d.referee.country : null, has(d.referee.ycPerMatch) ? d.referee.ycPerMatch + ' galbene/meci' : null].filter(Boolean).join(' · ') })
+          el('div', { class: 'mc-line', text: [has(d.referee.country) ? d.referee.country : null, has(d.referee.ycPerMatch) ? t('pitch.ycPerMatch', { n: d.referee.ycPerMatch }) : null].filter(Boolean).join(' · ') })
         ])
       ]));
     } else {
       shell.appendChild(el('div', { class: 'card-slot ref ' + (vert ? 'cr' : 'bc') }, [
         el('div', { class: 'mini-card add-card', onclick: function () { openEditReferee(d); } }, [
-          el('div', { class: 'mc-name', text: '+ Adaugă arbitru' })
+          el('div', { class: 'mc-name', text: t('pitch.addReferee') })
         ])
       ]));
     }
@@ -1182,14 +1181,15 @@
       var c = cornerCounts(side), team = d.teams[side];
       var row = el('div', { class: 'corner-team ' + side }, [
         el('strong', { text: team.shortName || team.name }),
-        el('span', { class: 'corner-total', text: 'Total ' + (c.left + c.right) })
+        el('span', { class: 'corner-total', text: t('pitch.cornerTotal', { n: c.left + c.right }) })
       ]);
       ['left', 'right'].forEach(function (flank) {
+        var flankLabel = flank === 'left' ? t('pitch.left') : t('pitch.right');
         row.appendChild(el('span', { class: 'corner-cell' }, [
-          el('span', { class: 'corner-label', text: flank === 'left' ? 'Stânga' : 'Dreapta' }),
-          el('button', { class: 'corner-btn', title: 'Scade corner ' + (flank === 'left' ? 'stânga' : 'dreapta'), text: '−', onclick: function () { adjustCorner(d, side, flank, -1); } }),
+          el('span', { class: 'corner-label', text: flankLabel }),
+          el('button', { class: 'corner-btn', title: t('pitch.cornerMinus', { side: flankLabel }), text: '−', onclick: function () { adjustCorner(d, side, flank, -1); } }),
           el('b', { text: String(c[flank]) }),
-          el('button', { class: 'corner-btn', title: 'Adaugă corner ' + (flank === 'left' ? 'stânga' : 'dreapta'), text: '+', onclick: function () { adjustCorner(d, side, flank, 1); } })
+          el('button', { class: 'corner-btn', title: t('pitch.cornerPlus', { side: flankLabel }), text: '+', onclick: function () { adjustCorner(d, side, flank, 1); } })
         ]));
       });
       corners.appendChild(row);
@@ -1207,21 +1207,21 @@
       var explicit = !!(store.bench && store.bench[side] && store.bench[side].length);
       var squad = effSquad(d, side);
       var row = el('div', { class: 'bench-team ' + side }, [
-        el('span', { class: 'bench-label', text: (d.teams[side].shortName || d.teams[side].name) + ' · rezerve' }),
-        el('button', { class: 'bench-add', title: 'Alege rezervele', text: explicit ? '✎' : '＋', onclick: function () { openBenchPicker(d, side); } })
+        el('span', { class: 'bench-label', text: t('pitch.benchLabel', { team: d.teams[side].shortName || d.teams[side].name }) }),
+        el('button', { class: 'bench-add', title: t('pitch.pickBench'), text: explicit ? '✎' : '＋', onclick: function () { openBenchPicker(d, side); } })
       ]);
       if (explicit) {
-        row.appendChild(el('button', { class: 'bench-add', title: 'Toate rezervele', text: '↺', onclick: function () { setBench(d, side, null); } }));
+        row.appendChild(el('button', { class: 'bench-add', title: t('pitch.allBench'), text: '↺', onclick: function () { setBench(d, side, null); } }));
       }
       if (!players.length) {
-        row.appendChild(el('span', { class: 'bench-empty', text: explicit ? 'nicio rezervă aleasă' : '—' }));
+        row.appendChild(el('span', { class: 'bench-empty', text: explicit ? t('pitch.benchNone') : '—' }));
       }
       players.forEach(function (p) {
         var full = playerByNameOrNum(squad, p);
         var st = full && full.status;
         row.appendChild(el('button', {
           class: 'bench-chip' + (st && st !== 'available' ? ' status-' + st : '') + (isCaptain(side, p) ? ' is-captain' : ''),
-          title: p.name + (isCaptain(side, p) ? ' · căpitan' : '') + (st && st !== 'available' ? ' · ' + st : '') + ' — click pentru fișă / schimbare',
+          title: t('pitch.nodeTitle', { name: p.name, tags: (isCaptain(side, p) ? t('pitch.captainTag') : '') + (st && st !== 'available' ? ' · ' + statusLabel(st) : '') }),
           onclick: function () { openPlayer(d, side, full); }
         }, [
           el('span', { class: 'bench-num', text: p.number != null ? String(p.number) : '' }),
@@ -1252,24 +1252,24 @@
         var k = keyOf(p);
         var b = el('button', {
           class: 'bench-pick' + (chosen[k] ? ' on' : ''),
-          text: (p.number != null ? '#' + p.number + '  ' : '') + p.name + (p.status && p.status !== 'available' ? '  ·  ' + p.status : ''),
+          text: (p.number != null ? '#' + p.number + '  ' : '') + p.name + (p.status && p.status !== 'available' ? '  ·  ' + statusLabel(p.status) : ''),
           onclick: function () { chosen[k] = !chosen[k]; b.classList.toggle('on', !!chosen[k]); }
         });
         list.appendChild(b);
       });
     });
-    if (!cand.length) list.appendChild(el('p', { class: 'sub-note', text: 'Nu există jucători în afara primului 11.' }));
+    if (!cand.length) list.appendChild(el('p', { class: 'sub-note', text: t('bench.none') }));
 
     back.appendChild(el('div', { class: 'modal', style: 'max-width:400px' }, [
       el('div', { class: 'modal-head' }, [
-        el('h3', { text: 'Rezerve — ' + d.teams[side].name }),
+        el('h3', { text: t('bench.title', { team: d.teams[side].name }) }),
         el('button', { class: 'modal-close', text: '✕', onclick: close })
       ]),
       el('div', { class: 'modal-body' }, [
-        el('p', { class: 'sub-note', text: 'Bifează cine stă pe bancă. Toți bifați = bancă implicită (tot lotul din afara primului 11).' }),
+        el('p', { class: 'sub-note', text: t('bench.hint') }),
         list,
         el('div', { class: 'notes-row' }, [
-          el('button', { class: 'pick', text: 'Salvează', onclick: function () {
+          el('button', { class: 'pick', text: t('common.save'), onclick: function () {
             var keys = Object.keys(chosen).filter(function (k) { return chosen[k]; });
             setBench(d, side, keys.length === cand.length ? null : keys);
             close();
@@ -1299,10 +1299,10 @@
         var kind = (m.inn && m.inn.kind === 'sub') ? 'sub' : 'xi';
         var mm = m.inn && m.inn.minute;
         row.appendChild(el('span', { class: 'sub-chip ' + kind }, [
-          el('span', { class: 'sub-kind', text: kind === 'sub' ? 'MECI' : 'PRIM 11' }),
+          el('span', { class: 'sub-kind', text: kind === 'sub' ? t('sub.badgeMatch') : t('sub.badgeLineup') }),
           (kind === 'sub' && mm != null) ? el('span', { class: 'sub-min-badge', text: mm + "'" }) : null,
           el('span', { text: shortName(m.out.name) + '  ' + (kind === 'sub' ? '↦' : '⇄') + '  ' + shortName(m.inn.name) }),
-          el('button', { text: '✕', title: 'Anulează', onclick: function () { clearSub(d, side, m.i); } })
+          el('button', { text: '✕', title: t('sub.cancel'), onclick: function () { clearSub(d, side, m.i); } })
         ]));
       });
       strip.appendChild(row);
@@ -1318,17 +1318,17 @@
   }
   function fgComp(c) {
     if (!has(c)) return '';
-    if (/friendl|amical/i.test(c)) return 'amical';
+    if (/friendl|amical/i.test(c)) return t('panel.friendly');
     return String(c).replace(/^(France|England|Spain|Italy|Germany|Romania|Europe|Elite Club)\s+/i, '');
   }
   // full league table; the two teams in this fixture are highlighted
   function standingsTable(d) {
     var s = d.standings || {};
     var rows = s.rows || [];
-    if (!rows.length) return el('div', { text: 'n/d' });
+    if (!rows.length) return el('div', { text: t('common.na') });
     var mine = {};
     [d.teams.home, d.teams.away].forEach(function (t) { mine[teamKey(t.name)] = true; });
-    var head = el('tr', {}, ['#', 'Echipă', 'M', 'V', 'E', 'Î', 'GM:GP', '+/-', 'P'].map(function (h) {
+    var head = el('tr', {}, [t('standings.rank'), t('standings.team'), t('standings.played'), t('standings.win'), t('standings.draw'), t('standings.loss'), t('standings.goals'), t('standings.gd'), t('standings.points')].map(function (h) {
       return el('th', { text: h });
     }));
     var tb = el('table', { class: 'mc standings' }, [head]);
@@ -1384,15 +1384,15 @@
   // Per-team "Informații echipă" — the old FIRE bars, moved to a column on that
   // team's flank of the pitch (see render()). null when the team has no stories.
   function teamAside(d, side) {
-    var t = d.teams[side];
+    var tm = d.teams[side];
     var box = el('div', { class: 'team-aside ' + side }, [
-      el('div', { class: 'team-aside-title', text: (t.shortName || t.name) + ' · informații echipă' })
+      el('div', { class: 'team-aside-title', text: t('aside.teamInfo', { team: tm.shortName || tm.name }) })
     ]);
-    (t.stories || []).forEach(function (s) {
+    (tm.stories || []).forEach(function (s) {
       box.appendChild(el('div', { class: 'story-bar' }, [el('h4', { text: s.title }), ul(s.bullets)]));
     });
-    box.appendChild(el('div', { class: 'ta-add-h', text: 'Notele tale' }));
-    box.appendChild(extrasBox('teaminfo:' + side, '＋ informație despre ' + t.name));
+    box.appendChild(el('div', { class: 'ta-add-h', text: t('aside.yourNotes') }));
+    box.appendChild(extrasBox('teaminfo:' + side, t('aside.addInfo', { team: tm.name })));
     return box;
   }
 
@@ -1401,7 +1401,7 @@
     function add(key, node) { if (node) defs.push({ key: key, node: node }); }
 
     if (d.storyOfTheMatch && d.storyOfTheMatch.length) {
-      add('story', panel('Story of the match', ul(d.storyOfTheMatch), { lead: true, open: true }));
+      add('story', panel(t('panel.story'), ul(d.storyOfTheMatch), { lead: true, open: true }));
     }
 
     // API-Football's own algorithmic model (predictions?fixture=) — computed
@@ -1412,7 +1412,7 @@
       if (pr.percent && (pr.percent.home != null || pr.percent.draw != null || pr.percent.away != null)) {
         var segs = [
           { v: pr.percent.home, cls: 'ph', label: d.teams.home.shortName || d.teams.home.name },
-          { v: pr.percent.draw, cls: 'pd', label: 'Egal' },
+          { v: pr.percent.draw, cls: 'pd', label: t('panel.draw') },
           { v: pr.percent.away, cls: 'pa', label: d.teams.away.shortName || d.teams.away.name }
         ].filter(function (s) { return s.v != null; });
         var bar = el('div', { class: 'prediction-bar' });
@@ -1427,8 +1427,8 @@
       if (has(pr.advice)) pbody.appendChild(el('p', { class: 'prediction-advice', text: pr.advice }));
       if (pr.comparison) {
         var cmpRows = [
-          ['form', 'Formă'], ['attack', 'Atac'], ['defense', 'Defensivă'],
-          ['poisson', 'Distribuție Poisson'], ['h2h', 'Cap la cap'], ['goals', 'Goluri']
+          ['form', t('panel.cmpForm')], ['attack', t('panel.cmpAttack')], ['defense', t('panel.cmpDefense')],
+          ['poisson', t('panel.cmpPoisson')], ['h2h', t('panel.cmpH2h')], ['goals', t('panel.cmpGoals')]
         ];
         var cmp = el('table', { class: 'mc prediction-cmp' });
         cmpRows.forEach(function (r) {
@@ -1442,7 +1442,7 @@
         });
         if (cmp.childNodes.length) pbody.appendChild(cmp);
       }
-      if (pbody.childNodes.length) add('predictions', panel('Pronostic (API-Football)', pbody, { open: true }));
+      if (pbody.childNodes.length) add('predictions', panel(t('panel.predictions'), pbody, { open: true }));
     }
 
     if (d.commentatorResearch && d.commentatorResearch.length) {
@@ -1451,10 +1451,10 @@
         researchBody.appendChild(el('div', { class: 'research-card' }, [
           el('h4', { text: card.topic }),
           el('p', { text: card.fact }),
-          card.source ? el('a', { href: card.source, target: '_blank', rel: 'noopener noreferrer', text: 'Sursă' }) : null
+          card.source ? el('a', { href: card.source, target: '_blank', rel: 'noopener noreferrer', text: t('common.source') }) : null
         ]));
       });
-      add('research', panel('Research pentru comentator', researchBody, { open: true }));
+      add('research', panel(t('panel.research'), researchBody, { open: true }));
     }
 
     // H2H
@@ -1462,7 +1462,7 @@
       var h = el('div');
       if (d.h2h.recent && d.h2h.recent.length) {
         var tb = el('table', { class: 'mc' }, [
-          el('tr', {}, [el('th', { text: 'Data' }), el('th', { text: 'Competiție' }), el('th', { text: 'Scor' })])
+          el('tr', {}, [el('th', { text: t('panel.h2hDate') }), el('th', { text: t('panel.h2hComp') }), el('th', { text: t('panel.h2hScore') })])
         ]);
         d.h2h.recent.forEach(function (r) {
           tb.appendChild(el('tr', {}, [el('td', { text: r.date }), el('td', { text: has(r.comp) ? r.comp : '—' }), el('td', { text: r.score })]));
@@ -1470,15 +1470,15 @@
         h.appendChild(tb);
       }
       if (has(d.h2h.summary)) h.appendChild(el('p', { text: d.h2h.summary }));
-      add('h2h', panel('Cap la cap', h, { open: true }));
+      add('h2h', panel(t('panel.h2h'), h, { open: true }));
     }
 
     // Form (two-col) — OneFootball-style: W/D/L badges, a standings row, a
     // form guide (last matches with scores), plus PPG / home-away split.
     if (d.teams.home.form || d.teams.away.form) {
-      add('form', panel('Formă', twoCol(d, function (t) {
+      add('form', panel(t('panel.form'), twoCol(d, function (tm) {
         var wrap = el('div');
-        var f = t.form || {};
+        var f = tm.form || {};
         var badges = (f.last5 && f.last5.length) ? f.last5
           : (f.recent || []).slice(0, 5).map(function (r) { return r.result; }).filter(has);
         if (badges.length) {
@@ -1489,8 +1489,8 @@
         var tbl = f.table || {};
         if (has(f.position) || has(tbl.points)) {
           var bits = [];
-          if (has(f.position)) bits.push('Loc ' + f.position);
-          if (has(tbl.played)) bits.push(tbl.played + ' M');
+          if (has(f.position)) bits.push(t('panel.formRank', { n: f.position }));
+          if (has(tbl.played)) bits.push(tbl.played + t('panel.formPlayedSuffix'));
           if (has(tbl.win)) bits.push(tbl.win + '-' + (tbl.draw || 0) + '-' + (tbl.loss || 0));
           if (has(tbl.gf)) bits.push(tbl.gf + '-' + tbl.ga);
           if (has(tbl.points)) bits.push(tbl.points + 'p');
@@ -1508,11 +1508,11 @@
           });
           wrap.appendChild(list);
         }
-        if (has(f.ppg)) wrap.appendChild(el('div', { text: 'PPG: ' + f.ppg }));
+        if (has(f.ppg)) wrap.appendChild(el('div', { text: t('panel.formPpg', { ppg: f.ppg }) }));
         if (has(f.homeAway)) wrap.appendChild(el('div', { class: 'form-note', text: f.homeAway }));
         if (has(f.note)) wrap.appendChild(el('div', { class: 'form-note', text: f.note }));
         if (f.next && f.next.length) {
-          wrap.appendChild(el('div', { class: 'form-next-h', text: 'Următoarele' }));
+          wrap.appendChild(el('div', { class: 'form-next-h', text: t('panel.formNext') }));
           var nx = el('ul', { class: 'form-guide next' });
           f.next.forEach(function (r) {
             nx.appendChild(el('li', {}, [
@@ -1523,27 +1523,27 @@
           });
           wrap.appendChild(nx);
         }
-        if (!wrap.childNodes.length) wrap.appendChild(el('div', { text: 'n/d' }));
+        if (!wrap.childNodes.length) wrap.appendChild(el('div', { text: t('common.na') }));
         return wrap;
       })));
     }
 
     // League table
     if (d.standings && d.standings.rows && d.standings.rows.length) {
-      add('standings', panel('Clasament' + (has(d.standings.league) ? ' · ' + d.standings.league : ''), standingsTable(d)));
+      add('standings', panel(t('panel.standings') + (has(d.standings.league) ? ' · ' + d.standings.league : ''), standingsTable(d)));
     }
 
     // Absences + probable XI
-    add('absences', panel('Absențe și primul 11 probabil', twoCol(d, function (t, side) {
+    add('absences', panel(t('panel.absences'), twoCol(d, function (tm, side) {
       var wrap = el('div');
-      wrap.appendChild(el('h4', { text: 'Absenți' }));
-      if (t.absences && t.absences.length) {
-        wrap.appendChild(ul(t.absences.map(function (a) {
+      wrap.appendChild(el('h4', { text: t('panel.noAbsences') }));
+      if (tm.absences && tm.absences.length) {
+        wrap.appendChild(ul(tm.absences.map(function (a) {
           return a.name + ' — ' + a.reason + (has(a.detail) ? ' (' + a.detail + ')' : '');
         })));
-      } else { wrap.appendChild(el('div', { text: 'niciun absent semnalat' })); }
-      wrap.appendChild(el('h4', { text: 'Primul 11 (' + effFormation(d, side) + ')' }));
-      wrap.appendChild(ul((t.predictedXI || []).map(function (p) {
+      } else { wrap.appendChild(el('div', { text: t('panel.noneReported') })); }
+      wrap.appendChild(el('h4', { text: t('panel.startingXI', { formation: effFormation(d, side) }) }));
+      wrap.appendChild(ul((tm.predictedXI || []).map(function (p) {
         return (p.number != null ? p.number + '. ' : '') + p.name + (has(p.pos) ? '  ' + p.pos : '');
       })));
       return wrap;
@@ -1551,20 +1551,20 @@
 
     // Mercato
     if (hasMercato(d)) {
-      add('mercato', panel('Mercato — vară', twoCol(d, function (t) {
+      add('mercato', panel(t('panel.mercato'), twoCol(d, function (tm) {
         var wrap = el('div');
-        wrap.appendChild(el('h4', { text: 'Veniri' }));
-        wrap.appendChild(ul((t.mercatoIn || []).map(function (m) { return m.name + (has(m.from) ? ' ← ' + m.from : '') + (has(m.fee) ? ' (' + m.fee + ')' : ''); })));
-        wrap.appendChild(el('h4', { text: 'Plecări' }));
-        wrap.appendChild(ul((t.mercatoOut || []).map(function (m) { return m.name + (has(m.to) ? ' → ' + m.to : '') + (has(m.fee) ? ' (' + m.fee + ')' : ''); })));
+        wrap.appendChild(el('h4', { text: t('panel.mercatoIn') }));
+        wrap.appendChild(ul((tm.mercatoIn || []).map(function (m) { return m.name + (has(m.from) ? ' ← ' + m.from : '') + (has(m.fee) ? ' (' + m.fee + ')' : ''); })));
+        wrap.appendChild(el('h4', { text: t('panel.mercatoOut') }));
+        wrap.appendChild(ul((tm.mercatoOut || []).map(function (m) { return m.name + (has(m.to) ? ' → ' + m.to : '') + (has(m.fee) ? ' (' + m.fee + ')' : ''); })));
         return wrap;
       })));
     }
 
     // Pre-season
     if ((d.teams.home.preseason || []).length || (d.teams.away.preseason || []).length) {
-      add('preseason', panel('Pregătirea de vară', twoCol(d, function (t) {
-        return ul((t.preseason || []).map(function (p) { return (has(p.date) ? p.date + ' · ' : '') + p.opp + ' ' + p.score; }));
+      add('preseason', panel(t('panel.preseason'), twoCol(d, function (tm) {
+        return ul((tm.preseason || []).map(function (p) { return (has(p.date) ? p.date + ' · ' : '') + p.opp + ' ' + p.score; }));
       })));
     }
 
@@ -1577,12 +1577,12 @@
       return (d.teams[s].news || []).length || (d.teams[s].newsCandidates || []).length;
     });
     if (anyNews) {
-      add('news', panel('Top știri', twoCol(d, function (t) {
+      add('news', panel(t('panel.news'), twoCol(d, function (tm) {
         var parts = [];
-        if ((t.news || []).length) {
-          parts.push(ul(t.news.map(function (n) { return (has(n.date) ? '[' + n.date + '] ' : '') + n.text; })));
+        if ((tm.news || []).length) {
+          parts.push(ul(tm.news.map(function (n) { return (has(n.date) ? '[' + n.date + '] ' : '') + n.text; })));
         }
-        var cands = t.newsCandidates || [];
+        var cands = tm.newsCandidates || [];
         if (cands.length) {
           var list = el('ul', { class: 'news-cand' });
           cands.forEach(function (n) {
@@ -1594,11 +1594,11 @@
             ]));
           });
           parts.push(list);
-          parts.push(el('p', { class: 'nc-note', text: (t.news || []).length
-            ? 'Titluri brute din RSS, mai recente decât pachetul editorial — încă netriate.'
-            : 'Titluri brute din RSS — încă netriate.' }));
+          parts.push(el('p', { class: 'nc-note', text: (tm.news || []).length
+            ? t('panel.newsRawEditorial')
+            : t('panel.newsRaw') }));
         }
-        if (!parts.length) return el('div', { text: 'n/d' });
+        if (!parts.length) return el('div', { text: t('common.na') });
         var wrap = el('div');
         parts.forEach(function (p) { wrap.appendChild(p); });
         return wrap;
@@ -1608,30 +1608,30 @@
     // Venue
     if (d.venue && has(d.venue.name)) {
       var v = el('div', { class: 'kv' });
-      v.appendChild(el('span', { html: '<b>Stadion</b>' + esc(d.venue.name) }));
-      if (has(d.venue.city)) v.appendChild(el('span', { html: '<b>Oraș</b>' + esc(d.venue.city) }));
-      if (has(d.venue.capacity)) v.appendChild(el('span', { html: '<b>Capacitate</b>' + esc(d.venue.capacity) }));
+      v.appendChild(el('span', { html: '<b>' + t('panel.venue') + '</b>' + esc(d.venue.name) }));
+      if (has(d.venue.city)) v.appendChild(el('span', { html: '<b>' + t('panel.city') + '</b>' + esc(d.venue.city) }));
+      if (has(d.venue.capacity)) v.appendChild(el('span', { html: '<b>' + t('panel.capacity') + '</b>' + esc(d.venue.capacity) }));
       if (d.venue.weather) {
         var w = d.venue.weather;
         var wbits = [];
         if (w.tempC != null) wbits.push(Math.round(w.tempC) + '°C');
         if (has(w.condition)) wbits.push(w.condition);
-        if (w.windKph != null) wbits.push('vânt ' + Math.round(w.windKph) + ' km/h');
-        if (w.precipitationMm != null && w.precipitationMm > 0) wbits.push('precipitații ' + w.precipitationMm + ' mm');
-        if (wbits.length) v.appendChild(el('span', { html: '<b>Vreme la ora meciului</b>' + esc(wbits.join(', ')) }));
+        if (w.windKph != null) wbits.push(t('panel.windKph', { v: Math.round(w.windKph) }));
+        if (w.precipitationMm != null && w.precipitationMm > 0) wbits.push(t('panel.precip', { v: w.precipitationMm }));
+        if (wbits.length) v.appendChild(el('span', { html: '<b>' + t('panel.weatherAtKickoff') + '</b>' + esc(wbits.join(', ')) }));
       }
       var vb = el('div', {}, [v]);
       if (has(d.venue.notes)) vb.appendChild(el('p', { text: d.venue.notes }));
       if (d.venue.stories && d.venue.stories.length) {
-        vb.appendChild(el('h4', { class: 'stat-h', text: 'Curiozități' }));
+        vb.appendChild(el('h4', { class: 'stat-h', text: t('panel.curiosities') }));
         vb.appendChild(ul(d.venue.stories));
       }
-      add('venue', panel('Stadion', vb));
+      add('venue', panel(t('panel.venue'), vb));
     }
 
     // Squads
     ['home', 'away'].forEach(function (side) {
-      var t = d.teams[side];
+      var tm = d.teams[side];
       var sq = effSquad(d, side);
       if (!sq.length) return;
       var groups = { GK: [], DEF: [], MID: [], ATT: [] };
@@ -1639,7 +1639,7 @@
       var wrap = el('div');
       ['GK', 'DEF', 'MID', 'ATT'].forEach(function (g) {
         if (!groups[g].length) return;
-        wrap.appendChild(el('h4', { text: ({ GK: 'Portari', DEF: 'Fundași', MID: 'Mijlocași', ATT: 'Atacanți' })[g] }));
+        wrap.appendChild(el('h4', { text: t('posGroup.' + g) }));
         var list = el('ul');
         groups[g].forEach(function (p) {
           var sl = statLine(p);
@@ -1648,22 +1648,22 @@
             el('a', { href: '#', onclick: function (e) { e.preventDefault(); openPlayer(d, side, p); },
               text: (p.number != null ? p.number + '. ' : '') + p.name +
                 (has(p.age) || has(p.nat)
-                  ? ' (' + [has(p.age) ? p.age + ' ani' : null, p.nat].filter(Boolean).join(', ') + ')' : '') +
+                  ? ' (' + [has(p.age) ? t('player.ageValue', { n: p.age }) : null, p.nat].filter(Boolean).join(', ') + ')' : '') +
                 (sl ? ' · ' + sl : '') +
-                (p.status && p.status !== 'available' ? ' · ' + p.status : '') })
+                (p.status && p.status !== 'available' ? ' · ' + statusLabel(p.status) : '') })
           ]);
           list.appendChild(li);
         });
         wrap.appendChild(list);
       });
-      add('squad-' + side, panel('Lot — ' + t.name, wrap));
+      add('squad-' + side, panel(t('panel.squad', { team: tm.name }), wrap));
     });
 
     // (per-team custom info lives in the pitch-side rail — see teamAside)
 
     // sources
     if (d.sources && d.sources.length) {
-      add('sources', panel('Surse', ul(d.sources.map(function (s) {
+      add('sources', panel(t('panel.sources'), ul(d.sources.map(function (s) {
         return s.name + (has(s.url) ? ' — ' + s.url : '') + (has(s.accessed) ? ' (' + s.accessed + ')' : '');
       }))));
     }
@@ -1674,15 +1674,15 @@
       var evBody = el('div');
       evLog.forEach(function (row) {
         evBody.appendChild(el('div', { class: 'ev-row' }, [
-          el('span', { text: (row.minute != null ? row.minute + "'  " : "—  ") + EV_META[row.type].icon + (row.type === 'owngoal' ? ' (autogol)' : '') + '  ' + row.playerName + '  (' + row.teamName + ')' }),
-          el('button', { text: '✕', title: 'Șterge', onclick: row.onDel || function () { delEvent(row.side, row.player, row.id); rerenderPanels(d); rerenderPitch(d); } })
+          el('span', { text: (row.minute != null ? row.minute + "'  " : "—  ") + evMeta(row.type).icon + (row.type === 'owngoal' ? t('panel.ownGoalSuffix') : '') + '  ' + row.playerName + '  (' + row.teamName + ')' }),
+          el('button', { text: '✕', title: t('common.delete'), onclick: row.onDel || function () { delEvent(row.side, row.player, row.id); rerenderPanels(d); rerenderPitch(d); } })
         ]));
       });
-      add('events', panel('Evenimente meci', evBody, { open: true }));
+      add('events', panel(t('panel.matchEvents'), evBody, { open: true }));
     }
 
     // match-level notes
-    add('notes', panel('Notițe — general meci', notesBlock('match', 'general meci'), { lead: true, open: true }));
+    add('notes', panel(t('panel.notesMatch'), notesBlock('match', t('export.matchGeneral')), { lead: true, open: true }));
 
     // apply the user's saved order (unknown keys keep their natural spot at the end)
     var saved = (store.panelOrder || []).filter(function (k) {
@@ -1715,7 +1715,7 @@
       list.forEach(function (it) {
         box.appendChild(el('div', { class: 'px-row' }, [
           el('span', { text: it.text }),
-          el('button', { text: '✕', title: 'Șterge', onclick: function () {
+          el('button', { text: '✕', title: t('common.delete'), onclick: function () {
             store.panelExtra[key] = (store.panelExtra[key] || []).filter(function (x) { return x.id !== it.id; });
             if (!store.panelExtra[key].length) delete store.panelExtra[key];
             if (store.panelExtra && !Object.keys(store.panelExtra).length) delete store.panelExtra;
@@ -1723,7 +1723,7 @@
           } })
         ]));
       });
-      var inp = el('input', { class: 'field px-in', placeholder: placeholder || '＋ adaugă o informație aici' });
+      var inp = el('input', { class: 'field px-in', placeholder: placeholder || t('extras.placeholder') });
       function add() {
         var v = inp.value.trim();
         if (!v) return;
@@ -1735,7 +1735,7 @@
         redraw();
       }
       inp.addEventListener('keydown', function (e) { if (e.key === 'Enter') add(); });
-      box.appendChild(el('div', { class: 'px-add' }, [inp, el('button', { class: 'pick', text: 'Adaugă', onclick: add })]));
+      box.appendChild(el('div', { class: 'px-add' }, [inp, el('button', { class: 'pick', text: t('common.add'), onclick: add })]));
     }
     redraw();
     return box;
@@ -1759,7 +1759,7 @@
     if (!sum) return;
     var btn = el('span', {
       class: 'pwiden', role: 'button', tabindex: '0',
-      title: wide ? 'Restrânge caseta' : 'Extinde caseta pe toată lățimea',
+      title: wide ? t('widen.collapse') : t('widen.expand'),
       text: wide ? '⤡' : '⤢'
     });
     btn.addEventListener('click', function (e) {
@@ -1866,13 +1866,13 @@
         avatarEl(p.photo, initials(p.name), side === 'home' ? 'var(--home)' : 'var(--away)'),
         el('div', {}, [
           el('h3', { text: (p.number != null ? '#' + p.number + '  ' : '') + p.name + (isCaptain(side, p) ? '  (C)' : '') }),
-          el('div', { class: 'sub', text: [pos(p), has(p.age) ? p.age + ' ani' : null, has(p.height) ? p.height + ' cm' : null, has(p.weight) ? p.weight + ' kg' : null, footLabel(p.foot)].filter(Boolean).join('  ·  ') }),
+          el('div', { class: 'sub', text: [pos(p), has(p.age) ? t('player.ageValue', { n: p.age }) : null, has(p.height) ? t('player.heightValue', { n: p.height }) : null, has(p.weight) ? t('player.weightValue', { n: p.weight }) : null, footLabel(p.foot)].filter(Boolean).join('  ·  ') }),
           el('div', { class: 'sub', text: [natLabel(p), d.teams[side].name].filter(Boolean).join('  ·  ') })
         ]),
         el('button', { class: 'modal-close', text: '✕', onclick: close })
       ]);
     }, {
-      'Profil': function () {
+      [t('player.tabProfile')]: function () {
         var wrap = el('div');
         var body = el('div');
         // shirt number — editable, for when it's missing or has changed;
@@ -1880,29 +1880,29 @@
         // plus a captain toggle
         var nameIn = el('input', { class: 'field pname-in', type: 'text',
           placeholder: p._name0 !== undefined ? p._name0 : p.name, value: p.name });
-        var nameSave = el('button', { class: 'pick pnum-save', text: 'Salvează', onclick: function () {
+        var nameSave = el('button', { class: 'pick pnum-save', text: t('common.save'), onclick: function () {
           setPlayerName(d, side, p, nameIn.value);
         } });
         var nameReset = (p._name0 !== undefined && p._name0 !== p.name)
-          ? el('button', { class: 'pick pname-reset', text: '↺', title: 'Revino la numele cercetat: ' + p._name0,
+          ? el('button', { class: 'pick pname-reset', text: '↺', title: t('player.resetResearchedName', { name: p._name0 }),
               onclick: function () { setPlayerName(d, side, p, ''); } })
           : null;
         var numIn = el('input', { class: 'field pnum-in', type: 'number', min: '1', max: '99',
           placeholder: '—', value: p.number != null ? p.number : '' });
-        var numSave = el('button', { class: 'pick pnum-save', text: 'Salvează', onclick: function () {
+        var numSave = el('button', { class: 'pick pnum-save', text: t('common.save'), onclick: function () {
           var v = numIn.value.trim();
           setPlayerNumber(d, side, p, v === '' ? null : parseInt(v, 10));
         } });
         var capOn = isCaptain(side, p);
         var capBtn = el('button', {
           class: 'cap-toggle' + (capOn ? ' on' : ''),
-          text: capOn ? '★ Căpitan' : '☆ Fă căpitan',
+          text: capOn ? t('player.captainOn') : t('player.captainOff'),
           onclick: function () { setCaptain(d, side, p); }
         });
         wrap.appendChild(el('div', { class: 'pcard-edit' }, [
-          el('label', { text: 'Nume afișat' }),
+          el('label', { text: t('player.displayName') }),
           el('div', { class: 'pnum-row' }, [nameIn, nameSave, nameReset]),
-          el('label', { text: 'Număr' }),
+          el('label', { text: t('player.number') }),
           el('div', { class: 'pnum-row' }, [numIn, numSave]),
           capBtn
         ]));
@@ -1910,28 +1910,28 @@
         function fill() {
           body.innerHTML = '';
           var kv = el('div', { class: 'kv' });
-          if (has(p.pronunciation)) kv.appendChild(el('span', { html: '<b>Pronunție</b>' + esc(p.pronunciation) }));
-          if (has(p.nat)) kv.appendChild(el('span', { html: '<b>Cetățenie</b>' + esc(p.nat) }));
-          if (has(p.natTeam)) kv.appendChild(el('span', { html: '<b>Națională</b>' + esc(p.natTeam) }));
-          if (has(p.birthCountry)) kv.appendChild(el('span', { html: '<b>Născut în</b>' + esc(p.birthCountry) }));
-          if (has(p.age)) kv.appendChild(el('span', { html: '<b>Vârstă</b>' + esc(p.age + ' ani') }));
-          if (has(p.height)) kv.appendChild(el('span', { html: '<b>Înălțime</b>' + esc(p.height + ' cm') }));
-          if (footLabel(p.foot)) kv.appendChild(el('span', { html: '<b>Picior</b>' + esc(footLabel(p.foot)) }));
+          if (has(p.pronunciation)) kv.appendChild(el('span', { html: '<b>' + t('player.pronunciation') + '</b>' + esc(p.pronunciation) }));
+          if (has(p.nat)) kv.appendChild(el('span', { html: '<b>' + t('player.citizenship') + '</b>' + esc(p.nat) }));
+          if (has(p.natTeam)) kv.appendChild(el('span', { html: '<b>' + t('player.national') + '</b>' + esc(p.natTeam) }));
+          if (has(p.birthCountry)) kv.appendChild(el('span', { html: '<b>' + t('player.bornIn') + '</b>' + esc(p.birthCountry) }));
+          if (has(p.age)) kv.appendChild(el('span', { html: '<b>' + t('player.age') + '</b>' + esc(t('player.ageValue', { n: p.age })) }));
+          if (has(p.height)) kv.appendChild(el('span', { html: '<b>' + t('player.height') + '</b>' + esc(t('player.heightValue', { n: p.height })) }));
+          if (footLabel(p.foot)) kv.appendChild(el('span', { html: '<b>' + t('player.foot') + '</b>' + esc(footLabel(p.foot)) }));
           if (kv.childNodes.length) body.appendChild(kv);
           var posBadge = positionsBadge(p);
           if (posBadge) body.appendChild(posBadge);
           var s = p.stats || {};
           var rows = (p.role === 'GK' ? [
-            ['Meciuri', s.apps], ['Minute', s.minutes], ['Goluri primite', s.conceded],
-            ['Intervenții', s.saves], ['Galbene', s.yellow], ['Roșii', s.red],
-            ['Rating', s.rating]
+            [t('player.statMatches'), s.apps], [t('player.statMinutes'), s.minutes], [t('player.statGoalsConceded'), s.conceded],
+            [t('player.statSaves'), s.saves], [t('player.statYellow'), s.yellow], [t('player.statRed'), s.red],
+            [t('player.statRating'), s.rating]
           ] : [
-            ['Meciuri', s.apps], ['Minute', s.minutes], ['Goluri', s.goals],
-            ['Pase decisive', s.assists], ['Galbene', s.yellow], ['Roșii', s.red],
-            ['Rating', s.rating]
+            [t('player.statMatches'), s.apps], [t('player.statMinutes'), s.minutes], [t('player.statGoals'), s.goals],
+            [t('player.statAssists'), s.assists], [t('player.statYellow'), s.yellow], [t('player.statRed'), s.red],
+            [t('player.statRating'), s.rating]
           ]).filter(function (r) { return r[1] != null; });
           if (rows.length) {
-            body.appendChild(el('h4', { class: 'stat-h', text: 'Sezonul curent' }));
+            body.appendChild(el('h4', { class: 'stat-h', text: t('player.currentSeason') }));
             var g = el('div', { class: 'stat-grid' });
             rows.forEach(function (r) {
               g.appendChild(el('div', { class: 'stat-cell' }, [
@@ -1941,26 +1941,26 @@
             });
             body.appendChild(g);
           }
-          if (has(p.lastSeason)) body.appendChild(el('p', { html: '<b style="color:var(--color-neutral-500)">Sezonul trecut:</b> ' + esc(p.lastSeason) }));
+          if (has(p.lastSeason)) body.appendChild(el('p', { html: '<b style="color:var(--color-neutral-500)">' + t('player.lastSeason') + '</b> ' + esc(p.lastSeason) }));
         }
         fill();
         return wrap;
       },
-      'Carieră': function () {
-        return el('div', {}, [el('p', { text: has(p.career) ? p.career : 'Cariera nu este disponibilă în sursa verificată.' })]);
+      [t('player.tabCareer')]: function () {
+        return el('div', {}, [el('p', { text: has(p.career) ? p.career : t('player.careerUnavailable') })]);
       },
-      'Funfact': function () {
+      [t('player.tabFunfact')]: function () {
         var wrap = el('div');
         wrap.appendChild(el('p', { text: has(p.funfact) ? p.funfact : '—' }));
-        if (has(p.linkLine)) wrap.appendChild(el('p', { html: '<b style="color:var(--color-neutral-500)">Legătură directă:</b> ' + esc(p.linkLine) }));
+        if (has(p.linkLine)) wrap.appendChild(el('p', { html: '<b style="color:var(--color-neutral-500)">' + t('player.linkLine') + '</b> ' + esc(p.linkLine) }));
         return wrap;
       },
-      'Status': function () {
-        return el('div', {}, [el('p', { text: (p.status || 'available') + (has(p.statusNote) ? ' — ' + p.statusNote : '') })]);
+      [t('player.tabStatus')]: function () {
+        return el('div', {}, [el('p', { text: statusLabel(p.status || 'available') + (has(p.statusNote) ? ' — ' + p.statusNote : '') })]);
       },
-      'Schimbă': function (close) { return subTab(d, side, p, close); },
-      'Goluri / cartonașe': function () { return eventsTab(d, side, p); },
-      'Notițe': function () { return notesBlock(id, p.name); }
+      [t('player.tabSub')]: function (close) { return subTab(d, side, p, close); },
+      [t('player.tabEvents')]: function () { return eventsTab(d, side, p); },
+      [t('player.tabNotes')]: function () { return notesBlock(id, p.name); }
     });
   }
 
@@ -1968,24 +1968,24 @@
   // Updates the pitch badges live.
   function eventsTab(d, side, p) {
     var wrap = el('div', { class: 'ev-tab' });
-    var minIn = el('input', { class: 'field ev-min', type: 'number', min: '1', max: '120', placeholder: 'Minut (opțional)' });
+    var minIn = el('input', { class: 'field ev-min', type: 'number', min: '1', max: '120', placeholder: t('events.minutePlaceholder') });
     var list = el('div', { class: 'ev-list' });
     function redraw() {
       list.innerHTML = '';
       var evs = eventsFor(side, p).slice().sort(function (a, b) {
         return (a.minute == null ? 999 : a.minute) - (b.minute == null ? 999 : b.minute);
       });
-      if (!evs.length) { list.appendChild(el('p', { class: 'ev-empty', text: 'Niciun eveniment.' })); return; }
+      if (!evs.length) { list.appendChild(el('p', { class: 'ev-empty', text: t('events.none') })); return; }
       evs.forEach(function (e) {
         list.appendChild(el('div', { class: 'ev-row' }, [
-          el('span', { text: (e.minute != null ? e.minute + "'  " : '') + EV_META[e.type].icon + ' ' + EV_META[e.type].label }),
-          el('button', { text: '✕', title: 'Șterge', onclick: function () { delEvent(side, p, e.id); redraw(); rerenderPitch(d); rerenderPanels(d); } })
+          el('span', { text: (e.minute != null ? e.minute + "'  " : '') + evMeta(e.type).icon + ' ' + evMeta(e.type).label }),
+          el('button', { text: '✕', title: t('common.delete'), onclick: function () { delEvent(side, p, e.id); redraw(); rerenderPitch(d); rerenderPanels(d); } })
         ]));
       });
     }
     var btns = el('div', { class: 'ev-btns' }, ['goal', 'owngoal', 'yellow', 'red'].map(function (type) {
       return el('button', {
-        class: 'ev-add ' + type, text: EV_META[type].icon + ' ' + EV_META[type].label,
+        class: 'ev-add ' + type, text: evMeta(type).icon + ' ' + evMeta(type).label,
         onclick: function () { addEvent(side, p, type, minIn.value); minIn.value = ''; redraw(); rerenderPitch(d); rerenderPanels(d); }
       });
     }));
@@ -2013,13 +2013,13 @@
         onclick: onClick,
         text: (pl.number != null ? '#' + pl.number + '  ' : '') + pl.name +
           (has(pl.pos) ? '  ·  ' + pl.pos : has(pl.role) ? '  ·  ' + pl.role : '') +
-          (pl.status && pl.status !== 'available' ? '  ·  ' + pl.status : '')
+          (pl.status && pl.status !== 'available' ? '  ·  ' + statusLabel(pl.status) : '')
       });
     }
 
     // type of change: correcting the announced XI, or an in-match substitution
     var kindSel = 'xi';
-    var minIn = el('input', { class: 'field sub-min', type: 'number', min: '1', max: '120', placeholder: "Minut" });
+    var minIn = el('input', { class: 'field sub-min', type: 'number', min: '1', max: '120', placeholder: t('sub.minutePlaceholder') });
     var minRow = el('div', { class: 'sub-min-row' }, [minIn]);
     var kindToggle = el('div', { class: 'sub-kind-toggle' });
     function setKind(k) {
@@ -2027,7 +2027,7 @@
       [].forEach.call(kindToggle.children, function (b) { b.classList.toggle('active', b.getAttribute('data-k') === k); });
       minRow.hidden = (k !== 'sub');
     }
-    [['xi', 'Corectură primul 11'], ['sub', 'Schimbare în meci']].forEach(function (pair) {
+    [['xi', t('sub.optionLineup')], ['sub', t('sub.optionInMatch')]].forEach(function (pair) {
       kindToggle.appendChild(el('button', { 'data-k': pair[0], text: pair[1], onclick: function () { setKind(pair[0]); } }));
     });
     function doSub(idx, player) {
@@ -2038,11 +2038,11 @@
     if (slotIdx >= 0) {
       var origName = pred[slotIdx] ? pred[slotIdx].name : null;
       var swapped = !!(store.xi && store.xi[side] && store.xi[side][slotIdx]);
-      wrap.appendChild(el('p', { class: 'sub-head', text: 'Îl scoate pe ' + p.name + '. Cine intră?' }));
+      wrap.appendChild(el('p', { class: 'sub-head', text: t('sub.whoComesOn', { name: p.name }) }));
       wrap.appendChild(kindToggle);
       wrap.appendChild(minRow);
       if (swapped && origName) {
-        wrap.appendChild(line({ name: '↩ Revino la ' + origName + ' (din predicție)' },
+        wrap.appendChild(line({ name: t('sub.revertTo', { name: origName }) },
           function () { clearSub(d, side, slotIdx); close(); }));
       }
       var onKeys = eff.map(keyOf);
@@ -2053,9 +2053,9 @@
           wrap.appendChild(line(b, function () { doSub(slotIdx, b); }));
         });
       });
-      if (!bench.length) wrap.appendChild(el('p', { text: 'Nu există jucători de rezervă în date.' }));
+      if (!bench.length) wrap.appendChild(el('p', { text: t('sub.noBench') }));
     } else {
-      wrap.appendChild(el('p', { class: 'sub-head', text: p.name + ' e pe bancă. Pe cine înlocuiește?' }));
+      wrap.appendChild(el('p', { class: 'sub-head', text: t('sub.whoReplaces', { name: p.name }) }));
       wrap.appendChild(kindToggle);
       wrap.appendChild(minRow);
       eff.forEach(function (s, i) {
@@ -2064,7 +2064,7 @@
         wrap.appendChild(line(full, function () { doSub(i, p); }));
       });
     }
-    wrap.appendChild(el('p', { class: 'sub-note', text: '„Corectură primul 11" = alinierea anunțată era greșită. „Schimbare în meci" = schimbare la minutul indicat, apare în jurnalul meciului. Se salvează local.' }));
+    wrap.appendChild(el('p', { class: 'sub-note', text: t('sub.hint') }));
     setKind('xi');
     return wrap;
   }
@@ -2072,9 +2072,8 @@
   function groupPick(list) {
     var g = { GK: [], DEF: [], MID: [], ATT: [] };
     list.forEach(function (p) { (g[p.role] || g.MID).push(p); });
-    var labels = { GK: 'Portari', DEF: 'Fundași', MID: 'Mijlocași', ATT: 'Atacanți' };
     return ['GK', 'DEF', 'MID', 'ATT'].filter(function (k) { return g[k].length; })
-      .map(function (k) { return { label: labels[k], items: g[k] }; });
+      .map(function (k) { return { label: t('posGroup.' + k), items: g[k] }; });
   }
 
   // Fill an empty pitch slot by hand: creates the player (added to the manual
@@ -2091,7 +2090,7 @@
     var onKeys = effXI(d, side).map(keyOf);
     var avail = effSquad(d, side).filter(function (x) { return onKeys.indexOf(keyOf(x)) < 0; });
 
-    var searchIn = el('input', { class: 'field', type: 'search', placeholder: 'Caută în lot…' });
+    var searchIn = el('input', { class: 'field', type: 'search', placeholder: t('benchPicker.search') });
     var pickList = el('div', { class: 'pick-list' });
     function drawPicks() {
       var q = searchIn.value.trim().toLowerCase();
@@ -2105,22 +2104,22 @@
             onclick: function () { applySub(d, side, idx, p); close(); },
             text: (p.number != null ? '#' + p.number + '  ' : '') + p.name +
               (has(p.pos) ? '  ·  ' + p.pos : has(p.role) ? '  ·  ' + p.role : '') +
-              (has(p.age) ? '  ·  ' + p.age + ' ani' : '') +
+              (has(p.age) ? '  ·  ' + t('player.ageValue', { n: p.age }) : '') +
               (p.stats && (p.stats.goals || p.stats.assists) ? '  ·  ' + (p.stats.goals || 0) + 'G/' + (p.stats.assists || 0) + 'A' : '') +
-              (p.status && p.status !== 'available' ? '  ·  ' + p.status : '')
+              (p.status && p.status !== 'available' ? '  ·  ' + statusLabel(p.status) : '')
           }));
         });
       });
-      if (!rows.length) pickList.appendChild(el('p', { class: 'sub-note', text: avail.length ? 'Nimeni nu se potrivește căutării.' : 'Lotul nu e încărcat încă — adaugă jucătorul manual mai jos.' }));
+      if (!rows.length) pickList.appendChild(el('p', { class: 'sub-note', text: avail.length ? t('benchPicker.noMatch') : t('benchPicker.noSquadYet') }));
     }
     searchIn.addEventListener('input', drawPicks);
 
-    var numIn = el('input', { class: 'field', type: 'number', min: '1', max: '99', placeholder: 'Număr (opțional)' });
-    var nameIn = el('input', { class: 'field', placeholder: 'Nume jucător' });
+    var numIn = el('input', { class: 'field', type: 'number', min: '1', max: '99', placeholder: t('benchPicker.numberPlaceholder') });
+    var nameIn = el('input', { class: 'field', placeholder: t('benchPicker.namePlaceholder') });
     var roleSel = el('select', { class: 'field' }, ['GK', 'DEF', 'MID', 'ATT'].map(function (r) {
-      return el('option', { value: r, text: ({ GK: 'Portar', DEF: 'Fundaș', MID: 'Mijlocaș', ATT: 'Atacant' })[r] });
+      return el('option', { value: r, text: t('posShort.' + r) });
     }));
-    var posIn = el('input', { class: 'field', placeholder: 'Poziție (ex. CB, CAM) — opțional' });
+    var posIn = el('input', { class: 'field', placeholder: t('benchPicker.posPlaceholder') });
     function submit() {
       var name = nameIn.value.trim();
       if (!name) { nameIn.focus(); return; }
@@ -2134,15 +2133,15 @@
     }
     nameIn.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
     var manual = el('details', { class: 'add-manual' }, [
-      el('summary', { text: 'Adaugă manual un jucător nou' }),
+      el('summary', { text: t('benchPicker.addManually') }),
       el('div', {}, [
         numIn, nameIn, roleSel, posIn,
-        el('div', { class: 'notes-row' }, [el('button', { class: 'pick', text: 'Adaugă pe teren', onclick: submit })])
+        el('div', { class: 'notes-row' }, [el('button', { class: 'pick', text: t('benchPicker.addToPitch'), onclick: submit })])
       ])
     ]);
     var m = el('div', { class: 'modal', style: 'max-width:380px' }, [
       el('div', { class: 'modal-head' }, [
-        el('h3', { text: 'Alege jucătorul pentru acest post' }),
+        el('h3', { text: t('benchPicker.pickForSlot') }),
         el('button', { class: 'modal-close', text: '✕', onclick: close })
       ]),
       el('div', { class: 'modal-body' }, [
@@ -2177,15 +2176,15 @@
     back.appendChild(el('div', { class: 'modal', style: 'max-width:320px' }, [
       el('div', { class: 'modal-head' }, [el('h3', { text: title }), el('button', { class: 'modal-close', text: '✕', onclick: close })]),
       el('div', { class: 'modal-body' }, inputs.concat([
-        el('div', { class: 'notes-row' }, [el('button', { class: 'pick', text: 'Salvează', onclick: submit })])
+        el('div', { class: 'notes-row' }, [el('button', { class: 'pick', text: t('common.save'), onclick: submit })])
       ]))
     ]));
     document.body.appendChild(back);
     inputs[0].focus();
   }
   function openEditCoach(d, side) {
-    quickForm('Adaugă antrenor — ' + d.teams[side].name,
-      [{ label: 'Nume antrenor' }, { label: 'Țară (opțional)' }, { label: 'Vârstă (opțional)', type: 'number' }],
+    quickForm(t('quickAdd.coachTitle', { team: d.teams[side].name }),
+      [{ label: t('quickAdd.coachName') }, { label: t('quickAdd.country') }, { label: t('quickAdd.age'), type: 'number' }],
       function (v) {
         store.manual = store.manual || {}; store.manual.coach = store.manual.coach || {};
         store.manual.coach[side] = { name: v[0], country: v[1] || null, age: v[2] ? parseInt(v[2], 10) : null, tenureFrom: null, career: [] };
@@ -2193,8 +2192,8 @@
       });
   }
   function openEditReferee(d) {
-    quickForm('Adaugă arbitru',
-      [{ label: 'Nume arbitru' }, { label: 'Țară (opțional)' }],
+    quickForm(t('quickAdd.refereeTitle'),
+      [{ label: t('quickAdd.refereeName') }, { label: t('quickAdd.country') }],
       function (v) {
         store.manual = store.manual || {};
         store.manual.referee = { name: v[0], country: v[1] || null, age: null, apps: null, ycPerMatch: null, rcPerMatch: null, history: null };
@@ -2202,8 +2201,8 @@
       });
   }
   function openEditVenue(d) {
-    quickForm('Adaugă stadion',
-      [{ label: 'Nume stadion' }, { label: 'Oraș (opțional)' }, { label: 'Capacitate (opțional)', type: 'number' }],
+    quickForm(t('quickAdd.venueTitle'),
+      [{ label: t('quickAdd.venueName') }, { label: t('quickAdd.city') }, { label: t('quickAdd.capacity'), type: 'number' }],
       function (v) {
         store.manual = store.manual || {};
         store.manual.venue = { name: v[0], city: v[1] || null, capacity: v[2] ? parseInt(v[2], 10) : null, notes: null };
@@ -2218,30 +2217,30 @@
         avatarEl(c.photo, initials(c.name), side === 'home' ? 'var(--home)' : 'var(--away)'),
         el('div', {}, [
           el('h3', { text: c.name }),
-          el('div', { class: 'sub', text: ['Antrenor · ' + d.teams[side].name, has(c.country) ? c.country : null, has(c.age) ? c.age + ' ani' : null, has(c.tenureFrom) ? 'din ' + c.tenureFrom : null].filter(Boolean).join('  ·  ') })
+          el('div', { class: 'sub', text: [t('coach.notesLabel', { team: d.teams[side].name }), has(c.country) ? c.country : null, has(c.age) ? t('player.ageValue', { n: c.age }) : null, has(c.tenureFrom) ? t('coach.tenureFromPrefix', { date: c.tenureFrom }) : null].filter(Boolean).join('  ·  ') })
         ]),
         el('button', { class: 'modal-close', text: '✕', onclick: close })
       ]);
     }, {
-      'Carieră': function () {
-        if (!c.career || !c.career.length) return el('p', { text: 'n/d' });
-        var t = el('table', { class: 'mc' }, [el('tr', {}, [el('th', { text: 'Club' }), el('th', { text: 'Perioadă' }), el('th', { text: 'Note' })])]);
-        c.career.forEach(function (r) { t.appendChild(el('tr', {}, [el('td', { text: r.club }), el('td', { text: r.period }), el('td', { text: has(r.note) ? r.note : '—' })])); });
-        return t;
+      [t('coach.tabCareer')]: function () {
+        if (!c.career || !c.career.length) return el('p', { text: t('common.na') });
+        var tbl = el('table', { class: 'mc' }, [el('tr', {}, [el('th', { text: t('coach.club') }), el('th', { text: t('coach.period') }), el('th', { text: t('coach.note') })])]);
+        c.career.forEach(function (r) { tbl.appendChild(el('tr', {}, [el('td', { text: r.club }), el('td', { text: r.period }), el('td', { text: has(r.note) ? r.note : '—' })])); });
+        return tbl;
       },
-      'Trofee': function () {
-        if (!c.trophies || !c.trophies.length) return el('p', { text: 'n/d' });
-        var t = el('table', { class: 'mc' }, [el('tr', {}, [el('th', { text: 'Competiție' }), el('th', { text: 'Sezon' }), el('th', { text: 'Rezultat' })])]);
+      [t('coach.tabTrophies')]: function () {
+        if (!c.trophies || !c.trophies.length) return el('p', { text: t('common.na') });
+        var tbl = el('table', { class: 'mc' }, [el('tr', {}, [el('th', { text: t('coach.competition') }), el('th', { text: t('coach.season') }), el('th', { text: t('coach.result') })])]);
         c.trophies.forEach(function (r) {
-          t.appendChild(el('tr', {}, [
+          tbl.appendChild(el('tr', {}, [
             el('td', { text: has(r.country) ? r.competition + ' (' + r.country + ')' : r.competition }),
             el('td', { text: has(r.season) ? r.season : '—' }),
             el('td', { text: r.place })
           ]));
         });
-        return t;
+        return tbl;
       },
-      'Notițe': function () { return notesBlock(id, 'antrenor ' + d.teams[side].name); }
+      [t('coach.tabNotes')]: function () { return notesBlock(id, t('coach.notesLabel', { team: d.teams[side].name })); }
     });
   }
 
@@ -2252,32 +2251,31 @@
         el('div', { class: 'avatar', style: 'background:#555', text: initials(r.name) }),
         el('div', {}, [
           el('h3', { text: r.name }),
-          el('div', { class: 'sub', text: ['Arbitru', has(r.country) ? r.country : null, has(r.age) ? r.age + ' ani' : null].filter(Boolean).join('  ·  ') })
+          el('div', { class: 'sub', text: [t('pitch.referee'), has(r.country) ? r.country : null, has(r.age) ? t('player.ageValue', { n: r.age }) : null].filter(Boolean).join('  ·  ') })
         ]),
         el('button', { class: 'modal-close', text: '✕', onclick: close })
       ]);
     }, {
-      'Profil': function () {
+      [t('referee.tabProfile')]: function () {
         var kv = el('div', { class: 'kv' });
-        if (has(r.apps)) kv.appendChild(el('span', { html: '<b>Aparții</b>' + esc(r.apps) }));
-        if (has(r.ycPerMatch)) kv.appendChild(el('span', { html: '<b>Galbene/meci</b>' + esc(r.ycPerMatch) }));
-        if (has(r.rcPerMatch)) kv.appendChild(el('span', { html: '<b>Roșii/meci</b>' + esc(r.rcPerMatch) }));
+        if (has(r.apps)) kv.appendChild(el('span', { html: '<b>' + t('referee.apps') + '</b>' + esc(r.apps) }));
+        if (has(r.ycPerMatch)) kv.appendChild(el('span', { html: '<b>' + t('referee.ycPerMatchLabel') + '</b>' + esc(r.ycPerMatch) }));
+        if (has(r.rcPerMatch)) kv.appendChild(el('span', { html: '<b>' + t('referee.rcPerMatch') + '</b>' + esc(r.rcPerMatch) }));
         var wrap = el('div', {}, [kv]);
         if (has(r.history)) wrap.appendChild(el('p', { text: r.history }));
         return wrap;
       },
-      'Notițe': function () { return notesBlock(id, 'arbitru'); }
+      [t('referee.tabNotes')]: function () { return notesBlock(id, t('referee.notesLabel')); }
     });
   }
 
-  function pos(p) { return has(p.pos) ? p.pos : ({ GK: 'Portar', DEF: 'Fundaș', MID: 'Mijlocaș', ATT: 'Atacant' })[p.role] || ''; }
+  function pos(p) { return has(p.pos) ? p.pos : t('posShort.' + p.role) || ''; }
   function positionLabel(v) {
-    return ({ GK: 'Portar', DEF: 'Fundaș', MID: 'Mijlocaș', ATT: 'Atacant',
-      LB: 'Fundaș stânga', RB: 'Fundaș dreapta', CB: 'Fundaș central',
-      LWB: 'Fundaș lateral stânga', RWB: 'Fundaș lateral dreapta',
-      CDM: 'Mijlocaș defensiv', CM: 'Mijlocaș central', CAM: 'Mijlocaș ofensiv',
-      LM: 'Mijlocaș stânga', RM: 'Mijlocaș dreapta', LW: 'Extremă stânga',
-      RW: 'Extremă dreapta', ST: 'Vârf', CF: 'Atacant central' })[String(v || '').toUpperCase()] || v || 'n/d';
+    var code = String(v || '').toUpperCase();
+    if (['GK', 'DEF', 'MID', 'ATT'].indexOf(code) >= 0) return t('posShort.' + code);
+    var key = 'posFull.' + code;
+    var found = t(key);
+    return found === key ? (v || t('common.na')) : found;
   }
   // Read-only: every position API-Football has reported for this player across
   // competitions (scripts/prefetch-preview.mjs positionsFrom). Not user-editable —
@@ -2291,7 +2289,7 @@
     });
     if (list.length < 2) return null;
     var wrap = el('div', { class: 'position-card' });
-    wrap.appendChild(el('h4', { class: 'stat-h', text: 'Poziții jucate (date API)' }));
+    wrap.appendChild(el('h4', { class: 'stat-h', text: t('player.positionsApiTitle') }));
     var chips = el('div', { class: 'pos-chips' });
     list.forEach(function (v, i) {
       chips.appendChild(el('span', { class: 'pos-chip' + (i === 0 ? ' main' : ''), text: positionLabel(v) }));
@@ -2299,7 +2297,8 @@
     wrap.appendChild(chips);
     return wrap;
   }
-  function footLabel(f) { return { L: 'stângul', R: 'dreptul', B: 'ambele' }[f] || null; }
+  function footLabel(f) { return f ? t('foot.' + f) : null; }
+  function statusLabel(s) { return s ? t('status.' + s) : null; }
   function natLabel(p) {
     var a = [];
     if (has(p.nat)) a.push(p.nat);

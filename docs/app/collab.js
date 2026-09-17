@@ -2,6 +2,7 @@
    It deliberately degrades to localStorage if Supabase is not configured. */
 (function () {
   'use strict';
+  var t = window.MC_I18N.t;
   var cfg = window.PM_CONFIG || {};
   var enabled = !!(cfg.supabaseUrl && cfg.supabaseAnonKey && window.supabase);
   var client = enabled ? window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey) : null;
@@ -27,9 +28,9 @@
   }
 
   async function sendMagicLink(email) {
-    if (!enabled) throw new Error('Supabase nu este configurat.');
+    if (!enabled) throw new Error(t('collab.notConfigured'));
     var clean = String(email || '').trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean)) throw new Error('Introdu o adresă de email validă.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean)) throw new Error(t('collab.invalidEmail'));
     var res = await client.auth.signInWithOtp({
       email: clean,
       // Keep the exact match query too: returning to match.html without ?m=
@@ -49,12 +50,8 @@
 
   function changedAreas(before, after) {
     var a = before || {}, b = after || {};
-    var labels = {
-      notes: 'notițe', lineup: 'poziții', xi: 'primul 11 / schimbări', bench: 'rezerve',
-      events: 'evenimente', captain: 'căpitan', pnum: 'numere', panelExtra: 'informații adăugate',
-      manual: 'date manuale', discColors: 'culori', view: 'vedere', panelOrder: 'panouri'
-    };
-    return Object.keys(labels).filter(function (k) { return json(a[k]) !== json(b[k]); }).map(function (k) { return labels[k]; });
+    var keys = ['notes', 'lineup', 'xi', 'bench', 'events', 'captain', 'pnum', 'panelExtra', 'manual', 'discColors', 'view', 'panelOrder'];
+    return keys.filter(function (k) { return json(a[k]) !== json(b[k]); }).map(function (k) { return t('collab.change.' + k); });
   }
 
   async function loadFavourites() {
@@ -110,7 +107,7 @@
     if (res.error) throw res.error;
     var areas = changedAreas(before, state);
     if (!silent && areas.length) {
-      await client.from('mc_match_changes').insert({ match_slug: activeSlug, user_id: user.id, display_name: name, summary: 'A modificat: ' + areas.join(', '), changed_at: now });
+      await client.from('mc_match_changes').insert({ match_slug: activeSlug, user_id: user.id, display_name: name, summary: t('collab.changedSummary', { areas: areas.join(', ') }), changed_at: now });
     }
   }
 
@@ -121,11 +118,11 @@
     var before; try { before = JSON.parse(lastJson || '{}'); } catch (e) { before = {}; }
     lastJson = next;
     clearTimeout(timer);
-    timer = setTimeout(function () { write(state, before, false).catch(function (e) { console.warn('Nu s-au sincronizat schimbările.', e); }); }, 500);
+    timer = setTimeout(function () { write(state, before, false).catch(function (e) { console.warn(t('collab.syncFailed'), e); }); }, 500);
   }
 
   async function setName(value) {
-    name = cleanName(value) || 'Utilizator'; setLocalName(name); emit();
+    name = cleanName(value) || t('collab.defaultUser'); setLocalName(name); emit();
     if (user && activeSlug) {
       await client.from('mc_match_state').update({ updated_by_name: name }).eq('match_slug', activeSlug).eq('updated_by', user.id);
     }
@@ -154,13 +151,13 @@
           active = Object.keys(local).filter(function (k) { return local[k]; });
         }
         if (active.length >= FAV_LIMIT) {
-          throw new Error('Poți avea cel mult ' + FAV_LIMIT + ' meciuri favorite — elimină unul înainte de a adăuga altul.');
+          throw new Error(t('collab.favouriteLimit', { limit: FAV_LIMIT }));
         }
       }
       local[slug] = !local[slug]; localStorage.setItem('mc:favourites', JSON.stringify(local)); return !!local[slug];
     }
     await ensureUser();
-    if (!user) throw new Error('Conectează-te cu emailul tău pentru a salva favoritele între dispozitive.');
+    if (!user) throw new Error(t('collab.loginRequired'));
     if (favs[slug]) {
       var del = await client.from('mc_favourites').delete().eq('user_id', user.id).eq('match_slug', slug);
       if (del.error) throw del.error;
@@ -174,7 +171,7 @@
         }
       }
       if (Object.keys(favs).length >= FAV_LIMIT) {
-        throw new Error('Poți avea cel mult ' + FAV_LIMIT + ' meciuri favorite — elimină unul înainte de a adăuga altul.');
+        throw new Error(t('collab.favouriteLimit', { limit: FAV_LIMIT }));
       }
       var ins = await client.from('mc_favourites').insert({ user_id: user.id, match_slug: slug });
       if (ins.error) throw ins.error;
