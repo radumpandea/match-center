@@ -137,11 +137,25 @@
     }
     return !!favs[slug];
   }
-  async function toggleFavourite(slug) {
+  // `staleSlugs` (optional): the caller's own list of the user's currently
+  // favourited slugs whose match has already been played -- callers know
+  // this (they have fixtures.json's kickoff times), this module doesn't.
+  // Adding a new favourite prunes those first instead of counting them
+  // against FAV_LIMIT forever: a played match never gets un-favourited by
+  // itself otherwise, so once someone hit 4 they could never favourite
+  // anything again, even with nothing upcoming left in the list.
+  async function toggleFavourite(slug, staleSlugs) {
     if (!enabled) {
       var local = JSON.parse(localStorage.getItem('mc:favourites') || '{}');
-      if (!local[slug] && Object.keys(local).filter(function (k) { return local[k]; }).length >= FAV_LIMIT) {
-        throw new Error('Poți avea cel mult ' + FAV_LIMIT + ' meciuri favorite — elimină unul înainte de a adăuga altul.');
+      if (!local[slug]) {
+        var active = Object.keys(local).filter(function (k) { return local[k]; });
+        if (active.length >= FAV_LIMIT && Array.isArray(staleSlugs)) {
+          staleSlugs.forEach(function (s) { delete local[s]; });
+          active = Object.keys(local).filter(function (k) { return local[k]; });
+        }
+        if (active.length >= FAV_LIMIT) {
+          throw new Error('Poți avea cel mult ' + FAV_LIMIT + ' meciuri favorite — elimină unul înainte de a adăuga altul.');
+        }
       }
       local[slug] = !local[slug]; localStorage.setItem('mc:favourites', JSON.stringify(local)); return !!local[slug];
     }
@@ -152,6 +166,13 @@
       if (del.error) throw del.error;
       delete favs[slug];
     } else {
+      if (Object.keys(favs).length >= FAV_LIMIT && Array.isArray(staleSlugs) && staleSlugs.length) {
+        var toPrune = staleSlugs.filter(function (s) { return favs[s]; });
+        if (toPrune.length) {
+          var delMany = await client.from('mc_favourites').delete().eq('user_id', user.id).in('match_slug', toPrune);
+          if (!delMany.error) toPrune.forEach(function (s) { delete favs[s]; });
+        }
+      }
       if (Object.keys(favs).length >= FAV_LIMIT) {
         throw new Error('Poți avea cel mult ' + FAV_LIMIT + ' meciuri favorite — elimină unul înainte de a adăuga altul.');
       }

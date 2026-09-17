@@ -237,7 +237,14 @@
           e.preventDefault(); e.stopPropagation();
           if (!window.MC_COLLAB) return;
           try {
-            var yes = await window.MC_COLLAB.toggleFavourite(m.slug);
+            // `all` is already filtered to upcoming fixtures (isUpcoming) --
+            // a favourited slug missing from it has been played (past its
+            // kickoff + grace window) and should free up a slot rather than
+            // count against the 4-favourite cap forever.
+            var upcomingSlugs = {};
+            all.forEach(function(f){ upcomingSlugs[f.slug] = true; });
+            var staleSlugs = (window.MC_COLLAB.status().favourites || []).filter(function(s){ return !upcomingSlugs[s]; });
+            var yes = await window.MC_COLLAB.toggleFavourite(m.slug, staleSlugs);
             fav.classList.toggle('on', yes); fav.textContent = yes ? '★' : '☆';
           } catch (err) { alert(err && err.message ? err.message : 'Conectează-te mai sus pentru a salva favoritele pe toate dispozitivele.'); }
         };

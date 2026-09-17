@@ -7,6 +7,7 @@
 
   var $ = function (sel, el) { return (el || document).querySelector(sel); };
   var root = $('#root');
+  var allFixtures = [];   // set from data/fixtures.json below; used to prune stale favourites
 
   var params = new URLSearchParams(location.search);
   var slug = (params.get('m') || '').trim();
@@ -18,6 +19,7 @@
       .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
   ]).then(function (results) {
     var fixtures = results[0] || [];
+    allFixtures = fixtures;
     var prep = results[1];
     var fixture = fixtures.filter(function (f) { return f.slug === slug; })[0];
     if (!prep && !fixture) {
@@ -55,6 +57,23 @@
     return n;
   }
   function has(v) { return v != null && v !== '' && v !== 'n/d'; }
+  // Same "upcoming" definition as index.html's isUpcoming() -- a 3h grace
+  // window past kickoff so a match doesn't vanish from favourites the
+  // instant it starts. Used to find the user's OWN favourited slugs whose
+  // match has already been played, so favouriting a new one can free up
+  // that slot instead of counting a played match against the cap forever.
+  function isUpcomingFixture(f) {
+    var ko = f.kickoff && f.kickoff !== 'n/d' ? new Date(f.kickoff) : null;
+    if (ko && !isNaN(ko)) return ko.getTime() > Date.now() - 3 * 3600 * 1000;
+    var today = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD, local
+    return (f.date || '') >= today;
+  }
+  function staleFavouriteSlugs() {
+    var upcoming = {};
+    allFixtures.forEach(function (f) { if (isUpcomingFixture(f)) upcoming[f.slug] = true; });
+    var favs = (window.MC_COLLAB && window.MC_COLLAB.status().favourites) || [];
+    return favs.filter(function (s) { return !upcoming[s]; });
+  }
   // Shared avatar for player/coach modal heads: a real headshot photo from
   // API-Football (media.api-sports.io) when we have one, the existing
   // initials-on-a-colored-circle fallback otherwise (referees have no photo
@@ -912,7 +931,7 @@
       onclick: async function () {
         if (!window.MC_COLLAB) return;
         try {
-          var yes = await window.MC_COLLAB.toggleFavourite(slug);
+          var yes = await window.MC_COLLAB.toggleFavourite(slug, staleFavouriteSlugs());
           favBtn.textContent = yes ? '★ Favorit' : '☆ Favorit';
         } catch (e) { openCollaboration(data); }
       }
