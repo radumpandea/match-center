@@ -939,6 +939,7 @@
       onclick: function () { openCollaboration(data); }
     });
     var langSwitch = I18N.switcherEl(function () { render(data); });
+    var themeToggle = window.MC_THEME.toggleEl();
 
     // header
     var metaWrap = el('div', { class: 'mc-meta' }, [
@@ -950,6 +951,7 @@
     }
     var head = el('div', { class: 'mc-head' }, [
       el('a', { class: 'mc-back', href: 'index.html', text: t('toolbar.backToList') }),
+      themeToggle,
       langSwitch,
       el('div', { class: 'mc-teams' }, [
         el('span', {}, [

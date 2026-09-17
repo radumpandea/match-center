@@ -331,6 +331,8 @@
 
       // language switcher
       'lang.label': 'Limbă',
+      'theme.toLight': 'Fundal alb',
+      'theme.toDark': 'Fundal întunecat',
       'index.title': 'Match Center — ecrane de meci pentru comentariu',
       'index.heading': 'Ecrane de meci pentru comentariu',
       'index.intro': 'Un ecran interactiv pre-meci pentru fiecare partidă: teren cu primul 11 probabil, carduri de jucător, antrenor și arbitru, panouri de formă, cap la cap, absențe și fire narative, plus un strat de notițe salvate local. Datele sunt culese automat înainte de start.',
@@ -646,6 +648,8 @@
       'export.addedInfo': 'Added info',
 
       'lang.label': 'Language',
+      'theme.toLight': 'Light background',
+      'theme.toDark': 'Dark background',
       'index.title': 'Match Center — pre-match screens for commentators',
       'index.heading': 'Pre-match screens for commentators',
       'index.intro': 'An interactive pre-match screen for every fixture: pitch with the likely starting XI, player/coach/referee cards, form, head-to-head, absences and storyline panels, plus a notes layer saved locally. Data is gathered automatically before kick-off.',
@@ -961,6 +965,8 @@
       'export.addedInfo': 'Informations ajoutées',
 
       'lang.label': 'Langue',
+      'theme.toLight': 'Fond clair',
+      'theme.toDark': 'Fond sombre',
       'index.title': 'Match Center — écrans de match pour commentateurs',
       'index.heading': 'Écrans de match pour commentateurs',
       'index.intro': "Un écran interactif avant-match pour chaque rencontre : terrain avec le onze probable, fiches joueur/entraîneur/arbitre, panneaux de forme, confrontations directes, absences et fils narratifs, plus une couche de notes enregistrées localement. Les données sont collectées automatiquement avant le coup d'envoi.",
@@ -1276,6 +1282,8 @@
       'export.addedInfo': 'Hinzugefügte Infos',
 
       'lang.label': 'Sprache',
+      'theme.toLight': 'Heller Hintergrund',
+      'theme.toDark': 'Dunkler Hintergrund',
       'index.title': 'Match Center — Spielbildschirme für Kommentatoren',
       'index.heading': 'Spielbildschirme für Kommentatoren',
       'index.intro': 'Ein interaktiver Vor-Spiel-Bildschirm für jede Partie: Spielfeld mit der voraussichtlichen Startelf, Spieler-/Trainer-/Schiedsrichterkarten, Panels zu Form, direktem Vergleich, Ausfällen und Storylines, plus eine lokal gespeicherte Notizebene. Die Daten werden automatisch vor dem Anpfiff gesammelt.',

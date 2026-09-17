@@ -17,6 +17,23 @@
   --space-1:2.8px;--space-2:5.6px;--space-3:8.4px;--space-4:11.2px;--space-6:16.8px;--space-8:22.4px;
   --radius-sm:4px;--radius-md:8px;--radius-lg:14px;
 }
+/* Light-background alternative to the default dark theme above — toggled by
+   app/theme.js via the [data-theme] attribute on <html>. The pitch itself
+   (green gradient, discs, on-pitch mini-cards) stays identical in both
+   themes; only page-level surface/text tokens change. */
+:root[data-theme="light"]{
+  --color-bg:#f5f5fa;
+  --color-surface:#ffffff;
+  --color-surface-2:#eef0f7;
+  --color-text:#1c1b24;
+  --color-accent:#6d28d9;
+  --color-divider:color-mix(in srgb,#1c1b24 16%,transparent);
+  --color-neutral-400:#45485a;
+  --color-neutral-500:#5e6175;
+  --color-neutral-600:#82859a;
+  --color-accent-200:#4c2e99;
+  --color-accent-300:#5b3dae;
+}
 *,*::before,*::after{box-sizing:border-box}
 html,body{margin:0}
 body{
@@ -30,6 +47,11 @@ button{font-family:inherit}
 /* ---- header ---- */
 .mc-head{display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-6)}
 .mc-back{font-size:11.5px;letter-spacing:.14em;color:var(--color-neutral-500);text-transform:uppercase}
+.mc-theme-toggle{
+  font-size:13px;line-height:1;width:26px;height:26px;padding:0;border-radius:50%;cursor:pointer;
+  background:transparent;color:var(--color-neutral-400);border:1px solid var(--color-divider)
+}
+.mc-theme-toggle:hover{border-color:var(--color-accent);color:var(--color-accent-200)}
 .mc-teams{display:flex;align-items:center;gap:var(--space-4);font:600 26px/1.1 "Inter",sans-serif;letter-spacing:-.01em;flex-wrap:wrap}
 .mc-teams .vs{color:var(--color-neutral-600);font-weight:400;font-size:18px}
 .mc-teams .nickname{font-weight:400;font-size:14px;color:var(--color-neutral-500)}
