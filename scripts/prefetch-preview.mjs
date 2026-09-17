@@ -765,25 +765,68 @@ async function getTeamStats(teamId, leagueId, season, cache) {
   return data;
 }
 
+// Formation + goals/cards for ONE already-played fixture (lineups + events
+// endpoints). Finished matches never change, so this is cached forever (no
+// TTL) under cache.fixtureDetails — each historical fixture is fetched at
+// most once across the app's lifetime, however many form guides / H2H lists
+// it later shows up in.
+async function getFixtureDetails(fixtureId, cache) {
+  cache.fixtureDetails = cache.fixtureDetails || {};
+  const hit = cache.fixtureDetails[fixtureId];
+  if (hit) return hit;
+  const [lj, ej] = await Promise.all([
+    af('fixtures/lineups', { fixture: fixtureId }),
+    af('fixtures/events', { fixture: fixtureId }),
+  ]);
+  const formationByTeam = {};
+  for (const l of (lj && lj.response) || []) {
+    if (l.team && l.team.id != null && l.formation) formationByTeam[l.team.id] = l.formation;
+  }
+  const events = (((ej && ej.response) || [])
+    .filter((e) => e.type === 'Goal' || e.type === 'Card')
+    .map((e) => ({
+      minute: e.time && e.time.elapsed != null ? e.time.elapsed : null,
+      teamId: e.team && e.team.id != null ? e.team.id : null,
+      player: e.player && e.player.name || null,
+      type: e.type === 'Card'
+        ? (String(e.detail || '').toLowerCase().includes('red') ? 'red' : 'yellow')
+        : (String(e.detail || '').toLowerCase().includes('own') ? 'owngoal' : 'goal'),
+    }))
+    .filter((e) => e.player));
+  const rec = { formationByTeam, events };
+  cache.fixtureDetails[fixtureId] = rec;
+  return rec;
+}
+
 // last ~6 results, this team's perspective (form guide)
-async function getFormGuide(teamId, season) {
+async function getFormGuide(teamId, season, cache) {
   const j = await af('fixtures', { team: teamId, season, last: 6 });
   const rows = (j && j.response) || [];
-  return rows
-    .filter((f) => f.goals && f.goals.home != null && f.goals.away != null)
-    .map((f) => {
-      const home = f.teams.home.id === teamId;
-      const us = home ? f.goals.home : f.goals.away;
-      const them = home ? f.goals.away : f.goals.home;
-      return {
-        date: (f.fixture.date || '').slice(0, 10),
-        opp: home ? f.teams.away.name : f.teams.home.name,
-        homeAway: home ? 'H' : 'A',
-        comp: f.league && f.league.name || null,
-        score: `${us}-${them}`,
-        result: us > them ? 'W' : us < them ? 'L' : 'D',
-      };
+  const out = [];
+  for (const f of rows) {
+    if (!(f.goals && f.goals.home != null && f.goals.away != null)) continue;
+    const home = f.teams.home.id === teamId;
+    const us = home ? f.goals.home : f.goals.away;
+    const them = home ? f.goals.away : f.goals.home;
+    const oppId = home ? f.teams.away.id : f.teams.home.id;
+    const det = await getFixtureDetails(f.fixture.id, cache);
+    const formation = (det.formationByTeam[teamId] || det.formationByTeam[oppId])
+      ? { us: det.formationByTeam[teamId] || null, opp: det.formationByTeam[oppId] || null }
+      : null;
+    const events = det.events.map((e) => ({
+      minute: e.minute, side: e.teamId === teamId ? 'us' : 'opp', player: e.player, type: e.type,
+    }));
+    out.push({
+      date: (f.fixture.date || '').slice(0, 10),
+      opp: home ? f.teams.away.name : f.teams.home.name,
+      homeAway: home ? 'H' : 'A',
+      comp: f.league && f.league.name || null,
+      score: `${us}-${them}`,
+      result: us > them ? 'W' : us < them ? 'L' : 'D',
+      formation, events,
     });
+  }
+  return out;
 }
 
 // the team's next 3 scheduled fixtures (not yet played)
@@ -815,11 +858,23 @@ async function getH2H(homeId, awayId, homeName, awayName, cache) {
     const ag = f.teams.home.id === homeId ? f.goals.away : f.goals.home;
     if (hg > ag) hw++; else if (hg < ag) aw++; else d++;
   }
-  const recent = rows.slice(0, 5).map((f) => ({
-    date: (f.fixture.date || '').slice(0, 10),
-    comp: f.league && f.league.name || null,
-    score: `${f.teams.home.name} ${f.goals.home}-${f.goals.away} ${f.teams.away.name}`,
-  }));
+  const recent = [];
+  for (const f of rows.slice(0, 5)) {
+    const hId = f.teams.home.id, aId = f.teams.away.id;
+    const det = await getFixtureDetails(f.fixture.id, cache);
+    const formation = (det.formationByTeam[hId] || det.formationByTeam[aId])
+      ? { home: det.formationByTeam[hId] || null, away: det.formationByTeam[aId] || null }
+      : null;
+    const events = det.events.map((e) => ({
+      minute: e.minute, side: e.teamId === hId ? 'home' : 'away', player: e.player, type: e.type,
+    }));
+    recent.push({
+      date: (f.fixture.date || '').slice(0, 10),
+      comp: f.league && f.league.name || null,
+      score: `${f.teams.home.name} ${f.goals.home}-${f.goals.away} ${f.teams.away.name}`,
+      formation, events,
+    });
+  }
   const rec = {
     fetchedAt: todayISO(),
     recent,
@@ -1133,7 +1188,7 @@ async function applyStandingsAndForm(doc, fx, season, cache) {
     const f = t.form || (t.form = { last5: [], ppg: null, homeAway: null, position: null, note: null });
 
     if ((!f.recent || !f.recent.length) && id != null) {
-      const guide = await getFormGuide(id, season);
+      const guide = await getFormGuide(id, season, cache);
       if (guide.length) f.recent = guide;
     }
     if (id != null) {

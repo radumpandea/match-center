@@ -1467,7 +1467,17 @@
           el('tr', {}, [el('th', { text: t('panel.h2hDate') }), el('th', { text: t('panel.h2hComp') }), el('th', { text: t('panel.h2hScore') })])
         ]);
         d.h2h.recent.forEach(function (r) {
-          tb.appendChild(el('tr', {}, [el('td', { text: r.date }), el('td', { text: has(r.comp) ? r.comp : '—' }), el('td', { text: r.score })]));
+          var hasDetails = (r.formation && (r.formation.home || r.formation.away)) || (r.events && r.events.length);
+          var names = /^(.*) \d+-\d+ (.*)$/.exec(r.score || '');
+          tb.appendChild(el('tr', hasDetails ? {
+            class: 'clickable', title: t('panel.h2hDetailsHint'),
+            onclick: function () {
+              openMatchHistory(r.score, [r.date, has(r.comp) ? r.comp : null].filter(has).join(' · '),
+                { key: 'home', label: names ? names[1] : t('panel.h2hScore'), formation: r.formation && r.formation.home },
+                { key: 'away', label: names ? names[2] : '', formation: r.formation && r.formation.away },
+                r.events);
+            }
+          } : {}, [el('td', { text: r.date }), el('td', { text: has(r.comp) ? r.comp : '—' }), el('td', { text: r.score })]));
         });
         h.appendChild(tb);
       }
@@ -1501,7 +1511,17 @@
         if (f.recent && f.recent.length) {
           var list = el('ul', { class: 'form-guide' });
           f.recent.forEach(function (r) {
-            list.appendChild(el('li', {}, [
+            var hasDetails = (r.formation && (r.formation.us || r.formation.opp)) || (r.events && r.events.length);
+            list.appendChild(el('li', hasDetails ? {
+              class: 'clickable', title: t('panel.h2hDetailsHint'),
+              onclick: function () {
+                openMatchHistory(tm.name + '  ' + r.score + '  ' + (has(r.opp) ? r.opp : ''),
+                  [fgDate(r.date), fgComp(r.comp)].filter(has).join(' · '),
+                  { key: 'us', label: tm.name, formation: r.formation && r.formation.us },
+                  { key: 'opp', label: has(r.opp) ? r.opp : '', formation: r.formation && r.formation.opp },
+                  r.events);
+              }
+            } : {}, [
               el('span', { class: 'fg-res fb-' + (r.result || 'D'), text: r.result || '–' }),
               el('span', { class: 'fg-score', text: has(r.score) ? r.score : '' }),
               el('span', { class: 'fg-opp', text: (r.homeAway === 'A' ? 'la ' : r.homeAway === 'H' ? 'cu ' : '') + (has(r.opp) ? r.opp : '') }),
@@ -1859,6 +1879,57 @@
     back.appendChild(m);
     document.body.appendChild(back);
     show(names[0]);
+  }
+
+  // Details for one past H2H / form-guide fixture: the formation each side
+  // played and its goals/cards. Both come from API-Football (see
+  // scripts/prefetch-preview.mjs's getFixtureDetails and the `formation` /
+  // `events` fields on h2h.recent[] / teams.<side>.form.recent[] in
+  // docs/data/schema.json), filled in once when that fixture first enters
+  // either list — older fixtures built before this existed just have neither
+  // field, in which case the caller doesn't make the row clickable at all.
+  // sideA/sideB: { key, label, formation }, where `key` matches the `side`
+  // tag on each event ('home'/'away' for H2H, 'us'/'opp' for a form guide).
+  function openMatchHistory(titleText, metaText, sideA, sideB, events) {
+    var back = el('div', { class: 'modal-back', onclick: function (e) { if (e.target === back) close(); } });
+    function close() { back.remove(); document.removeEventListener('keydown', onKey); }
+    function onKey(e) { if (e.key === 'Escape') close(); }
+    document.addEventListener('keydown', onKey);
+
+    var body = el('div', { class: 'modal-body' });
+    if (sideA.formation || sideB.formation) {
+      body.appendChild(el('div', { class: 'kv' }, [
+        el('span', {}, [el('b', { text: sideA.label + ':' }), document.createTextNode(' ' + (sideA.formation || t('common.na')))]),
+        el('span', {}, [el('b', { text: sideB.label + ':' }), document.createTextNode(' ' + (sideB.formation || t('common.na')))])
+      ]));
+    }
+    var list = el('div', { class: 'ev-list' });
+    var sorted = (events || []).slice().sort(function (x, y) {
+      return (x.minute == null ? 999 : x.minute) - (y.minute == null ? 999 : y.minute);
+    });
+    if (!sorted.length) {
+      list.appendChild(el('p', { class: 'ev-empty', text: t('events.none') }));
+    } else {
+      sorted.forEach(function (e) {
+        var meta = evMeta(e.type);
+        var teamLabel = e.side === sideA.key ? sideA.label : sideB.label;
+        list.appendChild(el('div', { class: 'ev-row' }, [
+          el('span', { text: (e.minute != null ? e.minute + "'  " : '') + meta.icon +
+            (e.type === 'owngoal' ? t('panel.ownGoalSuffix') : '') + '  ' + e.player + '  (' + teamLabel + ')' })
+        ]));
+      });
+    }
+    body.appendChild(list);
+
+    var m = el('div', { class: 'modal', style: 'max-width:480px' }, [
+      el('div', { class: 'modal-head' }, [
+        el('div', {}, [el('h3', { text: titleText }), el('div', { class: 'sub', text: metaText })]),
+        el('button', { class: 'modal-close', text: '✕', onclick: close })
+      ]),
+      body
+    ]);
+    back.appendChild(m);
+    document.body.appendChild(back);
   }
 
   function openPlayer(d, side, p) {

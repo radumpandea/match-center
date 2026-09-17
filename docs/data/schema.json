@@ -108,7 +108,31 @@
             "properties": {
               "date": { "type": "string" },
               "comp": { "type": ["string", "null"] },
-              "score": { "type": "string", "description": "e.g. \"Toulouse 1-2 Lille\"" }
+              "score": { "type": "string", "description": "e.g. \"Toulouse 1-2 Lille\"" },
+              "formation": {
+                "type": ["object", "null"],
+                "additionalProperties": false,
+                "description": "formation each side played in THIS past fixture, from API-Football lineups",
+                "properties": {
+                  "home": { "type": ["string", "null"] },
+                  "away": { "type": ["string", "null"] }
+                }
+              },
+              "events": {
+                "type": "array",
+                "description": "goals and cards from THIS past fixture, from API-Football events",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["side", "type"],
+                  "properties": {
+                    "minute": { "type": ["integer", "null"] },
+                    "side": { "type": "string", "enum": ["home", "away"] },
+                    "player": { "type": ["string", "null"] },
+                    "type": { "type": "string", "enum": ["goal", "owngoal", "yellow", "red"] }
+                  }
+                }
+              }
             }
           }
         },
@@ -327,7 +351,31 @@
                   "homeAway": { "type": ["string", "null"], "enum": ["H", "A", "N", null] },
                   "comp": { "type": ["string", "null"] },
                   "score": { "type": "string", "description": "this team first, e.g. \"3-1\"" },
-                  "result": { "type": ["string", "null"], "enum": ["W", "D", "L", null] }
+                  "result": { "type": ["string", "null"], "enum": ["W", "D", "L", null] },
+                  "formation": {
+                    "type": ["object", "null"],
+                    "additionalProperties": false,
+                    "description": "formation each side played in THIS past fixture, from API-Football lineups",
+                    "properties": {
+                      "us": { "type": ["string", "null"] },
+                      "opp": { "type": ["string", "null"] }
+                    }
+                  },
+                  "events": {
+                    "type": "array",
+                    "description": "goals and cards from THIS past fixture, from API-Football events",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": ["side", "type"],
+                      "properties": {
+                        "minute": { "type": ["integer", "null"] },
+                        "side": { "type": "string", "enum": ["us", "opp"] },
+                        "player": { "type": ["string", "null"] },
+                        "type": { "type": "string", "enum": ["goal", "owngoal", "yellow", "red"] }
+                      }
+                    }
+                  }
                 }
               }
             },
