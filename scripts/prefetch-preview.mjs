@@ -794,7 +794,11 @@ async function getFixtureDetails(fixtureId, cache) {
     }))
     .filter((e) => e.player));
   const rec = { formationByTeam, events };
-  cache.fixtureDetails[fixtureId] = rec;
+  // Only cache a fixture once at least one of the two calls actually came
+  // back (budget exhaustion / a transient error returns null from af() for
+  // both) -- otherwise this fixture would be silently skipped forever
+  // instead of retried once budget/availability recovers on a later run.
+  if (lj || ej) cache.fixtureDetails[fixtureId] = rec;
   return rec;
 }
 
