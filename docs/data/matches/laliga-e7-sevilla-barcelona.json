@@ -1,12 +1,12 @@
 {
   "slug": "laliga-e7-sevilla-barcelona",
-  "generatedAt": "2026-09-16T10:10:48.110Z",
+  "generatedAt": "2026-09-17T10:15:01.053Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-09-16"
+      "accessed": "2026-09-17"
     }
   ],
   "competition": {
@@ -18,9 +18,16 @@
   "kickoff": "2026-09-19T22:00:00+03:00",
   "venue": {
     "name": "Estadio Ramón Sánchez-Pizjuán",
-    "capacity": null,
-    "city": "Seville",
-    "notes": null
+    "capacity": 48649,
+    "city": "Sevilla",
+    "notes": null,
+    "weather": {
+      "tempC": 29,
+      "condition": "cer clar",
+      "windKph": 8,
+      "precipitationMm": 0,
+      "forecastAt": "2026-09-17T10:15:01.564Z"
+    }
   },
   "referee": {
     "name": "n/d",
@@ -62,10 +69,11 @@
     "summary": "Cap la cap (10 meciuri): Sevilla 1 - 1 - 8 Barcelona."
   },
   "storyOfTheMatch": [
-    "Sevilla — locul 6 după 5 etape, 10 puncte, golaveraj 8-6.",
-    "Barcelona — locul 1 după 5 etape, 15 puncte, golaveraj 21-4.",
+    "Sevilla — locul 4 după 6 etape, 13 puncte, golaveraj 9-6.",
+    "Sevilla — 3 meciuri fără înfrângere.",
+    "Barcelona — locul 1 după 6 etape, 18 puncte, golaveraj 28-6.",
     "Barcelona vine după 6 victorii la rând.",
-    "Barcelona a păstrat poarta intactă în 3 din 5 etape.",
+    "Barcelona a păstrat poarta intactă în 3 din 6 etape.",
     "Lamine Yamal e cel mai bun marcator al echipei Barcelona în acest start de sezon (6 goluri).",
     "Cap la cap (10 meciuri): Sevilla 1 - 1 - 8 Barcelona."
   ],
@@ -1304,25 +1312,33 @@
       "form": {
         "last5": [
           "W",
+          "W",
           "D",
           "L",
-          "W",
           "W"
         ],
-        "ppg": 2,
-        "homeAway": "Acasă 2-0-1, deplasare 1-1-0",
-        "position": 6,
-        "note": "Clasament 2026/27: locul 6, 10p (8-6)",
+        "ppg": 2.17,
+        "homeAway": "Acasă 2-0-1, deplasare 2-1-0",
+        "position": 4,
+        "note": "Clasament 2026/27: locul 4, 13p (9-6)",
         "table": {
-          "played": 5,
-          "win": 3,
+          "played": 6,
+          "win": 4,
           "draw": 1,
           "loss": 1,
-          "gf": 8,
+          "gf": 9,
           "ga": 6,
-          "points": 10
+          "points": 13
         },
         "recent": [
+          {
+            "date": "2026-09-16",
+            "opp": "Deportivo La Coruna",
+            "homeAway": "A",
+            "comp": "La Liga",
+            "score": "1-0",
+            "result": "W"
+          },
           {
             "date": "2026-09-11",
             "opp": "Valencia",
@@ -1362,23 +1378,9 @@
             "comp": "La Liga",
             "score": "2-1",
             "result": "W"
-          },
-          {
-            "date": "2026-08-08",
-            "opp": "Bayer Leverkusen",
-            "homeAway": "A",
-            "comp": "Friendlies Clubs",
-            "score": "1-2",
-            "result": "L"
           }
         ],
         "next": [
-          {
-            "date": "2026-09-16",
-            "opp": "Deportivo La Coruna",
-            "homeAway": "A",
-            "comp": "La Liga"
-          },
           {
             "date": "2026-09-19",
             "opp": "Barcelona",
@@ -1390,12 +1392,18 @@
             "opp": "Levante",
             "homeAway": "A",
             "comp": "La Liga"
+          },
+          {
+            "date": "2026-10-18",
+            "opp": "Real Madrid",
+            "homeAway": "A",
+            "comp": "La Liga"
           }
         ],
         "stats": {
           "goalsForByInterval": {
             "0-15": 1,
-            "46-60": 3,
+            "46-60": 4,
             "61-75": 1,
             "76-90": 3
           },
@@ -1411,27 +1419,23 @@
             "16-30": 3,
             "31-45": 2,
             "46-60": 2,
-            "61-75": 1,
-            "76-90": 3,
-            "91-105": 3
+            "61-75": 2,
+            "76-90": 4,
+            "91-105": 5
           },
-          "goalsForAvg": 1.6,
-          "goalsAgainstAvg": 1.2,
-          "cleanSheets": 1,
+          "goalsForAvg": 1.5,
+          "goalsAgainstAvg": 1,
+          "cleanSheets": 2,
           "failedToScore": 0,
           "penaltyScored": 2,
           "penaltyScoredPct": 100,
           "formations": [
             {
               "formation": "4-2-3-1",
-              "played": 3
+              "played": 5
             },
             {
               "formation": "4-3-3",
-              "played": 1
-            },
-            {
-              "formation": "4-4-2",
               "played": 1
             }
           ],
@@ -1447,13 +1451,13 @@
           "name": "A. Sangante",
           "reason": "injury",
           "detail": "Ankle Injury",
-          "since": "2026-09-16"
+          "since": "2026-09-19"
         },
         {
           "name": "R. Vargas",
           "reason": "injury",
           "detail": "Knee Injury",
-          "since": "2026-09-16"
+          "since": "2026-09-19"
         }
       ],
       "mercatoIn": [],
@@ -1462,52 +1466,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Deportivo de A Coruña - Sevilla: horario, dónde ver en TV y canal del partido de LaLiga EA Sports",
-          "url": "https://www.marca.com/futbol/primera-division/2026/09/14/deportivo-de-a-coruna-sevilla-horario-donde-ver-en-tv-y-canal-del-partido-de-laliga-ea-sports.html",
-          "source": "Marca",
-          "published": "2026-09-16"
-        },
-        {
           "title": "Deportivo de A Coruña vs Sevilla: Spanish La Liga stats & head-to-head",
           "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFB5cHpvNE9wcWMxZm5TcHpHeGhBTnpPaWJJSm1Wa3hRNUFXS0xNdzNkeHdDQmNrNktyaHpMdnRQdVBsaUpEc19QY29iSGNyQ29IdmRhbHRvZmZMdlNHQkxSbi10WQ?oc=5",
           "source": "BBC",
-          "published": "2026-09-16"
+          "published": "2026-09-17"
         },
         {
-          "title": "How to watch Sevilla vs. RC Deportivo La Coruna in the U.S.: TV channel and streaming options for September 16",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPcU0tWEwzZXRRSFgxc1JyYWRCeG5PSl9DMVNfSXRIVTFkVzNFOTBqMjlNcTJuRDREaEUtSk5YTTN6ZUtsSGVOYVNiYXA1bll6dDRvWUw1QjgtSmFwSHk0ZUxTZ29MZlFYWngwcDBYa0RnZjEtNmh4OHg5MkFXc1JaU3B6a3R4T2pvYi0wcUt2VGk1ekxEeUlyakltQVFaU19neE80c2xqNmxBZDdYTHlySy1INU9neU5nTzMzeW9LNA?oc=5",
-          "source": "The New York Times",
-          "published": "2026-09-16"
-        },
-        {
-          "title": "Scotland call for Sevilla forward Robbie Ure in post-World Cup reset under new coach Pocognoli",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZU5MaUhsMDVNY2dyQkV6bnpKSzFsc3RUbm9xc2ZqRnk0eVQ2cVBobmNBaE1fZXgxRXlZeUx5bmI5YzNqbGRnVVdoS3FnWUp3TFVNNmc2LVZZRXVvU0ZDekY4cUhrRzFwM2VIVXcxMTNQcVRiYUlKdWw2WDRmemVoYUNlZzFmcU1rd1pRZ1VEdV9UUGRXeE40N3VQZ0xkbHpJbEFIbW11MmpkRDhq?oc=5",
-          "source": "The Edwardsville Intelligencer",
-          "published": "2026-09-16"
-        },
-        {
-          "title": "Dep. A Coruna - Sevilla",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPZV9pRlhLZ1RqWjNFSUR6TzkyRk9ZWkxycmd6bnVOZ1hYeFZqbHFWTC1MZU5XTzJPVjRXZ01ZOVNzU2tqT0VpWktuQTB4Qnp0Wk02ek9lWXRkM3VnQ0VlV0JELWY3dkZ4ckc0TkVlRk1zTGJZWGxTUGhGLVE2RDNqZFJxNWx6cWhl?oc=5",
+          "title": "Sevilla - Espanyol",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNc0JnNVJBWDZFWF8wRmZEc0xxVmYzbmhGRGdIUVVHYno3TWw1eHVobWhvdXZCb0VaTzVidV9CT0FnV1JZS2ZtR2hya21adjVNV2plY1cwSWpONFQwUW5RTWJjbVFPdlRfaUNoT19rLTBldVB3RVBlZ3JBSmFOMXZjSE9oTQ?oc=5",
           "source": "Flashscore.com",
-          "published": "2026-09-16"
+          "published": "2026-09-17"
         },
         {
-          "title": "Sevilla FC vs. RC Deportivo de La Coruna - September 16, 2026",
-          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5XMks0Mk9Ea2FZOXVKUzMxM2xxVGp3TFRCak9Ja252XzZXTzZzTUp4WWJ4dExzT1k0Rlhpa1V6azA0SmpmNXRadnN1WW9CVjd5UmJUcXRWeU42LXJUa21wN25pWWYzeU9BWDF6RXFPSTIydnY4NERRU2RqUQ?oc=5",
-          "source": "Bleacher Report",
-          "published": "2026-09-16"
+          "title": "Sevilla vs Barcelona: previous stats | LALIGA EA Sports 2026/2027",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNR3dadlZwQ1VUN2ViV092eHBWa1h1VzhYTTdZWmFrTTJxMGZqRnZxelA3Q0NuYTJkVXhDSlItYkRWdEt0bUlpVXFLLVFhYTJuZldyeHRKdUZ5QWdUOGxzcHVqNEJkcU1Ebkw5VUEtNUZJT3pJNFZybmxmY1dRUHVlX2dyZUdwRzJHY0dFZWc0VzdqMl9X?oc=5",
+          "source": "Diario AS",
+          "published": "2026-09-17"
         },
         {
-          "title": "Deportivo de A Coruña vs Sevilla: TV channel, live stream and how to watch LaLiga | Goal.com US",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQX1I4bGd5LUVnX19ZQ3hMZC1WZXRHS3M1WkVjeUlza2VCZTY5U2FTTWFCdDQzNmdtZ1pGeGN4amF4Yk15QWYwYTFyMHh5R3Awc2dGUXVaSjR2UXBaYW12NmQ1cHFPYS12dXBDN1VEZDBHNXlWSjdoS1NEenR3WU51eWxwaUNCR0M5YkZUTzhJWlJERE92WGZ3cVM4THhyaGN2SXIyaWp1X3lHaUc5RnJha00tdXIwVHRXb0dv?oc=5",
-          "source": "Goal.com",
-          "published": "2026-09-16"
+          "title": "Luis García Plaza: \"Este Sevilla sabe a qué juega\"",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOVnpjSDRSdVp0dWhlS0xkcGFwcUV1cDQwUGtjRUV3RnF4b01nUHE5VEJGZkoxRGtxQllTa3N5a1k4ZjVuRlFXY2RXcy1SWHNWZFhGQ3FLdWItcWFPQlEtQUM0TVdyS3VXU1o5OVEwczZOQnd2dmFNYnluaVA5MllRcHBBRDRXU0NVQ1ZHUDd0YmkxXzA?oc=5",
+          "source": "OneFootball",
+          "published": "2026-09-17"
         },
         {
-          "title": "RC Deportivo La Coruna vs. Sevilla FC Prediction, Picks, Live Odds - Sept. 16",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNdDkxWHhTQ2wyclV4bVRscVh6RzRibzRSLU9FTVZyUkFKb2FJOTB0Z2FjWlR4MFpaZy13TTRBamQ0UVpoN3cxdGhPRy1zN3dXblB5LUJrOGNORG9ZZHBzTmJRS0h4aG1jSmg1UUlibXZNS0JsRUt5dzFvSVFwQzgwVjlPdmdXa3VwYTlFeXNjTmFnNlFIdXJYbEVYU29jc2RUdkM2TUZVZi1ZYjNaOUtZMmRXLXRPZHZVNWNwMQ?oc=5",
-          "source": "Bleacher Nation",
-          "published": "2026-09-16"
+          "title": "Sevilla vs. Barcelona (Sep 19, 2026) Odds and Spread",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBXSFNOcUJHXzZSOTV5anBNeDBRMENlc1VlY2tWNklvdXJEWkFPaVJYYUM4M2RsTjZuTVZOM0RNLWxwSFJuLXI1OHFJOGxCdmxDV3NFNGNnT1ZBT2VUQVAzag?oc=5",
+          "source": "ESPN",
+          "published": "2026-09-17"
+        },
+        {
+          "title": "Barcelona vs. Sevilla: Live game updates, stats, play-by-play",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE45WnhoWllqWW9nZ2RLdFFMRmpIcUpucFowb0NtNzBDdmRDTzRQM2t4SGpSZGZTNTVwYnUyeWdjUmh4YmY3RUU2MGNMa3ZwaGx2T0l2azRJQ2hKZnc0eHZXSGt3cXVNSHNfUWxCYmdiTkJjdWVwSTR6TA?oc=5",
+          "source": "Yahoo",
+          "published": "2026-09-17"
+        },
+        {
+          "title": "Sevilla vs. Barcelona: Live game updates, stats, play-by-play",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNMEFpdWV0VWJITUlIMXYwUF8xSXVpOWpTc3FBb1dsZXpVZEJTSEhrSDFBRXJ6bkVGR0V0Y191aEE3OE4ydkNReDFyaXBFODhpenRFY01mb19BelBqbUp0dUNsemUwV0NVNXpyWWpVVklCZ3F6Q2VnMzdqLVpuMnItT0xYSFFoM3A0OGc?oc=5",
+          "source": "Yahoo",
+          "published": "2026-09-17"
+        },
+        {
+          "title": "MATCH PREVIEW: RC DEPORTIVO VS SEVILLA FC LALIGA 2026-2027",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPS1RhWjY0MXRDMGlZR3R2NHNCeFQ4SFRpdk9ia0kySmFuZE1HUTZ6ZUgyLW96QXhBQVlxYnpaQ0UzSDJ0akF0aWc0S1JWRVNBUllkWnNfYlBlb2xmR1BJY09TVVZKdmtYLXVuSFBJc29BQlNhSEpBNzI2MmR0VDFrM0UxSUVyaUpBWGxkUWlYNHVtSXFPdjFCNTRBUWNHenZoQURZ?oc=5",
+          "source": "Sevilla FC",
+          "published": "2026-09-17"
         }
       ],
       "stories": []
@@ -2782,19 +2786,27 @@
           "W"
         ],
         "ppg": 3,
-        "homeAway": "Acasă 2-0-0, deplasare 3-0-0",
+        "homeAway": "Acasă 3-0-0, deplasare 3-0-0",
         "position": 1,
-        "note": "Clasament 2026/27: locul 1, 15p (21-4)",
+        "note": "Clasament 2026/27: locul 1, 18p (28-6)",
         "table": {
-          "played": 5,
-          "win": 5,
+          "played": 6,
+          "win": 6,
           "draw": 0,
           "loss": 0,
-          "gf": 21,
-          "ga": 4,
-          "points": 15
+          "gf": 28,
+          "ga": 6,
+          "points": 18
         },
         "recent": [
+          {
+            "date": "2026-09-16",
+            "opp": "Racing Santander",
+            "homeAway": "H",
+            "comp": "La Liga",
+            "score": "7-2",
+            "result": "W"
+          },
           {
             "date": "2026-09-13",
             "opp": "Levante",
@@ -2834,23 +2846,9 @@
             "comp": "La Liga",
             "score": "2-0",
             "result": "W"
-          },
-          {
-            "date": "2026-08-23",
-            "opp": "Elche",
-            "homeAway": "A",
-            "comp": "La Liga",
-            "score": "5-0",
-            "result": "W"
           }
         ],
         "next": [
-          {
-            "date": "2026-09-16",
-            "opp": "Racing Santander",
-            "homeAway": "H",
-            "comp": "La Liga"
-          },
           {
             "date": "2026-09-19",
             "opp": "Sevilla",
@@ -2862,38 +2860,46 @@
             "opp": "Getafe",
             "homeAway": "H",
             "comp": "La Liga"
+          },
+          {
+            "date": "2026-10-13",
+            "opp": "Galatasaray",
+            "homeAway": "A",
+            "comp": "UEFA Champions League"
           }
         ],
         "stats": {
           "goalsForByInterval": {
-            "0-15": 3,
-            "16-30": 4,
-            "31-45": 2,
+            "0-15": 4,
+            "16-30": 5,
+            "31-45": 3,
             "46-60": 2,
-            "61-75": 3,
-            "76-90": 5,
-            "91-105": 1
+            "61-75": 4,
+            "76-90": 8
           },
           "goalsAgainstByInterval": {
             "0-15": 1,
+            "16-30": 1,
+            "31-45": 1,
             "46-60": 2,
+            "61-75": 1,
             "76-90": 2
           },
           "cardsYellowByInterval": {
             "16-30": 1,
-            "46-60": 3,
-            "61-75": 1
+            "46-60": 5,
+            "61-75": 2
           },
-          "goalsForAvg": 4.2,
-          "goalsAgainstAvg": 0.8,
+          "goalsForAvg": 4.7,
+          "goalsAgainstAvg": 1,
           "cleanSheets": 3,
           "failedToScore": 0,
-          "penaltyScored": 2,
-          "penaltyScoredPct": 100,
+          "penaltyScored": 4,
+          "penaltyScoredPct": 80,
           "formations": [
             {
               "formation": "4-3-3",
-              "played": 3
+              "played": 4
             },
             {
               "formation": "4-2-3-1",
@@ -2901,7 +2907,7 @@
             }
           ],
           "biggestStreak": {
-            "wins": 5,
+            "wins": 6,
             "draws": 0,
             "loses": 0
           }
@@ -2912,13 +2918,19 @@
           "name": "R. Bardghji",
           "reason": "injury",
           "detail": "Knee Injury",
-          "since": "2026-09-16"
+          "since": "2026-09-19"
         },
         {
           "name": "F. de Jong",
           "reason": "injury",
           "detail": "Knee Injury",
-          "since": "2026-09-16"
+          "since": "2026-09-19"
+        },
+        {
+          "name": "J. Garcia",
+          "reason": "injury",
+          "detail": "Injury",
+          "since": "2026-09-19"
         }
       ],
       "mercatoIn": [],
@@ -2927,52 +2939,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Barcelona vs. Racing Santander: Preview, Predictions and Lineups",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQaWpWZzRrWUZ5WExfaVdaemlXQV9fSzVZdHU4eGRmT0ZPQ0dQblZmVHJJZGo0b196QlVTclhtUkVwR3htVXpPS0xwdU5NVjNqamhQck16RXBUYkpEZVM0TE5rM3lYWU5jZW1jZThtTE9kOVhjbUhQbUdVMjhUZ2FpQnVTWjFMcG1XOXdyOHd6TUF1cTJJcmc?oc=5",
-          "source": "Sports Illustrated",
-          "published": "2026-09-16"
+          "title": "Barcelona 7-2 Racing (Sep 16, 2026) Game Analysis",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE54SkFSdkZVeXF6cU56OFFKTTIxZGs1ZlMzNmVtTVhaRF8wbUdfcl9vdUg4ZHlZZUtVWlhVNEItUEJWbWo4eUNnY2J3bm9WelNNWWE5Q2tXcUVVTS0yeXRGVXByUQ?oc=5",
+          "source": "ESPN",
+          "published": "2026-09-17"
         },
         {
-          "title": "Is this Barcelona’s greatest generation of La Masia stars?",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOdmlOamlJUmlEeFpxdUZHaWZrVDl1eVlLZEtpZUF4SlpBTzhtanJMbkhoN1dCYVBsdXdhTTl5VUhhcnBJakgwbDFxWDFzTS1RVTJDNmtCMzF1Z05HNU1LelA3Qy1yYzZsZHFwM3J1ckVNbF9wcC1OSkQ5dVlkb3ZaeVh4MjB6enpza2pDZ2xEWmpIbTdvbS1odXBsNjFTZjRm?oc=5",
+          "title": "This is the best Barcelona have looked under Hansi Flick",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPT0NEYlFpUzdPOTZuTnlWOEZtVmtNZ0Zzc0pyNWdQVU4zWFhGalVmenFIZ3lldld6d0F1amgtRFVaQXltOGdMU3R6dmc2MVlNMV9xeEdQRkRCeFh0bTFMTF9oLXM5SHZfTjhWTGNIeS11MUZuUTRwRG9PclkwOURWQV9LLUdiZFBCMHM2RXdnLWlfZ3R0QWtoU3JwSQ?oc=5",
           "source": "The New York Times",
-          "published": "2026-09-16"
+          "published": "2026-09-17"
         },
         {
-          "title": "FC Barcelona Vs. Racing Santander Starting Line Up: Flick Rotates",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNU2VIeVNUcEpLak0tRndILVVlbUtyMFAxM0QyTGJpM0xocjgyQk55QjJYX1pmWHZibkpwckQzVklmN1pLLUZmSlpIVVZraWFxN2xkeFctM0w0dkhBZjRHUHl5cVJXZngwQlAwb0J6bkk4YnJYeTFBMGJSeWd4YzgxRndtdTZHak54UFo5UkZfZEFKRWJDSVZEZk5lTng4ME5qeVNaQ19pUmVOM21BN3pBNmFXWkt2Z2dr?oc=5",
-          "source": "Forbes",
-          "published": "2026-09-16"
+          "title": "Spain floods: Heavy rain paralyses Barcelona, traps motorists in tunnels | Video",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxONW53dVhCWXgtdFhvbzFfUzZxR3VoTXA2aTd5WHNIcVlrRmtSeWRHeHZkOW1GNEJnUTdHM0QzN0MtdGJRM013a3A5ME43eldETjd4Nktla2hSUkVXM29tNXZHdFZuaExCYUx0WFlvQnB2OW42NGJqaWpRVXVWYUxNX2xWMFVHNldJWU0zaW1PVElIbGh3eXlwVlRHOEhPMnlKanNyaFhKLVlqUjdWWHF4elBEZVZqM084b3lyZ0ZLRdIBxAFBVV95cUxPYTJZekZOc0NSb0V4QVZJZE1qX00xbS1wWVNkbG9lZnVuaEI0SVZHYjFZeFVOOFhTOEhlc2N0bXpRN29UNDRZV2liaC16U0tLUnpqQU9YREROZzJUTHQ5dFNTVDhUbFVMaktkWFAtVld3MFJCallLYnZxeE1JaFYyLTlOS0dkeW02eU1VRzZlTWdwbFd1a1BFa1o2UWFpTUoyWVgyZ2tvQlFGZHo3QUpSQ2F0TXRDWTF4MUh4QlJPcjM3UHpM?oc=5",
+          "source": "Firstpost",
+          "published": "2026-09-17"
         },
         {
-          "title": "Barcelona vs. Racing Club 2026 livestream: How to watch La Liga for free",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOdk9jM21SY1VKR3JTM21oOTZaSHRDMlp3ZmVERWMxd29CT0RsNDlvQ081ZUM3VFIwSFlNLTh3cWFIX0RUblotZjJBZG5rQUU0WE9oRk5Cb0NYODVvblI1VVE3RzN6aHFiS0FvU3g4MHRWTEFJR0JRM0V2MnVVSDVKUVpUbzF1Tm1iR2lZcFRUakhCVUgx?oc=5",
-          "source": "Mashable",
-          "published": "2026-09-16"
-        },
-        {
-          "title": "FC Barcelona vs Racing Santander - Where to Watch, Stream Info, TV Channel, and Live Updates (September 16, 2026)",
-          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOVG81dUlZa01ramJlakdPbEY4REdvc1JKbGJweHZTcTVkYnFiVlRHcUUwSzVaeXJfQXQ1b3drTjBiV09uNENIWUxqNXkzeTl5YjhjU2hvMXhnaUZNREtTQjdCSGtnZlZCT3Q0WENzYjd4UmhlTW5iREVKb1l6YW4wbDgyRkRSUWNyOGV5T3BOR1QzXzlBeUF1eTRFYlRVaUFCZkhMOC02ZGVYdVNyMjlqUHo3VEVtMXJNWl9hZi10ZUhhbC1PUExGZzEtWE94MWp3UmdDYw?oc=5",
-          "source": "Fubo",
-          "published": "2026-09-16"
-        },
-        {
-          "title": "Barcelona launches HOWS Barcelona, a new congress on urban and affordable housing",
-          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNbzFpaFlBYWNZeUZpb3N4RE1MNUpCRnNISVM4bm93M0s0TFpGd2RheHI2Y19MckdLLW4wdW5SU2dFekVOejEtaE14UmFuRUFiSHdOdkt5dU9FWmhnd2Y3WHc1ZDBfNS1sOUh3S2NyRDhSeHhxVVQ0OTBvaEYxOWFkMmdGVm91SHM1M1pSUzFCdkQ2d0dpbFE1QWdTUDdGQTIwblR0RGhuaEFHSGFNYWNob2Z6c19XOXJXYVBZdHBQVVlUdkNNazJiSkhSc0M1X3FNMEE?oc=5",
-          "source": "PR Newswire",
-          "published": "2026-09-16"
-        },
-        {
-          "title": "Gavi’s Barcelona frustration explained after revealing Flick conversation",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPNlFRcGNPQl9teV91VjF6NTZHRU1Tcm15ckdHWklXLWhDdkREaG1NZFJUSGlwT1lHQTJBU2ZhYmdnbGlzOEhaREpGWWxrbjg1QmNneE8wNllZdXJ3R2hfM3JHNnpyOXNrQkQ2WkJPak80NGRXbXFMS09jRlZqVHl2Mjh5LWt5emlYMmhGM0UtRGd2SjlUVy1hLThKM1lwOWtUSFM5cWV6ZGpnYUdr0gHAAUFVX3lxTFBuTDdlV2gtTDZsdVByS2s3MU51OXF0QnFCaEdnaXh5RGNfM3dlY28yV2tLUndodGxDeEg2eEtNMTNfXy1YcVVVV2lhT3h2WnhJVXZmZEpwcVF6RkYtRjB6UzBfaklZSHlxekQ5aGcyMUZvVXN5N21aUVVMS2lYWTIzT2J5TlZReFpPaFZfWXowYTJ5LWZvVDRMWkNuV0F3cklXODhSd0tHTE1QVHI4T0VjQ3B6emUtV29STlRERXYyUg?oc=5",
+          "title": "Barcelona’s stunning start has rewritten the club record books",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPSWJrTXg0Y016aDZ0M2dzamRHWGdRLW15ZGtMdThlWlNrU043UDV0RnpGV2hkTW1SdEsyQkk0Ulo4SXVWOW50T1QtNVJGaVhFZjY0a0dYRWRDdktNLWtfMHVKU21hSnBWczZiVjhzWlF0SkZNS0M1TDZFeEZkN003Q1YzWEpaanFvLTJWeFhFcXlwRk0wX0Y2b1o0ejN3d9IBsgFBVV95cUxQSUQ4Q2drX3lZUWFfb2R3VXp0UEFDTFhTVVVoOVRVdm4wSHhkVV9nZVkyVU9uVjhBcUhpUUFfVWRBakNDV2haMjRua0tZdHlUOGlnbUl0YmJIRTE1R1ZEQzBUSV9iczRjWjhKemNuVzJTLUR1NUJtWWY4aW1tMFdvNXVpSFNQZC1nSHBkTnM1WWZxeGhqUy1lcWxINzFsdU5mRHEwZExacFc3d1BTVUJMTEx3?oc=5",
           "source": "Diario AS",
-          "published": "2026-09-16"
+          "published": "2026-09-17"
         },
         {
-          "title": "Rodri reveals the factor that weighed most in choosing Barcelona over Real Madrid",
-          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNYTN3RlhZMm5qT0pjREFTWUUwTnpoVGR5a3ZCam5taXE5TGRHSDhoaC1rcDJ6RGFHUmJ3emdtZ3NNd0FwUHBaeTJEQ0Zkc2dOeE1LaHQtLXNxSVowMmJRd0E1VEY5d19xc1NmQzRZdTdUZVpIcXMweVN3em5yeTR0VEhWcWZOdlBOcDhiNG15MFJvSHY0X24zUXFTY0FROXptODN1YjgyaFVMaVp3NHk2bFZoWDA5d9IBugFBVV95cUxPRDRWeW03alNtZk9Sd245VHp4LUlHMHpyRXBZLWUwTGhaMnRCUHBNT3kxbk4yLTJRa0lBbXJSSF9GWmRMcGpaZmlZQm1jVDRYYmlEYUY1WGJUTmxGcjJOc21ySG45cElFMWhzRG03WmdOWGllVktSZ18zekVLUzVuQmtneXd2VWFvcHByREdKSnZKYTJSQmFEMmJWRUVqMUZoQVZRNGNnTkd2MHRqNDRwNU1XUElSU2pYMVE?oc=5",
-          "source": "World Soccer Talk",
-          "published": "2026-09-16"
+          "title": "Raphinha is leading high-scoring Barcelona, says players are hungry for goals",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPRml1dGNrU0FvVE94ZTdLMzZPY2oyS0R6NS1hZjVvOUtHbzlLazdPX3dRblVYbDZNR0RTV0doYkdzdDNhZVRsUzJXUzM0QjNabHZOTXhoUVgwRXFBelowZ3FhTlA1dXowUDZHRUF1M1lkWHhLVndOWWFITW9FMnJoajJJUnM2ZTBoRjFJMFREdjdXVlZkaEF1aWpnMk9SR1VWcEE?oc=5",
+          "source": "myplainview.com",
+          "published": "2026-09-17"
+        },
+        {
+          "title": "Barcelona rule out serious injury to 25-year-old star after half-time substitution vs Racing Club - report",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPdFV3UGtnQTAwU29sVVhzVVJkbzg0WXNlMnplOGhpQW1sT19MQkJtV3Z5VmNhdVNmNHZzVWFxaDV2WlFvaVpZUUplZFpHT2hlQWJXT2htaTVNVlJHZmtzRTV0NnRMWFlkQVptRGw1ZERJYnotZkxTMWJmSDJibHpIMGtHckR4clJ1NXZTQUMzdmtyM3A3UTFBX0s1bTFkQWtENVNsQXNUX3BFQmtMcDBFWXJ2Z2Nsb2kzNUxMcDlQTXNZMEdRbTNaQjJhT1Q?oc=5",
+          "source": "barcauniversal.com",
+          "published": "2026-09-17"
+        },
+        {
+          "title": "Atletico Madrid promise to lower Barcelona target Julian Alvarez’s release clause on one condition",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPU2lGc0RTcVBKM2ltR1R2dG5od0pSVmY0U0k1NXBwVHZUakJLa0NlQUNXX3ZSa2twbm5Ra0E5OEgtUERGdEhRXzREY25BQ3plT0lNMGhPUlBTT2lYX0d1bzhURlBvU284T1VDd3FjajZNQTVuRTdWT1U2OEh5QkRVRG9xUG5VeG5jTVI0UWc2aXQwQQ?oc=5",
+          "source": "sports.yahoo.com",
+          "published": "2026-09-17"
+        },
+        {
+          "title": "Barcelona Put 7 Past Racing Santander – Just Another Day at the Camp Nou",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPYzZRVnU5c0g4WTdSYTRnOUZuR21LMktFdDRNRjIweUVoZm93ay1mVE54UHJEMF9fa183eXF5QWNJblAyWUxBdGNlUVNlVVp0YklkZE1KdHFtMTd4eTVPNE9NRHRXNnN6eWEzLW5LcENPcno0UWJjV1ZfUlJlb0RIbU5n?oc=5",
+          "source": "sports.yahoo.com",
+          "published": "2026-09-17"
         }
       ],
       "stories": []
@@ -2986,32 +2998,60 @@
         "rank": 1,
         "teamId": 529,
         "team": "Barcelona",
-        "played": 5,
-        "win": 5,
+        "played": 6,
+        "win": 6,
         "draw": 0,
         "loss": 0,
-        "gf": 21,
-        "ga": 4,
-        "gd": 17,
-        "points": 15,
+        "gf": 28,
+        "ga": 6,
+        "gd": 22,
+        "points": 18,
         "form": "WWWWW"
       },
       {
         "rank": 2,
         "teamId": 541,
         "team": "Real Madrid",
-        "played": 5,
-        "win": 4,
+        "played": 6,
+        "win": 5,
         "draw": 0,
         "loss": 1,
-        "gf": 14,
-        "ga": 4,
-        "gd": 10,
-        "points": 12,
-        "form": "WLWWW"
+        "gf": 17,
+        "ga": 6,
+        "gd": 11,
+        "points": 15,
+        "form": "WWLWW"
       },
       {
         "rank": 3,
+        "teamId": 530,
+        "team": "Atletico Madrid",
+        "played": 6,
+        "win": 4,
+        "draw": 1,
+        "loss": 1,
+        "gf": 14,
+        "ga": 6,
+        "gd": 8,
+        "points": 13,
+        "form": "WWLWD"
+      },
+      {
+        "rank": 4,
+        "teamId": 536,
+        "team": "Sevilla",
+        "played": 6,
+        "win": 4,
+        "draw": 1,
+        "loss": 1,
+        "gf": 9,
+        "ga": 6,
+        "gd": 3,
+        "points": 13,
+        "form": "WWDLW"
+      },
+      {
+        "rank": 5,
         "teamId": 543,
         "team": "Real Betis",
         "played": 5,
@@ -3025,74 +3065,46 @@
         "form": "WWLWW"
       },
       {
-        "rank": 4,
+        "rank": 6,
         "teamId": 542,
         "team": "Alaves",
-        "played": 5,
+        "played": 6,
         "win": 3,
         "draw": 1,
-        "loss": 1,
+        "loss": 2,
         "gf": 11,
-        "ga": 5,
-        "gd": 6,
-        "points": 10,
-        "form": "LWWDW"
-      },
-      {
-        "rank": 5,
-        "teamId": 530,
-        "team": "Atletico Madrid",
-        "played": 5,
-        "win": 3,
-        "draw": 1,
-        "loss": 1,
-        "gf": 10,
         "ga": 6,
-        "gd": 4,
+        "gd": 5,
         "points": 10,
-        "form": "WLWDW"
-      },
-      {
-        "rank": 6,
-        "teamId": 536,
-        "team": "Sevilla",
-        "played": 5,
-        "win": 3,
-        "draw": 1,
-        "loss": 1,
-        "gf": 8,
-        "ga": 6,
-        "gd": 2,
-        "points": 10,
-        "form": "WDLWW"
+        "form": "LLWWD"
       },
       {
         "rank": 7,
         "teamId": 544,
         "team": "Deportivo La Coruna",
-        "played": 5,
+        "played": 6,
         "win": 2,
         "draw": 3,
-        "loss": 0,
+        "loss": 1,
         "gf": 9,
-        "ga": 6,
-        "gd": 3,
+        "ga": 7,
+        "gd": 2,
         "points": 9,
-        "form": "DWWDD"
+        "form": "LDWWD"
       },
       {
         "rank": 8,
         "teamId": 540,
         "team": "Espanyol",
-        "played": 5,
+        "played": 6,
         "win": 2,
         "draw": 1,
-        "loss": 2,
-        "gf": 8,
-        "ga": 5,
-        "gd": 3,
+        "loss": 3,
+        "gf": 9,
+        "ga": 7,
+        "gd": 2,
         "points": 7,
-        "form": "WDLLW"
+        "form": "LWDLL"
       },
       {
         "rank": 9,
@@ -3112,29 +3124,29 @@
         "rank": 10,
         "teamId": 4665,
         "team": "Racing Santander",
-        "played": 5,
+        "played": 6,
         "win": 2,
         "draw": 1,
-        "loss": 2,
-        "gf": 9,
-        "ga": 9,
-        "gd": 0,
+        "loss": 3,
+        "gf": 11,
+        "ga": 16,
+        "gd": -5,
         "points": 7,
-        "form": "WLWLD"
+        "form": "LWLWL"
       },
       {
         "rank": 11,
-        "teamId": 727,
-        "team": "Osasuna",
-        "played": 5,
+        "teamId": 728,
+        "team": "Rayo Vallecano",
+        "played": 6,
         "win": 2,
         "draw": 1,
-        "loss": 2,
-        "gf": 5,
-        "ga": 8,
-        "gd": -3,
+        "loss": 3,
+        "gf": 10,
+        "ga": 15,
+        "gd": -5,
         "points": 7,
-        "form": "LLWWD"
+        "form": "WLWLD"
       },
       {
         "rank": 12,
@@ -3152,6 +3164,20 @@
       },
       {
         "rank": 13,
+        "teamId": 727,
+        "team": "Osasuna",
+        "played": 6,
+        "win": 2,
+        "draw": 1,
+        "loss": 3,
+        "gf": 5,
+        "ga": 12,
+        "gd": -7,
+        "points": 7,
+        "form": "LLLWW"
+      },
+      {
+        "rank": 14,
         "teamId": 539,
         "team": "Levante",
         "played": 5,
@@ -3165,7 +3191,7 @@
         "form": "LDWDL"
       },
       {
-        "rank": 14,
+        "rank": 15,
         "teamId": 546,
         "team": "Getafe",
         "played": 5,
@@ -3179,7 +3205,7 @@
         "form": "DDLWL"
       },
       {
-        "rank": 15,
+        "rank": 16,
         "teamId": 538,
         "team": "Celta Vigo",
         "played": 6,
@@ -3193,21 +3219,21 @@
         "form": "DDDLL"
       },
       {
-        "rank": 16,
-        "teamId": 728,
-        "team": "Rayo Vallecano",
-        "played": 5,
+        "rank": 17,
+        "teamId": 532,
+        "team": "Valencia",
+        "played": 6,
         "win": 1,
         "draw": 1,
-        "loss": 3,
-        "gf": 8,
-        "ga": 14,
-        "gd": -6,
+        "loss": 4,
+        "gf": 2,
+        "ga": 10,
+        "gd": -8,
         "points": 4,
-        "form": "LWLDL"
+        "form": "WLLLL"
       },
       {
-        "rank": 17,
+        "rank": 18,
         "teamId": 535,
         "team": "Malaga",
         "played": 5,
@@ -3221,7 +3247,7 @@
         "form": "DDLDL"
       },
       {
-        "rank": 18,
+        "rank": 19,
         "teamId": 533,
         "team": "Villarreal",
         "played": 5,
@@ -3235,32 +3261,18 @@
         "form": "LLLDD"
       },
       {
-        "rank": 19,
+        "rank": 20,
         "teamId": 797,
         "team": "Elche",
-        "played": 5,
+        "played": 6,
         "win": 0,
         "draw": 2,
-        "loss": 3,
-        "gf": 6,
-        "ga": 13,
-        "gd": -7,
-        "points": 2,
-        "form": "DLLLD"
-      },
-      {
-        "rank": 20,
-        "teamId": 532,
-        "team": "Valencia",
-        "played": 5,
-        "win": 0,
-        "draw": 1,
         "loss": 4,
-        "gf": 1,
-        "ga": 10,
-        "gd": -9,
-        "points": 1,
-        "form": "LLLLD"
+        "gf": 8,
+        "ga": 16,
+        "gd": -8,
+        "points": 2,
+        "form": "LDLLL"
       }
     ]
   }
