@@ -244,6 +244,7 @@ async function translateBatch(lang, batch, attempt = 1) {
   const raw = await callOpenRouter(buildMessages(lang, batch));
   const arr = parseTranslations(raw, batch.length);
   if (arr) return arr;
+  console.error(`  [${lang}] batch of ${batch.length} did not parse as expected (attempt ${attempt}). Raw response:\n${raw.slice(0, 1500)}`);
   if (attempt >= 2) throw new Error(`Could not get a valid ${batch.length}-item translation for lang=${lang} after retry`);
   return translateBatch(lang, batch, attempt + 1);
 }
