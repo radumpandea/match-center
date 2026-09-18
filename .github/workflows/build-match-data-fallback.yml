@@ -52,13 +52,13 @@ jobs:
           DEPTH: ${{ github.event.inputs.depth || 'standard' }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
-          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || github.event.inputs.model || 'meta-llama/llama-3.3-70b-instruct' }}
+          OPENAI_MODEL: ${{ github.event.inputs.model || secrets.OPENAI_MODEL || 'meta-llama/llama-3.3-70b-instruct' }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENROUTER_BASE_URL: ${{ secrets.OPENROUTER_BASE_URL }}
-          OPENROUTER_MODEL: ${{ secrets.OPENROUTER_MODEL || github.event.inputs.model || 'google/gemini-3.1-pro-preview' }}
+          OPENROUTER_MODEL: ${{ github.event.inputs.model || secrets.OPENROUTER_MODEL || 'x-ai/grok-4.1-fast' }}
           OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
           OLLAMA_BASE_URL: ${{ secrets.OLLAMA_BASE_URL }}
-          OLLAMA_MODEL: ${{ secrets.OLLAMA_MODEL || github.event.inputs.model || 'llama3.1' }}
+          OLLAMA_MODEL: ${{ github.event.inputs.model || secrets.OLLAMA_MODEL || 'llama3.1' }}
         run: |
           if [ -n "${OPENROUTER_API_KEY}" ] && [ -z "${OPENROUTER_BASE_URL}" ]; then
             export OPENROUTER_BASE_URL="https://openrouter.ai/api/v1"
