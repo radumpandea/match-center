@@ -44,20 +44,34 @@ apare deloc în fișierul de traducere.
 
 ### Cazul special `squad[].career`
 
-Un istoric de cluburi compact, ex.:
-`"Inter (2016) · Renate (2017) · Monza (2020–2023) · Bournemouth (2026–prezent)"`.
-NU traduce nume de cluburi sau ani — schimbă DOAR cuvântul „prezent" în
-echivalentul din limba țintă, restul rămâne identic (paranteze, `·`, `–`):
+Acest câmp NU e mereu doar o listă de cluburi — variază de la un istoric
+compact (`"Inter (2016) · Renate (2017) · Monza (2020–2023) · Bournemouth
+(2026–prezent)"`) până la propoziții cu conectori și detalii în română
+(`"Nancy → Monaco → FC Lorient (campion Ligue 2 2019/20) → KAA Gent →
+Auxerre (din 2025) → semnat din nou vara 2026 de la QPR."`).
 
-| Limbă | Cuvânt |
-|---|---|
-| en | present |
-| fr | présent |
-| de | heute |
-| it | presente |
+Regula: **numele de cluburi, competiții și anii/perioadele NU se traduc**
+(rămân exact ca în sursă) — dar **restul textului se traduce normal**, ca
+orice alt câmp de proză: conectori („din", „vara", „câștigător", „semnat din
+nou de la"), cuvântul „prezent", punctuație descriptivă. Nu lăsa fraze
+românești netraduse pentru că par „doar niște conectori" — dacă un cititor
+englez/francez/german/italian ar citi un cuvânt românesc în mijlocul
+propoziției, e greșit.
 
-Dacă string-ul sursă nu conține „prezent" (jucătorul a plecat de la echipă),
-lasă string-ul identic — nimic de tradus.
+Exemple:
+- `"Inter (2016) · Renate (2017) · Bournemouth (2026–prezent)"` →
+  EN: `"Inter (2016) · Renate (2017) · Bournemouth (2026–present)"`
+  (aici DOAR „prezent" se schimbă, pentru că e tot ce conținea proză).
+- `"Nancy → Monaco → FC Lorient (campion Ligue 2 2019/20) → KAA Gent →
+  Auxerre (din 2025) → semnat din nou vara 2026 de la QPR."` →
+  EN: `"Nancy → Monaco → FC Lorient (Ligue 2 champion 2019/20) → KAA Gent →
+  Auxerre (since 2025) → re-signed in summer 2026 from QPR."`
+  (cluburile „Nancy", „Monaco", „FC Lorient", „KAA Gent", „Auxerre", „QPR" și
+  anii rămân identici; „campion" → „champion", „din" → „since", „semnat din
+  nou vara ... de la" → „re-signed in summer ... from" se traduc).
+
+Dacă string-ul sursă e deja doar cluburi + ani, fără niciun cuvânt românesc
+(cazul rar), lasă-l identic — nu e nimic de tradus.
 
 ## Regula de aur: pozițiile din array corespund exact, prin index
 

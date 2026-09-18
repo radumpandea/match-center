@@ -20,7 +20,7 @@ on:
         required: false
         default: "5"
       model:
-        description: "Model override (empty = Haiku — plain translation of already-verified text, not research)"
+        description: "Model override (empty = Sonnet — see the note on Haiku reliability below)"
         required: false
         default: ""
 
@@ -89,16 +89,34 @@ jobs:
             the "career" special case. Write
             `docs/data/matches/<slug>.i18n.json`.
 
+            **A real failure mode seen in production, watch for it**: on a
+            long match file (a big squad, many stories/news items), it is
+            easy to translate the first few array entries correctly and then
+            drift into copying the Romanian source through UNCHANGED for
+            later entries — especially "unimportant"-looking one-line squad
+            fields like `lastSeason` on bench players, and later
+            `storyOfTheMatch` bullets. Every single translated string must
+            actually be in the target language. Do not skip or copy-through
+            any entry just because it looks minor or you're deep into a long
+            file — go through every array position explicitly.
+
             ## Step 3 — validate
             `node scripts/validate-i18n.mjs docs/data/matches/<slug1>.i18n.json [more...]`
-            must exit 0 for every file you wrote. Fix any length mismatch
-            before finishing — it means an array gained or lost an entry
-            relative to the Romanian source.
+            must exit 0 for every file you wrote, with NO warnings either.
+            This checks two things: (a) every translated array has the same
+            length as the Romanian source (a wrong length silently misaligns
+            everything after the gap), and (b) no translated string is
+            byte-identical to the Romanian source (the failure mode above —
+            for every field except `career`, where an unchanged string can
+            legitimately mean there was nothing to translate). Fix every `✗`
+            AND every `!` warning before finishing — a warning on `career`
+            usually means you left translatable prose (not just "prezent")
+            unchanged; re-check it against the skill's examples.
 
             ## Step 4 — commit and push
             Stage only the `*.i18n.json` files you wrote, in ONE commit:
             `Translate match data: <slug1>[, <slug2>, ...]`. Push to `main`.
           claude_args: |
-            --model ${{ inputs.model != '' && inputs.model || 'claude-haiku-4-5-20251001' }}
+            --model ${{ inputs.model != '' && inputs.model || 'claude-sonnet-5' }}
             --max-turns 120
             --allowedTools "Read,Write,Edit,Bash,Glob,Grep"

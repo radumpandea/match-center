@@ -164,10 +164,16 @@ source arrays' lengths exactly, which `scripts/validate-i18n.mjs` checks (a JSON
 can't compare two different files, hence the separate script rather than an addition to
 `docs/data/schema.json`). Missing a sidecar, or a language inside one, is a silent
 no-op — that language just shows the Romanian original, same as before this existed.
+The validator also flags any translated string that's byte-identical to the Romanian
+source (except `career`, where that can be legitimate) — a real failure mode seen with
+a long file: the first few array entries translate correctly, then later ones (often
+"minor"-looking squad fields, or later `storyOfTheMatch` bullets) get copied through
+unchanged. **Haiku hit this consistently enough that the workflow now defaults to
+Sonnet** for this pass, despite it being "just" translation of already-verified text.
 
-Runs daily (auto-pick, up to 5 ready-but-untranslated matches, soonest-first, Haiku —
-this is translation of already-verified text, not research) and via `workflow_dispatch`
-(`match:` for one exact slug, `count:` to size a manual batch, `model:` override).
+Runs daily (auto-pick, up to 5 ready-but-untranslated matches, soonest-first) and via
+`workflow_dispatch` (`match:` for one exact slug, `count:` to size a manual batch,
+`model:` override).
 
 ### Fallback editorial pass — `build-match-data-fallback.yml`
 
