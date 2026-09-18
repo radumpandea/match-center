@@ -211,4 +211,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           MATCH: ${{ inputs.match }}
-        run: gh workflow run build-match-data-fallback.yml --ref main -f match="${MATCH}"
+        run: gh workflow run build-match-data-fallback.yml --ref main -f match="${MATCH}" -f depth="${{ inputs.depth }}"

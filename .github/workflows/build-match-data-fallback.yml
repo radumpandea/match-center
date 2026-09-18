@@ -13,6 +13,10 @@ on:
         description: "Model override. Default provider is OpenRouter with google/gemini-3.1-pro-preview (closest quality match to the main Claude pipeline, with live web-search grounding via OpenRouter's web plugin). Other examples: openai/gpt-5.1, x-ai/grok-4.3, llama3.1 (Ollama)."
         required: false
         default: ""
+      depth:
+        description: "Research depth for the fallback output."
+        required: false
+        default: "standard"
 
 jobs:
   build-match-fallback:
@@ -45,6 +49,7 @@ jobs:
         id: build
         env:
           MATCH: ${{ github.event.inputs.match || '' }}
+          DEPTH: ${{ github.event.inputs.depth || 'standard' }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
           OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || github.event.inputs.model || 'meta-llama/llama-3.3-70b-instruct' }}

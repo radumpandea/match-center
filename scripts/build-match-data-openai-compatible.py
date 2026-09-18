@@ -459,8 +459,6 @@ def apply_editorial_patch(pack: dict, patch: dict):
     research = normalize_commentator_research(patch.get("commentatorResearch"), known_sources)
     if research:
         pack["commentatorResearch"] = research
-    elif "commentatorResearch" in patch:
-        pack.pop("commentatorResearch", None)
 
     teams_patch = patch.get("teams")
     if not isinstance(teams_patch, dict):
@@ -473,8 +471,11 @@ def apply_editorial_patch(pack: dict, patch: dict):
             continue
 
         if "stories" in changes and isinstance(changes["stories"], list):
+            previous_stories = team.get("stories", [])
             team["stories"] = changes["stories"]
             normalize_team_stories(team)
+            if not team["stories"]:
+                team["stories"] = previous_stories
 
         for key in ("news", "mercatoIn", "mercatoOut", "preseason"):
             if key in changes and isinstance(changes[key], list):
@@ -525,6 +526,8 @@ def finalize_pack(pack: dict):
             normalize_team_stories(team)
     if "ready" in pack:
         pack["ready"] = True
+    pack["researchDepth"] = os.environ.get("DEPTH", "standard")
+    pack["generatedAt"] = datetime.now(timezone.utc).isoformat()
     return pack
 
 
