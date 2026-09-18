@@ -1088,45 +1088,64 @@
     panelsEl = panels(data);
     root.appendChild(panelsEl);
 
-    setupStickyScore(data);
+    setupStickyMiniPitch(data);
   }
 
-  // A compact scoreboard that appears fixed at the top once the real pitch
-  // scrolls out of view, so the commentator still sees who's playing and the
-  // score while reading panels further down. IntersectionObserver on the
-  // pitch row itself -- no manual scroll-position math, and it naturally
-  // re-shows once scrolled back up to the pitch. Torn down and rebuilt on
-  // every full render() (language/theme switch, orientation, etc. all
-  // rebuild `root` from scratch, which would otherwise leave a stale
-  // observer watching a detached node).
-  var stickyObserver = null;
-  function setupStickyScore(d) {
-    if (stickyObserver) { stickyObserver.disconnect(); stickyObserver = null; }
-    var old = document.querySelector('.mc-sticky-score');
+  // A miniature, read-only tactical layout (just coloured dots + short
+  // names, no photos/age/stats/drag/click-to-open) that stays fixed on
+  // screen once the real pitch scrolls out of view, so the commentator
+  // keeps sight of the actual lineup shape while reading panels further
+  // down -- not just the score. Reuses the same layout()/place()/effXI()
+  // formation math as the real pitch so the dots land in the same tactical
+  // shape, just at a fraction of the size. Capped at 35% of the page width.
+  function buildMiniPitch(d) {
+    var vert = view.orientation === 'v';
+    var nearKey = view.swapped ? 'away' : 'home';
+    var shell = el('div', { class: 'mp-shell' + (vert ? ' vertical' : '') });
+    ['home', 'away'].forEach(function (side) {
+      var isNear = side === nearKey;
+      var xi = effXI(d, side);
+      var pts = layout(effFormation(d, side));
+      xi.forEach(function (slot, i) {
+        if (!has(slot.name)) return;
+        var pos = place(pts[i] || { d: 0.03, w: 0.05 + i * 0.08 }, isNear);
+        shell.appendChild(el('div', {
+          class: 'mp-node ' + side,
+          style: 'left:' + pos.left.toFixed(2) + '%;top:' + pos.top.toFixed(2) + '%'
+        }, [el('span', { text: shortName(slot.name) })]));
+      });
+    });
+    return shell;
+  }
+
+  // IntersectionObserver on the pitch row itself -- no manual scroll-
+  // position math, and it naturally re-shows once scrolled back up to the
+  // pitch. Torn down and rebuilt on every full render() (language/theme
+  // switch, orientation, etc. all rebuild `root` from scratch, which would
+  // otherwise leave a stale observer watching a detached node).
+  var miniPitchObserver = null;
+  function setupStickyMiniPitch(d) {
+    if (miniPitchObserver) { miniPitchObserver.disconnect(); miniPitchObserver = null; }
+    var old = document.querySelector('.mc-mini-pitch');
     if (old) old.remove();
     var pitchRow = document.querySelector('.pitch-row');
     if (!pitchRow || typeof IntersectionObserver === 'undefined') return;
 
-    var bar = el('div', { class: 'mc-sticky-score', title: t('pitch.scrollToTop') }, [
-      el('span', { class: 'mss-team home' }, [
-        d.teams.home.logo ? el('img', { src: d.teams.home.logo, alt: '' }) : null,
-        document.createTextNode(d.teams.home.shortName || d.teams.home.name)
-      ]),
-      el('strong', { class: 'mss-result', text: scoreFor(d, 'home') + ' – ' + scoreFor(d, 'away') }),
-      el('span', { class: 'mss-team away' }, [
-        document.createTextNode(d.teams.away.shortName || d.teams.away.name),
-        d.teams.away.logo ? el('img', { src: d.teams.away.logo, alt: '' }) : null
-      ])
+    var header = el('div', { class: 'mp-header' }, [
+      el('span', { class: 'mp-team home', text: d.teams.home.shortName || shortName(d.teams.home.name) }),
+      el('strong', { class: 'mp-score', text: scoreFor(d, 'home') + '–' + scoreFor(d, 'away') }),
+      el('span', { class: 'mp-team away', text: d.teams.away.shortName || shortName(d.teams.away.name) })
     ]);
-    bar.addEventListener('click', function () {
+    var box = el('div', { class: 'mc-mini-pitch', title: t('pitch.scrollToTop') }, [header, buildMiniPitch(d)]);
+    box.addEventListener('click', function () {
       pitchRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
-    document.body.appendChild(bar);
+    document.body.appendChild(box);
 
-    stickyObserver = new IntersectionObserver(function (entries) {
-      bar.classList.toggle('show', !entries[0].isIntersecting);
+    miniPitchObserver = new IntersectionObserver(function (entries) {
+      box.classList.toggle('show', !entries[0].isIntersecting);
     }, { threshold: 0 });
-    stickyObserver.observe(pitchRow);
+    miniPitchObserver.observe(pitchRow);
   }
 
   function openCollaboration(data) {
