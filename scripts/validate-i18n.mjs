@@ -27,7 +27,7 @@
 
 import { readFileSync } from 'node:fs';
 
-const LANGS = ['en', 'fr', 'de', 'it'];
+const LANGS = ['en', 'de', 'it'];
 
 function readJSON(p) {
   return JSON.parse(readFileSync(p, 'utf8'));

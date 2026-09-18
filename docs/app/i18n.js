@@ -9,11 +9,11 @@
 (function () {
   'use strict';
 
-  var LANGS = ['ro', 'en', 'fr', 'de', 'it'];
-  var LANG_NAMES = { ro: 'Română', en: 'English', fr: 'Français', de: 'Deutsch', it: 'Italiano' };
+  var LANGS = ['ro', 'en', 'de', 'it'];
+  var LANG_NAMES = { ro: 'Română', en: 'English', de: 'Deutsch', it: 'Italiano' };
   // BCP-47 tags for toLocaleString/toLocaleDateString — day-month order and
   // month/weekday names follow these, independent of the UI dictionary below.
-  var LOCALE_TAG = { ro: 'ro-RO', en: 'en-GB', fr: 'fr-FR', de: 'de-DE', it: 'it-IT' };
+  var LOCALE_TAG = { ro: 'ro-RO', en: 'en-GB', de: 'de-DE', it: 'it-IT' };
 
   var DICT = {
     ro: {

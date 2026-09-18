@@ -1,7 +1,7 @@
 name: Translate Match Data
 
 # Level 3: translates the editorial content of already-"ready" (or
-# "premium"/deep) match packs into EN/FR/DE/IT, per
+# "premium"/deep) match packs into EN/DE/IT, per
 # .claude/skills/match-i18n-json/SKILL.md. Writes a separate
 # docs/data/matches/<slug>.i18n.json sidecar — the Romanian source file is
 # never modified. Runs after Build Match Data so there's something ready to
@@ -84,8 +84,8 @@ jobs:
               qualify, STOP — no commit. That's a normal, expected outcome
               once the backlog is caught up.
 
-            ## Step 2 — translate each picked match into ALL FOUR languages
-            (en, fr, de, it) in one pass, following the skill's field list and
+            ## Step 2 — translate each picked match into ALL THREE languages
+            (en, de, it) in one pass, following the skill's field list and
             the "career" special case. Write
             `docs/data/matches/<slug>.i18n.json`.
 

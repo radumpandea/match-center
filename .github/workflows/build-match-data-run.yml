@@ -28,6 +28,7 @@ jobs:
     timeout-minutes: ${{ inputs.depth == 'deep' && 170 || 90 }}
     permissions:
       contents: write
+      actions: write
       id-token: write
     steps:
       - uses: actions/checkout@v6
@@ -42,6 +43,8 @@ jobs:
         run: npm install --no-audit --no-fund
 
       - uses: anthropics/claude-code-action@v1
+        id: claude-build
+        continue-on-error: true
         env:
           # Only relevant when the ANTHROPIC_API_KEY fallback is in use: an
           # identity-linked key (the newer default for keys created via personal
@@ -202,3 +205,10 @@ jobs:
             --model ${{ inputs.model != '' && inputs.model || (inputs.depth == 'deep' && 'claude-sonnet-5' || 'claude-haiku-4-5-20251001') }}
             --max-turns ${{ inputs.depth == 'deep' && 240 || 120 }}
             --allowedTools "Read,Write,Edit,Bash,Glob,Grep,WebSearch,WebFetch"
+
+      - name: Redirect failed Claude build to configured fallback API
+        if: steps.claude-build.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MATCH: ${{ inputs.match }}
+        run: gh workflow run build-match-data-fallback.yml --ref main -f match="${MATCH}"

@@ -1,20 +1,20 @@
 ---
 name: match-i18n-json
-description: Traduce conținutul editorial deja cercetat al unui pachet de meci Match Center (docs/data/matches/<slug>.json) în engleză, franceză, germană și italiană, scriind rezultatul într-un fișier separat docs/data/matches/<slug>.i18n.json. NU face research nou — traduce fidel ce e deja verificat în română. Folosește acest skill când rulează workflow-ul translate-match-data, sau la cerere pentru „tradu meciul X în EN/FR/DE/IT".
+description: Traduce conținutul editorial deja cercetat al unui pachet de meci Match Center (docs/data/matches/<slug>.json) în engleză, germană și italiană, scriind rezultatul într-un fișier separat docs/data/matches/<slug>.i18n.json. NU face research nou — traduce fidel ce e deja verificat în română. Folosește acest skill când rulează workflow-ul translate-match-data, sau la cerere pentru „tradu meciul X în EN/DE/IT”.
 ---
 
-# Match Center — traducerea conținutului editorial (EN/FR/DE/IT)
+# Match Center — traducerea conținutului editorial (EN/DE/IT)
 
 Acest skill traduce conținutul editorial deja cercetat al unui pachet de meci
 (`docs/data/matches/<slug>.json`, cu `partial` absent — un pachet "pregătit"
-sau "premium") în engleză, franceză, germană și italiană. Rezultatul se scrie
+sau "premium") în engleză, germană și italiană. Rezultatul se scrie
 într-un fișier NOU, `docs/data/matches/<slug>.i18n.json` — fișierul sursă nu
 se modifică niciodată, rămâne varianta canonică în română.
 
 ## De ce un fișier separat
 
 Site-ul e static, fără build step. `docs/app/i18n.js` traduce deja interfața
-(butoane, etichete) în RO/EN/FR/DE/IT. `docs/app/match.js`
+(butoane, etichete) în RO/EN/DE/IT. `docs/app/match.js`
 (`applyI18nOverlay`) suprapune ACEST fișier peste conținutul cercetat al
 meciului, în funcție de limba aleasă — dacă limba e română, sau dacă fișierul
 nu există încă, ecranul arată exact ce arăta înainte (conținutul românesc).
@@ -55,7 +55,7 @@ Regula: **numele de cluburi, competiții și anii/perioadele NU se traduc**
 orice alt câmp de proză: conectori („din", „vara", „câștigător", „semnat din
 nou de la"), cuvântul „prezent", punctuație descriptivă. Nu lăsa fraze
 românești netraduse pentru că par „doar niște conectori" — dacă un cititor
-englez/francez/german/italian ar citi un cuvânt românesc în mijlocul
+englez/german/italian ar citi un cuvânt românesc în mijlocul
 propoziției, e greșit.
 
 Exemple:
@@ -95,7 +95,7 @@ a propoziției 5 din sursă, nicio inserare, omisiune sau reordonare.
 
 ## Formatul fișierului de ieșire
 
-Un obiect cu până la 4 chei (`en`, `fr`, `de`, `it`) — scrie doar limbile
+Un obiect cu până la 3 chei (`en`, `de`, `it`) — scrie doar limbile
 cerute de acest run. Fiecare valoare are aceeași formă (căi + lungimi de
 array) ca subsetul de mai sus din sursă. `additionalProperties` nu e impus
 strict, dar nu adăuga chei în afara listei — validatorul verifică lungimile,

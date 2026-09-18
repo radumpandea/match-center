@@ -24,7 +24,7 @@ build-match-data-favourites.yml → the same editorial pass, once per match ANY 
 build-match-data-fallback.yml → a lighter editorial patch over OpenRouter/OpenAI/Ollama,
                                  for when the Claude budget above is exhausted — see
                                  "Fallback editorial pass" below
-translate-match-data.yml     →  docs/data/matches/<slug>.i18n.json (Level 3: EN/FR/DE/IT
+translate-match-data.yml     →  docs/data/matches/<slug>.i18n.json (Level 3: EN/DE/IT
                                  translation of the editorial text above, once a match is
                                  no longer "partial" — never touches the Romanian source)
 docs/index.html               →  fixture list — sign in here to see/pick favourites
@@ -150,7 +150,7 @@ no API calls of its own.
 ### Translation pass — `translate-match-data.yml`
 
 `docs/app/i18n.js` already translates the static UI chrome (buttons, labels, panel
-titles) into EN/FR/DE/IT — that never touches match data. `translate-match-data.yml`
+titles) into EN/DE/IT — that never touches match data. `translate-match-data.yml`
 is the **Level 3 pass**: once a pack is no longer `partial` (either `standard` or
 `deep` tier), it translates the *editorial* text — `storyOfTheMatch`, `h2h.summary`,
 `referee.history`, `venue.notes`/`stories`, `commentatorResearch`, and per-team

@@ -33,6 +33,7 @@ jobs:
     # fails at startup (0 jobs run), it doesn't just downgrade silently.
     permissions:
       contents: write
+      actions: write
       id-token: write
     uses: ./.github/workflows/build-match-data-run.yml
     with:
