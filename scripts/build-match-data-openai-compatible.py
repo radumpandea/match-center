@@ -75,6 +75,7 @@ def build_prompt(slug: str, pack: dict):
         "slug": pack.get("slug"),
         "competition": pack.get("competition"),
         "kickoff": pack.get("kickoff"),
+        "sources": pack.get("sources", []),
         "venue": pack.get("venue"),
         "referee": pack.get("referee"),
         "h2h": pack.get("h2h"),
@@ -106,6 +107,17 @@ def build_prompt(slug: str, pack: dict):
             "preseason": team.get("preseason", []),
         }
 
+    source_urls = {
+        source.get("url")
+        for source in pack.get("sources", [])
+        if isinstance(source, dict) and isinstance(source.get("url"), str)
+    }
+    for side in ("home", "away"):
+        for candidate in pack.get("teams", {}).get(side, {}).get("newsCandidates", []):
+            if isinstance(candidate, dict) and isinstance(candidate.get("url"), str):
+                source_urls.add(candidate["url"])
+    editorial_view["sourceUrls"] = sorted(source_urls)
+
     depth_requirements = """
 For this deep run, improve the existing editorial layer rather than merely copying it:
 - return 10-14 factual storyOfTheMatch bullets;
@@ -129,7 +141,12 @@ Requirements:
 - `playerEdits` must be an array of objects with `name` plus only verified text fields among `funfact`, `linkLine`, `pronunciation`, and `statusNote`. Do not edit numeric or enum player fields.
 - For `coach`, return only `country`, `age`, `tenureFrom`, and `career` when they are empty or clearly incomplete.
 - The patch must preserve the existing squads, coach data, form, standings, H2H, and lineup data.
-- Folosește exclusiv fapte prezente explicit în pachetul primit sau în `newsCandidates`. Nu folosi cunoștințe generale neconfirmate și nu completa golurile prin presupuneri.
+- The input includes every source already saved for this match in `sources` and `sourceUrls`.
+    Treat those URLs as the available research set: inspect them with web fetch/search when useful,
+    use them to verify claims, and cite their exact URL in `commentatorResearch[].source` whenever a
+    research card is based on one. Do not claim that you checked a source you did not use.
+- Folosește exclusiv fapte prezente explicit în pachetul primit, în sursele furnizate sau în `newsCandidates`.
+    Nu folosi cunoștințe generale neconfirmate și nu completa golurile prin presupuneri.
 - Nu transforma un câmp gol, o listă goală sau o formulare vagă într-o afirmație factuală. Dacă nu există dovadă pentru o informație, omite câmpul.
 - Nu scrie fraze generice precum „are mai mulți jucători accidentați”, „antrenorul are decizii dificile”, „meciul va fi interesant” sau „echipa caută victoria”. Acestea nu sunt date și trebuie omise.
 - Add or improve the following editorial fields only when relevant and supported by the current match pack:
