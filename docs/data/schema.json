@@ -331,6 +331,11 @@
           "description": "filled only if the official lineup was already public at build time",
           "items": { "$ref": "#/definitions/lineupSlot" }
         },
+        "substitutes": {
+          "type": ["array", "null"],
+          "description": "confirmed bench for this match -- filled alongside confirmedXI, once the official squad list is public (never a guess/prediction, unlike predictedXI)",
+          "items": { "$ref": "#/definitions/lineupSlot" }
+        },
         "squad": {
           "type": "array",
           "items": { "$ref": "#/definitions/player" }

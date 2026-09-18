@@ -585,10 +585,12 @@ async function getFixtureMeta(eventId, cache) {
   if (lu && lu.length === 2) {
     lineups = {};
     for (const side of lu) {
-      const xi = (side.startXI || []).map((e) => e.player)
+      const toSlots = (list) => (list || []).map((e) => e.player)
         .filter((p) => p && p.name)
         .map((p) => ({ apiId: p.id != null ? p.id : null, number: num(p.number), name: p.name, pos: p.pos || 'n/d' }));
-      lineups[side.team.id] = { xi, formation: side.formation || 'n/d' };
+      const xi = toSlots(side.startXI);
+      const subs = toSlots(side.substitutes);
+      lineups[side.team.id] = { xi, subs, formation: side.formation || 'n/d' };
       const pc = side.team && side.team.colors && side.team.colors.player;
       if (pc && pc.primary) {
         colors[side.team.id] = { primary: '#' + pc.primary, secondary: pc.border ? '#' + pc.border : null };
@@ -1091,7 +1093,7 @@ function emptyTeamBlock(name) {
   return {
     name, shortName: null, nickname: null, logo: null, colors: null,
     coach: { name: 'n/d' },
-    formation: 'n/d', predictedXI: [], confirmedXI: null, squad: [],
+    formation: 'n/d', predictedXI: [], confirmedXI: null, substitutes: null, squad: [],
     form: null, absences: [], mercatoIn: [], mercatoOut: [], preseason: [],
     news: [], newsCandidates: [], stories: [],
   };
@@ -1160,6 +1162,7 @@ async function buildMatch(fx, season, cache) {
       t.predictedXI = lu.xi;
       if (has(lu.formation)) t.formation = lu.formation;
     }
+    if (lu && lu.subs && lu.subs.length) t.substitutes = lu.subs;
     const col = meta && meta.colors && id != null ? meta.colors[id] : null;
     if (col && col.primary) t.colors = col;
   }
@@ -1382,6 +1385,10 @@ async function main() {
         if (lu && lu.xi.length === 11 && (!doc.teams[side].confirmedXI || !doc.teams[side].confirmedXI.length)) {
           doc.teams[side].confirmedXI = lu.xi;
           if (has(lu.formation)) doc.teams[side].formation = lu.formation;
+          touched = true;
+        }
+        if (lu && lu.subs && lu.subs.length && (!doc.teams[side].substitutes || !doc.teams[side].substitutes.length)) {
+          doc.teams[side].substitutes = lu.subs;
           touched = true;
         }
         const col = meta.colors && id != null ? meta.colors[id] : null;

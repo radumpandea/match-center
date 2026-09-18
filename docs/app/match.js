@@ -1657,6 +1657,12 @@
       wrap.appendChild(ul((tm.predictedXI || []).map(function (p) {
         return (p.number != null ? p.number + '. ' : '') + p.name + (has(p.pos) ? '  ' + p.pos : '');
       })));
+      if (tm.substitutes && tm.substitutes.length) {
+        wrap.appendChild(el('h4', { text: t('panel.confirmedSubs') }));
+        wrap.appendChild(ul(tm.substitutes.map(function (p) {
+          return (p.number != null ? p.number + '. ' : '') + p.name;
+        })));
+      }
       return wrap;
     }), { open: true }));
 

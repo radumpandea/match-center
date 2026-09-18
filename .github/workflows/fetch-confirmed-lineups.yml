@@ -1,0 +1,57 @@
+name: Fetch Confirmed Lineups
+
+# Catches the officially-confirmed starting XI + substitutes close to
+# kickoff. prefetch-preview.mjs already knows how to write confirmedXI from
+# API-Football, but it only runs once a day — nowhere near the ~40-75 minute
+# pre-kickoff window when clubs actually publish the lineup. This workflow
+# runs scripts/fetch-confirmed-lineups.mjs on a tight cron so that window is
+# actually covered. Narrow and cheap: it only calls fixtures/lineups, and
+# only for fixtures currently inside the window, so most ticks do nothing.
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch: {}
+
+jobs:
+  fetch-lineups:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch confirmed lineups due right now
+        id: fetch
+        env:
+          APIFOOTBALL_KEY: ${{ secrets.APIFOOTBALL_KEY }}
+        run: node scripts/fetch-confirmed-lineups.mjs
+
+      - name: Validate changed match files
+        run: |
+          mapfile -t files < <(git diff --name-only --diff-filter=M HEAD -- docs/data/matches | grep '\.json$' | grep -v '\.i18n\.json$' || true)
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "No changed match files to validate."
+            exit 0
+          fi
+          npm install --no-audit --no-fund
+          node scripts/validate-match.mjs "${files[@]}"
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/matches
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Confirmed lineup(s) fetched close to kickoff"
+          git pull --rebase --autostash origin main || true
+          git push
