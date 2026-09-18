@@ -70,6 +70,7 @@ def choose_matches():
 
 
 def build_prompt(slug: str, pack: dict):
+    depth = os.environ.get("DEPTH", "standard")
     editorial_view = {
         "slug": pack.get("slug"),
         "competition": pack.get("competition"),
@@ -105,6 +106,17 @@ def build_prompt(slug: str, pack: dict):
             "preseason": team.get("preseason", []),
         }
 
+    depth_requirements = """
+For this deep run, improve the existing editorial layer rather than merely copying it:
+- return 10-14 factual storyOfTheMatch bullets;
+- return 3-4 story objects for each team, with 2-5 concrete bullets each;
+- return up to 8 source-backed commentatorResearch cards;
+- use the OpenRouter web results for current team news, coach context, transfers and player facts;
+- preserve every existing useful fact and add only verified improvements.
+""" if depth == "deep" else """
+For this standard run, keep the patch compact: 6-10 factual storyOfTheMatch bullets and up to 2 story objects per team.
+"""
+
     prompt = f"""
 Ești editorul sportiv al site-ului Match Center. Scrie toate câmpurile textuale noi în limba română.
 
@@ -135,6 +147,7 @@ Requirements:
 - Nu returna conținut în engleză pentru `storyOfTheMatch`, `stories`, `news`, `funfact`, `linkLine`, `statusNote` sau `commentatorResearch`; numele proprii și denumirile oficiale rămân neschimbate.
 - Nu folosi predicții prezentate ca fapte. O întrebare sau un lucru de urmărit trebuie formulat clar ca întrebare/observație, nu ca certitudine.
 - Return ONLY valid JSON for the patch. No markdown fences and no commentary.
+{depth_requirements}
 
 The current editorial data is:
 {json.dumps(editorial_view, ensure_ascii=False, indent=2)}
@@ -583,7 +596,8 @@ def main():
                     f"Fallback model returned no usable editorial changes for {slug}; "
                     "leaving the partial pack untouched so it can be retried."
                 )
-            print(f"No new editorial patch for {slug}; preserving existing editorial data.")
+            print(f"No new editorial patch for {slug}; leaving the existing pack untouched.")
+            continue
         finalized = finalize_pack(patched)
         write_json(match_path, finalized)
 
