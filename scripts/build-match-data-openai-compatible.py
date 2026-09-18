@@ -573,10 +573,17 @@ def main():
         before_editorial = editorial_signature(pack)
         patched = apply_editorial_patch(pack, updated)
         if editorial_signature(patched) == before_editorial:
-            fail(
-                f"Fallback model returned no usable editorial changes for {slug}; "
-                "leaving the partial pack untouched so it can be retried."
+            has_existing_editorial = bool(
+                pack.get("commentatorResearch")
+                or len(pack.get("storyOfTheMatch", [])) > 0
+                or any(pack.get("teams", {}).get(side, {}).get("stories") for side in ("home", "away"))
             )
+            if not has_existing_editorial:
+                fail(
+                    f"Fallback model returned no usable editorial changes for {slug}; "
+                    "leaving the partial pack untouched so it can be retried."
+                )
+            print(f"No new editorial patch for {slug}; preserving existing editorial data.")
         finalized = finalize_pack(patched)
         write_json(match_path, finalized)
 
