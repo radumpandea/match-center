@@ -927,6 +927,12 @@
     var next = pitch(data);
     if (pitchEl) pitchEl.replaceWith(next);
     pitchEl = next;
+    // Orientation/swap-sides/substitutions all go through here -- the mini
+    // pitch reads the same view.orientation/view.swapped/effXI() at build
+    // time, so it must be rebuilt too or it silently falls out of sync with
+    // the real pitch (e.g. still "horizontal" after the user switches the
+    // main pitch to vertical).
+    setupStickyMiniPitch(data);
   }
 
   function render(data) {
