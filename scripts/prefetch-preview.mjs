@@ -781,27 +781,46 @@ async function getTeamStats(teamId, leagueId, season, cache) {
 async function getFixtureDetails(fixtureId, cache) {
   cache.fixtureDetails = cache.fixtureDetails || {};
   const hit = cache.fixtureDetails[fixtureId];
-  if (hit) return hit;
+  // hit.startXIByTeam distinguishes a cache written by this (current) version
+  // from one written before lineups were captured -- treat the old shape as
+  // a miss so it gets backfilled rather than served stale-and-incomplete.
+  if (hit && hit.startXIByTeam) return hit;
   const [lj, ej] = await Promise.all([
     af('fixtures/lineups', { fixture: fixtureId }),
     af('fixtures/events', { fixture: fixtureId }),
   ]);
   const formationByTeam = {};
+  const startXIByTeam = {};
   for (const l of (lj && lj.response) || []) {
-    if (l.team && l.team.id != null && l.formation) formationByTeam[l.team.id] = l.formation;
+    if (!l.team || l.team.id == null) continue;
+    if (l.formation) formationByTeam[l.team.id] = l.formation;
+    startXIByTeam[l.team.id] = (l.startXI || [])
+      .map((s) => s.player || {})
+      .filter((p) => p.name)
+      .map((p) => ({ name: p.name, number: p.number != null ? p.number : null, pos: p.pos || null }));
   }
-  const events = (((ej && ej.response) || [])
-    .filter((e) => e.type === 'Goal' || e.type === 'Card')
-    .map((e) => ({
-      minute: e.time && e.time.elapsed != null ? e.time.elapsed : null,
-      teamId: e.team && e.team.id != null ? e.team.id : null,
-      player: e.player && e.player.name || null,
-      type: e.type === 'Card'
-        ? (String(e.detail || '').toLowerCase().includes('red') ? 'red' : 'yellow')
-        : (String(e.detail || '').toLowerCase().includes('own') ? 'owngoal' : 'goal'),
-    }))
-    .filter((e) => e.player));
-  const rec = { formationByTeam, events };
+  // "Goal"/"Card" are capitalised, "subst" is not -- API-Football's own
+  // inconsistency; compare lowercased to be safe either way.
+  const events = ((ej && ej.response) || [])
+    .map((e) => {
+      const kind = String(e.type || '').toLowerCase();
+      const minute = e.time && e.time.elapsed != null ? e.time.elapsed : null;
+      const teamId = e.team && e.team.id != null ? e.team.id : null;
+      if (kind === 'goal') {
+        return { minute, teamId, type: String(e.detail || '').toLowerCase().includes('own') ? 'owngoal' : 'goal', player: e.player && e.player.name || null };
+      }
+      if (kind === 'card') {
+        return { minute, teamId, type: String(e.detail || '').toLowerCase().includes('red') ? 'red' : 'yellow', player: e.player && e.player.name || null };
+      }
+      if (kind === 'subst') {
+        // API-Football's own convention for this event type: `player` is who
+        // came OFF, `assist` is who came ON.
+        return { minute, teamId, type: 'sub', playerOut: e.player && e.player.name || null, playerIn: e.assist && e.assist.name || null };
+      }
+      return null;
+    })
+    .filter((e) => e && (e.player || e.playerIn || e.playerOut));
+  const rec = { formationByTeam, startXIByTeam, events };
   // Only cache a fixture once at least one of the two calls actually came
   // back (budget exhaustion / a transient error returns null from af() for
   // both) -- otherwise this fixture would be silently skipped forever
@@ -825,8 +844,12 @@ async function getFormGuide(teamId, season, cache) {
     const formation = (det.formationByTeam[teamId] || det.formationByTeam[oppId])
       ? { us: det.formationByTeam[teamId] || null, opp: det.formationByTeam[oppId] || null }
       : null;
+    const lineups = (det.startXIByTeam[teamId] || det.startXIByTeam[oppId])
+      ? { us: det.startXIByTeam[teamId] || [], opp: det.startXIByTeam[oppId] || [] }
+      : null;
     const events = det.events.map((e) => ({
-      minute: e.minute, side: e.teamId === teamId ? 'us' : 'opp', player: e.player, type: e.type,
+      minute: e.minute, side: e.teamId === teamId ? 'us' : 'opp', type: e.type,
+      player: e.player || null, playerOut: e.playerOut || null, playerIn: e.playerIn || null,
     }));
     out.push({
       date: (f.fixture.date || '').slice(0, 10),
@@ -835,7 +858,8 @@ async function getFormGuide(teamId, season, cache) {
       comp: f.league && f.league.name || null,
       score: `${us}-${them}`,
       result: us > them ? 'W' : us < them ? 'L' : 'D',
-      formation, events,
+      referee: f.fixture.referee || null,
+      formation, lineups, events,
     });
   }
   return out;
@@ -877,14 +901,19 @@ async function getH2H(homeId, awayId, homeName, awayName, cache, force) {
     const formation = (det.formationByTeam[hId] || det.formationByTeam[aId])
       ? { home: det.formationByTeam[hId] || null, away: det.formationByTeam[aId] || null }
       : null;
+    const lineups = (det.startXIByTeam[hId] || det.startXIByTeam[aId])
+      ? { home: det.startXIByTeam[hId] || [], away: det.startXIByTeam[aId] || [] }
+      : null;
     const events = det.events.map((e) => ({
-      minute: e.minute, side: e.teamId === hId ? 'home' : 'away', player: e.player, type: e.type,
+      minute: e.minute, side: e.teamId === hId ? 'home' : 'away', type: e.type,
+      player: e.player || null, playerOut: e.playerOut || null, playerIn: e.playerIn || null,
     }));
     recent.push({
       date: (f.fixture.date || '').slice(0, 10),
       comp: f.league && f.league.name || null,
       score: `${f.teams.home.name} ${f.goals.home}-${f.goals.away} ${f.teams.away.name}`,
-      formation, events,
+      referee: f.fixture.referee || null,
+      formation, lineups, events,
     });
   }
   const rec = {

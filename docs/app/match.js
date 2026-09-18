@@ -1554,14 +1554,15 @@
           el('tr', {}, [el('th', { text: t('panel.h2hDate') }), el('th', { text: t('panel.h2hComp') }), el('th', { text: t('panel.h2hScore') })])
         ]);
         d.h2h.recent.forEach(function (r) {
-          var hasDetails = (r.formation && (r.formation.home || r.formation.away)) || (r.events && r.events.length);
+          var hasDetails = (r.formation && (r.formation.home || r.formation.away)) || (r.lineups && (r.lineups.home || r.lineups.away)) ||
+            (r.events && r.events.length) || has(r.referee);
           var names = /^(.*) \d+-\d+ (.*)$/.exec(r.score || '');
           tb.appendChild(el('tr', hasDetails ? {
             class: 'clickable', title: t('panel.h2hDetailsHint'),
             onclick: function () {
-              openMatchHistory(r.score, [r.date, has(r.comp) ? r.comp : null].filter(has).join(' · '),
-                { key: 'home', label: names ? names[1] : t('panel.h2hScore'), formation: r.formation && r.formation.home },
-                { key: 'away', label: names ? names[2] : '', formation: r.formation && r.formation.away },
+              openMatchHistory(r.score, [r.date, has(r.comp) ? r.comp : null].filter(has).join(' · '), r.referee,
+                { key: 'home', label: names ? names[1] : t('panel.h2hScore'), formation: r.formation && r.formation.home, lineup: r.lineups && r.lineups.home },
+                { key: 'away', label: names ? names[2] : '', formation: r.formation && r.formation.away, lineup: r.lineups && r.lineups.away },
                 r.events);
             }
           } : {}, [el('td', { text: r.date }), el('td', { text: has(r.comp) ? r.comp : '—' }), el('td', { text: r.score })]));
@@ -1598,14 +1599,15 @@
         if (f.recent && f.recent.length) {
           var list = el('ul', { class: 'form-guide' });
           f.recent.forEach(function (r) {
-            var hasDetails = (r.formation && (r.formation.us || r.formation.opp)) || (r.events && r.events.length);
+            var hasDetails = (r.formation && (r.formation.us || r.formation.opp)) || (r.lineups && (r.lineups.us || r.lineups.opp)) ||
+              (r.events && r.events.length) || has(r.referee);
             list.appendChild(el('li', hasDetails ? {
               class: 'clickable', title: t('panel.h2hDetailsHint'),
               onclick: function () {
                 openMatchHistory(tm.name + '  ' + r.score + '  ' + (has(r.opp) ? r.opp : ''),
-                  [fgDate(r.date), fgComp(r.comp)].filter(has).join(' · '),
-                  { key: 'us', label: tm.name, formation: r.formation && r.formation.us },
-                  { key: 'opp', label: has(r.opp) ? r.opp : '', formation: r.formation && r.formation.opp },
+                  [fgDate(r.date), fgComp(r.comp)].filter(has).join(' · '), r.referee,
+                  { key: 'us', label: tm.name, formation: r.formation && r.formation.us, lineup: r.lineups && r.lineups.us },
+                  { key: 'opp', label: has(r.opp) ? r.opp : '', formation: r.formation && r.formation.opp, lineup: r.lineups && r.lineups.opp },
                   r.events);
               }
             } : {}, [
@@ -1968,16 +1970,18 @@
     show(names[0]);
   }
 
-  // Details for one past H2H / form-guide fixture: the formation each side
-  // played and its goals/cards. Both come from API-Football (see
-  // scripts/prefetch-preview.mjs's getFixtureDetails and the `formation` /
-  // `events` fields on h2h.recent[] / teams.<side>.form.recent[] in
+  // Details for one past H2H / form-guide fixture: the two starting XIs,
+  // the formation each side played, its referee, and its goals/cards/subs.
+  // All from API-Football (see scripts/prefetch-preview.mjs's
+  // getFixtureDetails and the `formation` / `lineups` / `referee` / `events`
+  // fields on h2h.recent[] / teams.<side>.form.recent[] in
   // docs/data/schema.json), filled in once when that fixture first enters
-  // either list — older fixtures built before this existed just have neither
-  // field, in which case the caller doesn't make the row clickable at all.
-  // sideA/sideB: { key, label, formation }, where `key` matches the `side`
-  // tag on each event ('home'/'away' for H2H, 'us'/'opp' for a form guide).
-  function openMatchHistory(titleText, metaText, sideA, sideB, events) {
+  // either list — older fixtures built before this existed just have none of
+  // that, in which case the caller doesn't make the row clickable at all.
+  // sideA/sideB: { key, label, formation, lineup }, where `key` matches the
+  // `side` tag on each event ('home'/'away' for H2H, 'us'/'opp' for a form
+  // guide) and `lineup` is an array of { name, number, pos } (or falsy).
+  function openMatchHistory(titleText, metaText, refereeName, sideA, sideB, events) {
     var back = el('div', { class: 'modal-back', onclick: function (e) { if (e.target === back) close(); } });
     function close() { back.remove(); document.removeEventListener('keydown', onKey); }
     function onKey(e) { if (e.key === 'Escape') close(); }
@@ -1990,6 +1994,23 @@
         el('span', {}, [el('b', { text: sideB.label + ':' }), document.createTextNode(' ' + (sideB.formation || t('common.na')))])
       ]));
     }
+    if (has(refereeName)) {
+      body.appendChild(el('div', { class: 'kv' }, [
+        el('span', {}, [el('b', { text: t('pitch.referee') + ':' }), document.createTextNode(' ' + refereeName)])
+      ]));
+    }
+    function lineupCol(side) {
+      if (!side.lineup || !side.lineup.length) return el('div');
+      return el('div', {}, [
+        el('h4', { text: side.label }),
+        el('ul', {}, side.lineup.map(function (p) {
+          return el('li', { text: (p.number != null ? p.number + '. ' : '') + p.name + (has(p.pos) ? '  ' + p.pos : '') });
+        }))
+      ]);
+    }
+    if ((sideA.lineup && sideA.lineup.length) || (sideB.lineup && sideB.lineup.length)) {
+      body.appendChild(el('div', { class: 'two-col' }, [lineupCol(sideA), lineupCol(sideB)]));
+    }
     var list = el('div', { class: 'ev-list' });
     var sorted = (events || []).slice().sort(function (x, y) {
       return (x.minute == null ? 999 : x.minute) - (y.minute == null ? 999 : y.minute);
@@ -2000,15 +2021,16 @@
       sorted.forEach(function (e) {
         var meta = evMeta(e.type);
         var teamLabel = e.side === sideA.key ? sideA.label : sideB.label;
-        list.appendChild(el('div', { class: 'ev-row' }, [
-          el('span', { text: (e.minute != null ? e.minute + "'  " : '') + meta.icon +
-            (e.type === 'owngoal' ? t('panel.ownGoalSuffix') : '') + '  ' + e.player + '  (' + teamLabel + ')' })
-        ]));
+        var text = e.type === 'sub'
+          ? (e.minute != null ? e.minute + "'  " : '') + meta.icon + '  ' + (e.playerOut || '?') + ' → ' + (e.playerIn || '?') + '  (' + teamLabel + ')'
+          : (e.minute != null ? e.minute + "'  " : '') + meta.icon +
+            (e.type === 'owngoal' ? t('panel.ownGoalSuffix') : '') + '  ' + e.player + '  (' + teamLabel + ')';
+        list.appendChild(el('div', { class: 'ev-row' }, [el('span', { text: text })]));
       });
     }
     body.appendChild(list);
 
-    var m = el('div', { class: 'modal', style: 'max-width:480px' }, [
+    var m = el('div', { class: 'modal', style: 'max-width:560px' }, [
       el('div', { class: 'modal-head' }, [
         el('div', {}, [el('h3', { text: titleText }), el('div', { class: 'sub', text: metaText })]),
         el('button', { class: 'modal-close', text: '✕', onclick: close })

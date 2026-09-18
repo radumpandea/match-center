@@ -109,6 +109,7 @@
               "date": { "type": "string" },
               "comp": { "type": ["string", "null"] },
               "score": { "type": "string", "description": "e.g. \"Toulouse 1-2 Lille\"" },
+              "referee": { "type": ["string", "null"], "description": "from THIS past fixture, from API-Football's fixture record" },
               "formation": {
                 "type": ["object", "null"],
                 "additionalProperties": false,
@@ -118,9 +119,18 @@
                   "away": { "type": ["string", "null"] }
                 }
               },
+              "lineups": {
+                "type": ["object", "null"],
+                "additionalProperties": false,
+                "description": "starting XI each side fielded in THIS past fixture, from API-Football lineups",
+                "properties": {
+                  "home": { "type": "array", "items": { "$ref": "#/definitions/pastLineupPlayer" } },
+                  "away": { "type": "array", "items": { "$ref": "#/definitions/pastLineupPlayer" } }
+                }
+              },
               "events": {
                 "type": "array",
-                "description": "goals and cards from THIS past fixture, from API-Football events",
+                "description": "goals, cards and substitutions from THIS past fixture, from API-Football events",
                 "items": {
                   "type": "object",
                   "additionalProperties": false,
@@ -128,8 +138,10 @@
                   "properties": {
                     "minute": { "type": ["integer", "null"] },
                     "side": { "type": "string", "enum": ["home", "away"] },
-                    "player": { "type": ["string", "null"] },
-                    "type": { "type": "string", "enum": ["goal", "owngoal", "yellow", "red"] }
+                    "player": { "type": ["string", "null"], "description": "scorer/booked player -- goal/owngoal/yellow/red only" },
+                    "playerOut": { "type": ["string", "null"], "description": "sub only" },
+                    "playerIn": { "type": ["string", "null"], "description": "sub only" },
+                    "type": { "type": "string", "enum": ["goal", "owngoal", "yellow", "red", "sub"] }
                   }
                 }
               }
@@ -237,6 +249,17 @@
       "properties": {
         "home": { "type": ["number", "null"] },
         "away": { "type": ["number", "null"] }
+      }
+    },
+    "pastLineupPlayer": {
+      "description": "one starting-XI slot in a PAST fixture (h2h.recent[]/form.recent[].lineups) -- self-contained, not cross-referenced against this match's own squad[]",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "number": { "type": ["integer", "null"] },
+        "pos": { "type": ["string", "null"] }
       }
     },
     "team": {
@@ -352,6 +375,7 @@
                   "comp": { "type": ["string", "null"] },
                   "score": { "type": "string", "description": "this team first, e.g. \"3-1\"" },
                   "result": { "type": ["string", "null"], "enum": ["W", "D", "L", null] },
+                  "referee": { "type": ["string", "null"], "description": "from THIS past fixture, from API-Football's fixture record" },
                   "formation": {
                     "type": ["object", "null"],
                     "additionalProperties": false,
@@ -361,9 +385,18 @@
                       "opp": { "type": ["string", "null"] }
                     }
                   },
+                  "lineups": {
+                    "type": ["object", "null"],
+                    "additionalProperties": false,
+                    "description": "starting XI each side fielded in THIS past fixture, from API-Football lineups",
+                    "properties": {
+                      "us": { "type": "array", "items": { "$ref": "#/definitions/pastLineupPlayer" } },
+                      "opp": { "type": "array", "items": { "$ref": "#/definitions/pastLineupPlayer" } }
+                    }
+                  },
                   "events": {
                     "type": "array",
-                    "description": "goals and cards from THIS past fixture, from API-Football events",
+                    "description": "goals, cards and substitutions from THIS past fixture, from API-Football events",
                     "items": {
                       "type": "object",
                       "additionalProperties": false,
@@ -371,8 +404,10 @@
                       "properties": {
                         "minute": { "type": ["integer", "null"] },
                         "side": { "type": "string", "enum": ["us", "opp"] },
-                        "player": { "type": ["string", "null"] },
-                        "type": { "type": "string", "enum": ["goal", "owngoal", "yellow", "red"] }
+                        "player": { "type": ["string", "null"], "description": "scorer/booked player -- goal/owngoal/yellow/red only" },
+                        "playerOut": { "type": ["string", "null"], "description": "sub only" },
+                        "playerIn": { "type": ["string", "null"], "description": "sub only" },
+                        "type": { "type": "string", "enum": ["goal", "owngoal", "yellow", "red", "sub"] }
                       }
                     }
                   }
