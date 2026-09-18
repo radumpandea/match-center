@@ -333,7 +333,11 @@ If you cannot support a value, omit it. No markdown and no commentary.
 # - see the "Reject generic commentator claims" history for why a denylist of
 # bad phrases alone was not enough (fresh generic phrasings kept slipping
 # through untouched by the denylist).
-HAS_NUMERIC_EVIDENCE = re.compile(r"\d")
+GENERIC_EDITORIAL = re.compile(
+    r"\b(va trebui să|trebuie să|ar trebui să|meci interesant|meci dificil|caută victoria|"
+    r"poate face diferența|jucător cheie|decizii dificile)\b",
+    re.IGNORECASE,
+)
 
 
 def evidenced_bullets(values):
@@ -344,7 +348,7 @@ def evidenced_bullets(values):
         if not isinstance(item, str):
             continue
         text = " ".join(item.split())
-        if text and HAS_NUMERIC_EVIDENCE.search(text):
+        if text and not GENERIC_EDITORIAL.search(text):
             out.append(text)
     return out
 
