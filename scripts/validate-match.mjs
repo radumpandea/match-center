@@ -26,6 +26,12 @@ const validate = ajv.compile(schema);
 
 let ok = true;
 for (const f of files) {
+  // *.i18n.json sidecars (docs/data/matches/<slug>.i18n.json, see
+  // scripts/validate-i18n.mjs) live in this same directory but follow a
+  // completely different shape -- a `docs/data/matches/*.json` glob picks
+  // them up too, so skip them here rather than fail them against this
+  // schema.
+  if (f.endsWith('.i18n.json')) { console.log(`- ${f} (i18n sidecar, not a match file — see validate-i18n.mjs)`); continue; }
   let data;
   try {
     data = JSON.parse(readFileSync(f, 'utf8'));

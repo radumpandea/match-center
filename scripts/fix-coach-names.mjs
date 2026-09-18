@@ -67,7 +67,7 @@ async function main() {
   const fixtures = JSON.parse(readFileSync(`${ROOT}docs/data/fixtures.json`, 'utf8'));
   let slugs = args;
   if (args[0] === '--all') {
-    const files = readdirSync(`${ROOT}docs/data/matches`).filter((f) => f.endsWith('.json'));
+    const files = readdirSync(`${ROOT}docs/data/matches`).filter((f) => f.endsWith('.json') && !f.endsWith('.i18n.json'));
     slugs = files.map((f) => f.replace(/\.json$/, ''));
   }
   for (const slug of slugs) {

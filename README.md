@@ -24,6 +24,9 @@ build-match-data-favourites.yml → the same editorial pass, once per match ANY 
 build-match-data-fallback.yml → a lighter editorial patch over OpenRouter/OpenAI/Ollama,
                                  for when the Claude budget above is exhausted — see
                                  "Fallback editorial pass" below
+translate-match-data.yml     →  docs/data/matches/<slug>.i18n.json (Level 3: EN/FR/DE/IT
+                                 translation of the editorial text above, once a match is
+                                 no longer "partial" — never touches the Romanian source)
 docs/index.html               →  fixture list — sign in here to see/pick favourites
 docs/match.html?m=<slug>      →  the Match Center: pitch + predicted XI, player/coach/referee
                                  cards, story / H2H / form / absences / mercato / news panels,
@@ -42,6 +45,10 @@ No Node locally? Use the Python mirror (`pip install jsonschema`):
 ```bash
 python scripts/validate_match.py docs/data/matches/l1-e4-toulouse-lille.json
 ```
+
+A `<slug>.i18n.json` translation sidecar (see "Translation pass" below) isn't a match
+file and doesn't validate against `schema.json` — check it with
+`node scripts/validate-i18n.mjs docs/data/matches/<slug>.i18n.json` instead.
 
 ## Every fixture opens, even before the daily research pack
 
@@ -139,6 +146,28 @@ runs for it.
 Both deterministic Actions need only the `APIFOOTBALL_KEY` repo secret (server-side). No
 key is embedded in the page — `docs/app/config.js` is an empty stub and `match.html` makes
 no API calls of its own.
+
+### Translation pass — `translate-match-data.yml`
+
+`docs/app/i18n.js` already translates the static UI chrome (buttons, labels, panel
+titles) into EN/FR/DE/IT — that never touches match data. `translate-match-data.yml`
+is the **Level 3 pass**: once a pack is no longer `partial` (either `standard` or
+`deep` tier), it translates the *editorial* text — `storyOfTheMatch`, `h2h.summary`,
+`referee.history`, `venue.notes`/`stories`, `commentatorResearch`, and per-team
+`coach.career[].note` / `news[].text` / `stories[]` / `squad[].{funfact,linkLine,
+career,lastSeason,statusNote}` — following `.claude/skills/match-i18n-json/SKILL.md`.
+
+The result is written to a **separate** `docs/data/matches/<slug>.i18n.json` sidecar;
+the Romanian source file is never modified. `docs/app/match.js`'s `applyI18nOverlay()`
+maps each translated array onto the source **by index** — so the file must mirror the
+source arrays' lengths exactly, which `scripts/validate-i18n.mjs` checks (a JSON Schema
+can't compare two different files, hence the separate script rather than an addition to
+`docs/data/schema.json`). Missing a sidecar, or a language inside one, is a silent
+no-op — that language just shows the Romanian original, same as before this existed.
+
+Runs daily (auto-pick, up to 5 ready-but-untranslated matches, soonest-first, Haiku —
+this is translation of already-verified text, not research) and via `workflow_dispatch`
+(`match:` for one exact slug, `count:` to size a manual batch, `model:` override).
 
 ### Fallback editorial pass — `build-match-data-fallback.yml`
 

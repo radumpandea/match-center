@@ -69,7 +69,7 @@ async function upsertEntities(rows) {
 }
 
 async function main() {
-  const files = readdirSync(MATCHES_DIR).filter((f) => f.endsWith('.json'));
+  const files = readdirSync(MATCHES_DIR).filter((f) => f.endsWith('.json') && !f.endsWith('.i18n.json'));
   const tally = new Map();   // apiId -> Map(name -> count)
   for (const f of files) {
     let doc;

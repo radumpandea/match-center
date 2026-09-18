@@ -117,7 +117,7 @@ async function main() {
   const fixtures = JSON.parse(readFileSync(`${ROOT}docs/data/fixtures.json`, 'utf8'));
   let slugs = args;
   if (args[0] === '--all') {
-    slugs = readdirSync(`${ROOT}docs/data/matches`).filter((f) => f.endsWith('.json')).map((f) => f.replace(/\.json$/, ''));
+    slugs = readdirSync(`${ROOT}docs/data/matches`).filter((f) => f.endsWith('.json') && !f.endsWith('.i18n.json')).map((f) => f.replace(/\.json$/, ''));
   }
   const season = currentSeason();
   const rosterCache = new Map();   // teamId -> byNormName, so a team shared by several fixtures is only fetched once

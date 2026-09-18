@@ -1,0 +1,104 @@
+name: Translate Match Data
+
+# Level 3: translates the editorial content of already-"ready" (or
+# "premium"/deep) match packs into EN/FR/DE/IT, per
+# .claude/skills/match-i18n-json/SKILL.md. Writes a separate
+# docs/data/matches/<slug>.i18n.json sidecar — the Romanian source file is
+# never modified. Runs after Build Match Data so there's something ready to
+# translate; harmless if it finds nothing to do.
+on:
+  schedule:
+    - cron: "0 7 * * *"    # 07:00 UTC daily — after Build Match Data (06:00 UTC)
+  workflow_dispatch:
+    inputs:
+      match:
+        description: "Exact slug (e.g. seriea-e3-udinese-lazio). Empty = auto-pick."
+        required: false
+        default: ""
+      count:
+        description: "Max matches to translate this run when match is empty (daily schedule uses 5)"
+        required: false
+        default: "5"
+      model:
+        description: "Model override (empty = Haiku — plain translation of already-verified text, not research)"
+        required: false
+        default: ""
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: anthropics/claude-code-action@v1
+        env:
+          ANTHROPIC_CUSTOM_HEADERS: "${{ (secrets.CLAUDE_CODE_OAUTH_TOKEN == '' && secrets.ANTHROPIC_WORKSPACE_ID) && format('anthropic-workspace-id: {0}', secrets.ANTHROPIC_WORKSPACE_ID) || '' }}"
+        with:
+          claude_code_oauth_token: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}"
+          anthropic_api_key: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN == '' && secrets.ANTHROPIC_API_KEY || '' }}"
+          show_full_output: true
+          prompt: |
+            You are the Level 3 translation pass for a small football Match
+            Center site (radumpandea.github.io/match-center). You run
+            unattended, no memory of a previous run, nobody reviewing the
+            output. Everything you need is in this repo and this prompt.
+
+            ## Critical: do the work yourself, now — there is no "later"
+            Single one-shot run. The moment your final response is produced,
+            the job exits. Do NOT use the Task tool or any background/async
+            agent. Do every step yourself, in this same turn: translate, write
+            the files, validate, git commit and push — all before your final
+            answer.
+
+            ## What this is
+            Follow `.claude/skills/match-i18n-json/SKILL.md` exactly — it has
+            the full field list, the positional-array rule, and the output
+            format. This is pure TRANSLATION of text a previous run already
+            researched and verified in Romanian. Do not research anything new,
+            do not add or change any fact, do not touch the source
+            `docs/data/matches/<slug>.json` file at all.
+
+            MATCH = "${{ inputs.match }}"   (empty = auto-pick)
+            COUNT = ${{ inputs.count || '5' }}
+
+            ## Step 1 — pick the match(es)
+            - MATCH non-empty → translate exactly that one slug. It must exist
+              and must NOT have `"partial": true` (if it does, stop — nothing
+              to translate yet, that's Build Match Data's job). Ignore COUNT.
+            - MATCH empty → read `docs/data/fixtures.json`. Candidates are
+              entries where `ready === true` (this covers BOTH the plain
+              "ready" tag and the "premium"/deep-research tag shown in the
+              UI — translate both, there is no separate tier here) AND
+              `docs/data/matches/<slug>.i18n.json` does NOT already exist.
+              Sort soonest-kickoff-first and take up to COUNT. If none
+              qualify, STOP — no commit. That's a normal, expected outcome
+              once the backlog is caught up.
+
+            ## Step 2 — translate each picked match into ALL FOUR languages
+            (en, fr, de, it) in one pass, following the skill's field list and
+            the "career" special case. Write
+            `docs/data/matches/<slug>.i18n.json`.
+
+            ## Step 3 — validate
+            `node scripts/validate-i18n.mjs docs/data/matches/<slug1>.i18n.json [more...]`
+            must exit 0 for every file you wrote. Fix any length mismatch
+            before finishing — it means an array gained or lost an entry
+            relative to the Romanian source.
+
+            ## Step 4 — commit and push
+            Stage only the `*.i18n.json` files you wrote, in ONE commit:
+            `Translate match data: <slug1>[, <slug2>, ...]`. Push to `main`.
+          claude_args: |
+            --model ${{ inputs.model != '' && inputs.model || 'claude-haiku-4-5-20251001' }}
+            --max-turns 120
+            --allowedTools "Read,Write,Edit,Bash,Glob,Grep"

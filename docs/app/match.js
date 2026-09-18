@@ -10,6 +10,13 @@
   var I18N = window.MC_I18N;
   var t = I18N.t;
   var allFixtures = [];   // set from data/fixtures.json below; used to prune stale favourites
+  // Translated editorial content (storyOfTheMatch, funfacts, news...) for the
+  // UI languages other than Romanian, if a translation pass has produced one
+  // for this match — see docs/data/matches/<slug>.i18n.json and
+  // .claude/skills/match-i18n-json/SKILL.md. null/absent is normal (not every
+  // match has been translated yet) and just means every language shows the
+  // Romanian original, same as before this existed.
+  var i18nDoc = null;
 
   var params = new URLSearchParams(location.search);
   var slug = (params.get('m') || '').trim();
@@ -18,11 +25,14 @@
   Promise.all([
     fetch('data/fixtures.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; }),
     fetch('data/matches/' + encodeURIComponent(slug) + '.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
+    fetch('data/matches/' + encodeURIComponent(slug) + '.i18n.json', { cache: 'no-cache' })
       .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
   ]).then(function (results) {
     var fixtures = results[0] || [];
     allFixtures = fixtures;
     var prep = results[1];
+    i18nDoc = results[2];
     var fixture = fixtures.filter(function (f) { return f.slug === slug; })[0];
     if (!prep && !fixture) {
       fail(t('err.notFound', { slug: esc(slug) }));
@@ -592,6 +602,82 @@
       if (xi) Object.keys(xi).forEach(function (k) { set(xi[k]); });
     });
   }
+  // Overlays translated editorial text (i18nDoc[lang]) onto the Romanian
+  // source doc, applied fresh on every render() call — same pattern as
+  // applyManualOverlay/applyPnum/applyPname above. Every translated array
+  // must line up POSITIONALLY with its Romanian source array (see the
+  // match-i18n-json skill); this only ever reads by index, never by
+  // content, so a translation file with the right shape is required.
+  // Backs up the original Romanian value the first time a field is
+  // overridden (so switching back to 'ro', or to a language the file
+  // doesn't cover, restores it) — mirrors _name0/_num0 above.
+  function applyI18nOverlay(d) {
+    var lang = I18N.getLang();
+    var tr = lang !== 'ro' && i18nDoc ? i18nDoc[lang] : null;
+    function field(obj, key, val) {
+      if (!obj) return;
+      var bk = '_ro$' + key;
+      if (val) {
+        if (obj[bk] === undefined) obj[bk] = obj[key] !== undefined ? obj[key] : null;
+        obj[key] = val;
+      } else if (obj[bk] !== undefined) {
+        obj[key] = obj[bk];
+      }
+    }
+    // storyOfTheMatch[] / venue.stories[] are arrays of bare strings -- no
+    // per-item object to hang a backup marker on, so back up the whole
+    // array on the parent instead.
+    function stringArrayField(parent, key, trArr) {
+      if (!parent || !Array.isArray(parent[key])) return;
+      var bk = '_ro$' + key;
+      if (trArr) {
+        if (parent[bk] === undefined) parent[bk] = parent[key];
+        parent[key] = parent[bk].map(function (s, i) { return (trArr[i] != null && trArr[i] !== '') ? trArr[i] : s; });
+      } else if (parent[bk] !== undefined) {
+        parent[key] = parent[bk];
+      }
+    }
+    stringArrayField(d, 'storyOfTheMatch', tr && tr.storyOfTheMatch);
+    field(d.h2h, 'summary', tr && tr.h2h && tr.h2h.summary);
+    field(d.referee, 'history', tr && tr.referee && tr.referee.history);
+    if (d.venue) {
+      field(d.venue, 'notes', tr && tr.venue && tr.venue.notes);
+      stringArrayField(d.venue, 'stories', tr && tr.venue && tr.venue.stories);
+    }
+    if (d.commentatorResearch) {
+      d.commentatorResearch.forEach(function (c, i) {
+        var tc = tr && tr.commentatorResearch && tr.commentatorResearch[i];
+        field(c, 'topic', tc && tc.topic);
+        field(c, 'fact', tc && tc.fact);
+      });
+    }
+    ['home', 'away'].forEach(function (side) {
+      var team = d.teams[side];
+      var tt = tr && tr.teams && tr.teams[side];
+      if (team.coach && team.coach.career) {
+        team.coach.career.forEach(function (c, i) {
+          field(c, 'note', tt && tt.coach && tt.coach.career && tt.coach.career[i]);
+        });
+      }
+      (team.news || []).forEach(function (n, i) {
+        field(n, 'text', tt && tt.news && tt.news[i]);
+      });
+      (team.stories || []).forEach(function (s, i) {
+        var ts = tt && tt.stories && tt.stories[i];
+        field(s, 'title', ts && ts.title);
+        stringArrayField(s, 'bullets', ts && ts.bullets);
+      });
+      (team.squad || []).forEach(function (p, i) {
+        var tp = tt && tt.squad && tt.squad[i];
+        field(p, 'funfact', tp && tp.funfact);
+        field(p, 'linkLine', tp && tp.linkLine);
+        field(p, 'career', tp && tp.career);
+        field(p, 'lastSeason', tp && tp.lastSeason);
+        field(p, 'statusNote', tp && tp.statusNote);
+      });
+    });
+  }
+
   function setPlayerName(d, side, p, name) {
     var k = keyOf(p);
     var orig = p._name0 !== undefined ? p._name0 : p.name;
@@ -848,6 +934,7 @@
     applyPnum(data);
     applyPname(data);
     applyDiscColors(data);
+    applyI18nOverlay(data);
     document.title = data.teams.home.name + ' – ' + data.teams.away.name + ' · Match Center';
     root.innerHTML = '';
     pitchEl = null;

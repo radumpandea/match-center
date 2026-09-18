@@ -1479,19 +1479,22 @@ async function main() {
   console.log(`previews.json: ${partialSlugs.size} partial pack(s); API-Football calls: ${_calls}`);
 }
 
+// *.i18n.json sidecars (see scripts/validate-i18n.mjs) live in the same
+// directory but aren't match docs -- never treat them as one.
+function matchDocFilenames() {
+  try { return readdirSync(MATCHES_DIR).filter((n) => n.endsWith('.json') && !n.endsWith('.i18n.json')); }
+  catch { return []; }
+}
+
 function existingPartialSlugs() {
-  let names = [];
-  try { names = readdirSync(MATCHES_DIR).filter((n) => n.endsWith('.json')); } catch { return []; }
-  return names
+  return matchDocFilenames()
     .map((n) => ({ slug: n.replace(/\.json$/, ''), j: readJSON(`${MATCHES_DIR}/${n}`) }))
     .filter((x) => x.j && x.j.partial === true)
     .map((x) => x.slug);
 }
 
 function existingReadySlugs() {
-  let names = [];
-  try { names = readdirSync(MATCHES_DIR).filter((n) => n.endsWith('.json')); } catch { return []; }
-  return names
+  return matchDocFilenames()
     .map((n) => ({ slug: n.replace(/\.json$/, ''), j: readJSON(`${MATCHES_DIR}/${n}`) }))
     .filter((x) => x.j && x.j.partial !== true)
     .map((x) => x.slug);
