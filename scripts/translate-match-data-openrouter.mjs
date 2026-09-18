@@ -163,7 +163,7 @@ function collapseNulls(langDoc) {
 
 // ---- OpenRouter calls ----
 
-function chunkUnits(units, maxCount = 15, maxChars = 3000) {
+function chunkUnits(units, maxCount = 10, maxChars = 1800) {
   const batches = [];
   let cur = [];
   let curChars = 0;
@@ -210,7 +210,7 @@ async function callOpenRouter(messages) {
       model: MODEL,
       messages,
       temperature: 0.1,
-      max_tokens: 4000,
+      max_tokens: 8000,
       response_format: { type: 'json_object' },
     }),
   });
@@ -219,8 +219,12 @@ async function callOpenRouter(messages) {
     throw new Error(`OpenRouter HTTP ${res.status}: ${body.slice(0, 500)}`);
   }
   const data = await res.json();
-  const content = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+  const choice = data.choices && data.choices[0];
+  const content = choice && choice.message && choice.message.content;
   if (typeof content !== 'string') throw new Error(`Unexpected OpenRouter response shape: ${JSON.stringify(data).slice(0, 500)}`);
+  if (choice.finish_reason && choice.finish_reason !== 'stop') {
+    console.error(`  OpenRouter response finish_reason="${choice.finish_reason}" (likely truncated — consider a larger max_tokens or a smaller batch)`);
+  }
   return content;
 }
 
@@ -244,7 +248,7 @@ async function translateBatch(lang, batch, attempt = 1) {
   const raw = await callOpenRouter(buildMessages(lang, batch));
   const arr = parseTranslations(raw, batch.length);
   if (arr) return arr;
-  console.error(`  [${lang}] batch of ${batch.length} did not parse as expected (attempt ${attempt}). Raw response:\n${raw.slice(0, 1500)}`);
+  console.error(`  [${lang}] batch of ${batch.length} did not parse as expected (attempt ${attempt}), raw length=${raw.length}. Raw response:\n${raw.slice(0, 3000)}`);
   if (attempt >= 2) throw new Error(`Could not get a valid ${batch.length}-item translation for lang=${lang} after retry`);
   return translateBatch(lang, batch, attempt + 1);
 }
