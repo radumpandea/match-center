@@ -1,6 +1,6 @@
 ---
 name: match-i18n-json
-description: Traduce conținutul editorial deja cercetat al unui pachet de meci Match Center (docs/data/matches/<slug>.json) în engleză, germană și italiană, scriind rezultatul într-un fișier separat docs/data/matches/<slug>.i18n.json. NU face research nou — traduce fidel ce e deja verificat în română. Folosește acest skill când rulează workflow-ul translate-match-data, sau la cerere pentru „tradu meciul X în EN/DE/IT”.
+description: Traduce conținutul editorial deja cercetat al unui pachet de meci Match Center (docs/data/matches/<slug>.json) în engleză, germană și italiană, scriind rezultatul într-un fișier separat docs/data/matches/<slug>.i18n.json. NU face research nou — traduce fidel ce e deja verificat în română. Folosește acest skill la cerere, pentru „tradu meciul X în EN/DE/IT" — workflow-ul automat translate-match-data NU mai rulează acest skill (vezi nota de mai jos).
 ---
 
 # Match Center — traducerea conținutului editorial (EN/DE/IT)
@@ -10,6 +10,16 @@ Acest skill traduce conținutul editorial deja cercetat al unui pachet de meci
 sau "premium") în engleză, germană și italiană. Rezultatul se scrie
 într-un fișier NOU, `docs/data/matches/<slug>.i18n.json` — fișierul sursă nu
 se modifică niciodată, rămâne varianta canonică în română.
+
+**Notă — pipeline-ul automat nu mai folosește acest skill.** `translate-match-data.yml`
+rulează acum `scripts/translate-match-data-openrouter.mjs`: un script determinist care
+cere traducerea unui model ieftin de pe OpenRouter (implicit `google/gemini-2.5-flash`,
+suprascriere prin secretul `OPENROUTER_TRANSLATE_MODEL` sau input-ul `model` al
+workflow-ului), în loturi mici de string-uri (nu tot fișierul dintr-o dată — exact ce
+preîntâmpină deriva de „copy-through" observată cu Haiku pe fișiere lungi). Regulile de
+mai jos (ce se traduce, cazul special `career`, formatul de ieșire) sunt implementate
+direct în script. Acest fișier SKILL.md rămâne document de referință pentru regulile de
+traducere și pentru cereri manuale, la cerere ("tradu meciul X în EN/DE/IT").
 
 ## De ce un fișier separat
 

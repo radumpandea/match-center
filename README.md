@@ -165,11 +165,25 @@ can't compare two different files, hence the separate script rather than an addi
 `docs/data/schema.json`). Missing a sidecar, or a language inside one, is a silent
 no-op — that language just shows the Romanian original, same as before this existed.
 The validator also flags any translated string that's byte-identical to the Romanian
-source (except `career`, where that can be legitimate) — a real failure mode seen with
-a long file: the first few array entries translate correctly, then later ones (often
-"minor"-looking squad fields, or later `storyOfTheMatch` bullets) get copied through
-unchanged. **Haiku hit this consistently enough that the workflow now defaults to
-Sonnet** for this pass, despite it being "just" translation of already-verified text.
+source (except `career`, where that can be legitimate).
+
+**This pass runs on a cheap OpenRouter model, not Claude.** Pure translation of
+already-verified text needs no web access and no new facts, so it doesn't need Claude's
+research tools — and keeping it off `CLAUDE_CODE_OAUTH_TOKEN` means it no longer
+competes with an interactive Claude Code session for the same shared 5-hour session
+budget (a real collision seen in production: a translation batch got 429'd mid-run by
+the developer's own concurrent session). `scripts/translate-match-data-openrouter.mjs`
+implements the same field list and `career` rule as
+`.claude/skills/match-i18n-json/SKILL.md` (kept as reference/manual-request
+documentation, no longer run by this workflow) directly in code, and — this is the part
+that actually fixes the earlier Haiku failure mode, not just moves it to a different
+model — **translates in small fixed-size batches of strings, one OpenRouter call per
+batch**, instead of asking a single call to produce the whole file. A batch is a handful
+of short strings; there's no long array for a model to drift on partway through,
+regardless of how cheap or how careful that model is. Any string that comes back
+byte-identical to the Romanian source (except `career`) gets one targeted single-string
+retry before the file is validated. Model defaults to `google/gemini-2.5-flash`,
+overridable via the `OPENROUTER_TRANSLATE_MODEL` secret or the workflow's `model:` input.
 
 Runs daily (auto-pick, up to 5 ready-but-untranslated matches, soonest-first) and via
 `workflow_dispatch` (`match:` for one exact slug, `count:` to size a manual batch,
