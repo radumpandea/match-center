@@ -185,7 +185,16 @@ byte-identical to the Romanian source (except `career`) gets one targeted single
 retry before the file is validated. Model defaults to `google/gemini-2.5-flash`,
 overridable via the `OPENROUTER_TRANSLATE_MODEL` secret or the workflow's `model:` input.
 
-Runs daily (auto-pick, up to 5 ready-but-untranslated matches, soonest-first) and via
+**Scope**: only fixtures inside `docs/index.html`'s own display window (kickoff within the
+next 4 days, same `DAYS_AHEAD` the fixture list itself uses) are eligible — no point
+translating a match nobody can see yet. This is also what makes the daily cron double as
+"translate new matches automatically": as a fixture rolls into that window each day, it
+becomes eligible and gets picked up on the next run, with no separate mechanism needed.
+Liga 2 România (`ro2-*` slugs) is excluded outright, on both the auto-pick list and an
+explicit `match:` override — it's Romanian-only content and is never translated.
+
+Runs daily (auto-pick, up to 50 eligible matches, soonest-first — the display window
+already bounds how many can qualify on any given day) and via
 `workflow_dispatch` (`match:` for one exact slug, `count:` to size a manual batch,
 `model:` override).
 

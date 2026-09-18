@@ -196,13 +196,17 @@
     return d.toLocaleDateString(window.MC_I18N.localeTag(), { weekday: 'long', day: 'numeric', month: 'long' });
   }
 
-  // keep only upcoming (or currently-live) fixtures — a match started more than
-  // ~3h ago is over and drops off the list
+  // keep only upcoming (or currently-live) fixtures within the next few days —
+  // a match started more than ~3h ago is over and drops off the list, and
+  // anything further out than DAYS_AHEAD isn't shown yet either.
+  var DAYS_AHEAD = 4;
   function isUpcoming(m){
+    var horizon = Date.now() + DAYS_AHEAD * 86400000;
     var ko = m.kickoff && m.kickoff !== 'n/d' ? new Date(m.kickoff) : null;
-    if (ko && !isNaN(ko)) return ko.getTime() > Date.now() - 3*3600*1000;
+    if (ko && !isNaN(ko)) return ko.getTime() > Date.now() - 3*3600*1000 && ko.getTime() < horizon;
     var today = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD, local
-    return (m.date || '') >= today;
+    var limit = new Date(horizon).toLocaleDateString('en-CA');
+    return (m.date || '') >= today && (m.date || '') <= limit;
   }
 
   function render(){

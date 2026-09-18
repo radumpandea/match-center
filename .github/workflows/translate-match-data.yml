@@ -20,9 +20,9 @@ on:
         required: false
         default: ""
       count:
-        description: "Max matches to translate this run when match is empty (daily schedule uses 5)"
+        description: "Max matches to translate this run when match is empty (daily schedule uses 50 — the display window already caps how many can qualify)"
         required: false
-        default: "5"
+        default: "50"
       model:
         description: "OpenRouter model override. Default: a cheap/fast multilingual model (see OPENROUTER_TRANSLATE_MODEL secret, or the script's built-in default)."
         required: false
@@ -31,7 +31,7 @@ on:
 jobs:
   translate:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     permissions:
       contents: write
     steps:
@@ -47,7 +47,7 @@ jobs:
         id: translate
         env:
           MATCH: ${{ inputs.match || '' }}
-          COUNT: ${{ inputs.count || '5' }}
+          COUNT: ${{ inputs.count || '50' }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENROUTER_BASE_URL: ${{ secrets.OPENROUTER_BASE_URL }}
           OPENROUTER_MODEL: ${{ (inputs.model != '' && inputs.model) || secrets.OPENROUTER_TRANSLATE_MODEL || '' }}

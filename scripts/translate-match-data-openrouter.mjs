@@ -40,11 +40,38 @@ function writeJSON(p, v) {
   writeFileSync(p, JSON.stringify(v, null, 2) + '\n', 'utf8');
 }
 
+// Liga 2 România is Romanian-only content — never translate it, and never
+// let it occupy a slot in the auto-picked list, even if it's otherwise
+// ready. Applies to an explicit MATCH override too: this is a standing
+// policy, not just a scheduling choice.
+const isLiga2Romania = (slug) => slug.startsWith('ro2-');
+
+// Only translate what's actually about to be shown — matches further out
+// than the site's own display window (docs/index.html's DAYS_AHEAD) don't
+// need a translation yet. Running on the same daily cron as before, this
+// window is what makes new matches get translated automatically as they
+// roll into it, without ever re-processing the full backlog.
+const DAYS_AHEAD = 4;
+function withinDisplayWindow(f) {
+  if (!f.date) return false;
+  const from = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Bucharest' });
+  const to = new Date(Date.now() + DAYS_AHEAD * 86400000).toLocaleDateString('en-CA', { timeZone: 'Europe/Bucharest' });
+  return f.date >= from && f.date <= to;
+}
+
 function pickMatches() {
-  if (MATCH) return [MATCH];
+  if (MATCH) {
+    if (isLiga2Romania(MATCH)) {
+      console.log(`Skipping ${MATCH}: Liga 2 România is never translated.`);
+      return [];
+    }
+    return [MATCH];
+  }
   const fixtures = readJSON(FIXTURES_PATH);
   return fixtures
     .filter((f) => f.ready === true)
+    .filter((f) => !isLiga2Romania(f.slug))
+    .filter((f) => withinDisplayWindow(f))
     .filter((f) => existsSync(`${DATA_DIR}/matches/${f.slug}.json`))
     .filter((f) => !existsSync(`${DATA_DIR}/matches/${f.slug}.i18n.json`))
     .sort((a, b) => String(a.kickoff || a.date || '').localeCompare(String(b.kickoff || b.date || '')))
@@ -299,28 +326,36 @@ async function main() {
 
   const written = [];
   for (const slug of slugs) {
-    const srcPath = `${DATA_DIR}/matches/${slug}.json`;
-    const doc = readJSON(srcPath);
-    if (doc.partial) {
-      console.log(`Skipping ${slug}: still partial (Level 2 hasn't run yet).`);
-      continue;
-    }
-    console.log(`Translating ${slug}...`);
-    const i18nDoc = {};
-    for (const lang of LANGS) {
-      i18nDoc[lang] = await translateDoc(doc, lang);
-    }
-    const outPath = `${DATA_DIR}/matches/${slug}.i18n.json`;
-    writeJSON(outPath, i18nDoc);
-
+    // A batch this size runs unattended over several minutes; one match's
+    // network hiccup or bad response must not sacrifice every match already
+    // successfully translated before it, since the workflow only commits
+    // once, after this whole script returns.
     try {
-      execFileSync('node', ['scripts/validate-i18n.mjs', outPath], { stdio: 'inherit' });
-    } catch {
-      console.error(`Validation failed for ${slug}; removing the file so it doesn't get committed.`);
-      unlinkSync(outPath);
-      continue;
+      const srcPath = `${DATA_DIR}/matches/${slug}.json`;
+      const doc = readJSON(srcPath);
+      if (doc.partial) {
+        console.log(`Skipping ${slug}: still partial (Level 2 hasn't run yet).`);
+        continue;
+      }
+      console.log(`Translating ${slug}...`);
+      const i18nDoc = {};
+      for (const lang of LANGS) {
+        i18nDoc[lang] = await translateDoc(doc, lang);
+      }
+      const outPath = `${DATA_DIR}/matches/${slug}.i18n.json`;
+      writeJSON(outPath, i18nDoc);
+
+      try {
+        execFileSync('node', ['scripts/validate-i18n.mjs', outPath], { stdio: 'inherit' });
+      } catch {
+        console.error(`Validation failed for ${slug}; removing the file so it doesn't get committed.`);
+        unlinkSync(outPath);
+        continue;
+      }
+      written.push(slug);
+    } catch (e) {
+      console.error(`Failed to translate ${slug}, skipping it and continuing with the rest of the batch:`, e);
     }
-    written.push(slug);
   }
 
   const githubOutput = process.env.GITHUB_OUTPUT;
