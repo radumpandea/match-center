@@ -589,6 +589,7 @@ def main():
 
         if slug in fixture_by_slug:
             fixture_by_slug[slug]["ready"] = True
+            fixture_by_slug[slug]["researchDepth"] = os.environ.get("DEPTH", "standard")
 
     write_json(FIXTURES_PATH, fixtures)
 
