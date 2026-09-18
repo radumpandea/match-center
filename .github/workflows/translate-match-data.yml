@@ -68,4 +68,5 @@ jobs:
           else
             git commit -m "Translate match data"
           fi
+          git pull --rebase --autostash origin main || true
           git push

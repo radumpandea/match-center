@@ -96,4 +96,5 @@ jobs:
           else
             git commit -m "Match data: fallback build"
           fi
+          git pull --rebase --autostash origin main || true
           git push

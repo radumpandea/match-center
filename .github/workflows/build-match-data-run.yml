@@ -200,7 +200,13 @@ jobs:
             - Commit only files you actually produced + the fixtures.json edit (and
               a previews.json edit if step 5 changed it), in ONE commit. Message:
               `Match data: <slug1>[, <slug2>]` for standard, or
-              `Match data: <slug> (deep)` for a deep run. Push to `main`.
+              `Match data: <slug> (deep)` for a deep run.
+            - Several other workflows in this repo commit to `main` on their own
+              schedules (translations, confirmed lineups, the fallback pass), so a
+              push here can race one of theirs. Before `git push`, run
+              `git pull --rebase --autostash origin main` (ignore its exit code) so
+              a losing race rebases and retries instead of failing outright and
+              silently dropping this whole run's work.
           claude_args: |
             --model ${{ inputs.model != '' && inputs.model || (inputs.depth == 'deep' && 'claude-sonnet-5' || 'claude-haiku-4-5-20251001') }}
             --max-turns ${{ inputs.depth == 'deep' && 240 || 120 }}
