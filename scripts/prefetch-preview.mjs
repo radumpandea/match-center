@@ -311,7 +311,14 @@ async function getSquad(teamId, teamName, leagueId, season) {
   // the rebuilt cache always carries the key from then on.
   const cacheHasPhotoField = !!(cached && cached.squad && cached.squad.length &&
     Object.prototype.hasOwnProperty.call(cached.squad[0], 'photo'));
-  if (cached && cached.fetchedAt && cacheHasPhotoField && daysBetween(todayISO(), cached.fetchedAt) < SQUAD_TTL_DAYS) {
+  // Same one-time-migration idea for the shots/passes/tackles/duels/dribbles/
+  // fouls/penalty fields statsFrom() added to squad[].stats: a cache fetched
+  // before that still has the old, narrower stats shape and would otherwise
+  // sit without the new fields for up to SQUAD_TTL_DAYS. Vacuously "has it"
+  // when no squad member has any stats at all -- nothing to migrate there.
+  const statsSample = cached && cached.squad && cached.squad.find((p) => p.stats);
+  const cacheHasExtendedStats = !statsSample || Object.prototype.hasOwnProperty.call(statsSample.stats, 'shotsTotal');
+  if (cached && cached.fetchedAt && cacheHasPhotoField && cacheHasExtendedStats && daysBetween(todayISO(), cached.fetchedAt) < SQUAD_TTL_DAYS) {
     return cached;
   }
 
@@ -762,7 +769,12 @@ async function getTeamStats(teamId, leagueId, season, cache) {
   cache.teamStats = cache.teamStats || {};
   const key = `${leagueId}:${teamId}`;
   const hit = cache.teamStats[key];
-  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < TEAMSTATS_TTL) return hit.data;
+  // One-time migration: a cache entry from before the home/away-split and
+  // biggest-win/loss fields were added lacks them entirely -- force a
+  // refetch once regardless of TTL, same idea as getSquad()'s photo-field
+  // check above.
+  const hitHasExtendedFields = !hit || !hit.data || Object.prototype.hasOwnProperty.call(hit.data, 'winsHome');
+  if (hit && hit.fetchedAt && hitHasExtendedFields && daysBetween(todayISO(), hit.fetchedAt) < TEAMSTATS_TTL) return hit.data;
   const j = await af('teams/statistics', { team: teamId, league: leagueId, season });
   const r = j && j.response;
   if (!r || !r.goals) { return hit ? hit.data : null; }
