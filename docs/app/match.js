@@ -1037,9 +1037,10 @@
       metaWrap.appendChild(el('button', { class: 'meta-add', text: t('toolbar.addVenue'), onclick: function () { openEditVenue(data); } }));
     }
     var head = el('div', { class: 'mc-head' }, [
-      el('a', { class: 'mc-back', href: 'index.html', text: t('toolbar.backToList') }),
-      themeToggle,
-      langSwitch,
+      el('div', { class: 'mc-head-top' }, [
+        el('a', { class: 'mc-back', href: 'index.html', text: t('toolbar.backToList') }),
+        el('div', { class: 'mc-head-controls' }, [themeToggle, langSwitch])
+      ]),
       el('div', { class: 'mc-teams' }, [
         el('span', {}, [
           data.teams.home.logo ? el('img', { class: 'team-logo', src: data.teams.home.logo, alt: '' }) : null,
@@ -1086,6 +1087,46 @@
 
     panelsEl = panels(data);
     root.appendChild(panelsEl);
+
+    setupStickyScore(data);
+  }
+
+  // A compact scoreboard that appears fixed at the top once the real pitch
+  // scrolls out of view, so the commentator still sees who's playing and the
+  // score while reading panels further down. IntersectionObserver on the
+  // pitch row itself -- no manual scroll-position math, and it naturally
+  // re-shows once scrolled back up to the pitch. Torn down and rebuilt on
+  // every full render() (language/theme switch, orientation, etc. all
+  // rebuild `root` from scratch, which would otherwise leave a stale
+  // observer watching a detached node).
+  var stickyObserver = null;
+  function setupStickyScore(d) {
+    if (stickyObserver) { stickyObserver.disconnect(); stickyObserver = null; }
+    var old = document.querySelector('.mc-sticky-score');
+    if (old) old.remove();
+    var pitchRow = document.querySelector('.pitch-row');
+    if (!pitchRow || typeof IntersectionObserver === 'undefined') return;
+
+    var bar = el('div', { class: 'mc-sticky-score', title: t('pitch.scrollToTop') }, [
+      el('span', { class: 'mss-team home' }, [
+        d.teams.home.logo ? el('img', { src: d.teams.home.logo, alt: '' }) : null,
+        document.createTextNode(d.teams.home.shortName || d.teams.home.name)
+      ]),
+      el('strong', { class: 'mss-result', text: scoreFor(d, 'home') + ' – ' + scoreFor(d, 'away') }),
+      el('span', { class: 'mss-team away' }, [
+        document.createTextNode(d.teams.away.shortName || d.teams.away.name),
+        d.teams.away.logo ? el('img', { src: d.teams.away.logo, alt: '' }) : null
+      ])
+    ]);
+    bar.addEventListener('click', function () {
+      pitchRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    document.body.appendChild(bar);
+
+    stickyObserver = new IntersectionObserver(function (entries) {
+      bar.classList.toggle('show', !entries[0].isIntersecting);
+    }, { threshold: 0 });
+    stickyObserver.observe(pitchRow);
   }
 
   function openCollaboration(data) {
@@ -1265,6 +1306,7 @@
       el('strong', { class: 'mgs-result', text: scoreFor(d, 'home') + ' – ' + scoreFor(d, 'away') }),
       el('span', { class: 'mgs-team away', text: d.teams.away.name })
     ]);
+    var cornersHeading = el('div', { class: 'corner-counter-h', text: t('pitch.cornersHeading') });
     var corners = el('div', { class: 'corner-counter' });
     ['home', 'away'].forEach(function (side) {
       var c = cornerCounts(side), team = d.teams[side];
@@ -1283,7 +1325,7 @@
       });
       corners.appendChild(row);
     });
-    return el('div', { class: 'match-graphic' }, [score, corners]);
+    return el('div', { class: 'match-graphic' }, [score, cornersHeading, corners]);
   }
 
   // The substitutes' bench, drawn on the touchline below the pitch — one row per
@@ -1975,9 +2017,17 @@
 
   // Per-panel "widen" toggle: makes the panel span the full width of the grid,
   // so a cramped two-column panel (e.g. Formă) gets room. Persisted per key.
+  // A few panels default to wide (their content doesn't fit a single grid
+  // column at all -- the advanced-stats player table has 13 columns) unless
+  // the user has explicitly toggled them, in which case that choice sticks.
+  var DEFAULT_WIDE_PANELS = { advancedStats: true };
+  function isPanelWide(key) {
+    var pref = store.panelWide && store.panelWide[key];
+    return pref !== undefined ? !!pref : !!DEFAULT_WIDE_PANELS[key];
+  }
   function addPanelWiden(node, key, d) {
     if (node.classList.contains('lead')) return;   // already full-width
-    var wide = !!(store.panelWide && store.panelWide[key]);
+    var wide = isPanelWide(key);
     if (wide) node.classList.add('wide');
     var sum = node.querySelector('summary');
     if (!sum) return;
@@ -1989,7 +2039,7 @@
     btn.addEventListener('click', function (e) {
       e.preventDefault(); e.stopPropagation();
       store.panelWide = store.panelWide || {};
-      if (store.panelWide[key]) delete store.panelWide[key]; else store.panelWide[key] = true;
+      store.panelWide[key] = !isPanelWide(key);
       save();
       rerenderPanels(d);
     });
