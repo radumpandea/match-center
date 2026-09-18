@@ -231,52 +231,263 @@
         "date": "2026-09-15",
         "comp": "Coppa Italia",
         "score": "Fiorentina 3-0 Pisa",
+        "referee": "L. Marinelli",
         "formation": {
           "home": "4-3-3",
           "away": "3-4-2-1"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "David de Gea",
+              "number": 43,
+              "pos": "G"
+            },
+            {
+              "name": "João Mário",
+              "number": 17,
+              "pos": "D"
+            },
+            {
+              "name": "R. Drăgușin",
+              "number": 3,
+              "pos": "D"
+            },
+            {
+              "name": "M. Pongračić",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "Valde",
+              "number": 21,
+              "pos": "D"
+            },
+            {
+              "name": "C. Ndour",
+              "number": 27,
+              "pos": "M"
+            },
+            {
+              "name": "C. Inao OulaÃ¯",
+              "number": 42,
+              "pos": "M"
+            },
+            {
+              "name": "M. Brescianini",
+              "number": 4,
+              "pos": "M"
+            },
+            {
+              "name": "Franco Mastantuono",
+              "number": 30,
+              "pos": "F"
+            },
+            {
+              "name": "Mateo Pellegrino",
+              "number": 32,
+              "pos": "F"
+            },
+            {
+              "name": "W. Gnonto",
+              "number": 29,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "S. Scuffet",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "A. Primasso",
+              "number": 13,
+              "pos": "D"
+            },
+            {
+              "name": "A. Caracciolo",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "S. Canestrelli",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "S. Zanon",
+              "number": 72,
+              "pos": "M"
+            },
+            {
+              "name": "G. Piccinini",
+              "number": 36,
+              "pos": "M"
+            },
+            {
+              "name": "F. Loyola",
+              "number": 14,
+              "pos": "M"
+            },
+            {
+              "name": "M. Léris",
+              "number": 7,
+              "pos": "M"
+            },
+            {
+              "name": "I. Ferrah",
+              "number": 11,
+              "pos": "M"
+            },
+            {
+              "name": "E. Rao",
+              "number": 17,
+              "pos": "M"
+            },
+            {
+              "name": "F. Pittarello",
+              "number": 8,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 6,
             "side": "home",
+            "type": "yellow",
             "player": "Franco Mastantuono",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 35,
             "side": "away",
+            "type": "yellow",
             "player": "Felipe Loyola",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 40,
             "side": "home",
+            "type": "goal",
             "player": "Mateo Pellegrino",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 45,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Radu Drăguşin",
+            "playerIn": "Viery"
           },
           {
             "minute": 52,
             "side": "away",
+            "type": "yellow",
             "player": "Simone Canestrelli",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 55,
             "side": "home",
+            "type": "yellow",
             "player": "Víctor Valdepeñas Talavera",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 59,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Simone Zanon",
+            "playerIn": "Andrea Petagna"
+          },
+          {
+            "minute": 59,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Emanuele Rao",
+            "playerIn": "Stefano Moreo"
+          },
+          {
+            "minute": 59,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Filippo Pittarello",
+            "playerIn": "Samuele Angori"
+          },
+          {
+            "minute": 60,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Marco Brescianini",
+            "playerIn": "Alieu Njie"
+          },
+          {
+            "minute": 60,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Franco Mastantuono",
+            "playerIn": "Pedro Goncalves"
+          },
+          {
+            "minute": 64,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Andrea Primasso",
+            "playerIn": "Francesco Coppola"
           },
           {
             "minute": 71,
             "side": "home",
+            "type": "goal",
             "player": "Wilfried Gnonto",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 72,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Víctor Valdepeñas Talavera",
+            "playerIn": "Álex Jiménez"
+          },
+          {
+            "minute": 75,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Mehdi Léris",
+            "playerIn": "Daniel Denoon"
+          },
+          {
+            "minute": 83,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Mateo Pellegrino",
+            "playerIn": "Beto"
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "goal",
             "player": "Pedro Goncalves",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       },
@@ -284,52 +495,255 @@
         "date": "2026-02-23",
         "comp": "Serie A",
         "score": "Fiorentina 1-0 Pisa",
+        "referee": "M. Mariani",
         "formation": {
           "home": "4-3-3",
           "away": "3-4-2-1"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "D. de Gea",
+              "number": 43,
+              "pos": "G"
+            },
+            {
+              "name": "Dodo",
+              "number": 2,
+              "pos": "D"
+            },
+            {
+              "name": "M. Pongracic",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "L. Ranieri",
+              "number": 6,
+              "pos": "D"
+            },
+            {
+              "name": "F. Parisi",
+              "number": 65,
+              "pos": "D"
+            },
+            {
+              "name": "C. Ndour",
+              "number": 27,
+              "pos": "M"
+            },
+            {
+              "name": "N. Fagioli",
+              "number": 44,
+              "pos": "M"
+            },
+            {
+              "name": "M. Brescianini",
+              "number": 4,
+              "pos": "M"
+            },
+            {
+              "name": "J. Harrison",
+              "number": 17,
+              "pos": "F"
+            },
+            {
+              "name": "M. Kean",
+              "number": 20,
+              "pos": "F"
+            },
+            {
+              "name": "M. Solomon",
+              "number": 19,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "Nicolas Andrade",
+              "number": 12,
+              "pos": "G"
+            },
+            {
+              "name": "S. Canestrelli",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "A. Caracciolo",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "R. Bozhinov",
+              "number": 2,
+              "pos": "D"
+            },
+            {
+              "name": "I. Toure",
+              "number": 15,
+              "pos": "M"
+            },
+            {
+              "name": "F. Loyola",
+              "number": 35,
+              "pos": "M"
+            },
+            {
+              "name": "M. Marin",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "S. Angori",
+              "number": 3,
+              "pos": "M"
+            },
+            {
+              "name": "S. Moreo",
+              "number": 32,
+              "pos": "F"
+            },
+            {
+              "name": "S. Iling Junior",
+              "number": 19,
+              "pos": "F"
+            },
+            {
+              "name": "F. Stojilkovic",
+              "number": 81,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 13,
             "side": "home",
+            "type": "goal",
             "player": "M. Kean",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 37,
             "side": "away",
+            "type": "yellow",
             "player": "Antonio Caracciolo",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "S. Iling Junior",
+            "playerIn": "H. Meister"
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "F. Loyola",
+            "playerIn": "R. Durosinmi"
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "F. Stojilkovic",
+            "playerIn": "M. Aebischer"
           },
           {
             "minute": 47,
             "side": "home",
+            "type": "yellow",
             "player": "Dodô",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 62,
             "side": "away",
+            "type": "yellow",
             "player": "Marius Marin",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 67,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "I. Toure",
+            "playerIn": "J. Cuadrado"
+          },
+          {
+            "minute": 76,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "S. Moreo",
+            "playerIn": "G. Piccinini"
+          },
+          {
+            "minute": 78,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Dodo",
+            "playerIn": "P. Comuzzo"
+          },
+          {
+            "minute": 78,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Solomon",
+            "playerIn": "J. Fazzini"
           },
           {
             "minute": 79,
             "side": "away",
+            "type": "yellow",
             "player": "Juan Cuadrado",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 85,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Kean",
+            "playerIn": "R. Piccoli"
+          },
+          {
+            "minute": 88,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "N. Fagioli",
+            "playerIn": "G. Fabbian"
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "yellow",
             "player": "Jacopo Fazzini",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "yellow",
             "player": "Giovanni Fabbian",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       },
@@ -337,16 +751,199 @@
         "date": "2025-09-28",
         "comp": "Serie A",
         "score": "Pisa 0-0 Fiorentina",
+        "referee": "Gianluca Manganiello, Italy",
         "formation": {
           "home": "3-5-2",
           "away": "3-4-2-1"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "A. Semper",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "S. Canestrelli",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "A. Caracciolo",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "G. Bonfanti",
+              "number": 94,
+              "pos": "D"
+            },
+            {
+              "name": "I. Toure",
+              "number": 15,
+              "pos": "M"
+            },
+            {
+              "name": "M. Marin",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "M. Aebischer",
+              "number": 20,
+              "pos": "M"
+            },
+            {
+              "name": "E. Akinsanmiro",
+              "number": 14,
+              "pos": "M"
+            },
+            {
+              "name": "M. Leris",
+              "number": 7,
+              "pos": "M"
+            },
+            {
+              "name": "M. Tramoni",
+              "number": 10,
+              "pos": "F"
+            },
+            {
+              "name": "M. Nzola",
+              "number": 18,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "D. de Gea",
+              "number": 43,
+              "pos": "G"
+            },
+            {
+              "name": "M. Pongracic",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "P. Mari",
+              "number": 18,
+              "pos": "D"
+            },
+            {
+              "name": "L. Ranieri",
+              "number": 6,
+              "pos": "D"
+            },
+            {
+              "name": "Dodo",
+              "number": 2,
+              "pos": "M"
+            },
+            {
+              "name": "R. Mandragora",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "H. Nicolussi Caviglia",
+              "number": 14,
+              "pos": "M"
+            },
+            {
+              "name": "R. Gosens",
+              "number": 21,
+              "pos": "M"
+            },
+            {
+              "name": "J. Fazzini",
+              "number": 22,
+              "pos": "F"
+            },
+            {
+              "name": "A. Gudmundsson",
+              "number": 10,
+              "pos": "F"
+            },
+            {
+              "name": "M. Kean",
+              "number": 20,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 42,
             "side": "away",
+            "type": "yellow",
             "player": "Moise Kean",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 48,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Aebischer",
+            "playerIn": "M. Hojholt"
+          },
+          {
+            "minute": 67,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Leris",
+            "playerIn": "J. Cuadrado"
+          },
+          {
+            "minute": 67,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Marin",
+            "playerIn": "I. Vural"
+          },
+          {
+            "minute": 68,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Nzola",
+            "playerIn": "H. Meister"
+          },
+          {
+            "minute": 74,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Gudmundsson",
+            "playerIn": "R. Piccoli"
+          },
+          {
+            "minute": 80,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "H. Nicolussi Caviglia",
+            "playerIn": "S. Sohm"
+          },
+          {
+            "minute": 87,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Tramoni",
+            "playerIn": "S. Moreo"
+          },
+          {
+            "minute": 87,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Fazzini",
+            "playerIn": "E. Dzeko"
           }
         ]
       }
@@ -1712,52 +2309,263 @@
             "comp": "Coppa Italia",
             "score": "3-0",
             "result": "W",
+            "referee": "L. Marinelli",
             "formation": {
               "us": "4-3-3",
               "opp": "3-4-2-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "David de Gea",
+                  "number": 43,
+                  "pos": "G"
+                },
+                {
+                  "name": "João Mário",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Drăgușin",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Pongračić",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "Valde",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Ndour",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Inao OulaÃ¯",
+                  "number": 42,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Brescianini",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "Franco Mastantuono",
+                  "number": 30,
+                  "pos": "F"
+                },
+                {
+                  "name": "Mateo Pellegrino",
+                  "number": 32,
+                  "pos": "F"
+                },
+                {
+                  "name": "W. Gnonto",
+                  "number": 29,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "S. Scuffet",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Primasso",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Caracciolo",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Canestrelli",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Zanon",
+                  "number": 72,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Piccinini",
+                  "number": 36,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Loyola",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Léris",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Ferrah",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Rao",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Pittarello",
+                  "number": 8,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 6,
                 "side": "us",
+                "type": "yellow",
                 "player": "Franco Mastantuono",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 35,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Felipe Loyola",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 40,
                 "side": "us",
+                "type": "goal",
                 "player": "Mateo Pellegrino",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Radu Drăguşin",
+                "playerIn": "Viery"
               },
               {
                 "minute": 52,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Simone Canestrelli",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 55,
                 "side": "us",
+                "type": "yellow",
                 "player": "Víctor Valdepeñas Talavera",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Simone Zanon",
+                "playerIn": "Andrea Petagna"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Emanuele Rao",
+                "playerIn": "Stefano Moreo"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Filippo Pittarello",
+                "playerIn": "Samuele Angori"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Marco Brescianini",
+                "playerIn": "Alieu Njie"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Franco Mastantuono",
+                "playerIn": "Pedro Goncalves"
+              },
+              {
+                "minute": 64,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Andrea Primasso",
+                "playerIn": "Francesco Coppola"
               },
               {
                 "minute": 71,
                 "side": "us",
+                "type": "goal",
                 "player": "Wilfried Gnonto",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Víctor Valdepeñas Talavera",
+                "playerIn": "Álex Jiménez"
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mehdi Léris",
+                "playerIn": "Daniel Denoon"
+              },
+              {
+                "minute": 83,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mateo Pellegrino",
+                "playerIn": "Beto"
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "goal",
                 "player": "Pedro Goncalves",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1768,64 +2576,279 @@
             "comp": "Serie A",
             "score": "4-2",
             "result": "W",
+            "referee": "F. Fourneau",
             "formation": {
               "us": "4-2-3-1",
               "opp": "3-5-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "D. de Gea",
+                  "number": 43,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Jimenez",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Dragusin",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Ranieri",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "Viery",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Ndour",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Fagioli",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Mastantuono",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Atta",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Njie",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "Beto",
+                  "number": 23,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "F. Stankovic",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Schingtienne",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Moreno",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Haps",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Hainaut",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Perez",
+                  "number": 71,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Busio",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Sohm",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Sagrado",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Yeboah",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Adams",
+                  "number": 45,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 22,
                 "side": "opp",
+                "type": "goal",
                 "player": "A. Adams",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 29,
                 "side": "us",
+                "type": "goal",
                 "player": "F. Mastantuono",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 30,
                 "side": "us",
+                "type": "goal",
                 "player": "F. Mastantuono",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 38,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Joel Schingtienne",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 44,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Busio",
+                "playerIn": "T. J. Helgason"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Atta",
+                "playerIn": "W. Gnonto"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Beto",
+                "playerIn": "M. Pellegrino"
               },
               {
                 "minute": 66,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Pellegrino",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Moreno",
+                "playerIn": "Juan Jesus"
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Sagrado",
+                "playerIn": "T. Correia"
               },
               {
                 "minute": 72,
                 "side": "us",
+                "type": "yellow",
                 "player": "Alieu Njie",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 73,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Simon Sohm",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Sohm",
+                "playerIn": "L. Lauberbach"
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Yeboah",
+                "playerIn": "T. Fernandez"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Njie",
+                "playerIn": "Pote"
               },
               {
                 "minute": 84,
                 "side": "us",
+                "type": "goal",
                 "player": "F. Mastantuono",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 86,
                 "side": "opp",
+                "type": "goal",
                 "player": "A. Hainaut",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Ranieri",
+                "playerIn": "M. Pongracic"
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Mastantuono",
+                "playerIn": "M. Brescianini"
               }
             ]
           },
@@ -1836,28 +2859,231 @@
             "comp": "Serie A",
             "score": "1-2",
             "result": "L",
+            "referee": "D. Massa",
             "formation": {
               "us": null,
               "opp": "3-1-4-2"
             },
+            "lineups": {
+              "us": [
+                {
+                  "name": "D. de Gea",
+                  "number": 43,
+                  "pos": "G"
+                },
+                {
+                  "name": "Joao Mario",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Dragusin",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Viery",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Valdepenas",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Fagioli",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Inao Oulai",
+                  "number": 42,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Brescianini",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Mastantuono",
+                  "number": 30,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Pellegrino",
+                  "number": 32,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Njie",
+                  "number": 25,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Lucas Perri",
+                  "number": 20,
+                  "pos": "G"
+                },
+                {
+                  "name": "E. Comert",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Coco",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Comuzzo",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Mandragora",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Fortini",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Gineitis",
+                  "number": 66,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Fitz-Jim",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Cacciamani",
+                  "number": 77,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Adams",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "N. Vlasic",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ]
+            },
             "events": [
+              {
+                "minute": 24,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Inao Oulai",
+                "playerIn": "C. Ndour"
+              },
+              {
+                "minute": 40,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Coco",
+                "playerIn": "A. Ismajli"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Brescianini",
+                "playerIn": "A. Atta"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Mastantuono",
+                "playerIn": "W. Gnonto"
+              },
               {
                 "minute": 47,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Pellegrino",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 56,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Fortini",
+                "playerIn": "N. Patterson"
+              },
+              {
+                "minute": 56,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Cacciamani",
+                "playerIn": "R. Belghali"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Comuzzo",
+                "playerIn": "D. Braganca"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Gineitis",
+                "playerIn": "G. Simeone"
               },
               {
                 "minute": 73,
                 "side": "opp",
+                "type": "goal",
                 "player": "R. Mandragora",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Pellegrino",
+                "playerIn": "Beto"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Njie",
+                "playerIn": "Pote"
               },
               {
                 "minute": 82,
                 "side": "opp",
+                "type": "goal",
                 "player": "C. Adams",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1868,64 +3094,279 @@
             "comp": "Serie A",
             "score": "0-3",
             "result": "L",
+            "referee": "G. Collu",
             "formation": {
               "us": "4-3-3",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "D. de Gea",
+                  "number": 43,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Jimenez",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Dragusin",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Pongracic",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Valdepenas",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Ndour",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Inao Oulai",
+                  "number": 42,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Atta",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Mastantuono",
+                  "number": 30,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Pellegrino",
+                  "number": 32,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Gudmundsson",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "L. Palmisani",
+                  "number": 22,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Oyono",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Calvani",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Monterisi",
+                  "number": 30,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Bracaglia",
+                  "number": 79,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Masini",
+                  "number": 73,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Calo",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Fini",
+                  "number": 40,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Schmid",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Kvernadze",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Raimondo",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 8,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Antonio Raimondo",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 24,
                 "side": "us",
+                "type": "yellow",
                 "player": "Álex Jiménez",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 24,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Gabriele Bracaglia",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 26,
                 "side": "opp",
+                "type": "goal",
                 "player": "A. Raimondo",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 38,
                 "side": "opp",
+                "type": "goal",
                 "player": "G. Bracaglia",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Gabriele Calvani",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Fini",
+                "playerIn": "A. Zerbin"
               },
               {
                 "minute": 49,
                 "side": "us",
+                "type": "yellow",
                 "player": "Albert Guðmundsson",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Ndour",
+                "playerIn": "N. Fagioli"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Pongracic",
+                "playerIn": "Viery"
               },
               {
                 "minute": 68,
                 "side": "opp",
+                "type": "goal",
                 "player": "A. Raimondo",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Gudmundsson",
+                "playerIn": "R. Mandragora"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Inao Oulai",
+                "playerIn": "M. Brescianini"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Bracaglia",
+                "playerIn": "A. Terzic"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Calvani",
+                "playerIn": "G. Cittadini"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Calo",
+                "playerIn": "F. Grillitsch"
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Jimenez",
+                "playerIn": "Joao Mario"
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Raimondo",
+                "playerIn": "D. Birligea"
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "yellow",
                 "player": "Radu Drăguşin",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1936,58 +3377,271 @@
             "comp": "Serie A",
             "score": "0-4",
             "result": "L",
+            "referee": "M. Marcenaro",
             "formation": {
               "us": "4-3-2-1",
               "opp": "3-4-2-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "D. de Gea",
+                  "number": 43,
+                  "pos": "G"
+                },
+                {
+                  "name": "Dodo",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Dragusin",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Ranieri",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "Joao Mario",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Ndour",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Fagioli",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Brescianini",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Mastantuono",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Atta",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Pellegrino",
+                  "number": 32,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Svilar",
+                  "number": 99,
+                  "pos": "G"
+                },
+                {
+                  "name": "G. Mancini",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Ndicka",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Hermoso",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Lulli",
+                  "number": 77,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Cristante",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Kone",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "Wesley Franca",
+                  "number": 43,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Dybala",
+                  "number": 21,
+                  "pos": "F"
+                },
+                {
+                  "name": "R. Mora",
+                  "number": 86,
+                  "pos": "F"
+                },
+                {
+                  "name": "D. Malen",
+                  "number": 14,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 27,
                 "side": "opp",
+                "type": "goal",
                 "player": "D. Malen",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 30,
                 "side": "us",
+                "type": "yellow",
                 "player": "Nicolò Fagioli",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 39,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Mario Hermoso",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 49,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Manu Koné",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 52,
                 "side": "opp",
+                "type": "goal",
                 "player": "D. Malen",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 54,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Mora",
+                "playerIn": "M. Soule"
               },
               {
                 "minute": 60,
                 "side": "opp",
+                "type": "goal",
                 "player": "D. Malen",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Brescianini",
+                "playerIn": "A. Jimenez"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Fagioli",
+                "playerIn": "C. Inao Oulai"
               },
               {
                 "minute": 63,
                 "side": "us",
+                "type": "yellow",
                 "player": "Mateo Pellegrino",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Mastantuono",
+                "playerIn": "M. Kean"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Hermoso",
+                "playerIn": "K. Koulierakis"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Malen",
+                "playerIn": "S. Castro"
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Atta",
+                "playerIn": "R. Mandragora"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Kone",
+                "playerIn": "N. Pisilli"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Dybala",
+                "playerIn": "N. El Aynaoui"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Joao Mario",
+                "playerIn": "V. Valdepenas"
               },
               {
                 "minute": 86,
                 "side": "opp",
+                "type": "goal",
                 "player": "N. Pisilli",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1998,52 +3652,263 @@
             "comp": "Coppa Italia",
             "score": "4-1",
             "result": "W",
+            "referee": "G. Manganiello",
             "formation": {
               "us": "4-3-2-1",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "D. de Gea",
+                  "number": 43,
+                  "pos": "G"
+                },
+                {
+                  "name": "Joao Mario",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Dragusin",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Ranieri",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Valdepenas",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Ndour",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Fagioli",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Brescianini",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Gudmundsson",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Atta",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Kean",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "G. Vannucchi",
+                  "number": 26,
+                  "pos": "G"
+                },
+                {
+                  "name": "L. Sernicola",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Scognamillo",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Caldirola",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Beruatto",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Maita",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Prisco",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Lamesta",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Talia",
+                  "number": 38,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Giugliano",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Salvemini",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 2,
                 "side": "us",
+                "type": "goal",
                 "player": "A. Gudmundsson",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 35,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Kean",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Joao Mario",
+                "playerIn": "Dodo"
               },
               {
                 "minute": 48,
                 "side": "us",
+                "type": "goal",
                 "player": "L. Ranieri",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 50,
                 "side": "us",
+                "type": "goal",
                 "player": "C. Ndour",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 54,
                 "side": "opp",
+                "type": "goal",
                 "player": "D. Lamesta",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Prisco",
+                "playerIn": "S. Verdi"
+              },
+              {
+                "minute": 56,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Talia",
+                "playerIn": "C. Kouan"
+              },
+              {
+                "minute": 56,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Giugliano",
+                "playerIn": "D. Okereke"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Fagioli",
+                "playerIn": "C. Inao Oulai"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Gudmundsson",
+                "playerIn": "F. Mastantuono"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Atta",
+                "playerIn": "F. Croci"
               },
               {
                 "minute": 70,
                 "side": "us",
+                "type": "yellow",
                 "player": "Christ Inao Oulaï",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Sernicola",
+                "playerIn": "E. Pierozzi"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Salvemini",
+                "playerIn": "G. Mignani"
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Dragusin",
+                "playerIn": "M. Pongracic"
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Pietro Beruatto",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           }
@@ -3672,52 +5537,263 @@
             "comp": "Coppa Italia",
             "score": "0-3",
             "result": "L",
+            "referee": "L. Marinelli",
             "formation": {
               "us": "3-4-2-1",
               "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "S. Scuffet",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Primasso",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Caracciolo",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Canestrelli",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Zanon",
+                  "number": 72,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Piccinini",
+                  "number": 36,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Loyola",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Léris",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Ferrah",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Rao",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Pittarello",
+                  "number": 8,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "David de Gea",
+                  "number": 43,
+                  "pos": "G"
+                },
+                {
+                  "name": "João Mário",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Drăgușin",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Pongračić",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "Valde",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Ndour",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Inao OulaÃ¯",
+                  "number": 42,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Brescianini",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "Franco Mastantuono",
+                  "number": 30,
+                  "pos": "F"
+                },
+                {
+                  "name": "Mateo Pellegrino",
+                  "number": 32,
+                  "pos": "F"
+                },
+                {
+                  "name": "W. Gnonto",
+                  "number": 29,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 6,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Franco Mastantuono",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 35,
                 "side": "us",
+                "type": "yellow",
                 "player": "Felipe Loyola",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 40,
                 "side": "opp",
+                "type": "goal",
                 "player": "Mateo Pellegrino",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Radu Drăguşin",
+                "playerIn": "Viery"
               },
               {
                 "minute": 52,
                 "side": "us",
+                "type": "yellow",
                 "player": "Simone Canestrelli",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 55,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Víctor Valdepeñas Talavera",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Simone Zanon",
+                "playerIn": "Andrea Petagna"
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Emanuele Rao",
+                "playerIn": "Stefano Moreo"
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Filippo Pittarello",
+                "playerIn": "Samuele Angori"
+              },
+              {
+                "minute": 60,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Marco Brescianini",
+                "playerIn": "Alieu Njie"
+              },
+              {
+                "minute": 60,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Franco Mastantuono",
+                "playerIn": "Pedro Goncalves"
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Andrea Primasso",
+                "playerIn": "Francesco Coppola"
               },
               {
                 "minute": 71,
                 "side": "opp",
+                "type": "goal",
                 "player": "Wilfried Gnonto",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Víctor Valdepeñas Talavera",
+                "playerIn": "Álex Jiménez"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mehdi Léris",
+                "playerIn": "Daniel Denoon"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mateo Pellegrino",
+                "playerIn": "Beto"
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "goal",
                 "player": "Pedro Goncalves",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -3728,64 +5804,279 @@
             "comp": "Serie B",
             "score": "1-4",
             "result": "L",
+            "referee": null,
             "formation": {
               "us": "4-3-3",
               "opp": "3-5-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "A. Confente",
+                  "number": 98,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Calabresi",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Canestrelli",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Coppola",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Angori",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "İ. Vural",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Leone",
+                  "number": 55,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Correia",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Léris",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Petagna",
+                  "number": 37,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Tramoni",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "F. Del Frate",
+                  "number": 22,
+                  "pos": "G"
+                },
+                {
+                  "name": "L. Parodi",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Alborghetti",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Marconi",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Vignali",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Franzoni",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Squizzato",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Benedetti",
+                  "number": 80,
+                  "pos": "M"
+                },
+                {
+                  "name": "Stefano Di Mario",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Cuppone",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "Bernat Guiu",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 2,
                 "side": "opp",
+                "type": "goal",
                 "player": "Bernat Guiu",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 32,
                 "side": "opp",
+                "type": "goal",
                 "player": "Luigi Cuppone",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 35,
                 "side": "us",
+                "type": "red",
                 "player": "Mehdi Léris",
-                "type": "red"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "opp",
+                "type": "goal",
                 "player": "Andrea Franzoni",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Andrea Petagna",
+                "playerIn": "Simone Zanon"
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Isak Vural",
+                "playerIn": "Stefano Moreo"
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Matteo Tramoni",
+                "playerIn": "Filippo Pittarello"
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Simone Canestrelli",
+                "playerIn": "Antonio Caracciolo"
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Luca Vignali",
+                "playerIn": "Nicolas Previtali"
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Leonardo Benedetti",
+                "playerIn": "M Tirelli"
               },
               {
                 "minute": 73,
                 "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Arturo Calabresi",
+                "playerIn": "Andrea Primasso"
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "goal",
                 "player": "Omar Correia",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Bernat Guiu",
+                "playerIn": "Tommaso Annoni"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Luigi Cuppone",
+                "playerIn": "Francesco Forte"
               },
               {
                 "minute": 78,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Luca Parodi",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 80,
                 "side": "opp",
+                "type": "goal",
                 "player": "M Tirelli",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Niccolo Squizzato",
+                "playerIn": "Andrea Tiritiello"
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "yellow",
                 "player": "Andrea Primasso",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Stefano Di Mario",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -3796,58 +6087,271 @@
             "comp": "Serie B",
             "score": "3-0",
             "result": "W",
+            "referee": "Andrea Calzavara, Italy",
             "formation": {
               "us": "4-3-3",
               "opp": "5-3-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "A. Confente",
+                  "number": 98,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Calabresi",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Canestrelli",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Bozhinov",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Angori",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Vural",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Leone",
+                  "number": 55,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Correia",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Leris",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Petagna",
+                  "number": 37,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Tramoni",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "P. Boer",
+                  "number": 23,
+                  "pos": "G"
+                },
+                {
+                  "name": "N. Patane",
+                  "number": 7,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Ricciardi",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Bettella",
+                  "number": 87,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Bellich",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Scuderi",
+                  "number": 73,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Karic",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Buglio",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Pierobon",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Candellone",
+                  "number": 27,
+                  "pos": "F"
+                },
+                {
+                  "name": "K. Piscopo",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 15,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Kevin Piscopo",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 41,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Rosen Bozhinov",
+                "playerIn": "Francesco Coppola"
               },
               {
                 "minute": 42,
                 "side": "us",
+                "type": "goal",
                 "player": "Arturo Calabresi",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "us",
+                "type": "goal",
                 "player": "Andrea Petagna",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Andrea Petagna",
+                "playerIn": "Filippo Pittarello"
               },
               {
                 "minute": 51,
                 "side": "us",
+                "type": "yellow",
                 "player": "Arturo Calabresi",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Davide Buglio",
+                "playerIn": "Federico Artioli"
+              },
+              {
+                "minute": 55,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Kevin Piscopo",
+                "playerIn": "Fabio Maistro"
+              },
+              {
+                "minute": 56,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Leonardo Candellone",
+                "playerIn": "Antonio Di Nardo"
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Arturo Calabresi",
+                "playerIn": "Simone Zanon"
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Giuseppe Leone",
+                "playerIn": "Tomás Esteves"
               },
               {
                 "minute": 66,
                 "side": "us",
+                "type": "yellow",
                 "player": "Francesco Coppola",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 68,
                 "side": "us",
+                "type": "goal",
                 "player": "Matteo Tramoni",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Nermin Karić",
+                "playerIn": "Justin Kumi"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Isak Vural",
+                "playerIn": "Gabriele Piccinini"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Nicola Patane",
+                "playerIn": "Giusepe Sibilli"
               },
               {
                 "minute": 80,
                 "side": "us",
+                "type": "goal",
                 "player": "Francesco Coppola",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 83,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Giusepe Sibilli",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -3858,58 +6362,271 @@
             "comp": "Serie B",
             "score": "2-1",
             "result": "W",
+            "referee": "Alberto Ruben Arena, Italy",
             "formation": {
               "us": "3-4-2-1",
               "opp": "3-4-2-1"
             },
+            "lineups": {
+              "us": [
+                {
+                  "name": "A. Confente",
+                  "number": 98,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Calabresi",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Canestrelli",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Bozhinov",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Zanon",
+                  "number": 72,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Leone",
+                  "number": 55,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Correia",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Angori",
+                  "number": 3,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Leris",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Tramoni",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Petagna",
+                  "number": 37,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Pigliacelli",
+                  "number": 22,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Ruggero",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "Matias Antonini",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Verrengia",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Candela",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Petriccione",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Mosti",
+                  "number": 98,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. D'Alessandro",
+                  "number": 77,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Alesi",
+                  "number": 30,
+                  "pos": "F"
+                },
+                {
+                  "name": "P. Iemmello",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "N. Koffi",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ]
+            },
             "events": [
+              {
+                "minute": 9,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Marco D'Alessandro",
+                "playerIn": "Mehdi Dorval"
+              },
               {
                 "minute": 22,
                 "side": "opp",
+                "type": "goal",
                 "player": "Pietro Lemmello",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 28,
                 "side": "us",
+                "type": "goal",
                 "player": "Simone Canestrelli",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 30,
                 "side": "us",
+                "type": "goal",
                 "player": "Giuseppe Leone",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 39,
                 "side": "us",
+                "type": "yellow",
                 "player": "Simone Zanon",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Antonio Candela",
+                "playerIn": "Franky Tchaouna"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Simone Zanon",
+                "playerIn": "Daniel Denoon"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mehdi Léris",
+                "playerIn": "Gabriele Piccinini"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Marco Ruggero",
+                "playerIn": "Ruggero Frosinini"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Rosen Bozhinov",
+                "playerIn": "Antonio Caracciolo"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Giuseppe Leone",
+                "playerIn": "Isak Vural"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Matteo Tramoni",
+                "playerIn": "Emanuele Rao"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Nicola Mosti",
+                "playerIn": "Federico Di Francesco"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gabriele Alesi",
+                "playerIn": "Emanuele Pecorino"
               },
               {
                 "minute": 80,
                 "side": "us",
+                "type": "yellow",
                 "player": "Arturo Calabresi",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 84,
                 "side": "us",
+                "type": "yellow",
                 "player": "Isak Vural",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 87,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Jacopo Petriccione",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Matias Antonini Lui",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -3920,34 +6637,239 @@
             "comp": "Serie B",
             "score": "0-1",
             "result": "L",
+            "referee": "Mario Perri, Italy",
             "formation": {
               "us": "4-3-3",
               "opp": "3-5-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "A. Confente",
+                  "number": 98,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Zanon",
+                  "number": 72,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Caracciolo",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Canestrelli",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Leris",
+                  "number": 7,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Loyola",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Leone",
+                  "number": 55,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Vural",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Marras",
+                  "number": 23,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Petagna",
+                  "number": 37,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Tramoni",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "A. Sorrentino",
+                  "number": 22,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Dellavalle",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Sgarbi",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Pastina",
+                  "number": 58,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Carissoni",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Pompetti",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Zuelli",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Fusi",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Zanimacchia",
+                  "number": 98,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Bortolussi",
+                  "number": 20,
+                  "pos": "F"
+                },
+                {
+                  "name": "G. Caprari",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 35,
                 "side": "us",
+                "type": "yellow",
                 "player": "Isak Vural",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Caracciolo",
+                "playerIn": "R. Bozhinov"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Bortolussi",
+                "playerIn": "K. Lasagna"
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Tramoni",
+                "playerIn": "E. Rao"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Vural",
+                "playerIn": "O. Correia"
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Zanimacchia",
+                "playerIn": "M. Cocchi"
               },
               {
                 "minute": 63,
                 "side": "opp",
+                "type": "goal",
                 "player": "P. Fusi",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Pompetti",
+                "playerIn": "G. Giunti"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Caprari",
+                "playerIn": "A. Seghetti"
               },
               {
                 "minute": 72,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Giovanni Giunti",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Loyola",
+                "playerIn": "I. Ferrah"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Sgarbi",
+                "playerIn": "E. Silletti"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Zanon",
+                "playerIn": "A. Calabresi"
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Alessandro Dellavalle",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -3958,40 +6880,129 @@
             "comp": "Coppa Italia",
             "score": "1-1",
             "result": "D",
-            "formation": {
-              "us": "4-3-3",
-              "opp": "3-4-2-1"
-            },
+            "referee": "A. Zanotti",
+            "formation": null,
+            "lineups": null,
             "events": [
               {
                 "minute": 22,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Edoardo Biondini",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 44,
                 "side": "us",
+                "type": "goal",
                 "player": "T. Marras",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Gerard Yepes",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Biondini",
+                "playerIn": "S. Shpendi"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Monaco",
+                "playerIn": "G. Indragoli"
               },
               {
                 "minute": 61,
                 "side": "opp",
+                "type": "goal",
                 "player": "E. Saporiti",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Di Stefano",
+                "playerIn": "B. Popov"
+              },
+              {
+                "minute": 69,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Piccinini",
+                "playerIn": "T. Esteves"
+              },
+              {
+                "minute": 69,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Vural",
+                "playerIn": "F. Loyola"
+              },
+              {
+                "minute": 69,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Moreo",
+                "playerIn": "H. Meister"
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Tosto",
+                "playerIn": "C. Cauz"
               },
               {
                 "minute": 70,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Gabriele Indragoli",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Tramoni",
+                "playerIn": "E. Rao"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Ceesay",
+                "playerIn": "S. Romagnoli"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Leone",
+                "playerIn": "I. Ferrah"
               }
             ]
           }

@@ -36,70 +36,303 @@
         "date": "2026-02-08",
         "comp": "La Liga",
         "score": "Athletic Club 4-2 Levante",
+        "referee": "A. Ruiz",
         "formation": {
           "home": "4-2-3-1",
           "away": "4-2-3-1"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "U. Simon",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "A. Gorosabel",
+              "number": 2,
+              "pos": "D"
+            },
+            {
+              "name": "A. Paredes",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "A. Laporte",
+              "number": 14,
+              "pos": "D"
+            },
+            {
+              "name": "Y. Berchiche",
+              "number": 17,
+              "pos": "D"
+            },
+            {
+              "name": "I. Ruiz de Galarreta",
+              "number": 16,
+              "pos": "M"
+            },
+            {
+              "name": "M. Jauregizar",
+              "number": 18,
+              "pos": "M"
+            },
+            {
+              "name": "N. Serrano",
+              "number": 22,
+              "pos": "M"
+            },
+            {
+              "name": "G. Guruzeta",
+              "number": 11,
+              "pos": "M"
+            },
+            {
+              "name": "N. Williams",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "I. Williams",
+              "number": 9,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "M. Ryan",
+              "number": 13,
+              "pos": "G"
+            },
+            {
+              "name": "J. Toljan",
+              "number": 22,
+              "pos": "D"
+            },
+            {
+              "name": "Dela",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "A. Matturro",
+              "number": 3,
+              "pos": "D"
+            },
+            {
+              "name": "M. Sanchez",
+              "number": 23,
+              "pos": "D"
+            },
+            {
+              "name": "U. Raghouber",
+              "number": 14,
+              "pos": "M"
+            },
+            {
+              "name": "P. Martinez",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "K. Tunde",
+              "number": 26,
+              "pos": "M"
+            },
+            {
+              "name": "C. Alvarez",
+              "number": 24,
+              "pos": "M"
+            },
+            {
+              "name": "I. Romero",
+              "number": 9,
+              "pos": "M"
+            },
+            {
+              "name": "K. Etta Eyong",
+              "number": 21,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 17,
             "side": "away",
+            "type": "red",
             "player": "Alan Matturro",
-            "type": "red"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 29,
             "side": "home",
+            "type": "goal",
             "player": "G. Guruzeta",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 34,
             "side": "home",
+            "type": "goal",
             "player": "G. Guruzeta",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 39,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Y. Berchiche",
+            "playerIn": "A. Boiro"
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "C. Alvarez",
+            "playerIn": "K. Arriaga"
+          },
+          {
+            "minute": 62,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "G. Guruzeta",
+            "playerIn": "R. Navarro"
+          },
+          {
+            "minute": 63,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Jauregizar",
+            "playerIn": "A. Rego"
+          },
+          {
+            "minute": 65,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Dela",
+            "playerIn": "U. Elgezabal"
+          },
+          {
+            "minute": 65,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "P. Martinez",
+            "playerIn": "J. A. Olasagasti"
+          },
+          {
+            "minute": 65,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "I. Romero",
+            "playerIn": "C. Espi"
           },
           {
             "minute": 66,
             "side": "home",
+            "type": "yellow",
             "player": "Aitor Paredes",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 76,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "I. Ruiz de Galarreta",
+            "playerIn": "U. Gomez"
+          },
+          {
+            "minute": 76,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "N. Williams",
+            "playerIn": "S. Sanchez"
           },
           {
             "minute": 77,
             "side": "away",
+            "type": "yellow",
             "player": "Jeremy Toljan",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 81,
             "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "U. Raghouber",
+            "playerIn": "I. Losada"
+          },
+          {
+            "minute": 81,
+            "side": "away",
+            "type": "goal",
             "player": "U. Elgezabal",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 86,
             "side": "home",
+            "type": "goal",
             "player": "N. Serrano",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 89,
             "side": "home",
+            "type": "yellow",
             "player": "Alejandro Rego",
-            "type": "yellow"
-          },
-          {
-            "minute": 90,
-            "side": "away",
-            "player": "J. A. Olasagasti",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "N. Serrano",
+            "playerIn": "I. Lekue"
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": null,
+            "playerIn": "P. Cortes"
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "goal",
+            "player": "J. A. Olasagasti",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 90,
+            "side": "home",
+            "type": "goal",
             "player": "R. Navarro",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       },
@@ -107,52 +340,263 @@
         "date": "2025-11-29",
         "comp": "La Liga",
         "score": "Levante 0-2 Athletic Club",
+        "referee": "Adrian Cordero Vega, Spain",
         "formation": {
           "home": "4-4-2",
           "away": "4-2-3-1"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "M. Ryan",
+              "number": 13,
+              "pos": "G"
+            },
+            {
+              "name": "J. Toljan",
+              "number": 22,
+              "pos": "D"
+            },
+            {
+              "name": "U. Elgezabal",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "A. Matturro",
+              "number": 3,
+              "pos": "D"
+            },
+            {
+              "name": "M. Sanchez",
+              "number": 23,
+              "pos": "D"
+            },
+            {
+              "name": "C. Alvarez",
+              "number": 24,
+              "pos": "M"
+            },
+            {
+              "name": "K. Arriaga",
+              "number": 16,
+              "pos": "M"
+            },
+            {
+              "name": "O. Rey",
+              "number": 20,
+              "pos": "M"
+            },
+            {
+              "name": "J. A. Olasagasti",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "G. Koyalipou",
+              "number": 15,
+              "pos": "F"
+            },
+            {
+              "name": "K. Etta",
+              "number": 21,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "U. Simon",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "I. Lekue",
+              "number": 15,
+              "pos": "D"
+            },
+            {
+              "name": "D. Vivian",
+              "number": 3,
+              "pos": "D"
+            },
+            {
+              "name": "A. Paredes",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "Y. Berchiche",
+              "number": 17,
+              "pos": "D"
+            },
+            {
+              "name": "M. Jauregizar",
+              "number": 18,
+              "pos": "M"
+            },
+            {
+              "name": "A. Rego",
+              "number": 30,
+              "pos": "M"
+            },
+            {
+              "name": "R. Navarro",
+              "number": 23,
+              "pos": "M"
+            },
+            {
+              "name": "A. Berenguer",
+              "number": 7,
+              "pos": "M"
+            },
+            {
+              "name": "N. Williams",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "G. Guruzeta",
+              "number": 11,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 3,
             "side": "away",
+            "type": "goal",
             "player": "R. Navarro",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 32,
             "side": "home",
+            "type": "yellow",
             "player": "Kervin Arriaga",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 37,
             "side": "home",
+            "type": "yellow",
             "player": "Oriol Rey",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 40,
             "side": "away",
+            "type": "yellow",
             "player": "Yuri Berchiche",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 44,
             "side": "away",
+            "type": "goal",
             "player": "N. Williams",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 46,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "K. Arriaga",
+            "playerIn": "R. Brugue"
+          },
+          {
+            "minute": 46,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "G. Koyalipou",
+            "playerIn": "I. Romero"
+          },
+          {
+            "minute": 46,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "U. Elgezabal",
+            "playerIn": "J. Cabello"
           },
           {
             "minute": 50,
             "side": "away",
+            "type": "yellow",
             "player": "Daniel Vivian",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 58,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Matturro",
+            "playerIn": "V. Garcia"
+          },
+          {
+            "minute": 62,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Navarro",
+            "playerIn": "U. Gomez"
+          },
+          {
+            "minute": 73,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Toljan",
+            "playerIn": "J. Morales"
+          },
+          {
+            "minute": 81,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Jauregizar",
+            "playerIn": "M. Vesga"
+          },
+          {
+            "minute": 81,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "N. Williams",
+            "playerIn": "S. Sanchez"
           },
           {
             "minute": 86,
             "side": "home",
+            "type": "yellow",
             "player": "Roger Brugué",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 88,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Berenguer",
+            "playerIn": "N. Serrano"
+          },
+          {
+            "minute": 88,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "G. Guruzeta",
+            "playerIn": "Izeta"
           }
         ]
       },
@@ -160,52 +604,263 @@
         "date": "2022-03-07",
         "comp": "La Liga",
         "score": "Athletic Club 3-1 Levante",
+        "referee": "Alejandro Muñiz",
         "formation": {
           "home": "4-4-2",
           "away": "3-4-3"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "Unai Simón",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "De Marcos",
+              "number": 18,
+              "pos": "D"
+            },
+            {
+              "name": "Yuri",
+              "number": 17,
+              "pos": "D"
+            },
+            {
+              "name": "Íñigo Martínez",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "Yeray",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "Mikel Vesga",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "Oihan Sancet",
+              "number": 8,
+              "pos": "F"
+            },
+            {
+              "name": "Unai Vencedor",
+              "number": 16,
+              "pos": "M"
+            },
+            {
+              "name": "Muniain",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "Williams",
+              "number": 9,
+              "pos": "F"
+            },
+            {
+              "name": "Álex Berenguer",
+              "number": 7,
+              "pos": "M"
+            }
+          ],
+          "away": [
+            {
+              "name": "Dani Cárdenas",
+              "number": 34,
+              "pos": "G"
+            },
+            {
+              "name": "M. Cáceres",
+              "number": 7,
+              "pos": "D"
+            },
+            {
+              "name": "Ó. Duarte",
+              "number": 6,
+              "pos": "D"
+            },
+            {
+              "name": "Miramón",
+              "number": 20,
+              "pos": "M"
+            },
+            {
+              "name": "Son",
+              "number": 2,
+              "pos": "M"
+            },
+            {
+              "name": "Rober",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "Morales",
+              "number": 11,
+              "pos": "F"
+            },
+            {
+              "name": "Melero",
+              "number": 22,
+              "pos": "M"
+            },
+            {
+              "name": "Pepelu",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "Roger Martí",
+              "number": 9,
+              "pos": "F"
+            },
+            {
+              "name": "Jorge de Frutos",
+              "number": 18,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 14,
             "side": "home",
+            "type": "yellow",
             "player": "Álex Berenguer",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 20,
             "side": "away",
+            "type": "yellow",
             "player": "Jorge Miramón",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 37,
             "side": "away",
+            "type": "yellow",
             "player": "Son",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 45,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Morales",
+            "playerIn": "E. Bardhi"
+          },
+          {
+            "minute": 55,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Íñigo Martínez",
+            "playerIn": "Dani Vivian"
           },
           {
             "minute": 63,
             "side": "home",
+            "type": "goal",
             "player": "Mikel Vesga",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 71,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Cáceres",
+            "playerIn": "Cantero"
+          },
+          {
+            "minute": 71,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Melero",
+            "playerIn": "M. Malsa"
+          },
+          {
+            "minute": 73,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Muniain",
+            "playerIn": "Nico Williams"
+          },
+          {
+            "minute": 73,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Oihan Sancet",
+            "playerIn": "Oier Zarraga"
           },
           {
             "minute": 76,
             "side": "home",
+            "type": "goal",
             "player": "Williams",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 78,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Unai Vencedor",
+            "playerIn": "Alex Petxarroman"
+          },
+          {
+            "minute": 79,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Williams",
+            "playerIn": "Asier Villalibre"
+          },
+          {
+            "minute": 84,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Roger Martí",
+            "playerIn": "Dani Gómez"
+          },
+          {
+            "minute": 84,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Son",
+            "playerIn": "Enric Franquesa"
           },
           {
             "minute": 88,
             "side": "home",
+            "type": "goal",
             "player": "Oier Zarraga",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "away",
+            "type": "goal",
             "player": "Jorge de Frutos",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       },
@@ -213,28 +868,231 @@
         "date": "2021-11-19",
         "comp": "La Liga",
         "score": "Levante 0-0 Athletic Club",
+        "referee": "José Munuera",
         "formation": {
           "home": "4-3-3",
           "away": "4-4-2"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "Dani Cárdenas",
+              "number": 34,
+              "pos": "G"
+            },
+            {
+              "name": "S. Mustafi",
+              "number": 13,
+              "pos": "D"
+            },
+            {
+              "name": "Clerc",
+              "number": 19,
+              "pos": "D"
+            },
+            {
+              "name": "Rúben Vezo",
+              "number": 14,
+              "pos": "D"
+            },
+            {
+              "name": "Son",
+              "number": 2,
+              "pos": "D"
+            },
+            {
+              "name": "Campaña",
+              "number": 24,
+              "pos": "M"
+            },
+            {
+              "name": "Morales",
+              "number": 11,
+              "pos": "F"
+            },
+            {
+              "name": "M. Malsa",
+              "number": 12,
+              "pos": "M"
+            },
+            {
+              "name": "E. Bardhi",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "Roger Martí",
+              "number": 9,
+              "pos": "F"
+            },
+            {
+              "name": "Jorge de Frutos",
+              "number": 18,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "Unai Simón",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "Balenziaga",
+              "number": 24,
+              "pos": "D"
+            },
+            {
+              "name": "Íñigo Martínez",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "Yeray",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "Lekue",
+              "number": 15,
+              "pos": "D"
+            },
+            {
+              "name": "Raúl García",
+              "number": 22,
+              "pos": "F"
+            },
+            {
+              "name": "Dani García",
+              "number": 14,
+              "pos": "M"
+            },
+            {
+              "name": "Unai Vencedor",
+              "number": 16,
+              "pos": "M"
+            },
+            {
+              "name": "Muniain",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "Williams",
+              "number": 9,
+              "pos": "F"
+            },
+            {
+              "name": "Álex Berenguer",
+              "number": 7,
+              "pos": "M"
+            }
+          ]
         },
         "events": [
           {
             "minute": 6,
             "side": "home",
+            "type": "yellow",
             "player": "Roger Martí",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 16,
             "side": "away",
+            "type": "yellow",
             "player": "Yeray Álvarez",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 55,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Álex Berenguer",
+            "playerIn": "Oier Zarraga"
+          },
+          {
+            "minute": 55,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Raúl García",
+            "playerIn": "Oihan Sancet"
+          },
+          {
+            "minute": 60,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Malsa",
+            "playerIn": "N. Vukčević"
+          },
+          {
+            "minute": 66,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Muniain",
+            "playerIn": "Nico Williams"
+          },
+          {
+            "minute": 66,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Williams",
+            "playerIn": "Asier Villalibre"
+          },
+          {
+            "minute": 73,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "E. Bardhi",
+            "playerIn": "Dani Gómez"
+          },
+          {
+            "minute": 73,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "S. Mustafi",
+            "playerIn": "Ó. Duarte"
+          },
+          {
+            "minute": 86,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Son",
+            "playerIn": "Miramón"
+          },
+          {
+            "minute": 86,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Asier Villalibre",
+            "playerIn": "Nico Serrano"
+          },
+          {
+            "minute": 87,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Roger Martí",
+            "playerIn": "Soldado"
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "yellow",
             "player": "Rúben Vezo",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       },
@@ -242,58 +1100,287 @@
         "date": "2021-03-04",
         "comp": "Copa del Rey",
         "score": "Levante 1-2 Athletic Club",
+        "referee": "Carlos Del Cerro Grande, Spain",
         "formation": {
           "home": "3-4-2-1",
           "away": "4-4-2"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "Aitor Fernández",
+              "number": 13,
+              "pos": "G"
+            },
+            {
+              "name": "Ó. Duarte",
+              "number": 6,
+              "pos": "D"
+            },
+            {
+              "name": "Miramón",
+              "number": 20,
+              "pos": "M"
+            },
+            {
+              "name": "Clerc",
+              "number": 19,
+              "pos": "M"
+            },
+            {
+              "name": "Rúben Vezo",
+              "number": 14,
+              "pos": "D"
+            },
+            {
+              "name": "Rober",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "Rochina",
+              "number": 16,
+              "pos": "M"
+            },
+            {
+              "name": "Morales",
+              "number": 11,
+              "pos": "F"
+            },
+            {
+              "name": "M. Malsa",
+              "number": 12,
+              "pos": "M"
+            },
+            {
+              "name": "Roger Martí",
+              "number": 9,
+              "pos": "F"
+            },
+            {
+              "name": "Jorge de Frutos",
+              "number": 18,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "Unai Simón",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "De Marcos",
+              "number": 18,
+              "pos": "D"
+            },
+            {
+              "name": "Yuri",
+              "number": 17,
+              "pos": "D"
+            },
+            {
+              "name": "Yeray",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "Unai Núñez",
+              "number": 3,
+              "pos": "D"
+            },
+            {
+              "name": "Raúl García",
+              "number": 22,
+              "pos": "F"
+            },
+            {
+              "name": "Unai López",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "Mikel Vesga",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "Muniain",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "Williams",
+              "number": 9,
+              "pos": "F"
+            },
+            {
+              "name": "Álex Berenguer",
+              "number": 12,
+              "pos": "M"
+            }
+          ]
         },
         "events": [
           {
             "minute": 17,
             "side": "home",
+            "type": "goal",
             "player": "Roger Martí",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 28,
             "side": "home",
+            "type": "yellow",
             "player": "Óscar Duarte",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 30,
             "side": "away",
+            "type": "goal",
             "player": "Raúl García",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 42,
             "side": "away",
+            "type": "yellow",
             "player": "Unai Núñez",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 46,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Rober",
+            "playerIn": "E. Bardhi"
           },
           {
             "minute": 55,
             "side": "home",
+            "type": "yellow",
             "player": "Roger Martí",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 76,
             "side": "home",
+            "type": "yellow",
             "player": "Ruben Rochina",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 85,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Malsa",
+            "playerIn": "Son"
+          },
+          {
+            "minute": 85,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Rochina",
+            "playerIn": "N. Vukčević"
+          },
+          {
+            "minute": 90,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Roger Martí",
+            "playerIn": "Dani Gómez"
+          },
+          {
+            "minute": 90,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Morales",
+            "playerIn": "Sergio León"
+          },
+          {
+            "minute": 96,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Raúl García",
+            "playerIn": "Asier Villalibre"
+          },
+          {
+            "minute": 97,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Mikel Vesga",
+            "playerIn": "Dani García"
           },
           {
             "minute": 105,
             "side": "away",
+            "type": "yellow",
             "player": "Óscar de Marcos",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 105,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Unai López",
+            "playerIn": "Unai Vencedor"
+          },
+          {
+            "minute": 105,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "De Marcos",
+            "playerIn": "Capa"
+          },
+          {
+            "minute": 108,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Miramón",
+            "playerIn": "Coke"
+          },
+          {
+            "minute": 108,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Yuri",
+            "playerIn": "Balenziaga"
+          },
+          {
+            "minute": 111,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Muniain",
+            "playerIn": "Jon Morcillo"
           },
           {
             "minute": 112,
             "side": "away",
+            "type": "goal",
             "player": "Álex Berenguer",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       }
@@ -1622,58 +2709,271 @@
             "comp": "La Liga",
             "score": "2-4",
             "result": "L",
+            "referee": "Jon Ander Gonzalez Esteban, Spain",
             "formation": {
               "us": "4-4-2",
               "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Ryan",
+                  "number": 13,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Toljan",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "Dela",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Mandi",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Sanchez",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Garcia",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "H. Sotelo",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. A. Olasagasti",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Brugue",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Requena",
+                  "number": 6,
+                  "pos": "F"
+                },
+                {
+                  "name": "P. Ratkov",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Garcia",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "E. Garcia",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Cubarsi",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Martin",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "X. Espart",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "Fermin",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "Rodri",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "Pedri",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Lamine Yamal",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "Raphinha",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Gordon",
+                  "number": 17,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 5,
                 "side": "opp",
+                "type": "goal",
                 "player": "X. Espart",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 19,
                 "side": "opp",
+                "type": "goal",
                 "player": "Lamine Yamal",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "us",
+                "type": "yellow",
                 "player": "Hugo Sotelo",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Gerard Martín",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Martin",
+                "playerIn": "A. Christensen"
               },
               {
                 "minute": 48,
                 "side": "opp",
+                "type": "goal",
                 "player": "Lamine Yamal",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. A. Olasagasti",
+                "playerIn": "E. Bardeli"
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Ratkov",
+                "playerIn": "I. Romero"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "H. Sotelo",
+                "playerIn": "O. Rey"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Pedri",
+                "playerIn": "M. Bernal"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Lamine Yamal",
+                "playerIn": "D. Olmo"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Gordon",
+                "playerIn": "K. Adeyemi"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Dela",
+                "playerIn": "I. Ndukwe"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Sanchez",
+                "playerIn": "N. Perez"
               },
               {
                 "minute": 79,
                 "side": "us",
+                "type": "goal",
                 "player": "I. Romero",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "X. Espart",
+                "playerIn": "J. Cancelo"
               },
               {
                 "minute": 88,
                 "side": "us",
+                "type": "goal",
                 "player": "R. Brugue",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "goal",
                 "player": "K. Adeyemi",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1684,52 +2984,263 @@
             "comp": "La Liga",
             "score": "0-0",
             "result": "D",
+            "referee": "Luis Bestard Servera, Spain",
             "formation": {
               "us": "4-1-4-1",
               "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Ryan",
+                  "number": 13,
+                  "pos": "G"
+                },
+                {
+                  "name": "N. Perez",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "Dela",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Mandi",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Sanchez",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "O. Rey",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Brugue",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Bardeli",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. A. Olasagasti",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Fernandez",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Romero",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "A. Herrero",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Rafita",
+                  "number": 31,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Recio",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Galilea",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Salinas",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Dotor",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Martinez",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Lorenzo",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Larrubia",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "Chupe",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "J. Cruz",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 9,
                 "side": "opp",
+                "type": "goal",
                 "player": "Chupete",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 25,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Dani Lorenzo",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 34,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Rafa Garrido",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Pablo Martínez",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Martinez",
+                "playerIn": "I. Merino"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Cruz",
+                "playerIn": "J. Munoz"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Romero",
+                "playerIn": "Y. Musuayi"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Rafita",
+                "playerIn": "C. Puga"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Lorenzo",
+                "playerIn": "R. Enriquez"
               },
               {
                 "minute": 70,
                 "side": "us",
+                "type": "yellow",
                 "player": "Adrián de la Fuente",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Perez",
+                "playerIn": "J. Toljan"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Fernandez",
+                "playerIn": "P. Cortes"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Bardeli",
+                "playerIn": "H. Sotelo"
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Dotor",
+                "playerIn": "J. Cajuste"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. A. Olasagasti",
+                "playerIn": "D. Requena"
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Carlos Puga",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "yellow",
                 "player": "Aïssa Mandi",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1740,64 +3251,279 @@
             "comp": "La Liga",
             "score": "5-2",
             "result": "W",
+            "referee": "Ricardo De Burgos Bengoetxea, Spain",
             "formation": {
               "us": "4-1-4-1",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Ryan",
+                  "number": 13,
+                  "pos": "G"
+                },
+                {
+                  "name": "N. Perez",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "Dela",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Mandi",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Sanchez",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "O. Rey",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Brugue",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Bardeli",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. A. Olasagasti",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Fernandez",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Romero",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "A. Valles",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "H. Bellerin",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Bartra",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "Natan",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Garcia",
+                  "number": 11,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Bernal",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Roca",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "Antony",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "Isco",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Riquelme",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Parrott",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 24,
                 "side": "us",
+                "type": "goal",
                 "player": "Dela",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 34,
                 "side": "opp",
+                "type": "goal",
                 "player": "M. Bartra",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "us",
+                "type": "goal",
                 "player": "E. Bardeli",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "opp",
+                "type": "goal",
                 "player": "R. Riquelme",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Perez",
+                "playerIn": "J. Toljan"
               },
               {
                 "minute": 56,
                 "side": "us",
+                "type": "goal",
                 "player": "R. Brugue",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 57,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Isco",
+                "playerIn": "P. Fornals"
+              },
+              {
+                "minute": 57,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Parrott",
+                "playerIn": "C. Hernandez"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Bardeli",
+                "playerIn": "H. Sotelo"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Riquelme",
+                "playerIn": "N. Deossa"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Roca",
+                "playerIn": "P. Garcia"
               },
               {
                 "minute": 69,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Pablo García",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 70,
                 "side": "us",
+                "type": "goal",
                 "player": "R. Brugue",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Fernandez",
+                "playerIn": "V. Garcia"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Romero",
+                "playerIn": "K. Etta Eyong"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Bernal",
+                "playerIn": "A. Ezzalzouli"
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Brugue",
+                "playerIn": "P. Cortes"
               },
               {
                 "minute": 86,
                 "side": "us",
+                "type": "yellow",
                 "player": "Jeremy Toljan",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "goal",
                 "player": "J. A. Olasagasti",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1808,28 +3534,223 @@
             "comp": "La Liga",
             "score": "0-0",
             "result": "D",
+            "referee": "Victor Garcia Verdura, Spain",
             "formation": {
               "us": "4-1-4-1",
               "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Ryan",
+                  "number": 13,
+                  "pos": "G"
+                },
+                {
+                  "name": "N. Perez",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "Dela",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Mandi",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Sanchez",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "O. Rey",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Brugue",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Bardeli",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. A. Olasagasti",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Fernandez",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Romero",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "S. Herrera",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "I. Arguibide",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Catena",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Herrando",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Bretones",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Garcia",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Moncayola",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Munoz",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Gomez",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Budimir",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Oroz",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 38,
                 "side": "us",
+                "type": "yellow",
                 "player": "Iván Romero",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Oroz",
+                "playerIn": "R. Garcia"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Garcia",
+                "playerIn": "R. Moro"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Perez",
+                "playerIn": "J. Toljan"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Fernandez",
+                "playerIn": "V. Garcia"
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Budimir",
+                "playerIn": "J. Dubasin"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Arguibide",
+                "playerIn": "L. Torro"
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Gomez",
+                "playerIn": "K. Barja"
               },
               {
                 "minute": 88,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Kike Barja",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Sergio Herrera",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. Rey",
+                "playerIn": "H. Sotelo"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Romero",
+                "playerIn": "K. Etta Eyong"
               }
             ]
           },
@@ -1840,46 +3761,255 @@
             "comp": "La Liga",
             "score": "0-3",
             "result": "L",
+            "referee": "Carlos Muniz Munoz, Spain",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Ryan",
+                  "number": 13,
+                  "pos": "G"
+                },
+                {
+                  "name": "N. Perez",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "Dela",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Mandi",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Sanchez",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. A. Olasagasti",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Rey",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Garcia",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Alvarez",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Cortes",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Romero",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Dmitrovic",
+                  "number": 13,
+                  "pos": "G"
+                },
+                {
+                  "name": "O. El Hilali",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Riedel",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "U. Nunez",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Hinojo",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "U. Gonzalez",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "Exposito",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Calatrava",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Hernandez",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Dolan",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Fernandez Jaen",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 5,
                 "side": "opp",
+                "type": "goal",
                 "player": "R. Fernandez Jaen",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 37,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Urko González",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 40,
                 "side": "opp",
+                "type": "goal",
                 "player": "R. Fernandez Jaen",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Alvarez",
+                "playerIn": "E. Bardeli"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Cortes",
+                "playerIn": "K. Etta Eyong"
               },
               {
                 "minute": 63,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Álex Calatrava",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Romero",
+                "playerIn": "M. Santos"
               },
               {
                 "minute": 68,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Javier Hernández",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "U. Gonzalez",
+                "playerIn": "P. Lozano"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Calatrava",
+                "playerIn": "R. Bauza"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Perez",
+                "playerIn": "J. Toljan"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "V. Garcia",
+                "playerIn": "K. Tunde"
               },
               {
                 "minute": 80,
                 "side": "opp",
+                "type": "goal",
                 "player": "T. Dolan",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Dolan",
+                "playerIn": "Jofre"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Hernandez",
+                "playerIn": "P. Milla"
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Exposito",
+                "playerIn": "M. Fernandez Sanchez"
               }
             ]
           }
@@ -3203,58 +5333,263 @@
             "comp": "La Liga",
             "score": "1-1",
             "result": "D",
+            "referee": "Manuel Jesus Orellana Cid, Spain",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-4-1-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "U. Simon",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Areso",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Alvarez",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Laporte",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Berchiche",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Ruiz de Galarreta",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Gerenabarrena",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Navarro",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Sancet",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Williams",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Williams",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Dituro",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Buba Sangare",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Redondo Solari",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Chust",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Revivo",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Valera",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Morcillo",
+                  "number": 47,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Villar",
+                  "number": 12,
+                  "pos": "M"
+                },
+                {
+                  "name": "Tete Morente",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Buonanotte",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "F. Nino",
+                  "number": 14,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 50,
                 "side": "opp",
+                "type": "goal",
                 "player": "F. Buonanotte",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 56,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Federico Redondo",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Areso",
+                "playerIn": "J. Louis-Jean"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Ruiz de Galarreta",
+                "playerIn": "M. Jauregizar"
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Buonanotte",
+                "playerIn": "T. Lemar"
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Nino",
+                "playerIn": "A. Osorio"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Navarro",
+                "playerIn": "A. Berenguer"
               },
               {
                 "minute": 75,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Abiel Osorio",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Tete Morente",
+                "playerIn": "R. Sanchez"
               },
               {
                 "minute": 79,
                 "side": "us",
+                "type": "owngoal",
                 "player": "V. Chust",
-                "type": "owngoal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 81,
                 "side": "us",
+                "type": "yellow",
                 "player": "Beñat Gerenabarrena",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 81,
                 "side": "us",
+                "type": "yellow",
                 "player": "Álex Berenguer",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Williams",
+                "playerIn": "M. Sannadi"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Valera",
+                "playerIn": "L. Cepeda"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Villar",
+                "playerIn": "M. Neto"
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "yellow",
                 "player": "Yuri Berchiche",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Rubén Sánchez",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -3265,34 +5600,239 @@
             "comp": "La Liga",
             "score": "3-0",
             "result": "W",
+            "referee": "José Luis Munuera Montero, Spain",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "U. Simon",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Areso",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Alvarez",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Laporte",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Berchiche",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Ruiz de Galarreta",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Gerenabarrena",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Navarro",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Sancet",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Williams",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Williams",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Oblak",
+                  "number": 13,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Llorente",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Pubill",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Hancko",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Grimaldo",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Simeone",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Barrios",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Hjulmand",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Lookman",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "Lee Kang-In",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Baena",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 39,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Kang-in Lee",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 46,
                 "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Y. Alvarez",
+                "playerIn": "A. Paredes"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "goal",
                 "player": "N. Williams",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 48,
                 "side": "us",
+                "type": "goal",
                 "player": "R. Navarro",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 58,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Lookman",
+                "playerIn": "A. Ortiz"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Simeone",
+                "playerIn": "C. Romero"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Hjulmand",
+                "playerIn": "Koke"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Lee Kang-In",
+                "playerIn": "J. Alvarez"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Ruiz de Galarreta",
+                "playerIn": "M. Jauregizar"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Navarro",
+                "playerIn": "J. Louis-Jean"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Williams",
+                "playerIn": "A. Berenguer"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Williams",
+                "playerIn": "G. Guruzeta"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Baena",
+                "playerIn": "J. Cardoso"
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "goal",
                 "player": "O. Sancet",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -3303,40 +5843,247 @@
             "comp": "La Liga",
             "score": "2-0",
             "result": "W",
+            "referee": "Mateo Busquets Ferrer, Spain",
             "formation": {
               "us": "4-2-3-1",
               "opp": "3-4-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "U. Simon",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Areso",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Paredes",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Laporte",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Berchiche",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Ruiz de Galarreta",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Gerenabarrena",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Navarro",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Sancet",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Berenguer",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Williams",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "I. Radu",
+                  "number": 13,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Rodriguez",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Starfelt",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Faye",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Nunez",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Febas",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Moriba",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Carreira",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "W. Swedberg",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "H. Gonzalez",
+                  "number": 16,
+                  "pos": "F"
+                },
+                {
+                  "name": "F. Jutgla",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 20,
                 "side": "us",
+                "type": "goal",
                 "player": "A. Berenguer",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 22,
                 "side": "us",
+                "type": "goal",
                 "player": "R. Navarro",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Rodriguez",
+                "playerIn": "J. Rueda"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Faye",
+                "playerIn": "Y. Lago"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Moriba",
+                "playerIn": "M. Roman"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "H. Gonzalez",
+                "playerIn": "I. Aspas"
               },
               {
                 "minute": 48,
                 "side": "us",
+                "type": "yellow",
                 "player": "Yuri Berchiche",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 57,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "W. Swedberg",
+                "playerIn": "H. Alvarez"
               },
               {
                 "minute": 61,
                 "side": "us",
+                "type": "yellow",
                 "player": "Robert Navarro",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. Sancet",
+                "playerIn": "P. Canales"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Ruiz de Galarreta",
+                "playerIn": "M. Jauregizar"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Williams",
+                "playerIn": "G. Guruzeta"
               },
               {
                 "minute": 71,
                 "side": "us",
+                "type": "yellow",
                 "player": "Beñat Gerenabarrena",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Navarro",
+                "playerIn": "N. Williams"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Areso",
+                "playerIn": "J. Louis-Jean"
               }
             ]
           },
@@ -3347,40 +6094,247 @@
             "comp": "La Liga",
             "score": "0-2",
             "result": "L",
+            "referee": "Miguel Angel Ortiz Arias, Spain",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "U. Simon",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "H. Rincon",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Alvarez",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Laporte",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Louis-Jean",
+                  "number": 31,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Jauregizar",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Canales",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Williams",
+                  "number": 9,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Sancet",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Williams",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Guruzeta",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Garcia",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "E. Garcia",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Cubarsi",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Martin",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "X. Espart",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "Fermín",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Bernal",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "Pedri",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Lamine Yamal",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "Raphinha",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Gordon",
+                  "number": 17,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 27,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Xavi Espart",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 37,
                 "side": "opp",
+                "type": "goal",
                 "player": "Raphinha",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 48,
                 "side": "us",
+                "type": "yellow",
                 "player": "Gorka Guruzeta",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Williams",
+                "playerIn": "R. Navarro"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Williams",
+                "playerIn": "A. Berenguer"
               },
               {
                 "minute": 61,
                 "side": "us",
+                "type": "yellow",
                 "player": "Johaneko Louis Jean",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Raphinha",
+                "playerIn": "Rodri"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Bernal",
+                "playerIn": "D. Olmo"
+              },
+              {
+                "minute": 70,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Louis-Jean",
+                "playerIn": "A. Boiro"
+              },
+              {
+                "minute": 70,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Jauregizar",
+                "playerIn": "B. Gerenabarrena"
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Garcia",
+                "playerIn": "J. Kounde"
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Gordon",
+                "playerIn": "K. Adeyemi"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Guruzeta",
+                "playerIn": "A. Djalo"
               },
               {
                 "minute": 82,
                 "side": "opp",
+                "type": "goal",
                 "player": "Fermin",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 85,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Pedri",
+                "playerIn": "J. Cancelo"
               }
             ]
           },
@@ -3391,82 +6345,303 @@
             "comp": "La Liga",
             "score": "1-3",
             "result": "L",
+            "referee": "César Soto Grado, Spain",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "U. Simon",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Areso",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Alvarez",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Paredes",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Berchiche",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Gerenabarrena",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Canales",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Williams",
+                  "number": 9,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Sancet",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Berenguer",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Guruzeta",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "O. Vlachodimos",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Iglesias",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Sangante",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "Castrin",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Suazo",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Agoume",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Guridi",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Sierra",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "Peque",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Oso",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Ure",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 11,
                 "side": "us",
+                "type": "red",
                 "player": "Yuri Berchiche",
-                "type": "red"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 15,
                 "side": "opp",
+                "type": "goal",
                 "player": "Oso",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 22,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Peque Fernández",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 25,
                 "side": "us",
+                "type": "yellow",
                 "player": "Gorka Guruzeta",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 25,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Miguel Sierra",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 39,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Jon Guridi",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Peque",
+                "playerIn": "N. Guillen"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Sierra",
+                "playerIn": "C. Ejuke"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Guridi",
+                "playerIn": "I. Romero"
               },
               {
                 "minute": 50,
                 "side": "opp",
+                "type": "goal",
                 "player": "C. Ejuke",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 57,
                 "side": "opp",
+                "type": "goal",
                 "player": "I. Romero",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Areso",
+                "playerIn": "A. Laporte"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Williams",
+                "playerIn": "N. Williams"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Guruzeta",
+                "playerIn": "M. Sannadi"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Sangante",
+                "playerIn": "J. A. Carmona"
               },
               {
                 "minute": 70,
                 "side": "us",
+                "type": "goal",
                 "player": "A. Paredes",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Paredes",
+                "playerIn": "H. Rincon"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Oso",
+                "playerIn": "J. Diaz"
+              },
+              {
+                "minute": 83,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Gerenabarrena",
+                "playerIn": "I. Ruiz de Galarreta"
               },
               {
                 "minute": 86,
                 "side": "us",
+                "type": "yellow",
                 "player": "Iñigo Ruiz de Galarreta",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Nico Guillén",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Isaac Romero",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           }

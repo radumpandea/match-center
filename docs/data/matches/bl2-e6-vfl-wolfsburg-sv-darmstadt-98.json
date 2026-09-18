@@ -43,46 +43,255 @@
         "date": "2024-05-04",
         "comp": "Bundesliga",
         "score": "VfL Wolfsburg 3-0 SV Darmstadt 98",
+        "referee": "R. Hartmann",
         "formation": {
           "home": "4-2-3-1",
           "away": "3-4-1-2"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "K. Casteels",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "J. Mæhle",
+              "number": 21,
+              "pos": "D"
+            },
+            {
+              "name": "M. Lacroix",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "M. Jenz",
+              "number": 25,
+              "pos": "D"
+            },
+            {
+              "name": "K. Paredes",
+              "number": 40,
+              "pos": "D"
+            },
+            {
+              "name": "M. Arnold",
+              "number": 27,
+              "pos": "M"
+            },
+            {
+              "name": "Y. Gerhardt",
+              "number": 31,
+              "pos": "M"
+            },
+            {
+              "name": "R. Baku",
+              "number": 20,
+              "pos": "M"
+            },
+            {
+              "name": "L. Majer",
+              "number": 19,
+              "pos": "M"
+            },
+            {
+              "name": "P. Wimmer",
+              "number": 39,
+              "pos": "M"
+            },
+            {
+              "name": "J. Wind",
+              "number": 23,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "A. Brunst",
+              "number": 30,
+              "pos": "G"
+            },
+            {
+              "name": "M. Maglica",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "C. Klarer",
+              "number": 14,
+              "pos": "D"
+            },
+            {
+              "name": "C. Zimmermann",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "F. Nürnberger",
+              "number": 15,
+              "pos": "M"
+            },
+            {
+              "name": "J. Justvan",
+              "number": 17,
+              "pos": "M"
+            },
+            {
+              "name": "A. Müller",
+              "number": 16,
+              "pos": "M"
+            },
+            {
+              "name": "E. Karić",
+              "number": 19,
+              "pos": "M"
+            },
+            {
+              "name": "M. Mehlem",
+              "number": 6,
+              "pos": "F"
+            },
+            {
+              "name": "O. Vilhelmsson",
+              "number": 29,
+              "pos": "F"
+            },
+            {
+              "name": "T. Skarke",
+              "number": 27,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 7,
             "side": "away",
+            "type": "yellow",
             "player": "Andreas Müller",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 8,
             "side": "home",
+            "type": "goal",
             "player": "P. Wimmer",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 10,
             "side": "home",
+            "type": "goal",
             "player": "J. Wind",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 32,
             "side": "away",
+            "type": "yellow",
             "player": "Matej Maglica",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 34,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Maglica",
+            "playerIn": "J. Müller"
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Müller",
+            "playerIn": "A. Seydel"
+          },
+          {
+            "minute": 60,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "O. Vilhelmsson",
+            "playerIn": "M. Honsak"
+          },
+          {
+            "minute": 65,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Baku",
+            "playerIn": "J. Kamiński"
+          },
+          {
+            "minute": 66,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "P. Wimmer",
+            "playerIn": "C. Zesiger"
+          },
+          {
+            "minute": 82,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "K. Paredes",
+            "playerIn": "V. Černý"
+          },
+          {
+            "minute": 82,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Wind",
+            "playerIn": "K. Behrens"
+          },
+          {
+            "minute": 85,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Justvan",
+            "playerIn": "F. Schnellhardt"
+          },
+          {
+            "minute": 85,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "E. Karić",
+            "playerIn": "A. Arania"
           },
           {
             "minute": 90,
             "side": "away",
+            "type": "yellow",
             "player": "Christoph Zimmermann",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "L. Majer",
+            "playerIn": "Tiago Tomás"
+          },
+          {
+            "minute": 90,
+            "side": "home",
+            "type": "goal",
             "player": "V. Černý",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       },
@@ -90,34 +299,231 @@
         "date": "2023-12-16",
         "comp": "Bundesliga",
         "score": "SV Darmstadt 98 0-1 VfL Wolfsburg",
+        "referee": "R. Hartmann",
         "formation": {
           "home": "3-4-1-2",
           "away": "3-5-2"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "M. Schuhen",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "C. Klarer",
+              "number": 14,
+              "pos": "D"
+            },
+            {
+              "name": "K. Gjasula",
+              "number": 23,
+              "pos": "D"
+            },
+            {
+              "name": "T. Isherwood",
+              "number": 3,
+              "pos": "D"
+            },
+            {
+              "name": "C. Riedel",
+              "number": 38,
+              "pos": "M"
+            },
+            {
+              "name": "B. Franjić",
+              "number": 28,
+              "pos": "M"
+            },
+            {
+              "name": "F. Schnellhardt",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "E. Karić",
+              "number": 19,
+              "pos": "M"
+            },
+            {
+              "name": "L. Pfeiffer",
+              "number": 24,
+              "pos": "F"
+            },
+            {
+              "name": "M. Honsak",
+              "number": 18,
+              "pos": "F"
+            },
+            {
+              "name": "T. Skarke",
+              "number": 27,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "K. Casteels",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "S. Bornauw",
+              "number": 3,
+              "pos": "D"
+            },
+            {
+              "name": "M. Jenz",
+              "number": 25,
+              "pos": "D"
+            },
+            {
+              "name": "M. Lacroix",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "R. Baku",
+              "number": 20,
+              "pos": "M"
+            },
+            {
+              "name": "M. Svanberg",
+              "number": 32,
+              "pos": "M"
+            },
+            {
+              "name": "A. Vranckx",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "Y. Gerhardt",
+              "number": 31,
+              "pos": "M"
+            },
+            {
+              "name": "J. Mæhle",
+              "number": 21,
+              "pos": "M"
+            },
+            {
+              "name": "J. Wind",
+              "number": 23,
+              "pos": "F"
+            },
+            {
+              "name": "L. Majer",
+              "number": 19,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 27,
             "side": "away",
+            "type": "red",
             "player": "Maxence Lacroix",
-            "type": "red"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 63,
             "side": "away",
+            "type": "goal",
             "player": "L. Majer",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 69,
             "side": "home",
+            "type": "yellow",
             "player": "Mathias Honsak",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 75,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Honsak",
+            "playerIn": "M. Bader"
+          },
+          {
+            "minute": 75,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "C. Klarer",
+            "playerIn": "F. Ronstadt"
+          },
+          {
+            "minute": 75,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "C. Riedel",
+            "playerIn": "F. Torsiello"
+          },
+          {
+            "minute": 84,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "T. Isherwood",
+            "playerIn": "M. Maglica"
+          },
+          {
+            "minute": 84,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "F. Schnellhardt",
+            "playerIn": "T. Kempe"
+          },
+          {
+            "minute": 87,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Y. Gerhardt",
+            "playerIn": "K. Paredes"
+          },
+          {
+            "minute": 87,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "L. Majer",
+            "playerIn": "J. Kamiński"
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "yellow",
             "player": "Klaus Gjasula",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Svanberg",
+            "playerIn": "K. Amoako"
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Baku",
+            "playerIn": "C. Zesiger"
           }
         ]
       },
@@ -125,46 +531,223 @@
         "date": "2017-03-18",
         "comp": "Bundesliga",
         "score": "VfL Wolfsburg 1-0 SV Darmstadt 98",
+        "referee": "Felix Brych, Germany",
         "formation": {
           "home": "4-2-3-1",
           "away": "4-2-3-1"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "K. Casteels",
+              "number": 28,
+              "pos": "G"
+            },
+            {
+              "name": "R. Knoche",
+              "number": 31,
+              "pos": "D"
+            },
+            {
+              "name": "J. Horn",
+              "number": 21,
+              "pos": "D"
+            },
+            {
+              "name": "Luiz Gustavo",
+              "number": 22,
+              "pos": "M"
+            },
+            {
+              "name": "J. Błaszczykowski",
+              "number": 14,
+              "pos": "M"
+            },
+            {
+              "name": "Vieirinha",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "J. Guilavogui",
+              "number": 23,
+              "pos": "M"
+            },
+            {
+              "name": "Y. Mallı",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "M. Arnold",
+              "number": 27,
+              "pos": "M"
+            },
+            {
+              "name": "R. Bazoer",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "M. Gómez",
+              "number": 33,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "Daniel Heuer",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "M. Steinhöfer",
+              "number": 13,
+              "pos": "D"
+            },
+            {
+              "name": "F. Holland",
+              "number": 32,
+              "pos": "D"
+            },
+            {
+              "name": "S. Sirigu",
+              "number": 17,
+              "pos": "D"
+            },
+            {
+              "name": "A. Sulu",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "P. Banggaard",
+              "number": 26,
+              "pos": "D"
+            },
+            {
+              "name": "Hamit Altıntop",
+              "number": 34,
+              "pos": "M"
+            },
+            {
+              "name": "M. Heller",
+              "number": 20,
+              "pos": "M"
+            },
+            {
+              "name": "S. Sam",
+              "number": 33,
+              "pos": "M"
+            },
+            {
+              "name": "J. Gondorf",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "S. Schipplock",
+              "number": 39,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 45,
             "side": "home",
+            "type": "goal",
             "player": "M. Gómez",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 46,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Arnold",
+            "playerIn": "P. Ntep"
+          },
+          {
+            "minute": 57,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "S. Sirigu",
+            "playerIn": "F. Platte"
           },
           {
             "minute": 58,
             "side": "away",
+            "type": "yellow",
             "player": "Jérôme Gondorf",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 62,
             "side": "home",
+            "type": "yellow",
             "player": "Mario Gómez",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 62,
             "side": "home",
+            "type": "yellow",
             "player": "Robin Knoche",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 68,
             "side": "away",
+            "type": "yellow",
             "player": "Aytaç Sulu",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 69,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "S. Schipplock",
+            "playerIn": "A. Colak"
           },
           {
             "minute": 74,
             "side": "away",
+            "type": "yellow",
             "player": "Patrick Banggaard",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 80,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Bazoer",
+            "playerIn": "C. Träsch"
+          },
+          {
+            "minute": 85,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Heller",
+            "playerIn": "W. Kamavuaka"
+          },
+          {
+            "minute": 86,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "P. Ntep",
+            "playerIn": "Borja Mayoral"
           }
         ]
       },
@@ -172,52 +755,231 @@
         "date": "2016-10-22",
         "comp": "Bundesliga",
         "score": "SV Darmstadt 98 3-1 VfL Wolfsburg",
+        "referee": "Markus Schmidt, Germany",
         "formation": {
           "home": "4-4-1-1",
           "away": "4-2-3-1"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "M. Esser",
+              "number": 31,
+              "pos": "G"
+            },
+            {
+              "name": "A. Sulu",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "A. Milosevic",
+              "number": 3,
+              "pos": "D"
+            },
+            {
+              "name": "I. Höhn",
+              "number": 21,
+              "pos": "D"
+            },
+            {
+              "name": "L. Guwara",
+              "number": 2,
+              "pos": "D"
+            },
+            {
+              "name": "F. Jungwirth",
+              "number": 23,
+              "pos": "D"
+            },
+            {
+              "name": "J. Gondorf",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "L. Kleinheisler",
+              "number": 30,
+              "pos": "M"
+            },
+            {
+              "name": "Ä. Ben-Hatira",
+              "number": 28,
+              "pos": "M"
+            },
+            {
+              "name": "S. Schipplock",
+              "number": 39,
+              "pos": "F"
+            },
+            {
+              "name": "R. Bezjak",
+              "number": 14,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "K. Casteels",
+              "number": 28,
+              "pos": "G"
+            },
+            {
+              "name": "M. Schäfer",
+              "number": 4,
+              "pos": null
+            },
+            {
+              "name": "C. Träsch",
+              "number": 15,
+              "pos": "M"
+            },
+            {
+              "name": "R. Rodríguez",
+              "number": 34,
+              "pos": "D"
+            },
+            {
+              "name": "J. Bruma",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "Luiz Gustavo",
+              "number": 22,
+              "pos": "M"
+            },
+            {
+              "name": "D. Caligiuri",
+              "number": 7,
+              "pos": "M"
+            },
+            {
+              "name": "M. Arnold",
+              "number": 27,
+              "pos": "M"
+            },
+            {
+              "name": "J. Draxler",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "Y. Gerhardt",
+              "number": 13,
+              "pos": "M"
+            },
+            {
+              "name": "M. Gómez",
+              "number": 33,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 23,
             "side": "away",
+            "type": "red",
             "player": "Jeffrey Bruma",
-            "type": "red"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 25,
             "side": "home",
+            "type": "goal",
             "player": "Ä. Ben-Hatira",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 26,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "D. Caligiuri",
+            "playerIn": "R. Knoche"
+          },
+          {
+            "minute": 56,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Bezjak",
+            "playerIn": "S. Sirigu"
           },
           {
             "minute": 60,
             "side": "away",
+            "type": "goal",
             "player": "M. Gómez",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 67,
             "side": "away",
+            "type": "yellow",
             "player": "Marcel Schafer",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 68,
             "side": "home",
+            "type": "goal",
             "player": "L. Kleinheisler",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 69,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Schäfer",
+            "playerIn": "P. Seguin"
+          },
+          {
+            "minute": 74,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "S. Schipplock",
+            "playerIn": "A. Colak"
           },
           {
             "minute": 76,
             "side": "home",
+            "type": "goal",
             "player": "S. Sirigu",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 79,
             "side": "away",
+            "type": "yellow",
             "player": "Maximilian Arnold",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 80,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "L. Kleinheisler",
+            "playerIn": "P. Niemeyer"
+          },
+          {
+            "minute": 84,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Draxler",
+            "playerIn": "Borja Mayoral"
           }
         ]
       },
@@ -225,31 +987,204 @@
         "date": "2016-03-19",
         "comp": "Bundesliga",
         "score": "VfL Wolfsburg 1-1 SV Darmstadt 98",
+        "referee": "Markus Schmidt, Germany",
         "formation": null,
+        "lineups": {
+          "home": [
+            {
+              "name": "K. Casteels",
+              "number": 28,
+              "pos": "G"
+            },
+            {
+              "name": "M. Schäfer",
+              "number": 4,
+              "pos": null
+            },
+            {
+              "name": "Dante",
+              "number": 18,
+              "pos": "D"
+            },
+            {
+              "name": "R. Knoche",
+              "number": 31,
+              "pos": "D"
+            },
+            {
+              "name": "Luiz Gustavo",
+              "number": 22,
+              "pos": "M"
+            },
+            {
+              "name": "Vieirinha",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "D. Caligiuri",
+              "number": 7,
+              "pos": "M"
+            },
+            {
+              "name": "J. Guilavogui",
+              "number": 23,
+              "pos": "M"
+            },
+            {
+              "name": "A. Schürrle",
+              "number": 17,
+              "pos": "M"
+            },
+            {
+              "name": "M. Arnold",
+              "number": 27,
+              "pos": "M"
+            },
+            {
+              "name": "M. Kruse",
+              "number": 11,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "C. Mathenia",
+              "number": 31,
+              "pos": "G"
+            },
+            {
+              "name": "S. Rajković",
+              "number": 35,
+              "pos": "D"
+            },
+            {
+              "name": "K. Rausch",
+              "number": 34,
+              "pos": "D"
+            },
+            {
+              "name": "A. Sulu",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "L. Caldirola",
+              "number": 33,
+              "pos": "D"
+            },
+            {
+              "name": "M. Vrančić",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "P. Niemeyer",
+              "number": 18,
+              "pos": "D"
+            },
+            {
+              "name": "M. Heller",
+              "number": 20,
+              "pos": "M"
+            },
+            {
+              "name": "F. Jungwirth",
+              "number": 23,
+              "pos": "D"
+            },
+            {
+              "name": "J. Gondorf",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "S. Wagner",
+              "number": 14,
+              "pos": "F"
+            }
+          ]
+        },
         "events": [
+          {
+            "minute": 38,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "D. Caligiuri",
+            "playerIn": "C. Träsch"
+          },
           {
             "minute": 45,
             "side": "home",
+            "type": "yellow",
             "player": "André Schürrle",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 72,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Guilavogui",
+            "playerIn": "L. Putaro"
+          },
+          {
+            "minute": 79,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Vieirinha",
+            "playerIn": "Bruno Henrique"
+          },
+          {
+            "minute": 81,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Vrančić",
+            "playerIn": "J. Rosenthal"
           },
           {
             "minute": 82,
             "side": "away",
+            "type": "goal",
             "player": "S. Wagner",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 87,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "K. Rausch",
+            "playerIn": "T. Kempe"
           },
           {
             "minute": 89,
             "side": "away",
+            "type": "yellow",
             "player": "Jérôme Gondorf",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Heller",
+            "playerIn": "B. Gorka"
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "goal",
             "player": "A. Schürrle",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       }
@@ -1342,46 +2277,247 @@
             "comp": "2. Bundesliga",
             "score": "0-1",
             "result": "L",
+            "referee": null,
             "formation": {
               "us": "4-3-3",
               "opp": "4-1-3-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Zielinski",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "K. Fischer",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Wahl",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "Cleiton",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Maehle",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Damar",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "Vini Souza",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Svanberg",
+                  "number": 32,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Bernhardsson",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "K. Shiogai",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "F. Reese",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "B. Voll",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Pyrka",
+                  "number": 11,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Nemeth",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Ritzka",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Oppie",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Smith",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Niang",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Rasmussen",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Fujita",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Metcalfe",
+                  "number": 24,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Ceesay",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 4,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Lars Ritzka",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 12,
                 "side": "us",
+                "type": "yellow",
                 "player": "Cleiton Santana dos Santos",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 32,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Abdoulie Ceesay",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Cleiton",
+                "playerIn": "J. Adjetey"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Damar",
+                "playerIn": "B. Dardai"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Ritzka",
+                "playerIn": "A. Dzwigala"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Y. Niang",
+                "playerIn": "M. Kaars"
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Svanberg",
+                "playerIn": "M. Arnold"
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Shiogai",
+                "playerIn": "Y. Gerhardt"
               },
               {
                 "minute": 78,
                 "side": "us",
+                "type": "yellow",
                 "player": "Tobias Strobl",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Bernhardsson",
+                "playerIn": "A. Besio"
               },
               {
                 "minute": 85,
                 "side": "us",
+                "type": "yellow",
                 "player": "Joakim Maehle",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 88,
                 "side": "opp",
+                "type": "goal",
                 "player": "J. Fujita",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Metcalfe",
+                "playerIn": "S. Klein"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Ceesay",
+                "playerIn": "T. Hara"
               }
             ]
           },
@@ -1392,106 +2528,335 @@
             "comp": "2. Bundesliga",
             "score": "4-4",
             "result": "D",
+            "referee": "Lukas Benen, Germany",
             "formation": {
               "us": "4-3-3",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Zielinski",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "K. Fischer",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Wahl",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Angely",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Maehle",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Arnold",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "Vini Souza",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Rexhbecaj",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Bernhardsson",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "R. Glatzel",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "F. Reese",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Lotka",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "L. Erlein",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Manu",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Doumbia",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Borgmann",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Michelbrink",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Bittencourt",
+                  "number": 32,
+                  "pos": "M"
+                },
+                {
+                  "name": "H. Rorig",
+                  "number": 3,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Copado",
+                  "number": 9,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Butler",
+                  "number": 31,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Cigerci",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 4,
                 "side": "us",
+                "type": "goal",
                 "player": "R. Glatzel",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 6,
                 "side": "opp",
+                "type": "yellow",
                 "player": "King Manu",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 25,
                 "side": "us",
+                "type": "goal",
                 "player": "Vini Souza",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 34,
                 "side": "us",
+                "type": "goal",
                 "player": "R. Glatzel",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "opp",
+                "type": "goal",
                 "player": "L. Erlein",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Butler",
+                "playerIn": "M. Hannemann"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Doumbia",
+                "playerIn": "C. Kinsombi"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Copado",
+                "playerIn": "D. Bogdanov"
               },
               {
                 "minute": 49,
                 "side": "opp",
+                "type": "goal",
                 "player": "K. Manu",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 52,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Glatzel",
+                "playerIn": "K. Shiogai"
+              },
+              {
+                "minute": 53,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Arnold",
+                "playerIn": "M. Damar"
               },
               {
                 "minute": 62,
                 "side": "us",
+                "type": "yellow",
                 "player": "Elvis Rexhbeçaj",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 67,
                 "side": "opp",
+                "type": "goal",
                 "player": "T. Cigerci",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Bittencourt",
+                "playerIn": "D. Pelivan"
               },
               {
                 "minute": 70,
                 "side": "us",
+                "type": "yellow",
                 "player": "Mathys Angely",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vini Souza",
+                "playerIn": "M. Svanberg"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Reese",
+                "playerIn": "A. Besio"
               },
               {
                 "minute": 79,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Svanberg",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Michelbrink",
+                "playerIn": "J. Boziaris"
               },
               {
                 "minute": 84,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Tolcay Ciğerci",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Rexhbecaj",
+                "playerIn": "Y. Gerhardt"
               },
               {
                 "minute": 88,
                 "side": "us",
+                "type": "yellow",
                 "player": "Mathys Angely",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 88,
                 "side": "us",
+                "type": "red",
                 "player": "Mathys Angely",
-                "type": "red"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Moritz Hannemann",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Dmytro Bogdanov",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "goal",
                 "player": "D. Bogdanov",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1502,58 +2867,263 @@
             "comp": "2. Bundesliga",
             "score": "5-2",
             "result": "W",
+            "referee": "Lars Erbst, Germany",
             "formation": {
               "us": "4-3-3",
               "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Zielinski",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "K. Fischer",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Wahl",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Angely",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Maehle",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Damar",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "Vini Souza",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Rexhbecaj",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Bernhardsson",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "K. Shiogai",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "F. Reese",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "C. Bernat",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Jung",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Franke",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Kobald",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Ofli",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Wiethaup",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Vaananen",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Wanitzek",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Bergh",
+                  "number": 33,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Fukuda",
+                  "number": 13,
+                  "pos": "F"
+                },
+                {
+                  "name": "L. Ben Farhat",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 7,
                 "side": "opp",
+                "type": "goal",
                 "player": "S. Fukuda",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 10,
                 "side": "us",
+                "type": "goal",
                 "player": "A. Bernhardsson",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 12,
                 "side": "opp",
+                "type": "goal",
                 "player": "M. Wanitzek",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 28,
                 "side": "us",
+                "type": "goal",
                 "player": "F. Reese",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "us",
+                "type": "goal",
                 "player": "Vini Souza",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Fukuda",
+                "playerIn": "J. D. Meyer"
+              },
+              {
+                "minute": 58,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Wiethaup",
+                "playerIn": "L. Egloff"
+              },
+              {
+                "minute": 58,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Vaananen",
+                "playerIn": "D. H. Zor"
+              },
+              {
+                "minute": 58,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Ben Farhat",
+                "playerIn": "N. Eichinger"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Damar",
+                "playerIn": "M. Svanberg"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Shiogai",
+                "playerIn": "R. Glatzel"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Rexhbecaj",
+                "playerIn": "Y. Gerhardt"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Bernhardsson",
+                "playerIn": "A. Besio"
               },
               {
                 "minute": 80,
                 "side": "us",
+                "type": "yellow",
                 "player": "Vinícius Souza",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Jung",
+                "playerIn": "P. Scholl"
               },
               {
                 "minute": 88,
                 "side": "us",
+                "type": "goal",
                 "player": "H. Wahl",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "goal",
                 "player": "F. Reese",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1564,70 +3134,287 @@
             "comp": "DFB Pokal",
             "score": "3-3",
             "result": "D",
+            "referee": "J. Wienefeld",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Zielinski",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "K. Fischer",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Adjetey",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Wahl",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Maehle",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "Vini Souza",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Svanberg",
+                  "number": 32,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Bernhardsson",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Damar",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Reese",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Shiogai",
+                  "number": 7,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "L. Zwick",
+                  "number": 1,
+                  "pos": null
+                },
+                {
+                  "name": "U. Tezel",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Kebe",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Sonnenberg",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Czyborra",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Hartl",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Rieder",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Sylla",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Oduah",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "J. Nietfeld",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "J. Saliger",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 6,
                 "side": "opp",
+                "type": "goal",
                 "player": "J. Nietfeld",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 40,
                 "side": "us",
+                "type": "yellow",
                 "player": "Vinícius Souza",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Maehle",
+                "playerIn": "S. Kumbedi"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vini Souza",
+                "playerIn": "M. Arnold"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Svanberg",
+                "playerIn": "E. Rexhbecaj"
               },
               {
                 "minute": 52,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Emeka Oduah",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 55,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Arnold",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 57,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Nietfeld",
+                "playerIn": "N. Zografakis"
               },
               {
                 "minute": 61,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Tim Rieder",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Bernhardsson",
+                "playerIn": "A. Besio"
               },
               {
                 "minute": 71,
                 "side": "opp",
+                "type": "goal",
                 "player": "J. Saliger",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Hartl",
+                "playerIn": "A. Ersungur"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Adjetey",
+                "playerIn": "B. Dardai"
               },
               {
                 "minute": 83,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Arnold",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Saliger",
+                "playerIn": "N. Kardam"
+              },
+              {
+                "minute": 101,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Czyborra",
+                "playerIn": "P. Turpitz"
+              },
+              {
+                "minute": 101,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Rieder",
+                "playerIn": "M. Ibrahimi"
               },
               {
                 "minute": 109,
                 "side": "opp",
+                "type": "goal",
                 "player": "M. Ibrahimi",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 117,
                 "side": "us",
+                "type": "goal",
                 "player": "H. Wahl",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 120,
                 "side": "us",
+                "type": "yellow",
                 "player": "Kilian Fischer",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1638,34 +3425,239 @@
             "comp": "2. Bundesliga",
             "score": "1-0",
             "result": "W",
+            "referee": "Timo Gansloweit, Germany",
             "formation": {
               "us": "5-4-1",
               "opp": "3-3-1-3"
             },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Zielinski",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Maehle",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Svanberg",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Wahl",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Rexhbecaj",
+                  "number": 37,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Kumbedi",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Gerhardt",
+                  "number": 31,
+                  "pos": "M"
+                },
+                {
+                  "name": "Vini Souza",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Damar",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Reese",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Hornby",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "L. Weinkauf",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "B. Allgeier",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Tomiak",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Hugonet",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Neubauer",
+                  "number": 33,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. T. Thordarson",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Hartel",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "W. Taibi",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Bundu",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "L. Gindorf",
+                  "number": 25,
+                  "pos": "F"
+                },
+                {
+                  "name": "K. Oudenne",
+                  "number": 29,
+                  "pos": "F"
+                }
+              ]
+            },
             "events": [
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Hornby",
+                "playerIn": "R. Glatzel"
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Tomiak",
+                "playerIn": "I. Okon"
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Gindorf",
+                "playerIn": "B. Kallman"
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Bundu",
+                "playerIn": "B. Pichler"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Svanberg",
+                "playerIn": "J. Adjetey"
+              },
               {
                 "minute": 69,
                 "side": "us",
+                "type": "yellow",
                 "player": "Jonas Adjei Adjetey",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Y. Gerhardt",
+                "playerIn": "M. Arnold"
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Damar",
+                "playerIn": "K. Shiogai"
               },
               {
                 "minute": 81,
                 "side": "us",
+                "type": "yellow",
                 "player": "Vinícius Souza",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 86,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Jean Hugonet",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 87,
                 "side": "us",
+                "type": "goal",
                 "player": "F. Reese",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Oudenne",
+                "playerIn": "H. Matsuda"
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Maehle",
+                "playerIn": "K. Fischer"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Allgeier",
+                "playerIn": "T. Etcibasi"
               }
             ]
           },
@@ -1676,16 +3668,207 @@
             "comp": "2. Bundesliga",
             "score": "0-0",
             "result": "D",
+            "referee": "Florian Exner, Germany",
             "formation": {
               "us": "4-1-4-1",
               "opp": "3-4-2-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Zielinski",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "K. Fischer",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Wahl",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Angely",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Kumbedi",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "Vini Souza",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Hornby",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Rexhbecaj",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Damar",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Reese",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Glatzel",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Krahl",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Elvedi",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Gyamfi",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Rasmussen",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Asta",
+                  "number": 2,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Kunze",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Sahin",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Haas",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Skytta",
+                  "number": 15,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Ritter",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Berisha",
+                  "number": 20,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 35,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Semih Şahin",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Ritter",
+                "playerIn": "I. Kanate"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Hornby",
+                "playerIn": "A. Besio"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Glatzel",
+                "playerIn": "K. Shiogai"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Kunze",
+                "playerIn": "L. Robinson"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Berisha",
+                "playerIn": "E. Yardimci"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vini Souza",
+                "playerIn": "M. Arnold"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Rexhbecaj",
+                "playerIn": "Y. Gerhardt"
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Damar",
+                "playerIn": "M. Svanberg"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Asta",
+                "playerIn": "E. Wekesser"
               }
             ]
           }
@@ -2872,58 +5055,255 @@
             "comp": "2. Bundesliga",
             "score": "2-1",
             "result": "W",
+            "referee": null,
             "formation": {
               "us": "4-4-2",
               "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Schuhen",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "C. Lannert",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Luhrs",
+                  "number": 49,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Pfeiffer",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Petretta",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Richter",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Klefisch",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Sickinger",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Weisshaupt",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "Lee Ho-Jae",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Smit",
+                  "number": 36,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Kersken",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "H. Koudossou",
+                  "number": 7,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Bauer",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Grosser",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Sicker",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Mehlem",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Russo",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Worl",
+                  "number": 38,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Momuluh",
+                  "number": 14,
+                  "pos": "F"
+                },
+                {
+                  "name": "J. Grodowski",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "J. Rochelt",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 3,
                 "side": "us",
+                "type": "goal",
                 "player": "Lee Ho-Jae",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 33,
                 "side": "opp",
+                "type": "yellow",
                 "player": "monju thaddaus momuluh",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 35,
                 "side": "us",
+                "type": "yellow",
                 "player": "Raoul Petretta",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "us",
+                "type": "yellow",
                 "player": "Noah Weisshaupt",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 48,
                 "side": "us",
+                "type": "yellow",
                 "player": "Kai Klefisch",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 57,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Richter",
+                "playerIn": "L. Duijvestijn"
+              },
+              {
+                "minute": 57,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Mehlem",
+                "playerIn": "D. Min"
               },
               {
                 "minute": 60,
                 "side": "opp",
+                "type": "goal",
                 "player": "M. Worl",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 66,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Henri Koudossou",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Momuluh",
+                "playerIn": "L. Jensen"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Lee Ho-Jae",
+                "playerIn": "N. Verkooijen"
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Petretta",
+                "playerIn": "W. Mikelbrencis"
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Sickinger",
+                "playerIn": "I. El Kadiri"
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Weisshaupt",
+                "playerIn": "Y. Furukawa"
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Worl",
+                "playerIn": "J. Felix"
               },
               {
                 "minute": 86,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Smit",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -2934,64 +5314,271 @@
             "comp": "2. Bundesliga",
             "score": "0-3",
             "result": "L",
+            "referee": "Michael Bacher, Germany",
             "formation": {
               "us": "4-2-3-1",
               "opp": "3-4-2-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Schuhen",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "C. Lannert",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Luhrs",
+                  "number": 49,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Pfeiffer",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Petretta",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Klefisch",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "H. Akiyama",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Kehl",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Duijvestijn",
+                  "number": 41,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Weisshaupt",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Smit",
+                  "number": 36,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Krahl",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Elvedi",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Gyamfi",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Rasmussen",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Joly",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Kunze",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Sahin",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Haas",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Sauer",
+                  "number": 21,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Ritter",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "T. Tazemeta",
+                  "number": 39,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 29,
                 "side": "us",
+                "type": "goal",
                 "player": "Lance Duijvestijn",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 43,
                 "side": "opp",
+                "type": "goal",
                 "player": "M. Sauer",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 57,
                 "side": "us",
+                "type": "yellow",
                 "player": "Milan Smit",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 63,
                 "side": "us",
+                "type": "yellow",
                 "player": "Yannik Lührs",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Sauer",
+                "playerIn": "S. Asta"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Joly",
+                "playerIn": "M. Berisha"
               },
               {
                 "minute": 64,
                 "side": "opp",
+                "type": "goal",
                 "player": "T. Tazemeta",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 67,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Simon Asta",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Kehl",
+                "playerIn": "Lee Ho-Jae"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Haas",
+                "playerIn": "A. Murphy"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Ritter",
+                "playerIn": "I. Kanate"
               },
               {
                 "minute": 76,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Maxwell Gyamfi",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Petretta",
+                "playerIn": "W. Mikelbrencis"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Weisshaupt",
+                "playerIn": "I. El Kadiri"
+              },
+              {
+                "minute": 85,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Tazemeta",
+                "playerIn": "D. Schramm"
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Duijvestijn",
+                "playerIn": "F. Kleinhansl"
               },
               {
                 "minute": 88,
                 "side": "opp",
+                "type": "yellow",
                 "player": "David Schramm",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "goal",
                 "player": "M. Berisha",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -3002,40 +5589,239 @@
             "comp": "2. Bundesliga",
             "score": "0-1",
             "result": "L",
+            "referee": "Timo Gerach, Germany",
             "formation": {
               "us": "4-1-4-1",
               "opp": "3-4-1-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Schuhen",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "C. Lannert",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Pfeiffer",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Vukotic",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Petretta",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Akiyama",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Furukawa",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Verkooijen",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Duijvestijn",
+                  "number": 41,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Weisshaupt",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Smit",
+                  "number": 36,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "L. Weinkauf",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "B. Allgeier",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Tomiak",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Okon",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Neubauer",
+                  "number": 33,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Roggow",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Hartel",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Oudenne",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "W. Taibi",
+                  "number": 8,
+                  "pos": "F"
+                },
+                {
+                  "name": "B. Pichler",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "L. Gindorf",
+                  "number": 25,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 20,
                 "side": "us",
+                "type": "red",
                 "player": "Aleksandar Vukotić",
-                "type": "red"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 22,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Y. Furukawa",
+                "playerIn": "Y. Luhrs"
+              },
+              {
+                "minute": 34,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Okon",
+                "playerIn": "V. Ghita"
               },
               {
                 "minute": 39,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Franz Roggow",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 46,
                 "side": "us",
+                "type": "yellow",
                 "player": "Marcel Schuhen",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Pichler",
+                "playerIn": "B. Kallman"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Roggow",
+                "playerIn": "M. Bundu"
               },
               {
                 "minute": 57,
                 "side": "opp",
+                "type": "goal",
                 "player": "L. Gindorf",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Weisshaupt",
+                "playerIn": "Lee Ho-Jae"
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Gindorf",
+                "playerIn": "H. Chakroun"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Verkooijen",
+                "playerIn": "L. Kehl"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Lannert",
+                "playerIn": "C. Sickinger"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Petretta",
+                "playerIn": "M. Merx"
               },
               {
                 "minute": 86,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Maurice Neubauer",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -3046,40 +5832,239 @@
             "comp": "DFB Pokal",
             "score": "2-1",
             "result": "W",
+            "referee": "W. Haslberger",
             "formation": {
               "us": "4-2-3-1",
               "opp": "5-3-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Schuhen",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "C. Lannert",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Pfeiffer",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Vukotic",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Petretta",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Klefisch",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Sickinger",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Merx",
+                  "number": 48,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Duijvestijn",
+                  "number": 41,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Weisshaupt",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Smit",
+                  "number": 36,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Liesegang",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "T. Burmeister",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Reddemann",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Boog",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Talabidi",
+                  "number": 12,
+                  "pos": null
+                },
+                {
+                  "name": "N. Butzen",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Munser",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Fritz",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Lankford",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Loder",
+                  "number": 18,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Eshele",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 11,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Smit",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 38,
                 "side": "opp",
+                "type": "goal",
                 "player": "E. Loder",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 40,
                 "side": "us",
+                "type": "goal",
                 "player": "L. Duijvestijn",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Munser",
+                "playerIn": "T. Teuber"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Petretta",
+                "playerIn": "F. Kleinhansl"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Merx",
+                "playerIn": "N. Verkooijen"
               },
               {
                 "minute": 66,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Kevin Lankford",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Boog",
+                "playerIn": "M. Hehne"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Eshele",
+                "playerIn": "L. Wollschlager"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Sickinger",
+                "playerIn": "Lee Ho-Jae"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Weisshaupt",
+                "playerIn": "Y. Furukawa"
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Butzen",
+                "playerIn": "M. Hoppe"
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Talabidi",
+                "playerIn": "D. Ajvazi"
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Sören Reddemann",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -3090,46 +6075,247 @@
             "comp": "2. Bundesliga",
             "score": "0-1",
             "result": "L",
+            "referee": "Konrad Oldhafer, Germany",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Schuhen",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "C. Lannert",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Pfeiffer",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Vukotic",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Kleinhansl",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Klefisch",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Sickinger",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Weisshaupt",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Duijvestijn",
+                  "number": 41,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Furukawa",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Smit",
+                  "number": 36,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "T. Schreiber",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Sterner",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Keller",
+                  "number": 39,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Muller",
+                  "number": 42,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Rossipal",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Wagner",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Rapp",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Inanoglu",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Hauptmann",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Bobzien",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Vermeij",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 12,
                 "side": "opp",
+                "type": "goal",
                 "player": "J. Sterner",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 26,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Thomas Keller",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Y. Furukawa",
+                "playerIn": "L. Kehl"
               },
               {
                 "minute": 59,
                 "side": "us",
+                "type": "yellow",
                 "player": "Kai Klefisch",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 71,
                 "side": "us",
+                "type": "yellow",
                 "player": "Marcel Schuhen",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 71,
                 "side": "us",
+                "type": "yellow",
                 "player": "Kai Klefisch",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 71,
                 "side": "us",
+                "type": "red",
                 "player": "Kai Klefisch",
-                "type": "red"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Rapp",
+                "playerIn": "L. Boeder"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Hauptmann",
+                "playerIn": "L. Herrmann"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Inanoglu",
+                "playerIn": "J. Lemmer"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Weisshaupt",
+                "playerIn": "N. Verkooijen"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Smit",
+                "playerIn": "Lee Ho-Jae"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Sickinger",
+                "playerIn": "M. Merx"
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Bobzien",
+                "playerIn": "N. Froling"
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Kleinhansl",
+                "playerIn": "R. Petretta"
               }
             ]
           },
@@ -3140,64 +6326,271 @@
             "comp": "2. Bundesliga",
             "score": "2-2",
             "result": "D",
+            "referee": "Felix Bickel, Germany",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-1-4-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Schuhen",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "C. Lannert",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Pfeiffer",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Vukotic",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Kleinhansl",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Klefisch",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "H. Akiyama",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Weisshaupt",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Duijvestijn",
+                  "number": 41,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Furukawa",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Lakenmacher",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "T. Weiner",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "H. Sekine",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Nekic",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Zec",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Parduzi",
+                  "number": 40,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Meffert",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Bernhardsson",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Balzi",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Davidsen",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Kapralik",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Harres",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 8,
                 "side": "opp",
+                "type": "goal",
                 "player": "G. Balzi",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 28,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Ivan Nekić",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 35,
                 "side": "us",
+                "type": "yellow",
                 "player": "Yosuke Furukawa",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 42,
                 "side": "opp",
+                "type": "goal",
                 "player": "P. Harres",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "us",
+                "type": "yellow",
                 "player": "Noah Weißhaupt",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 47,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Hiroki Sekine",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Lakenmacher",
+                "playerIn": "Lee Ho-Jae"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Weisshaupt",
+                "playerIn": "N. Verkooijen"
               },
               {
                 "minute": 62,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Leon Parduzi",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Y. Furukawa",
+                "playerIn": "M. Merx"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Bernhardsson",
+                "playerIn": "F. Alidou"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Kapralik",
+                "playerIn": "J. Therkelsen"
               },
               {
                 "minute": 76,
                 "side": "us",
+                "type": "goal",
                 "player": "Lee Ho-Jae",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Parduzi",
+                "playerIn": "M. Ivezic"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Kleinhansl",
+                "playerIn": "R. Petretta"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Lannert",
+                "playerIn": "I. El Kadiri"
               },
               {
                 "minute": 86,
                 "side": "us",
+                "type": "goal",
                 "player": "A. Vukotic",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Davidsen",
+                "playerIn": "I. Ugoh"
               }
             ]
           }

@@ -35,58 +35,271 @@
         "date": "2026-09-12",
         "comp": "Liga I",
         "score": "Rapid 2-1 FC Voluntari",
+        "referee": "Andrei Moroita, Romania",
         "formation": {
           "home": "4-2-3-1",
           "away": "4-4-2"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "B. Ungureanu",
+              "number": 99,
+              "pos": "G"
+            },
+            {
+              "name": "C. Manea",
+              "number": 23,
+              "pos": "D"
+            },
+            {
+              "name": "A. Pascanu",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "L. Kramer",
+              "number": 6,
+              "pos": "D"
+            },
+            {
+              "name": "E. Annan",
+              "number": 27,
+              "pos": "D"
+            },
+            {
+              "name": "C. Vulturar",
+              "number": 15,
+              "pos": "M"
+            },
+            {
+              "name": "C. Grameni",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "R. Pop",
+              "number": 55,
+              "pos": "M"
+            },
+            {
+              "name": "O. Morutan",
+              "number": 80,
+              "pos": "M"
+            },
+            {
+              "name": "A. Dobre",
+              "number": 29,
+              "pos": "M"
+            },
+            {
+              "name": "F. Stojilkovic",
+              "number": 9,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "M. Jurhar",
+              "number": 31,
+              "pos": "G"
+            },
+            {
+              "name": "D. Harut",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "R. Crisan",
+              "number": 27,
+              "pos": "D"
+            },
+            {
+              "name": "M. Onisa",
+              "number": 44,
+              "pos": "D"
+            },
+            {
+              "name": "A. Suteu",
+              "number": 30,
+              "pos": "D"
+            },
+            {
+              "name": "M. Schieb",
+              "number": 19,
+              "pos": "M"
+            },
+            {
+              "name": "I. Gheorghe",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "L. Cvek",
+              "number": 40,
+              "pos": "M"
+            },
+            {
+              "name": "R. Gutea",
+              "number": 11,
+              "pos": "M"
+            },
+            {
+              "name": "M. Roman",
+              "number": 90,
+              "pos": "F"
+            },
+            {
+              "name": "M. Babic",
+              "number": 9,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 12,
             "side": "away",
+            "type": "goal",
             "player": "M. Roman",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 45,
             "side": "away",
+            "type": "yellow",
             "player": "Matko Babić",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 46,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "C. Manea",
+            "playerIn": "R. Onea"
+          },
+          {
+            "minute": 46,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Pop",
+            "playerIn": "M. Kamara"
           },
           {
             "minute": 47,
             "side": "away",
+            "type": "yellow",
             "player": "Ion Gheorghe",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 58,
             "side": "home",
+            "type": "owngoal",
             "player": "M. Jurhar",
-            "type": "owngoal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 70,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "E. Annan",
+            "playerIn": "W. L. Ouedraogo"
+          },
+          {
+            "minute": 71,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "C. Vulturar",
+            "playerIn": "V. Bubanja"
           },
           {
             "minute": 72,
             "side": "home",
+            "type": "yellow",
             "player": "Latif Ouedraogo",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 75,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Babic",
+            "playerIn": "D. Dumbravanu"
+          },
+          {
+            "minute": 75,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Roman",
+            "playerIn": "A. Chica-Rosa"
+          },
+          {
+            "minute": 77,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "C. Grameni",
+            "playerIn": "J. Kodor"
           },
           {
             "minute": 79,
             "side": "home",
+            "type": "yellow",
             "player": "Olimpiu Moruțan",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 82,
             "side": "away",
+            "type": "yellow",
             "player": "Adrian Chică-Roșă",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 86,
             "side": "home",
+            "type": "goal",
             "player": "L. Kramer",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 87,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Schieb",
+            "playerIn": "M. Mamic"
+          },
+          {
+            "minute": 87,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Gutea",
+            "playerIn": "G. Merloi"
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "L. Cvek",
+            "playerIn": "N. Rodrigues"
           }
         ]
       },
@@ -94,34 +307,239 @@
         "date": "2023-12-09",
         "comp": "Liga I",
         "score": "Rapid 1-2 FC Voluntari",
+        "referee": "I. Călin",
         "formation": {
           "home": "4-2-3-1",
           "away": "3-1-4-2"
         },
+        "lineups": {
+          "home": [
+            {
+              "name": "H. Moldovan",
+              "number": 31,
+              "pos": "G"
+            },
+            {
+              "name": "C. Braun",
+              "number": 47,
+              "pos": "D"
+            },
+            {
+              "name": "C. Săpunaru",
+              "number": 22,
+              "pos": "D"
+            },
+            {
+              "name": "P. Iacob",
+              "number": 6,
+              "pos": "D"
+            },
+            {
+              "name": "A. Borza",
+              "number": 24,
+              "pos": "D"
+            },
+            {
+              "name": "R. Oaidă",
+              "number": 26,
+              "pos": "M"
+            },
+            {
+              "name": "M. Käit",
+              "number": 4,
+              "pos": "M"
+            },
+            {
+              "name": "F. Bamgboye",
+              "number": 7,
+              "pos": "M"
+            },
+            {
+              "name": "Borja Valle",
+              "number": 11,
+              "pos": "M"
+            },
+            {
+              "name": "J. Papeau",
+              "number": 96,
+              "pos": "M"
+            },
+            {
+              "name": "K. Soni",
+              "number": 93,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "Jesús",
+              "number": 88,
+              "pos": "G"
+            },
+            {
+              "name": "Ricardinho",
+              "number": 24,
+              "pos": "D"
+            },
+            {
+              "name": "P. Matricardi",
+              "number": 34,
+              "pos": "D"
+            },
+            {
+              "name": "I. Armaș",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "L. Crepulja",
+              "number": 4,
+              "pos": "M"
+            },
+            {
+              "name": "N. Cârnat",
+              "number": 23,
+              "pos": "M"
+            },
+            {
+              "name": "V. Raţă",
+              "number": 22,
+              "pos": "M"
+            },
+            {
+              "name": "D. Andrei",
+              "number": 17,
+              "pos": "M"
+            },
+            {
+              "name": "N. Aliji",
+              "number": 7,
+              "pos": "M"
+            },
+            {
+              "name": "R. Popescu",
+              "number": 20,
+              "pos": "F"
+            },
+            {
+              "name": "A. Nemec",
+              "number": 77,
+              "pos": "F"
+            }
+          ]
+        },
         "events": [
+          {
+            "minute": 46,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Käit",
+            "playerIn": "A. Albu"
+          },
+          {
+            "minute": 46,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "K. Soni",
+            "playerIn": "A. Ioniță"
+          },
+          {
+            "minute": 62,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "N. Cârnat",
+            "playerIn": "C. Paz"
+          },
+          {
+            "minute": 62,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Popescu",
+            "playerIn": "R. Sigurjónsson"
+          },
           {
             "minute": 66,
             "side": "away",
+            "type": "goal",
             "player": "A. Nemec",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 69,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "F. Bamgboye",
+            "playerIn": "Ș. Pănoiu"
           },
           {
             "minute": 73,
             "side": "away",
+            "type": "goal",
             "player": "Ricardinho",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 74,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Borja Valle",
+            "playerIn": "J. Tsoumou"
           },
           {
             "minute": 76,
             "side": "away",
+            "type": "yellow",
             "player": "Ricardinho",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 80,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Nemec",
+            "playerIn": "D. Florea"
+          },
+          {
+            "minute": 81,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Oaidă",
+            "playerIn": "C. Cîrjan"
           },
           {
             "minute": 82,
             "side": "home",
+            "type": "goal",
             "player": "J. Papeau",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "V. Raţă",
+            "playerIn": "L. Droppa"
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "D. Andrei",
+            "playerIn": "R. Voican"
           }
         ]
       },
@@ -129,52 +547,263 @@
         "date": "2023-08-07",
         "comp": "Liga I",
         "score": "FC Voluntari 2-1 Rapid",
+        "referee": "A. Cojocaru",
         "formation": {
           "home": "5-4-1",
           "away": "4-1-4-1"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "O. Vâlceanu",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "R. Boboc",
+              "number": 27,
+              "pos": "D"
+            },
+            {
+              "name": "Ricardinho",
+              "number": 24,
+              "pos": "D"
+            },
+            {
+              "name": "P. Matricardi",
+              "number": 34,
+              "pos": "D"
+            },
+            {
+              "name": "I. Armaș",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "N. Aliji",
+              "number": 7,
+              "pos": "D"
+            },
+            {
+              "name": "G. Merloi",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "V. Raţă",
+              "number": 22,
+              "pos": "M"
+            },
+            {
+              "name": "L. Crepulja",
+              "number": 4,
+              "pos": "M"
+            },
+            {
+              "name": "D. Andrei",
+              "number": 17,
+              "pos": "M"
+            },
+            {
+              "name": "A. Nemec",
+              "number": 77,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "H. Moldovan",
+              "number": 31,
+              "pos": "G"
+            },
+            {
+              "name": "C. Braun",
+              "number": 47,
+              "pos": "D"
+            },
+            {
+              "name": "C. Săpunaru",
+              "number": 22,
+              "pos": "D"
+            },
+            {
+              "name": "P. Iacob",
+              "number": 6,
+              "pos": "D"
+            },
+            {
+              "name": "Júnior Morais",
+              "number": 13,
+              "pos": "D"
+            },
+            {
+              "name": "M. Käit",
+              "number": 4,
+              "pos": "M"
+            },
+            {
+              "name": "Ș. Pănoiu",
+              "number": 17,
+              "pos": "M"
+            },
+            {
+              "name": "R. Oaidă",
+              "number": 26,
+              "pos": "M"
+            },
+            {
+              "name": "J. Papeau",
+              "number": 96,
+              "pos": "M"
+            },
+            {
+              "name": "V. Costache",
+              "number": 18,
+              "pos": "M"
+            },
+            {
+              "name": "M. Dugandžić",
+              "number": 45,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 1,
             "side": "home",
+            "type": "goal",
             "player": "D. Andrei",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 12,
             "side": "away",
+            "type": "goal",
             "player": "M. Dugandžić",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 22,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "G. Merloi",
+            "playerIn": "Marcelo Lopes"
           },
           {
             "minute": 37,
             "side": "home",
+            "type": "owngoal",
             "player": "C. Braun",
-            "type": "owngoal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Ș. Pănoiu",
+            "playerIn": "C. Cîrjan"
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Papeau",
+            "playerIn": "F. Bamgboye"
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Júnior Morais",
+            "playerIn": "R. Onea"
+          },
+          {
+            "minute": 54,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "V. Costache",
+            "playerIn": "C. Petrila"
+          },
+          {
+            "minute": 63,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Käit",
+            "playerIn": "A. Ioniță"
+          },
+          {
+            "minute": 73,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Boboc",
+            "playerIn": "R. Sigurjónsson"
+          },
+          {
+            "minute": 73,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Nemec",
+            "playerIn": "D. Florea"
+          },
+          {
+            "minute": 73,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "N. Aliji",
+            "playerIn": "C. Paz"
+          },
+          {
+            "minute": 80,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "L. Crepulja",
+            "playerIn": "M. Răduț"
           },
           {
             "minute": 89,
             "side": "home",
+            "type": "yellow",
             "player": "Patricio Matricardi",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "yellow",
             "player": "Mihai Radut",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "yellow",
             "player": "Octavian Vâlceanu",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "away",
+            "type": "yellow",
             "player": "Cristian Săpunaru",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       },
@@ -182,52 +811,263 @@
         "date": "2023-02-04",
         "comp": "Liga I",
         "score": "Rapid 4-1 FC Voluntari",
+        "referee": "G. Găman",
         "formation": {
           "home": "4-3-3",
           "away": "3-5-2"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "H. Moldovan",
+              "number": 31,
+              "pos": "G"
+            },
+            {
+              "name": "R. Onea",
+              "number": 19,
+              "pos": "D"
+            },
+            {
+              "name": "C. Săpunaru",
+              "number": 22,
+              "pos": "D"
+            },
+            {
+              "name": "P. Iacob",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "Júnior Morais",
+              "number": 13,
+              "pos": "D"
+            },
+            {
+              "name": "A. Albu",
+              "number": 23,
+              "pos": "M"
+            },
+            {
+              "name": "L. Crepulja",
+              "number": 4,
+              "pos": "M"
+            },
+            {
+              "name": "Ș. Pănoiu",
+              "number": 17,
+              "pos": "M"
+            },
+            {
+              "name": "A. Ioniță",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "M. Dugandžić",
+              "number": 45,
+              "pos": "F"
+            },
+            {
+              "name": "X. Emmers",
+              "number": 25,
+              "pos": "M"
+            }
+          ],
+          "away": [
+            {
+              "name": "M. Popa",
+              "number": 71,
+              "pos": "G"
+            },
+            {
+              "name": "C. Costin",
+              "number": 98,
+              "pos": "F"
+            },
+            {
+              "name": "P. Matricardi",
+              "number": 34,
+              "pos": "D"
+            },
+            {
+              "name": "I. Armaș",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "Ricardinho",
+              "number": 24,
+              "pos": "M"
+            },
+            {
+              "name": "G. Merloi",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "V. Raţă",
+              "number": 22,
+              "pos": "M"
+            },
+            {
+              "name": "R. Sigurjónsson",
+              "number": 16,
+              "pos": "M"
+            },
+            {
+              "name": "N. Aliji",
+              "number": 7,
+              "pos": "D"
+            },
+            {
+              "name": "V. Damaşcan",
+              "number": 9,
+              "pos": "F"
+            },
+            {
+              "name": "A. Nemec",
+              "number": 77,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 19,
             "side": "home",
+            "type": "goal",
             "player": "M. Dugandžić",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 25,
             "side": "home",
+            "type": "yellow",
             "player": "Júnior Morais",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 43,
             "side": "home",
+            "type": "goal",
             "player": "A. Albu",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "P. Matricardi",
+            "playerIn": "C. Paz"
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Nemec",
+            "playerIn": "A. Dumiter"
           },
           {
             "minute": 51,
             "side": "away",
+            "type": "yellow",
             "player": "Ricardinho",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 55,
             "side": "home",
+            "type": "goal",
             "player": "M. Dugandžić",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 56,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "C. Costin",
+            "playerIn": "Marcelo Lopes"
+          },
+          {
+            "minute": 56,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "V. Damaşcan",
+            "playerIn": "M. Răduț"
+          },
+          {
+            "minute": 65,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Sigurjónsson",
+            "playerIn": "Hélder Tavares"
+          },
+          {
+            "minute": 71,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Ioniță",
+            "playerIn": "F. Bamgboye"
+          },
+          {
+            "minute": 78,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Ș. Pănoiu",
+            "playerIn": "A. Sefer"
+          },
+          {
+            "minute": 78,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Júnior Morais",
+            "playerIn": "F. Ștefan"
+          },
+          {
+            "minute": 79,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "X. Emmers",
+            "playerIn": "A. Ciobanu"
           },
           {
             "minute": 82,
             "side": "home",
+            "type": "goal",
             "player": "M. Dugandžić",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 83,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Dugandžić",
+            "playerIn": "K. Luckassen"
           },
           {
             "minute": 90,
             "side": "away",
+            "type": "goal",
             "player": "Marcelo Lopes",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       },
@@ -235,34 +1075,215 @@
         "date": "2022-09-03",
         "comp": "Liga I",
         "score": "FC Voluntari 0-1 Rapid",
+        "referee": "S. Colțescu",
         "formation": {
           "home": "3-4-1-2",
           "away": "4-2-3-1"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "M. Popa",
+              "number": 71,
+              "pos": "G"
+            },
+            {
+              "name": "C. Achim",
+              "number": 2,
+              "pos": "D"
+            },
+            {
+              "name": "I. Armaș",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "S. Marrone",
+              "number": 19,
+              "pos": "D"
+            },
+            {
+              "name": "Ricardinho",
+              "number": 24,
+              "pos": "M"
+            },
+            {
+              "name": "C. Costin",
+              "number": 98,
+              "pos": "F"
+            },
+            {
+              "name": "L. Droppa",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "M. Răduț",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "V. Raţă",
+              "number": 22,
+              "pos": "M"
+            },
+            {
+              "name": "A. Nemec",
+              "number": 77,
+              "pos": "F"
+            },
+            {
+              "name": "V. Damaşcan",
+              "number": 9,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "H. Moldovan",
+              "number": 31,
+              "pos": "G"
+            },
+            {
+              "name": "R. Onea",
+              "number": 19,
+              "pos": "D"
+            },
+            {
+              "name": "D. Grigore",
+              "number": 21,
+              "pos": "D"
+            },
+            {
+              "name": "C. Săpunaru",
+              "number": 22,
+              "pos": "D"
+            },
+            {
+              "name": "Júnior Morais",
+              "number": 13,
+              "pos": "D"
+            },
+            {
+              "name": "A. Albu",
+              "number": 23,
+              "pos": "M"
+            },
+            {
+              "name": "M. Käit",
+              "number": 14,
+              "pos": "M"
+            },
+            {
+              "name": "A. Sefer",
+              "number": 7,
+              "pos": "M"
+            },
+            {
+              "name": "A. Ioniță",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "V. Costache",
+              "number": 9,
+              "pos": "F"
+            },
+            {
+              "name": "M. Dugandžić",
+              "number": 45,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 55,
             "side": "away",
+            "type": "yellow",
             "player": "Alexandru Ioniță",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 58,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "V. Costache",
+            "playerIn": "A. Mățan"
           },
           {
             "minute": 60,
             "side": "away",
+            "type": "goal",
             "player": "M. Dugandžić",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 62,
             "side": "home",
+            "type": "yellow",
             "player": "Vadim Rață",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 68,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "L. Droppa",
+            "playerIn": "Marcelo Lopes"
+          },
+          {
+            "minute": 68,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "V. Damaşcan",
+            "playerIn": "D. Florea"
+          },
+          {
+            "minute": 70,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Răduț",
+            "playerIn": "Hélder Tavares"
+          },
+          {
+            "minute": 77,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "C. Costin",
+            "playerIn": "G. Merloi"
+          },
+          {
+            "minute": 77,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Ioniță",
+            "playerIn": "J. Papeau"
           },
           {
             "minute": 88,
             "side": "home",
+            "type": "yellow",
             "player": "Cristian Merloi",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Sefer",
+            "playerIn": "Ș. Pănoiu"
           }
         ]
       }
@@ -1292,58 +2313,271 @@
             "comp": "Liga I",
             "score": "2-1",
             "result": "W",
+            "referee": "Andrei Moroita, Romania",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "B. Ungureanu",
+                  "number": 99,
+                  "pos": "G"
+                },
+                {
+                  "name": "C. Manea",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Pascanu",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Kramer",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Annan",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Vulturar",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Grameni",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Pop",
+                  "number": 55,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Morutan",
+                  "number": 80,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Dobre",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Stojilkovic",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Jurhar",
+                  "number": 31,
+                  "pos": "G"
+                },
+                {
+                  "name": "D. Harut",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Crisan",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Onisa",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Suteu",
+                  "number": 30,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Schieb",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Gheorghe",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Cvek",
+                  "number": 40,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Gutea",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Roman",
+                  "number": 90,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Babic",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 12,
                 "side": "opp",
+                "type": "goal",
                 "player": "M. Roman",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Matko Babić",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Manea",
+                "playerIn": "R. Onea"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Pop",
+                "playerIn": "M. Kamara"
               },
               {
                 "minute": 47,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Ion Gheorghe",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 58,
                 "side": "us",
+                "type": "owngoal",
                 "player": "M. Jurhar",
-                "type": "owngoal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 70,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Annan",
+                "playerIn": "W. L. Ouedraogo"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Vulturar",
+                "playerIn": "V. Bubanja"
               },
               {
                 "minute": 72,
                 "side": "us",
+                "type": "yellow",
                 "player": "Latif Ouedraogo",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Babic",
+                "playerIn": "D. Dumbravanu"
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Roman",
+                "playerIn": "A. Chica-Rosa"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Grameni",
+                "playerIn": "J. Kodor"
               },
               {
                 "minute": 79,
                 "side": "us",
+                "type": "yellow",
                 "player": "Olimpiu Moruțan",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 82,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Adrian Chică-Roșă",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 86,
                 "side": "us",
+                "type": "goal",
                 "player": "L. Kramer",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Schieb",
+                "playerIn": "M. Mamic"
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Gutea",
+                "playerIn": "G. Merloi"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Cvek",
+                "playerIn": "N. Rodrigues"
               }
             ]
           },
@@ -1354,40 +2588,239 @@
             "comp": "Liga I",
             "score": "1-0",
             "result": "W",
+            "referee": "Marian Barbu, Romania",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-1-4-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "B. Ungureanu",
+                  "number": 99,
+                  "pos": "G"
+                },
+                {
+                  "name": "R. Onea",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Pascanu",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Kramer",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Annan",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Vulturar",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Grameni",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Dobre",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Morutan",
+                  "number": 80,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Kamara",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Stojilkovic",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "C. Dur-Bozoanca",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "H. Sylla",
+                  "number": 5,
+                  "pos": null
+                },
+                {
+                  "name": "G. Christopoulos",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Iacob",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Silva",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Lungu",
+                  "number": 39,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Frunza",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Ciobanu",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Pedro",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "Andrezinho",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Patrick",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 18,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Patrick Fernandes",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Kamara",
+                "playerIn": "V. Bubanja"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Onea",
+                "playerIn": "C. Manea"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Vulturar",
+                "playerIn": "C. B. Doumbia"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Ciobanu",
+                "playerIn": "Joao Paulino"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Frunza",
+                "playerIn": "D. Bordun"
               },
               {
                 "minute": 78,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Patrick Fernandes",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 78,
                 "side": "opp",
+                "type": "red",
                 "player": "Patrick Fernandes",
-                "type": "red"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Annan",
+                "playerIn": "W. L. Ouedraogo"
               },
               {
                 "minute": 80,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Pedro Nuno",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Grameni",
+                "playerIn": "J. Kodor"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Pedro",
+                "playerIn": "Ze Turbo"
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Lungu",
+                "playerIn": "M. Zhelev"
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "goal",
                 "player": "A. Pascanu",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1398,19 +2831,105 @@
             "comp": "Cupa României",
             "score": "2-0",
             "result": "W",
+            "referee": null,
             "formation": null,
+            "lineups": null,
             "events": [
+              {
+                "minute": 44,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Aioani",
+                "playerIn": "B. Ungureanu"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Jambor",
+                "playerIn": "F. Stojilkovic"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. B. Doumbia",
+                "playerIn": "O. Morutan"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Huszti",
+                "playerIn": "P. Paul"
+              },
+              {
+                "minute": 53,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Marincu",
+                "playerIn": "D. Popa"
+              },
+              {
+                "minute": 57,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Pop",
+                "playerIn": "A. Dobre"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Benzar",
+                "playerIn": "I. Vasluian"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Spataru",
+                "playerIn": "S. Draghici"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Manea",
+                "playerIn": "R. Onea"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Appiah Nyarko",
+                "playerIn": "S. Stefanovici"
+              },
               {
                 "minute": 85,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Kamara",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 88,
                 "side": "us",
+                "type": "goal",
                 "player": "V. Bubanja",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1421,64 +2940,279 @@
             "comp": "Liga I",
             "score": "1-1",
             "result": "D",
+            "referee": "Florin Andrei, Romania",
             "formation": {
               "us": "4-3-3",
               "opp": "3-4-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Aioani",
+                  "number": 16,
+                  "pos": "G"
+                },
+                {
+                  "name": "R. Onea",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Pascanu",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Kramer",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Salceanu",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Grameni",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Vulturar",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. B. Doumbia",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Morutan",
+                  "number": 80,
+                  "pos": "F"
+                },
+                {
+                  "name": "F. Stojilkovic",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Dobre",
+                  "number": 29,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "L. Popescu",
+                  "number": 21,
+                  "pos": "G"
+                },
+                {
+                  "name": "O. Romanchuk",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Stevanovic",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Screciu",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Mora",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Baluta",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Cicaldau",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Bancu",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Matei",
+                  "number": 30,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Al Hamlawi",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "S. Baiaram",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 29,
                 "side": "opp",
+                "type": "goal",
                 "player": "N. Stevanovic",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 42,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Assad Al-Hamlawi",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "opp",
+                "type": "yellow",
                 "player": "David Matei",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. B. Doumbia",
+                "playerIn": "M. Kamara"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Al Hamlawi",
+                "playerIn": "S. Nsimba"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Baluta",
+                "playerIn": "Teles"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Baiaram",
+                "playerIn": "M. Etim"
               },
               {
                 "minute": 67,
                 "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Salceanu",
+                "playerIn": "R. Pop"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "goal",
                 "player": "F. Stojilkovic",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 69,
                 "side": "us",
+                "type": "yellow",
                 "player": "Mohammed Kamara",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 71,
                 "side": "us",
+                "type": "yellow",
                 "player": "Alexandru Paşcanu",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 71,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Nicușor Bancu",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Pascanu",
+                "playerIn": "D. Ciobotariu"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. Morutan",
+                "playerIn": "W. L. Ouedraogo"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Grameni",
+                "playerIn": "V. Bubanja"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Matei",
+                "playerIn": "L. Basceanu"
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "yellow",
                 "player": "Cătălin Vulturar",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "yellow",
                 "player": "Vladan Bubanja",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Cicaldau",
+                "playerIn": "A. Cretu"
               }
             ]
           },
@@ -1489,40 +3223,247 @@
             "comp": "Liga I",
             "score": "2-0",
             "result": "W",
+            "referee": "Szabolcs Kovacs, Romania",
             "formation": {
               "us": "4-3-3",
               "opp": "4-2-3-1"
             },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Aioani",
+                  "number": 16,
+                  "pos": "G"
+                },
+                {
+                  "name": "R. Onea",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Graovac",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Kramer",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Salceanu",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Bubanja",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Vulturar",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. B. Doumbia",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Pop",
+                  "number": 55,
+                  "pos": "F"
+                },
+                {
+                  "name": "F. Stojilkovic",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Dobre",
+                  "number": 29,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "L. Zima",
+                  "number": 38,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Tutu",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Papp",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Malula",
+                  "number": 71,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Dumitrescu",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Hanca",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. J. Bran Flores",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Santos Teixeira",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Jerdea",
+                  "number": 98,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Martins",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. N'Lundulu",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
             "events": [
+              {
+                "minute": 23,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Graovac",
+                "playerIn": "A. Pascanu"
+              },
               {
                 "minute": 25,
                 "side": "us",
+                "type": "yellow",
                 "player": "Robert Sălceanu",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "us",
+                "type": "yellow",
                 "player": "Cătălin Vulturar",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Salceanu",
+                "playerIn": "C. Manea"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "V. Bubanja",
+                "playerIn": "O. Morutan"
               },
               {
                 "minute": 55,
                 "side": "us",
+                "type": "goal",
                 "player": "A. Dobre",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Vulturar",
+                "playerIn": "C. Grameni"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. J. Bran Flores",
+                "playerIn": "Lucho Vega"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Jerdea",
+                "playerIn": "M. Ionita"
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Hanca",
+                "playerIn": "R. Leescu"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Pop",
+                "playerIn": "O. El Sawy"
               },
               {
                 "minute": 81,
                 "side": "us",
+                "type": "yellow",
                 "player": "Alex Dobre",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Tutu",
+                "playerIn": "T. Capusa"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Martins",
+                "playerIn": "R. Manolache"
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "goal",
                 "player": "O. Morutan",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1533,34 +3474,223 @@
             "comp": "Liga I",
             "score": "0-1",
             "result": "L",
+            "referee": "Horatiu Fesnic, Romania",
             "formation": {
               "us": "4-3-3",
               "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Aioani",
+                  "number": 16,
+                  "pos": "G"
+                },
+                {
+                  "name": "D. Ciobotariu",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Graovac",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Kramer",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Onea",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Bubanja",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Vulturar",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Grameni",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Morutan",
+                  "number": 80,
+                  "pos": "F"
+                },
+                {
+                  "name": "F. Stojilkovic",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Dobre",
+                  "number": 29,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "A. Bellaarouch",
+                  "number": 36,
+                  "pos": "G"
+                },
+                {
+                  "name": "D. Irimia",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Pascual",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Stoinov",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Oprut",
+                  "number": 31,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Armstrong",
+                  "number": 77,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Soro",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Marginean",
+                  "number": 90,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Cirjan",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Musi",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Pop",
+                  "number": 99,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 8,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Alaa Bellaarouch",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 31,
                 "side": "us",
+                "type": "yellow",
                 "player": "Daniel Graovac",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 54,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Musi",
+                "playerIn": "M. Karamoko"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Pop",
+                "playerIn": "O. Hintsa"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Graovac",
+                "playerIn": "W. L. Ouedraogo"
               },
               {
                 "minute": 72,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Oliver Hintsa",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 72,
                 "side": "opp",
+                "type": "goal",
                 "player": "M. Karamoko",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "V. Bubanja",
+                "playerIn": "J. Kodor"
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Grameni",
+                "playerIn": "O. El Sawy"
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Irimia",
+                "playerIn": "D. Benavides"
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Soro",
+                "playerIn": "M. Verreth"
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Armstrong",
+                "playerIn": "A. Mazilu"
               }
             ]
           }
@@ -2545,58 +4675,271 @@
             "comp": "Liga I",
             "score": "1-2",
             "result": "L",
+            "referee": "Andrei Moroita, Romania",
             "formation": {
               "us": "4-4-2",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Jurhar",
+                  "number": 31,
+                  "pos": "G"
+                },
+                {
+                  "name": "D. Harut",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Crisan",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Onisa",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Suteu",
+                  "number": 30,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Schieb",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Gheorghe",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Cvek",
+                  "number": 40,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Gutea",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Roman",
+                  "number": 90,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Babic",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "B. Ungureanu",
+                  "number": 99,
+                  "pos": "G"
+                },
+                {
+                  "name": "C. Manea",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Pascanu",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Kramer",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Annan",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Vulturar",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Grameni",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Pop",
+                  "number": 55,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Morutan",
+                  "number": 80,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Dobre",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Stojilkovic",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 12,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Roman",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "us",
+                "type": "yellow",
                 "player": "Matko Babić",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Manea",
+                "playerIn": "R. Onea"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Pop",
+                "playerIn": "M. Kamara"
               },
               {
                 "minute": 47,
                 "side": "us",
+                "type": "yellow",
                 "player": "Ion Gheorghe",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 58,
                 "side": "opp",
+                "type": "owngoal",
                 "player": "M. Jurhar",
-                "type": "owngoal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Annan",
+                "playerIn": "W. L. Ouedraogo"
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Vulturar",
+                "playerIn": "V. Bubanja"
               },
               {
                 "minute": 72,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Latif Ouedraogo",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Babic",
+                "playerIn": "D. Dumbravanu"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Roman",
+                "playerIn": "A. Chica-Rosa"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Grameni",
+                "playerIn": "J. Kodor"
               },
               {
                 "minute": 79,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Olimpiu Moruțan",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 82,
                 "side": "us",
+                "type": "yellow",
                 "player": "Adrian Chică-Roșă",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 86,
                 "side": "opp",
+                "type": "goal",
                 "player": "L. Kramer",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Schieb",
+                "playerIn": "M. Mamic"
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Gutea",
+                "playerIn": "G. Merloi"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Cvek",
+                "playerIn": "N. Rodrigues"
               }
             ]
           },
@@ -2607,46 +4950,223 @@
             "comp": "Liga I",
             "score": "1-0",
             "result": "W",
+            "referee": "Szabolcs Kovacs, Romania",
             "formation": {
               "us": "4-3-3",
               "opp": "4-1-4-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Jurhar",
+                  "number": 31,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Mamic",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Harut",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Crisan",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Suteu",
+                  "number": 30,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Gheorghe",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Cvek",
+                  "number": 40,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Onisa",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Schieb",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Roman",
+                  "number": 90,
+                  "pos": "F"
+                },
+                {
+                  "name": "R. Gutea",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "C. Cabuz",
+                  "number": 34,
+                  "pos": "G"
+                },
+                {
+                  "name": "D. Oancea",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "Garutti",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Sadriu",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Borta",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "O. Alagbe",
+                  "number": 69,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Balaure",
+                  "number": 96,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Rata",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Dulcea",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Luvambo",
+                  "number": 92,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Charpentier",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 22,
                 "side": "us",
+                "type": "goal",
                 "player": "R. Gutea",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 35,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Patrick Dulcea",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Balaure",
+                "playerIn": "M. Idowu"
               },
               {
                 "minute": 64,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Florin Borța",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Schieb",
+                "playerIn": "D. Dumbravanu"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Roman",
+                "playerIn": "M. Babic"
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Charpentier",
+                "playerIn": "I. Radescu"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. Alagbe",
+                "playerIn": "C. Micovschi"
+              },
+              {
+                "minute": 83,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Cvek",
+                "playerIn": "A. Chica-Rosa"
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "yellow",
                 "player": "Daniel Dumbrăvanu",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "yellow",
                 "player": "Matko Babić",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Leard Sadriu",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -2657,19 +5177,89 @@
             "comp": "Cupa României",
             "score": "1-0",
             "result": "W",
+            "referee": null,
             "formation": null,
+            "lineups": null,
             "events": [
               {
                 "minute": 16,
                 "side": "us",
+                "type": "goal",
                 "player": "G. Merloi",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Popadiuc",
+                "playerIn": "Totti"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Vladu",
+                "playerIn": "V. Bogdan"
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Rosu",
+                "playerIn": "A. Baluta"
               },
               {
                 "minute": 64,
                 "side": "us",
+                "type": "red",
                 "player": "D. Toma",
-                "type": "red"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Chica-Rosa",
+                "playerIn": "M. Mamic"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Merloi",
+                "playerIn": "M. Roman"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Doukoure",
+                "playerIn": "D. Mboumbouni"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Tamasi",
+                "playerIn": "R. Mihai"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Cvek",
+                "playerIn": "M. Onisa"
               }
             ]
           },
@@ -2680,40 +5270,231 @@
             "comp": "Liga I",
             "score": "2-2",
             "result": "D",
+            "referee": "Horatiu Fesnic, Romania",
             "formation": {
               "us": "4-4-2",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Jurhar",
+                  "number": 31,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Mamic",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Crisan",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Dumbravanu",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Suteu",
+                  "number": 30,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Schieb",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Harut",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Onisa",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Gutea",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Gheorghe",
+                  "number": 8,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Babic",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "C. Dur-Bozoanca",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "H. Sylla",
+                  "number": 5,
+                  "pos": null
+                },
+                {
+                  "name": "M. Zhelev",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Iacob",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Silva",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Ciobanu",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Lameira",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Frunza",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Pedro",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "Andrezinho",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Patrick",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 3,
                 "side": "us",
+                "type": "goal",
                 "player": "R. Gutea",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 6,
                 "side": "opp",
+                "type": "goal",
                 "player": "Patrick",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 14,
                 "side": "us",
+                "type": "goal",
                 "player": "R. Gutea",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 56,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Mamic",
+                "playerIn": "M. Roman"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Ciobanu",
+                "playerIn": "T. Lungu"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Frunza",
+                "playerIn": "D. Bordun"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Silva",
+                "playerIn": "D. Neicu"
               },
               {
                 "minute": 70,
                 "side": "us",
+                "type": "yellow",
                 "player": "Denis Haruț",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 72,
                 "side": "opp",
+                "type": "goal",
                 "player": "N. Pedro",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Babic",
+                "playerIn": "A. Chica-Rosa"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Gheorghe",
+                "playerIn": "L. Cvek"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Gutea",
+                "playerIn": "R. Petculescu"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Andrezinho",
+                "playerIn": "D. Neicu"
               }
             ]
           },
@@ -2724,61 +5505,279 @@
             "comp": "Liga I",
             "score": "1-3",
             "result": "L",
-            "formation": null,
+            "referee": "Adrian Viorel Cojocaru, Romania",
+            "formation": {
+              "us": "5-3-2",
+              "opp": "3-4-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Jurhar",
+                  "number": 31,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Schieb",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Harut",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Crisan",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Dumbravanu",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Suteu",
+                  "number": 30,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Onisa",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Gheorghe",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Gutea",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Babic",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Roman",
+                  "number": 90,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "R. Sava",
+                  "number": 90,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Rus",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Stevanovic",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Screciu",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "Teles",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Baluta",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Cicaldau",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Bancu",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Etim",
+                  "number": 12,
+                  "pos": "F"
+                },
+                {
+                  "name": "S. Nsimba",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "L. Basceanu",
+                  "number": 29,
+                  "pos": "F"
+                }
+              ]
+            },
             "events": [
+              {
+                "minute": 20,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Rus",
+                "playerIn": "O. Romanchuk"
+              },
               {
                 "minute": 33,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Samuel Teles",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "opp",
+                "type": "goal",
                 "player": "S. Nsimba",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 46,
                 "side": "us",
+                "type": "yellow",
                 "player": "Radu Crişan",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 52,
                 "side": "us",
+                "type": "yellow",
                 "player": "Mihai Roman II",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 57,
                 "side": "opp",
+                "type": "goal",
                 "player": "O. Romanchuk",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "V. Screciu",
+                "playerIn": "A. Mekvabishvili"
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Bancu",
+                "playerIn": "C. Mora"
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Roman",
+                "playerIn": "M. Mamic"
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Gheorghe",
+                "playerIn": "D. Toma"
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Cicaldau",
+                "playerIn": "Heriberto Tavares"
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Basceanu",
+                "playerIn": "M. Radulescu"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Schieb",
+                "playerIn": "G. Merloi"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Babic",
+                "playerIn": "A. Chica-Rosa"
               },
               {
                 "minute": 78,
                 "side": "opp",
+                "type": "goal",
                 "player": "Monday Etim",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 79,
                 "side": "opp",
+                "type": "goal",
                 "player": "M. Etim",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 85,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Monday Etim",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Onisa",
+                "playerIn": "D. Ghindovean"
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "goal",
                 "player": "R. Gutea",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -2789,13 +5788,17 @@
             "comp": "Cupa României",
             "score": "1-0",
             "result": "W",
+            "referee": null,
             "formation": null,
+            "lineups": null,
             "events": [
               {
                 "minute": 49,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Babic",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           }

@@ -36,52 +36,255 @@
         "date": "2026-01-17",
         "comp": "Premier League",
         "score": "Chelsea 2-0 Brentford",
+        "referee": "J. Brooks",
         "formation": {
           "home": "4-2-3-1",
           "away": "4-2-3-1"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "R. Sanchez",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "R. James",
+              "number": 24,
+              "pos": "D"
+            },
+            {
+              "name": "T. Chalobah",
+              "number": 23,
+              "pos": "D"
+            },
+            {
+              "name": "T. Adarabioyo",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "M. Cucurella",
+              "number": 3,
+              "pos": "D"
+            },
+            {
+              "name": "M. Caicedo",
+              "number": 25,
+              "pos": "M"
+            },
+            {
+              "name": "E. Fernandez",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "P. Neto",
+              "number": 7,
+              "pos": "M"
+            },
+            {
+              "name": "C. Palmer",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "A. Garnacho",
+              "number": 49,
+              "pos": "M"
+            },
+            {
+              "name": "Joao Pedro",
+              "number": 20,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "C. Kelleher",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "M. Kayode",
+              "number": 33,
+              "pos": "D"
+            },
+            {
+              "name": "K. Ajer",
+              "number": 20,
+              "pos": "D"
+            },
+            {
+              "name": "N. Collins",
+              "number": 22,
+              "pos": "D"
+            },
+            {
+              "name": "R. Henry",
+              "number": 3,
+              "pos": "D"
+            },
+            {
+              "name": "Y. Yarmolyuk",
+              "number": 18,
+              "pos": "M"
+            },
+            {
+              "name": "V. Janelt",
+              "number": 27,
+              "pos": "M"
+            },
+            {
+              "name": "M. Jensen",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "M. Damsgaard",
+              "number": 24,
+              "pos": "M"
+            },
+            {
+              "name": "K. Schade",
+              "number": 7,
+              "pos": "M"
+            },
+            {
+              "name": "I. Thiago",
+              "number": 9,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 26,
             "side": "home",
+            "type": "goal",
             "player": "Joao Pedro",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 36,
             "side": "away",
+            "type": "yellow",
             "player": "Kevin Schade",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 45,
             "side": "away",
+            "type": "yellow",
             "player": "Vitaly Janelt",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 57,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Garnacho",
+            "playerIn": "Andrey Santos"
+          },
+          {
+            "minute": 58,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "T. Adarabioyo",
+            "playerIn": "W. Fofana"
           },
           {
             "minute": 67,
             "side": "home",
+            "type": "yellow",
             "player": "Marc Cucurella",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 74,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Joao Pedro",
+            "playerIn": "L. Delap"
           },
           {
             "minute": 76,
             "side": "home",
+            "type": "goal",
             "player": "C. Palmer",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 77,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Damsgaard",
+            "playerIn": "D. Ouattara"
+          },
+          {
+            "minute": 82,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "K. Schade",
+            "playerIn": "K. Lewis-Potter"
+          },
+          {
+            "minute": 82,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Henry",
+            "playerIn": "A. Hickey"
           },
           {
             "minute": 83,
             "side": "home",
+            "type": "yellow",
             "player": "Wesley Fofana",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 85,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "E. Fernandez",
+            "playerIn": "J. Hato"
+          },
+          {
+            "minute": 85,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. James",
+            "playerIn": "J. Acheampong"
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "yellow",
             "player": "Cole Palmer",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Y. Yarmolyuk",
+            "playerIn": "R. Donovan"
           }
         ]
       },
@@ -89,64 +292,279 @@
         "date": "2025-09-13",
         "comp": "Premier League",
         "score": "Brentford 2-2 Chelsea",
+        "referee": "S. Attwell",
         "formation": {
           "home": "5-3-2",
           "away": "4-2-3-1"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "C. Kelleher",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "M. Kayode",
+              "number": 33,
+              "pos": "D"
+            },
+            {
+              "name": "S. van den Berg",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "N. Collins",
+              "number": 22,
+              "pos": "D"
+            },
+            {
+              "name": "E. Pinnock",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "K. Lewis-Potter",
+              "number": 23,
+              "pos": "D"
+            },
+            {
+              "name": "M. Jensen",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "J. Henderson",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "Y. Yarmolyuk",
+              "number": 18,
+              "pos": "M"
+            },
+            {
+              "name": "I. Thiago",
+              "number": 9,
+              "pos": "F"
+            },
+            {
+              "name": "K. Schade",
+              "number": 7,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "R. Sanchez",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "W. Fofana",
+              "number": 29,
+              "pos": "D"
+            },
+            {
+              "name": "T. Adarabioyo",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "T. Chalobah",
+              "number": 23,
+              "pos": "D"
+            },
+            {
+              "name": "J. Hato",
+              "number": 21,
+              "pos": "D"
+            },
+            {
+              "name": "E. Fernandez",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "M. Caicedo",
+              "number": 25,
+              "pos": "M"
+            },
+            {
+              "name": "P. Neto",
+              "number": 7,
+              "pos": "M"
+            },
+            {
+              "name": "F. Buonanotte",
+              "number": 40,
+              "pos": "M"
+            },
+            {
+              "name": "J. Gittens",
+              "number": 11,
+              "pos": "M"
+            },
+            {
+              "name": "Joao Pedro",
+              "number": 20,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 8,
             "side": "home",
+            "type": "yellow",
             "player": "Igor Thiago",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 30,
             "side": "away",
+            "type": "yellow",
             "player": "Jorrel Hato",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 35,
             "side": "home",
+            "type": "goal",
             "player": "K. Schade",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "W. Fofana",
+            "playerIn": "R. James"
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "F. Buonanotte",
+            "playerIn": "T. George"
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Hato",
+            "playerIn": "M. Cucurella"
+          },
+          {
+            "minute": 56,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Gittens",
+            "playerIn": "C. Palmer"
           },
           {
             "minute": 61,
             "side": "away",
+            "type": "goal",
             "player": "C. Palmer",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 64,
             "side": "home",
+            "type": "yellow",
             "player": "Yehor Yarmolyuk",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 72,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "I. Thiago",
+            "playerIn": "D. Ouattara"
+          },
+          {
+            "minute": 73,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Jensen",
+            "playerIn": "R. Henry"
+          },
+          {
+            "minute": 79,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Joao Pedro",
+            "playerIn": "A. Garnacho"
           },
           {
             "minute": 82,
             "side": "home",
+            "type": "yellow",
             "player": "Ethan Pinnock",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 83,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "E. Pinnock",
+            "playerIn": "K. Ajer"
+          },
+          {
+            "minute": 83,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Kayode",
+            "playerIn": "A. Hickey"
           },
           {
             "minute": 85,
             "side": "away",
+            "type": "goal",
             "player": "M. Caicedo",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "away",
+            "type": "yellow",
             "player": "Tyrique George",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "K. Lewis-Potter",
+            "playerIn": "F. Carvalho"
+          },
+          {
+            "minute": 90,
+            "side": "home",
+            "type": "goal",
             "player": "F. Carvalho",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       },
@@ -154,34 +572,215 @@
         "date": "2025-04-06",
         "comp": "Premier League",
         "score": "Brentford 0-0 Chelsea",
+        "referee": "M. Oliver",
         "formation": {
           "home": "4-2-3-1",
           "away": "4-2-3-1"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "M. Flekken",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "K. Ajer",
+              "number": 20,
+              "pos": "D"
+            },
+            {
+              "name": "N. Collins",
+              "number": 22,
+              "pos": "D"
+            },
+            {
+              "name": "S. van den Berg",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "K. Lewis-Potter",
+              "number": 23,
+              "pos": "D"
+            },
+            {
+              "name": "C. Nørgaard",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "Y. Yarmoliuk",
+              "number": 18,
+              "pos": "M"
+            },
+            {
+              "name": "B. Mbeumo",
+              "number": 19,
+              "pos": "M"
+            },
+            {
+              "name": "M. Damsgaard",
+              "number": 24,
+              "pos": "M"
+            },
+            {
+              "name": "K. Schade",
+              "number": 7,
+              "pos": "M"
+            },
+            {
+              "name": "Y. Wissa",
+              "number": 11,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "Robert Sánchez",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "M. Gusto",
+              "number": 27,
+              "pos": "D"
+            },
+            {
+              "name": "T. Chalobah",
+              "number": 23,
+              "pos": "D"
+            },
+            {
+              "name": "T. Adarabioyo",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "R. James",
+              "number": 24,
+              "pos": "D"
+            },
+            {
+              "name": "E. Fernández",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "M. Caicedo",
+              "number": 25,
+              "pos": "M"
+            },
+            {
+              "name": "N. Madueke",
+              "number": 11,
+              "pos": "M"
+            },
+            {
+              "name": "K. Dewsbury-Hall",
+              "number": 22,
+              "pos": "M"
+            },
+            {
+              "name": "J. Sancho",
+              "number": 19,
+              "pos": "M"
+            },
+            {
+              "name": "C. Nkunku",
+              "number": 18,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 26,
             "side": "away",
+            "type": "yellow",
             "player": "Malo Gusto",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 45,
             "side": "away",
+            "type": "yellow",
             "player": "Tosin Adarabioyo",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "C. Nkunku",
+            "playerIn": "N. Jackson"
+          },
+          {
+            "minute": 59,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "N. Madueke",
+            "playerIn": "Pedro Neto"
+          },
+          {
+            "minute": 59,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "K. Dewsbury-Hall",
+            "playerIn": "C. Palmer"
+          },
+          {
+            "minute": 66,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Y. Yarmoliuk",
+            "playerIn": "V. Janelt"
           },
           {
             "minute": 77,
             "side": "home",
+            "type": "yellow",
             "player": "Sepp van den Berg",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 77,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. James",
+            "playerIn": "Marc Cucurella"
+          },
+          {
+            "minute": 83,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "K. Ajer",
+            "playerIn": "M. Kayode"
+          },
+          {
+            "minute": 83,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Damsgaard",
+            "playerIn": "M. Jensen"
           },
           {
             "minute": 87,
             "side": "away",
+            "type": "yellow",
             "player": "Enzo Fernández",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       },
@@ -189,58 +788,239 @@
         "date": "2024-12-15",
         "comp": "Premier League",
         "score": "Chelsea 2-1 Brentford",
+        "referee": "P. Bankes",
         "formation": {
           "home": "4-2-3-1",
           "away": "3-5-2"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "Robert Sánchez",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "M. Gusto",
+              "number": 27,
+              "pos": "D"
+            },
+            {
+              "name": "T. Adarabioyo",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "L. Colwill",
+              "number": 6,
+              "pos": "D"
+            },
+            {
+              "name": "Marc Cucurella",
+              "number": 3,
+              "pos": "D"
+            },
+            {
+              "name": "M. Caicedo",
+              "number": 25,
+              "pos": "M"
+            },
+            {
+              "name": "E. Fernández",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "N. Madueke",
+              "number": 11,
+              "pos": "M"
+            },
+            {
+              "name": "C. Palmer",
+              "number": 20,
+              "pos": "M"
+            },
+            {
+              "name": "J. Sancho",
+              "number": 19,
+              "pos": "M"
+            },
+            {
+              "name": "N. Jackson",
+              "number": 15,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "M. Flekken",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "S. van den Berg",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "E. Pinnock",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "N. Collins",
+              "number": 22,
+              "pos": "D"
+            },
+            {
+              "name": "M. Roerslev",
+              "number": 30,
+              "pos": "M"
+            },
+            {
+              "name": "Y. Yarmoliuk",
+              "number": 18,
+              "pos": "M"
+            },
+            {
+              "name": "C. Nørgaard",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "M. Damsgaard",
+              "number": 24,
+              "pos": "M"
+            },
+            {
+              "name": "K. Lewis-Potter",
+              "number": 23,
+              "pos": "M"
+            },
+            {
+              "name": "B. Mbeumo",
+              "number": 19,
+              "pos": "F"
+            },
+            {
+              "name": "Y. Wissa",
+              "number": 11,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 43,
             "side": "home",
+            "type": "goal",
             "player": "Marc Cucurella",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 63,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Damsgaard",
+            "playerIn": "V. Janelt"
+          },
+          {
+            "minute": 75,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Y. Yarmoliuk",
+            "playerIn": "Fábio Carvalho"
+          },
+          {
+            "minute": 76,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Roerslev",
+            "playerIn": "K. Ajer"
+          },
+          {
+            "minute": 76,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Y. Wissa",
+            "playerIn": "K. Schade"
           },
           {
             "minute": 80,
             "side": "home",
+            "type": "goal",
             "player": "N. Jackson",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 83,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "N. Jackson",
+            "playerIn": "C. Nkunku"
+          },
+          {
+            "minute": 86,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "K. Lewis-Potter",
+            "playerIn": "J. Meghoma"
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "yellow",
             "player": "Marc Cucurella",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "yellow",
             "player": "Marc Cucurella",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "red",
             "player": "Marc Cucurella",
-            "type": "red"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "away",
+            "type": "yellow",
             "player": "Kevin Schade",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "away",
+            "type": "yellow",
             "player": "Vitaly Janelt",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "away",
+            "type": "goal",
             "player": "B. Mbeumo",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       },
@@ -248,58 +1028,231 @@
         "date": "2024-03-02",
         "comp": "Premier League",
         "score": "Brentford 2-2 Chelsea",
+        "referee": "J. Gillett",
         "formation": {
           "home": "3-5-2",
           "away": "3-5-2"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "M. Flekken",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "M. Jørgensen",
+              "number": 13,
+              "pos": "D"
+            },
+            {
+              "name": "K. Ajer",
+              "number": 20,
+              "pos": "D"
+            },
+            {
+              "name": "N. Collins",
+              "number": 22,
+              "pos": "D"
+            },
+            {
+              "name": "M. Roerslev",
+              "number": 30,
+              "pos": "M"
+            },
+            {
+              "name": "F. Onyeka",
+              "number": 15,
+              "pos": "M"
+            },
+            {
+              "name": "C. Nørgaard",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "V. Janelt",
+              "number": 27,
+              "pos": "M"
+            },
+            {
+              "name": "Sergio Reguilón",
+              "number": 12,
+              "pos": "M"
+            },
+            {
+              "name": "I. Toney",
+              "number": 17,
+              "pos": "F"
+            },
+            {
+              "name": "Y. Wissa",
+              "number": 11,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "Đ. Petrović",
+              "number": 28,
+              "pos": "G"
+            },
+            {
+              "name": "A. Disasi",
+              "number": 2,
+              "pos": "D"
+            },
+            {
+              "name": "T. Chalobah",
+              "number": 14,
+              "pos": "D"
+            },
+            {
+              "name": "L. Colwill",
+              "number": 26,
+              "pos": "D"
+            },
+            {
+              "name": "M. Gusto",
+              "number": 27,
+              "pos": "M"
+            },
+            {
+              "name": "C. Gallagher",
+              "number": 23,
+              "pos": "M"
+            },
+            {
+              "name": "M. Caicedo",
+              "number": 25,
+              "pos": "M"
+            },
+            {
+              "name": "E. Fernández",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "B. Chilwell",
+              "number": 21,
+              "pos": "M"
+            },
+            {
+              "name": "C. Palmer",
+              "number": 20,
+              "pos": "F"
+            },
+            {
+              "name": "N. Jackson",
+              "number": 15,
+              "pos": "F"
+            }
+          ]
         },
         "events": [
           {
             "minute": 35,
             "side": "away",
+            "type": "goal",
             "player": "N. Jackson",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 38,
             "side": "away",
+            "type": "yellow",
             "player": "Conor Gallagher",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 50,
             "side": "home",
+            "type": "goal",
             "player": "M. Roerslev",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 57,
             "side": "home",
+            "type": "yellow",
             "player": "Vitaly Janelt",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 69,
             "side": "home",
+            "type": "goal",
             "player": "Y. Wissa",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 71,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "E. Fernández",
+            "playerIn": "M. Mudryk"
           },
           {
             "minute": 73,
             "side": "home",
+            "type": "yellow",
             "player": "Frank Onyeka",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 77,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "F. Onyeka",
+            "playerIn": "M. Jensen"
+          },
+          {
+            "minute": 79,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "L. Colwill",
+            "playerIn": "R. Sterling"
           },
           {
             "minute": 83,
             "side": "away",
+            "type": "goal",
             "player": "A. Disasi",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 87,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "Y. Wissa",
+            "playerIn": "N. Maupay"
+          },
+          {
+            "minute": 87,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "V. Janelt",
+            "playerIn": "Y. Yarmoliuk"
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "yellow",
             "player": "Zanka",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       }
@@ -1418,28 +2371,231 @@
             "comp": "League Cup",
             "score": "2-1",
             "result": "W",
+            "referee": "T. Nield",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "E. Balcombe",
+                  "number": 31,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Kayode",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Ajer",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Henry",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Diouf",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Sangaré",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Lewis-Potter",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Ouattara",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Damsgaard",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "Fábio Carvalho",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Wilson",
+                  "number": 13,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Joel Pereira",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Ahmed",
+                  "number": 39,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. O&apos;Connor",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Masterson",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Roberts",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Fraser",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Savage",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Williams",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Stokes",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Kyerewaa",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Reid",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 3,
                 "side": "us",
+                "type": "goal",
                 "player": "Callum Wilson",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "us",
+                "type": "goal",
                 "player": "Fabio Carvalho",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mamadou Sangare",
+                "playerIn": "Yehor Yarmoliuk"
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "El Hadji Malick Diouf",
+                "playerIn": "Jannik Schuster"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Haydon Roberts",
+                "playerIn": "P. Lane"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jamie Reid",
+                "playerIn": "Jacob Brown"
               },
               {
                 "minute": 72,
                 "side": "opp",
+                "type": "goal",
                 "player": "Paudie O’Connor",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Fabio Carvalho",
+                "playerIn": "Aaron Hickey"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Callum Wilson",
+                "playerIn": "Igor Thiago"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Dango Ouattara",
+                "playerIn": "Jaidon Anthony"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Daniel·Kyerewaa",
+                "playerIn": "Kyreece Joshua Lisbie"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Paudie O’Connor",
+                "playerIn": "Jeriel Dorsett"
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Josh Stokes",
+                "playerIn": "George Earthy"
               }
             ]
           },
@@ -1450,70 +2606,279 @@
             "comp": "Premier League",
             "score": "2-2",
             "result": "D",
+            "referee": "Jarred Gillett, Australia",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "C. Kelleher",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Hickey",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Schuster",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Ajer",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Lewis-Potter",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Sangare",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Janelt",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Anthony",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Yarmolyuk",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Schade",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Thiago",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "D. Petrovic",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Smith",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Hill",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Silva",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Truffert",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Adams",
+                  "number": 12,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Scott",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Rayan",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Kluivert",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Tavernier",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "Evanilson",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 34,
                 "side": "us",
+                "type": "goal",
                 "player": "K. Schade",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 38,
                 "side": "opp",
+                "type": "goal",
                 "player": "J. Kluivert",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Marcus Tavernier",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "us",
+                "type": "yellow",
                 "player": "Igor Thiago",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 52,
                 "side": "opp",
+                "type": "goal",
                 "player": "M. Tavernier",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 56,
                 "side": "us",
+                "type": "goal",
                 "player": "K. Schade",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Lewis-Potter",
+                "playerIn": "M. Diouf"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Y. Yarmolyuk",
+                "playerIn": "M. Damsgaard"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Anthony",
+                "playerIn": "D. Ouattara"
               },
               {
                 "minute": 63,
                 "side": "opp",
+                "type": "yellow",
                 "player": "James Hill",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Kluivert",
+                "playerIn": "R. Christie"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Hickey",
+                "playerIn": "M. Kayode"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Adams",
+                "playerIn": "L. Cook"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Rayan",
+                "playerIn": "B. Gannon-Doak"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Tavernier",
+                "playerIn": "D. Brooks"
               },
               {
                 "minute": 85,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Lewis Cook",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 87,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Adam Smith",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 89,
                 "side": "opp",
+                "type": "yellow",
                 "player": "David Brooks",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Evanilson",
+                "playerIn": "A. Rodriguez"
               }
             ]
           },
@@ -1524,52 +2889,247 @@
             "comp": "Premier League",
             "score": "1-1",
             "result": "D",
+            "referee": "Thomas Bramall, England",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "C. Kelleher",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Kayode",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Ajer",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Collins",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Lewis-Potter",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Sangare",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Janelt",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Ouattara",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Damsgaard",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Schade",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Thiago",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "R. Roefs",
+                  "number": 22,
+                  "pos": "G"
+                },
+                {
+                  "name": "N. Mukiele",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Danso",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Ballard",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Mandava",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Xhaka",
+                  "number": 34,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Sadiki",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Meunier",
+                  "number": 12,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Le Fee",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Angulo",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Brobbey",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 14,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Noah Sadiki",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 17,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Collins",
+                "playerIn": "J. Schuster"
               },
               {
                 "minute": 30,
                 "side": "us",
+                "type": "yellow",
                 "player": "Mamadou Sangare",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Kayode",
+                "playerIn": "A. Hickey"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Sangare",
+                "playerIn": "Y. Yarmolyuk"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Ouattara",
+                "playerIn": "J. Anthony"
               },
               {
                 "minute": 57,
                 "side": "us",
+                "type": "goal",
                 "player": "V. Janelt",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 62,
                 "side": "us",
+                "type": "yellow",
                 "player": "Vitaly Janelt",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 64,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Meunier",
+                "playerIn": "T. Hume"
+              },
+              {
+                "minute": 64,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Angulo",
+                "playerIn": "W. Isidor"
               },
               {
                 "minute": 69,
                 "side": "us",
+                "type": "yellow",
                 "player": "Yehor Yarmoliuk",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Sadiki",
+                "playerIn": "M. Fofana"
               },
               {
                 "minute": 82,
                 "side": "opp",
+                "type": "goal",
                 "player": "E. Le Fee",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Damsgaard",
+                "playerIn": "C. Wilson"
               },
               {
                 "minute": 88,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Granit Xhaka",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1580,46 +3140,255 @@
             "comp": "Premier League",
             "score": "1-1",
             "result": "D",
+            "referee": "Tony Harrington, England",
             "formation": {
               "us": "4-2-3-1",
               "opp": "3-4-2-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "C. Kelleher",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Kayode",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Ajer",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Collins",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Lewis-Potter",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Sangare",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Janelt",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Anthony",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Damsgaard",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Schade",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Thiago",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Trafford",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Rodon",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Bijol",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Muharemovic",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Bogle",
+                  "number": 2,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Ampadu",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Stach",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Justin",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Aaronson",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "N. Okafor",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "D. Calvert-Lewin",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 30,
                 "side": "us",
+                "type": "yellow",
                 "player": "Jaidon Anthony",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 34,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Rodon",
+                "playerIn": "N. Elvedi"
               },
               {
                 "minute": 41,
                 "side": "us",
+                "type": "goal",
                 "player": "K. Schade",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Aaronson",
+                "playerIn": "H. Wilson"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Bijol",
+                "playerIn": "A. Tanaka"
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Anthony",
+                "playerIn": "D. Ouattara"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Bogle",
+                "playerIn": "D. James"
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Okafor",
+                "playerIn": "L. Nmecha"
+              },
+              {
+                "minute": 69,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Damsgaard",
+                "playerIn": "Y. Yarmolyuk"
               },
               {
                 "minute": 74,
                 "side": "us",
+                "type": "yellow",
                 "player": "Kristoffer Ajer",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 76,
                 "side": "us",
+                "type": "yellow",
                 "player": "Vitaly Janelt",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 79,
                 "side": "opp",
+                "type": "goal",
                 "player": "D. Calvert-Lewin",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 88,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Lewis-Potter",
+                "playerIn": "R. Henry"
+              },
+              {
+                "minute": 88,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Schade",
+                "playerIn": "A. Hickey"
+              },
+              {
+                "minute": 88,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Kayode",
+                "playerIn": "C. Wilson"
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "yellow",
                 "player": "Nathan Collins",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -1630,70 +3399,287 @@
             "comp": "League Cup",
             "score": "6-1",
             "result": "W",
+            "referee": "T. Robinson",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "H. R. Valdimarsson",
+                  "number": 12,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Hickey",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Schuster",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Collins",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Henry",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Yarmolyuk",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Janelt",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Ouattara",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Damsgaard",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Anthony",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Wilson",
+                  "number": 13,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "R. Allsop",
+                  "number": 21,
+                  "pos": "G"
+                },
+                {
+                  "name": "B. Osayi-Samuel",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Fry",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Klarer",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Lund",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. E. Solis Romero",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "Paik Seung-Ho",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Vicente",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Fujimoto",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Gray",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Vazquez",
+                  "number": 32,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 6,
                 "side": "us",
+                "type": "goal",
                 "player": "C. Wilson",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 26,
                 "side": "us",
+                "type": "yellow",
                 "player": "Jannik Schuster",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 28,
                 "side": "opp",
+                "type": "goal",
                 "player": "D. Gray",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 35,
                 "side": "us",
+                "type": "goal",
                 "player": "A. Hickey",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 37,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Jhon Solís",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 40,
                 "side": "us",
+                "type": "goal",
                 "player": "N. Collins",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Ouattara",
+                "playerIn": "K. Schade"
+              },
+              {
+                "minute": 48,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Y. Yarmolyuk",
+                "playerIn": "M. Sangare"
               },
               {
                 "minute": 55,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Bright Osayi-Samuel",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Lund",
+                "playerIn": "A. Cochrane"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Vazquez",
+                "playerIn": "A. Priske"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Fujimoto",
+                "playerIn": "J. Stansfield"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Wilson",
+                "playerIn": "I. Thiago"
               },
               {
                 "minute": 70,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Damsgaard",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "V. Janelt",
+                "playerIn": "M. Kayode"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Henry",
+                "playerIn": "K. Lewis-Potter"
               },
               {
                 "minute": 73,
                 "side": "us",
+                "type": "goal",
                 "player": "I. Thiago",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Gray",
+                "playerIn": "P. Neumann"
               },
               {
                 "minute": 77,
                 "side": "us",
+                "type": "goal",
                 "player": "N. Collins",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Paik Seung-Ho",
+                "playerIn": "T. Iwata"
               }
             ]
           },
@@ -1704,46 +3690,255 @@
             "comp": "Premier League",
             "score": "3-0",
             "result": "W",
+            "referee": "Michael Oliver, England",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "C. Kelleher",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Kayode",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Ajer",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Collins",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Lewis-Potter",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Janelt",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Sangare",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Ouattara",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Jensen",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Schade",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Thiago",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "A. Kinsky",
+                  "number": 31,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Gray",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. P. van Hecke",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Senesi",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Robertson",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Tonali",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Bergvall",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Moore",
+                  "number": 47,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Gallagher",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Tel",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "Richarlison",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 12,
                 "side": "us",
+                "type": "goal",
                 "player": "K. Lewis-Potter",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 33,
                 "side": "us",
+                "type": "goal",
                 "player": "V. Janelt",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 34,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Conor Gallagher",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Bergvall",
+                "playerIn": "R. Bentancur"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Gallagher",
+                "playerIn": "M. Fernandes"
               },
               {
                 "minute": 49,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Kayode",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 55,
                 "side": "us",
+                "type": "goal",
                 "player": "Igor Thiago",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Jensen",
+                "playerIn": "Y. Yarmolyuk"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Ouattara",
+                "playerIn": "J. Anthony"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Moore",
+                "playerIn": "J. Maddison"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Richarlison",
+                "playerIn": "D. Solanke"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Kayode",
+                "playerIn": "A. Hickey"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Sangare",
+                "playerIn": "M. Damsgaard"
               },
               {
                 "minute": 78,
                 "side": "us",
+                "type": "yellow",
                 "player": "Vitaly Janelt",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 83,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Thiago",
+                "playerIn": "C. Wilson"
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Gray",
+                "playerIn": "D. Udogie"
               }
             ]
           }
@@ -3122,70 +5317,295 @@
             "comp": "Premier League",
             "score": "2-2",
             "result": "D",
+            "referee": "Farai Hallam, England",
             "formation": {
               "us": "4-2-3-1",
               "opp": "5-4-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "E. Martinez",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Gusto",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "W. Fofana",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Colwill",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Hato",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. James",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Lavia",
+                  "number": 45,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Neto",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Palmer",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Rogers",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "Joao Pedro",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "K. Tzolakis",
+                  "number": 19,
+                  "pos": "G"
+                },
+                {
+                  "name": "L. Coyle",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Ajayi",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Egan",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Mendy",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Giles",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Belloumi",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Crooks",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Slater",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Stroud",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. McBurnie",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 7,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Rogers",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 17,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Oli McBurnie",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 28,
                 "side": "opp",
+                "type": "goal",
                 "player": "M. Belloumi",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 34,
                 "side": "opp",
+                "type": "goal",
                 "player": "M. Belloumi",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Hato",
+                "playerIn": "P. Chavarria"
               },
               {
                 "minute": 50,
                 "side": "opp",
+                "type": "yellow",
                 "player": "John Egan",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 52,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Matt Crooks",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Mendy",
+                "playerIn": "L. Herrington"
+              },
+              {
+                "minute": 60,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Stroud",
+                "playerIn": "S. Thomas"
+              },
+              {
+                "minute": 60,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Belloumi",
+                "playerIn": "M. Cho"
               },
               {
                 "minute": 66,
                 "side": "us",
+                "type": "goal",
                 "player": "Joao Pedro",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 69,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Lavia",
+                "playerIn": "V. Barco"
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Crooks",
+                "playerIn": "T. Iroegbunam"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Gusto",
+                "playerIn": "D. Welbeck"
               },
               {
                 "minute": 80,
                 "side": "us",
+                "type": "yellow",
                 "player": "Valentín Barco",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Coyle",
+                "playerIn": "B. Norton-Cuffy"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. McBurnie",
+                "playerIn": "R. Vaz"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "W. Fofana",
+                "playerIn": "M. Lacroix"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Neto",
+                "playerIn": "Estêvão"
               },
               {
                 "minute": 88,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Tim Iroegbunam",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Brooke Norton-Cuffy",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -3196,76 +5616,295 @@
             "comp": "League Cup",
             "score": "6-3",
             "result": "W",
+            "referee": "J. Gillett",
             "formation": {
               "us": "3-4-2-1",
               "opp": "5-4-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Penders",
+                  "number": 39,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Acheampong",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Lacroix",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Colwill",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Gusto",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Watson",
+                  "number": 31,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Barco",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Chavarria",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "Estêvão",
+                  "number": 41,
+                  "pos": "F"
+                },
+                {
+                  "name": "J. Gittens",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "D. Welbeck",
+                  "number": 18,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Zetterer",
+                  "number": 16,
+                  "pos": "G"
+                },
+                {
+                  "name": "D. James",
+                  "number": 7,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Justin",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Bijol",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Muharemovic",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Bard",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Wilson",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Ampadu",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Longstaff",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Aaronson",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Nmecha",
+                  "number": 14,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 23,
                 "side": "opp",
+                "type": "goal",
                 "player": "Tarik Muharemovic",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "us",
+                "type": "yellow",
                 "player": "Reggie Watson",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Reggie Watson",
+                "playerIn": "Reece James"
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Malo Gusto",
+                "playerIn": "Morgan Rogers"
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jamie Gittens",
+                "playerIn": "Cole Palmer"
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Estêvão Willian Almeida de Oliveira Gonçalves",
+                "playerIn": "Pedro Neto"
               },
               {
                 "minute": 48,
                 "side": "opp",
+                "type": "goal",
                 "player": "Brenden Aaronson",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 53,
                 "side": "us",
+                "type": "goal",
                 "player": "Cole Palmer",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 55,
                 "side": "us",
+                "type": "goal",
                 "player": "Cole Palmer",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 60,
                 "side": "us",
+                "type": "goal",
                 "player": "Pedro Neto",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 65,
                 "side": "us",
+                "type": "goal",
                 "player": "Danny Welbeck",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Daniel James",
+                "playerIn": "Anton Stach"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Lukas Nmecha",
+                "playerIn": "Dominic Calvert-Lewin"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Brenden Aaronson",
+                "playerIn": "Noah Okafor"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sean Longstaff",
+                "playerIn": "Ao Tanaka"
               },
               {
                 "minute": 75,
                 "side": "opp",
+                "type": "goal",
                 "player": "Dominic Calvert-Lewin",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Levi Colwill",
+                "playerIn": "Wesley Fofana"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Melvin Bard",
+                "playerIn": "Gabriel Gudmundsson"
               },
               {
                 "minute": 80,
                 "side": "us",
+                "type": "goal",
                 "player": "Valentin Barco",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 82,
                 "side": "us",
+                "type": "yellow",
                 "player": "Xabier Alonso Olano",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "goal",
                 "player": "Danny Welbeck",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -3276,64 +5915,271 @@
             "comp": "Premier League",
             "score": "1-2",
             "result": "L",
+            "referee": "Chris Kavanagh, England",
             "formation": {
               "us": "3-4-2-1",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "E. Martinez",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Acheampong",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Lacroix",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "W. Fofana",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Neto",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Lavia",
+                  "number": 45,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. James",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Hato",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Palmer",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Rogers",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "Joao Pedro",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "D. Raya",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "B. White",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Konsa",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "Gabriel",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Calafiori",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Rice",
+                  "number": 41,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Lewis-Skelly",
+                  "number": 49,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Saka",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Odegaard",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Tzolis",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Havertz",
+                  "number": 29,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 2,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Rogers",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 14,
                 "side": "us",
+                "type": "yellow",
                 "player": "João Pedro",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 25,
                 "side": "opp",
+                "type": "goal",
                 "player": "K. Havertz",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "us",
+                "type": "yellow",
                 "player": "Cole Palmer",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 50,
                 "side": "opp",
+                "type": "goal",
                 "player": "M. Odegaard",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 58,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Christos Tzolis",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 58,
                 "side": "us",
+                "type": "yellow",
                 "player": "Maxence Lacroix",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Hato",
+                "playerIn": "P. Chavarria"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Lavia",
+                "playerIn": "M. Gusto"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Calafiori",
+                "playerIn": "P. Hincapie"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Lewis-Skelly",
+                "playerIn": "M. Zubimendi"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Odegaard",
+                "playerIn": "M. Merino"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Havertz",
+                "playerIn": "V. Gyokeres"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Neto",
+                "playerIn": "Estêvão"
               },
               {
                 "minute": 83,
                 "side": "us",
+                "type": "yellow",
                 "player": "Morgan Rogers",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Rogers",
+                "playerIn": "D. Welbeck"
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Mikel Merino",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Saka",
+                "playerIn": "N. Madueke"
               }
             ]
           },
@@ -3344,76 +6190,279 @@
             "comp": "Premier League",
             "score": "4-3",
             "result": "W",
+            "referee": "Michael Oliver, England",
             "formation": {
               "us": "3-4-2-1",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "E. Martinez",
+                  "number": 26,
+                  "pos": "G"
+                },
+                {
+                  "name": "W. Fofana",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Lacroix",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Colwill",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Neto",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Gusto",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Lavia",
+                  "number": 45,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Hato",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Palmer",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Rogers",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "Joao Pedro",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "B. Verbruggen",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Wieffer",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Vuskovic",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Dunk",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Kadioglu",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Gross",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Boscagli",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Gomez",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Yalcouye",
+                  "number": 35,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. De Cuyper",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Kostoulas",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 4,
                 "side": "us",
+                "type": "goal",
                 "player": "R. Lavia",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 14,
                 "side": "us",
+                "type": "goal",
                 "player": "P. Neto",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 32,
                 "side": "us",
+                "type": "goal",
                 "player": "Joao Pedro",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 35,
                 "side": "opp",
+                "type": "goal",
                 "player": "M. Yalcouye",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 55,
                 "side": "us",
+                "type": "yellow",
                 "player": "Wesley Fofana",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 63,
                 "side": "opp",
+                "type": "owngoal",
                 "player": "Joao Pedro",
-                "type": "owngoal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Lavia",
+                "playerIn": "R. James"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "W. Fofana",
+                "playerIn": "J. Acheampong"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Neto",
+                "playerIn": "M. Caicedo"
               },
               {
                 "minute": 70,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Lewis Dunk",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Colwill",
+                "playerIn": "P. Chavarria"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Yalcouye",
+                "playerIn": "I. Osman"
               },
               {
                 "minute": 74,
                 "side": "us",
+                "type": "goal",
                 "player": "C. Palmer",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Wieffer",
+                "playerIn": "Costinha"
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Kostoulas",
+                "playerIn": "P. David"
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": null,
+                "playerIn": "V. Barco"
               },
               {
                 "minute": 89,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Olivier Boscagli",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Costinha",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "goal",
                 "player": "P. Gross",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -3424,28 +6473,231 @@
             "comp": "League Cup",
             "score": "2-0",
             "result": "W",
+            "referee": "E. Bell",
             "formation": {
               "us": "4-2-3-1",
               "opp": "5-4-1"
             },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Penders",
+                  "number": 39,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Gusto",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Acheampong",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Lacroix",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Chavarria",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. James",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Barco",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "Estêvão",
+                  "number": 41,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Palmer",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Rogers",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Welbeck",
+                  "number": 18,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Keeley",
+                  "number": 24,
+                  "pos": "G"
+                },
+                {
+                  "name": "H. Ashby",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Odoffin",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Johnston",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Johnson",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Benagr",
+                  "number": 31,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Kodua",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Walsh",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Palmer",
+                  "number": 45,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Lawrence",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Marshall",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
             "events": [
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gideon kadua",
+                "playerIn": "Jake Richards"
+              },
               {
                 "minute": 50,
                 "side": "us",
+                "type": "goal",
                 "player": "Danny Welbeck",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 56,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Joseph Johnson",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Lawrence",
+                "playerIn": "Harry Fox"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Benedict Benagr",
+                "playerIn": "Isaiah Jones"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Malo Gusto",
+                "playerIn": "Jorrel Hato"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Reece James",
+                "playerIn": "Pedro Neto"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Morgan Rogers",
+                "playerIn": "Romeo Lavia"
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Danny Welbeck",
+                "playerIn": "João Pedro"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Callum Marshall",
+                "playerIn": "Nahki Wells"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Kasey Palmer",
+                "playerIn": "Devante Cole"
               },
               {
                 "minute": 79,
                 "side": "us",
+                "type": "owngoal",
                 "player": "Hakeem Odofin",
-                "type": "owngoal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Estêvão Willian Almeida de Oliveira Gonçalves",
+                "playerIn": "Jamie Gittens"
               }
             ]
           },
@@ -3456,70 +6708,279 @@
             "comp": "Premier League",
             "score": "3-2",
             "result": "W",
+            "referee": "John Brooks, England",
             "formation": {
               "us": "3-4-2-1",
               "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "R. Sanchez",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Acheampong",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Lacroix",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Colwill",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Gusto",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. James",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Lavia",
+                  "number": 45,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Hato",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Palmer",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Rogers",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "Joao Pedro",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "B. Leno",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "T. Castagne",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Bassey",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Cuenca",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Robinson",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Berge",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Iwobi",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Bobb",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. King",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Palacios",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Garcia",
+                  "number": 7,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 1,
                 "side": "us",
+                "type": "goal",
                 "player": "Joao Pedro",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 5,
                 "side": "us",
+                "type": "yellow",
                 "player": "Levi Colwill",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 12,
                 "side": "us",
+                "type": "yellow",
                 "player": "Roméo Lavia",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 23,
                 "side": "opp",
+                "type": "goal",
                 "player": "J. King",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 41,
                 "side": "us",
+                "type": "goal",
                 "player": "M. Rogers",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 49,
                 "side": "us",
+                "type": "goal",
                 "player": "C. Palmer",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 54,
                 "side": "opp",
+                "type": "goal",
                 "player": "G. Garcia",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Hato",
+                "playerIn": "P. Chavarria"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Lavia",
+                "playerIn": "E. Fernandez"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. Bobb",
+                "playerIn": "S. Charles"
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Berge",
+                "playerIn": "R. Sessegnon"
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Palacios",
+                "playerIn": "Kevin"
               },
               {
                 "minute": 75,
                 "side": "us",
+                "type": "yellow",
                 "player": "Reece James",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 76,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Calvin Bassey",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Gusto",
+                "playerIn": "P. Neto"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Robinson",
+                "playerIn": "Rodrigo Muniz"
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Rogers",
+                "playerIn": "G. Quenda"
+              },
+              {
+                "minute": 83,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Palmer",
+                "playerIn": "Estêvão"
               },
               {
                 "minute": 88,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Timothy Castagne",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           }

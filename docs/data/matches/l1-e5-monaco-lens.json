@@ -37,61 +37,263 @@
         "date": "2026-02-21",
         "comp": "Ligue 1",
         "score": "Lens 2-3 Monaco",
-        "formation": null,
+        "referee": "W. Delajod",
+        "formation": {
+          "home": "3-4-2-1",
+          "away": "3-1-4-2"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "R. Risser",
+              "number": 40,
+              "pos": "G"
+            },
+            {
+              "name": "N. Celik",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "I. Ganiou",
+              "number": 25,
+              "pos": "D"
+            },
+            {
+              "name": "M. Sarr",
+              "number": 20,
+              "pos": "D"
+            },
+            {
+              "name": "S. Abdulhamid",
+              "number": 23,
+              "pos": "M"
+            },
+            {
+              "name": "A. Bulatovic",
+              "number": 5,
+              "pos": "M"
+            },
+            {
+              "name": "A. Thomasson",
+              "number": 28,
+              "pos": "M"
+            },
+            {
+              "name": "M. Udol",
+              "number": 14,
+              "pos": "M"
+            },
+            {
+              "name": "F. Thauvin",
+              "number": 10,
+              "pos": "F"
+            },
+            {
+              "name": "A. Saint-Maximin",
+              "number": 9,
+              "pos": "F"
+            },
+            {
+              "name": "O. Edouard",
+              "number": 11,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "P. Kohn",
+              "number": 16,
+              "pos": "G"
+            },
+            {
+              "name": "T. Kehrer",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "D. Zakaria",
+              "number": 6,
+              "pos": "D"
+            },
+            {
+              "name": "W. Faes",
+              "number": 25,
+              "pos": "D"
+            },
+            {
+              "name": "J. Teze",
+              "number": 4,
+              "pos": "M"
+            },
+            {
+              "name": "K. Diatta",
+              "number": 27,
+              "pos": "M"
+            },
+            {
+              "name": "M. Coulibaly",
+              "number": 28,
+              "pos": "M"
+            },
+            {
+              "name": "L. Camara",
+              "number": 15,
+              "pos": "M"
+            },
+            {
+              "name": "Caio Henrique",
+              "number": 12,
+              "pos": "M"
+            },
+            {
+              "name": "F. Balogun",
+              "number": 9,
+              "pos": "F"
+            },
+            {
+              "name": "S. Adingra",
+              "number": 24,
+              "pos": "F"
+            }
+          ]
+        },
         "events": [
           {
             "minute": 3,
             "side": "home",
+            "type": "goal",
             "player": "O. Edouard",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 31,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "K. Diatta",
+            "playerIn": "A. Bamba"
           },
           {
             "minute": 56,
             "side": "home",
+            "type": "goal",
             "player": "F. Thauvin",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 62,
             "side": "away",
+            "type": "goal",
             "player": "F. Balogun",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 63,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "O. Edouard",
+            "playerIn": "A. Sima"
+          },
+          {
+            "minute": 69,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "S. Adingra",
+            "playerIn": "A. Fati"
           },
           {
             "minute": 70,
             "side": "away",
+            "type": "goal",
             "player": "D. Zakaria",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 72,
             "side": "away",
+            "type": "goal",
             "player": "A. Fati",
-            "type": "goal"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 74,
             "side": "home",
+            "type": "yellow",
             "player": "Saud Abdulhamid",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 75,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "S. Abdulhamid",
+            "playerIn": "R. Aguilar"
+          },
+          {
+            "minute": 75,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Saint-Maximin",
+            "playerIn": "R. Fofana"
+          },
+          {
+            "minute": 85,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "F. Balogun",
+            "playerIn": "M. Biereth"
+          },
+          {
+            "minute": 87,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Bulatovic",
+            "playerIn": "F. Sotoca"
+          },
+          {
+            "minute": 87,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": null,
+            "playerIn": "A. Bermont"
           },
           {
             "minute": 90,
             "side": "home",
+            "type": "yellow",
             "player": "Ismaelo Ganiou",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "away",
+            "type": "yellow",
             "player": "Jordan Teze",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           },
           {
             "minute": 90,
             "side": "away",
+            "type": "yellow",
             "player": "Wout Faes",
-            "type": "yellow"
+            "playerOut": null,
+            "playerIn": null
           }
         ]
       },
@@ -99,29 +301,1105 @@
         "date": "2025-11-08",
         "comp": "Ligue 1",
         "score": "Monaco 1-4 Lens",
-        "formation": null,
-        "events": []
+        "referee": "Bastien Dechepy, France",
+        "formation": {
+          "home": "3-1-4-2",
+          "away": "3-4-2-1"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "P. Kohn",
+              "number": 16,
+              "pos": "G"
+            },
+            {
+              "name": "T. Kehrer",
+              "number": 5,
+              "pos": "D"
+            },
+            {
+              "name": "M. Salisu",
+              "number": 22,
+              "pos": "D"
+            },
+            {
+              "name": "Caio Henrique",
+              "number": 12,
+              "pos": "D"
+            },
+            {
+              "name": "M. Coulibaly",
+              "number": 28,
+              "pos": "M"
+            },
+            {
+              "name": "J. Teze",
+              "number": 4,
+              "pos": "M"
+            },
+            {
+              "name": "M. Akliouche",
+              "number": 11,
+              "pos": "M"
+            },
+            {
+              "name": "A. Golovin",
+              "number": 10,
+              "pos": "M"
+            },
+            {
+              "name": "K. Ouattara",
+              "number": 20,
+              "pos": "M"
+            },
+            {
+              "name": "F. Balogun",
+              "number": 9,
+              "pos": "F"
+            },
+            {
+              "name": "M. Biereth",
+              "number": 14,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "R. Risser",
+              "number": 40,
+              "pos": "G"
+            },
+            {
+              "name": "J. Gradit",
+              "number": 24,
+              "pos": "D"
+            },
+            {
+              "name": "S. Baidoo",
+              "number": 6,
+              "pos": "D"
+            },
+            {
+              "name": "M. Sarr",
+              "number": 20,
+              "pos": "D"
+            },
+            {
+              "name": "R. Aguilar",
+              "number": 2,
+              "pos": "M"
+            },
+            {
+              "name": "M. Sangare",
+              "number": 8,
+              "pos": "M"
+            },
+            {
+              "name": "A. Thomasson",
+              "number": 28,
+              "pos": "M"
+            },
+            {
+              "name": "M. Udol",
+              "number": 14,
+              "pos": "M"
+            },
+            {
+              "name": "F. Thauvin",
+              "number": 10,
+              "pos": "F"
+            },
+            {
+              "name": "W. Said",
+              "number": 22,
+              "pos": "F"
+            },
+            {
+              "name": "O. Edouard",
+              "number": 11,
+              "pos": "F"
+            }
+          ]
+        },
+        "events": [
+          {
+            "minute": 21,
+            "side": "away",
+            "type": "goal",
+            "player": "O. Edouard",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 37,
+            "side": "home",
+            "type": "goal",
+            "player": "F. Balogun",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 40,
+            "side": "away",
+            "type": "goal",
+            "player": "W. Said",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 45,
+            "side": "home",
+            "type": "red",
+            "player": "Folarin Balogun",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 45,
+            "side": "away",
+            "type": "goal",
+            "player": "M. Sangare",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 46,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Golovin",
+            "playerIn": "L. Michal"
+          },
+          {
+            "minute": 57,
+            "side": "away",
+            "type": "yellow",
+            "player": "Jonathan Gradit",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 60,
+            "side": "away",
+            "type": "goal",
+            "player": "W. Said",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 61,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Teze",
+            "playerIn": "P. Cabral"
+          },
+          {
+            "minute": 61,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Biereth",
+            "playerIn": "G. Ilenikhena"
+          },
+          {
+            "minute": 63,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Sangare",
+            "playerIn": "A. Bulatovic"
+          },
+          {
+            "minute": 72,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "W. Said",
+            "playerIn": "M. Guilavogui"
+          },
+          {
+            "minute": 72,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "O. Edouard",
+            "playerIn": "R. Fofana"
+          },
+          {
+            "minute": 73,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Akliouche",
+            "playerIn": "A. Fati"
+          },
+          {
+            "minute": 74,
+            "side": "away",
+            "type": "yellow",
+            "player": "Ruben Aguilar",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 79,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "M. Coulibaly",
+            "playerIn": "D. Zakaria"
+          },
+          {
+            "minute": 84,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Aguilar",
+            "playerIn": "A. Bermont"
+          },
+          {
+            "minute": 84,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Thomasson",
+            "playerIn": "F. Sotoca"
+          },
+          {
+            "minute": 90,
+            "side": "home",
+            "type": "yellow",
+            "player": "Denis Zakaria",
+            "playerOut": null,
+            "playerIn": null
+          }
+        ]
       },
       {
         "date": "2025-05-17",
         "comp": "Ligue 1",
         "score": "Lens 4-0 Monaco",
-        "formation": null,
-        "events": []
+        "referee": "F. Letexier",
+        "formation": {
+          "home": "3-1-4-2",
+          "away": "4-2-3-1"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "M. Ryan",
+              "number": 30,
+              "pos": "G"
+            },
+            {
+              "name": "J. Gradit",
+              "number": 24,
+              "pos": "D"
+            },
+            {
+              "name": "J. Bah",
+              "number": 27,
+              "pos": "D"
+            },
+            {
+              "name": "F. Medina",
+              "number": 14,
+              "pos": "D"
+            },
+            {
+              "name": "N. Mendy",
+              "number": 26,
+              "pos": "M"
+            },
+            {
+              "name": "R. Aguilar",
+              "number": 2,
+              "pos": "M"
+            },
+            {
+              "name": "A. Thomasson",
+              "number": 28,
+              "pos": "M"
+            },
+            {
+              "name": "N. El Aynaoui",
+              "number": 23,
+              "pos": "M"
+            },
+            {
+              "name": "A. Zaroury",
+              "number": 21,
+              "pos": "M"
+            },
+            {
+              "name": "G. Koyalipou",
+              "number": 19,
+              "pos": "F"
+            },
+            {
+              "name": "A. Diouf",
+              "number": 18,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "P. Köhn",
+              "number": 16,
+              "pos": "G"
+            },
+            {
+              "name": "J. Teze",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "W. Singo",
+              "number": 17,
+              "pos": "D"
+            },
+            {
+              "name": "C. Mawissa",
+              "number": 13,
+              "pos": "D"
+            },
+            {
+              "name": "Caio Henrique",
+              "number": 12,
+              "pos": "D"
+            },
+            {
+              "name": "L. Camara",
+              "number": 15,
+              "pos": "M"
+            },
+            {
+              "name": "S. Magassa",
+              "number": 88,
+              "pos": "M"
+            },
+            {
+              "name": "K. Diatta",
+              "number": 27,
+              "pos": "M"
+            },
+            {
+              "name": "T. Minamino",
+              "number": 18,
+              "pos": "M"
+            },
+            {
+              "name": "E. Ben Seghir",
+              "number": 7,
+              "pos": "M"
+            },
+            {
+              "name": "G. Ilenikhena",
+              "number": 21,
+              "pos": "F"
+            }
+          ]
+        },
+        "events": [
+          {
+            "minute": 21,
+            "side": "home",
+            "type": "goal",
+            "player": "N. El Aynaoui",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 43,
+            "side": "home",
+            "type": "yellow",
+            "player": "Facundo Medina",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 45,
+            "side": "away",
+            "type": "yellow",
+            "player": "Krépin Diatta",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Teze",
+            "playerIn": "Vanderson"
+          },
+          {
+            "minute": 52,
+            "side": "away",
+            "type": "red",
+            "player": "Soungoutou Magassa",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 56,
+            "side": "home",
+            "type": "goal",
+            "player": "N. El Aynaoui",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 66,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "K. Diatta",
+            "playerIn": "S. Bouabré"
+          },
+          {
+            "minute": 73,
+            "side": "home",
+            "type": "goal",
+            "player": "A. Thomasson",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 74,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "G. Ilenikhena",
+            "playerIn": "L. Michal"
+          },
+          {
+            "minute": 78,
+            "side": "home",
+            "type": "goal",
+            "player": "A. Zaroury",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 80,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Diouf",
+            "playerIn": "F. Sotoca"
+          },
+          {
+            "minute": 80,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Aguilar",
+            "playerIn": "T. Pouilly"
+          },
+          {
+            "minute": 80,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "G. Koyalipou",
+            "playerIn": "M. Satriano"
+          },
+          {
+            "minute": 83,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "E. Ben Seghir",
+            "playerIn": "M. Akliouche"
+          },
+          {
+            "minute": 83,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "T. Minamino",
+            "playerIn": "D. Zakaria"
+          },
+          {
+            "minute": 88,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "N. El Aynaoui",
+            "playerIn": "W. Saïd"
+          },
+          {
+            "minute": 90,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "F. Medina",
+            "playerIn": "M. Sarr"
+          }
+        ]
       },
       {
         "date": "2024-09-01",
         "comp": "Ligue 1",
         "score": "Monaco 1-1 Lens",
-        "formation": null,
-        "events": []
+        "referee": "W. Delajod",
+        "formation": {
+          "home": "4-2-3-1",
+          "away": "3-4-1-2"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "P. Köhn",
+              "number": 16,
+              "pos": "G"
+            },
+            {
+              "name": "J. Teze",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "W. Singo",
+              "number": 17,
+              "pos": "D"
+            },
+            {
+              "name": "C. Mawissa",
+              "number": 13,
+              "pos": "D"
+            },
+            {
+              "name": "K. Ouattara",
+              "number": 20,
+              "pos": "D"
+            },
+            {
+              "name": "S. Magassa",
+              "number": 88,
+              "pos": "M"
+            },
+            {
+              "name": "D. Zakaria",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "M. Akliouche",
+              "number": 11,
+              "pos": "M"
+            },
+            {
+              "name": "T. Minamino",
+              "number": 18,
+              "pos": "M"
+            },
+            {
+              "name": "E. Ben Seghir",
+              "number": 7,
+              "pos": "M"
+            },
+            {
+              "name": "F. Balogun",
+              "number": 9,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "B. Samba",
+              "number": 30,
+              "pos": "G"
+            },
+            {
+              "name": "J. Gradit",
+              "number": 24,
+              "pos": "D"
+            },
+            {
+              "name": "A. Khusanov",
+              "number": 25,
+              "pos": "D"
+            },
+            {
+              "name": "F. Medina",
+              "number": 14,
+              "pos": "D"
+            },
+            {
+              "name": "R. Aguilar",
+              "number": 2,
+              "pos": "M"
+            },
+            {
+              "name": "A. Thomasson",
+              "number": 28,
+              "pos": "M"
+            },
+            {
+              "name": "A. Diouf",
+              "number": 18,
+              "pos": "M"
+            },
+            {
+              "name": "J. Chávez",
+              "number": 13,
+              "pos": "M"
+            },
+            {
+              "name": "A. Zaroury",
+              "number": 38,
+              "pos": "F"
+            },
+            {
+              "name": "F. Sotoca",
+              "number": 7,
+              "pos": "F"
+            },
+            {
+              "name": "W. Saïd",
+              "number": 22,
+              "pos": "F"
+            }
+          ]
+        },
+        "events": [
+          {
+            "minute": 9,
+            "side": "away",
+            "type": "yellow",
+            "player": "Jonathan Gradit",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 34,
+            "side": "away",
+            "type": "yellow",
+            "player": "Ruben Aguilar",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 39,
+            "side": "away",
+            "type": "yellow",
+            "player": "Florian Sotoca",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 40,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Zaroury",
+            "playerIn": "David Pereira da Costa"
+          },
+          {
+            "minute": 46,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Teze",
+            "playerIn": "Vanderson"
+          },
+          {
+            "minute": 46,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "W. Saïd",
+            "playerIn": "R. Labeau Lascary"
+          },
+          {
+            "minute": 54,
+            "side": "home",
+            "type": "yellow",
+            "player": "Vanderson",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 64,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Thomasson",
+            "playerIn": "H. Ojediran"
+          },
+          {
+            "minute": 65,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "E. Ben Seghir",
+            "playerIn": "G. Ilenikhena"
+          },
+          {
+            "minute": 65,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "F. Balogun",
+            "playerIn": "B. Embolo"
+          },
+          {
+            "minute": 65,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "R. Aguilar",
+            "playerIn": "P. Frankowski"
+          },
+          {
+            "minute": 66,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "K. Ouattara",
+            "playerIn": "Caio Henrique"
+          },
+          {
+            "minute": 68,
+            "side": "away",
+            "type": "yellow",
+            "player": "Remy Labeau Lascary",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 81,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "C. Mawissa",
+            "playerIn": "A. Golovin"
+          },
+          {
+            "minute": 84,
+            "side": "home",
+            "type": "goal",
+            "player": "D. Zakaria",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 85,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Chávez",
+            "playerIn": "M. Satriano"
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "goal",
+            "player": "P. Frankowski",
+            "playerOut": null,
+            "playerIn": null
+          }
+        ]
       },
       {
         "date": "2024-02-25",
         "comp": "Ligue 1",
         "score": "Lens 2-3 Monaco",
-        "formation": null,
-        "events": []
+        "referee": "F. Letexier",
+        "formation": {
+          "home": "3-4-2-1",
+          "away": "4-4-2"
+        },
+        "lineups": {
+          "home": [
+            {
+              "name": "B. Samba",
+              "number": 30,
+              "pos": "G"
+            },
+            {
+              "name": "J. Gradit",
+              "number": 24,
+              "pos": "D"
+            },
+            {
+              "name": "K. Danso",
+              "number": 4,
+              "pos": "D"
+            },
+            {
+              "name": "F. Medina",
+              "number": 14,
+              "pos": "D"
+            },
+            {
+              "name": "R. Aguilar",
+              "number": 2,
+              "pos": "M"
+            },
+            {
+              "name": "A. Diouf",
+              "number": 18,
+              "pos": "M"
+            },
+            {
+              "name": "N. Mendy",
+              "number": 26,
+              "pos": "M"
+            },
+            {
+              "name": "J. Chávez",
+              "number": 13,
+              "pos": "M"
+            },
+            {
+              "name": "A. Thomasson",
+              "number": 28,
+              "pos": "F"
+            },
+            {
+              "name": "David Pereira da Costa",
+              "number": 10,
+              "pos": "F"
+            },
+            {
+              "name": "E. Wahi",
+              "number": 9,
+              "pos": "F"
+            }
+          ],
+          "away": [
+            {
+              "name": "R. Majecki",
+              "number": 1,
+              "pos": "G"
+            },
+            {
+              "name": "W. Singo",
+              "number": 99,
+              "pos": "D"
+            },
+            {
+              "name": "G. Maripán",
+              "number": 3,
+              "pos": "D"
+            },
+            {
+              "name": "M. Salisu",
+              "number": 22,
+              "pos": "D"
+            },
+            {
+              "name": "K. Ouattara",
+              "number": 20,
+              "pos": "D"
+            },
+            {
+              "name": "T. Minamino",
+              "number": 18,
+              "pos": "M"
+            },
+            {
+              "name": "Y. Fofana",
+              "number": 19,
+              "pos": "M"
+            },
+            {
+              "name": "D. Zakaria",
+              "number": 6,
+              "pos": "M"
+            },
+            {
+              "name": "A. Golovin",
+              "number": 17,
+              "pos": "M"
+            },
+            {
+              "name": "W. Ben Yedder",
+              "number": 10,
+              "pos": "F"
+            },
+            {
+              "name": "F. Balogun",
+              "number": 29,
+              "pos": "F"
+            }
+          ]
+        },
+        "events": [
+          {
+            "minute": 19,
+            "side": "away",
+            "type": "goal",
+            "player": "F. Balogun",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 24,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Chávez",
+            "playerIn": "P. Frankowski"
+          },
+          {
+            "minute": 25,
+            "side": "away",
+            "type": "yellow",
+            "player": "Kassoum Ouattara",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 30,
+            "side": "away",
+            "type": "owngoal",
+            "player": "B. Samba",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 31,
+            "side": "home",
+            "type": "goal",
+            "player": "E. Wahi",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 45,
+            "side": "home",
+            "type": "yellow",
+            "player": "Facundo Medina",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 46,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "J. Gradit",
+            "playerIn": "F. Sotoca"
+          },
+          {
+            "minute": 53,
+            "side": "home",
+            "type": "yellow",
+            "player": "Adrien Thomasson",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 63,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "K. Ouattara",
+            "playerIn": "E. Diop"
+          },
+          {
+            "minute": 64,
+            "side": "home",
+            "type": "yellow",
+            "player": "Nampalys Mendy",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 70,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Thomasson",
+            "playerIn": "W. Saïd"
+          },
+          {
+            "minute": 71,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "A. Diouf",
+            "playerIn": "N. El Aynaoui"
+          },
+          {
+            "minute": 71,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "W. Ben Yedder",
+            "playerIn": "E. Ben Seghir"
+          },
+          {
+            "minute": 77,
+            "side": "home",
+            "type": "goal",
+            "player": "W. Saïd",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 82,
+            "side": "home",
+            "type": "yellow",
+            "player": "Brice Samba",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 88,
+            "side": "home",
+            "type": "sub",
+            "player": null,
+            "playerOut": "David Pereira da Costa",
+            "playerIn": "A. Sishuba"
+          },
+          {
+            "minute": 90,
+            "side": "home",
+            "type": "yellow",
+            "player": "Elye Wahi",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "yellow",
+            "player": "Radosław Majecki",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "yellow",
+            "player": "Edan Diop",
+            "playerOut": null,
+            "playerIn": null
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "sub",
+            "player": null,
+            "playerOut": "F. Balogun",
+            "playerIn": "S. Magassa"
+          },
+          {
+            "minute": 90,
+            "side": "away",
+            "type": "goal",
+            "player": "T. Minamino",
+            "playerOut": null,
+            "playerIn": null
+          }
+        ]
       }
     ],
     "summary": "Cap la cap (10 meciuri): Monaco 3 - 3 - 4 Lens."
@@ -1408,7 +2686,218 @@
             "homeAway": "A",
             "comp": "Ligue 1",
             "score": "1-1",
-            "result": "D"
+            "result": "D",
+            "referee": "Eric Wattellier, France",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Lukáš Hrádecký",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Vanderson",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "Sadibou Sané",
+                  "number": 72,
+                  "pos": "D"
+                },
+                {
+                  "name": "Eric Dier",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "Nazinho",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "Lamine Camara",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Denis Zakaria",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "Anis Soubeir",
+                  "number": 46,
+                  "pos": "M"
+                },
+                {
+                  "name": "Aleksandr Golovin",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Stanis Idumbo Muzambo",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "Paris Brunner",
+                  "number": 29,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Filip Jørgensen",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Genesis Antwi",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "Jeyland Mitchell",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Ismael Doukouré",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "Oso",
+                  "number": 36,
+                  "pos": "D"
+                },
+                {
+                  "name": "Diogo Sousa",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "Pape Diop",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "Giovanni Reyna",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Gessime Yassine",
+                  "number": 80,
+                  "pos": "F"
+                },
+                {
+                  "name": "Jacobo Ortega",
+                  "number": 30,
+                  "pos": "F"
+                },
+                {
+                  "name": "Sebastian Nanasi",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 22,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Anis Soubeir",
+                "playerIn": "Matthis Abline"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Diogo Sousa",
+                "playerIn": "Dário Essugo"
+              },
+              {
+                "minute": 52,
+                "side": "opp",
+                "type": "owngoal",
+                "player": "Sadibou Sané",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jacobo Ortega",
+                "playerIn": "Conrad Harder"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "goal",
+                "player": "Paris Brunner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Stanis Idumbo Muzambo",
+                "playerIn": "Mathys Detourbet"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Pape Diop",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Giovanni Reyna",
+                "playerIn": "Samir El Mourabet"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sebastian Nanasi",
+                "playerIn": "Samuel Amo-Ameyaw"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Aleksandr Golovin",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gessime Yassine",
+                "playerIn": "Karim Coulibaly"
+              }
+            ]
           },
           {
             "date": "2026-09-04",
@@ -1416,7 +2905,250 @@
             "homeAway": "A",
             "comp": "Ligue 1",
             "score": "2-1",
-            "result": "W"
+            "result": "W",
+            "referee": "Jérôme Brisard, France",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-3-1-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Lukáš Hrádecký",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Vanderson",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "Sadibou Sané",
+                  "number": 72,
+                  "pos": "D"
+                },
+                {
+                  "name": "Eric Dier",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "Nazinho",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "Lamine Camara",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Denis Zakaria",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "Mamadou Coulibaly",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "Aleksandr Golovin",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Stanis Idumbo Muzambo",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "Paris Brunner",
+                  "number": 29,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Matvey Safonov",
+                  "number": 39,
+                  "pos": "G"
+                },
+                {
+                  "name": "Achraf Hakimi",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "Marquinhos",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "Willian Pacho",
+                  "number": 51,
+                  "pos": "D"
+                },
+                {
+                  "name": "Warren Zaïre-Emery",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "Vitinha",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "João Neves",
+                  "number": 87,
+                  "pos": "M"
+                },
+                {
+                  "name": "Fabián Ruiz",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Maghnes Akliouche",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "Khvicha Kvaratskhelia",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "Désiré Doué",
+                  "number": 14,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 31,
+                "side": "opp",
+                "type": "goal",
+                "player": "Marquinhos",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 52,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vanderson",
+                "playerIn": "Jordan Teze"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "goal",
+                "player": "Nazinho",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Désiré Doué",
+                "playerIn": "Ferran Torres"
+              },
+              {
+                "minute": 64,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Warren Zaïre-Emery",
+                "playerIn": "Lucas Hernández"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Lucas Hernández",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "yellow",
+                "player": "Jordan Teze",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Khvicha Kvaratskhelia",
+                "playerIn": "Mika Godts"
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Maghnes Akliouche",
+                "playerIn": "Ousmane Dembélé"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "goal",
+                "player": "Stanis Idumbo Muzambo",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Paris Brunner",
+                "playerIn": "Matthis Abline"
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mamadou Coulibaly",
+                "playerIn": "Anis Soubeir"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Fabián Ruiz",
+                "playerIn": "Dro Fernández"
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Stanis Idumbo Muzambo",
+                "playerIn": "Christian Mawissa"
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Aleksandr Golovin",
+                "playerIn": "Safouane Benzahra"
+              }
+            ]
           },
           {
             "date": "2026-08-30",
@@ -1424,7 +3156,250 @@
             "homeAway": "H",
             "comp": "Ligue 1",
             "score": "2-0",
-            "result": "W"
+            "result": "W",
+            "referee": "Willy Delajod, France",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Lukáš Hrádecký",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Vanderson",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "Sadibou Sané",
+                  "number": 72,
+                  "pos": "D"
+                },
+                {
+                  "name": "Eric Dier",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "Nazinho",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "Lamine Camara",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Denis Zakaria",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "Mamadou Coulibaly",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "Aleksandr Golovin",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Stanis Idumbo Muzambo",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "Paris Brunner",
+                  "number": 29,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Jeffrey De Lange",
+                  "number": 12,
+                  "pos": "G"
+                },
+                {
+                  "name": "Timothy Weah",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "Conrad Jaden Egan-Riley",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Geoffrey Kondogbia",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "Emerson",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "Himad Abdelli",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Pierre-Emile Højbjerg",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "Amine Harit",
+                  "number": 77,
+                  "pos": "M"
+                },
+                {
+                  "name": "Angel Gomes",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "Quinten Timber",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "Amine Gouiri",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 13,
+                "side": "us",
+                "type": "goal",
+                "player": "Paris Brunner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 42,
+                "side": "us",
+                "type": "yellow",
+                "player": "Denis Zakaria",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 43,
+                "side": "us",
+                "type": "yellow",
+                "player": "Lamine Camara",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Quinten Timber",
+                "playerIn": "Keyliane Abdallah"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Himad Abdelli",
+                "playerIn": "Tochukwu Nnadi"
+              },
+              {
+                "minute": 53,
+                "side": "us",
+                "type": "goal",
+                "player": "Paris Brunner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 58,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Geoffrey Kondogbia",
+                "playerIn": "Nayef Aguerd"
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Tochukwu Nnadi",
+                "playerIn": "Neal Maupay"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Paris Brunner",
+                "playerIn": "Mika Biereth"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mamadou Coulibaly",
+                "playerIn": "Anis Soubeir"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Aleksandr Golovin",
+                "playerIn": "Matthis Abline"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Stanis Idumbo Muzambo",
+                "playerIn": "Mathys Detourbet"
+              },
+              {
+                "minute": 85,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Angel Gomes",
+                "playerIn": "Faris Moumbagna"
+              },
+              {
+                "minute": 88,
+                "side": "us",
+                "type": "yellow",
+                "player": "Nazinho",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Lukáš Hrádecký",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
           },
           {
             "date": "2026-08-27",
@@ -1432,7 +3407,266 @@
             "homeAway": "H",
             "comp": "UEFA Europa Conference League",
             "score": "4-1",
-            "result": "W"
+            "result": "W",
+            "referee": "V. Fotias",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "L. Hradecky",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Vanderson",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Sane",
+                  "number": 72,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Dier",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Nazinho",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Camara",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Zakaria",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Coulibaly",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Golovin",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Idumbo",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Brunner",
+                  "number": 29,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "P. Schulze",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Sacek",
+                  "number": 61,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Janicki",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Bochniewicz",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "O. Zmrzly",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Sadilek",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Dietz",
+                  "number": 66,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Urbanski",
+                  "number": 82,
+                  "pos": "M"
+                },
+                {
+                  "name": "Peter Federico",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "S. Liseth",
+                  "number": 23,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Khlan",
+                  "number": 33,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 30,
+                "side": "us",
+                "type": "goal",
+                "player": "P. Brunner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 33,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Maximilian Dietz",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 43,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Coulibaly",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Bochniewicz",
+                "playerIn": "Josema"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Dietz",
+                "playerIn": "P. Bernardo"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Peter Federico",
+                "playerIn": "Y. Ikia Dimi"
+              },
+              {
+                "minute": 50,
+                "side": "us",
+                "type": "goal",
+                "player": "A. Golovin",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 52,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Maksym Khlan",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Golovin",
+                "playerIn": "M. Biereth"
+              },
+              {
+                "minute": 55,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Idumbo",
+                "playerIn": "M. Detourbet"
+              },
+              {
+                "minute": 58,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Sacek",
+                "playerIn": "P. Warczak"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Coulibaly",
+                "playerIn": "A. Soubeir"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Zakaria",
+                "playerIn": "S. Benzahra"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Khlan",
+                "playerIn": "J. Antiste"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vanderson",
+                "playerIn": "I. Toure"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Biereth",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "goal",
+                "player": "J. Antiste",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
           },
           {
             "date": "2026-08-23",
@@ -1440,7 +3674,258 @@
             "homeAway": "A",
             "comp": "Ligue 1",
             "score": "1-0",
-            "result": "W"
+            "result": "W",
+            "referee": "Jeremie Pignard, France",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "3-4-2-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Lukáš Hrádecký",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Vanderson",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "Sadibou Sané",
+                  "number": 72,
+                  "pos": "D"
+                },
+                {
+                  "name": "Eric Dier",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "Nazinho",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "Lamine Camara",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Denis Zakaria",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "Mamadou Coulibaly",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "Aleksandr Golovin",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Stanis Idumbo Muzambo",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "Paris Brunner",
+                  "number": 29,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Lionel Mpasi Nzau",
+                  "number": 77,
+                  "pos": "G"
+                },
+                {
+                  "name": "Timothee Pembele",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "Ayumu Seko",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "Vincent Sasso",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "Fodé Doucouré",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "Simon Ebonog",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "Junior Mwanga",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "Yanis Zouaoui",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "Rassoul Ndiaye",
+                  "number": 14,
+                  "pos": "F"
+                },
+                {
+                  "name": "Amir Richardson",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "Ally Samatta",
+                  "number": 25,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 14,
+                "side": "us",
+                "type": "goal",
+                "player": "Eric Dier",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 20,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Amir Richardson",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 34,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Fodé Doucouré",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 40,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Yanis Zouaoui",
+                "playerIn": "Enzo Koffi"
+              },
+              {
+                "minute": 44,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Vincent Sasso",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 57,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Paris Brunner",
+                "playerIn": "Mika Biereth"
+              },
+              {
+                "minute": 57,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mamadou Coulibaly",
+                "playerIn": "Anis Soubeir"
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "yellow",
+                "player": "Aleksandr Golovin",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "yellow",
+                "player": "Vanderson",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ally Samatta",
+                "playerIn": "Josh Maja"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Fodé Doucouré",
+                "playerIn": "Elias Jelert"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Timothee Pembele",
+                "playerIn": "Sota Nakamura"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Nazinho",
+                "playerIn": "Ilane Touré"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Stanis Idumbo Muzambo",
+                "playerIn": "Oumar Konate"
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Simon Ebonog",
+                "playerIn": "Kaito Mizuta"
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vanderson",
+                "playerIn": "Thilo Kehrer"
+              }
+            ]
           },
           {
             "date": "2026-08-20",
@@ -1448,7 +3933,274 @@
             "homeAway": "A",
             "comp": "UEFA Europa Conference League",
             "score": "3-2",
-            "result": "W"
+            "result": "W",
+            "referee": "M. Matosa",
+            "formation": {
+              "us": "4-4-2",
+              "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "L. Hradecky",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Vanderson",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Sane",
+                  "number": 72,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Dier",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Mawissa",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Detourbet",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Camara",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Zakaria",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Idumbo",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Brunner",
+                  "number": 29,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Biereth",
+                  "number": 14,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "P. Schulze",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Sacek",
+                  "number": 61,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Janicki",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "Josema",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Janza",
+                  "number": 64,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Sadilek",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Dietz",
+                  "number": 66,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Bernardo",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Khlan",
+                  "number": 33,
+                  "pos": "F"
+                },
+                {
+                  "name": "E. Prekop",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "Peter Federico",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 9,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Biereth",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 38,
+                "side": "us",
+                "type": "yellow",
+                "player": "Mathys Detourbet",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 51,
+                "side": "us",
+                "type": "goal",
+                "player": "L. Camara",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 53,
+                "side": "opp",
+                "type": "goal",
+                "player": "E. Prekop",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vanderson",
+                "playerIn": "J. Teze"
+              },
+              {
+                "minute": 55,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Detourbet",
+                "playerIn": "A. Soubeir"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "goal",
+                "player": "P. Brunner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "yellow",
+                "player": "Anis Soubeir",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Sadilek",
+                "playerIn": "K. Urbanski"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Prekop",
+                "playerIn": "S. Liseth"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Maximilian Dietz",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Peter Federico",
+                "playerIn": "B. Durdov"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "goal",
+                "player": "S. Liseth",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Mawissa",
+                "playerIn": "Nazinho"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Bernardo",
+                "playerIn": "J. Antiste"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Biereth",
+                "playerIn": "O. Konate"
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Zakaria",
+                "playerIn": "S. Benzahra"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Erik Janža",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
           }
         ],
         "next": [
@@ -2730,64 +5482,279 @@
             "comp": "Ligue 1",
             "score": "2-2",
             "result": "D",
+            "referee": "Hakim Ben el Salem Hadj, France",
             "formation": {
               "us": "3-4-2-1",
               "opp": "3-1-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Robin Risser",
+                  "number": 40,
+                  "pos": "G"
+                },
+                {
+                  "name": "Jonathan Gradit",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "Kyllian Antonio",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "Matthieu Udol",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "Ruben Aguilar",
+                  "number": 2,
+                  "pos": "M"
+                },
+                {
+                  "name": "Michaël Cuisance",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "Andrija Bulatović",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "Michal Skoras",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "Abdallah Sima",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "Florian Thauvin",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "Odsonne Édouard",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Ewan Hatfout",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Noa Boissé",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "Samuel Yohou",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "Harold Voyer",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "Lucas Bretelle",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "Rayan Bamba",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "Adil Bourabaa",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "Jean Vercruysse",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Lucas Calodat",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "Louis Mafouta",
+                  "number": 14,
+                  "pos": "F"
+                },
+                {
+                  "name": "Dame Gueye",
+                  "number": 25,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 15,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Noa Boissé",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 20,
                 "side": "us",
+                "type": "yellow",
                 "player": "Michaël Cuisance",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 28,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Jean Vercruysse",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 32,
                 "side": "opp",
+                "type": "goal",
                 "player": "Adil Bourabaa",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 38,
                 "side": "us",
+                "type": "yellow",
                 "player": "Andrija Bulatović",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 44,
                 "side": "opp",
+                "type": "goal",
                 "player": "Lucas Calodat",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 45,
                 "side": "us",
+                "type": "goal",
                 "player": "Abdallah Sima",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Noa Boissé",
+                "playerIn": "Djibril Sidibé"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Michal Skoras",
+                "playerIn": "Mezian Mesloub"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Odsonne Édouard",
+                "playerIn": "Franjo Ivanović"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Michaël Cuisance",
+                "playerIn": "Amadou Haidara"
               },
               {
                 "minute": 51,
                 "side": "us",
+                "type": "goal",
                 "player": "Franjo Ivanović",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 53,
                 "side": "us",
+                "type": "yellow",
                 "player": "Florian Thauvin",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jonathan Gradit",
+                "playerIn": "Jean-Clair Todibo"
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Dame Gueye",
+                "playerIn": "Habibou Diallo"
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jean Vercruysse",
+                "playerIn": "Daouda Traore"
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Lucas Bretelle",
+                "playerIn": "Alexandre Lauray"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Abdallah Sima",
+                "playerIn": "Thorgan Hazard"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Samuel Yohou",
+                "playerIn": "Raúl Torrente"
               }
             ]
           },
@@ -2798,52 +5765,263 @@
             "comp": "UEFA Champions League",
             "score": "3-2",
             "result": "W",
+            "referee": "Vassilis Fotias",
             "formation": {
               "us": "3-4-2-1",
               "opp": "3-4-2-1"
             },
+            "lineups": {
+              "us": [
+                {
+                  "name": "R. Risser",
+                  "number": 40,
+                  "pos": "G"
+                },
+                {
+                  "name": "K. Antonio",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Ganiou",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Sagnan",
+                  "number": 31,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Skóraś",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Bulatović",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Haidara",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Udol",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Thauvin",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Sima",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Ivanović",
+                  "number": 29,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Markovič",
+                  "number": 35,
+                  "pos": "G"
+                },
+                {
+                  "name": "T. Vlček",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Zima",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Š. Chaloupek",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Isife",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "W. Nowak",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Sadílek",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Kubiak",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Ayaosi",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Šturm",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Chytil",
+                  "number": 13,
+                  "pos": "F"
+                }
+              ]
+            },
             "events": [
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "David Zima",
+                "playerIn": "Mikulas Konecny"
+              },
               {
                 "minute": 49,
                 "side": "opp",
+                "type": "red",
                 "player": "Mikulas Konecny",
-                "type": "red"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 51,
                 "side": "opp",
+                "type": "goal",
                 "player": "Danijel Sturm",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Franjo Ivanovic",
+                "playerIn": "Mezian Soares Mesloub"
               },
               {
                 "minute": 62,
                 "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Michał Skóraś",
+                "playerIn": "Ruben Aguilar"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Souleymane Sagnan",
+                "playerIn": "Odsonne Édouard"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "yellow",
                 "player": "Ismaëlo Ganiou",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 73,
                 "side": "us",
+                "type": "goal",
                 "player": "Abdallah Sima",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Amadou Haidara",
+                "playerIn": "Florian Sotoca"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Abdallah Sima",
+                "playerIn": "Junior Kadile"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Oskar Kubiak",
+                "playerIn": "David Jurasek"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mojmír Chytil",
+                "playerIn": "Tomáš Chorý"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Wiktor Nowak",
+                "playerIn": "Toumani Diakite"
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Samuel Isife",
+                "playerIn": "Ivan Schranz"
               },
               {
                 "minute": 88,
                 "side": "opp",
+                "type": "goal",
                 "player": "Danijel Sturm",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "goal",
                 "player": "Florian Thauvin",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "goal",
                 "player": "Ruben Aguilar",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -2854,52 +6032,255 @@
             "comp": "Ligue 1",
             "score": "0-1",
             "result": "L",
+            "referee": "Eric Wattellier, France",
             "formation": {
               "us": "3-4-2-1",
               "opp": "3-4-2-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Robin Risser",
+                  "number": 40,
+                  "pos": "G"
+                },
+                {
+                  "name": "Kyllian Antonio",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "Ismaelo Ganiou",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "Matthieu Udol",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "Ruben Aguilar",
+                  "number": 2,
+                  "pos": "M"
+                },
+                {
+                  "name": "Amadou Haidara",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "Yassine Titraoui",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Michał Skóraś",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "Florian Thauvin",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "Thorgan Hazard",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "Abdallah Sima",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Yvon Mvogo",
+                  "number": 38,
+                  "pos": "G"
+                },
+                {
+                  "name": "Dembo Sylla",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "Montassar Talbi",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Nathaniel Adjei",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "Panos Katseris",
+                  "number": 77,
+                  "pos": "M"
+                },
+                {
+                  "name": "Noah Cadiou",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Noah Mbamba",
+                  "number": 72,
+                  "pos": "M"
+                },
+                {
+                  "name": "Arsène Kouassi",
+                  "number": 43,
+                  "pos": "M"
+                },
+                {
+                  "name": "Gabin Bernardeau",
+                  "number": 33,
+                  "pos": "F"
+                },
+                {
+                  "name": "Jean Victor Makengo",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "Mamadou Koné",
+                  "number": 42,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 14,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Nathaniel Adjei",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 24,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Matthieu Udol",
+                "playerIn": "Souleymane Sagnan"
               },
               {
                 "minute": 26,
                 "side": "us",
+                "type": "yellow",
                 "player": "Yassine Titraoui",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 54,
                 "side": "opp",
+                "type": "goal",
                 "player": "Mamadou Koné",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Yassine Titraoui",
+                "playerIn": "Andrija Bulatović"
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Amadou Haidara",
+                "playerIn": "Michaël Cuisance"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Noah Mbamba",
+                "playerIn": "Arthur Avom Ebong"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mamadou Koné",
+                "playerIn": "Ibrahima Baldé"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Panos Katseris",
+                "playerIn": "Théo Le Bris"
+              },
+              {
+                "minute": 70,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Thorgan Hazard",
+                "playerIn": "Odsonne Édouard"
+              },
+              {
+                "minute": 70,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ruben Aguilar",
+                "playerIn": "Florian Sotoca"
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gabin Bernardeau",
+                "playerIn": "Isak Steiner Jensen"
               },
               {
                 "minute": 77,
                 "side": "us",
+                "type": "yellow",
                 "player": "Michał Skóraś",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 85,
                 "side": "us",
+                "type": "yellow",
                 "player": "Souleymane Sagnan",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "yellow",
                 "player": "Souleymane Sagnan",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "red",
                 "player": "Souleymane Sagnan",
-                "type": "red"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -2910,52 +6291,263 @@
             "comp": "Ligue 1",
             "score": "1-2",
             "result": "L",
+            "referee": "Bastien Dechepy, France",
             "formation": {
               "us": "3-4-2-1",
               "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Robin Risser",
+                  "number": 40,
+                  "pos": "G"
+                },
+                {
+                  "name": "Maik Nawrocki",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Ismaelo Ganiou",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "Souleymane Sagnan",
+                  "number": 31,
+                  "pos": "D"
+                },
+                {
+                  "name": "Michał Skóraś",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "Yassine Titraoui",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Michaël Cuisance",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "Matthieu Udol",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "Florian Thauvin",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "Franjo Ivanović",
+                  "number": 29,
+                  "pos": "F"
+                },
+                {
+                  "name": "Abdallah Sima",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Filip Jørgensen",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Genesis Antwi",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "Jeyland Mitchell",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Andrew Omobamidele",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "Lucas Høgsberg",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "Diogo Sousa",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "Pape Diop",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "Giovanni Reyna",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Gessime Yassine",
+                  "number": 80,
+                  "pos": "F"
+                },
+                {
+                  "name": "Jacobo Ortega",
+                  "number": 30,
+                  "pos": "F"
+                },
+                {
+                  "name": "Sebastian Nanasi",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 36,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Jeyland Mitchell",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 38,
                 "side": "us",
+                "type": "goal",
                 "player": "Florian Thauvin",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 48,
                 "side": "opp",
+                "type": "goal",
                 "player": "Gessime Yassine",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Maik Nawrocki",
+                "playerIn": "Ruben Aguilar"
               },
               {
                 "minute": 69,
                 "side": "us",
+                "type": "yellow",
                 "player": "Franjo Ivanović",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Michaël Cuisance",
+                "playerIn": "Andrija Bulatović"
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Franjo Ivanović",
+                "playerIn": "Thorgan Hazard"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Giovanni Reyna",
+                "playerIn": "Samuel Amo-Ameyaw"
               },
               {
                 "minute": 80,
                 "side": "us",
+                "type": "yellow",
                 "player": "Ruben Aguilar",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 83,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Gessime Yassine",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jacobo Ortega",
+                "playerIn": "Sékou Mara"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Lucas Høgsberg",
+                "playerIn": "Karim Coulibaly"
               },
               {
                 "minute": 85,
                 "side": "opp",
+                "type": "goal",
                 "player": "Gessime Yassine",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Michał Skóraś",
+                "playerIn": "Mezian Mesloub"
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Abdallah Sima",
+                "playerIn": "Florian Sotoca"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gessime Yassine",
+                "playerIn": "Fabio Baldé"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sebastian Nanasi",
+                "playerIn": "Mateo Del Blanco"
               }
             ]
           },
@@ -2966,70 +6558,287 @@
             "comp": "Ligue 1",
             "score": "5-2",
             "result": "W",
+            "referee": "Mathieu Vernice, France",
             "formation": {
               "us": "3-4-2-1",
               "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Robin Risser",
+                  "number": 40,
+                  "pos": "G"
+                },
+                {
+                  "name": "Maik Nawrocki",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Ismaelo Ganiou",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "Souleymane Sagnan",
+                  "number": 31,
+                  "pos": "D"
+                },
+                {
+                  "name": "Saud Abdulhamid",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "Michaël Cuisance",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "Yassine Titraoui",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Matthieu Udol",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "Florian Thauvin",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "Franjo Ivanović",
+                  "number": 29,
+                  "pos": "F"
+                },
+                {
+                  "name": "Abdallah Sima",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Mamadou Diop",
+                  "number": 23,
+                  "pos": "G"
+                },
+                {
+                  "name": "Lamine Sy",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "Sinaly Diomandé",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "Christ Makosso",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "Clement Akpa",
+                  "number": 92,
+                  "pos": "D"
+                },
+                {
+                  "name": "Naouirou Ahamada",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Arthur Piedfort",
+                  "number": 46,
+                  "pos": "M"
+                },
+                {
+                  "name": "Kévin Danois",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "Romain Faivre",
+                  "number": 21,
+                  "pos": "F"
+                },
+                {
+                  "name": "Danny Namaso",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "Aristide Zossou",
+                  "number": 77,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 12,
                 "side": "us",
+                "type": "goal",
                 "player": "Florian Thauvin",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 35,
                 "side": "opp",
+                "type": "red",
                 "player": "Christ Makosso",
-                "type": "red"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 49,
                 "side": "us",
+                "type": "goal",
                 "player": "Franjo Ivanović",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 54,
                 "side": "us",
+                "type": "goal",
                 "player": "Saud Abdulhamid",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 61,
                 "side": "opp",
+                "type": "goal",
                 "player": "Danny Namaso",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Franjo Ivanović",
+                "playerIn": "Thorgan Hazard"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Saud Abdulhamid",
+                "playerIn": "Michał Skóraś"
               },
               {
                 "minute": 66,
                 "side": "us",
+                "type": "goal",
                 "player": "Ismaelo Ganiou",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Aristide Zossou",
+                "playerIn": "Rayan Mandengue"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Romain Faivre",
+                "playerIn": "Lamfia Dioubaté"
               },
               {
                 "minute": 69,
                 "side": "opp",
+                "type": "goal",
                 "player": "Lamine Sy",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Michaël Cuisance",
+                "playerIn": "Amadou Haidara"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Abdallah Sima",
+                "playerIn": "Odsonne Édouard"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Danny Namaso",
+                "playerIn": "Lasso Coulibaly"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Naouirou Ahamada",
+                "playerIn": "Elikya Legros"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ismaelo Ganiou",
+                "playerIn": "Andrija Bulatović"
               },
               {
                 "minute": 84,
                 "side": "us",
+                "type": "yellow",
                 "player": "Maik Nawrocki",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 86,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Lamfia Dioubaté",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Arthur Piedfort",
+                "playerIn": "Josué Casimir"
               },
               {
                 "minute": 88,
                 "side": "us",
+                "type": "goal",
                 "player": "Florian Thauvin",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           },
@@ -3040,52 +6849,263 @@
             "comp": "Trophée des Champions",
             "score": "1-0",
             "result": "W",
+            "referee": "J. Pignard",
             "formation": {
               "us": "3-4-2-1",
               "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "R. Risser",
+                  "number": 40,
+                  "pos": "G"
+                },
+                {
+                  "name": "K. Antonio",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Ganiou",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Nawrocki",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Abdulhamid",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Titraoui",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Cuisance",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Udol",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Thauvin",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "F. Ivanovic",
+                  "number": 29,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Sima",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Safonov",
+                  "number": 39,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Hakimi",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Zabarnyi",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "W. Pacho",
+                  "number": 51,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Digne",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "W. Zaire-Emery",
+                  "number": 33,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Beraldo",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "Vitinha",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Doue",
+                  "number": 14,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Akliouche",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "K. Kvaratskhelia",
+                  "number": 7,
+                  "pos": "F"
+                }
+              ]
             },
             "events": [
               {
                 "minute": 32,
                 "side": "us",
+                "type": "goal",
                 "player": "F. Thauvin",
-                "type": "goal"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 39,
                 "side": "us",
+                "type": "red",
                 "player": "Kyllian Antonio",
-                "type": "red"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Ivanovic",
+                "playerIn": "R. Aguilar"
+              },
+              {
+                "minute": 60,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Digne",
+                "playerIn": "N. Mendes"
+              },
+              {
+                "minute": 60,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Beraldo",
+                "playerIn": "F. Ruiz"
+              },
+              {
+                "minute": 60,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Akliouche",
+                "playerIn": "O. Dembele"
               },
               {
                 "minute": 64,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Désiré Doué",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Cuisance",
+                "playerIn": "A. Bulatovic"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Kvaratskhelia",
+                "playerIn": "S. Mayulu"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Thauvin",
+                "playerIn": "M. Skoras"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Sima",
+                "playerIn": "R. Fofana"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Y. Titraoui",
+                "playerIn": "A. Haidara"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "W. Zaire-Emery",
+                "playerIn": "D. Fernandez"
               },
               {
                 "minute": 86,
                 "side": "opp",
+                "type": "red",
                 "player": "Nuno Mendes",
-                "type": "red"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 89,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Fabián Ruiz",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "us",
+                "type": "yellow",
                 "player": "Andrija Bulatović",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               },
               {
                 "minute": 90,
                 "side": "opp",
+                "type": "yellow",
                 "player": "Achraf Hakimi",
-                "type": "yellow"
+                "playerOut": null,
+                "playerIn": null
               }
             ]
           }
