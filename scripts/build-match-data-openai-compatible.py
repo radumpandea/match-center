@@ -528,6 +528,22 @@ def finalize_pack(pack: dict):
     return pack
 
 
+def editorial_signature(pack: dict):
+    teams = pack.get("teams", {})
+    return {
+        "storyOfTheMatch": pack.get("storyOfTheMatch"),
+        "broadcast": pack.get("broadcast"),
+        "commentatorResearch": pack.get("commentatorResearch"),
+        "teams": {
+            side: {
+                key: teams.get(side, {}).get(key)
+                for key in ("stories", "news", "mercatoIn", "mercatoOut", "preseason", "coach")
+            }
+            for side in ("home", "away")
+        },
+    }
+
+
 def main():
     targets = choose_matches()
     if not targets:
@@ -547,7 +563,14 @@ def main():
         response_text = call_model(prompt)
         updated = parse_patch_or_retry(slug, prompt, response_text)
 
-        finalized = finalize_pack(apply_editorial_patch(pack, updated))
+        before_editorial = editorial_signature(pack)
+        patched = apply_editorial_patch(pack, updated)
+        if editorial_signature(patched) == before_editorial:
+            fail(
+                f"Fallback model returned no usable editorial changes for {slug}; "
+                "leaving the partial pack untouched so it can be retried."
+            )
+        finalized = finalize_pack(patched)
         write_json(match_path, finalized)
 
         if slug in fixture_by_slug:
