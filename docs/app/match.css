@@ -331,6 +331,15 @@ table.mc tr.clickable:hover,.form-guide li.clickable:hover{background:var(--colo
 .form-guide.next li{grid-template-columns:16px 1fr auto}
 .form-guide.next .fg-opp{color:var(--color-neutral-300)}
 .standings-wrap{overflow-x:auto}
+.stat-row{display:flex;justify-content:space-between;gap:8px;font-size:12px;padding:3px 0;border-bottom:1px solid var(--color-divider)}
+.stat-label{color:var(--color-neutral-400)}
+.stat-value{font-variant-numeric:tabular-nums;text-align:right}
+.stat-sub{font-size:11px;color:var(--color-neutral-500);padding:1px 0 4px;font-variant-numeric:tabular-nums}
+table.mc.playerstats{font-size:11px;min-width:520px;margin-bottom:14px}
+table.mc.playerstats td,table.mc.playerstats th{padding:2px 5px;white-space:nowrap}
+table.mc.playerstats .pst-name{max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+table.mc.playerstats td:not(.pst-name){text-align:center;font-variant-numeric:tabular-nums}
+table.mc.playerstats th:not(:first-child){text-align:center}
 table.mc.standings{font-size:11px;min-width:340px}
 table.mc.standings td,table.mc.standings th{padding:2px 5px;white-space:nowrap}
 table.mc.standings .st-team{max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

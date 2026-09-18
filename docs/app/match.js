@@ -1639,6 +1639,113 @@
       })));
     }
 
+    // Advanced statistics — everything from API-Football's teams/statistics
+    // that the FORM panel above doesn't already surface (home/away splits,
+    // biggest win/loss, penalties, goal/card-by-interval), plus a full
+    // per-player stat table (shots, passes, tackles, duels, dribbles,
+    // fouls) for every squad member who has actually recorded minutes.
+    (function () {
+      function fmtHA(total, home, away) {
+        if (!has(total) && !has(home) && !has(away)) return null;
+        var base = has(total) ? String(total) : '';
+        var ha = [];
+        if (has(home)) ha.push(t('common.home') + ' ' + home);
+        if (has(away)) ha.push(t('common.away') + ' ' + away);
+        if (ha.length) base += (base ? '  ' : '') + '(' + ha.join(' · ') + ')';
+        return base || null;
+      }
+      function intervalLine(obj) {
+        if (!obj) return null;
+        var parts = Object.keys(obj).filter(function (k) { return obj[k] != null; }).map(function (k) { return k + ': ' + obj[k]; });
+        return parts.length ? parts.join(' · ') : null;
+      }
+      var anyTeamStats = ['home', 'away'].some(function (s) { return d.teams[s].form && d.teams[s].form.stats; });
+      var anyPlayerStats = ['home', 'away'].some(function (s) {
+        return (d.teams[s].squad || []).some(function (p) { return p.stats && (p.stats.apps || p.stats.minutes); });
+      });
+      if (!anyTeamStats && !anyPlayerStats) return;
+
+      var wrap = el('div');
+      if (anyTeamStats) {
+        wrap.appendChild(twoCol(d, function (tm) {
+          var box = el('div');
+          var s = (tm.form && tm.form.stats) || null;
+          if (!s) { box.appendChild(el('div', { text: t('common.na') })); return box; }
+          function row(label, value) {
+            if (!has(value)) return;
+            box.appendChild(el('div', { class: 'stat-row' }, [el('span', { class: 'stat-label', text: label }), el('span', { class: 'stat-value', text: value })]));
+          }
+          row(t('stats.goalsFor'), fmtHA(s.goalsForAvg, s.goalsForAvgHome, s.goalsForAvgAway));
+          row(t('stats.goalsAgainst'), fmtHA(s.goalsAgainstAvg, s.goalsAgainstAvgHome, s.goalsAgainstAvgAway));
+          row(t('stats.cleanSheets'), fmtHA(s.cleanSheets, s.cleanSheetsHome, s.cleanSheetsAway));
+          row(t('stats.failedToScore'), fmtHA(s.failedToScore, s.failedToScoreHome, s.failedToScoreAway));
+          row(t('stats.penaltyScored'), has(s.penaltyScored) ? s.penaltyScored + (has(s.penaltyScoredPct) ? ' (' + s.penaltyScoredPct + '%)' : '') : null);
+          row(t('stats.penaltyMissed'), has(s.penaltyMissed) ? s.penaltyMissed + (has(s.penaltyMissedPct) ? ' (' + s.penaltyMissedPct + '%)' : '') : null);
+          row(t('stats.biggestWin'), [has(s.biggestWinHome) && (t('common.home') + ' ' + s.biggestWinHome), has(s.biggestWinAway) && (t('common.away') + ' ' + s.biggestWinAway)].filter(Boolean).join('  ·  ') || null);
+          row(t('stats.biggestLoss'), [has(s.biggestLossHome) && (t('common.home') + ' ' + s.biggestLossHome), has(s.biggestLossAway) && (t('common.away') + ' ' + s.biggestLossAway)].filter(Boolean).join('  ·  ') || null);
+          var rec = [];
+          if (has(s.winsHome) || has(s.drawsHome) || has(s.losesHome)) rec.push(t('common.home') + ' ' + (s.winsHome || 0) + '-' + (s.drawsHome || 0) + '-' + (s.losesHome || 0));
+          if (has(s.winsAway) || has(s.drawsAway) || has(s.losesAway)) rec.push(t('common.away') + ' ' + (s.winsAway || 0) + '-' + (s.drawsAway || 0) + '-' + (s.losesAway || 0));
+          row(t('stats.record'), rec.join('  ·  ') || null);
+          if (s.biggestStreak) {
+            var st = s.biggestStreak;
+            row(t('stats.longestStreak'), [has(st.wins) && ('W:' + st.wins), has(st.draws) && ('D:' + st.draws), has(st.loses) && ('L:' + st.loses)].filter(Boolean).join('  ') || null);
+          }
+          if (s.formations && s.formations.length) {
+            row(t('stats.formationsUsed'), s.formations.map(function (f) { return f.formation + (has(f.played) ? ' (' + f.played + ')' : ''); }).join('  ·  '));
+          }
+          var gfi = intervalLine(s.goalsForByInterval), gai = intervalLine(s.goalsAgainstByInterval);
+          if (gfi || gai) {
+            box.appendChild(el('div', { class: 'stat-label', text: t('stats.goalsByInterval') }));
+            if (gfi) box.appendChild(el('div', { class: 'stat-sub', text: '↑ ' + gfi }));
+            if (gai) box.appendChild(el('div', { class: 'stat-sub', text: '↓ ' + gai }));
+          }
+          var cyi = intervalLine(s.cardsYellowByInterval), cri = intervalLine(s.cardsRedByInterval);
+          if (cyi || cri) {
+            box.appendChild(el('div', { class: 'stat-label', text: t('stats.cardsByInterval') }));
+            if (cyi) box.appendChild(el('div', { class: 'stat-sub', text: '🟨 ' + cyi }));
+            if (cri) box.appendChild(el('div', { class: 'stat-sub', text: '🟥 ' + cri }));
+          }
+          if (!box.childNodes.length) box.appendChild(el('div', { text: t('common.na') }));
+          return box;
+        }));
+      }
+      if (anyPlayerStats) {
+        ['home', 'away'].forEach(function (side) {
+          var tm = d.teams[side];
+          var rows = (tm.squad || [])
+            .filter(function (p) { return p.stats && (p.stats.apps || p.stats.minutes); })
+            .sort(function (a, b) { return ((b.stats && b.stats.minutes) || 0) - ((a.stats && a.stats.minutes) || 0); });
+          if (!rows.length) return;
+          wrap.appendChild(el('h4', { text: (tm.shortName || tm.name) + ' — ' + t('stats.playerTable') }));
+          var head = el('tr', {}, ['', t('th.apps'), t('th.min'), t('th.goals'), t('th.assists'), t('th.rating'),
+            t('th.shots'), t('th.keyPasses'), t('th.tackles'), t('th.duelsWon'), t('th.dribbles'), t('th.fouls'), t('th.cards')
+          ].map(function (h) { return el('th', { text: h }); }));
+          var tb = el('table', { class: 'mc playerstats' }, [head]);
+          rows.forEach(function (p) {
+            var s = p.stats || {};
+            tb.appendChild(el('tr', {}, [
+              el('td', { class: 'pst-name', text: p.name }),
+              el('td', { text: has(s.apps) ? s.apps : '' }),
+              el('td', { text: has(s.minutes) ? s.minutes : '' }),
+              el('td', { text: has(s.goals) ? s.goals : '' }),
+              el('td', { text: has(s.assists) ? s.assists : '' }),
+              el('td', { text: has(s.rating) ? s.rating : '' }),
+              el('td', { text: has(s.shotsTotal) ? (has(s.shotsOn) ? s.shotsOn + '/' : '') + s.shotsTotal : '' }),
+              el('td', { text: has(s.passesKey) ? s.passesKey : '' }),
+              el('td', { text: has(s.tacklesTotal) ? s.tacklesTotal : '' }),
+              el('td', { text: has(s.duelsTotal) ? (has(s.duelsWon) ? s.duelsWon + '/' : '') + s.duelsTotal : '' }),
+              el('td', { text: has(s.dribblesAttempts) ? (has(s.dribblesSuccess) ? s.dribblesSuccess + '/' : '') + s.dribblesAttempts : '' }),
+              el('td', { text: has(s.foulsCommitted) ? s.foulsCommitted : '' }),
+              el('td', { text: [has(s.yellow) && ('🟨' + s.yellow), has(s.red) && ('🟥' + s.red)].filter(Boolean).join(' ') })
+            ]));
+          });
+          wrap.appendChild(el('div', { class: 'standings-wrap' }, [tb]));
+        });
+      }
+      add('advancedStats', panel(t('panel.advancedStats'), wrap));
+    })();
+
     // League table
     if (d.standings && d.standings.rows && d.standings.rows.length) {
       add('standings', panel(t('panel.standings') + (has(d.standings.league) ? ' · ' + d.standings.league : ''), standingsTable(d)));

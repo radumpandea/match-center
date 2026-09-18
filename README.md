@@ -91,17 +91,29 @@ for every not-`ready` fixture kicking off in the next 6 days, writes
   by a model, and refetched every run since it updates roughly hourly;
 - **injuries / suspensions** → `absences[]`, reason-classified (`injuries`, latest bulletin);
 - **referee** + **venue** (name / city / capacity) from `fixtures` + `venues`;
-- **confirmed XI**, formation and shirt **colours** once `fixtures/lineups` publishes them
-  (usually ~1h before kickoff);
+- **confirmed XI**, **substitutes**, formation and shirt **colours** once `fixtures/lineups`
+  publishes them (usually ~1h before kickoff) — this daily script may or may not land in that
+  window; `.github/workflows/fetch-confirmed-lineups.yml` runs a narrow, dedicated fetch every
+  10 minutes for fixtures inside their own last-40-minutes-before-kickoff window specifically
+  to catch it reliably;
 - **weather** → `venue.weather`: temperature, condition, wind, precipitation for the kickoff
   hour, from [Open-Meteo](https://open-meteo.com/) (free, no key) — geocoded from `venue.city`;
 - **standings** → `form.table` / `form.position` / `form.last5` / `form.ppg` and a
   home-away split; **form guide** `form.recent[]` (last ~6, this team's perspective);
-- **`form.stats`** — Opta-style aggregates from `teams/statistics`: goal-timing split
-  (scored and conceded, per 15 min), clean sheets, failed-to-score, penalty share,
-  formations used, biggest streak;
+- **`form.stats`** — the full set of aggregates from `teams/statistics`: goal- and card-timing
+  split (scored/conceded, yellow/red, per 15 min), clean sheets and failed-to-score (overall
+  and home/away), goal averages (overall and home/away), penalty share (scored and missed),
+  formations used, biggest streak, biggest win/loss and biggest goals for/against (home/away),
+  and the wins/draws/losses split home/away. Rendered in the "Advanced statistics" panel
+  (`docs/app/match.js`), not just narrative fuel;
 - **head-to-head** (`h2h.recent[]` + a W-D-L `h2h.summary`) from `fixtures/headtohead`;
 - **`squad[].career`** — a short club-history string per player from `players/teams`;
+- **`squad[].stats`** — the full per-player season aggregates the bulk `players?team=` call
+  already returns (no extra API cost to capture the rest): goals/assists/minutes/apps/cards/
+  rating/conceded/saves as before, plus shots (total/on target), passes (total/key/accuracy),
+  tackles (total/blocks/interceptions), duels (total/won), dribbles (attempts/success/past),
+  fouls (drawn/committed) and penalties (won/committed/scored/missed/saved) — same "Advanced
+  statistics" panel, one table per squad, players with zero recorded minutes hidden;
 - `teams.<side>.newsCandidates[]` — raw dated Google News RSS headlines (no key), for the
   editorial step to triage into `news[]`;
 - **story seeds** — a few factual `storyOfTheMatch` bullets computed from the numbers above.

@@ -225,6 +225,11 @@ function statRowFor(statistics, leagueId) {
 function statsFrom(row) {
   if (!row) return null;
   const g = row.games || {}, go = row.goals || {}, c = row.cards || {};
+  // The bulk players?team= call already returns these sub-objects for every
+  // squad member alongside games/goals/cards -- no extra API call needed to
+  // capture them.
+  const sh = row.shots || {}, ps = row.passes || {}, tk = row.tackles || {},
+    du = row.duels || {}, dr = row.dribbles || {}, fo = row.fouls || {}, pen = row.penalty || {};
   const red = (num(c.red) || 0) + (num(c.yellowred) || 0);
   const s = {
     goals: num(go.total), assists: num(go.assists),
@@ -232,6 +237,16 @@ function statsFrom(row) {
     yellow: num(c.yellow), red: red || null,
     rating: num(g.appearences) ? fnum(g.rating) : null,   // a 0-app "rating" of 0 is noise
     conceded: num(go.conceded), saves: num(go.saves),
+    shotsTotal: num(sh.total), shotsOn: num(sh.on),
+    passesTotal: num(ps.total), passesKey: num(ps.key), passesAccuracy: num(ps.accuracy),
+    tacklesTotal: num(tk.total), tacklesBlocks: num(tk.blocks), tacklesInterceptions: num(tk.interceptions),
+    duelsTotal: num(du.total), duelsWon: num(du.won),
+    dribblesAttempts: num(dr.attempts), dribblesSuccess: num(dr.success), dribblesPast: num(dr.past),
+    foulsDrawn: num(fo.drawn), foulsCommitted: num(fo.committed),
+    // API-Football spells this field "commited" (one T) in its own response;
+    // we correct the spelling in our own schema.
+    penaltyWon: num(pen.won), penaltyCommitted: num(pen.commited),
+    penaltyScored: num(pen.scored), penaltyMissed: num(pen.missed), penaltySaved: num(pen.saved),
   };
   return Object.values(s).some((v) => v != null) ? s : null;
 }
@@ -756,20 +771,48 @@ async function getTeamStats(teamId, leagueId, season, cache) {
     for (const [k, v] of Object.entries(obj || {})) if (v && v.total != null) out[k] = v.total;
     return Object.keys(out).length ? out : null;
   };
+  const pct = (v) => v != null ? fnum(String(v).replace('%', '')) : null;
+  const big = r.biggest || {};
+  const fx = r.fixtures || {};
   const data = {
     goalsForByInterval: interval(r.goals.for && r.goals.for.minute),
     goalsAgainstByInterval: interval(r.goals.against && r.goals.against.minute),
     cardsYellowByInterval: interval(r.cards && r.cards.yellow),
+    cardsRedByInterval: interval(r.cards && r.cards.red),
     goalsForAvg: fnum(r.goals.for && r.goals.for.average && r.goals.for.average.total),
     goalsAgainstAvg: fnum(r.goals.against && r.goals.against.average && r.goals.against.average.total),
+    goalsForAvgHome: fnum(r.goals.for && r.goals.for.average && r.goals.for.average.home),
+    goalsForAvgAway: fnum(r.goals.for && r.goals.for.average && r.goals.for.average.away),
+    goalsAgainstAvgHome: fnum(r.goals.against && r.goals.against.average && r.goals.against.average.home),
+    goalsAgainstAvgAway: fnum(r.goals.against && r.goals.against.average && r.goals.against.average.away),
     cleanSheets: r.clean_sheet && num(r.clean_sheet.total),
+    cleanSheetsHome: r.clean_sheet && num(r.clean_sheet.home),
+    cleanSheetsAway: r.clean_sheet && num(r.clean_sheet.away),
     failedToScore: r.failed_to_score && num(r.failed_to_score.total),
+    failedToScoreHome: r.failed_to_score && num(r.failed_to_score.home),
+    failedToScoreAway: r.failed_to_score && num(r.failed_to_score.away),
     penaltyScored: r.penalty && r.penalty.scored && num(r.penalty.scored.total),
-    penaltyScoredPct: r.penalty && r.penalty.scored && fnum(String(r.penalty.scored.percentage || '').replace('%', '')),
+    penaltyScoredPct: r.penalty && r.penalty.scored && pct(r.penalty.scored.percentage),
+    penaltyMissed: r.penalty && r.penalty.missed && num(r.penalty.missed.total),
+    penaltyMissedPct: r.penalty && r.penalty.missed && pct(r.penalty.missed.percentage),
     formations: (r.lineups || []).filter((l) => l.formation).map((l) => ({ formation: l.formation, played: num(l.played) })),
-    biggestStreak: r.biggest && r.biggest.streak
-      ? { wins: num(r.biggest.streak.wins), draws: num(r.biggest.streak.draws), loses: num(r.biggest.streak.loses) }
+    biggestStreak: big.streak
+      ? { wins: num(big.streak.wins), draws: num(big.streak.draws), loses: num(big.streak.loses) }
       : null,
+    biggestWinHome: (big.wins && big.wins.home) || null,
+    biggestWinAway: (big.wins && big.wins.away) || null,
+    biggestLossHome: (big.loses && big.loses.home) || null,
+    biggestLossAway: (big.loses && big.loses.away) || null,
+    biggestGoalsForHome: big.goals && big.goals.for && num(big.goals.for.home),
+    biggestGoalsForAway: big.goals && big.goals.for && num(big.goals.for.away),
+    biggestGoalsAgainstHome: big.goals && big.goals.against && num(big.goals.against.home),
+    biggestGoalsAgainstAway: big.goals && big.goals.against && num(big.goals.against.away),
+    winsHome: fx.wins && num(fx.wins.home),
+    winsAway: fx.wins && num(fx.wins.away),
+    drawsHome: fx.draws && num(fx.draws.home),
+    drawsAway: fx.draws && num(fx.draws.away),
+    losesHome: fx.loses && num(fx.loses.home),
+    losesAway: fx.loses && num(fx.loses.away),
   };
   cache.teamStats[key] = { fetchedAt: todayISO(), data };
   return data;
