@@ -1027,6 +1027,16 @@
     });
     var langSwitch = I18N.switcherEl(function () { render(data); });
     var themeToggle = window.MC_THEME.toggleEl();
+    var miniPitchToggleBtn = el('button', {
+      class: 'mp-toggle-btn',
+      text: store.miniPitchClosed ? t('toolbar.miniPitchShow') : t('toolbar.miniPitchHide'),
+      title: t('toolbar.miniPitchTitle'),
+      onclick: function () {
+        if (store.miniPitchClosed) delete store.miniPitchClosed; else store.miniPitchClosed = true;
+        save();
+        setupStickyMiniPitch(data);
+      }
+    });
 
     // header
     var metaWrap = el('div', { class: 'mc-meta' }, [
@@ -1070,6 +1080,7 @@
         collabBtn,
         resetPosBtn,
         resetOrderBtn,
+        miniPitchToggleBtn,
         el('button', { text: t('toolbar.print'), onclick: function () { window.print(); } }),
         el('button', { text: t('toolbar.exportNotes'), onclick: function () { exportNotes(data); } }),
         el('button', { text: t('toolbar.expandCollapse'), onclick: toggleAll }),
@@ -1118,6 +1129,41 @@
     return shell;
   }
 
+  // Drag the box itself (via its header) to reposition on screen, in fixed
+  // viewport pixels. Persisted to store.miniPitchPos so it stays put across
+  // re-renders; overrides the default CSS top-right corner once set.
+  function makeBoxDraggable(box, header) {
+    header.addEventListener('pointerdown', function (e) {
+      if (e.button != null && e.button !== 0) return;
+      var startX = e.clientX, startY = e.clientY, moved = false;
+      var startRect = box.getBoundingClientRect();
+      try { header.setPointerCapture(e.pointerId); } catch (err) {}
+      function move(ev) {
+        if (!moved && Math.abs(ev.clientX - startX) + Math.abs(ev.clientY - startY) > 4) moved = true;
+        if (!moved) return;
+        var top = clamp(startRect.top + (ev.clientY - startY), 0, window.innerHeight - 40);
+        var left = clamp(startRect.left + (ev.clientX - startX), 0, window.innerWidth - 40);
+        box.style.top = top + 'px';
+        box.style.left = left + 'px';
+        box.style.right = 'auto';
+      }
+      function end() {
+        header.removeEventListener('pointermove', move);
+        header.removeEventListener('pointerup', end);
+        header.removeEventListener('pointercancel', end);
+        if (moved) {
+          box._dragged = true;
+          setTimeout(function () { box._dragged = false; }, 350);
+          store.miniPitchPos = { top: parseFloat(box.style.top), left: parseFloat(box.style.left) };
+          save();
+        }
+      }
+      header.addEventListener('pointermove', move);
+      header.addEventListener('pointerup', end);
+      header.addEventListener('pointercancel', end);
+    });
+  }
+
   // IntersectionObserver on the pitch row itself -- no manual scroll-
   // position math, and it naturally re-shows once scrolled back up to the
   // pitch. Torn down and rebuilt on every full render() (language/theme
@@ -1128,24 +1174,63 @@
     if (miniPitchObserver) { miniPitchObserver.disconnect(); miniPitchObserver = null; }
     var old = document.querySelector('.mc-mini-pitch');
     if (old) old.remove();
+    updateMiniPitchToggleLabel();
+    if (store.miniPitchClosed) return;
     var pitchRow = document.querySelector('.pitch-row');
     if (!pitchRow || typeof IntersectionObserver === 'undefined') return;
 
+    var closeBtn = el('span', { class: 'mp-close', title: t('pitch.miniPitchClose'), text: '×' });
+    closeBtn.addEventListener('click', function (e) {
+      e.preventDefault(); e.stopPropagation();
+      store.miniPitchClosed = true;
+      save();
+      setupStickyMiniPitch(d);
+    });
     var header = el('div', { class: 'mp-header' }, [
       el('span', { class: 'mp-team home', text: d.teams.home.shortName || shortName(d.teams.home.name) }),
       el('strong', { class: 'mp-score', text: scoreFor(d, 'home') + '–' + scoreFor(d, 'away') }),
-      el('span', { class: 'mp-team away', text: d.teams.away.shortName || shortName(d.teams.away.name) })
+      el('span', { class: 'mp-team away', text: d.teams.away.shortName || shortName(d.teams.away.name) }),
+      closeBtn
     ]);
-    var box = el('div', { class: 'mc-mini-pitch', title: t('pitch.scrollToTop') }, [header, buildMiniPitch(d)]);
-    box.addEventListener('click', function () {
+    var shell = buildMiniPitch(d);
+    shell.title = t('pitch.scrollToTop');
+    shell.addEventListener('click', function () {
       pitchRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
+    var box = el('div', { class: 'mc-mini-pitch' }, [header, shell]);
+    if (store.miniPitchPos) {
+      box.style.top = store.miniPitchPos.top + 'px';
+      box.style.left = store.miniPitchPos.left + 'px';
+      box.style.right = 'auto';
+    }
+    if (store.miniPitchWidth) box.style.width = store.miniPitchWidth + 'px';
     document.body.appendChild(box);
+    makeBoxDraggable(box, header);
+
+    if (typeof ResizeObserver !== 'undefined') {
+      var ro = new ResizeObserver(function () {
+        // getBoundingClientRect(), not the observer entry's contentRect --
+        // contentRect is always content-box regardless of box-sizing, but
+        // box.style.width below sets the border-box size (global
+        // box-sizing:border-box), so using contentRect here would shrink
+        // the stored value by the padding+border on every reload.
+        var w = Math.round(box.getBoundingClientRect().width);
+        if (w && w !== store.miniPitchWidth) { store.miniPitchWidth = w; save(); }
+      });
+      ro.observe(box);
+    }
 
     miniPitchObserver = new IntersectionObserver(function (entries) {
       box.classList.toggle('show', !entries[0].isIntersecting);
     }, { threshold: 0 });
     miniPitchObserver.observe(pitchRow);
+  }
+
+  // Toolbar toggle to bring the mini pitch back after closing it (the box
+  // itself only offers a close button, not a re-open one).
+  function updateMiniPitchToggleLabel() {
+    var btn = document.querySelector('.mp-toggle-btn');
+    if (btn) btn.textContent = store.miniPitchClosed ? t('toolbar.miniPitchShow') : t('toolbar.miniPitchHide');
   }
 
   function openCollaboration(data) {
