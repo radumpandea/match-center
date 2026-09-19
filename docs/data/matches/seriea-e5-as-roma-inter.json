@@ -111,7 +111,10 @@
       "shortName": null,
       "nickname": null,
       "logo": "https://media.api-sports.io/football/teams/497.png",
-      "colors": null,
+      "colors": {
+        "primary": "#990000",
+        "secondary": "#990000"
+      },
       "coach": {
         "apiId": 2393,
         "name": "Gian Piero Gasperini",
@@ -205,9 +208,76 @@
           }
         ]
       },
-      "formation": "n/d",
+      "formation": "3-4-2-1",
       "predictedXI": [],
-      "confirmedXI": null,
+      "confirmedXI": [
+        {
+          "apiId": 556,
+          "number": 99,
+          "name": "Mile Svilar",
+          "pos": "G"
+        },
+        {
+          "apiId": 30425,
+          "number": 23,
+          "name": "Gianluca Mancini",
+          "pos": "D"
+        },
+        {
+          "apiId": 6,
+          "number": 26,
+          "name": "Leonardo Balerdi",
+          "pos": "D"
+        },
+        {
+          "apiId": 2669,
+          "number": 22,
+          "name": "Mario Hermoso",
+          "pos": "D"
+        },
+        {
+          "apiId": 6503,
+          "number": 20,
+          "name": "Nahuel Molina",
+          "pos": "M"
+        },
+        {
+          "apiId": 778,
+          "number": 4,
+          "name": "Bryan Cristante",
+          "pos": "M"
+        },
+        {
+          "apiId": 22147,
+          "number": 17,
+          "name": "Manu Koné",
+          "pos": "M"
+        },
+        {
+          "apiId": 349001,
+          "number": 43,
+          "name": "Wesley",
+          "pos": "M"
+        },
+        {
+          "apiId": 875,
+          "number": 21,
+          "name": "Paulo Dybala",
+          "pos": "F"
+        },
+        {
+          "apiId": 323936,
+          "number": 18,
+          "name": "Matías Soulé",
+          "pos": "F"
+        },
+        {
+          "apiId": 249,
+          "number": 14,
+          "name": "Donyell Malen",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "apiId": 483676,
@@ -3458,12 +3528,6 @@
       ],
       "newsCandidates": [
         {
-          "title": "Newport 1-4 AS Roma (Aug 4, 2026) Final Score",
-          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQbjdjTFI3VzJSeVQwZ0JNWnUwSnRVa3hCUDNIR0xHQ3RPRnR4OXVtRVg2Y3Q1T1NNanBEckJnRGpYSjlUSDJjMEhyM01yMS1BdG5TSFVpVmpqajRLeUxXczFhc3RwZExXZl83SkhZMFFMdG9FY3VpUHVYSVJKd0ExXw?oc=5",
-          "source": "ESPN",
-          "published": "2026-09-19"
-        },
-        {
           "title": "AS Roma vs Inter Milan – Predicted lineup and team news",
           "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQdmJBMl9TcTY5a0g3eGh5S0Zubnljb0xzdU01ZDJvWTVBbDR6eXc4TGIybTZ4RUVjelp0RHN3MVFieTFES0pjV2ZHZVBkbVBxU3YtY0pzeDBqRjRoX2JrZ1BXeWJqTnhjcVg2Xy1EU3F3cFNXZDFVdnc5Q2lXMjdwTS1OcnY?oc=5",
           "source": "Yahoo Sports",
@@ -3476,9 +3540,15 @@
           "published": "2026-09-19"
         },
         {
-          "title": "AS Roma vs Internazionale - Where to Watch, Stream Info, TV Channel, and Live Updates (September 19, 2026)",
-          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNX0ZxX3FJWHduVVNldGxiOThtNklUQmZlZEtiemxKZmlRM01uNEJGVnBraFo2bWtMY0tfLTFNYjgzRTVETkV1TTNFVHpjX0p1dzRWcU9iZllmd3RqY0tLU3dBeExOZGI2SnBndTZ2WnBYTXNIbzFmWmVPaXBtQy1QelVxQWpwdXlJT01sbmY4dndvNE02QUplMWFGZ2hTNHRsZzZ2ZTRJbFg2RFhydWZjR0Y0cDJLOG9ic3VNakxQenQ0aHhuMm1OWXVGNA?oc=5",
-          "source": "Fubo",
+          "title": "Inter Milano vs. AS Roma - September 19, 2026",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB4OWg1Rm8yT0l0WDdieWVmMHA2VXR3UHRpSFpYbDMtN1VnY0l2QnBWNWF0czh0U3k1Z1I1amJBcVM5OXpkd2NDZTVJMW5BemxpU3lHaTgzcTBDWWFGR01mWXd0ckRVcm5aOXdCTDMxY19RdVVuZWRTdVBB?oc=5",
+          "source": "Bleacher Report",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "Serie A official line-ups: Roma vs. Inter",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1PT1NYbklfWk1TdVFRR0dlbG1jZ21TZUZ1NkEwU2VrRm1UNUhHa2I0N3JtRVNlWFpGVjJncWVkMnp0d3FrUlBxRGZKZVJjUzBGZ2llenRwWkZBc0FPcl94bkt3MkR1eXBYRGowbUswVEFiSlhydlpWYkF6bW4?oc=5",
+          "source": "Football Italia",
           "published": "2026-09-19"
         },
         {
@@ -3488,8 +3558,14 @@
           "published": "2026-09-19"
         },
         {
-          "title": "Today’s Papers – Roma threaten Inter, Mancini’s Italy debutants",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5uQjFjUmRBZzhDMHFoYWRMVFFhRGh0OXlQcHJ0ZzRNWDdVaUUwUVJrU3ZtUWtJRXgwU0ZGcjl6Q1hydEhVMXFmcEFDLUwtbDJZcEhyUFVYQnR5MEk2bnRxSlR2VVBYMld4eXhHQmV4NGVhQW5zaVQ1eUl0NGF1V3PSAYQBQVVfeXFMTmMzTl9waWk2VkhUaXlJbFppSDBKclBSbHNGZmJaSHR4ejl6VlpuZjF2Q2lPTGVEMVpqMzBEeHJFc3JaVGFVd01fSk9HSUVNTkpnU3hvQV9YUUUzMzJTUXF4cG9nT0pmSHZ3RDJYT2FuUFRDXzN1S3B5TnFmbzN1aUpvMTFO?oc=5",
+          "title": "Serie A summit: Inter chase a historic record, and a 10-year hoodoo threatens Roma",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPejM3clpRMWlVdXREMkNZdWR2REN4ZmdtaGZ4YW9CaEpJbUxZMThROXcxZ3lMOG1YZkctUWlkRUp4OW9QLU5vZkZQbmg1MDBIbDd5OU51VEUxUm1xNE1JMGtTd2RnUHFQbEd0V0tUdHIwb3o1aGZUajVqZFFxUmhLb2dHb3dYVDJYLWRua29BMlRyTlVyeW9ZT2EtZ3BQZVlkSUxhUlF5czN6S2Q5MU0xNWlEOHAtXzVRSWFhTk5CQnNWSnBfcWdrYw?oc=5",
+          "source": "Goal.com",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "Serie A: Roma vs. Inter – probable line-ups, where to watch on TV",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1HdTFkRHVhS3IwV1hZblZ0SVZxY1E2WGVYQ1pzNE1HRG53RjhXQ2lnclVzMGxHcE1oNlNSbHppSzhNbkV6QjJWaWQxM3ZMZWhfWEphWXRBUktMTW8yUDR5bUlzWVlqSU1PRDktNW91c1B1WDduTXh5Z2tlS3o5TVXSAYQBQVVfeXFMUEx2UU95OVFMWjl4TXVOTDBoRkh0NGtvYlNlZlZ5TGVndnJqRU5COGh2VWEyelRPUGI1WVd2VVJjSWZOX2VERUpsN3J0cUZIWHhHd0RfVk1wN1Z2N0dXb0R5WVBON1VpRTJSSHhXRWNTZVpueXFJbjdhU3ptUm43RGxVOHpP?oc=5",
           "source": "Football Italia",
           "published": "2026-09-19"
         },
@@ -3498,12 +3574,80 @@
           "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBpY2VGVjdRODNjbmNTVm1ocDdlU3Z0UWJTMDBlakdNTEtiODNlVWNsdDlLZXdOVGZxR2dFbE12am95cHlIRXJwaHd5Ylg1Mk1MVHBjY0EtWGJIRGthVjhhZlJQU19sejh4a0pSZkU3aWxUMV9sLUl2d0R4WQ?oc=5",
           "source": "Yahoo Sports",
           "published": "2026-09-19"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 483676,
+          "number": 70,
+          "name": "Giorgio De Marzi",
+          "pos": "G"
         },
         {
-          "title": "Roma vs Inter Milan Serie A preview: Everything you need to know",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPN3hOVEV6aHA1TnZlUjZMVzByelk0QjNZcWVVOE93UkZiMXMwX1ZlMm5sakVmS1FOeEp0T1ozVGpVN1llUENBNGtlQTdPME44TWhqSkxPNnFiclF4bktyTGhwMExUdjJUbk9PMUZZZ2tNdy1qY3BnSzBHNGFrX1FkNGpycGVBalhu?oc=5",
-          "source": "Goal.com",
-          "published": "2026-09-19"
+          "apiId": 30418,
+          "number": 95,
+          "name": "Pierluigi Gollini",
+          "pos": "G"
+        },
+        {
+          "apiId": 1807,
+          "number": 5,
+          "name": "Evan Ndicka",
+          "pos": "D"
+        },
+        {
+          "apiId": 162409,
+          "number": 3,
+          "name": "Konstantinos Koulierakis",
+          "pos": "D"
+        },
+        {
+          "apiId": 342019,
+          "number": 87,
+          "name": "Daniele Ghilardi",
+          "pos": "D"
+        },
+        {
+          "apiId": 30432,
+          "number": 15,
+          "name": "Marten de Roon",
+          "pos": "M"
+        },
+        {
+          "apiId": 356888,
+          "number": 61,
+          "name": "Niccolò Pisilli",
+          "pos": "M"
+        },
+        {
+          "apiId": 404097,
+          "number": 86,
+          "name": "Rodrigo Mora",
+          "pos": "M"
+        },
+        {
+          "apiId": 598615,
+          "number": 77,
+          "name": "Emanuele Lulli",
+          "pos": "D"
+        },
+        {
+          "apiId": 162452,
+          "number": 2,
+          "name": "Devyne Rensch",
+          "pos": "D"
+        },
+        {
+          "apiId": 311067,
+          "number": 9,
+          "name": "Santiago Castro",
+          "pos": "F"
+        },
+        {
+          "apiId": 782,
+          "number": 7,
+          "name": "Lorenzo Pellegrini",
+          "pos": "M"
         }
       ]
     },
@@ -3512,7 +3656,10 @@
       "shortName": null,
       "nickname": null,
       "logo": "https://media.api-sports.io/football/teams/505.png",
-      "colors": null,
+      "colors": {
+        "primary": "#edf3f7",
+        "secondary": "#edf3f7"
+      },
       "coach": {
         "apiId": 15642,
         "name": "Cristian Eugen Chivu",
@@ -3660,9 +3807,76 @@
           }
         ]
       },
-      "formation": "n/d",
+      "formation": "3-5-2",
       "predictedXI": [],
-      "confirmedXI": null,
+      "confirmedXI": [
+        {
+          "apiId": 46988,
+          "number": 1,
+          "name": "Josep Martínez",
+          "pos": "G"
+        },
+        {
+          "apiId": 24953,
+          "number": 31,
+          "name": "Yann Bisseck",
+          "pos": "D"
+        },
+        {
+          "apiId": 5,
+          "number": 25,
+          "name": "Manuel Akanji",
+          "pos": "D"
+        },
+        {
+          "apiId": 31009,
+          "number": 95,
+          "name": "Alessandro Bastoni",
+          "pos": "D"
+        },
+        {
+          "apiId": 270509,
+          "number": 17,
+          "name": "Andy Diouf",
+          "pos": "M"
+        },
+        {
+          "apiId": 30558,
+          "number": 23,
+          "name": "Nicolò Barella",
+          "pos": "M"
+        },
+        {
+          "apiId": 329,
+          "number": 7,
+          "name": "Piotr Zieliński",
+          "pos": "M"
+        },
+        {
+          "apiId": 293,
+          "number": 21,
+          "name": "Curtis Jones",
+          "pos": "M"
+        },
+        {
+          "apiId": 31010,
+          "number": 32,
+          "name": "Federico Dimarco",
+          "pos": "M"
+        },
+        {
+          "apiId": 21509,
+          "number": 9,
+          "name": "Marcus Thuram",
+          "pos": "F"
+        },
+        {
+          "apiId": 217,
+          "number": 10,
+          "name": "Lautaro Martínez",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "apiId": 91488,
@@ -7066,39 +7280,39 @@
       ],
       "newsCandidates": [
         {
-          "title": "Serie A: Roma vs. Inter – probable line-ups, where to watch on TV",
-          "url": "https://football-italia.net/serie-a-roma-inter-probable-line-ups-watch-tv/",
+          "title": "Serie A Liveblog: Roma-Inter, Bologna-Torino, Udinese-Cagliari, Venezia-Lazio",
+          "url": "https://football-italia.net/serie-a-live-roma-inter-bol-tor-ud-cag-ven-laz/",
           "source": "Football Italia",
           "published": "2026-09-19"
         },
         {
-          "title": "Today’s Papers – Roma threaten Inter, Mancini’s Italy debutants",
-          "url": "https://football-italia.net/todays-papers-roma-threaten-inter-mancini-deb/",
+          "title": "D’Amico: ‘Roma motivated by Inter clash, worked quickly for Balerdi’",
+          "url": "https://football-italia.net/damico-roma-motivated-by-inter-clash-balerdi/",
           "source": "Football Italia",
           "published": "2026-09-19"
         },
         {
-          "title": "Italy and Inter legend Mazzola dies at 83",
-          "url": "https://football-italia.net/italy-and-inter-legend-mazzola-dies-at-83/",
+          "title": "Serie A official line-ups: Roma vs. Inter",
+          "url": "https://football-italia.net/serie-a-official-line-ups-roma-vs-inter-wk5/",
           "source": "Football Italia",
           "published": "2026-09-19"
         },
         {
-          "title": "Mazzola: Marotta \"era l'Inter, ne custodiremo il ricordo\"",
-          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/19/mazzola-marotta-era-linter-ne-custodiremo-il-ricordo_dda44ca6-80e7-417f-a8b0-b2b13a62f4ed.html",
-          "source": "ANSA",
+          "title": "Gasperini faces his kryptonite against Inter after 10 consecutive defeats",
+          "url": "https://football-italia.net/gasperini-faces-kryptonite-inter-10-losses/",
+          "source": "Football Italia",
           "published": "2026-09-19"
         },
         {
-          "title": "Serie A: Roma-Inter in campo alle 18 DIRETTA",
-          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/19/serie-a-roma-inter-in-campo-alle-18-diretta_9dee726b-13e0-4040-b6f8-fa5250cb001f.html",
-          "source": "ANSA",
+          "title": "Official Roma squad list for big Serie A game vs. Inter",
+          "url": "https://football-italia.net/official-roma-squad-list-serie-a-game-v-inter/",
+          "source": "Football Italia",
           "published": "2026-09-19"
         },
         {
-          "title": "Mazzola: l'omaggio dell'Inter \"sei diventato la nostra storia\"",
-          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/19/mazzola-lomaggio-dellinter-sei-diventato-la-nostra-storia_3269ddbc-385a-42fe-a967-64bcde899512.html",
-          "source": "ANSA",
+          "title": "Nainggolan: I could still play for Roma or Inter, Monchi’s double game with me, Dzeko and Chelsea",
+          "url": "https://football-italia.net/nainggolan-play-roma-inter-monchi-chelsea/",
+          "source": "Football Italia",
           "published": "2026-09-19"
         },
         {
@@ -7108,10 +7322,84 @@
           "published": "2026-09-19"
         },
         {
-          "title": "AS Roma vs Inter Milan – Predicted lineup and team news",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQdmJBMl9TcTY5a0g3eGh5S0Zubnljb0xzdU01ZDJvWTVBbDR6eXc4TGIybTZ4RUVjelp0RHN3MVFieTFES0pjV2ZHZVBkbVBxU3YtY0pzeDBqRjRoX2JrZ1BXeWJqTnhjcVg2Xy1EU3F3cFNXZDFVdnc5Q2lXMjdwTS1OcnY?oc=5",
-          "source": "Yahoo Sports",
+          "title": "Figc: Abodi sul caso Malagò \"decida lo sport, spero di non intervenire\"",
+          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/19/figc-abodi-sul-caso-malago-decida-lo-sport-spero-di-non-intervenire_c206d3a8-7cb5-43b9-aa9d-aed29a852ea3.html",
+          "source": "ANSA",
           "published": "2026-09-19"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 31037,
+          "number": 49,
+          "name": "Ivan Provedel",
+          "pos": "G"
+        },
+        {
+          "apiId": 91488,
+          "number": 12,
+          "name": "Raffaele Di Gennaro",
+          "pos": "G"
+        },
+        {
+          "apiId": 2725,
+          "number": 28,
+          "name": "Benjamin Pavard",
+          "pos": "D"
+        },
+        {
+          "apiId": 10238,
+          "number": 30,
+          "name": "Carlos Augusto",
+          "pos": "D"
+        },
+        {
+          "apiId": 568287,
+          "number": 46,
+          "name": "Leonardo Bovio",
+          "pos": "D"
+        },
+        {
+          "apiId": 10077,
+          "number": 11,
+          "name": "Luís Henrique",
+          "pos": "F"
+        },
+        {
+          "apiId": 1457,
+          "number": 22,
+          "name": "Henrikh Mkhitaryan",
+          "pos": "M"
+        },
+        {
+          "apiId": 342230,
+          "number": 5,
+          "name": "Aleksandar Stanković",
+          "pos": "M"
+        },
+        {
+          "apiId": 348205,
+          "number": 8,
+          "name": "Petar Sučić",
+          "pos": "M"
+        },
+        {
+          "apiId": 275651,
+          "number": 14,
+          "name": "Ange-Yoan Bonny",
+          "pos": "F"
+        },
+        {
+          "apiId": 345808,
+          "number": 94,
+          "name": "Pio Esposito",
+          "pos": "F"
+        },
+        {
+          "apiId": 437678,
+          "number": 48,
+          "name": "Mattia Mosconi",
+          "pos": "F"
         }
       ]
     }

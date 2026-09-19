@@ -19,7 +19,14 @@
     "name": "Holstein-Stadion",
     "capacity": 15034,
     "city": "Kiel",
-    "notes": null
+    "notes": null,
+    "weather": {
+      "tempC": 16,
+      "condition": "ploaie ușoară",
+      "windKph": 18,
+      "precipitationMm": 0,
+      "forecastAt": "2026-09-19T16:14:45.441Z"
+    }
   },
   "referee": {
     "name": "Tom Bauer",
@@ -126,9 +133,76 @@
           }
         ]
       },
-      "formation": "n/d",
+      "formation": "4-1-4-1",
       "predictedXI": [],
-      "confirmedXI": null,
+      "confirmedXI": [
+        {
+          "apiId": 24952,
+          "number": 1,
+          "name": "T. Weiner",
+          "pos": "G"
+        },
+        {
+          "apiId": 420292,
+          "number": 32,
+          "name": "H. Sekine",
+          "pos": "D"
+        },
+        {
+          "apiId": 279450,
+          "number": 5,
+          "name": "N. Madsen",
+          "pos": "D"
+        },
+        {
+          "apiId": 41578,
+          "number": 26,
+          "name": "D. Zec",
+          "pos": "D"
+        },
+        {
+          "apiId": 420457,
+          "number": 40,
+          "name": "Leon Parduzi",
+          "pos": "D"
+        },
+        {
+          "apiId": 24965,
+          "number": 28,
+          "name": "J. Meffert",
+          "pos": "M"
+        },
+        {
+          "apiId": 349595,
+          "number": 11,
+          "name": "G. de Regt",
+          "pos": "M"
+        },
+        {
+          "apiId": 311376,
+          "number": 8,
+          "name": "G. Balzi",
+          "pos": "M"
+        },
+        {
+          "apiId": 433609,
+          "number": 15,
+          "name": "K. Davidsen",
+          "pos": "M"
+        },
+        {
+          "apiId": 204752,
+          "number": 20,
+          "name": "A. Kaprálik",
+          "pos": "M"
+        },
+        {
+          "apiId": 202514,
+          "number": 19,
+          "name": "P. Harres",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "apiId": 26263,
@@ -3514,6 +3588,18 @@
       ],
       "newsCandidates": [
         {
+          "title": "2. Bundesliga - Holstein Kiel 1-1 VfL Osnabrück",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQbWVsbGtlbWIwUWIyZU5seHZZLU5PbEdrd0RSWXpwMFJuSlFodHJIT185VEZLd2QtTHFXYkJaX2plZkVIQzZuOXFkc1RYcGJvOVRuUlVaemxDcFF4Nk9IdF9UcmJEQi1NVVUtdW9yMkF3QU9TVW93cUR4dTQzcDZxdU9LTTJGUDlSLXY0dlotMVM?oc=5",
+          "source": "OneFootball",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "Melhores momentos: Holstein Kiel 1 x 1 VfL Osnabruck (2.Bundesliga)",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNemhXWVBhVmNxWS1sSktISUNrUDNtMVhBcnlmNG9EczZhR3Y5ZS1KMUUwWkZ3LTJHVFU3TnFHUThZRnFCeU5FNVo3V1pfNTVUU3BiVUdjd1JSTWZmNEZlQTJYQTRQQi1NeUNzbE51M2h6ZVRuTlZod3RRNlJKNzZ4SEJmeE5oSnVwWjljWl9HSVBCcnVac2xRUUZ2dXhaNHJlOG8yUGVXTQ?oc=5",
+          "source": "OneFootball",
+          "published": "2026-09-19"
+        },
+        {
           "title": "Holstein Kiel v VfL Osnabruck Odds",
           "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxONWlZYjJHWU96aGNfUmxSNTMyVlRPX0tnaW5lNHVwMnlRNDNLa2JFME00Z3p2SnE5aDRiY1FxVEVJa2xXYWtGU3psblF6d3VsSEthd2o1eU1FYURJVC1jMTNta0djeFJVSktqd2lvUlYtUktlX3g3RUxkeG1PWkpRcERvdXB4VmRHcllyQjhSVGRkcEdBSGlGaDdSVDY?oc=5",
           "source": "FanDuel Sportsbook",
@@ -3526,40 +3612,84 @@
           "published": "2026-09-19"
         },
         {
-          "title": "Months-long investigation results in two arrested over elaborate scams",
-          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPeG1MazQ4RE1BaUV2eFNNR3RNdV9rZUZEc2tBRF9xcHNDcWZpQlJSTEg0UDNCR2NGeXZMT0lwdjI5OGZJQ0duNlRfMUd3cUFtMTdnRFFXRzdUcXJVRFdzbm9pb1hfNy1UWnc2eWFjME8tLW1iTjR5S3MtenlXS0M5Y01LczZUSHh6M2JfakRGNW1hMDVQYlUxcjgtaTJuVm95d2VSZmladGFtejhDSjdlaDVtTVZEWWpKTC1nTmFR0gHGAUFVX3lxTE9SNmtyemViek5UUmxDd3B2TkFVb1haZUxDclZndGZDNEhzcFFHeFNObUFEcE8xLTJvUEVvUUlrOXFzSmtHejUxc0VYRFc4emlxNWZyNHZ0SVNISzJhbzVScm51ZzR0aW5lbTVGS0g2cEM3Z01oQlBoOFR4VGxNakgyX05OaG12V2hxRmowbVVsV2pFemRMbGNzV0tCSFdGc0RDbVF5RlVrZkRxUVFLaEFRY2hXaWl4WlNKbTBXZTNkWnQzZ090Zw?oc=5",
-          "source": "NBC Connecticut",
-          "published": "2026-09-18"
+          "title": "Confirmed 2. Bundesliga Lineups: Holstein Kiel vs. VfL Osnabrück",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPT205MEJac1ZhcTlsYTEyUlY4RlQyaXJveEt2MXp6SVRLWm14aERaYVBhbnZFVXhfbzBmbzRZT0lkRWljVl85TXh5dHVad2MxVmthcUYxQWJHcl9vbVlEQ3Y3NmtJdDQ4LXdhZEdTdnB3ZlRxZG1GS1VNdFQtbXMxaUNSTmdXUQ?oc=5",
+          "source": "Bulinews",
+          "published": "2026-09-19"
         },
         {
-          "title": "Heider SV - FC Kilia Kiel, 19/09/2026 - Oberliga Schleswig-Holstein - Match sheet",
-          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1Eb2Z3czM1SWxQeDRqdkJaYmxnRGJDRHdnRFJPQWZMTU4tWXJxQmdZVE1qNDF2TndGeGhJWWZqSDZnVFd3dkJDU2RaNEFNV1o0RU9UUHVKMk5PbERDZlZGVEc2T3VieGtMVmUtUmhadVhxLW1iUjBNNQ?oc=5",
+          "title": "2. Bundesliga: Osnabrück deny Kiel first win of the season",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE01UVpJYTZvTDRDRk14TDNkNzNZQUZzeEpUeGVXaDRSV3NrQm5jdDhuZl9fNDFKdGlhbWwtdHRFbWFRMGMxbEl1QmxRbU1CQVFGNG80WlUwS0wzU1IydmdqYmdHMTgxWXJTMGRDTnlDNDhPZkUwRi04cEZqQm1SWkE?oc=5",
+          "source": "Bulinews",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "First League News: Dunav Ruse vs Botev Vratsa Confirmed Line-ups",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPYnFISmNMeGQwdFhOTFhSQTRFVUlTM2J2dWZnbmszbWdFTGtuTjZlYURoZG9ROTNMYUtrc2xZYlQwbFhwTDVxaXc0amNWQWlzMElQcGFaNjRDRWFRS2VvdzE1d2R2clBNeHIzcGx2bW0zaVZGdHVSMjZiYlg4bDVpdnhaYS1xUkp2VEpSTlRR?oc=5",
+          "source": "FootballPredictions.NET",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "Match Centre",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFB6dWdIN2RaSkc0RU9iMzZ0UG9INEhoQUtod3l0UUcxUVVJZC1yemZyXzE1cHo4aS1QSmNwajFiR3lSTnNtcUZXRXViNm1tRklIUl85c29YS0tYSG9xZ1JhTTVXWGNKMU9oMXNV?oc=5",
           "source": "Transfermarkt",
-          "published": "2026-09-18"
+          "published": "2026-09-19"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 8490,
+          "number": 9,
+          "name": "G. Kvilitaia",
+          "pos": "F"
         },
         {
-          "title": "Holstein Kiel - VfL Osnabrück Line-up: 2. Bundesliga Football",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOYlpTTXJYbG9MY2laTHRXVHJKbW9IN3ZxbEhRUk0waTBKaS1jSjNYa0hlNVlNNXhPOU9fX0xDdUlCSy1lVjZCMkhEUFo3c0w5c2ZwZl9YQ2xIVDUxeXBfa2FTR3BvcmJwQjUya1Z4RklpTVZKZDhQbTFBaGVrRnYzNFdyb1M1VU9PRHhfZU9xWnp2alR4WGdwdWtNT1FhSkE3blZKM0tkTlJ6REtqODBhc3YyUXZnZzAwWlZsRjhMekwzZw?oc=5",
-          "source": "TNT Sports",
-          "published": "2026-09-18"
+          "apiId": 14445,
+          "number": 13,
+          "name": "I. Nekić",
+          "pos": "D"
         },
         {
-          "title": "K. Friedrich",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1fUVNTU2hoUFVOUVNoVVRLUGxfZDBwOEdNSzRNRmtyMzlCV1BPa25xREg5SjNyMVBVUlg2aHBjOEcyV1VmNXhaYmc1Mk5GWDZzVGR2elBySG9XMU5WeGExNGhoV3NmTExoZHdlRFlrTU5GWGlXMDZB?oc=5",
-          "source": "Transfermarkt",
-          "published": "2026-09-18"
+          "apiId": 668434,
+          "number": 44,
+          "name": "Mark Richter Monserrat",
+          "pos": "M"
         },
         {
-          "title": "Bundesliga 2, Matchday 6 overview: High-flying Hertha Berlin to stay perfect?",
-          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQck4tVGZyc0g0d2ZGWXBRT0xhU1RYQ28zbWw2QU1MVGJOWEwxbDc1ZjNqVVZiRkJpaEMxYW5WdWExZnU1SDVYN2hnMVgySXlfVDZCLVVHOExJNUFIbURSNzVCbmFiYWpDY1c2eTRJNjBwVFk0VnI0OXdjUUJMSC1QQjBBSnR4VUZWMXZNc0RqR0F0V29odFZ0U3lvcW0wZ0VMejMySXRKQ1gwaUpvMllmTHR5Y1dmNko1YWdOdnpIZzZxd2lvS1FjM0UwY2V4QQ?oc=5",
-          "source": "bundesliga.com",
-          "published": "2026-09-18"
+          "apiId": null,
+          "number": 41,
+          "name": "Lio Rothenhagen",
+          "pos": "G"
         },
         {
-          "title": "SC Rapid Lübeck - VfR Neumünster, 19/09/2026 - Oberliga Schleswig-Holstein - Match sheet",
-          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9rUlEzb1ZaVjZ3WlQtUVA1OFRBUUtQM3dOOWZmOWJVQlRibDhvY0pxLU9CSzIxY2otUDRETEFZZ1F2MkJGN0RCd1JJdGswdzh6dWhDWmc0VHRkR3lHQVBGd0s0OUMyem82MndKbG9qbDFiVEdqT1VzWg?oc=5",
-          "source": "Transfermarkt",
-          "published": "2026-09-18"
+          "apiId": 424,
+          "number": 7,
+          "name": "S. Skrzybski",
+          "pos": "F"
+        },
+        {
+          "apiId": 625256,
+          "number": 30,
+          "name": "T. Tasdelen",
+          "pos": "M"
+        },
+        {
+          "apiId": 119002,
+          "number": 47,
+          "name": "J. Tolkin",
+          "pos": "D"
+        },
+        {
+          "apiId": 585302,
+          "number": 27,
+          "name": "I. Ugoh",
+          "pos": "M"
+        },
+        {
+          "apiId": 668433,
+          "number": 43,
+          "name": "T. Wiese",
+          "pos": "M"
         }
       ]
     },
@@ -3612,9 +3742,76 @@
           }
         ]
       },
-      "formation": "n/d",
+      "formation": "3-4-2-1",
       "predictedXI": [],
-      "confirmedXI": null,
+      "confirmedXI": [
+        {
+          "apiId": 287792,
+          "number": 32,
+          "name": "J. Krumrey",
+          "pos": "G"
+        },
+        {
+          "apiId": 374734,
+          "number": 27,
+          "name": "R. Fabinski",
+          "pos": "D"
+        },
+        {
+          "apiId": 25121,
+          "number": 24,
+          "name": "J. Müller",
+          "pos": "D"
+        },
+        {
+          "apiId": 67956,
+          "number": 25,
+          "name": "N. Wiemann",
+          "pos": "D"
+        },
+        {
+          "apiId": 24956,
+          "number": 31,
+          "name": "P. Kammerbauer",
+          "pos": "M"
+        },
+        {
+          "apiId": 15645,
+          "number": 15,
+          "name": "B. Jacobsen",
+          "pos": "M"
+        },
+        {
+          "apiId": 91186,
+          "number": 26,
+          "name": "F. Wagner",
+          "pos": "M"
+        },
+        {
+          "apiId": 203426,
+          "number": 42,
+          "name": "J. Gómez",
+          "pos": "M"
+        },
+        {
+          "apiId": 8959,
+          "number": 21,
+          "name": "A. Beck",
+          "pos": "M"
+        },
+        {
+          "apiId": 177688,
+          "number": 11,
+          "name": "R. Meißner",
+          "pos": "M"
+        },
+        {
+          "apiId": 535090,
+          "number": 22,
+          "name": "B. Riesselmann",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "apiId": 280413,
@@ -6601,52 +6798,108 @@
       ],
       "newsCandidates": [
         {
+          "title": "2. Bundesliga - Holstein Kiel 1-1 VfL Osnabrück",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQbWVsbGtlbWIwUWIyZU5seHZZLU5PbEdrd0RSWXpwMFJuSlFodHJIT185VEZLd2QtTHFXYkJaX2plZkVIQzZuOXFkc1RYcGJvOVRuUlVaemxDcFF4Nk9IdF9UcmJEQi1NVVUtdW9yMkF3QU9TVW93cUR4dTQzcDZxdU9LTTJGUDlSLXY0dlotMVM?oc=5",
+          "source": "OneFootball",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "Luis Díaz feels Bayern Munich yet to hit last season’s heights",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPUlNJQ0prVTh5aVNMbWstNWo1aU5lckF0WklCcHpkX3psWjk4QlZ5c05fQXl1ODBWeU1NTzdkUWFSa0xKeS0zTzFjek0tdXdLdzFTbERkRk55eTNOQkpmNDdXVWxiRVRxSG96cHltRERPeVZJYnBWRVVwVnAxTWxzSjI0ZXFudHo0Z05IR2RrdWw4MS1sbUh5WThjN1BKR1lrdVh4VkUzRDlYcHN3QlMtRHpyNXNvejAzRDJEcEt2dnRPb2l1NUpFNExR?oc=5",
+          "source": "Bavarian Football Works",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "Match Centre",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFB6dWdIN2RaSkc0RU9iMzZ0UG9INEhoQUtod3l0UUcxUVVJZC1yemZyXzE1cHo4aS1QSmNwajFiR3lSTnNtcUZXRXViNm1tRklIUl85c29YS0tYSG9xZ1JhTTVXWGNKMU9oMXNV?oc=5",
+          "source": "Transfermarkt",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "Confirmed 2. Bundesliga Lineups: Holstein Kiel vs. VfL Osnabrück",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPT205MEJac1ZhcTlsYTEyUlY4RlQyaXJveEt2MXp6SVRLWm14aERaYVBhbnZFVXhfbzBmbzRZT0lkRWljVl85TXh5dHVad2MxVmthcUYxQWJHcl9vbVlEQ3Y3NmtJdDQ4LXdhZEdTdnB3ZlRxZG1GS1VNdFQtbXMxaUNSTmdXUQ?oc=5",
+          "source": "Bulinews",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "2. Bundesliga: Osnabrück deny Kiel first win of the season",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE01UVpJYTZvTDRDRk14TDNkNzNZQUZzeEpUeGVXaDRSV3NrQm5jdDhuZl9fNDFKdGlhbWwtdHRFbWFRMGMxbEl1QmxRbU1CQVFGNG80WlUwS0wzU1IydmdqYmdHMTgxWXJTMGRDTnlDNDhPZkUwRi04cEZqQm1SWkE?oc=5",
+          "source": "Bulinews",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "Bremen - Augsburg",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFB6alJjLVlna0Vwdzg0SGVYOXdTbnl2VFQtaVpWZjJhcnJuaEZhRTBCVmVNR0k2Q2pJdGY4dHhpUUhxbmc4ZlFTVFFvTDZMYmJ1S2lfOVdGaXNSWHhpdmFrSm1pOHFPMVp2ZkZNVg?oc=5",
+          "source": "Bulinews",
+          "published": "2026-09-19"
+        },
+        {
           "title": "Holstein Kiel v VfL Osnabruck Odds",
           "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxONWlZYjJHWU96aGNfUmxSNTMyVlRPX0tnaW5lNHVwMnlRNDNLa2JFME00Z3p2SnE5aDRiY1FxVEVJa2xXYWtGU3psblF6d3VsSEthd2o1eU1FYURJVC1jMTNta0djeFJVSktqd2lvUlYtUktlX3g3RUxkeG1PWkpRcERvdXB4VmRHcllyQjhSVGRkcEdBSGlGaDdSVDY?oc=5",
           "source": "FanDuel Sportsbook",
           "published": "2026-09-19"
         },
         {
-          "title": "Holstein Kiel - VfL Osnabrück Line-up: 2. Bundesliga Football",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOYlpTTXJYbG9MY2laTHRXVHJKbW9IN3ZxbEhRUk0waTBKaS1jSjNYa0hlNVlNNXhPOU9fX0xDdUlCSy1lVjZCMkhEUFo3c0w5c2ZwZl9YQ2xIVDUxeXBfa2FTR3BvcmJwQjUya1Z4RklpTVZKZDhQbTFBaGVrRnYzNFdyb1M1VU9PRHhfZU9xWnp2alR4WGdwdWtNT1FhSkE3blZKM0tkTlJ6REtqODBhc3YyUXZnZzAwWlZsRjhMekwzZw?oc=5",
-          "source": "TNT Sports",
-          "published": "2026-09-18"
+          "title": "Melhores momentos: Holstein Kiel 1 x 1 VfL Osnabruck (2.Bundesliga)",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNemhXWVBhVmNxWS1sSktISUNrUDNtMVhBcnlmNG9EczZhR3Y5ZS1KMUUwWkZ3LTJHVFU3TnFHUThZRnFCeU5FNVo3V1pfNTVUU3BiVUdjd1JSTWZmNEZlQTJYQTRQQi1NeUNzbE51M2h6ZVRuTlZod3RRNlJKNzZ4SEJmeE5oSnVwWjljWl9HSVBCcnVac2xRUUZ2dXhaNHJlOG8yUGVXTQ?oc=5",
+          "source": "OneFootball",
+          "published": "2026-09-19"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 339230,
+          "number": 17,
+          "name": "L. Raimund",
+          "pos": "F"
         },
         {
-          "title": "Pre-match Greuther Fürth vs Magdeburg, 2. Bundesliga Round 6",
-          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBHbzFGLUxqN0M5d3VKNDJaZmp3YWJNU2JiZHp4VUViMXZJTFRpcC1QMVNVQUlXZmstN0I2cG1hbzVUSDdfRHU1WklQcHlHNlJQUzN3dWFUajUyV0s1dzc0NE9iUWQ2YUlzUEp5YlZ3Wkh0OGNCdXNjSVRMUWJxZw?oc=5",
-          "source": "BeSoccer Livescore",
-          "published": "2026-09-18"
+          "apiId": 363638,
+          "number": 19,
+          "name": "L. Opitz",
+          "pos": "M"
         },
         {
-          "title": "Andreas Stump",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQa1J2bVpBTFpCRkpzTzdpaXZ1Y0VTeWNfTjJiRkhNWl9zS0JyQWZ3eUhjVFEyTk50RlpGdTNhZWdOYVlGX210dnZPUzdkYzFZSGI4eXZPWjEyVjgwZ0hGSEFCRGhaYnJzeXpsN2FEMWg1VW5SYWlWbEZGMS1oV2dIc2FGT2dERlZZWl8yMHVUcl8?oc=5",
-          "source": "Transfermarkt",
-          "published": "2026-09-18"
+          "apiId": 202767,
+          "number": 8,
+          "name": "L. Münst",
+          "pos": "M"
         },
         {
-          "title": "VfL Wolfsburg - SV Darmstadt 98 prediction & tips 18.09.2026",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNSXpnUzBINExhNjJpMm5VN2J2MEpDQm5BelFnSXREUWd0b1lqNlNhQXd0SmdySFA3dmJrV0lIMTRfNXZjWEV3WDQ2eTM1Yk5od1k1UnNhenozMU5wQXU4NkEzTnJFRFZDTFFtRE9uX2JfR1BBMFdMVHFDVzhQcVRXRVctcVVOZ3V6eXdzUWFVTXo2Rk9taHk0QWlKbw?oc=5",
-          "source": "Transfermarkt",
-          "published": "2026-09-18"
+          "apiId": 191101,
+          "number": 23,
+          "name": "T. Lesueur",
+          "pos": "F"
         },
         {
-          "title": "2. Bundesliga Preview: Holstein Kiel vs. VfL Osnabrück",
-          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9oaVJ3bldWU3NNdUllRjhnX1FWbkR5aElSdTJmZ1lBYnU0aG5jNm03UVdCeXRMckVvMGxSUllFSzVoOWhSTGNjTXgxWlFyU0FmTjJock1nelBLY2UzR1ljbi1YeFpqMVVOcnRTcmlCS0dSNnptQ2s1Uw?oc=5",
-          "source": "Bulinews",
-          "published": "2026-09-18"
+          "apiId": 25530,
+          "number": 7,
+          "name": "D. Kyereh",
+          "pos": "M"
         },
         {
-          "title": "Ilja Timofejew",
-          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9zQ0hxUTlCbEJDczltRXZsV05tY19aRUZtNDhqNHFtRnl3Y2xscUw1d09oYzZUVFZwYnF4MVpWSnFXS1JyaDBIVDRPbzhiYTRXNVlIeWFGUEM5by1VVDU4dk1Qdm5WWDZkTVJERU5wcEV3dmFhR0E?oc=5",
-          "source": "Transfermarkt",
-          "published": "2026-09-17"
+          "apiId": 373784,
+          "number": 20,
+          "name": "T. Janotta",
+          "pos": "D"
         },
         {
-          "title": "Holstein Kiel - VfL Osnabrück Live - 2. Bundesliga: Football Scores & Highlights - 19/09/2026",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNMVR0RFJQRmMtb1VqMjJ1aEN0UGJNQW9hS0Y2NWltUFNsMS1MOGZXZUZ5M2VJN0dxTUZFZ2VReVZUSDJ1T09pbzVwRk42dkwzRk5HMXNPRmVYXzI4WXZzdUdKZnZ2RmdSeWdvbmJPNHhGV1g3TlVYQ0FnMWxkWHNMZFI5TFBoMkM1MHp4TkoxNnhaTjlIVUdrbWhaN1A5WGdSek1xOE1yd2tCM1RoYUlDU2VB?oc=5",
-          "source": "TNT Sports",
-          "published": "2026-09-17"
+          "apiId": 178092,
+          "number": 28,
+          "name": "K. Faber",
+          "pos": "D"
+        },
+        {
+          "apiId": 26591,
+          "number": 4,
+          "name": "J. Abu Hanna",
+          "pos": "D"
+        },
+        {
+          "apiId": 203297,
+          "number": 1,
+          "name": "N. Sauter",
+          "pos": "G"
         }
       ]
     }

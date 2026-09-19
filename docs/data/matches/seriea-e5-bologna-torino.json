@@ -112,7 +112,10 @@
       "shortName": null,
       "nickname": null,
       "logo": "https://media.api-sports.io/football/teams/500.png",
-      "colors": null,
+      "colors": {
+        "primary": "#00376f",
+        "secondary": "#00376f"
+      },
       "coach": {
         "apiId": 3081,
         "name": "Domenico Tedesco",
@@ -189,9 +192,76 @@
           }
         ]
       },
-      "formation": "n/d",
+      "formation": "3-4-3",
       "predictedXI": [],
-      "confirmedXI": null,
+      "confirmedXI": [
+        {
+          "apiId": 2998,
+          "number": 1,
+          "name": "Łukasz Skorupski",
+          "pos": "G"
+        },
+        {
+          "apiId": 416062,
+          "number": 5,
+          "name": "Eivind Helland",
+          "pos": "D"
+        },
+        {
+          "apiId": 39254,
+          "number": 14,
+          "name": "Torbjørn Heggem",
+          "pos": "D"
+        },
+        {
+          "apiId": 204043,
+          "number": 3,
+          "name": "Arthur Theate",
+          "pos": "D"
+        },
+        {
+          "apiId": 128461,
+          "number": 20,
+          "name": "Nadir Zortea",
+          "pos": "M"
+        },
+        {
+          "apiId": 44814,
+          "number": 19,
+          "name": "Lewis Ferguson",
+          "pos": "M"
+        },
+        {
+          "apiId": 31273,
+          "number": 4,
+          "name": "Tommaso Pobega",
+          "pos": "M"
+        },
+        {
+          "apiId": 134,
+          "number": 33,
+          "name": "Juan Miranda",
+          "pos": "M"
+        },
+        {
+          "apiId": 873,
+          "number": 10,
+          "name": "Federico Bernardeschi",
+          "pos": "F"
+        },
+        {
+          "apiId": 30440,
+          "number": 91,
+          "name": "Roberto Piccoli",
+          "pos": "F"
+        },
+        {
+          "apiId": 30438,
+          "number": 28,
+          "name": "Nicolò Cambiaghi",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "apiId": 616142,
@@ -3567,52 +3637,144 @@
       ],
       "newsCandidates": [
         {
-          "title": "Serie A: Bologna-Torino in campo alle 15 DIRETTA",
-          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/19/serie-a-bologna-torino-in-campo-alle-15-diretta_954b8c86-5aa6-4155-a2a1-d15f5a629045.html",
+          "title": "Serie A Liveblog: Roma-Inter, Bologna-Torino, Udinese-Cagliari, Venezia-Lazio",
+          "url": "https://football-italia.net/serie-a-live-roma-inter-bol-tor-ud-cag-ven-laz/",
+          "source": "Football Italia",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "Serie A | Bologna 1-1 Torino: Palladino debut ruined by Skorupski howler",
+          "url": "https://football-italia.net/serie-a-bologna-1-1-torino-palladino-debut/",
+          "source": "Football Italia",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "Serie A: Pari tra Bologna e Torino, i rossoblù fischiati al Dall'Ara",
+          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/19/serie-a-pari-tra-bologna-e-torino-i-rossoblu-fischiati-al-dallara_954b8c86-5aa6-4155-a2a1-d15f5a629045.html",
           "source": "ANSA",
           "published": "2026-09-19"
         },
         {
-          "title": "Contrasting wins put Canada in the driving seat on Road to Bologna",
-          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBDRks3ckR1ZUxFbzU2RmtxOXRoalFRMGtZQTlYVjVmWWcxTV90Z2h6OU5mRnJNbjZYSGZ0d2RZdV8yRTRFUFkwS2tZYUtUdURiS3Y0SmVOM2RINWl3M01FTmNhNUJMR2R2WjRZSHdKem1lekFmdm0tMEpaYw?oc=5",
-          "source": "Davis Cup",
+          "title": "Serie A: il Cagliari passa a Udine grazie a Maldini, il Torino ferma il Bologna 1-1",
+          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/19/serie-a-il-cagliari-passa-a-udine-grazie-a-maldini-il-torino-ferma-il-bologna-1-1_ca97cbbb-3671-41d6-bdbc-20acbdd625df.html",
+          "source": "ANSA",
           "published": "2026-09-19"
         },
         {
-          "title": "Bologna boss praises Ferguson after Rangers link - gossip",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPQWFKTTgzWGdLUzV5Tk9Eek1fVS1qQlRYbTdFTGJIN1pocmZCaEVWNUtUR2s4TkhDeVNVd2hxLURBeS13Y3JvQ1VTQmlWd2Mycko2T0tvOExybnJDcnJqdTlicW00b2prYXRFaTlnMVlpcXNMd09ablFwc0JBSURqb2FzSjRoNGs2?oc=5",
-          "source": "AOL.com",
+          "title": "Bologna-Torino 1-1 LIVE: Skorupski error, first Serie A goal for Kulenovic",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPbjJ1eldtQ1lDR2V6X2hYeG9lTjJBNlV5UFFOeDlxSk5SODBzLVVMdUFjWmJGT09RcDdSQzUyZlRpZDVleG5LZ1dUNnhMaXNWUzBFZGVzdWlKYzl1VEtSWWxIY3I2TXU1Z0pXSk5nWjZBN1VHWEhaNzdUbDZxNTFVOG9jWGFuY3RCZnVydzB5WDlPRXdQSi1HZ1pLVUU0VzU1VXBpQnYzemxXNXhfQnF0WlFDWmVSWWVyOFU3R1JTdw?oc=5",
+          "source": "Goal.com",
           "published": "2026-09-19"
         },
         {
-          "title": "Bologna vs Torino",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQMjF0dW5nTzhGYmstNURQNGdubTdhRm5XUVZnLVFkRWd1VVhhYU0weC0wNkdoeXVmZ1BQRnZfaXl4U0RhODZKNk9oNDlXUEV5dTlNWGNGZU1VQ2tpallnR0NLdUIyZFNLUHh5T3FrZ0k5ZF9GdVJYcUlJaU9PX2FNT2hJZ00?oc=5",
-          "source": "beIN SPORTS",
+          "title": "🔴 Bologna 1-0 Torino | Bernardeschi goal, Palladino ahead at half-time",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQd2ozTlAzVW9MdU40YU9MTmNLV2twVkhPclFMVkxQT0pHNjVScEhybmo2cmt1ZDYwR2xoM3pXcTd4SnNSRXpZelBYaXVDVElsTG9yR2ExS3h3RGgxTzI2R3lERFFWM2tadER0NHR1aWZkdEExR045cnA3bGpsRU9NX3ZXSTdrdW45bGVqZkZoVU5KTEc2aERBRWpnWXQ2THZoVVFxX3ZHck1YQQ?oc=5",
+          "source": "OneFootball",
           "published": "2026-09-19"
         },
         {
-          "title": "Bologna vs Torino Predictions, Bet Builder Tips, Lineups, Odds",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQXzhja096SGRreUMzNWxjSUVWNkR5MHN4Zm1WaV92QzRoOXlMVUlCN1VITVZkSENCTlg3OERIdkplQi0xU3dnU0xTTFVzd0ZTQl9Id1dRV2REbkNrQ0ZkRjM0bXRaVjJLSk14bE5XbDR4eGdKemE5VWZQcXVCSTlPSWRDWktubjBoclJLa0dhUU8ySG1tclZSZEVBd25qUU5mVWdOMmV2TUIzLXU5Z0FqSQ?oc=5",
+          "title": "Bologna vs Torino Confirmed Lineups",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOazhaenAxMGszOVVKanQ5TDlOX19TRHl2WWpabUdqeENoYW1WWGxVaklidy0tRzBvd2NjbWRqLUZ5eGFDWjVOOUtPYzdqcFlObHc3Q1RlV1FCbVBWcEpOYnkyZzI5eC11RWs5UHp1YmRTWnMxN3Nrend5Ylp0OTIzMV9kRlFMTlVtV2lZcmREaU5Jd2FFS2hYc053R2N2ZEc2d0pyMEhFY21Ib29CWlhMV1FRYw?oc=5",
           "source": "WhoScored.com",
           "published": "2026-09-19"
         },
         {
-          "title": "Bologna welcome back Orsolini: it will be a rotation with Bernardeschi against Torino",
-          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxONGxMVnlJMV9NbVpsTkNSU3hUOEhUUXNSSkwwMk4yZkFBazVXX1ZqeldpdDVURXBaTUJuWVRlUU9aYS1DVU03Mi1IeGhjSHBBNWpaNUh2cXBmcmZ5NWlsRUpiR0tUbXN0OFE5YWZpRnJZM1lBRWg0Zy1xVk94OFR0U2NVdEZVckNZLVhzTjFOSmZkMTBITk5UVm9jUjJmVGIwcEU1UGlrR3pEc3J1OUphODdqNzYzbWp4TFZFY0pUWEdWT0dsS0x6bGdIMDc3RWlRWlJZ0gHYAUFVX3lxTE5sQ19BUlpTTHF3cVdZeE5aaENnaktnV3poRWhCcm1ldWpsZjhqZ04xck15UjNHNU1Sd1JYMFhiRWM1MWJCSGU3RmNfeFlzN3RfZjNqOGxhb3l4bnhaV3Z0UmhSZllCTjZnU3ZCU0d3UDJVSlBVUkxha3ItSWJFYTYyU0RfNnEwX1FCSXZEb0N6cEYxYm9IMUo1UWVnTXFCOFRhelJFV0xBcFJLYmlYemRxdHdSRjc3MHdZZWFSd1FjLTI3a3FyNnpLZDBiRl9Ob2tiSDRqV2xRMQ?oc=5",
-          "source": "La Gazzetta dello Sport",
+          "title": "Bologna - Torino 2-0",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPTmxJNnRwNXgyZnh2cnpocjRyM2RmWnpaN3BlTWFTVmRTbkgtNHY0RlMtRE5sTDBwMlhwUmk0R3VHWFFDR1FRM2Mwak1SZVBRRjUwOWtzSkwwM0ZuWUx5MFpaOURWeUFxTlNaMTFrWDJKSXZUZlA4bHBONnlWMWRvZzRfbWtiYV9zbmNLMFhqS3VyLXlEWFZ4eHhLek9VWkhWNTRGa2pHYnJHRjZHM3AyNEdpeTlFV2hwbFE?oc=5",
+          "source": "Flashscore.com",
           "published": "2026-09-19"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 30498,
+          "number": 29,
+          "name": "Lorenzo De Silvestri",
+          "pos": "D"
         },
         {
-          "title": "Watch Cruz vs. Bravo: Weigh-In Live Stream Online | DAZN BE",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNZTJxN2RDS2ZQcjBiV1loME9ISlBLRkQtSkQ2a0ZGV0d6aVQ4Y09WblhiZnhPNFlXcF9WUGRwNTFOUDRselBnejkzbzg5TEpUekY0XzRMR2tGNHVhQVlHd2plOGVPUUdmSDM4OER6RmJyOUJHNk9qWlIweXJUNTEtQW45WmI1ZmVfYk9F?oc=5",
-          "source": "DAZN",
-          "published": "2026-09-19"
+          "apiId": 30542,
+          "number": 21,
+          "name": "Jens Odgaard",
+          "pos": "F"
         },
         {
-          "title": "Bologna vs Torino Prediction and Betting Tips | September 19th 2026",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQN1FrSTJtc0w0S3pjazZoWG5sYXQ1bktqWFdHYUFaUnhRWXlzUFAyZE9hTTJDT2NQa2ZiWERlN2ZPZnlfS1FMVHZ5ajhrV0dyQVRUSDc5Ymh2SXJXNkxiZC1hVldfbzBDbDdvZVhWVHdVZ2RJRFhoeVJzZ1d5MGJmQ25DOFBDRVpLZ0ltRFkwS2d2OG5teTROQ0E3aXo0S28?oc=5",
-          "source": "Sportskeeda",
-          "published": "2026-09-19"
+          "apiId": 30488,
+          "number": 7,
+          "name": "Riccardo Orsolini",
+          "pos": "F"
+        },
+        {
+          "apiId": 1322,
+          "number": 6,
+          "name": "Nikola Moro",
+          "pos": "M"
+        },
+        {
+          "apiId": 47985,
+          "number": 2,
+          "name": "Emil Holm",
+          "pos": "D"
+        },
+        {
+          "apiId": 446089,
+          "number": 25,
+          "name": "Massimo Pessina",
+          "pos": "G"
+        },
+        {
+          "apiId": 416518,
+          "number": 72,
+          "name": "Ukko Happonen",
+          "pos": "G"
+        },
+        {
+          "apiId": 295223,
+          "number": 23,
+          "name": "Abdel Rahim",
+          "pos": "D"
+        },
+        {
+          "apiId": 287564,
+          "number": 41,
+          "name": "Martin Vitík",
+          "pos": "D"
+        },
+        {
+          "apiId": 31099,
+          "number": 16,
+          "name": "Nicolò Casale",
+          "pos": "D"
+        },
+        {
+          "apiId": 426626,
+          "number": 8,
+          "name": "Mikel Amondarain",
+          "pos": "M"
+        },
+        {
+          "apiId": 606953,
+          "number": 18,
+          "name": "Marco Libra",
+          "pos": "D"
+        },
+        {
+          "apiId": 319919,
+          "number": 17,
+          "name": "Oussama El Azzouzi",
+          "pos": "M"
+        },
+        {
+          "apiId": 346866,
+          "number": 11,
+          "name": "Samuel Mbangula",
+          "pos": "F"
+        },
+        {
+          "apiId": 349185,
+          "number": 22,
+          "name": "Jay Enem",
+          "pos": "F"
         }
       ]
     },
@@ -3621,7 +3783,10 @@
       "shortName": null,
       "nickname": null,
       "logo": "https://media.api-sports.io/football/teams/503.png",
-      "colors": null,
+      "colors": {
+        "primary": "#680b22",
+        "secondary": "#680b22"
+      },
       "coach": {
         "apiId": 18109,
         "name": "I. Abate",
@@ -3708,9 +3873,76 @@
           }
         ]
       },
-      "formation": "n/d",
+      "formation": "3-5-2",
       "predictedXI": [],
-      "confirmedXI": null,
+      "confirmedXI": [
+        {
+          "apiId": 80296,
+          "number": 20,
+          "name": "Lucas Perri",
+          "pos": "G"
+        },
+        {
+          "apiId": 48372,
+          "number": 5,
+          "name": "Eray Cömert",
+          "pos": "D"
+        },
+        {
+          "apiId": 14329,
+          "number": 44,
+          "name": "Ardian Ismajli",
+          "pos": "D"
+        },
+        {
+          "apiId": 122468,
+          "number": 23,
+          "name": "Saúl Coco",
+          "pos": "D"
+        },
+        {
+          "apiId": 437093,
+          "number": 29,
+          "name": "Niccolò Fortini",
+          "pos": "M"
+        },
+        {
+          "apiId": 41892,
+          "number": 21,
+          "name": "Daniel Bragança",
+          "pos": "M"
+        },
+        {
+          "apiId": 30810,
+          "number": 8,
+          "name": "Rolando Mandragora",
+          "pos": "M"
+        },
+        {
+          "apiId": 36895,
+          "number": 28,
+          "name": "Kian Fitz-Jim",
+          "pos": "M"
+        },
+        {
+          "apiId": 471040,
+          "number": 77,
+          "name": "Alessio Cacciamani",
+          "pos": "M"
+        },
+        {
+          "apiId": 30414,
+          "number": 18,
+          "name": "Giovanni Simeone",
+          "pos": "F"
+        },
+        {
+          "apiId": 842,
+          "number": 10,
+          "name": "Nikola Vlašić",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "apiId": 56266,
@@ -7216,52 +7448,132 @@
       ],
       "newsCandidates": [
         {
-          "title": "Serie A: Bologna-Torino in campo alle 15 DIRETTA",
-          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/19/serie-a-bologna-torino-in-campo-alle-15-diretta_954b8c86-5aa6-4155-a2a1-d15f5a629045.html",
+          "title": "Serie A Liveblog: Roma-Inter, Bologna-Torino, Udinese-Cagliari, Venezia-Lazio",
+          "url": "https://football-italia.net/serie-a-live-roma-inter-bol-tor-ud-cag-ven-laz/",
+          "source": "Football Italia",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "Serie A | Bologna 1-1 Torino: Palladino debut ruined by Skorupski howler",
+          "url": "https://football-italia.net/serie-a-bologna-1-1-torino-palladino-debut/",
+          "source": "Football Italia",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "Serie A: Pari tra Bologna e Torino, i rossoblù fischiati al Dall'Ara",
+          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/19/serie-a-pari-tra-bologna-e-torino-i-rossoblu-fischiati-al-dallara_954b8c86-5aa6-4155-a2a1-d15f5a629045.html",
           "source": "ANSA",
           "published": "2026-09-19"
         },
         {
-          "title": "Bolonia vs Torino: previous stats | Serie A 2026/2027",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOWHdLX18tVlpDdERuNXRod3lWenBmREx6NG5Ib2M3SFM1TldaM3FWRHZQWXMwSG5BLWRCeXc2UmlMaUVBM3B2VnF4UjJQU0ktZElscVNUZUE4Z1lUQVpoVTlpNEVqTGY1VWFTT21NT0dscTV6cTUwczJpd3o5ck80SHd3MnctYzFkeU4yeUNzZE01UWc?oc=5",
-          "source": "en.as.com",
+          "title": "Serie A: il Cagliari passa a Udine grazie a Maldini, il Torino ferma il Bologna 1-1",
+          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/19/serie-a-il-cagliari-passa-a-udine-grazie-a-maldini-il-torino-ferma-il-bologna-1-1_ca97cbbb-3671-41d6-bdbc-20acbdd625df.html",
+          "source": "ANSA",
           "published": "2026-09-19"
         },
         {
-          "title": "Bologna vs Torino",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQMjF0dW5nTzhGYmstNURQNGdubTdhRm5XUVZnLVFkRWd1VVhhYU0weC0wNkdoeXVmZ1BQRnZfaXl4U0RhODZKNk9oNDlXUEV5dTlNWGNGZU1VQ2tpallnR0NLdUIyZFNLUHh5T3FrZ0k5ZF9GdVJYcUlJaU9PX2FNT2hJZ00?oc=5",
-          "source": "beIN SPORTS",
+          "title": "Mazzola: Susanna Egri e il Grande Torino, 'ricordo Sandro bimbo con papà Valentino'",
+          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/19/mazzola-susanna-egri-e-il-grande-torino-ricordo-sandro-bimbo-con-papa_5d886e52-b1c0-43a3-bf9c-fdc796ea14d6.html",
+          "source": "ANSA",
           "published": "2026-09-19"
         },
         {
-          "title": "Bologna vs Torino Predictions, Bet Builder Tips, Lineups, Odds",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQXzhja096SGRreUMzNWxjSUVWNkR5MHN4Zm1WaV92QzRoOXlMVUlCN1VITVZkSENCTlg3OERIdkplQi0xU3dnU0xTTFVzd0ZTQl9Id1dRV2REbkNrQ0ZkRjM0bXRaVjJLSk14bE5XbDR4eGdKemE5VWZQcXVCSTlPSWRDWktubjBoclJLa0dhUU8ySG1tclZSZEVBd25qUU5mVWdOMmV2TUIzLXU5Z0FqSQ?oc=5",
+          "title": "Bologna-Torino 1-1 LIVE: Skorupski error, first Serie A goal for Kulenovic",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPbjJ1eldtQ1lDR2V6X2hYeG9lTjJBNlV5UFFOeDlxSk5SODBzLVVMdUFjWmJGT09RcDdSQzUyZlRpZDVleG5LZ1dUNnhMaXNWUzBFZGVzdWlKYzl1VEtSWWxIY3I2TXU1Z0pXSk5nWjZBN1VHWEhaNzdUbDZxNTFVOG9jWGFuY3RCZnVydzB5WDlPRXdQSi1HZ1pLVUU0VzU1VXBpQnYzemxXNXhfQnF0WlFDWmVSWWVyOFU3R1JTdw?oc=5",
+          "source": "Goal.com",
+          "published": "2026-09-19"
+        },
+        {
+          "title": "Bologna vs Torino Confirmed Lineups",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOazhaenAxMGszOVVKanQ5TDlOX19TRHl2WWpabUdqeENoYW1WWGxVaklidy0tRzBvd2NjbWRqLUZ5eGFDWjVOOUtPYzdqcFlObHc3Q1RlV1FCbVBWcEpOYnkyZzI5eC11RWs5UHp1YmRTWnMxN3Nrend5Ylp0OTIzMV9kRlFMTlVtV2lZcmREaU5Jd2FFS2hYc053R2N2ZEc2d0pyMEhFY21Ib29CWlhMV1FRYw?oc=5",
           "source": "WhoScored.com",
           "published": "2026-09-19"
         },
         {
-          "title": "Bologna vs Torino Prediction and Betting Tips | September 19th 2026",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQN1FrSTJtc0w0S3pjazZoWG5sYXQ1bktqWFdHYUFaUnhRWXlzUFAyZE9hTTJDT2NQa2ZiWERlN2ZPZnlfS1FMVHZ5ajhrV0dyQVRUSDc5Ymh2SXJXNkxiZC1hVldfbzBDbDdvZVhWVHdVZ2RJRFhoeVJzZ1d5MGJmQ25DOFBDRVpLZ0ltRFkwS2d2OG5teTROQ0E3aXo0S28?oc=5",
-          "source": "Sportskeeda",
+          "title": "Palladino’s Bologna start again with a draw: 1-1 against Torino amid boos",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUzczc1djNTc5V2N4ODB6R3FSVTVqM3A2M1FCSzhVcFBpbG1LWFhfMUVTMkdQcVFYTXFQUS1ndHc3NzN2YzRZdUczZHhNM1U5NXllZlYzV3JrcW5uTGlXcWNFSm9ra3NXZ1NRWW1wM2h6RUU1VmdvZmdPZnNoX21ucmE3RXBYajhxVTlocTZwR0tnYVhOT1hfTWtNM25aSEM5UGs4dGpPcDZQZTlHMHpTY0xscno5dw?oc=5",
+          "source": "Goal.com",
           "published": "2026-09-19"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 138417,
+          "number": 2,
+          "name": "Nathan Patterson",
+          "pos": "D"
         },
         {
-          "title": "Bologna vs Torino Prediction, Betting Tips, Lineups & Odds | 19 Sep 2026",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdmlkRjNKZUVOWG1SZG9zZzJlRFFSbVpzTjJ5ZXZCeUplMFRXSmdKelUwN1Z1d3NKMnU4VWZwRktXTm9rdzBWM2UxOER0YXZFSGp2YlJXSVY3bWdaMTc4dmxfRWhOa2RLQWR3TmppS2NfNWlsTTI3ejRXVTJvLTlab3czajVlX1c0Z2NKa1R5cjNWVTRRcGZQbUtCWjBBMkduVjRscENRSWw?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-09-19"
+          "apiId": 40405,
+          "number": 17,
+          "name": "Sandro Kulenović",
+          "pos": "F"
         },
         {
-          "title": "Lucas Perri defended as criticism of Leeds United loanee goes too far",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQZ3JURGU1YlRKOTNCQ250N3V2ZTc5UlFEMndnd0JPcWFQZTJSNHhOZGpuWUx2dnVsOWtMOVFmZm5vZzFLNTMzQ2phbF91UGpYaElwaEhwRkhEei1oOFRvMi1SQnlMX0twcXpSVGxjMUg2emJWYjdoZnlZeEVBbk5qT2JqdGJhbjM1XzRsdW1ianR0MFVobDIyaUZvVjhTQmRQa0E?oc=5",
-          "source": "MOT Leeds News",
-          "published": "2026-09-19"
+          "apiId": 303362,
+          "number": 45,
+          "name": "Rafik Belghali",
+          "pos": "D"
         },
         {
-          "title": "Bologna vs Torino Timeline: H2H Records & Stats",
-          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1lcDJLTnpiUjJ5VUJ3cmxJMDRYSTJhMnp5eXZuekctUVk4bFNoOTNZRTY1SVVJYXpsRmg2dVdnaG12X2ZrTmNkRXNXQlp0TDE3T01jN0x5U1hMRGZOc1QzYmF5ZFpWOVRBd3ZreE5lcG9SSkU2S0lIam5fSW0?oc=5",
-          "source": "Sportsdunia",
-          "published": "2026-09-19"
+          "apiId": 161859,
+          "number": 11,
+          "name": "Gaetano Oristanio",
+          "pos": "M"
+        },
+        {
+          "apiId": 336573,
+          "number": 6,
+          "name": "Emirhan İlkhan",
+          "pos": "M"
+        },
+        {
+          "apiId": 419871,
+          "number": 26,
+          "name": "Diego Mascardi",
+          "pos": "G"
+        },
+        {
+          "apiId": 565709,
+          "number": 76,
+          "name": "Lapo Siviero",
+          "pos": "G"
+        },
+        {
+          "apiId": 1631,
+          "number": 13,
+          "name": "Ricardo Rodríguez",
+          "pos": "D"
+        },
+        {
+          "apiId": 30396,
+          "number": 3,
+          "name": "Cristiano Biraghi",
+          "pos": "D"
+        },
+        {
+          "apiId": 396637,
+          "number": 15,
+          "name": "Pietro Comuzzo",
+          "pos": "D"
+        },
+        {
+          "apiId": 343189,
+          "number": 66,
+          "name": "Gvidas Gineitis",
+          "pos": "M"
+        },
+        {
+          "apiId": 243,
+          "number": 7,
+          "name": "Zakaria Aboukhlal",
+          "pos": "F"
+        },
+        {
+          "apiId": 2495,
+          "number": 91,
+          "name": "Duván Zapata",
+          "pos": "F"
         }
       ]
     }
