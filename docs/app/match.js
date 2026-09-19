@@ -1597,8 +1597,21 @@
     var last = parts[parts.length - 1];
     return parts.length > 1 ? parts[0].charAt(0) + '. ' + last : last;
   }
+  // A jersey number is not always unique within a squad (API-Football has
+  // shown two different players sharing a number, e.g. a fringe/injured
+  // reserve and the actual first-team player) -- matching on number alone
+  // then picking the first hit can silently show the WRONG player's card
+  // for a real predicted starter. apiId is the one truly unique identity
+  // key both predictedXI/confirmedXI slots and squad entries carry when
+  // known, so it takes priority; number/name stay as the fallback for
+  // manually-added players and slots without an apiId.
   function playerByNameOrNum(squad, slot) {
-    return (squad || []).filter(function (p) {
+    squad = squad || [];
+    if (slot.apiId != null) {
+      var byApiId = squad.filter(function (p) { return p.apiId != null && p.apiId === slot.apiId; })[0];
+      if (byApiId) return byApiId;
+    }
+    return squad.filter(function (p) {
       return (slot.number != null && p.number === slot.number) || p.name === slot.name;
     })[0] || { name: slot.name, number: slot.number, pos: slot.pos, role: 'MID' };
   }
