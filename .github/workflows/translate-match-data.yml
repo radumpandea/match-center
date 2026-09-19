@@ -10,6 +10,16 @@ name: Translate Match Data
 # session budget (which it used to share with, and occasionally collide
 # with, an interactive Claude Code session). Runs after Build Match Data so
 # there's something ready to translate; harmless if it finds nothing to do.
+# Only one run of this workflow executes at a time -- a second trigger
+# (schedule vs. a manual dispatch, or two manual dispatches close together)
+# queues behind the first instead of racing it. This narrows, but does not
+# by itself close, the race below: `actions/checkout` pins the commit as of
+# trigger time, not execution time, so a queued run can still start from a
+# stale main. The real fix is in the commit step.
+concurrency:
+  group: translate-match-data
+  cancel-in-progress: false
+
 on:
   schedule:
     - cron: "0 7 * * *"    # 07:00 UTC daily — after Build Match Data (06:00 UTC)
@@ -57,6 +67,25 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # A concurrent run (schedule vs. manual dispatch, or two manual
+          # dispatches) can start from the same stale main and pick the
+          # same "untranslated" slugs, since actions/checkout pins the
+          # commit as of trigger time, not execution time. If the other run
+          # already pushed a file at one of our paths by now, it's a brand
+          # new file on both sides with different content -- an add/add
+          # conflict `git pull --rebase` cannot auto-resolve, which failed
+          # a real run outright (detached HEAD, then a push with no branch
+          # to push from). Fetch first and drop our copy of anything the
+          # remote already has: the other run's translation wins, ours is
+          # a wasted duplicate, not a real conflict to resolve.
+          git fetch origin main
+          for f in docs/data/matches/*.i18n.json; do
+            [ -f "$f" ] || continue
+            if git cat-file -e "origin/main:$f" 2>/dev/null; then
+              echo "Dropping $f -- already present on origin/main (a concurrent run got there first)."
+              rm -f "$f"
+            fi
+          done
           git add docs/data/matches/*.i18n.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
