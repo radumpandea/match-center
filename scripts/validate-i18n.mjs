@@ -128,6 +128,11 @@ function validateFile(i18nPath) {
         const srcNews = (st.news || [])[i];
         checkTranslated(errors, warnings, `${lang}.teams.${side}.news[${i}]`, srcNews && srcNews.text, text);
       });
+      checkLen(errors, `${lang}.teams.${side}.pressQuotes`, st.pressQuotes, tt.pressQuotes);
+      (tt.pressQuotes || []).forEach((text, i) => {
+        const srcQuote = (st.pressQuotes || [])[i];
+        checkTranslated(errors, warnings, `${lang}.teams.${side}.pressQuotes[${i}]`, srcQuote && srcQuote.text, text);
+      });
       if (tt.stories !== undefined) {
         checkLen(errors, `${lang}.teams.${side}.stories`, st.stories, tt.stories);
         (tt.stories || []).forEach((s, i) => {

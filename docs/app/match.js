@@ -662,6 +662,9 @@
       (team.news || []).forEach(function (n, i) {
         field(n, 'text', tt && tt.news && tt.news[i]);
       });
+      (team.pressQuotes || []).forEach(function (q, i) {
+        field(q, 'text', tt && tt.pressQuotes && tt.pressQuotes[i]);
+      });
       (team.stories || []).forEach(function (s, i) {
         var ts = tt && tt.stories && tt.stories[i];
         field(s, 'title', ts && ts.title);
@@ -1990,6 +1993,23 @@
         if (!parts.length) return el('div', { text: t('common.na') });
         var wrap = el('div');
         parts.forEach(function (p) { wrap.appendChild(p); });
+        return wrap;
+      })));
+    }
+
+    // Press conference quotes (deep/premium packs only)
+    var anyPressQuotes = ['home', 'away'].some(function (s) { return (d.teams[s].pressQuotes || []).length; });
+    if (anyPressQuotes) {
+      add('pressQuotes', panel(t('panel.pressQuotes'), twoCol(d, function (tm) {
+        var quotes = tm.pressQuotes || [];
+        if (!quotes.length) return el('div', { text: t('common.na') });
+        var wrap = el('div', { class: 'press-quotes' });
+        quotes.forEach(function (q) {
+          wrap.appendChild(el('div', { class: 'press-quote' }, [
+            el('p', { class: 'pq-text', text: '„' + q.text + '"' }),
+            el('div', { class: 'pq-byline', text: [q.speaker, q.role].filter(has).join(', ') + (has(q.date) ? '  ·  ' + q.date : '') })
+          ]));
+        });
         return wrap;
       })));
     }

@@ -148,7 +148,10 @@ The 7500/day Pro quota is guarded by a per-run budget of 1500 and a 250 ms throt
   `pronunciation` / `foot` / `height` for the whole realistic rotation, not just the XI),
   Opta-style tactical and statistical angles (set-piece %, goal-timing split, xG vs actual
   from Understat / FBref), 10–14 `storyOfTheMatch` lines, 3–4 `stories` per team, real
-  referee averages. For the match you are actually going to commentate.
+  referee averages, and `teams.<side>.pressQuotes[]` — 2-4 statements per team from that
+  match's own pre-match press conference (speaker, role, date, text), paraphrased or a
+  direct quote under 15 words per the skill's copyright rule. For the match you are
+  actually going to commentate.
 
 Both lanes take an optional `match:` slug (operate on exactly that pack instead of the
 auto-pick) and a `model:` override. Neither lane re-researches squads, form or H2H. The

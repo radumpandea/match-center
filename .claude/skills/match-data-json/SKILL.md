@@ -351,10 +351,23 @@ golgheterul de anul trecut vs acum, antrenor la primul sezon complet etc.
 **Mercato și pregătire complete.** `mercatoIn[]` / `mercatoOut[]` cu toate mișcările verii și
 sumele; `preseason[]` cu toate amicalele.
 
+**Declarații de la conferința de presă pre-meci.** `teams.<side>.pressQuotes[]` —
+2-4 declarații per echipă, de la conferința de presă premergătoare ACESTUI meci (de obicei
+cu o zi înainte), nu declarații vechi sau de la un alt meci. Surse: pagina oficială de presă
+a clubului, canalul YouTube/site-ul ligii, agregatoare specializate (GOAL, footmercato,
+transcrieri din presa sportivă locală). Fiecare intrare: `speaker` (nume complet), `role`
+(„antrenor", „căpitan" etc.), `date` (ziua conferinței), `text`. Prioritizează antrenorii
+ambelor echipe — temă meci, absențe, adversar; adaugă un jucător doar dacă a spus ceva
+concret și citabil (revenire, presiune, motivație). **Respectă regula de copyright de mai
+jos**: preferă parafraza faptelor din declarație; dacă păstrezi o formulare directă, sub 15
+cuvinte, un singur citat per sursă. Nu inventa o declarație și nu extinde una reală dincolo
+de ce a spus efectiv persoana — dacă nu găsești o conferință reală pentru acest meci, lasă
+`pressQuotes` gol, nu completa cu declarații generice.
+
 ## Pasul 3 — Limbă și ton
 
 Textul liber din JSON (`storyOfTheMatch`, `stories[].bullets`, `news[].text`, `funfact`,
-`linkLine`, `coach.career[].note`, `h2h.summary`) — implicit română, ton de comentator
+`linkLine`, `coach.career[].note`, `h2h.summary`, `pressQuotes[].text`) — implicit română, ton de comentator
 sportiv profesionist: concis, orientat spre fapte, propoziții complete, fără umplutură.
 Nu pune diacritice „stricate" — folosește UTF-8 corect (ș, ț, ă, â, î).
 

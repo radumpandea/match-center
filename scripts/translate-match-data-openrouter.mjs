@@ -106,6 +106,7 @@ function collectUnits(doc) {
       team.coach.career.forEach((c, i) => add(['teams', side, 'coach', 'career', i], c && c.note));
     }
     (team.news || []).forEach((n, i) => add(['teams', side, 'news', i], n && n.text));
+    (team.pressQuotes || []).forEach((q, i) => add(['teams', side, 'pressQuotes', i], q && q.text));
     (team.stories || []).forEach((s, i) => {
       add(['teams', side, 'stories', i, 'title'], s && s.title);
       (s && s.bullets ? s.bullets : []).forEach((b, j) => add(['teams', side, 'stories', i, 'bullets', j], b));
@@ -146,6 +147,7 @@ function buildSkeleton(doc) {
       t.coach = { career: team.coach.career.map(() => null) };
     }
     if (Array.isArray(team.news)) t.news = team.news.map(() => null);
+    if (Array.isArray(team.pressQuotes)) t.pressQuotes = team.pressQuotes.map(() => null);
     if (Array.isArray(team.stories)) {
       t.stories = team.stories.map((s) => ({
         title: null,

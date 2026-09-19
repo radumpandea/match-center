@@ -589,6 +589,21 @@
               "bullets": { "type": "array", "items": { "type": "string" } }
             }
           }
+        },
+        "pressQuotes": {
+          "type": "array",
+          "description": "statements from this team's pre-match press conference (deep/premium packs only) -- prefer a paraphrase; a direct quote must stay under 15 words per the accuracy rules' copyright limit",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["speaker", "text"],
+            "properties": {
+              "speaker": { "type": "string" },
+              "role": { "type": ["string", "null"], "description": "e.g. \"antrenor\", \"căpitan\"" },
+              "text": { "type": "string" },
+              "date": { "type": ["string", "null"], "description": "ISO date (YYYY-MM-DD) of the press conference" }
+            }
+          }
         }
       }
     },
