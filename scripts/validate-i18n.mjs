@@ -44,14 +44,24 @@ function checkStr(errors, label, val) {
   if (val != null && typeof val !== 'string') errors.push(`${label}: expected a string or null, got ${typeof val}`);
 }
 
-// Flags a translated string that's identical to the Romanian source --
-// almost certainly untranslated, not a real coincidence. `warnOnly` for
-// fields (career) where an unchanged string can be legitimate.
+// A byte-identical translated string is only reliable evidence of a
+// copy-through bug for genuine prose (a real, multi-word sentence). Short
+// strings -- category labels like "Marcatori"/"Forma" <club>, or an
+// English football loanword the Romanian source already used verbatim
+// ("clean sheets") -- routinely and correctly come out identical, since
+// Romanian shares vocabulary with Italian (both Romance languages) and
+// borrows football jargon straight from English. A production run hit
+// this exactly: every "error" in a 9-match batch was a short label like
+// "Marcatori Werder Bremen" or "0 clean sheets", not a real bug, and the
+// whole batch got discarded over it. `warnOnly` remains for fields
+// (career) where even a LONG unchanged string can be legitimate.
+const SHORT_STRING_MAX = 30;
 function checkTranslated(errors, warnings, label, srcVal, trVal, warnOnly) {
   if (typeof srcVal !== 'string' || typeof trVal !== 'string') return;
   if (!srcVal.trim() || !trVal.trim()) return;
   if (srcVal !== trVal) return;
-  (warnOnly ? warnings : errors).push(`${label}: identical to the Romanian source ("${srcVal.slice(0, 60)}${srcVal.length > 60 ? '…' : ''}") -- looks untranslated`);
+  const short = srcVal.length <= SHORT_STRING_MAX;
+  (warnOnly || short ? warnings : errors).push(`${label}: identical to the Romanian source ("${srcVal.slice(0, 60)}${srcVal.length > 60 ? '…' : ''}") -- looks untranslated`);
 }
 
 function checkTranslatedArray(errors, warnings, label, srcArr, trArr, warnOnly) {

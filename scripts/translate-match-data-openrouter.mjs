@@ -281,14 +281,19 @@ async function translateBatch(lang, batch, attempt = 1) {
 }
 
 // A translated string byte-identical to its Romanian source is almost
-// always a copy-through, except for `career` (club+year lists can be
-// legitimately unchanged) — see scripts/validate-i18n.mjs. One targeted
-// retry for the single flagged string before giving up; if it still comes
-// back unchanged, leave it as-is and let validate-i18n.mjs fail the file
-// loudly rather than silently shipping bad data.
+// always a copy-through -- except for `career` (club+year lists can be
+// legitimately unchanged) and short strings (a category label like
+// "Marcatori <club>" or an English football loanword the source already
+// used verbatim, e.g. "clean sheets", routinely IS the correct
+// translation) — see scripts/validate-i18n.mjs's matching SHORT_STRING_MAX.
+// One targeted retry for a flagged non-short string before giving up; if
+// it still comes back unchanged, leave it as-is and let validate-i18n.mjs
+// fail the file loudly rather than silently shipping bad data.
+const SHORT_STRING_MAX = 30;
 async function fixCopyThrough(lang, unit, translated) {
   if (unit.path[unit.path.length - 1] === 'career') return translated;
   if (translated !== unit.text || !unit.text.trim()) return translated;
+  if (unit.text.length <= SHORT_STRING_MAX) return translated;
   try {
     const arr = await translateBatch(lang, [unit]);
     return arr[0];
