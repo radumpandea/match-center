@@ -206,8 +206,16 @@ Calitatea în limita bugetului bate acoperirea exhaustivă.
    română, parafrazat (fără citate lungi). Verifică rapid titlul la sursă dacă e ambiguu.
    Poți adăuga știri găsite separat (footmercato.net/actualite, superliga.ro). La final
    `newsCandidates` **nu apare în fișierul complet** — îl ștergi cu `partial`.
-6. **Mercato vara curentă** → `mercatoIn[]` / `mercatoOut[]`: sosiri/plecări cu sume
-   (footmercato.net/tableau sau echivalent).
+6. **Mercato vara curentă** → `mercatoIn[]` / `mercatoOut[]`: **lista completă**, nu doar
+   cele mai vizibile mișcări — toate sosirile și plecările cu sumă de transfer, nu un
+   eșantion. Verifică `footmercato.net/tableau` sau `maxifoot.fr/mercato/transfert-{club}.php`
+   (tabel cu direcție clară arrivals/departures); când o sursă separă arrivées/départs
+   diferit de alta, verifică explicit direcția înainte să scrii — tabelele agregate
+   greșesc des sensul unei mișcări (vezi caz real: un jucător apărea simultan la ambele
+   secțiuni pe un tabel, de fapt doar plecare). `fee` = suma dacă publicată, `"n/d"`/`null`
+   doar după ce ai căutat-o explicit, nu ca implicit. Împrumuturile se notează în
+   `from`/`to` (ex. `"Chelsea (împrumut)"`), nu în `fee`. Jucătorii de rezervă/academie
+   plecați fără sumă publicată (contract expirat) intră tot în listă, cu `fee: null`.
 7. **Pregătirea de vară** → `preseason[]`: amicalele cu scoruri (dacă mai e relevant).
 8. **Absenți** → verifică `absences[]` (Nivelul 1 a pus accidentările/suspendările din
    API-Football); adaugă incertitudinile de team news. `reason` ∈ injury/suspension/doubt/other.

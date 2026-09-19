@@ -1105,7 +1105,14 @@ async function teamNews(teamName, oppName, comp) {
       add(it);
     }
   }
-  const queries = [`"${teamName}" when:${RSS_DAYS}d`, `"${teamName}" "${oppName}" when:7d`];
+  // "football" narrows the bare team-name query to the sport: without it, a
+  // club named after a city or a common word (Strasbourg, Union, Nice...)
+  // pulls in unrelated news that happens to mention the same word (concerts,
+  // other sports, city/regional politics). Verified live: adding "football"
+  // to a "Strasbourg" query dropped every non-football result while keeping
+  // real transfer/match news, since football coverage reliably contains the
+  // word even in French sources (it's the standard French term too).
+  const queries = [`"${teamName}" football when:${RSS_DAYS}d`, `"${teamName}" "${oppName}" when:7d`];
   for (const q of queries) {
     for (const it of await fetchRss(q)) add(it);
   }
