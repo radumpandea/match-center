@@ -454,6 +454,21 @@
     document.documentElement.style.setProperty('--home-ink', inkFor(home));
     document.documentElement.style.setProperty('--away-ink', inkFor(away));
   }
+  function discSwatch(d, side) {
+    var inp = el('input', {
+      type: 'color', class: 'ds-input', value: resolveDisc(d, side),
+      title: t('toolbar.discColorTitle', { team: d.teams[side].name }),
+      oninput: function () {
+        store.discColors = store.discColors || {};
+        store.discColors[side] = inp.value;
+        save(); applyDiscColors(d); rerenderPitch(d);
+      }
+    });
+    return el('label', { class: 'disc-swatch' }, [
+      el('span', { text: (d.teams[side].shortName || d.teams[side].name).slice(0, 3).toUpperCase() }),
+      inp
+    ]);
+  }
 
   /* ---------- tactical formation (user override) ----------
      Pick this before placing players into slots: layout() always produces
@@ -997,21 +1012,6 @@
         if (ch) { save(); rerenderPanels(data); }
       }
     });
-    function discSwatch(side) {
-      var inp = el('input', {
-        type: 'color', class: 'ds-input', value: resolveDisc(data, side),
-        title: t('toolbar.discColorTitle', { team: data.teams[side].name }),
-        oninput: function () {
-          store.discColors = store.discColors || {};
-          store.discColors[side] = inp.value;
-          save(); applyDiscColors(data); rerenderPitch(data);
-        }
-      });
-      return el('label', { class: 'disc-swatch' }, [
-        el('span', { text: (data.teams[side].shortName || data.teams[side].name).slice(0, 3).toUpperCase() }),
-        inp
-      ]);
-    }
     var discReset = el('button', {
       text: t('toolbar.resetColors'), title: t('toolbar.resetColorsTitle'),
       onclick: function () {
@@ -1080,10 +1080,6 @@
         orientBtn,
         namesBtn,
         fontBtn,
-        formationSelect(data, 'home'),
-        formationSelect(data, 'away'),
-        discSwatch('home'),
-        discSwatch('away'),
         discReset,
         favBtn,
         collabBtn,
@@ -1415,9 +1411,17 @@
 
   function matchGraphic(d) {
     var score = el('div', { class: 'match-graphic-score' }, [
-      el('span', { class: 'mgs-team home', text: d.teams.home.name }),
+      el('span', { class: 'mgs-side home' }, [
+        el('span', { class: 'mgs-team home', text: d.teams.home.name }),
+        formationSelect(d, 'home'),
+        discSwatch(d, 'home')
+      ]),
       el('strong', { class: 'mgs-result', text: scoreFor(d, 'home') + ' – ' + scoreFor(d, 'away') }),
-      el('span', { class: 'mgs-team away', text: d.teams.away.name })
+      el('span', { class: 'mgs-side away' }, [
+        discSwatch(d, 'away'),
+        formationSelect(d, 'away'),
+        el('span', { class: 'mgs-team away', text: d.teams.away.name })
+      ])
     ]);
     var cornersHeading = el('div', { class: 'corner-counter-h', text: t('pitch.cornersHeading') });
     var corners = el('div', { class: 'corner-counter' });
