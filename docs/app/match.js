@@ -1938,6 +1938,12 @@
           return (p.number != null ? p.number + '. ' : '') + p.name;
         })));
       }
+      if (tm.callUps && tm.callUps.length) {
+        wrap.appendChild(el('h4', { text: t('panel.callUps') }));
+        wrap.appendChild(ul(tm.callUps.map(function (c) {
+          return c.name + ' — ' + c.natTeam + (has(c.detail) ? ' (' + c.detail + ')' : '');
+        })));
+      }
       return wrap;
     }), { open: true }));
 

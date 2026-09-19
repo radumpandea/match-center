@@ -88,6 +88,16 @@ Nivelul 1 a pus deja **lotul complet pentru ambele echipe** cu număr, vârstă,
      (xG, SCA, presiuni) în modul aprofundat.
    - Academici tineri: `null`, nu inventa.
 
+5. **Convocări la naționala mare pentru fereastra internațională următoare** —
+   `teams.<side>.callUps[]`: jucători din lot convocați de națională pentru meciurile
+   internaționale imediat următoare (prietenoase sau oficiale), NU istoricul de selecții
+   (acela rămâne `funfact`). Verifică pentru primul 11 probabil + orice jucător notabil din
+   restul lotului — anunțurile de lot vin de obicei de la federație (site oficial) sau presa
+   sportivă a țării respective, publicate cu 1-2 săptămâni înainte de fereastră. Fiecare
+   intrare: `name`, `natTeam`, `detail` (ex. „amicale FIFA: vs Brazilia (25 sept), vs Japonia
+   (29 sept)" sau „calificări CM: vs Polonia"). Dacă fereastra e prea departe sau nu găsești
+   un anunț oficial de lot, lasă `callUps` gol — nu presupune pe baza selecțiilor anterioare.
+
 Dacă utilizatorul semnalează o lipsă, tratează asta ca semnal că verificarea a fost
 incompletă și re-verifică integral posturile.
 
@@ -347,6 +357,9 @@ transcrieri din presă.
 
 **Context multi-sezon** unde dă culoare: evoluția în clasament față de sezonul trecut,
 golgheterul de anul trecut vs acum, antrenor la primul sezon complet etc.
+
+**Convocări la naționala mare** — `callUps[]` acoperă toată rotația realistă, nu doar
+primul 11 (la fel ca restul lotului în modul aprofundat).
 
 **Mercato și pregătire complete.** `mercatoIn[]` / `mercatoOut[]` cu toate mișcările verii și
 sumele; `preseason[]` cu toate amicalele.

@@ -511,6 +511,20 @@
             }
           }
         },
+        "callUps": {
+          "type": "array",
+          "description": "squad members called up by their national team for the next international window (not past-caps history, which stays in squad[].funfact)",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "natTeam"],
+            "properties": {
+              "name": { "type": "string" },
+              "natTeam": { "type": "string" },
+              "detail": { "type": ["string", "null"], "description": "e.g. \"amicale FIFA: vs Brazilia (25 sept), vs Japonia (29 sept)\"" }
+            }
+          }
+        },
         "mercatoIn": {
           "type": "array",
           "items": {
