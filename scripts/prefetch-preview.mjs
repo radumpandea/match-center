@@ -17,6 +17,8 @@
 //   - head-to-head (last meetings + W-D-L summary) -> h2h
 //   - a short club-history career string per player -> squad[].career
 //   - the coach's trophy record (competition, season, place) -> coach.trophies[]
+//   - transfers in/out within the current window, with fee when disclosed ->
+//     teams.<side>.mercatoIn[] / mercatoOut[]
 //   - API-Football's own algorithmic pre-match model (win/draw/away percent,
 //     an advice string, attack/defence/form/poisson comparison) -> predictions
 //   - raw dated RSS headlines, from curated per-league outlet feeds
@@ -67,6 +69,8 @@ const STANDINGS_TTL = 2;
 const TEAMSTATS_TTL = 2;
 const H2H_TTL = 14;
 const CAREER_TTL = 30;
+const TRANSFERS_TTL = 7;
+const TRANSFER_WINDOW_DAYS = 120; // covers a full summer (or winter) window without dragging in older history
 const AF_CALL_BUDGET = 5500;   // ceiling on the 7500/day Pro tier (refresh-fixtures uses ~8, build-match-data 0)
 const AF_THROTTLE_MS = 250;    // ~240 req/min, under the 300/min Pro limit
 // One-off catch-up mode: re-fetch h2h.recent[] / teams.<side>.form.recent[]
@@ -1022,6 +1026,58 @@ async function applyCareers(doc, cache) {
   }
 }
 
+/* ---------- transfers (transfers?team=, cached 7d) ----------
+   API-Football's own transfer record for the club -- date, fee/type ("€25M",
+   "Free", "Loan", "N/A") and both clubs involved, straight from the provider,
+   same "no invented facts" guarantee as everything else here. Replaces what
+   used to be a manual WebSearch job in the editorial skill: chasing footmercato/
+   maxifoot tables by hand is slow and error-prone (their arrival/departure
+   columns have been seen swapped for the same player across sources), while
+   this is deterministic and free of that ambiguity -- teams.in/teams.out on
+   each row says unambiguously which way a transfer went. */
+function normalizeFee(type) {
+  const s = String(type || '').trim();
+  if (!s || /^n\/?a$/i.test(s)) return { fee: null, tag: null };
+  if (/loan/i.test(s)) return { fee: null, tag: 'împrumut' };
+  if (/free/i.test(s)) return { fee: null, tag: null };
+  const m = s.match(/^([€£$])\s?(\d+(?:[.,]\d+)?)\s?([MK])$/i);
+  if (m) {
+    const [, cur, num, unit] = m;
+    const curSuffix = cur === '€' ? '€' : cur === '£' ? '£' : '$';
+    return { fee: `${num.replace(',', '.')} ${unit.toUpperCase()}${curSuffix}`, tag: null };
+  }
+  return { fee: null, tag: null };
+}
+async function getTransfers(teamId, cache) {
+  cache.transfers = cache.transfers || {};
+  const hit = cache.transfers[teamId];
+  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < TRANSFERS_TTL) return hit.data;
+  const j = await af('transfers', { team: teamId });
+  const rows = (j && j.response) || [];
+  const cutoff = Date.now() - TRANSFER_WINDOW_DAYS * 86400000;
+  const mercatoIn = [], mercatoOut = [];
+  for (const row of rows) {
+    const name = row.player && row.player.name;
+    if (!name) continue;
+    for (const tr of (row.transfers || [])) {
+      const dt = tr.date ? new Date(tr.date).getTime() : NaN;
+      if (Number.isNaN(dt) || dt < cutoff) continue;
+      const teamIn = tr.teams && tr.teams.in, teamOut = tr.teams && tr.teams.out;
+      const { fee, tag } = normalizeFee(tr.type);
+      if (teamIn && teamIn.id === teamId && teamOut && teamOut.id !== teamId) {
+        mercatoIn.push({ name, from: tag ? `${teamOut.name} (${tag})` : teamOut.name, fee, date: tr.date });
+      } else if (teamOut && teamOut.id === teamId && teamIn && teamIn.id !== teamId) {
+        mercatoOut.push({ name, to: tag ? `${teamIn.name} (${tag})` : teamIn.name, fee, date: tr.date });
+      }
+    }
+  }
+  const byDateDesc = (a, b) => String(b.date).localeCompare(String(a.date));
+  const strip = (arr) => arr.sort(byDateDesc).slice(0, 30).map(({ date, ...rest }) => rest);
+  const data = { mercatoIn: strip(mercatoIn), mercatoOut: strip(mercatoOut) };
+  cache.transfers[teamId] = { fetchedAt: todayISO(), data };
+  return data;
+}
+
 /* ---------- RSS news candidates (curated outlet feeds + Google News), no key ---------- */
 const RSS_DAYS = 4;
 const NEWS_PER_TEAM = 8;
@@ -1216,6 +1272,11 @@ async function buildMatch(fx, season, cache) {
       if (sq.coach && sq.coach.name) t.coach = sq.coach;
       if (sq.nickname) t.nickname = sq.nickname;
       t.absences = await getAbsences(id, season);
+    }
+    if (id != null) {
+      const tr = await getTransfers(id, cache);
+      if (tr.mercatoIn.length) t.mercatoIn = tr.mercatoIn;
+      if (tr.mercatoOut.length) t.mercatoOut = tr.mercatoOut;
     }
     if (news && news.length) t.newsCandidates = news;
     const lu = meta && meta.lineups && id != null ? meta.lineups[id] : null;
@@ -1425,8 +1486,15 @@ async function main() {
     const inDayBeforeWindow = hoursToKickoff <= 72 && hoursToKickoff > -6;
     const needNews = inDayBeforeWindow;
     const needWeather = inDayBeforeWindow && has(doc.venue && doc.venue.city);
+    // Only fill mercato when both arrays are still empty -- a non-empty one
+    // may already carry editorial research richer than the API record, and
+    // this isn't a "goes stale every matchday" field like standings above.
+    const needMercato = ['home', 'away'].some((s) => {
+      const tm = doc.teams[s];
+      return !(tm.mercatoIn && tm.mercatoIn.length) && !(tm.mercatoOut && tm.mercatoOut.length);
+    });
     if (!needCareer && !needStandings && !needNext && !needVenue && !needPredictions && !needTrophies &&
-        !needMatchDay && !needNews && !needWeather) continue;
+        !needMatchDay && !needNews && !needWeather && !needMercato) continue;
     let touched = false;
 
     if (needNews) {
@@ -1475,6 +1543,12 @@ async function main() {
       if (!doc.teams[side].logo) {
         const logo = await getTeamLogo(id, cache);
         if (logo) { doc.teams[side].logo = logo; touched = true; }
+      }
+      if (needMercato && !(doc.teams[side].mercatoIn && doc.teams[side].mercatoIn.length) &&
+          !(doc.teams[side].mercatoOut && doc.teams[side].mercatoOut.length)) {
+        const tr = await getTransfers(id, cache);
+        if (tr.mercatoIn.length) { doc.teams[side].mercatoIn = tr.mercatoIn; touched = true; }
+        if (tr.mercatoOut.length) { doc.teams[side].mercatoOut = tr.mercatoOut; touched = true; }
       }
       // Squad bio (nat/height/weight/birthCountry) and season stats
       // (apps/goals/minutes/...) were only ever copied onto a published

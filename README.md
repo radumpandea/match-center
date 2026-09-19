@@ -108,6 +108,13 @@ for every not-`ready` fixture kicking off in the next 6 days, writes
   (`docs/app/match.js`), not just narrative fuel;
 - **head-to-head** (`h2h.recent[]` + a W-D-L `h2h.summary`) from `fixtures/headtohead`;
 - **`squad[].career`** — a short club-history string per player from `players/teams`;
+- **`mercatoIn[]` / `mercatoOut[]`** — transfers within the current ~120-day window, with fee
+  when disclosed, from `transfers?team=`. `teams.in`/`teams.out` on each row gives the
+  direction unambiguously, unlike the footmercato/maxifoot mercato tables the editorial pass
+  used to scrape by hand — those have been seen listing the same player as both an arrival and
+  a departure on the same page. Only filled once per side (like `career`/`absences`), not
+  re-checked every run — see the editorial pass fallback below for clubs the API has nothing
+  for;
 - **`squad[].stats`** — the full per-player season aggregates the bulk `players?team=` call
   already returns (no extra API cost to capture the rest): goals/assists/minutes/apps/cards/
   rating/conceded/saves as before, plus shots (total/on target), passes (total/key/accuracy),
@@ -140,8 +147,10 @@ The 7500/day Pro quota is guarded by a per-run budget of 1500 and a 250 ms throt
   **Haiku** against the `match-data-json` skill with a **~12-lookup-per-match budget**, and
   adds only the editorial fields Level 1 can't — `storyOfTheMatch` polish + a few researched
   angles, per-team `stories`, `funfact` / `linkLine` for the likely XI, `coach.career`,
-  `mercato`, `stats.minutes` / `stats.apps` from FBref — then triages `newsCandidates` into
-  `news[]`, removes the `partial` flag, prunes `previews.json`, and sets `ready: true`.
+  `stats.minutes` / `stats.apps` from FBref, and a manual mercato fallback (footmercato/
+  Transfermarkt) only for the rare club Level 1's `transfers?team=` came back empty for —
+  then triages `newsCandidates` into `news[]`, removes the `partial` flag, prunes
+  `previews.json`, and sets `ready: true`.
 - **`deep`** (`workflow_dispatch` with `depth: deep`, plus a `match:` slug): **one** match,
   **Sonnet**, **~50 lookups**, no field allowlist — the full commentator dossier from the
   skill's "Modul aprofundat" section: rotation-wide player depth (`career` / `funfact` /

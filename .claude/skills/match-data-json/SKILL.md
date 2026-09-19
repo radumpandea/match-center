@@ -26,6 +26,9 @@ preîncarcă factualul din **API-Football**:
 - `standings` (nivel de meci) — clasamentul complet al competiției;
 - `h2h.recent[]` + `h2h.summary`;
 - `squad[].career` — istoric scurt de cluburi per jucător;
+- `teams.<side>.mercatoIn[]` / `mercatoOut[]` — transferurile din fereastra curentă
+  (~120 zile), cu sumă când e publicată, direct din `transfers?team=` (API-Football) —
+  **nu mai e treabă de research manual**, vezi „Mercato" mai jos;
 - `teams.<side>.newsCandidates[]` — titluri brute din RSS, datate;
 - câteva bullet-uri factuale în `storyOfTheMatch` (seed-uri).
 
@@ -33,8 +36,8 @@ Fișierul e marcat `"partial": true`.
 
 **Nivelul 2 (acest skill)** = stratul editorial + completarea golurilor: pornești de la
 fișierul parțial, **nu de la zero**. Verifici ce a pus Nivelul 1, completezi ce lipsește
-(formă, cap la cap, primul 11 probabil, antrenori, mercato, fire narative, funfacts) și
-triezi `newsCandidates` în `news[]`. La final ștergi `partial` (și `newsCandidates`).
+(formă, cap la cap, primul 11 probabil, antrenori, fire narative, funfacts) și triezi
+`newsCandidates` în `news[]`. La final ștergi `partial` (și `newsCandidates`).
 
 Dacă fișierul NU există sau NU are `"partial": true`, construiește tot de la zero — dar
 metodologia de mai jos e aceeași în ambele cazuri.
@@ -206,16 +209,15 @@ Calitatea în limita bugetului bate acoperirea exhaustivă.
    română, parafrazat (fără citate lungi). Verifică rapid titlul la sursă dacă e ambiguu.
    Poți adăuga știri găsite separat (footmercato.net/actualite, superliga.ro). La final
    `newsCandidates` **nu apare în fișierul complet** — îl ștergi cu `partial`.
-6. **Mercato vara curentă** → `mercatoIn[]` / `mercatoOut[]`: **lista completă**, nu doar
-   cele mai vizibile mișcări — toate sosirile și plecările cu sumă de transfer, nu un
-   eșantion. Verifică `footmercato.net/tableau` sau `maxifoot.fr/mercato/transfert-{club}.php`
-   (tabel cu direcție clară arrivals/departures); când o sursă separă arrivées/départs
-   diferit de alta, verifică explicit direcția înainte să scrii — tabelele agregate
-   greșesc des sensul unei mișcări (vezi caz real: un jucător apărea simultan la ambele
-   secțiuni pe un tabel, de fapt doar plecare). `fee` = suma dacă publicată, `"n/d"`/`null`
-   doar după ce ai căutat-o explicit, nu ca implicit. Împrumuturile se notează în
-   `from`/`to` (ex. `"Chelsea (împrumut)"`), nu în `fee`. Jucătorii de rezervă/academie
-   plecați fără sumă publicată (contract expirat) intră tot în listă, cu `fee: null`.
+6. **Mercato vara curentă** → `mercatoIn[]` / `mercatoOut[]`: Nivelul 1 le pune deja, direct
+   din `transfers?team=` (API-Football) — **nu mai face research manual pe footmercato/
+   maxifoot pentru asta**, doar verifică ce e deja acolo (sumă, sens al mișcării). Motivul:
+   tabelele agregate de pe site-uri de mercato greșesc des sensul unei mișcări (un jucător
+   putea apărea simultan la arrivées și départs pe același tabel), pe când `transfers?team=`
+   dă `teams.in`/`teams.out` fără ambiguitate. Dacă array-urile sunt goale (API-ul n-a avut
+   nimic pentru acel club/fereastră — se întâmplă mai des la ligi mici), completează manual
+   din `footmercato.net/tableau` sau Transfermarkt (din fragmente), cu aceeași grijă la
+   direcție. Împrumuturile se notează în `from`/`to` (ex. `"Chelsea (împrumut)"`), nu în `fee`.
 7. **Pregătirea de vară** → `preseason[]`: amicalele cu scoruri (dacă mai e relevant).
 8. **Absenți** → verifică `absences[]` (Nivelul 1 a pus accidentările/suspendările din
    API-Football); adaugă incertitudinile de team news. `reason` ∈ injury/suspension/doubt/other.
@@ -369,8 +371,9 @@ golgheterul de anul trecut vs acum, antrenor la primul sezon complet etc.
 **Convocări la naționala mare** — `callUps[]` acoperă toată rotația realistă, nu doar
 primul 11 (la fel ca restul lotului în modul aprofundat).
 
-**Mercato și pregătire complete.** `mercatoIn[]` / `mercatoOut[]` cu toate mișcările verii și
-sumele; `preseason[]` cu toate amicalele.
+**Pregătirea de vară completă.** `preseason[]` cu toate amicalele. Mercato e deja complet
+de la Nivelul 1 (vezi Pasul 1.6) — în modul aprofundat doar verifici mai atent sumele
+disputate/neconfirmate, nu re-cercetezi lista de la zero.
 
 **Declarații de la conferința de presă pre-meci.** `teams.<side>.pressQuotes[]` —
 2-4 declarații per echipă, de la conferința de presă premergătoare ACESTUI meci (de obicei
