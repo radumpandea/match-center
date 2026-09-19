@@ -1071,8 +1071,20 @@ async function getTransfers(teamId, cache) {
       }
     }
   }
+  // The API sometimes carries two records for the same move (e.g. a loan
+  // logged both at the original date and again at an extension) -- dedupe by
+  // player, keeping whichever duplicate actually has a fee, else the newest.
+  function dedupe(arr) {
+    const byPlayer = new Map();
+    for (const x of arr) {
+      const k = norm(x.name);
+      const prev = byPlayer.get(k);
+      if (!prev || (!prev.fee && x.fee) || (String(x.date) > String(prev.date))) byPlayer.set(k, x);
+    }
+    return [...byPlayer.values()];
+  }
   const byDateDesc = (a, b) => String(b.date).localeCompare(String(a.date));
-  const strip = (arr) => arr.sort(byDateDesc).slice(0, 30).map(({ date, ...rest }) => rest);
+  const strip = (arr) => dedupe(arr).sort(byDateDesc).slice(0, 30).map(({ date, ...rest }) => rest);
   const data = { mercatoIn: strip(mercatoIn), mercatoOut: strip(mercatoOut) };
   cache.transfers[teamId] = { fetchedAt: todayISO(), data };
   return data;

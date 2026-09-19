@@ -210,14 +210,18 @@ Calitatea în limita bugetului bate acoperirea exhaustivă.
    Poți adăuga știri găsite separat (footmercato.net/actualite, superliga.ro). La final
    `newsCandidates` **nu apare în fișierul complet** — îl ștergi cu `partial`.
 6. **Mercato vara curentă** → `mercatoIn[]` / `mercatoOut[]`: Nivelul 1 le pune deja, direct
-   din `transfers?team=` (API-Football) — **nu mai face research manual pe footmercato/
-   maxifoot pentru asta**, doar verifică ce e deja acolo (sumă, sens al mișcării). Motivul:
-   tabelele agregate de pe site-uri de mercato greșesc des sensul unei mișcări (un jucător
-   putea apărea simultan la arrivées și départs pe același tabel), pe când `transfers?team=`
-   dă `teams.in`/`teams.out` fără ambiguitate. Dacă array-urile sunt goale (API-ul n-a avut
-   nimic pentru acel club/fereastră — se întâmplă mai des la ligi mici), completează manual
-   din `footmercato.net/tableau` sau Transfermarkt (din fragmente), cu aceeași grijă la
-   direcție. Împrumuturile se notează în `from`/`to` (ex. `"Chelsea (împrumut)"`), nu în `fee`.
+   din `transfers?team=` (API-Football) — **nu mai re-face lista de la zero**, doar
+   completează ce lipsește. Motivul: tabelele agregate de pe site-uri de mercato greșesc des
+   sensul unei mișcări (un jucător putea apărea simultan la arrivées și départs pe același
+   tabel), pe când `transfers?team=` dă `teams.in`/`teams.out` fără ambiguitate — deci
+   direcția (`from`/`to`) e de încredere. **Dar suma (`fee`) aproape mereu lipsește din
+   API** (verificat: chiar și la Ligue 1/LaLiga, `type` e practic mereu gol, nu doar la ligi
+   mici) — pentru transferurile care chiar contează în pachet (golgheter, semnătura verii,
+   ceva ce ai de gând să menționezi cu sumă), caută fee-ul manual pe `footmercato.net/tableau`
+   sau Transfermarkt (din fragmente) și completează doar acel câmp, nu toată lista. Dacă
+   array-urile sunt complet goale (API-ul n-a avut nimic pentru club), construiește-le de la
+   zero din aceleași surse. Împrumuturile se notează în `from`/`to` (ex.
+   `"Chelsea (împrumut)"`), nu în `fee`.
 7. **Pregătirea de vară** → `preseason[]`: amicalele cu scoruri (dacă mai e relevant).
 8. **Absenți** → verifică `absences[]` (Nivelul 1 a pus accidentările/suspendările din
    API-Football); adaugă incertitudinile de team news. `reason` ∈ injury/suspension/doubt/other.
