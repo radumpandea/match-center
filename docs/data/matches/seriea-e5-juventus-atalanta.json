@@ -21,11 +21,11 @@
     "city": "Turin",
     "notes": null,
     "weather": {
-      "tempC": 26,
+      "tempC": 27,
       "condition": "parțial noros",
-      "windKph": 6,
+      "windKph": 4,
       "precipitationMm": 0,
-      "forecastAt": "2026-09-20T11:10:55.198Z"
+      "forecastAt": "2026-09-20T18:47:06.420Z"
     }
   },
   "referee": {
@@ -117,7 +117,10 @@
       "shortName": null,
       "nickname": null,
       "logo": "https://media.api-sports.io/football/teams/496.png",
-      "colors": null,
+      "colors": {
+        "primary": "#ffffff",
+        "secondary": "#ffffff"
+      },
       "coach": {
         "apiId": 25878,
         "name": "Luciano Spalletti",
@@ -133,10 +136,144 @@
           }
         ]
       },
-      "formation": "n/d",
+      "formation": "3-4-2-1",
       "predictedXI": [],
-      "confirmedXI": null,
-      "substitutes": null,
+      "confirmedXI": [
+        {
+          "apiId": 31354,
+          "number": 25,
+          "name": "Guglielmo Vicario",
+          "pos": "G"
+        },
+        {
+          "apiId": 162188,
+          "number": 15,
+          "name": "Pierre Kalulu",
+          "pos": "D"
+        },
+        {
+          "apiId": 30497,
+          "number": 3,
+          "name": "Gleison Bremer",
+          "pos": "D"
+        },
+        {
+          "apiId": 1929,
+          "number": 26,
+          "name": "Jhon Lucumí",
+          "pos": "D"
+        },
+        {
+          "apiId": 26315,
+          "number": 31,
+          "name": "Nicolás González",
+          "pos": "M"
+        },
+        {
+          "apiId": 415,
+          "number": 22,
+          "name": "Weston McKennie",
+          "pos": "M"
+        },
+        {
+          "apiId": 47522,
+          "number": 12,
+          "name": "Douglas Luiz",
+          "pos": "M"
+        },
+        {
+          "apiId": 22222,
+          "number": 2,
+          "name": "Zeki Çelik",
+          "pos": "M"
+        },
+        {
+          "apiId": 161585,
+          "number": 7,
+          "name": "Francisco Conceição",
+          "pos": "F"
+        },
+        {
+          "apiId": 395559,
+          "number": 17,
+          "name": "Kerim Alajbegović",
+          "pos": "F"
+        },
+        {
+          "apiId": 21104,
+          "number": 9,
+          "name": "Randal Kolo Muani",
+          "pos": "F"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 237129,
+          "number": 29,
+          "name": "Pape Matar Sarr",
+          "pos": "M"
+        },
+        {
+          "apiId": 36899,
+          "number": 8,
+          "name": "Teun Koopmeiners",
+          "pos": "M"
+        },
+        {
+          "apiId": 48392,
+          "number": 11,
+          "name": "Edon Zhegrova",
+          "pos": "F"
+        },
+        {
+          "apiId": 158054,
+          "number": 27,
+          "name": "Nick Woltemade",
+          "pos": "F"
+        },
+        {
+          "apiId": 19263,
+          "number": 6,
+          "name": "Lloyd Kelly",
+          "pos": "D"
+        },
+        {
+          "apiId": 850,
+          "number": 23,
+          "name": "Carlo Pinsoglio",
+          "pos": "G"
+        },
+        {
+          "apiId": 597936,
+          "number": 40,
+          "name": "Riccardo Radu",
+          "pos": "G"
+        },
+        {
+          "apiId": 268341,
+          "number": 4,
+          "name": "Federico Gatti",
+          "pos": "D"
+        },
+        {
+          "apiId": 861,
+          "number": 24,
+          "name": "Daniele Rugani",
+          "pos": "D"
+        },
+        {
+          "apiId": 498792,
+          "number": 49,
+          "name": "Grady Makiobo Makiobo",
+          "pos": "M"
+        },
+        {
+          "apiId": 410399,
+          "number": 43,
+          "name": "Filippo Pagnucco",
+          "pos": "M"
+        }
+      ],
       "squad": [
         {
           "apiId": 15573,
@@ -2078,6 +2215,64 @@
             "passesTotal": 1,
             "passesKey": null,
             "passesAccuracy": 100,
+            "tacklesTotal": null,
+            "tacklesBlocks": null,
+            "tacklesInterceptions": null,
+            "duelsTotal": null,
+            "duelsWon": null,
+            "dribblesAttempts": null,
+            "dribblesSuccess": null,
+            "dribblesPast": null,
+            "foulsDrawn": null,
+            "foulsCommitted": null,
+            "penaltyWon": null,
+            "penaltyCommitted": null,
+            "penaltyScored": 0,
+            "penaltyMissed": 0,
+            "penaltySaved": null
+          }
+        },
+        {
+          "apiId": 410399,
+          "number": 43,
+          "name": "Filippo Pagnucco",
+          "photo": "https://media.api-sports.io/football/players/410399.png",
+          "pos": "M",
+          "positions": [
+            "M",
+            "MID",
+            "DEF"
+          ],
+          "role": "MID",
+          "age": 19,
+          "height": null,
+          "weight": null,
+          "foot": null,
+          "nat": "ITA",
+          "natTeam": null,
+          "birthCountry": "Italy",
+          "pronunciation": null,
+          "career": "Toulouse (2025)",
+          "lastSeason": null,
+          "funfact": null,
+          "linkLine": null,
+          "status": "available",
+          "statusNote": null,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null,
+            "shotsTotal": null,
+            "shotsOn": null,
+            "passesTotal": null,
+            "passesKey": null,
+            "passesAccuracy": null,
             "tacklesTotal": null,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
@@ -4211,51 +4406,51 @@
       ],
       "newsCandidates": [
         {
-          "title": "Serie A: Juventus vs. Atalanta – probable line-ups, where to watch on TV",
-          "url": "https://football-italia.net/juventus-atalanta-probable-line-ups-watch-tv-2/",
-          "source": "Football Italia",
-          "published": "2026-09-20"
-        },
-        {
           "title": "Serie A Liveblog: Fiorentina-Napoli, Juventus-Atalanta, Milan-Lecce and more",
           "url": "https://football-italia.net/serie-a-liveblog-fiorentina-napoli-juventus-atalanta-milan-lecce-and-more/",
           "source": "Football Italia",
           "published": "2026-09-20"
         },
         {
-          "title": "Juventus plan €50m Carnesecchi move as Inter and Premier League clubs circle",
-          "url": "https://football-italia.net/juventus-plan-50m-carnesecchi-move/",
+          "title": "Juventus supporters interrupt minute’s silence for Inter legend Mazzola",
+          "url": "https://football-italia.net/juventus-supporters-interrupt-mazzola-silence/",
           "source": "Football Italia",
           "published": "2026-09-20"
         },
         {
-          "title": "Juventus team news: Grabara blow, Gonzalez edges Conceicao and Kolo Muani returns",
-          "url": "https://football-italia.net/juventus-team-news-grabara-gonzalez-kolo-muani/",
+          "title": "Serie A | Juventus 2-0 Atalanta: Old Lady revitalised, but third Dea defeat",
+          "url": "https://football-italia.net/serie-a-juventus-2-0-atalanta-third-dea-defeat/",
           "source": "Football Italia",
           "published": "2026-09-20"
         },
         {
-          "title": "Squad List | Juventus-Atalanta",
-          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQV256X3FFZ0lzLTc5SDd3QS1MU1d3VVRNdlhuTVoyTXhpc3dVZm1jLU1Hd1RCUENGZ0lsaGJjLXF6cGFvTHVTbWhHUjRoTTAweWRKTjV1YV9fa0pLNm0xcTNRZDJBWFpISV9uM2dsZnltOTZ5Q2JaU1l6X2VoTUpmRktNOA?oc=5",
-          "source": "Yahoo Sports",
+          "title": "Spalletti: ‘Juventus want to win games, inexplicable Grabara injury’",
+          "url": "https://football-italia.net/spalletti-juventus-want-to-win-games-grabara/",
+          "source": "Football Italia",
           "published": "2026-09-20"
         },
         {
-          "title": "Juventus vs Atalanta: Italian Serie A stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1RNjVDYVBuTEFUVDJuTXgxRldMdV8taGxmZGRlbW9ieE1pZnhqaDdvNEprUm4xa0Q0QWloOWJ2dGZ5SGRDYXZscFVWSWM2WVEzdXN1TDNLelVEcFpsdmU0Wjdmbw?oc=5",
-          "source": "BBC",
+          "title": "Giuntoli: ‘Atalanta trying to find ourselves, Juventus didn’t give me time’",
+          "url": "https://football-italia.net/giuntoli-atalanta-try-find-ourselves-juventus/",
+          "source": "Football Italia",
           "published": "2026-09-20"
         },
         {
-          "title": "Standout Stats | Juventus Women-Roma | Serie A Women's Cup Final",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNeHcycHJYcTljTXJ6YUdHX2JoMjk5bkRWNkc3RGkzWEV0eVRNMXRMakxmV0hsZktWM2JuVkh6WTZWNzAtbHp1NXp3aFBTdzVINWdzdFh0d0ZCcjJLUU9aVGtZSU1fVUFFd1hFalozVEdnVWtkSnIwVlFUZ3EwZEwwbVFDT1VFZDg1YS0w?oc=5",
-          "source": "Yahoo Sports",
+          "title": "Serie A official line-ups: Juventus vs. Atalanta",
+          "url": "https://football-italia.net/serie-a-official-line-ups-juventus-vs-atalanta/",
+          "source": "Football Italia",
           "published": "2026-09-20"
         },
         {
-          "title": "Serie A Preview: Juventus vs Atalanta – Team News, Lineups & Prediction",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQcGZLS2JOYUdab09GOW1yRy02eFp0V0NLMlJNcERSZWdESXdpU1VRVXk5QkNsclFocWdXTHhwZU55a0VUTU43ZjlzU1l1RE9ScEd6ZlRObHlpYXd3QzgwYm52SjhBNE9sREowQ3RhX3Z6MDhYWDdGQjNSb3dZUldUS2lCS1I1bmtXX2ln?oc=5",
-          "source": "Yahoo Sports",
+          "title": "Juventus confirm squad list for Atalanta clash including Grabara replacement",
+          "url": "https://football-italia.net/juventus-squad-list-atalanta-grabara-replace/",
+          "source": "Football Italia",
+          "published": "2026-09-20"
+        },
+        {
+          "title": "Minuto di silenzio per Mazzola, la curva della Juventus si gira e canta: “Fuori un altro alè alè”",
+          "url": "https://www.ilnapolista.it/2026/09/minuto-di-silenzio-per-mazzola-la-curva-della-juventus-si-gira-e-canta-fuori-un-altro-ale-ale/",
+          "source": "Il Napolista",
           "published": "2026-09-20"
         }
       ]
@@ -4265,7 +4460,10 @@
       "shortName": null,
       "nickname": null,
       "logo": "https://media.api-sports.io/football/teams/499.png",
-      "colors": null,
+      "colors": {
+        "primary": "#0054a8",
+        "secondary": "#0054a8"
+      },
       "coach": {
         "apiId": 2412,
         "name": "Maurizio Sarri",
@@ -4378,10 +4576,150 @@
           }
         ]
       },
-      "formation": "n/d",
+      "formation": "4-3-3",
       "predictedXI": [],
-      "confirmedXI": null,
-      "substitutes": null,
+      "confirmedXI": [
+        {
+          "apiId": 30417,
+          "number": 29,
+          "name": "Marco Carnesecchi",
+          "pos": "G"
+        },
+        {
+          "apiId": 91422,
+          "number": 16,
+          "name": "Raoul Bellanova",
+          "pos": "D"
+        },
+        {
+          "apiId": 281495,
+          "number": 31,
+          "name": "Thomas Kristensen",
+          "pos": "D"
+        },
+        {
+          "apiId": 289761,
+          "number": 42,
+          "name": "Giorgio Scalvini",
+          "pos": "D"
+        },
+        {
+          "apiId": 264857,
+          "number": 47,
+          "name": "Lorenzo Bernasconi",
+          "pos": "D"
+        },
+        {
+          "apiId": 178749,
+          "number": 10,
+          "name": "Lazar Samardžić",
+          "pos": "M"
+        },
+        {
+          "apiId": 1642,
+          "number": 19,
+          "name": "Franck Kessié",
+          "pos": "M"
+        },
+        {
+          "apiId": 10097,
+          "number": 13,
+          "name": "Éderson",
+          "pos": "M"
+        },
+        {
+          "apiId": 147859,
+          "number": 17,
+          "name": "Charles De Ketelaere",
+          "pos": "F"
+        },
+        {
+          "apiId": 66817,
+          "number": 90,
+          "name": "Nikola Krstović",
+          "pos": "F"
+        },
+        {
+          "apiId": 278095,
+          "number": 11,
+          "name": "Jonathan Rowe",
+          "pos": "F"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 30543,
+          "number": 18,
+          "name": "Giacomo Raspadori",
+          "pos": "F"
+        },
+        {
+          "apiId": 325,
+          "number": 70,
+          "name": "Gianluca Gaetano",
+          "pos": "M"
+        },
+        {
+          "apiId": 30544,
+          "number": 9,
+          "name": "Gianluca Scamacca",
+          "pos": "F"
+        },
+        {
+          "apiId": 1358,
+          "number": 99,
+          "name": "Eljif Elmas",
+          "pos": "M"
+        },
+        {
+          "apiId": 558758,
+          "number": 22,
+          "name": "Thomas Pompei",
+          "pos": "G"
+        },
+        {
+          "apiId": 31069,
+          "number": 57,
+          "name": "Marco Sportiello",
+          "pos": "G"
+        },
+        {
+          "apiId": 1442,
+          "number": 23,
+          "name": "Sead Kolašinac",
+          "pos": "D"
+        },
+        {
+          "apiId": 400530,
+          "number": 40,
+          "name": "Relja Obrić",
+          "pos": "D"
+        },
+        {
+          "apiId": 458411,
+          "number": 43,
+          "name": "Jacopo Mirra",
+          "pos": "D"
+        },
+        {
+          "apiId": 203474,
+          "number": 59,
+          "name": "Nicola Zalewski",
+          "pos": "M"
+        },
+        {
+          "apiId": 2763,
+          "number": 8,
+          "name": "Mario Pašalić",
+          "pos": "M"
+        },
+        {
+          "apiId": 2286,
+          "number": 77,
+          "name": "Davide Zappacosta",
+          "pos": "D"
+        }
+      ],
       "squad": [
         {
           "apiId": 30417,
@@ -7890,51 +8228,51 @@
       ],
       "newsCandidates": [
         {
-          "title": "Serie A: Juventus vs. Atalanta – probable line-ups, where to watch on TV",
-          "url": "https://football-italia.net/juventus-atalanta-probable-line-ups-watch-tv-2/",
-          "source": "Football Italia",
-          "published": "2026-09-20"
-        },
-        {
           "title": "Serie A Liveblog: Fiorentina-Napoli, Juventus-Atalanta, Milan-Lecce and more",
           "url": "https://football-italia.net/serie-a-liveblog-fiorentina-napoli-juventus-atalanta-milan-lecce-and-more/",
           "source": "Football Italia",
           "published": "2026-09-20"
         },
         {
-          "title": "Juventus vs Atalanta – Predicted lineup and team news",
-          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNZ2xlOUliQkR2dTA4TnNXVXVhckFOUDhZWl9fNDBYX3hqcVF1b0syZFN2RDNXNjM2QmNQSmVkTDQzVTRtdWN3SzJpcWx3RG5HZU42ZFJORlFYenRPMGRiT0dOMzlBenRSdUE5WVNQZ0RaV3pjS3FWbHRXMkt6bF91OTdobTF5aFZJLWxyeFk2OA?oc=5",
-          "source": "Yahoo Sports",
+          "title": "Serie A | Juventus 2-0 Atalanta: Old Lady revitalised, but third Dea defeat",
+          "url": "https://football-italia.net/serie-a-juventus-2-0-atalanta-third-dea-defeat/",
+          "source": "Football Italia",
           "published": "2026-09-20"
         },
         {
-          "title": "Atalanta BC vs. Juventus Turin - September 20, 2026",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1KQzg2cVpkUE9tMFlLcTZDUXpZS0pIdHQ1RW5seXVUYmZvam15TGlPX1VTMkNlckdsRmdSVjZyUzFzYk15akV4ODh1QWpmODRVV1J5MEFlZXpfSzdUTHR6QmxuVVF5NkU5a29sLTl6dWxPSzRrbkM0?oc=5",
-          "source": "Bleacher Report",
+          "title": "Giuntoli: ‘Atalanta trying to find ourselves, Juventus didn’t give me time’",
+          "url": "https://football-italia.net/giuntoli-atalanta-try-find-ourselves-juventus/",
+          "source": "Football Italia",
           "published": "2026-09-20"
         },
         {
-          "title": "Atalanta U23",
-          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPZ09JY0lyb3NmbjRaTk8wa3puTGVTUU9EcWlCNGROOGFJOEhlcUJueU00NWw5ZV9fUU1wSGlCYkFFU3FTS3psRnNMYVM4Y2puN1dLRGJ1VWgyLWhiVTJDT21WN3dMWDNWdkw4Y1JWZnFBSnR6NEZHYTAxczViQjY0UUJqYw?oc=5",
-          "source": "Flashscore.com",
+          "title": "Serie A official line-ups: Juventus vs. Atalanta",
+          "url": "https://football-italia.net/serie-a-official-line-ups-juventus-vs-atalanta/",
+          "source": "Football Italia",
           "published": "2026-09-20"
         },
         {
-          "title": "Juventus vs Atalanta: Italian Serie A stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1RNjVDYVBuTEFUVDJuTXgxRldMdV8taGxmZGRlbW9ieE1pZnhqaDdvNEprUm4xa0Q0QWloOWJ2dGZ5SGRDYXZscFVWSWM2WVEzdXN1TDNLelVEcFpsdmU0Wjdmbw?oc=5",
-          "source": "BBC",
+          "title": "Juventus confirm squad list for Atalanta clash including Grabara replacement",
+          "url": "https://football-italia.net/juventus-squad-list-atalanta-grabara-replace/",
+          "source": "Football Italia",
           "published": "2026-09-20"
         },
         {
-          "title": "Juve v Atalanta: Sky, Dazn or NOW? How to Watch on TV and Stream",
-          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQdzQzTTFOLTJ4RWo5bnFyQ25yaFZDR3ZaUHVMNjRsSTFYckZ1N2E3V0FNUUdhbVBLNzdlMkNoQjV1WlUzU1N0VE0weGxUNlUwZlpqSF9nOHFFdkVKa2FVcWI2QVpOb2tnVmkzU3NIMDNMZWtnZEIyellvV0ROVUZueFFmZ0tCb2E1Vjk5OVNrVGVUTTdqX1Z5eVpBdWNIeXZKQktpMjI4VWtsanA3SlIwWmN3bTN0UHFvY3FPTHhQejllLS1GX0NoRWNSVmcwbnBaR0lLajVOdkxOSy1aNWdNWdIB4AFBVV95cUxQdzQzTTFOLTJ4RWo5bnFyQ25yaFZDR3ZaUHVMNjRsSTFYckZ1N2E3V0FNUUdhbVBLNzdlMkNoQjV1WlUzU1N0VE0weGxUNlUwZlpqSF9nOHFFdkVKa2FVcWI2QVpOb2tnVmkzU3NIMDNMZWtnZEIyellvV0ROVUZueFFmZ0tCb2E1Vjk5OVNrVGVUTTdqX1Z5eVpBdWNIeXZKQktpMjI4VWtsanA3SlIwWmN3bTN0UHFvY3FPTHhQejllLS1GX0NoRWNSVmcwbnBaR0lLajVOdkxOSy1aNWdNWQ?oc=5",
-          "source": "La Gazzetta dello Sport",
+          "title": "Serie A: un gol per tempo, la Juve batte l'Atalanta con Conceiçao e Bremer",
+          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/20/serie-a-un-gol-per-tempo-la-juve-batte-latalanta-con-conceicao-e-bremer_7ee8c120-824f-4084-882e-3884406cea04.html",
+          "source": "ANSA",
           "published": "2026-09-20"
         },
         {
-          "title": "Football Live Scores: Juventus vs Atalanta, Serie A, 2026/27 | Nine Wide World of Sports",
-          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQLUx5Q0FkTno5Nld2Zk8tZlB2bHdwOWpqYU1JZDdpd3RyeXJSa3JXRUV2TndrbVNtTHBuTEYwQVhudEF0bHA1dGRmTUhyUmU1NFRDcTNadGFvejdUTjJjM2xpNUt1M0dROEpjUW5hTTFzX3dsS0xxampSSFBWaWhOVjZLNkxIODlMamJHUQ?oc=5",
-          "source": "Nine.com.au",
+          "title": "Serie A: Conceicao più Bremer, la Juve batte l'Atalanta ed è a -3 dalla vetta",
+          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/20/serie-a-juventus-atalanta-2-0_64b2f6be-3aa2-476e-9403-48b2a88a021b.html",
+          "source": "ANSA",
+          "published": "2026-09-20"
+        },
+        {
+          "title": "Per l’Atalanta di Sarri e Giuntoli le sconfitte consecutive passano a tre. La Juve vince 2-0",
+          "url": "https://www.ilnapolista.it/2026/09/per-latalanta-di-sarri-e-giuntoli-le-sconfitte-consecutive-passano-a-tre-la-juve-vince-2-0/",
+          "source": "Il Napolista",
           "published": "2026-09-20"
         }
       ]
