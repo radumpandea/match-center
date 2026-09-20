@@ -568,9 +568,14 @@ def finalize_pack(pack: dict):
     # or "deep" made 144 matches permanently invisible to the real pipeline:
     # build-match-data-run.yml only picks up ready:false fixtures, and
     # pick-favourite-matches.mjs explicitly skips anything already
-    # researchDepth:"deep". "fallback" keeps both pipelines able to notice
-    # and re-research these matches for real later.
-    pack["researchDepth"] = "fallback"
+    # researchDepth:"deep". Leave it null instead of "standard"/"deep" so
+    # both pipelines still notice and can re-research these for real later
+    # -- generatedBy:"fallback" (set above) is what actually marks this as
+    # fallback output; the schema's researchDepth enum only allows
+    # "standard"/"deep"/null, so a literal "fallback" string here fails
+    # validate-match.mjs and crashes the whole run (hit in production
+    # 2026-09-20, sl-e10-otelul-corvinul-hunedoara.json).
+    pack["researchDepth"] = None
     pack["generatedAt"] = datetime.now(timezone.utc).isoformat()
     return pack
 
@@ -630,7 +635,7 @@ def main():
 
         if slug in fixture_by_slug:
             fixture_by_slug[slug]["ready"] = True
-            fixture_by_slug[slug]["researchDepth"] = "fallback"
+            fixture_by_slug[slug].pop("researchDepth", None)
 
     write_json(FIXTURES_PATH, fixtures)
 
