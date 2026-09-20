@@ -494,6 +494,61 @@ async function getSquad(teamId, teamName, leagueId, season) {
   return rec;
 }
 
+// A confirmed/predicted lineup slot can reference a player who isn't in
+// squad[] at all: fixtures/lineups (confirmedXI/predictedXI/substitutes)
+// and the squad-building endpoints (players/squads, players?team=) are
+// fetched independently, and API-Football doesn't always agree between
+// them -- a very late signing eligible to play but not yet folded into
+// the general roster endpoint, seen live on 6 matches (e.g. Sudtirol's
+// L. Anghelè, apiId 349218, present in a confirmed XI with zero matching
+// squad entry). That leaves the pitch card with no bio/stats at all.
+// Backfills that one player directly by id, same shape as getSquad()'s
+// own per-player entries.
+async function fetchMissingSquadPlayer(apiId, season, leagueId, numberHint, posHint) {
+  const j = await af('players', { id: apiId, season });
+  const row = j && j.response && j.response[0];
+  const pl = row && row.player;
+  if (!pl) return null;
+  const st = statsFrom(statRowFor(row.statistics, leagueId));
+  const positions = positionsFrom(posHint || (st && st.position), row);
+  return {
+    apiId,
+    number: num(numberHint),
+    name: expandAbbreviatedName(pl.name, pl) || pl.name,
+    photo: pl.photo || null,
+    pos: positions[0] || null,
+    positions,
+    role: roleFrom(posHint || (st && st.position)),
+    age: num(pl.age),
+    height: num(String(pl.height || '').replace(/[^0-9]/g, '')),
+    weight: num(String(pl.weight || '').replace(/[^0-9]/g, '')),
+    foot: null,
+    nat: cc3(pl.nationality),
+    natTeam: null,
+    birthCountry: (pl.birth && pl.birth.country) || null,
+    pronunciation: null,
+    career: null,
+    lastSeason: null,
+    funfact: null,
+    linkLine: null,
+    status: pl.injured ? 'out' : 'available',
+    statusNote: pl.injured ? 'Accidentat' : null,
+    stats: st,
+  };
+}
+async function backfillLineupSquadGaps(t, season, leagueId) {
+  if (!t.squad || !t.squad.length) return false;
+  const have = new Set(t.squad.map((p) => p.apiId).filter((x) => x != null));
+  const slots = [].concat(t.confirmedXI || [], t.predictedXI || [], t.substitutes || []);
+  let added = false;
+  for (const slot of slots) {
+    if (slot.apiId == null || have.has(slot.apiId)) continue;
+    const p = await fetchMissingSquadPlayer(slot.apiId, season, leagueId, slot.number, slot.pos);
+    if (p) { t.squad.push(p); have.add(slot.apiId); added = true; }
+  }
+  return added;
+}
+
 /* ---------- coach (coachs) ---------- */
 async function getCoach(teamId) {
   const j = await af('coachs', { team: teamId });
@@ -1418,6 +1473,7 @@ async function buildMatch(fx, season, cache) {
       if (has(lu.formation)) t.formation = lu.formation;
     }
     if (lu && lu.subs && lu.subs.length) t.substitutes = lu.subs;
+    if (lu) await backfillLineupSquadGaps(t, season, leagueId);
     const col = meta && meta.colors && id != null ? meta.colors[id] : null;
     if (col && col.primary) t.colors = col;
   }
@@ -1605,11 +1661,23 @@ async function main() {
       const c = doc.teams[s].coach;
       return c && has(c.name) && (!c.trophies || !c.trophies.length);
     });
+    // A lineup slot (confirmed/predicted/substitute) can reference an apiId
+    // missing from squad[] entirely -- fixtures/lineups and the squad
+    // endpoints are fetched independently and don't always agree (see
+    // backfillLineupSquadGaps()). Detecting this costs nothing extra (no
+    // API call, just a local Set lookup); only fixing it does.
+    const needLineupSquadGap = ['home', 'away'].some((s) => {
+      const t = doc.teams[s];
+      if (!t.squad || !t.squad.length) return false;
+      const have = new Set(t.squad.map((p) => p.apiId).filter((x) => x != null));
+      return [].concat(t.confirmedXI || [], t.predictedXI || [], t.substitutes || [])
+        .some((slot) => slot.apiId != null && !have.has(slot.apiId));
+    });
     // referee + confirmed XI + kit colours are usually only published by the
     // provider in the final day(s) before kickoff — buildMatch() only runs
     // once, well before that, for a pack that's already "ready", so without
     // this check they'd never be filled in.
-    const needMatchDay = !has(doc.referee && doc.referee.name) ||
+    const needMatchDay = !has(doc.referee && doc.referee.name) || needLineupSquadGap ||
       ['home', 'away'].some((s) => !doc.teams[s].confirmedXI || !doc.teams[s].confirmedXI.length);
     // news and weather go stale, unlike the fields above — re-pull them every
     // run in the last 3 days before kickoff instead of only once when missing.
@@ -1653,6 +1721,7 @@ async function main() {
           doc.teams[side].substitutes = lu.subs;
           touched = true;
         }
+        if (lu && await backfillLineupSquadGaps(doc.teams[side], season, leagueId)) touched = true;
         const col = meta.colors && id != null ? meta.colors[id] : null;
         if (col && col.primary && !doc.teams[side].colors) { doc.teams[side].colors = col; touched = true; }
       }
