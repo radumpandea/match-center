@@ -758,17 +758,33 @@
     if (back) back.remove();
     render(d);
   }
+  // predictedXI, falling back to confirmedXI when the research skill hasn't
+  // copied the official lineup into predictedXI yet (Level 1's prefetch can
+  // populate confirmedXI on its own, before Level 2 ever runs on this match
+  // -- until then predictedXI is genuinely empty even though a real, official
+  // lineup is already sitting in confirmedXI). Every reader of "the starting
+  // XI" goes through this, not d.teams[side].predictedXI directly, so a
+  // match in that state still shows real players instead of 11 blank slots.
+  function baseXI(d, side) {
+    var team = d.teams[side];
+    var pred = team.predictedXI || [];
+    return pred.length ? pred : (team.confirmedXI || []);
+  }
   // predicted XI for a side with the user's manual swaps applied. Padded to 11
   // blank slots so a skeleton / partial-prefetch match still shows a full pitch
   // to build the lineup on (real packs already carry exactly 11).
   function effXI(d, side) {
-    var pred = (d.teams[side].predictedXI || []).slice();
+    var pred = baseXI(d, side).slice();
     while (pred.length < 11) pred.push({ number: null, name: null, pos: null });
     var ov = (store.xi && store.xi[side]) || {};
     return pred.map(function (slot, i) { return ov[i] || slot; });
   }
   // matchday bench: an explicit list of squad keys in store.bench[side]; when
-  // unset, the implicit bench is everyone in the squad not in the XI.
+  // unset, the implicit bench prefers the API-confirmed substitutes list
+  // (d.teams[side].substitutes -- filled alongside confirmedXI, never a
+  // guess, see docs/data/schema.json) over the whole rest of the squad, so
+  // a match with an official lineup already shows the real matchday
+  // reserves instead of every fringe player still in the squad file.
   function benchList(d, side) {
     var xiKeys = effXI(d, side).map(keyOf);
     var squad = effSquad(d, side);
@@ -779,11 +795,29 @@
         .map(function (k) { return squad.filter(function (p) { return keyOf(p) === k; })[0]; })
         .filter(function (p) { return p && offPitch(p); });
     }
+    var subs = d.teams[side].substitutes;
+    if (subs && subs.length) {
+      return subs.map(function (s) { return playerByNameOrNum(squad, s); }).filter(offPitch);
+    }
     return squad.filter(offPitch);
   }
   function setBench(d, side, keys) {
     store.bench = store.bench || {};
     if (keys && keys.length) store.bench[side] = keys; else delete store.bench[side];
+    save();
+    rerenderPitch(d);
+  }
+  // Locking the starting XI + bench in as final -- once confirmed, the
+  // in-match substitution picker (subTab, kind 'sub') only offers this
+  // side's actual bench (benchList) instead of the whole squad, since a
+  // real substitution can only bring on a player who was named among the
+  // reserves. Correcting the announced XI (kind 'xi') stays unrestricted
+  // even after confirming, in case the graphic itself turns out wrong.
+  function isLineupConfirmed(side) { return !!(store.confirmed && store.confirmed[side]); }
+  function setLineupConfirmed(d, side, val) {
+    store.confirmed = store.confirmed || {};
+    if (val) store.confirmed[side] = true; else delete store.confirmed[side];
+    if (!Object.keys(store.confirmed).length) delete store.confirmed;
     save();
     rerenderPitch(d);
   }
@@ -803,7 +837,7 @@
   // starts); 'sub' = an in-match substitution (has a minute, shows in the match
   // log). Legacy entries with no `kind` are treated as 'xi'.
   function applySub(d, side, idx, player, minute, kind) {
-    var pred = d.teams[side].predictedXI || [];
+    var pred = baseXI(d, side);
     var m = parseInt(minute, 10);
     store.xi = store.xi || {};
     store.xi[side] = store.xi[side] || {};
@@ -917,7 +951,7 @@
     // in-match substitutions (store.xi entries flagged kind === 'sub')
     var xi = store.xi || {};
     ['home', 'away'].forEach(function (side) {
-      var pred = d.teams[side].predictedXI || [];
+      var pred = baseXI(d, side);
       var ov = xi[side] || {};
       Object.keys(ov).forEach(function (i) {
         var cur = ov[i], orig = pred[i];
@@ -1059,8 +1093,13 @@
       onclick: async function () {
         if (!window.MC_COLLAB) return;
         try {
+          var wasFav = window.MC_COLLAB.isFavourite(slug);
           var yes = await window.MC_COLLAB.toggleFavourite(slug, staleFavouriteSlugs());
           favBtn.textContent = yes ? t('toolbar.favourite') : t('toolbar.notFavourite');
+          if (yes && !wasFav) {
+            var lang = await askFavouriteLang();
+            if (lang && lang !== I18N.getLang()) { I18N.setLang(lang); render(data); return; }
+          }
         } catch (e) { openCollaboration(data); }
       }
     });
@@ -1444,10 +1483,20 @@
     return el('div', { class: 'pitch-wrap' }, [matchGraphic(d), shell, benchStrip(d), subsStrip(d)]);
   }
 
+  // A non-null confirmedXI means API-Football itself reported the official
+  // lineup at build time (the research skill then copies it into
+  // predictedXI, since that's what the pitch always renders) -- this badge
+  // is the only place that fact stays visible instead of silently blending
+  // into an ordinary predicted XI.
+  function apiConfirmedBadge(d, side) {
+    if (!d.teams[side].confirmedXI) return null;
+    return el('span', { class: 'api-confirmed-tag', title: t('pitch.apiConfirmedTitle'), text: t('pitch.apiConfirmedTag') });
+  }
   function matchGraphic(d) {
     var score = el('div', { class: 'match-graphic-score' }, [
       el('span', { class: 'mgs-side home' }, [
         el('span', { class: 'mgs-team home', text: d.teams.home.name }),
+        apiConfirmedBadge(d, 'home'),
         formationSelect(d, 'home'),
         discSwatch(d, 'home')
       ]),
@@ -1455,6 +1504,7 @@
       el('span', { class: 'mgs-side away' }, [
         discSwatch(d, 'away'),
         formationSelect(d, 'away'),
+        apiConfirmedBadge(d, 'away'),
         el('span', { class: 'mgs-team away', text: d.teams.away.name })
       ])
     ]);
@@ -1488,6 +1538,7 @@
     ['home', 'away'].forEach(function (side) {
       var players = benchList(d, side);
       var explicit = !!(store.bench && store.bench[side] && store.bench[side].length);
+      var confirmed = isLineupConfirmed(side);
       var squad = effSquad(d, side);
       var row = el('div', { class: 'bench-team ' + side }, [
         el('span', { class: 'bench-label', text: t('pitch.benchLabel', { team: d.teams[side].shortName || d.teams[side].name }) }),
@@ -1496,6 +1547,13 @@
       if (explicit) {
         row.appendChild(el('button', { class: 'bench-add', title: t('pitch.allBench'), text: '↺', onclick: function () { setBench(d, side, null); } }));
       }
+      row.appendChild(el('button', {
+        class: 'bench-add' + (confirmed ? ' is-on' : ''),
+        title: confirmed ? t('pitch.undoConfirmLineup') : t('pitch.confirmLineup'),
+        text: confirmed ? '✓' : '☐',
+        onclick: function () { setLineupConfirmed(d, side, !confirmed); }
+      }));
+      if (confirmed) row.appendChild(el('span', { class: 'confirmed-tag', text: t('pitch.lineupConfirmedTag') }));
       if (!players.length) {
         row.appendChild(el('span', { class: 'bench-empty', text: explicit ? t('pitch.benchNone') : '—' }));
       }
@@ -1514,6 +1572,34 @@
       wrap.appendChild(row);
     });
     return wrap;
+  }
+
+  // Asked once, right after this match is added to favourites -- the first
+  // moment a user actively signals "I'm going to read this one", so it's the
+  // natural place to also ask which language they want to read it in. The
+  // answer just drives the same site-wide language switch as the RO/EN/DE/IT
+  // switcher already in the toolbar (I18N.setLang); it doesn't touch the
+  // translation pipeline, which already produces EN/DE/IT for every ready
+  // match on its own daily schedule regardless of what's picked here.
+  function askFavouriteLang() {
+    return new Promise(function (resolve) {
+      var done = false;
+      function finish(code) { if (done) return; done = true; back.remove(); document.removeEventListener('keydown', onKey); resolve(code); }
+      var back = el('div', { class: 'modal-back', onclick: function (e) { if (e.target === back) finish(null); } });
+      function onKey(e) { if (e.key === 'Escape') finish(null); }
+      document.addEventListener('keydown', onKey);
+      var pills = el('div', { class: 'notes-row' }, I18N.LANGS.map(function (code) {
+        return el('button', { class: 'pick', title: I18N.LANG_NAMES[code], text: code.toUpperCase(), onclick: function () { finish(code); } });
+      }));
+      back.appendChild(el('div', { class: 'modal', style: 'max-width:340px' }, [
+        el('div', { class: 'modal-body' }, [
+          el('p', { class: 'sub-note', text: t('toolbar.favLangPrompt') }),
+          pills,
+          el('button', { class: 'bench-add', text: t('toolbar.favLangSkip'), onclick: function () { finish(null); } })
+        ])
+      ]));
+      document.body.appendChild(back);
+    });
   }
 
   function openBenchPicker(d, side) {
@@ -1557,6 +1643,12 @@
       ]),
       el('div', { class: 'modal-body' }, [
         el('p', { class: 'sub-note', text: t('bench.hint') }),
+        el('div', { class: 'notes-row' }, [
+          el('button', { class: 'pick', text: t('benchPicker.deselectAll'), onclick: function () {
+            cand.forEach(function (p) { chosen[keyOf(p)] = false; });
+            redraw();
+          } })
+        ]),
         list,
         manual.el,
         el('div', { class: 'notes-row' }, [
@@ -1575,7 +1667,7 @@
   function subsStrip(d) {
     var strip = el('div', { class: 'subs-strip' });
     ['home', 'away'].forEach(function (side) {
-      var pred = d.teams[side].predictedXI || [];
+      var pred = baseXI(d, side);
       var ov = (store.xi && store.xi[side]) || {};
       var made = [];
       pred.forEach(function (orig, i) {
@@ -1981,8 +2073,8 @@
           return a.name + ' — ' + a.reason + (has(a.detail) ? ' (' + a.detail + ')' : '');
         })));
       } else { wrap.appendChild(el('div', { text: t('panel.noneReported') })); }
-      wrap.appendChild(el('h4', { text: t('panel.startingXI', { formation: effFormation(d, side) }) }));
-      wrap.appendChild(ul((tm.predictedXI || []).map(function (p) {
+      wrap.appendChild(el('h4', { text: t('panel.startingXI', { formation: effFormation(d, side) }) + (tm.confirmedXI ? ' · ' + t('pitch.apiConfirmedTag') : '') }));
+      wrap.appendChild(ul(baseXI(d, side).map(function (p) {
         return (p.number != null ? p.number + '. ' : '') + p.name + (has(p.pos) ? '  ' + p.pos : '');
       })));
       if (tm.substitutes && tm.substitutes.length) {
@@ -2551,7 +2643,7 @@
   function subTab(d, side, p, close) {
     var wrap = el('div', { class: 'sub-tab' });
     var eff = effXI(d, side);
-    var pred = d.teams[side].predictedXI || [];
+    var pred = baseXI(d, side);
     var squad = effSquad(d, side);
     var slotIdx = -1;
     eff.forEach(function (s, i) { if (slotIdx < 0 && sameP(s, p)) slotIdx = i; });
@@ -2575,6 +2667,7 @@
       kindSel = k;
       [].forEach.call(kindToggle.children, function (b) { b.classList.toggle('active', b.getAttribute('data-k') === k); });
       minRow.hidden = (k !== 'sub');
+      if (slotIdx >= 0) redrawCandidates();
     }
     [['xi', t('sub.optionLineup')], ['sub', t('sub.optionInMatch')]].forEach(function (pair) {
       kindToggle.appendChild(el('button', { 'data-k': pair[0], text: pair[1], onclick: function () { setKind(pair[0]); } }));
@@ -2582,6 +2675,28 @@
     function doSub(idx, player) {
       applySub(d, side, idx, player, kindSel === 'sub' ? minIn.value : null, kindSel);
       close();
+    }
+
+    var candList = el('div');
+    // A real in-match substitution can only bring on a player actually named
+    // among the reserves -- once the user has confirmed the XI + bench (see
+    // isLineupConfirmed/setLineupConfirmed), 'sub' picks are restricted to
+    // benchList() instead of the whole squad. Correcting the announced XI
+    // ('xi') stays unrestricted, since that's fixing the graphic itself, not
+    // logging a real substitution.
+    function redrawCandidates() {
+      candList.innerHTML = '';
+      var onKeys = eff.map(keyOf);
+      var bench = (kindSel === 'sub' && isLineupConfirmed(side))
+        ? benchList(d, side)
+        : squad.filter(function (x) { return onKeys.indexOf(keyOf(x)) < 0; });
+      groupPick(bench).forEach(function (grp) {
+        candList.appendChild(el('h4', { text: grp.label }));
+        grp.items.forEach(function (b) {
+          candList.appendChild(line(b, function () { doSub(slotIdx, b); }));
+        });
+      });
+      if (!bench.length) candList.appendChild(el('p', { text: t('sub.noBench') }));
     }
 
     if (slotIdx >= 0) {
@@ -2594,15 +2709,8 @@
         wrap.appendChild(line({ name: t('sub.revertTo', { name: origName }) },
           function () { clearSub(d, side, slotIdx); close(); }));
       }
-      var onKeys = eff.map(keyOf);
-      var bench = squad.filter(function (x) { return onKeys.indexOf(keyOf(x)) < 0; });
-      groupPick(bench).forEach(function (grp) {
-        wrap.appendChild(el('h4', { text: grp.label }));
-        grp.items.forEach(function (b) {
-          wrap.appendChild(line(b, function () { doSub(slotIdx, b); }));
-        });
-      });
-      if (!bench.length) wrap.appendChild(el('p', { text: t('sub.noBench') }));
+      redrawCandidates();
+      wrap.appendChild(candList);
     } else {
       wrap.appendChild(el('p', { class: 'sub-head', text: t('sub.whoReplaces', { name: p.name }) }));
       wrap.appendChild(kindToggle);

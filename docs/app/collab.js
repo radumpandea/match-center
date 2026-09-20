@@ -50,7 +50,7 @@
 
   function changedAreas(before, after) {
     var a = before || {}, b = after || {};
-    var keys = ['notes', 'lineup', 'xi', 'bench', 'events', 'captain', 'pnum', 'panelExtra', 'manual', 'discColors', 'view', 'panelOrder'];
+    var keys = ['notes', 'lineup', 'xi', 'bench', 'events', 'captain', 'pnum', 'panelExtra', 'manual', 'discColors', 'view', 'panelOrder', 'confirmed'];
     return keys.filter(function (k) { return json(a[k]) !== json(b[k]); }).map(function (k) { return t('collab.change.' + k); });
   }
 

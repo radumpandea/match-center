@@ -105,6 +105,13 @@
     background:transparent;color:var(--color-neutral-400);border:1px solid var(--color-divider)
   }
   .mc-theme-toggle:hover{border-color:var(--color-accent);color:var(--color-accent-200)}
+  .lang-ask-back{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:var(--space-4)}
+  .lang-ask-box{background:var(--color-surface);border:1px solid var(--color-divider);border-radius:var(--radius-lg);padding:var(--space-6);max-width:320px;display:flex;flex-direction:column;gap:var(--space-4);text-align:center}
+  .lang-ask-msg{font-size:13.5px;color:var(--color-text)}
+  .lang-ask-pills{display:flex;gap:var(--space-2);justify-content:center;flex-wrap:wrap}
+  .lang-ask-pills button{font:600 12px/1 "Inter",sans-serif;padding:8px 14px;border-radius:999px;border:1px solid var(--color-divider);background:transparent;color:var(--color-neutral-400);cursor:pointer}
+  .lang-ask-pills button:hover{border-color:var(--color-accent);color:var(--color-accent-200)}
+  .lang-ask-skip{align-self:center;background:none;border:none;color:var(--color-neutral-600);font-size:12px;cursor:pointer;text-decoration:underline}
 </style>
 </head>
 <body>
@@ -139,7 +146,7 @@
   </div>
 </div>
 
-<script src="app/i18n.js?v=20260917e"></script>
+<script src="app/i18n.js?v=20260920c"></script>
 <script src="app/theme.js?v=20260917c"></script>
 <script src="app/config.js?v=20260907h"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -188,6 +195,52 @@
         } catch (e) { msgEl.textContent = e.message || t('collab.magicLinkFailed'); }
       };
     }
+  }
+
+  // Asked once, right after a match is added to favourites -- the first
+  // moment a user actively signals "I'm going to read this one", so it's
+  // the natural place to also ask which language they want to read it in.
+  // The answer just drives the same site-wide language switch as the
+  // RO/EN/DE/IT pills already in the header (window.MC_I18N.setLang) --
+  // it does not touch the translation pipeline, which already produces
+  // EN/DE/IT for every ready match on its own daily schedule regardless of
+  // what anyone picks here. Resolves to the chosen code, or null if the
+  // user dismissed the prompt (current language stays as-is).
+  function askFavouriteLang(){
+    return new Promise(function(resolve){
+      var done = false;
+      function finish(code){ if (done) return; done = true; back.remove(); document.removeEventListener('keydown', onKey); resolve(code); }
+      var back = document.createElement('div');
+      back.className = 'lang-ask-back';
+      back.onclick = function(e){ if (e.target === back) finish(null); };
+      function onKey(e){ if (e.key === 'Escape') finish(null); }
+      document.addEventListener('keydown', onKey);
+      var box = document.createElement('div');
+      box.className = 'lang-ask-box';
+      var msg = document.createElement('div');
+      msg.className = 'lang-ask-msg';
+      msg.textContent = t('index.favLangPrompt');
+      box.appendChild(msg);
+      var pills = document.createElement('div');
+      pills.className = 'lang-ask-pills';
+      window.MC_I18N.LANGS.forEach(function(code){
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = code.toUpperCase();
+        b.title = window.MC_I18N.LANG_NAMES[code];
+        b.onclick = function(){ finish(code); };
+        pills.appendChild(b);
+      });
+      box.appendChild(pills);
+      var skip = document.createElement('button');
+      skip.type = 'button';
+      skip.className = 'lang-ask-skip';
+      skip.textContent = t('index.favLangSkip');
+      skip.onclick = function(){ finish(null); };
+      box.appendChild(skip);
+      back.appendChild(box);
+      document.body.appendChild(back);
+    });
   }
 
   function dateLabel(iso){
@@ -292,8 +345,16 @@
             var upcomingSlugs = {};
             all.forEach(function(f){ upcomingSlugs[f.slug] = true; });
             var staleSlugs = (window.MC_COLLAB.status().favourites || []).filter(function(s){ return !upcomingSlugs[s]; });
+            var wasFav = isFav;
             var yes = await window.MC_COLLAB.toggleFavourite(m.slug, staleSlugs);
             fav.classList.toggle('on', yes); fav.textContent = yes ? '★' : '☆';
+            if (yes && !wasFav) {
+              var lang = await askFavouriteLang();
+              if (lang && lang !== window.MC_I18N.getLang()) {
+                window.MC_I18N.setLang(lang);
+                applyStaticText(); renderAccount(); render();
+              }
+            }
           } catch (err) { alert(err && err.message ? err.message : t('collab.unavailableFallback')); }
         };
         el.appendChild(fav);

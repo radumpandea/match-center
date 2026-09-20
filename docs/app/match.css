@@ -215,7 +215,12 @@ button{font-family:inherit}
 .bench-label{flex:none;color:var(--color-neutral-500);letter-spacing:.04em;text-transform:uppercase;font-size:9.5px}
 .bench-add{flex:none;background:none;border:1px solid var(--color-divider);border-radius:var(--radius-sm);color:var(--color-neutral-400);cursor:pointer;font-size:11px;line-height:1;padding:3px 6px}
 .bench-add:hover{color:var(--color-accent-200);border-color:var(--color-accent)}
+.bench-add.is-on{border-color:var(--color-accent);color:var(--color-accent-200);background:var(--color-accent-900)}
 .bench-empty{color:var(--color-neutral-600);font-size:11px}
+.confirmed-tag,.api-confirmed-tag{
+  flex:none;font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 6px;border-radius:999px;
+  background:color-mix(in srgb,var(--color-accent) 22%,transparent);color:var(--color-accent-200);white-space:nowrap
+}
 .bench-chip{
   flex:none;display:inline-flex;align-items:center;gap:5px;padding:3px 8px 3px 4px;border-radius:999px;
   background:var(--color-surface-2);border:1px solid var(--color-divider);color:var(--color-text);
