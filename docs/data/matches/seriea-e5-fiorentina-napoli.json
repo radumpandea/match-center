@@ -21,11 +21,11 @@
     "city": "Florence",
     "notes": null,
     "weather": {
-      "tempC": 27,
+      "tempC": 26,
       "condition": "cer clar",
-      "windKph": 1,
+      "windKph": 2,
       "precipitationMm": 0,
-      "forecastAt": "2026-09-20T09:54:43.374Z"
+      "forecastAt": "2026-09-20T11:10:24.920Z"
     }
   },
   "referee": {
@@ -119,7 +119,10 @@
       "shortName": null,
       "nickname": null,
       "logo": "https://media.api-sports.io/football/teams/502.png",
-      "colors": null,
+      "colors": {
+        "primary": "#693586",
+        "secondary": "#693586"
+      },
       "coach": {
         "apiId": 2902,
         "name": "Fabio Grosso",
@@ -255,10 +258,150 @@
           }
         ]
       },
-      "formation": "n/d",
+      "formation": "4-2-3-1",
       "predictedXI": [],
-      "confirmedXI": null,
-      "substitutes": null,
+      "confirmedXI": [
+        {
+          "apiId": 882,
+          "number": 43,
+          "name": "David De Gea",
+          "pos": "G"
+        },
+        {
+          "apiId": 330437,
+          "number": 20,
+          "name": "Álex Jiménez",
+          "pos": "D"
+        },
+        {
+          "apiId": 162498,
+          "number": 3,
+          "name": "Radu Drăguşin",
+          "pos": "D"
+        },
+        {
+          "apiId": 31642,
+          "number": 6,
+          "name": "Luca Ranieri",
+          "pos": "D"
+        },
+        {
+          "apiId": 424277,
+          "number": 33,
+          "name": "Viery",
+          "pos": "D"
+        },
+        {
+          "apiId": 347644,
+          "number": 14,
+          "name": "Arthur Atta",
+          "pos": "M"
+        },
+        {
+          "apiId": 876,
+          "number": 44,
+          "name": "Nicolò Fagioli",
+          "pos": "M"
+        },
+        {
+          "apiId": 311083,
+          "number": 27,
+          "name": "Cher Ndour",
+          "pos": "M"
+        },
+        {
+          "apiId": 449249,
+          "number": 30,
+          "name": "Franco Mastantuono",
+          "pos": "M"
+        },
+        {
+          "apiId": 383006,
+          "number": 25,
+          "name": "Alieu Njie",
+          "pos": "M"
+        },
+        {
+          "apiId": 292172,
+          "number": 32,
+          "name": "Mateo Pellegrino",
+          "pos": "F"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 15843,
+          "number": 53,
+          "name": "Oliver Christensen",
+          "pos": "G"
+        },
+        {
+          "apiId": 31352,
+          "number": 19,
+          "name": "Luca Lezzerini",
+          "pos": "G"
+        },
+        {
+          "apiId": 490779,
+          "number": 21,
+          "name": "Víctor Valdepeñas",
+          "pos": "D"
+        },
+        {
+          "apiId": 41734,
+          "number": 17,
+          "name": "João Mário",
+          "pos": "D"
+        },
+        {
+          "apiId": 1084,
+          "number": 5,
+          "name": "Marin Pongračić",
+          "pos": "D"
+        },
+        {
+          "apiId": 41144,
+          "number": 2,
+          "name": "Dodô",
+          "pos": "D"
+        },
+        {
+          "apiId": 610532,
+          "number": 72,
+          "name": "Brando Mazzeo",
+          "pos": "M"
+        },
+        {
+          "apiId": 474591,
+          "number": 42,
+          "name": "Christ Inao Oulaï",
+          "pos": "M"
+        },
+        {
+          "apiId": 1639,
+          "number": 4,
+          "name": "Marco Brescianini",
+          "pos": "M"
+        },
+        {
+          "apiId": 18748,
+          "number": 28,
+          "name": "Pedro Gonçalves",
+          "pos": "M"
+        },
+        {
+          "apiId": 162128,
+          "number": 29,
+          "name": "Wilfried Gnonto",
+          "pos": "F"
+        },
+        {
+          "apiId": 125743,
+          "number": 23,
+          "name": "Beto",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "apiId": 15843,
@@ -3973,21 +4116,27 @@
       ],
       "newsCandidates": [
         {
-          "title": "Fiorentina vs Napoli – Official Starting Lineups",
-          "url": "https://football-italia.net/fiorentina-vs-napoli-official-starting-lineups/",
-          "source": "Football Italia",
-          "published": "2026-09-20"
-        },
-        {
           "title": "Serie A Liveblog: Fiorentina-Napoli, Juventus-Atalanta, Milan-Lecce and more",
           "url": "https://football-italia.net/serie-a-liveblog-fiorentina-napoli-juventus-atalanta-milan-lecce-and-more/",
           "source": "Football Italia",
           "published": "2026-09-20"
         },
         {
-          "title": "Serie A: Fiorentina-Napoli in campo alle 12.30 DIRETTA",
+          "title": "Fiorentina vs Napoli – Official Starting Lineups",
+          "url": "https://football-italia.net/fiorentina-vs-napoli-official-starting-lineups/",
+          "source": "Football Italia",
+          "published": "2026-09-20"
+        },
+        {
+          "title": "Serie A: Fiorentina-Napoli in campo DIRETTA",
           "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/20/serie-a-fiorentina-napoli-in-campo-alle-12.30-diretta_58e62a85-e3ca-4f29-b244-4913260b8f2a.html",
           "source": "ANSA",
+          "published": "2026-09-20"
+        },
+        {
+          "title": "Fiorentina-Napoli 0-1, Olivera ad un passo dal raddoppio al trentacinquesimo (LIVE)",
+          "url": "https://www.ilnapolista.it/2026/09/fiorentina-napoli-diretta-live/",
+          "source": "Il Napolista",
           "published": "2026-09-20"
         },
         {
@@ -4013,12 +4162,6 @@
           "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNMWRPdTJqbjZ6UWpYa2c3dmlxaFBDbTZscUR3Ni1VMzhQYzRLN3NUYVF1MmVYUkdZcnNjOWJZeHFkZWdqZlJqbkNiamU5ODZxbU0yVzY3UWI1UEFHaHBmeDNfVFhBOFlyVk9ZbER0SXBmSVhQYy1GUkJGSzRiN1NaanRGMXVyeURwSkcwb1ZPLWswaWoyWU1SNmZET2xBYnRBQmdv?oc=5",
           "source": "Sportskeeda",
           "published": "2026-09-20"
-        },
-        {
-          "title": "Fiorentina vs Napoli Prediction, Betting Tips, Lineups & Odds | 20 Sep 2026",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNMzdHbGg1WlpBXzNPdVcwOE9QbjM0dUd3XzQ5d0ppMDJFd0RPX0FWYVZjcFhiVk81RUpPeUNFMGZ3OTZMN3FVLTMwRm5DakJLMzI2THVGbmpuTVZiN2hvUkQ0X3hGQXh1N3BpTmV5TXhGbFpBd1dKYWw1WVJxOHRrRkRTNHFDV1lnX0kxQWdjLThYQ2ZVczdaRjVzWGtQTDV4ZGhLQ1hmOWdNcXBT?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-09-20"
         }
       ]
     },
@@ -4027,7 +4170,10 @@
       "shortName": null,
       "nickname": null,
       "logo": "https://media.api-sports.io/football/teams/492.png",
-      "colors": null,
+      "colors": {
+        "primary": "#4596d9",
+        "secondary": "#4596d9"
+      },
       "coach": {
         "apiId": 3386,
         "name": "Massimiliano Allegri",
@@ -4210,10 +4356,132 @@
           }
         ]
       },
-      "formation": "n/d",
+      "formation": "4-2-3-1",
       "predictedXI": [],
-      "confirmedXI": null,
-      "substitutes": null,
+      "confirmedXI": [
+        {
+          "apiId": 31156,
+          "number": 32,
+          "name": "Vanja Milinković-Savić",
+          "pos": "G"
+        },
+        {
+          "apiId": 31042,
+          "number": 22,
+          "name": "Giovanni Di Lorenzo",
+          "pos": "D"
+        },
+        {
+          "apiId": 1314,
+          "number": 13,
+          "name": "Amir Rrahmani",
+          "pos": "D"
+        },
+        {
+          "apiId": 237066,
+          "number": 16,
+          "name": "Rafa Marín",
+          "pos": "D"
+        },
+        {
+          "apiId": 47254,
+          "number": 17,
+          "name": "Mathías Olivera",
+          "pos": "D"
+        },
+        {
+          "apiId": 130423,
+          "number": 6,
+          "name": "Billy Gilmour",
+          "pos": "M"
+        },
+        {
+          "apiId": 47439,
+          "number": 68,
+          "name": "Stanislav Lobotka",
+          "pos": "M"
+        },
+        {
+          "apiId": 219,
+          "number": 21,
+          "name": "Matteo Politano",
+          "pos": "M"
+        },
+        {
+          "apiId": 629,
+          "number": 11,
+          "name": "Kevin De Bruyne",
+          "pos": "M"
+        },
+        {
+          "apiId": 544,
+          "number": 70,
+          "name": "Noa Lang",
+          "pos": "M"
+        },
+        {
+          "apiId": 288006,
+          "number": 19,
+          "name": "Rasmus Højlund",
+          "pos": "F"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 568114,
+          "number": 12,
+          "name": "Claudio Pugliese",
+          "pos": "G"
+        },
+        {
+          "apiId": 32172,
+          "number": 14,
+          "name": "Nikita Contini",
+          "pos": "G"
+        },
+        {
+          "apiId": 37604,
+          "number": 31,
+          "name": "Sam Beukema",
+          "pos": "D"
+        },
+        {
+          "apiId": 95,
+          "number": 5,
+          "name": "Benoît Badiashile",
+          "pos": "D"
+        },
+        {
+          "apiId": 348532,
+          "number": 2,
+          "name": "Costantino Favasuli",
+          "pos": "D"
+        },
+        {
+          "apiId": 3406,
+          "number": 99,
+          "name": "Frank Anguissa",
+          "pos": "M"
+        },
+        {
+          "apiId": 199089,
+          "number": 20,
+          "name": "Lorenzo Lucca",
+          "pos": "F"
+        },
+        {
+          "apiId": 552,
+          "number": 7,
+          "name": "David Neres",
+          "pos": "F"
+        },
+        {
+          "apiId": 347395,
+          "number": 26,
+          "name": "Antonio Vergara",
+          "pos": "M"
+        }
+      ],
       "squad": [
         {
           "apiId": 32172,
@@ -7681,21 +7949,33 @@
       ],
       "newsCandidates": [
         {
-          "title": "Fiorentina vs Napoli – Official Starting Lineups",
-          "url": "https://football-italia.net/fiorentina-vs-napoli-official-starting-lineups/",
-          "source": "Football Italia",
-          "published": "2026-09-20"
-        },
-        {
           "title": "Serie A Liveblog: Fiorentina-Napoli, Juventus-Atalanta, Milan-Lecce and more",
           "url": "https://football-italia.net/serie-a-liveblog-fiorentina-napoli-juventus-atalanta-milan-lecce-and-more/",
           "source": "Football Italia",
           "published": "2026-09-20"
         },
         {
-          "title": "Serie A: Fiorentina-Napoli in campo alle 12.30 DIRETTA",
+          "title": "Napoli director Manna on Anguissa: ‘If we don’t find an arrangement, no problems separating’",
+          "url": "https://football-italia.net/napoli-director-manna-on-anguissa/",
+          "source": "Football Italia",
+          "published": "2026-09-20"
+        },
+        {
+          "title": "Fiorentina vs Napoli – Official Starting Lineups",
+          "url": "https://football-italia.net/fiorentina-vs-napoli-official-starting-lineups/",
+          "source": "Football Italia",
+          "published": "2026-09-20"
+        },
+        {
+          "title": "Serie A: Fiorentina-Napoli in campo DIRETTA",
           "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/20/serie-a-fiorentina-napoli-in-campo-alle-12.30-diretta_58e62a85-e3ca-4f29-b244-4913260b8f2a.html",
           "source": "ANSA",
+          "published": "2026-09-20"
+        },
+        {
+          "title": "Fiorentina-Napoli 0-1, Olivera ad un passo dal raddoppio al trentacinquesimo (LIVE)",
+          "url": "https://www.ilnapolista.it/2026/09/fiorentina-napoli-diretta-live/",
+          "source": "Il Napolista",
           "published": "2026-09-20"
         },
         {
@@ -7711,21 +7991,9 @@
           "published": "2026-09-20"
         },
         {
-          "title": "Fiorentina vs Napoli: Italian Serie A stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1YeEZVQTBLLUhDN25hZFNMYWNzOGRzTW5rQkpkVkJtTGxqdHZUQ2lpTUJodk1BS0JDcHVQVXVXMWIxcVJ4M1dNZmpRN0RjU0kzcXpJeVJjRWNxN0phOG9FenJscw?oc=5",
-          "source": "BBC",
-          "published": "2026-09-20"
-        },
-        {
-          "title": "Football Live Scores: Fiorentina vs Napoli, Serie A, 2026/27 | Nine Wide World of Sports",
-          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOQjlQMWNjYlBRcVhYX01laUxpb1dpQnpNZzRLaWEyRDBWZFFPZXc0V2o1XzU1MXJmRGR2b3JNVmpBVUdieEViQVQzeTFWcHkxa1ZnSG8wZ2tHUFN1eXdFc1liQkJBME9yRHoxN09lckVobzJ0OS0wak5ueUNXQUg1c1FBN3JsTnhxYjk5cg?oc=5",
-          "source": "Nine.com.au",
-          "published": "2026-09-20"
-        },
-        {
-          "title": "Football Live Scores: Napoli vs Frosinone Calcio, Serie A, 2026/27 | Nine Wide World of Sports",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWHNFOVVwQXhUTlhtS3h1Z2h0anNWRGR3d296LUNFUDdJbHFyZG5sN3kyWnpmRDUzeDBsS29nRjE4eHZfZTZxTjh5YVlyMFBHWWxER3dfZkdWcU9SejZ6SGRTQWp6NzNmaHYtWFJ6MXlzazkxbGVPcjhydEI3NnljeFlIRXRkSkpENTRfWTVjQTFyT0tl?oc=5",
-          "source": "Nine.com.au",
+          "title": "Andre-Frank Anguissa can leave Napoli, confirms sporting director",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPd0xTdUQxYjhiSW94M21sd2w2UEkzT094V3d1SVVFRWVadHJtNGhKOEIzR0toTGQyQUJzUk1zdjBkTm96RkhLRm1MbS1BaGQ0UEVwVHBuT0hxYXQ2S29yeXJvdWR4TEJIYk9kcE1wcTgzNHA2UlFBSUUzT3p4d1JmbmVjYmdZLVVrVkY0b3hjbXo3WHpRWFliNlRuNXN1OTJBeHNYcFpkZkZIVlk?oc=5",
+          "source": "Get Italian Football News",
           "published": "2026-09-20"
         }
       ]
