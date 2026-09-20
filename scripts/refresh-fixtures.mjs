@@ -5,12 +5,18 @@
 // One call per tracked competition: GET /fixtures?league=&season=&from=&to=
 // over a rolling window. Entries carry the API-Football fixture id (`eventId`),
 // league id (`leagueId`) and team ids (`homeId` / `awayId`) — the same ids the
-// prefetch step and the match-data skill use. A fixture already marked `ready`
-// (its pack is published) is never dropped just because it has been played.
+// prefetch step and the match-data skill use.
+//
+// A played match drops out of the fixtures list (see the OPEN_STATUS filter
+// below) and its docs/data/matches/<slug>.json (+ .i18n.json sidecar) is
+// deleted in the cleanup pass at the end of main() — this tool only serves a
+// pre-match live-commentary screen, so there's no ongoing use for a match
+// once it's over, per the user (2026-09-20): already-played matches should
+// neither be updated nor kept around.
 //
 // Requires Node 18+ (global fetch) and env var APIFOOTBALL_KEY.
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, unlinkSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
 
@@ -39,6 +45,8 @@ const COMPS = [
 const DAYS_AHEAD = 21; // rolling scan window
 
 const OUT_FILE = fileURLToPath(new URL('../docs/data/fixtures.json', import.meta.url));
+const MATCHES_DIR = fileURLToPath(new URL('../docs/data/matches', import.meta.url));
+const PREVIEWS_FILE = fileURLToPath(new URL('../docs/data/previews.json', import.meta.url));
 
 // API-Football "season" is the calendar year the season starts in. For a
 // European season that runs Aug->May, that is the current year from July on,
@@ -181,27 +189,28 @@ async function main() {
       continue;
     }
 
+    // A played match (FT/AET/PEN/...) simply drops out of `upcoming` -- this
+    // tool only serves a pre-match live-commentary screen, so a finished
+    // match has no further use here and isn't kept around (see the matching
+    // cleanup pass below, which deletes its docs/data/matches/<slug>.json
+    // too). This replaces an earlier "never drop a published pack" rule the
+    // user explicitly asked to remove (2026-09-20): already-played matches
+    // should neither be updated nor retained.
     const upcoming = fixtures
       .filter((f) => OPEN_STATUS.has(f.fixture.status && f.fixture.status.short))
-      .map((f) => toEntry(c, f, byMatch));
-
-    // Never silently drop a published pack whose match has now been played and
-    // so no longer appears in the upcoming window.
-    const havePair = new Set(upcoming.map((e) => e.home + '|' + e.away));
-    const keepPublished = current.filter((e) => e.ready && !havePair.has(e.home + '|' + e.away));
-
-    const merged = upcoming.concat(keepPublished)
+      .map((f) => toEntry(c, f, byMatch))
       .sort((a, b) => (a.date + a.ko).localeCompare(b.date + b.ko));
 
-    if (!merged.length) {
+    if (!upcoming.length) {
       console.log(`${c.comp}: no fixtures in the next ${DAYS_AHEAD} days — keeping ${current.length} existing.`);
       out.push(...current);
       continue;
     }
-    console.log(`${c.comp}: ${upcoming.length} upcoming` +
-      (keepPublished.length ? ` (+${keepPublished.length} published kept)` : ''));
-    out.push(...merged);
+    console.log(`${c.comp}: ${upcoming.length} upcoming`);
+    out.push(...upcoming);
   }
+
+  cleanupPlayedMatches(out);
 
   const rendered = JSON.stringify(out, null, 2) + '\n';
   let before = '';
@@ -213,6 +222,39 @@ async function main() {
   mkdirSync(dirname(OUT_FILE), { recursive: true });
   writeFileSync(OUT_FILE, rendered);
   console.log(`Wrote ${out.length} fixtures to docs/data/fixtures.json`);
+}
+
+// Deletes docs/data/matches/<slug>.json (+ .i18n.json sidecar) for any slug
+// that no longer has a fixtures.json entry -- a played match, or one whose
+// fixture disappeared from the API entirely. Also prunes previews.json (the
+// "DATE PARȚIALE" banner list) of the same stale slugs, since it's a plain
+// array of slugs with no other validation. Run unconditionally, even if
+// fixtures.json itself didn't change, so this stays self-healing.
+function cleanupPlayedMatches(fixtures) {
+  const liveSlugs = new Set(fixtures.map((f) => f.slug));
+  let files;
+  try { files = readdirSync(MATCHES_DIR); } catch { return; }
+  let removed = 0;
+  for (const file of files) {
+    if (!file.endsWith('.json')) continue;
+    const slug = file.replace(/\.i18n\.json$|\.json$/, '');
+    if (liveSlugs.has(slug)) continue;
+    unlinkSync(`${MATCHES_DIR}/${file}`);
+    removed++;
+  }
+  if (removed) console.log(`Cleanup: removed ${removed} match file(s) for played/gone fixtures.`);
+
+  if (existsSync(PREVIEWS_FILE)) {
+    let previews;
+    try { previews = JSON.parse(readFileSync(PREVIEWS_FILE, 'utf8')); } catch { previews = null; }
+    if (Array.isArray(previews)) {
+      const kept = previews.filter((slug) => liveSlugs.has(slug));
+      if (kept.length !== previews.length) {
+        writeFileSync(PREVIEWS_FILE, JSON.stringify(kept, null, 2) + '\n');
+        console.log(`Cleanup: pruned ${previews.length - kept.length} stale slug(s) from previews.json.`);
+      }
+    }
+  }
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
