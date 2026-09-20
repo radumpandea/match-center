@@ -32,6 +32,9 @@ jobs:
       - name: Pre-fill docs/data/matches/*.json + docs/data/teams/*.json from API-Football
         env:
           APIFOOTBALL_KEY: ${{ secrets.APIFOOTBALL_KEY }}
+          INOREADER_APP_ID: ${{ secrets.INOREADER_APP_ID }}
+          INOREADER_APP_KEY: ${{ secrets.INOREADER_APP_KEY }}
+          INOREADER_REFRESH_TOKEN: ${{ secrets.INOREADER_REFRESH_TOKEN }}
           BACKFILL_HISTORY: ${{ inputs.backfill_history && '1' || '' }}
         run: node scripts/prefetch-preview.mjs
 

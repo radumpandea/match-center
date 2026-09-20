@@ -124,8 +124,11 @@ for every not-`ready` fixture kicking off in the next 6 days, writes
   tackles (total/blocks/interceptions), duels (total/won), dribbles (attempts/success/past),
   fouls (drawn/committed) and penalties (won/committed/scored/missed/saved) — same "Advanced
   statistics" panel, one table per squad, players with zero recorded minutes hidden;
-- `teams.<side>.newsCandidates[]` — raw dated Google News RSS headlines (no key), for the
-  editorial step to triage into `news[]`;
+- `teams.<side>.newsCandidates[]` — raw dated headlines for the editorial step to triage into
+  `news[]`, from three tiers, richest first: `scripts/news-sources.mjs`'s curated per-league
+  outlet RSS feeds → Inoreader "web feeds" for sites with no RSS of their own (official league
+  sites, Goal.com, footmercato.net, Gazzetta, Superliga.ro — see below) → a Google News search
+  per team as the catch-all;
 - **story seeds** — a few factual `storyOfTheMatch` bullets computed from the numbers above.
 
 Referee, confirmed XI, kit colours, weather and news headlines only become accurate or
@@ -264,6 +267,7 @@ cd docs && python -m http.server 8000
 | `OPENROUTER_API_KEY` | build-match-data-fallback.yml (**preferred provider**) | An [OpenRouter](https://openrouter.ai/keys) key, for the editorial-patch safety net above. Optional `OPENROUTER_MODEL` (default `google/gemini-3.1-pro-preview`) and `OPENROUTER_BASE_URL` secrets override the model/endpoint. |
 | `OPENAI_API_KEY` | build-match-data-fallback.yml | Used only if `OPENROUTER_API_KEY` is unset. Optional `OPENAI_MODEL` / `OPENAI_BASE_URL` secrets. |
 | `OLLAMA_BASE_URL` | build-match-data-fallback.yml | Self-hosted Ollama endpoint, used only if neither of the two above is set. Optional `OLLAMA_API_KEY` (if the endpoint needs auth) / `OLLAMA_MODEL` (default `llama3.1`). Has no web access at all — the weakest of the three fallback routes. |
+| `INOREADER_APP_ID`, `INOREADER_APP_KEY`, `INOREADER_REFRESH_TOKEN` | prefetch-preview.yml | Optional. Reads Inoreader "web feeds" (a page turned into a monitored feed for sites with no RSS of their own — official league sites, Goal.com, footmercato.net, Gazzetta, Superliga.ro) for `teams.<side>.newsCandidates[]`. The app ID/key come from registering an app at [inoreader.com/developers](https://www.inoreader.com/developers); the refresh token is obtained once via the OAuth2 authorization-code flow (`/oauth2/auth` → user approves → `/oauth2/token` exchanges the code) and doesn't expire on its own. Missing any of the three just skips this source — the pipeline still runs on curated RSS + Google News. |
 
 ## Shared edits and favourites (Supabase)
 

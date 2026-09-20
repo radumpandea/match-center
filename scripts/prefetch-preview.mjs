@@ -22,8 +22,11 @@
 //   - API-Football's own algorithmic pre-match model (win/draw/away percent,
 //     an advice string, attack/defence/form/poisson comparison) -> predictions
 //   - raw dated RSS headlines, from curated per-league outlet feeds
-//     (scripts/news-sources.mjs) plus a Google News search per team ->
-//     teams.<side>.newsCandidates[] (no key)
+//     (scripts/news-sources.mjs), Inoreader web feeds for sites with no RSS
+//     of their own (official league sites, Goal.com, footmercato.net,
+//     Gazzetta, Superliga.ro — optional, needs INOREADER_APP_ID/APP_KEY/
+//     REFRESH_TOKEN), plus a Google News search per team ->
+//     teams.<side>.newsCandidates[] (no key besides Inoreader's)
 //   - kickoff-hour weather forecast at the venue -> venue.weather (Open-Meteo,
 //     free, no key — geocoded from venue.city)
 //
@@ -1151,6 +1154,81 @@ async function fetchCuratedFeed(name, url) {
   _curatedFeedCache.set(url, items);
   return items;
 }
+
+/* ---------- Inoreader web feeds (OAuth) -- official-site and otherwise
+   RSS-less sources (premierleague.com, ligue1.com, laliga.com, legaseriea.it,
+   goal.com, footmercato.net, gazzetta.it, superliga.ro all have no working
+   public RSS -- verified 2026-09-19/20, see news-sources.mjs's header).
+   Inoreader turns any page into a monitored "web feed"; the user subscribed
+   to these by hand in their own Inoreader account. Optional: if the three
+   INOREADER_* secrets aren't set, this whole section quietly no-ops and
+   teamNews() falls back to curated feeds + Google News as before. */
+const INOREADER_DOMAINS = {
+  'premierleague.com': ['Premier League'],
+  'ligue1.com': ['Ligue 1'],
+  'laliga.com': ['LaLiga'],
+  'legaseriea.it': ['Serie A', 'Coppa Italia'],
+  'gazzetta.it': ['Serie A', 'Coppa Italia'],
+  'superliga.ro': ['Superliga'],
+  // broad, multi-league sources -- filtered by team name like everything else
+  'goal.com': ['Premier League', 'Ligue 1', 'LaLiga', 'Serie A', 'Coppa Italia', 'Bundesliga', '2. Bundesliga'],
+  'footmercato.net': ['Premier League', 'Ligue 1', 'LaLiga', 'Serie A', 'Coppa Italia', 'Bundesliga', '2. Bundesliga'],
+};
+let _inoreaderToken = null; // { accessToken, expiresAt } -- one refresh per run, reused across every team/match
+async function getInoreaderToken() {
+  if (_inoreaderToken && Date.now() < _inoreaderToken.expiresAt) return _inoreaderToken.accessToken;
+  const appId = process.env.INOREADER_APP_ID, appKey = process.env.INOREADER_APP_KEY, refreshToken = process.env.INOREADER_REFRESH_TOKEN;
+  if (!appId || !appKey || !refreshToken) return null;
+  const body = new URLSearchParams({ client_id: appId, client_secret: appKey, refresh_token: refreshToken, grant_type: 'refresh_token' });
+  try {
+    const r = await fetch('https://www.inoreader.com/oauth2/token', { method: 'POST', body });
+    if (!r.ok) { console.error(`  inoreader token: HTTP ${r.status}`); return null; }
+    const j = await r.json();
+    if (!j.access_token) return null;
+    _inoreaderToken = { accessToken: j.access_token, expiresAt: Date.now() + ((j.expires_in || 3600) - 300) * 1000 };
+    return _inoreaderToken.accessToken;
+  } catch (e) { console.error(`  inoreader token: ${e.message}`); return null; }
+}
+let _inoreaderStreams = null; // domain -> subscription streamId, resolved once per run
+async function getInoreaderStreams(token) {
+  if (_inoreaderStreams) return _inoreaderStreams;
+  _inoreaderStreams = {};
+  try {
+    const r = await fetch('https://www.inoreader.com/reader/api/0/subscription/list', { headers: { Authorization: `Bearer ${token}` } });
+    if (!r.ok) { console.error(`  inoreader subs: HTTP ${r.status}`); return _inoreaderStreams; }
+    const j = await r.json();
+    for (const sub of (j.subscriptions || [])) {
+      const site = `${sub.htmlUrl || ''} ${sub.url || ''}`;
+      for (const domain of Object.keys(INOREADER_DOMAINS)) {
+        if (site.includes(domain)) _inoreaderStreams[domain] = sub.id;
+      }
+    }
+  } catch (e) { console.error(`  inoreader subs: ${e.message}`); }
+  return _inoreaderStreams;
+}
+const _inoreaderItemCache = new Map(); // streamId -> items, one fetch per run
+async function fetchInoreaderStream(streamId, token) {
+  if (_inoreaderItemCache.has(streamId)) return _inoreaderItemCache.get(streamId);
+  let items = [];
+  try {
+    const r = await fetch(`https://www.inoreader.com/reader/api/0/stream/contents/${encodeURIComponent(streamId)}?n=20`,
+      { headers: { Authorization: `Bearer ${token}` } });
+    if (r.ok) {
+      const j = await r.json();
+      items = (j.items || []).map((it) => ({
+        title: String((it.title || '')).trim(),
+        url: (it.canonical && it.canonical[0] && it.canonical[0].href) || (it.alternate && it.alternate[0] && it.alternate[0].href) || null,
+        source: (it.origin && it.origin.title) || null,
+        published: it.published ? new Date(it.published * 1000).toISOString().slice(0, 10) : null,
+      })).filter((x) => x.title);
+    } else {
+      console.error(`  inoreader stream: HTTP ${r.status}`);
+    }
+  } catch (e) { console.error(`  inoreader stream: ${e.message}`); }
+  _inoreaderItemCache.set(streamId, items);
+  return items;
+}
+
 async function teamNews(teamName, oppName, comp) {
   const cutoff = new Date(Date.now() - RSS_DAYS * 86400000).toISOString().slice(0, 10);
   const seen = new Set();
@@ -1171,6 +1249,19 @@ async function teamNews(teamName, oppName, comp) {
     for (const it of await fetchCuratedFeed(src.name, src.url)) {
       if (!norm(it.title).includes(teamKey)) continue;
       add(it);
+    }
+  }
+  // Inoreader web feeds -- same higher-signal, zero-AI-cost tier as the
+  // curated feeds above, for sources that have no RSS of their own.
+  const inoToken = await getInoreaderToken();
+  if (inoToken) {
+    const streams = await getInoreaderStreams(inoToken);
+    for (const [domain, comps] of Object.entries(INOREADER_DOMAINS)) {
+      if (!comps.includes(comp) || !streams[domain]) continue;
+      for (const it of await fetchInoreaderStream(streams[domain], inoToken)) {
+        if (!norm(it.title).includes(teamKey)) continue;
+        add(it);
+      }
     }
   }
   // "football" narrows the bare team-name query to the sport: without it, a

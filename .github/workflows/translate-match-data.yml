@@ -20,9 +20,15 @@ concurrency:
   group: translate-match-data
   cancel-in-progress: false
 
+# 07:05, not 07:00: this was the only workflow left scheduled exactly on the hour, the
+# time GitHub Actions itself warns is most likely to see cron runs delayed or dropped
+# under load (every sibling workflow here is already offset by 5-30 min). Confirmed this
+# wasn't just theoretical -- the 2026-09-20 07:00 run never shows up in the run history at
+# all (no queued run, no failure, nothing), while every other workflow that morning ran on
+# schedule.
 on:
   schedule:
-    - cron: "0 7 * * *"    # 07:00 UTC daily — after Build Match Data (06:00 UTC)
+    - cron: "5 7 * * *"    # 07:05 UTC daily — after Build Match Data (06:00 UTC)
   workflow_dispatch:
     inputs:
       match:
