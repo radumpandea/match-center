@@ -541,12 +541,22 @@
   function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
 
   /* ---------- who is on the pitch (lineup overrides) ---------- */
+  // apiId-first, like playerByNameOrNum(): two different players sharing a
+  // shirt number (a real case -- reported 2026-09 on Paris FC, #15 Mbemba/
+  // Koleosho) must never resolve to "the same player" just because the
+  // number matches. Falls back to number/name only for manually-added
+  // players, who have no apiId.
   function sameP(a, b) {
     if (!a || !b) return false;
+    if (a.apiId != null && b.apiId != null) return a.apiId === b.apiId;
     if (a.number != null && b.number != null) return a.number === b.number;
     return a.name === b.name;
   }
-  function keyOf(p) { return p && p.number != null ? 'n' + p.number : 's' + (p && p.name); }
+  function keyOf(p) {
+    if (!p) return 's';
+    if (p.apiId != null) return 'a' + p.apiId;
+    return p.number != null ? 'n' + p.number : 's' + p.name;
+  }
   // squad plus any players added by hand (see openAddPlayer)
   function effSquad(d, side) {
     return (d.teams[side].squad || []).concat((store.manualSquad && store.manualSquad[side]) || []);
@@ -711,7 +721,10 @@
   }
   function setPlayerNumber(d, side, p, n) {
     var oldKey = keyOf(p);
-    var newKey = (n != null && !isNaN(n)) ? 'n' + n : 's' + p.name;
+    // A player with an apiId keeps the same identity key regardless of
+    // number (keyOf() is apiId-first) -- only players without one (added
+    // by hand) actually change key when their number changes.
+    var newKey = p.apiId != null ? oldKey : ((n != null && !isNaN(n)) ? 'n' + n : 's' + p.name);
     n = (n != null && !isNaN(n)) ? n : null;
     var orig = (d.teams[side].squad || []).filter(function (x) { return x.name === p.name; })[0];
     var origNum = orig ? (orig._num0 !== undefined ? orig._num0 : orig.number) : (p._num0 !== undefined ? p._num0 : null);
@@ -730,8 +743,8 @@
         delete store.pname[side][oldKey];
       }
       if (store.events) {
-        var oe = side + ':' + (p.number != null ? p.number : p.name);
-        var ne = side + ':' + (n != null ? n : p.name);
+        var oe = side + ':' + oldKey;
+        var ne = side + ':' + newKey;
         if (oe !== ne && store.events[oe]) {
           store.events[ne] = (store.events[ne] || []).concat(store.events[oe]);
           delete store.events[oe];
@@ -812,7 +825,10 @@
   /* ---------- goals & cards per player (store.events) ---------- */
   var EV_ICON = { goal: '⚽', owngoal: '⚽', yellow: '🟨', red: '🟥', sub: '🔄' };
   function evMeta(type) { return EV_ICON[type] ? { icon: EV_ICON[type], label: t('events.' + type) } : null; }
-  function evKey(side, p) { return side + ':' + (p && p.number != null ? p.number : (p && p.name)); }
+  // apiId-first via keyOf(), same reasoning as sameP()/keyOf() above -- a
+  // shirt-number-only key would file a goal/card under the wrong player
+  // whenever two squad members share a number.
+  function evKey(side, p) { return side + ':' + keyOf(p); }
   function eventsFor(side, p) { return (store.events && store.events[evKey(side, p)]) || []; }
   function addEvent(side, p, type, minute) {
     if (!EV_ICON[type]) return;
@@ -867,10 +883,29 @@
       var ci = k.indexOf(':');
       var side = k.slice(0, ci), ref = k.slice(ci + 1);
       if (side !== 'home' && side !== 'away') return;
-      var num = parseInt(ref, 10);
-      var pl = effSquad(d, side).filter(function (x) {
-        return (!isNaN(num) && x.number === num) || x.name === ref;
-      })[0] || { name: ref, number: isNaN(num) ? null : num };
+      // ref is keyOf()'s encoding: "a<apiId>" | "n<number>" | "s<name>" --
+      // apiId-first so a shirt-number collision can't resolve to the wrong
+      // player's event log. Old events saved before this encoding existed
+      // used a bare number/name with no prefix; kept as a fallback so
+      // already-recorded events don't just vanish.
+      var squad = effSquad(d, side);
+      var pl;
+      if (ref.charAt(0) === 'a') {
+        var apiId = parseInt(ref.slice(1), 10);
+        pl = squad.filter(function (x) { return x.apiId === apiId; })[0];
+      } else if (ref.charAt(0) === 'n') {
+        var numN = parseInt(ref.slice(1), 10);
+        pl = squad.filter(function (x) { return x.number === numN; })[0];
+      } else if (ref.charAt(0) === 's') {
+        var nameS = ref.slice(1);
+        pl = squad.filter(function (x) { return x.name === nameS; })[0];
+      }
+      if (!pl) {
+        var legacyNum = parseInt(ref, 10);
+        pl = squad.filter(function (x) {
+          return (!isNaN(legacyNum) && x.number === legacyNum) || x.name === ref;
+        })[0] || { name: ref, number: isNaN(legacyNum) ? null : legacyNum };
+      }
       (ev[k] || []).forEach(function (e) {
         rows.push({
           minute: e.minute, type: e.type, id: e.id, side: side, player: pl,
@@ -1488,25 +1523,32 @@
     document.addEventListener('keydown', onKey);
 
     var xiKeys = effXI(d, side).map(keyOf);
-    var cand = effSquad(d, side).filter(function (p) { return xiKeys.indexOf(keyOf(p)) < 0; });
     var cur = (store.bench && store.bench[side]) || null;
     var chosen = {};
-    (cur || cand.map(keyOf)).forEach(function (k) { chosen[k] = true; });
-
+    var cand;
     var list = el('div', { class: 'bench-pick-list' });
-    groupPick(cand).forEach(function (grp) {
-      list.appendChild(el('h4', { text: grp.label }));
-      grp.items.forEach(function (p) {
-        var k = keyOf(p);
-        var b = el('button', {
-          class: 'bench-pick' + (chosen[k] ? ' on' : ''),
-          text: (p.number != null ? '#' + p.number + '  ' : '') + p.name + (p.status && p.status !== 'available' ? '  ·  ' + statusLabel(p.status) : ''),
-          onclick: function () { chosen[k] = !chosen[k]; b.classList.toggle('on', !!chosen[k]); }
+    function redraw() {
+      cand = effSquad(d, side).filter(function (p) { return xiKeys.indexOf(keyOf(p)) < 0; });
+      (cur || cand.map(keyOf)).forEach(function (k) { if (!(k in chosen)) chosen[k] = true; });
+      list.innerHTML = '';
+      groupPick(cand).forEach(function (grp) {
+        list.appendChild(el('h4', { text: grp.label }));
+        grp.items.forEach(function (p) {
+          var k = keyOf(p);
+          if (!(k in chosen)) chosen[k] = true;
+          var b = el('button', {
+            class: 'bench-pick' + (chosen[k] ? ' on' : ''),
+            text: (p.number != null ? '#' + p.number + '  ' : '') + p.name + (p.status && p.status !== 'available' ? '  ·  ' + statusLabel(p.status) : ''),
+            onclick: function () { chosen[k] = !chosen[k]; b.classList.toggle('on', !!chosen[k]); }
+          });
+          list.appendChild(b);
         });
-        list.appendChild(b);
       });
-    });
-    if (!cand.length) list.appendChild(el('p', { class: 'sub-note', text: t('bench.none') }));
+      if (!cand.length) list.appendChild(el('p', { class: 'sub-note', text: t('bench.none') }));
+    }
+    redraw();
+
+    var manual = manualAddForm(side, t('benchPicker.addToBench'), function () { redraw(); });
 
     back.appendChild(el('div', { class: 'modal', style: 'max-width:400px' }, [
       el('div', { class: 'modal-head' }, [
@@ -1516,6 +1558,7 @@
       el('div', { class: 'modal-body' }, [
         el('p', { class: 'sub-note', text: t('bench.hint') }),
         list,
+        manual.el,
         el('div', { class: 'notes-row' }, [
           el('button', { class: 'pick', text: t('common.save'), onclick: function () {
             var keys = Object.keys(chosen).filter(function (k) { return chosen[k]; });
@@ -2358,7 +2401,9 @@
   }
 
   function openPlayer(d, side, p) {
-    var id = 'player:' + side + ':' + (p.number != null ? p.number : p.name);
+    // apiId-first (keyOf()) so two players sharing a shirt number don't end
+    // up reading/writing each other's notes.
+    var id = 'player:' + side + ':' + keyOf(p);
     modal(function (close) {
       return el('div', { class: 'modal-head' }, [
         avatarEl(p.photo, initials(p.name), side === 'home' ? 'var(--home)' : 'var(--away)'),
@@ -2577,6 +2622,43 @@
   // Fill an empty pitch slot by hand: creates the player (added to the manual
   // squad, so they also show up in the squad panel and as a future substitute)
   // and places them straight into that slot.
+  // Shared "add a player by hand" form (number/name/role/pos) used both when
+  // filling an empty pitch slot and from the bench picker -- covers a squad
+  // gap the live feed hasn't caught up on yet (a very recent signing, an
+  // academy call-up, etc.). onAdd(player) runs after the player is saved to
+  // store.manualSquad, so the caller decides what happens next (drop them on
+  // the pitch, add them to the bench, ...).
+  function manualAddForm(side, submitLabel, onAdd) {
+    var numIn = el('input', { class: 'field', type: 'number', min: '1', max: '99', placeholder: t('benchPicker.numberPlaceholder') });
+    var nameIn = el('input', { class: 'field', placeholder: t('benchPicker.namePlaceholder') });
+    var roleSel = el('select', { class: 'field' }, ['GK', 'DEF', 'MID', 'ATT'].map(function (r) {
+      return el('option', { value: r, text: t('posShort.' + r) });
+    }));
+    var posIn = el('input', { class: 'field', placeholder: t('benchPicker.posPlaceholder') });
+    function submit() {
+      var name = nameIn.value.trim();
+      if (!name) { nameIn.focus(); return; }
+      var player = {
+        number: numIn.value ? parseInt(numIn.value, 10) : null,
+        name: name, role: roleSel.value, pos: posIn.value.trim() || null, status: 'available'
+      };
+      addManualPlayer(side, player);
+      nameIn.value = ''; numIn.value = ''; posIn.value = '';
+      onAdd(player);
+    }
+    nameIn.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
+    return {
+      el: el('details', { class: 'add-manual' }, [
+        el('summary', { text: t('benchPicker.addManually') }),
+        el('div', {}, [
+          numIn, nameIn, roleSel, posIn,
+          el('div', { class: 'notes-row' }, [el('button', { class: 'pick', text: submitLabel, onclick: submit })])
+        ])
+      ]),
+      focus: function () { nameIn.focus(); }
+    };
+  }
+
   function openAddPlayer(d, side, idx) {
     var back = el('div', { class: 'modal-back', onclick: function (e) { if (e.target === back) close(); } });
     function close() { back.remove(); document.removeEventListener('keydown', onKey); }
@@ -2612,31 +2694,10 @@
     }
     searchIn.addEventListener('input', drawPicks);
 
-    var numIn = el('input', { class: 'field', type: 'number', min: '1', max: '99', placeholder: t('benchPicker.numberPlaceholder') });
-    var nameIn = el('input', { class: 'field', placeholder: t('benchPicker.namePlaceholder') });
-    var roleSel = el('select', { class: 'field' }, ['GK', 'DEF', 'MID', 'ATT'].map(function (r) {
-      return el('option', { value: r, text: t('posShort.' + r) });
-    }));
-    var posIn = el('input', { class: 'field', placeholder: t('benchPicker.posPlaceholder') });
-    function submit() {
-      var name = nameIn.value.trim();
-      if (!name) { nameIn.focus(); return; }
-      var player = {
-        number: numIn.value ? parseInt(numIn.value, 10) : null,
-        name: name, role: roleSel.value, pos: posIn.value.trim() || null, status: 'available'
-      };
-      addManualPlayer(side, player);
+    var manual = manualAddForm(side, t('benchPicker.addToPitch'), function (player) {
       applySub(d, side, idx, player);
       close();
-    }
-    nameIn.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
-    var manual = el('details', { class: 'add-manual' }, [
-      el('summary', { text: t('benchPicker.addManually') }),
-      el('div', {}, [
-        numIn, nameIn, roleSel, posIn,
-        el('div', { class: 'notes-row' }, [el('button', { class: 'pick', text: t('benchPicker.addToPitch'), onclick: submit })])
-      ])
-    ]);
+    });
     var m = el('div', { class: 'modal', style: 'max-width:380px' }, [
       el('div', { class: 'modal-head' }, [
         el('h3', { text: t('benchPicker.pickForSlot') }),
@@ -2645,13 +2706,13 @@
       el('div', { class: 'modal-body' }, [
         avail.length ? searchIn : null,
         pickList,
-        manual
+        manual.el
       ])
     ]);
     back.appendChild(m);
     document.body.appendChild(back);
     drawPicks();
-    if (avail.length) searchIn.focus(); else { manual.open = true; nameIn.focus(); }
+    if (avail.length) searchIn.focus(); else { manual.el.open = true; manual.focus(); }
   }
 
   // Small "fill in by hand" forms for the fields the live feed doesn't cover
