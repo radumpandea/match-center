@@ -7,12 +7,16 @@
 // league id (`leagueId`) and team ids (`homeId` / `awayId`) — the same ids the
 // prefetch step and the match-data skill use.
 //
-// A played match drops out of the fixtures list (see the OPEN_STATUS filter
-// below) and its docs/data/matches/<slug>.json (+ .i18n.json sidecar) is
-// deleted in the cleanup pass at the end of main() — this tool only serves a
-// pre-match live-commentary screen, so there's no ongoing use for a match
-// once it's over, per the user (2026-09-20): already-played matches should
-// neither be updated nor kept around.
+// A fixture stays in the list for the whole of its own calendar day
+// (Europe/Bucharest) no matter its status -- live, finished, whatever --
+// and only drops out starting the following day, when its docs/data/
+// matches/<slug>.json (+ .i18n.json sidecar) is also deleted in the cleanup
+// pass at the end of main(). Per the user (2026-09-20, refined same day
+// after an initial status-based cut dropped matches still being played):
+// "remove only from the day before backwards, never on the match's own
+// day" -- this tool only serves a pre-match live-commentary screen, so a
+// match from a previous day has no further use here, but today's match
+// must stay visible/usable all day regardless of kickoff having passed.
 //
 // Requires Node 18+ (global fetch) and env var APIFOOTBALL_KEY.
 
@@ -43,6 +47,7 @@ const COMPS = [
   { id: 284, comp: 'Liga 2', abbr: 'ro2', country: 'RO' },
 ];
 const DAYS_AHEAD = 21; // rolling scan window
+const DEAD_STATUS = new Set(['CANC', 'ABD', 'AWD', 'WO']); // no match day worth showing at all
 
 const OUT_FILE = fileURLToPath(new URL('../docs/data/fixtures.json', import.meta.url));
 const MATCHES_DIR = fileURLToPath(new URL('../docs/data/matches', import.meta.url));
@@ -55,9 +60,6 @@ function currentSeason(d = new Date()) {
   const y = d.getFullYear();
   return d.getMonth() >= 6 ? y : y - 1;
 }
-
-// Statuses that mean "this fixture has not produced a final result yet".
-const OPEN_STATUS = new Set(['TBD', 'NS', 'PST', 'SUSP', 'INT', 'LIVE', '1H', '2H', 'HT', 'ET', 'BT', 'P']);
 
 function slugify(s) {
   return s
@@ -189,15 +191,14 @@ async function main() {
       continue;
     }
 
-    // A played match (FT/AET/PEN/...) simply drops out of `upcoming` -- this
-    // tool only serves a pre-match live-commentary screen, so a finished
-    // match has no further use here and isn't kept around (see the matching
-    // cleanup pass below, which deletes its docs/data/matches/<slug>.json
-    // too). This replaces an earlier "never drop a published pack" rule the
-    // user explicitly asked to remove (2026-09-20): already-played matches
-    // should neither be updated nor retained.
+    // Status doesn't matter here -- a fixture stays in `upcoming` for the
+    // whole of its own calendar day regardless of being live or finished,
+    // and only ages out starting the next day, when the `from` window below
+    // no longer includes it (see the header comment). Status is still worth
+    // filtering on the truly dead ones (cancelled/abandoned/walkover), which
+    // have no match day worth showing at all.
     const upcoming = fixtures
-      .filter((f) => OPEN_STATUS.has(f.fixture.status && f.fixture.status.short))
+      .filter((f) => f.fixture.date.slice(0, 10) >= from && !DEAD_STATUS.has(f.fixture.status && f.fixture.status.short))
       .map((f) => toEntry(c, f, byMatch))
       .sort((a, b) => (a.date + a.ko).localeCompare(b.date + b.ko));
 
