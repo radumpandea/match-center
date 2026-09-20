@@ -556,7 +556,23 @@ table.mc.standings tr.is-mine td{background:var(--color-accent-900,rgba(120,140,
 @media (max-width:640px){
   .mc-teams{font-size:20px}
   .card-slot{font-size:9px}
-  .node .lbl{display:none}
+  /* Small bubbles, name only -- a phone-width pitch has no room for the
+     desktop node (34px disc + age/nat line + stat line) without labels
+     overlapping between formation rows, so mobile ignores whatever
+     full-names/text-size toggle the user picked on desktop (that state is
+     shared via localStorage and can carry over from a bigger screen) and
+     forces compact sizing instead. */
+  .pitch-shell,.pitch-shell.full-names,.pitch-shell.lbl-1,.pitch-shell.lbl-2,
+  .pitch-shell.full-names.lbl-1,.pitch-shell.full-names.lbl-2{
+    --lbl-fs:8.5px;--lbl-mw:58px;--node-w:58px;--disc-fs:10px
+  }
+  .node{gap:1px}
+  .node .disc{width:24px;height:24px;border-width:1.5px}
+  .node .lbl-sub,.node .lbl-stat{display:none}
+  .cap-mark{width:12px;height:12px;font-size:7px;top:-4px;left:-4px}
+  .node .badge{font-size:7px;padding:0 3px;top:-3px}
+  .node-badges{top:-4px}
+  .nb{font-size:7px;height:11px;min-width:11px}
 }
 
 /* ---- print ---- */
