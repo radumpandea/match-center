@@ -1661,8 +1661,14 @@
       var byApiId = squad.filter(function (p) { return p.apiId != null && p.apiId === slot.apiId; })[0];
       if (byApiId) return byApiId;
     }
+    // Exact name before number: when two squad members share a shirt number
+    // (a real, recurring case -- a transferred-out player's number not yet
+    // freed up) an OR'd number-or-name filter can return either one, since
+    // the number match alone doesn't distinguish them. A name match does.
+    var byName = slot.name != null ? squad.filter(function (p) { return p.name === slot.name; })[0] : null;
+    if (byName) return byName;
     return squad.filter(function (p) {
-      return (slot.number != null && p.number === slot.number) || p.name === slot.name;
+      return slot.number != null && p.number === slot.number;
     })[0] || { name: slot.name, number: slot.number, pos: slot.pos, role: 'MID' };
   }
 

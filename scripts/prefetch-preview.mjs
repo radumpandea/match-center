@@ -347,10 +347,19 @@ async function getSquad(teamId, teamName, leagueId, season) {
   }
 
   const seen = new Set();
+  // API-Football occasionally carries the same real player under two
+  // different ids at once (seen repeatedly: a transfer/loan mints a new
+  // player id that never gets merged with the old one) -- the roster
+  // endpoint returns one id, the season-stats endpoint's leftover pass
+  // below returns the other, and id-only dedup let both through as two
+  // squad entries sharing one shirt number. Deduping on the normalized
+  // name too closes that (verified against production data: ~60 duplicate
+  // pairs across current match files, e.g. Gudmundsson at Leeds twice
+  // under apiId 47969 and 545996, both with identical stats).
+  const seenNames = new Map(); // normalized name -> the squad[] entry already pushed for it
   const squad = [];
   const pushPlayer = (id, name, age, number, position) => {
     if (id != null && seen.has(id)) return;
-    if (id != null) seen.add(id);
     const row = id != null ? byId.get(id) : null;
     const pl = row && row.player;
     const st = statsFrom(statRowFor(row && row.statistics, leagueId));
@@ -358,10 +367,28 @@ async function getSquad(teamId, teamName, leagueId, season) {
     const injured = !!(pl && pl.injured);
     const baseName = name || (pl && pl.name) || null;
     const fullName = expandAbbreviatedName(baseName, pl);
-    squad.push({
+    const finalName = fullName || baseName;
+    const nameKey = finalName ? norm(finalName) : null;
+    if (id != null) seen.add(id);
+    const dupe = nameKey && seenNames.get(nameKey);
+    if (dupe) {
+      // Same real player under a second id -- keep the one entry, but don't
+      // let it end up worse than either source: fill whichever fields this
+      // pass found and the earlier pass left null (most commonly stats,
+      // when the roster pass hit a season-stats row this pass didn't).
+      if (dupe.stats == null && st != null) dupe.stats = st;
+      if (dupe.photo == null && pl && pl.photo) dupe.photo = pl.photo;
+      if (dupe.nat == null && pl) dupe.nat = cc3(pl.nationality);
+      if (dupe.height == null && pl) dupe.height = num(String(pl.height || '').replace(/[^0-9]/g, ''));
+      if (dupe.weight == null && pl) dupe.weight = num(String(pl.weight || '').replace(/[^0-9]/g, ''));
+      if (dupe.birthCountry == null && pl && pl.birth) dupe.birthCountry = pl.birth.country || null;
+      if (dupe.number == null && number != null) dupe.number = num(number);
+      return;
+    }
+    const entry = {
       apiId: id,   // API-Football player id — stable identity for the mc_entities table (docs/supabase.sql)
       number: num(number),
-      name: fullName || baseName,
+      name: finalName,
       photo: (pl && pl.photo) || null,
       pos: positions[0] || null,
       positions,
@@ -381,7 +408,9 @@ async function getSquad(teamId, teamName, leagueId, season) {
       status: injured ? 'out' : 'available',
       statusNote: injured ? 'Accidentat' : null,
       stats: st,
-    });
+    };
+    if (nameKey) seenNames.set(nameKey, entry);
+    squad.push(entry);
   };
 
   for (const m of roster) pushPlayer(m.id, m.name, m.age, m.number, m.position);
