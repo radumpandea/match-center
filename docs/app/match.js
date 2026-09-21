@@ -1243,6 +1243,44 @@
     });
   }
 
+  // Drag the left-edge grip to enlarge/shrink the mini pitch. The box is
+  // normally anchored to the viewport's right edge (CSS `right:8px`, no
+  // `left`) or, once repositioned via makeBoxDraggable, to an explicit
+  // `left`/`top` pixel pair -- either way, growing the box from its LEFT
+  // edge means the right edge must stay visually put, so this always works
+  // from the box's live getBoundingClientRect() rather than trusting
+  // whichever anchor happens to be authoritative right now.
+  function makeBoxResizable(box, handle) {
+    var MIN_W = 180, MAX_W = Math.round(window.innerWidth * 0.9);
+    handle.addEventListener('pointerdown', function (e) {
+      if (e.button != null && e.button !== 0) return;
+      e.preventDefault(); e.stopPropagation();
+      var startX = e.clientX;
+      var rect = box.getBoundingClientRect();
+      var right = rect.right;
+      try { handle.setPointerCapture(e.pointerId); } catch (err) {}
+      handle.classList.add('active');
+      function move(ev) {
+        var w = clamp(rect.width + (startX - ev.clientX), MIN_W, MAX_W);
+        box.style.width = w + 'px';
+        box.style.left = (right - w) + 'px';
+        box.style.top = rect.top + 'px';
+        box.style.right = 'auto';
+      }
+      function end() {
+        handle.classList.remove('active');
+        handle.removeEventListener('pointermove', move);
+        handle.removeEventListener('pointerup', end);
+        handle.removeEventListener('pointercancel', end);
+        store.miniPitchPos = { top: parseFloat(box.style.top), left: parseFloat(box.style.left) };
+        save();
+      }
+      handle.addEventListener('pointermove', move);
+      handle.addEventListener('pointerup', end);
+      handle.addEventListener('pointercancel', end);
+    });
+  }
+
   // IntersectionObserver on the pitch row itself -- no manual scroll-
   // position math, and it naturally re-shows once scrolled back up to the
   // pitch. Torn down and rebuilt on every full render() (language/theme
@@ -1276,7 +1314,8 @@
     shell.addEventListener('click', function () {
       pitchRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
-    var box = el('div', { class: 'mc-mini-pitch' }, [header, shell]);
+    var resizeHandle = el('div', { class: 'mp-resize', title: t('pitch.miniPitchResize') });
+    var box = el('div', { class: 'mc-mini-pitch' }, [header, shell, resizeHandle]);
     if (store.miniPitchPos) {
       box.style.top = store.miniPitchPos.top + 'px';
       box.style.left = store.miniPitchPos.left + 'px';
@@ -1285,6 +1324,7 @@
     if (store.miniPitchWidth) box.style.width = store.miniPitchWidth + 'px';
     document.body.appendChild(box);
     makeBoxDraggable(box, header);
+    makeBoxResizable(box, resizeHandle);
 
     if (typeof ResizeObserver !== 'undefined') {
       var ro = new ResizeObserver(function () {

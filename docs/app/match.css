@@ -97,9 +97,21 @@ button{font-family:inherit}
   background:var(--color-surface);border:1px solid var(--color-divider);border-radius:var(--radius-md);
   box-shadow:0 4px 14px rgba(0,0,0,.25);padding:10px;
   transform:translateY(-12px);opacity:0;pointer-events:none;transition:transform .18s ease,opacity .18s ease;
-  resize:horizontal;overflow:hidden
+  overflow:hidden
 }
 .mc-mini-pitch.show{transform:translateY(0);opacity:1;pointer-events:auto}
+/* Left-edge grip to enlarge/shrink the mini pitch -- sits in the box's own
+   left padding, so it's visible despite overflow:hidden without needing a
+   negative offset. Drives box.style.width (+ .left, keeping the right edge
+   in place) in match.js; a plain CSS `resize` handle would only appear at
+   the bottom-right corner, easy to miss on a box that's anchored/grown from
+   the right. */
+.mp-resize{
+  position:absolute;top:0;left:0;bottom:0;width:11px;cursor:ew-resize;
+  display:flex;align-items:center;justify-content:center;touch-action:none;z-index:1
+}
+.mp-resize::before{content:'';width:3px;height:28px;border-radius:2px;background:var(--color-divider)}
+.mp-resize:hover::before,.mp-resize.active::before{background:var(--color-accent)}
 .mp-header{display:flex;align-items:center;justify-content:space-between;gap:8px;font:600 18px/1 "Inter",sans-serif;padding:2px 6px 8px;color:var(--color-text);cursor:move;user-select:none}
 .mp-header .mp-team{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:34%}
 .mp-score{font-variant-numeric:tabular-nums;color:var(--color-accent-200);flex:none}
