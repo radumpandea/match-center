@@ -45,6 +45,7 @@ const COMPS = [
   { id: 79,  comp: '2. Bundesliga', abbr: 'bl2', country: 'DE' },
   { id: 283, comp: 'Superliga', abbr: 'sl', country: 'RO' },
   { id: 284, comp: 'Liga 2', abbr: 'ro2', country: 'RO' },
+  { id: 5,   comp: 'UEFA Nations League', abbr: 'unl', country: 'INT' },
 ];
 const DAYS_AHEAD = 21; // rolling scan window
 const DEAD_STATUS = new Set(['CANC', 'ABD', 'AWD', 'WO']); // no match day worth showing at all
