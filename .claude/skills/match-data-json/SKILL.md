@@ -72,6 +72,16 @@ Nivelul 1 a pus deja **lotul complet pentru ambele echipe** cu număr, vârstă,
    meciuri UEFA, lista oficială înregistrată pentru dublă: `uefa.com/.../match/{id}--.../lineups/`,
    „Squad lists"). Adaugă jucătorii lipsă, scoate-i pe cei plecați, corectează numerele.
    Numără explicit portarii — dacă oficial sunt 3 și în fișier e 1, mai caută.
+1b. **Meci de echipă națională — `squad[]` de la Nivelul 1 e prea larg, nu prea îngust.**
+   Spre deosebire de un club, API-Football n-are un endpoint de „lot convocat pentru
+   fereastra asta" pentru naționale — Nivelul 1 dă un pool istoric (orice jucător care a
+   prins vreo convocare în ultima vreme), tipic 40+ nume, din care doar ~23-26 sunt
+   convocați efectiv acum. Trebuie **scos** explicit oricine nu e pe lotul REAL convocat
+   pentru meciurile din fereastra asta — verifică pe pagina Wikipedia a naționalei,
+   secțiunea „Current squad" (are de obicei o notă cu meciurile exacte pentru care e valabil
+   lotul — verifică nota, nu doar tabelul, ca să nu iei un lot din altă fereastră) sau pe
+   site-ul federației. Un fost internațional retras sau cineva nechemat de câteva ferestre nu
+   trebuie să apară nici în `squad[]`, nici — cu atât mai grav — în `predictedXI`.
 2. **`status` per jucător** — `available` / `doubt` / `out` / `suspended` + `statusNote`,
    din team news din preziua/ziua meciului. Nivelul 1 a marcat accidentările din API;
    suspendările (cumul de galbene, roșu) le pui tu.
