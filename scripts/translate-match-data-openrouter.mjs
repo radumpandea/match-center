@@ -28,7 +28,18 @@ const PRESENT_WORD = { en: 'present', de: 'heute', it: 'presente' };
 
 const MATCH = (process.env.MATCH || '').trim();
 const COUNT = parseInt(process.env.COUNT || '5', 10);
-const DEFAULT_MODEL = 'google/gemini-2.5-flash';
+// google/gemini-2.5-flash-lite: ~5.6x cheaper than full 2.5 Flash ($0.50/M vs
+// $2.80/M combined prompt+completion on OpenRouter as of 2026-10-01) and from
+// the same family, so it inherited the same reliability on this script's
+// strict "exactly N items" JSON batches. Chosen after head-to-head testing
+// against several cheaper options that each failed differently: mistral-small
+// -24b-instruct-2501 (single OpenRouter provider, 429 on first real use),
+// mistral-nemo (silently dropped an item from a 10-item batch, twice),
+// openai/gpt-5-nano (a reasoning model -- burns the token budget on hidden
+// reasoning before the prompt's max_tokens is reached, truncating output),
+// and openai/gpt-4.1-nano (structurally reliable but mistranslated an
+// age-vs-years-elapsed sentence that flash-lite got right in all 3 languages).
+const DEFAULT_MODEL = 'google/gemini-2.5-flash-lite';
 const MODEL = (process.env.OPENROUTER_MODEL || '').trim() || DEFAULT_MODEL;
 const API_KEY = process.env.OPENROUTER_API_KEY;
 const BASE_URL = (process.env.OPENROUTER_BASE_URL || 'https://openrouter.ai/api/v1').replace(/\/+$/, '');
