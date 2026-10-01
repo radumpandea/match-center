@@ -1,12 +1,12 @@
 {
   "slug": "unl-e4-england-czechia",
-  "generatedAt": "2026-09-30T11:17:26.548Z",
+  "generatedAt": "2026-10-01T11:45:19.262Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-09-30"
+      "accessed": "2026-10-01"
     }
   ],
   "competition": {
@@ -20,7 +20,14 @@
     "name": "Wembley Stadium",
     "capacity": 90000,
     "city": "London",
-    "notes": null
+    "notes": null,
+    "weather": {
+      "tempC": 19,
+      "condition": "parțial noros",
+      "windKph": 8,
+      "precipitationMm": 0,
+      "forecastAt": "2026-10-01T11:45:19.693Z"
+    }
   },
   "referee": {
     "name": "n/d",
@@ -732,7 +739,7 @@
   "predictions": {
     "winnerName": "England",
     "winOrDraw": true,
-    "advice": "Combo Double chance : England or draw and +1.5 goals",
+    "advice": "Double chance : England or draw",
     "percent": {
       "home": 45,
       "draw": 45,
@@ -740,28 +747,28 @@
     },
     "comparison": {
       "form": {
-        "home": 0,
+        "home": 100,
         "away": 0
       },
       "attack": {
-        "home": 67,
-        "away": 33
+        "home": 80,
+        "away": 20
       },
       "defense": {
-        "home": 40,
-        "away": 60
+        "home": 57,
+        "away": 43
       },
       "poisson": {
         "home": 0,
         "away": 0
       },
       "h2h": {
-        "home": 64,
-        "away": 36
+        "home": 75,
+        "away": 25
       },
       "goals": {
-        "home": 78,
-        "away": 22
+        "home": 82,
+        "away": 18
       }
     }
   },
@@ -5298,7 +5305,9 @@
         ],
         "stats": {
           "goalsForByInterval": {
-            "31-45": 2
+            "31-45": 2,
+            "46-60": 1,
+            "61-75": 1
           },
           "goalsAgainstByInterval": {
             "0-15": 1,
@@ -5306,19 +5315,20 @@
             "61-75": 1
           },
           "cardsYellowByInterval": {
+            "31-45": 1,
             "61-75": 2,
             "76-90": 1
           },
           "cardsRedByInterval": null,
           "goalsForAvg": 2,
-          "goalsAgainstAvg": 3,
+          "goalsAgainstAvg": 1.5,
           "goalsForAvgHome": 2,
-          "goalsForAvgAway": 0,
+          "goalsForAvgAway": 2,
           "goalsAgainstAvgHome": 3,
           "goalsAgainstAvgAway": 0,
-          "cleanSheets": 0,
+          "cleanSheets": 1,
           "cleanSheetsHome": 0,
-          "cleanSheetsAway": 0,
+          "cleanSheetsAway": 1,
           "failedToScore": 0,
           "failedToScoreHome": 0,
           "failedToScoreAway": 0,
@@ -5329,7 +5339,7 @@
           "formations": [
             {
               "formation": "4-2-3-1",
-              "played": 1
+              "played": 2
             }
           ],
           "biggestStreak": {
@@ -5338,15 +5348,15 @@
             "loses": 1
           },
           "biggestWinHome": null,
-          "biggestWinAway": null,
+          "biggestWinAway": "0-2",
           "biggestLossHome": "2-3",
           "biggestLossAway": null,
           "biggestGoalsForHome": 2,
-          "biggestGoalsForAway": 0,
+          "biggestGoalsForAway": 2,
           "biggestGoalsAgainstHome": 3,
           "biggestGoalsAgainstAway": 0,
           "winsHome": 0,
-          "winsAway": 0,
+          "winsAway": 1,
           "drawsHome": 0,
           "drawsAway": 0,
           "losesHome": 1,
@@ -5367,52 +5377,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Trent? Kane? Gordon? - England player ratings for win vs Czech Republic",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOZFNDcEQyekdMaF9JZHFLWGktMTRkUXA3Z0c1OC10c1g4a2ozYkRwb0doN1h2YmpQS1RrSUFqTzRzdktwQ3dvTFpJdGloM04xV1Z0eTJDMGpxUFR6d3dVUEZUV0x2UnA2cFEteVdkUTZ0aUdpYWFCRzZpWm91eFJ0VkhfNDBDeVk0SWZkZkxzdkp1Q3FSck1lb1lEUW9qb0wzalJNazUzNVVqS1g3S3pVQ3V5NUxUaUk?oc=5",
+          "title": "England forward Ivan Toney pleads not guilty to nightclub assault",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQQ0JoaENnRWVCd2RfY0lYZ25hRnlOQW14UzdVRWdPTThVYmYxNVNtZTd5NjFjYWhOWmwwMUFqY3FyOWZtQkxRd1hmVVRwWXU5UHZfMEF2X1p2LWhveXdWSjZycTdJLVl4UDR2b0JLSWJHQmd5cDZGcDkzMFFqV2o4WFJUeVVxZzJlNVNmS0ZxNl9WQQ?oc=5",
+          "source": "The New York Times",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "Man City duo left out, Everton player starts: England predicted XI vs Croatia",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1mR0hoNWRCRUxfaTNNNlpsaEY2Mm1pMTJRYzZSQnp3S0xGeFJ3cEdNT0NFZXM1bzdaZU9oUVZjMWhnLURHY3JGMXVPYVFneGZhUWJiTUxXU1lSZ2ZyUi00N2RWa2JUS2JKNjVJUk9fM19SczY4dnBDT3l2X0N6VDg?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "Thomas Tuchel: England 'will not get another Harry Kane', but Jude Bellingham can play No. 9",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPbzJhajV4NU03RWhFMWxkOTluaTJCNURXZ3B2OWt3UEcwd09YOGpqSEw2YVFBU1k5Sm94MXA4cGFYdXBJUnh1YWdiQ3ZPbVdnUzlnb0ViODlNRmwzQkdoQUNYNEE3UExuSE5TSktraXZmRXlId2ZnZkZ5QmtKVDlKeHhDRWhSa1U2dUlxZXpBVG5wb0hmRkN6UDBlSWlFWkg4dXFHN19BczRfdGxxaFE?oc=5",
+          "source": "ESPN Philippines",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "Women's coaching: Why so many female coaches are quitting",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5FY18tTEdRdkVuY2htNUxPcGhZZ0dteDlTUFpNaWRSa29zY3N6amdTV3BtOGZ3V2VNc1ZtY0tyeUE1N0EyX3U1MWNCYkx0bkdpZ0d4RGpHOHlFLVRWVWJDUnREVzNlVFhP?oc=5",
+          "source": "BBC",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "Trent Alexander-Arnold 'always believed' he would play for England again after first start in over two years",
+          "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPSnh5TEs1T3BqN0hDWk0wRDN1V1RTSFVKaVdKMFZneU1RNkhDYlMxeV9mZEVvY0lHMjV1WW5fbHBXaHNoRUZ1a0tNYTJxVXdlTTkyTXJyRWxielJMb0lQSy05OEpYNERuVktSMmFERnlma0xJZEFnR0xWNlBhZTc0bHJRQUtnMHZoN3pPNnFELXF3ZkVlSVVVVnNfSTlfd3hubnd3cl9MUFdTa3NJN1pfeXZJWVR3ZzJUM1JLOWdYaVdweGFVanEtNlo2aENvcGE0YmNNR3hFb1RzclZZbDRwTFNBdE96NXg4aW13?oc=5",
           "source": "Sky Sports",
-          "published": "2026-09-30"
+          "published": "2026-10-01"
         },
         {
-          "title": "Fallout from England’s Premier League turmoil goes beyond football",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNNTRtaGxaMHFaMnBlZzJZMHlRLTdZdVViU0RZcjVjbzdJdERJVXVacGp5N09Ia2dDOGlTY25SVGEyVDVXVVFHU2FpRGo4b1FSOXFsWm9xdVFNVGtWSkxQc1ZYc2Q3a1IyeHVSZGIwRWltemtIay16YVd0dlhqTVJhVlRXVGhNZVp6THB3MmZjZ0laeHdTRXZqYWp3?oc=5",
-          "source": "tomorrowsaffairs.com",
-          "published": "2026-09-30"
+          "title": "Junior Football Report: Thunder's Harry Case’s 'crazy' journey from England to Regina",
+          "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQTXo5c1ZSOHl6S093UHpjTDYtZjRSUVlRNkhzaE9lU1REbmhGSm9pdHhlbHBUS1ZWZThqdHVqSkYtWG5NTFVSUmd2R3NHTkxSdnk3WTkyUFplVGxUWGhCZXRRRHNOUlFnc0tJa2N0eURGUWxfWldrV0lQOGRRUVhyQ1lhYTdRdHU4T2liUm8xdVhSYUtKYVJxRWlYVlBZdXRlUjlHQXJMbHJ1dWdFUjhLVmlyRG9iX1F4QmZUeVFMcVFZLVBha1dwT2g2QVRQNEZGNEpaUUt1ZzJXRmpTaU1CdmNyaksyTnpX?oc=5",
+          "source": "SportsCage.com",
+          "published": "2026-10-01"
         },
         {
-          "title": "Dropping Kelly and Toone could prove a World Cup masterstroke by Wiegman | Tom Garry",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNdElKU2lwdGcwWXNiMkMzVkF5VDZDaEt4OVFucXNLOFprUWxXTm5BSUo1THNqQnpmTklmTEJNbURGdkl5aW1Cdm56MmZ2T28tNExEdUZ0aHNDcHdNYWpOWVJUcmNBd0FSVXlsRWp0bW9sRkJlbTg5RXJFbHRuRVFJb1B0OHNiSGtUd0YwZ1pZM1ZOaHZ3UEhRWDhiYmlISFNxcGZBNkROdw?oc=5",
-          "source": "The Guardian",
-          "published": "2026-09-30"
+          "title": "Morgan Gibbs-White speaks out after England call-up clip featuring his fiancee caused a stir",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQdUczX04xYld1RnZvWDNETG1fR0ZfN05VTjFORmFCdzYta2hvX3VQRUpkVG9MOU1MZkRHNE1Ta0k0b3Q2YVFzdWxvcWdaR05nSkJvUndKVzN4YmhSZVRmaFZtQVFCV25xZnBZYUxZVzhHRi05WktwM1ZQdzFFZW5hZWwwOGROdXJabFl3d1Ytc9IBlAFBVV95cUxNQmlLTVlhalR1enp3bXM3TmRuR1lLSDB4SlY3YVo2ZW5tRTBsWnFkemw0VU5aTEpYWGh2UmpyM0FuRVlSUDJDb29LdlpZVTlwcFdqLWZ6LU9jbnN2N0MxTGhXYklEclE4VWRsT3BXdmZvTkt4UU9BdVJBMGs1R0RabXFpbGtndzFWZWZnU0EyQXNSWGI3?oc=5",
+          "source": "The Mirror",
+          "published": "2026-10-01"
         },
         {
-          "title": "Sarina Wiegman’s England squad shake-up sends a clear message. She picks on form",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOOE4yNDlRTWl6eDVwVzRYQkVyOGo2ZlpVaDhfUl9KVUR1b1c0LUZKOVRlT3NCVW4xZmNNMjBZTjd3cjNVb1NNX2JZdnU0ZFJqallVbExTcFlRcE5ScnY1cnhuZU4zYjhEMU1oVXBuZGVRLXhMT2xfYnVGZ1FBQjlBd0RyYmp3NkRackxRazJySEJFa2ZWM1RnYmdFNWZTaTM1Wk9XMjBJSQ?oc=5",
-          "source": "nytimes.com",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Is Anthony Gordon the future of England's frontline?",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPY1BJcFhuYWRrQWtfS2RkM2c0R1JNVTZUaHJjeTc1TnNRTFZlNUhPV0tLcGQ5a0VDRHhKSEtxZGVXU2ZTeUFEc2NXSDFpY0k5VGk0ZksyZW5yeEx5b1ljNm10ZV9PRHoybnpZRmF4cmN5VlBSWHowZnh0Mm14WjFBUzhJWGxvYU80V3o0WXlZWE5WbEJYVmdrUU1ja3ZYUFJXUkRFTmtIUDRJbEZwMFJFOVFvZUFfd2c?oc=5",
-          "source": "DAZN",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Czech Republic 0-2 England: Anthony Gordon, Harry Kane net to give Three Lions first Nations League win",
-          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOT0JOYkVPbXc1WUFZMVJDSXNCOFdrdFVGaTBFY05kZHdqSlNFSGRRdG14WGt0TTlpaThvSU5ZVkduay1KWlh0ZFktTm9kN25YWHYwcUg1emF3eTFQcFI0VXB5VWlrNGdTOWxDbjdpS1dQTkJuRlhmNFBtYTBWNHd1OFdXTWNjOHg0dFVFOURvd1Yyc1ExT3J2VHRsNE1ndjAtT3BFOFNHOGdEbEUyVkpNazZtWmZfQmN4dExUd1ZKZzZCTl95S2hMNVdkdm83SWwxTDAtejNIZUh2STBHYVdyNlhLQVY?oc=5",
-          "source": "Sky Sports",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Bournemouth’s Alex Scott makes senior England debut",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNX0E4dUowM2JEZHpjd05DTm9jUlN2WHJoN3BpV3RsOTg1Mmwtc3pONEZFQlBYbWVWM3ptREJHeE02Yy1NMlVMRkJlMFZzdFVCbGNjMVhWdkJWdktXZ3FFbHRyakZDT0NybklmUlJwb09tX3hHQi1oTm1iMGI4OXFvVDNUeGpybEVfd2V6Y0dUV2xIYzNtYkVDQ090NUJDcnpzZW5IQjYxNjYtUzM1UW4xRXVGRmdpMEZhTUpfNWJ5aHZSdw?oc=5",
-          "source": "DAZN",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "England player ratings vs Czech Republic: Arsenal star scores 5/10",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPRmI1QU9vUXBoZlpkZG1KWGR5YjA3clJHVFVqRzZHUHdiSmRoX0dWbXNfR25lQkhqUFpPVGVuOVZ6OGtRN0J3RndjXzhKY01WZ3RPZkNDSTJMRWFuaWVrSGNEZjcxVlo2eEtHWExDY2hHRFRRSExDUXA1UnBsNjFaTVNraU9LVXpKX1JfR1JfMk1hWk1TVVI0OHZHYzF5NFpJUUJVa0haTQ?oc=5",
-          "source": "London Evening Standard",
-          "published": "2026-09-30"
+          "title": "Football wasn’t ready for Andy Burnham’s bid to lift alcohol ban",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1PSjFrYUFoRS1lLUxCXzl3RkRIdzNZZ3YzZ3hEWnY1RThQaW5SQVh3Vk11Zl9UZ0d4eXl5dk9senRtUUdEM2daX1lZLTFYZVJzVE1nOEthUEU0NGFhMGdGTERQSW81ZllLekZEWnQ3ZXVvVURRUXNsTGk5dHpkXzQ?oc=5",
+          "source": "Yahoo",
+          "published": "2026-10-01"
         }
       ],
       "stories": []
@@ -9613,25 +9623,28 @@
             "46-60": 1
           },
           "goalsAgainstByInterval": {
-            "46-60": 1,
+            "46-60": 2,
+            "61-75": 1,
             "76-90": 1
           },
           "cardsYellowByInterval": {
             "31-45": 1,
             "91-105": 1
           },
-          "cardsRedByInterval": null,
-          "goalsForAvg": 1,
+          "cardsRedByInterval": {
+            "16-30": 1
+          },
+          "goalsForAvg": 0.5,
           "goalsAgainstAvg": 2,
-          "goalsForAvgHome": 1,
+          "goalsForAvgHome": 0.5,
           "goalsForAvgAway": 0,
           "goalsAgainstAvgHome": 2,
           "goalsAgainstAvgAway": 0,
           "cleanSheets": 0,
           "cleanSheetsHome": 0,
           "cleanSheetsAway": 0,
-          "failedToScore": 0,
-          "failedToScoreHome": 0,
+          "failedToScore": 1,
+          "failedToScoreHome": 1,
           "failedToScoreAway": 0,
           "penaltyScored": 0,
           "penaltyScoredPct": 0,
@@ -9640,17 +9653,17 @@
           "formations": [
             {
               "formation": "4-2-3-1",
-              "played": 1
+              "played": 2
             }
           ],
           "biggestStreak": {
             "wins": 0,
             "draws": 0,
-            "loses": 1
+            "loses": 2
           },
           "biggestWinHome": null,
           "biggestWinAway": null,
-          "biggestLossHome": "1-2",
+          "biggestLossHome": "0-2",
           "biggestLossAway": null,
           "biggestGoalsForHome": 1,
           "biggestGoalsForAway": 0,
@@ -9660,7 +9673,7 @@
           "winsAway": 0,
           "drawsHome": 0,
           "drawsAway": 0,
-          "losesHome": 1,
+          "losesHome": 2,
           "losesAway": 0
         }
       },
@@ -9677,6 +9690,30 @@
       "preseason": [],
       "news": [],
       "newsCandidates": [
+        {
+          "title": "Spain vs Czechia Prediction and Betting Tips | October 3rd 2026",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPMGhVdmV6bFFMTXh4cENiSFk4Y2dEcmk3dm5kQlRwQndwSFFRZEowODZldnB1WWNGenZISU5nVnJoZ25pc0NSU0JyeGFYZ043Z2RpcndkQU03Wk91aDNjaUtBQ2dMNmlrVE82UjB2ejE3d1RoeDl2SkpmLWYwRVg0X3BPdXFsQjhTeGJLWDZZRFo3VXlEWno4cW53?oc=5",
+          "source": "Sportskeeda",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "The Premier League v Manchester City and England beat Czechia – Football Weekly",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOY3A4elhJSXA0VmsyRWE2ajI1X0h4cnFxRTlrTWU0dDYxTGI1Mm4wUTB1SWU2WHAzckwzc2dHZmt1OEZYUktyc1VRTWpGcUpsTk84c1lzaGVWY3ExMjJiUG56UnA4NjFmal9aaVJTREFrWVY5OW1KMTVVeXRreWVPNTJxZ25FdXBVVFE3UVFvLTJWWjNzak5YTXB6ODZOOHl3d082dlRpT0lxTFhzQ3dnWUVvbzNuWTJpNlcwbnVZOXlxVmR0TURhZmpwYko?oc=5",
+          "source": "The Guardian",
+          "published": "2026-09-30"
+        },
+        {
+          "title": "Alexander-Arnold proves his worth to England with trademark assist against Czechia",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOdU5QdlA4bzJFWDU1Sk9PblhWQkVXREJjWlB1dG9ybXo4WkdHQ01CaEZGQzIwV1Nqak9HbkNfVnpSVEtVSnJRT2MtVDBPY0JPdU5SazhYYUxuM05ZOVdRWkpIUUdTc1ZfZkdodnhNS2tOb2pjU2R0czE0VklwWnFYX2RWVEpZNjM2cmxET2h1aVBRamttcVNsRldzRDMyMFZ1UUlXSG0zVUdKSTVlYXJRRTd2VWRzLW8?oc=5",
+          "source": "The Guardian",
+          "published": "2026-09-30"
+        },
+        {
+          "title": "Tuchel on Czechia win: ‘We deserved to win the second half’",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPT2VSVkl4UDhZTk10UHNfQ1dpdWR1QWh0cjBsM2ZPYnB4cjJUV3Rnak56NWxBQ3lHWWZOcTN2NVRqclhPNTBiMWlHUzlCc0szUTA5Sm55VS1DLVQ2UnAwNjR6ekxweGY0OElpNVhrTVpJQ1VxSGNpUzc4WnJ3dDhkQlQxS0tpdzVhTi0zTXowcW5vX0RYTURfT1ZXenBtem43aElTZUlhSFM3V1dzbWVhcDhHV19hcEFuSHFLN3pnNGEzejVybXFv?oc=5",
+          "source": "VAVEL.com",
+          "published": "2026-09-30"
+        },
         {
           "title": "Czechia vs England player ratings — Kane, Gordon fire Three Lions to victory",
           "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOSENFWUtJdkQwN1Y0M2xadklsTnZrTlNqU05jV2g0Y1BiY1FCLWIyckhmLVFmTW96QnN3RGdIUk5SeUVWZVhSRS14a3ZCVTgtMVZVamdKbV9fdkRjY2VtSWFLamxnWDZKWW10cTN2WU5Gdm1xYldhZ2tWZjZRUzgybW9WT0VWRVExZk1oTURnNWJteVEtM2R2SXFqaFZrVzkwQ19NOHJWZWdQV1FfQVh6QmhTV0YyZXZIbzhfWjJZbnVBRUXSAcoBQVVfeXFMT0JPT0c5MFE4Z3ZURURXZ2ZWNDFsLS1OMjZYUzc4ckctZUZiYmttT3JvTC1MQTZiNFJJSXFKcXJpOWhoTW1Rc1ZvbkRmVXVZdWt0dmtMOXFBT2ZvbjdKTFBXUW9uMDRPd1dHR1N6clVmVzNEaExUdk9pU0hfekZlN0JlVFNVVHpoM1YtUk93R1Izb3dPV0RyaS11NVBzNV9VR05JY2s2UFV4OEdkN29mcXdpSWUyOUVxemNEVWpCUGg0TlJldXZCTWFGQQ?oc=5",
@@ -9696,33 +9733,9 @@
           "published": "2026-09-30"
         },
         {
-          "title": "Trent Alexander-Arnold starts for England in win over Czechia",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNR3gyZXZNM1M3MlVFMkIzMkFwemQ1ajA2MjBaSnJQSmRiSVk1aE1GTVJEZFV0WkhHRVJSLTFZX3YzSTY4bmQxQ1NaSGtwSHdWLUQwUlNYVnM3NjV1S3dMTHN3UTBkcUlGaDJ0Tkx0MTY1QTFmbHhVakhQZlFXcndzczRfVW5ZQWQ1a3RnU2hTb056ZmRLMnkya1ZxU3g4ck5PVW9aYi1SOUtUNVZoVm1J?oc=5",
-          "source": "Operativ Məlumat Mərkəzi",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "England skipper Harry Kane reacts to Manchester City guilty verdict after Czechia win",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMl9mTTVhaVlfMFYzcVl4VERNeHRCS3FaTHJGbEQzSGJaenNUSURIYXlwZTc1N2tUSDhvOHRXLXA3ekxkcTBWblE2QV9YZVNORTNDZWJ3bnIwMDJLRUhiVzFiS2Vla3hqWEotcjVQSUYzS1NHS1c4RUJ2bTlrREdLQ3N6QXpoUDZ5Z3lHMzF4Q0c3cFo2emxqaVRLTXdib25NTmxXSGhJeHVWZ0NqQlpwLVFSWWgyZk5uS3c?oc=5",
-          "source": "Sportskeeda",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "czechia vs england: Explained",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQUFBkdnh3dUE0RXBvOEdYLVBoM2k2T3lHSzFXYzl4R3AzVFYtZmpEaXBNTXdzOFA2RDhlbFJEei1VSThqampUanJwUjRfcm43Z0JaVnpVTlVfMEh2a2RSVnY2WFJFYnNBZVJwZ3BKR0w3YXZUdWZ6TlJadFRVSTBMeXhITGJVQVNTVF9uQk9GUWppblU?oc=5",
-          "source": "JournalArta",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "UEFA Nations League 2026-27: Anthony Gordan, Kane Harry Score As England Beat 10-Man Czechia 2-0",
-          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPMURfR0J1ZnRwNFZ6bUk1NlNQcmpZMjlRWWV4a0FkQUFXSmtNQ25pemNZUkR4UjNHWllISk5mczVtemRYY2lhODdoSTR5SlA5QXNmaFdHdXk4YWhzWWtoU1lLdXd6U3J0UkR5NVNrY2pmYW9ZT2otTnFaTXRSdHNtT1hYeGkwYmdSazF2bkxDT0NzQ3U1a3NpczNJSmMzLXVqcFczc29IREllMENRa3NlS3c4M2hJVmQ3NVRESXJvbjVwQzk2RkFLNG9WN3BDZmtCTTVpZVg4LXhtV2tGcGZrTlBn0gHnAUFVX3lxTFB1dUo1Sks4XzgxQUhIYnlfX21meVlTS0czUzh3aDZFUFVTRWdfLU1qSW9nLW11VklWX2NncGc5Yno5X01mRmJTOXRyTGhNWnA0cHhwcGJEd04xXzJyMFBiWXVpQmQ3ZWdsS01uZG01V09xdHotblpDVng0OXMzUmNIUll5UlVldUMxME5MLWphVnRhbkkwd2gweWpMQ0xhdm5QUGVCYkw0VkZRbmRhUGhRTkZ6QVJVaWd2VEJ5RnNiT0FWU2k2MEFWUzVxOS1GaVFNblFQbktiZzRWVVJ1dDVNX194WUh5aw?oc=5",
-          "source": "LatestLY",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Trent Alexander-Arnold on Czechia performance: 'I've always believed I can play for England'",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPYmRkTkROa0tNYng0bnktanVsLW94X2hoc3pURTlwNFpCUG00Y2M3TkFGTXNFb3p6NkwyUzV3cXRNZmFocUJlR3o5cURQLUFKNGh2OFBqY1V3aTVLQzFKVk9NSmMzdVlMWFFCemZ5VDdmRkhDSW5NYzZCVWwxWWFLMDRLYWdIamRfR3VBa3V2OGQwdTJ2MkdIMHVEeWxDRlhpMlRGQVo1cWIxeTI2eHNGMV9wN1M?oc=5",
-          "source": "ESPN",
+          "title": "Micah Richards claims England star has gone 'to the next level'",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNN1F1YW5YNEFnR0xnOE96RDhEUDNJYU0zeEt5VWd5WVZ2cU9aLWlkdnc2Mi15UEZZYlZRS1p4MjNxTGxSNVVZRHhwS2FIeElZZ0REQTJpMTlQQ1dnNC1rZkw5QmR1QlVoU2VoT3lUczFENUV4RzBVcHZRRE1oMS1taW9hSmEwSkpwOEFWUHpXRnpSa2d1TTVDT0NR0gGfAUFVX3lxTE0zQTA0RzMxbDk5YUJlTHdaS3dteWE2dGZZZ1JtQXF6bUtoTUdncko3eHA1Wml6a3J4cXNpVzU0Z3BCdEFrSHVtZDlybWJjN21HWDZhaEZlQVdEX0NLdHZ2UjZvYTdhZG1kMFR0VGM2a2R2SXJzNnhraDhTNDJlTlYtalliWHNKSlpTSnNqcmRMWDFoaGV5VFhNUW13ZnUtbw?oc=5",
+          "source": "Metro.co.uk",
           "published": "2026-09-30"
         }
       ],

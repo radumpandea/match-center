@@ -1,12 +1,12 @@
 {
   "slug": "unl-e3-spain-czechia",
-  "generatedAt": "2026-09-30T11:16:44.629Z",
+  "generatedAt": "2026-10-01T11:44:16.618Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-09-30"
+      "accessed": "2026-10-01"
     }
   ],
   "competition": {
@@ -17,16 +17,16 @@
   },
   "kickoff": "2026-10-03T21:45:00+03:00",
   "venue": {
-    "name": "Bernabéu",
-    "capacity": 83186,
-    "city": "Madrid",
+    "name": "Nuevo Carlos Tartiere",
+    "capacity": 30500,
+    "city": "Oviedo",
     "notes": null,
     "weather": {
-      "tempC": 22,
-      "condition": "cer noros",
+      "tempC": 17,
+      "condition": "ploaie ușoară",
       "windKph": 3,
       "precipitationMm": 0,
-      "forecastAt": "2026-09-30T11:16:44.661Z"
+      "forecastAt": "2026-10-01T11:44:17.126Z"
     }
   },
   "referee": {
@@ -745,12 +745,12 @@
         "away": 0
       },
       "attack": {
-        "home": 75,
-        "away": 25
+        "home": 88,
+        "away": 13
       },
       "defense": {
-        "home": 50,
-        "away": 50
+        "home": 57,
+        "away": 43
       },
       "poisson": {
         "home": 0,
@@ -4783,20 +4783,25 @@
         ],
         "stats": {
           "goalsForByInterval": {
-            "0-15": 1,
+            "0-15": 2,
+            "31-45": 1,
             "46-60": 1,
-            "61-75": 1
+            "61-75": 2,
+            "76-90": 1
           },
           "goalsAgainstByInterval": {
+            "16-30": 1,
             "31-45": 2
           },
-          "cardsYellowByInterval": null,
+          "cardsYellowByInterval": {
+            "46-60": 1
+          },
           "cardsRedByInterval": null,
-          "goalsForAvg": 3,
-          "goalsAgainstAvg": 2,
-          "goalsForAvgHome": 0,
+          "goalsForAvg": 3.5,
+          "goalsAgainstAvg": 1.5,
+          "goalsForAvgHome": 4,
           "goalsForAvgAway": 3,
-          "goalsAgainstAvgHome": 0,
+          "goalsAgainstAvgHome": 1,
           "goalsAgainstAvgAway": 2,
           "cleanSheets": 0,
           "cleanSheetsHome": 0,
@@ -4812,22 +4817,26 @@
             {
               "formation": "4-2-3-1",
               "played": 1
+            },
+            {
+              "formation": "4-3-3",
+              "played": 1
             }
           ],
           "biggestStreak": {
-            "wins": 1,
+            "wins": 2,
             "draws": 0,
             "loses": 0
           },
-          "biggestWinHome": null,
+          "biggestWinHome": "4-1",
           "biggestWinAway": "2-3",
           "biggestLossHome": null,
           "biggestLossAway": null,
-          "biggestGoalsForHome": 0,
+          "biggestGoalsForHome": 4,
           "biggestGoalsForAway": 3,
-          "biggestGoalsAgainstHome": 0,
+          "biggestGoalsAgainstHome": 1,
           "biggestGoalsAgainstAway": 2,
-          "winsHome": 0,
+          "winsHome": 1,
           "winsAway": 1,
           "drawsHome": 0,
           "drawsAway": 0,
@@ -4842,51 +4851,51 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "World Cup Winner Spain Has Now Gone 40 Matches Without A Loss",
-          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOVE01amJmWGlWWEhubWhPMHpmUXVvdWxaNFZZOFMxYnFIQVA2RjZULXBZV3NEWHFpQmFMcmg2UzNYUjFUM1VwUE1oNlV2R3hsSXRmSl9JTlFDVkd0cGZlOXRGYlJPSC1QY1pjNGdSNHZ1Z2wtNm8yQW9NRE1uU09KaEZLMXctRWc1Y1RZVNIBjAFBVV95cUxPTkM4b0NqUG9pSEpObTNtdGJqcFFuSWxpU0cyVzNjV1F2QnhSMmI3Y0lfWEZMTFJOSm9CR0s0VVlibXpQeTJjczZnQjFnVElCemxrMzRvblVaLWpvcmhzcGdYWXRSX1AzYkthcVZqUjZwY1BkbXJ6N3I2STRubzBVNnB5N2p4b1QzbXhNVA?oc=5",
-          "source": "FOX Sports",
+          "title": "Man City news: Guillem Balague on Spanish football fans' reaction to 115 charges guilt",
+          "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQYU1jUlFBM05aZjVaQjJfdVJreF9TS203czBXMlNzNzAwUGtBMzRSeW5SNmdqMW56N0NFVmtPZjN2UE13M245ZGpoLVROU3hWVWRDTWZXQ2tlZWVvUUFDVkZzamZxRWlJQXRyNHBPNGQxcXIxNEc2OXpKRzJUWVNoNVkxa1NfVDdNWEFvSFQzTlg3VEVWcFRSbWFtdHdDMWtHTExlUUltWEVHMlg1UWpvLXRBU1hyNkZ3bmVFQTdXaGJtVHRqTlFqZS14dEdwUl9wXzVsckNZOU9fMW9jR2pGZ3RCMHpERldSOUhad0FKMmYyUQ?oc=5",
+          "source": "BBC",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "How to watch Spain vs Croatia: TV channel and live stream today",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNYlF1Zng5ZWVoU09EMXF2TlFlYVhSQy1BQVIwZW5PTHBsTmM0a2dneWRJQWJTM3dpUXBhQXNoVXgyYWF5eTBTajI2UzRsNk1rVXpqT2I2YlJLNVJwQWd4X1N1ZVBCeW9aNGFuYkhvSlBNcnpxU1lmek9Qc2lpTl9tRUo0SHd4V2J5dFZhbHQ5empaR3BabUhrQk9ORUVvUlFIeldqd0haWDVxZDh3MFFqRWNyc2xmQkZpRTYzTGt0SEp6TjlBbEhVdA?oc=5",
+          "source": "standard.co.uk",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "UEFA Nations League: 2026-27 Nations League format, schedule, standings, scores",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQTXYxSmpYeVZuTm1xZXhFa0huSEE5QjY4VnJiZThacEFJQnFvWjZlU3dpem5ZUDA1UWlXbnpDd2NUamt1cjVqOVlHNDNMT2FSaEtjRTZ0ck1ROVoyeGltc0JEWGVlbEFFS25QalJkVEdzYjhIWTlOWHFWdThzNVBrZGxCdVVPdFJCa2pnWmZ6YnFJNjFpOGJIOVEwVGFCZzVzdzNiWTNyNkRJQ3dJVm1ucHg0dw?oc=5",
+          "source": "NBC Sports",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "Spain vs Czechia Prediction and Betting Tips | October 3rd 2026",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPMGhVdmV6bFFMTXh4cENiSFk4Y2dEcmk3dm5kQlRwQndwSFFRZEowODZldnB1WWNGenZISU5nVnJoZ25pc0NSU0JyeGFYZ043Z2RpcndkQU03Wk91aDNjaUtBQ2dMNmlrVE82UjB2ejE3d1RoeDl2SkpmLWYwRVg0X3BPdXFsQjhTeGJLWDZZRFo3VXlEWno4cW53?oc=5",
+          "source": "Sportskeeda",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "Spain vs Czech Republic Betting Tips & Predictions - Stick With Yamal to Score in the Nations League",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNSEVjSGE3OGc0ZXNFZnY2TUNLOVpXTmI2QndDUzJUYjRHZ3dpOTVhejNtTDZ1dHJtekpnU3N6anVfUlM3MEdNYVdDU1VPV0E1QkxLNGhYakJwM1hBcU5ndXJMdnp2R0I3MWtqZFFHcW5TMVJpd2E0ZW9uZGN0SnlkNDdDTTRxRHQzVHZFcGVxS1QwZ1FVYVdPRmtvVVQ3Zw?oc=5",
+          "source": "FreeTips",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "Ryan Naderi shares honest verdict on Rangers fans as he's primed for Czechia debut vs Spain",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOekhqd211RGlGT1g1WmQ0bTg1cVluczdlNVRwVjc1R0lIakJpT1czT25rSS1JR1o1Q01CUVpqNlAtSEp2aFEtZW85SXpEVGxkTmk0dm1zcU1USnBaMGVobUl0Smw5VmFNSU90eHFLMHQzZm9CTldxWjRQNnpicjJoc3NuV2k2aGR0S0ViS0lKdFpybmtGLTRFOEpoc0NYV3BxZWJ6eXVERzJON0pZc1RHclFkVnVMcUU5OHhOZlY0MA?oc=5",
+          "source": "Ibrox News",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "England lose thrilling game to Spain but has Tuchel found a more confident approach? Did Yamal outshine Kane?",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPamY4U0Q4RDUxZDFPN2owblBNZjVIM3hMRDI0ZVJsSDVsVk8wTGVzU2pXM2R0Tmg3VG9BdGFGWlBLeWdWNHZ6TmFtY291NGZJQ3AyYXl4VlE0MFRheElCTlo2a0IwcDZuZ3hhQ0h1ZFMwMU1zZ25GdHNGVWRMbWtXTUhtb2Rqd3F4Y0NlTTFqeGRldlV4em1qekRYTmZFNzg?oc=5",
+          "source": "The New York Times",
           "published": "2026-09-30"
         },
         {
-          "title": "Spain ft. Ruiz and Ferran breeze past Croatia",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNVVlxVGsxc0VzUm1hdUVNTXV2WXV6NTVxWEMtQUstWFhXdkpnUC1PbG1KejBhc09FUkFQU25Mb3ZXU0xWT182N3QtQVJiV0RPS29PQUc2bUZvdlYwUEcxMFRtWEhibll5dEJRdEJXM05VSC1BMk1HYjNiN2VyODlJUXNfUnYyMC1DbldISEU4alZ6SHdGQ2JTTnN4QkpDRENyalI5dnZkUENaUFBtLThqQ1JRZlh2ZTV3Z05SNXQ4eUJ1TkpB?oc=5",
-          "source": "psg.fr",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Breaking down a sensational Spain goal: 70 seconds, 26 passes and an unerring Lamine Yamal - The Athletic",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPZ1B2aGxMenhTUjRGN3hTRDdPNFNncG1LRFlVczlOV0t2ekkwYXYwMFlXMlJtbWVZUG1qcHZLYTRaRWFxeXEwekd0TWcwNW9XdjE5dk8ybGhCVmJjb0FJSUZwZGJGTkZxTnRNakJhbmhKSkZOdVEtbTBtbnF2S29mSXdKX09yNkJscDlCQ3pFaWVwUHh5NXFBZ3h3?oc=5",
-          "source": "nytimes.com",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Spain's 25-Pass Masterpiece: Yamal Scores in 70 Seconds vs Croatia",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNbk5xb2VPMUpNZFRHUy13Nl9FUXJhbVJnVnRLcHVZZ0VuMHRFSnhhdXkySFZYSWx2UmJjOHE1VS1zNFJ5TGVWT2lucGstU2k5cUNRRmJtcnVHb3J4ekJISDFpdm8zNzhOSTBUSEdLZFpPRnU3aTQ5b1ZYcU1tSU1aSHpmdWtCZw?oc=5",
-          "source": "조선일보",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Spain Brush Aside Croatia In Nations League, England Down Czech Republic",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORHo2b0F4M08xUnNsd0JKcjk2ek5RXzNKVTY1emhBTFI2NHluSUJKV3A0X3lQTXhrZGQ5MmxLTmw2UV84V1dISnBDbEFCQjRJZC1fNUJHNmtXVUtJMVFvX2hzYmUtUXktUy1Gbkl6YUUySUQwM1BEU3lmYm9pRXJ6ME5SNEY2VjZQMEdQWXFTSmFCaXU1TW80VXNUN1hSd3NsZ3l2aHdCNXhmZERQS2xpNEJ3Zw?oc=5",
-          "source": "NDTV Sports",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Lamine Yamal receives huge Ballon d’Or backing from Spain teammate Nico Williams: 'Anyone who understands football...'",
-          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQY3ZuTlV5MlpPQ1AtOElzMHFoNjQzYjRUVGYtU2FiMEYwTDhPdHg0bXNHVmxfb05XcllxS243akd4UWhjTThBaDl6Yk95aERvZmhfUW9BbklRdHRaZWtpc0JiWWM4Qng5UGRJMEF0WlN2eU1lQWJYZk1KTTFHdUhxZ1NZbHhEYTZyUmtzYXRGNk44YXZtTXllYnpUVGs4bFF0MnNEV09lR3VUejdVZFQxY3k3cWNuZGh4U1dST1JReTlEd3BGSzZHdWxUTWhWZ3dGXzFYTDhB?oc=5",
-          "source": "Barca Universal",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Yamal inspires Spain to Croatia romp on World Cup homecoming",
-          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPT1FXSlNWOEtUWl9UbmpvT3pFOGpsQkdVeGxHaURUZmtpVlRCZFpoU1puTnMwTjBVU21iUkk2N2lxX2FvX3k2OEVaNDZGYU5EaWJ2elZfNGJCU3g3cnF0MDU4alQ3SXhrQXJQMUpBQWptVmFoNl9jaFJSa1FTcHRucGlnUmU5a25IcXZjVHR3NzhQemlTbWt1ZnZEOTlHbEc4RmV0dm5GVUpEeXowcFFMVlQ4STM3Y0NXdEg3RnlrOFJjQ0dKdlBVRnhBNFZqc3lqRE5wdDRHWQ?oc=5",
-          "source": "supersport.com",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Rodri showed Seville the World Cup, and Yamal scored twice as Spain beat Croatia 4-1 to go 40 games unbeaten",
-          "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNT0ItSElwU2RYSUFuZFlONUE4WHNSaG5tdVlkSzZjN04ya2FwWkNTRjdXNDZtenExYVBVcDNiMjdMNDJVN2tfVlM3VTVwbmM5aGppaG5pblVKbzhTY28xTk4zaVNaVHcwWnNUY2gtX0t5dTNuZkVJOVNqWkN6eFBWQ3JYcmFURkZkdjNjZDAwMVJTR1pwSWRQZHM4RXJmZlNINDcxU1VXeTdkWUVpbUFHWDRBcDZkR1lEWXVSMUY4UnpxNU9SN290VS1HZ2NQWjZJeW4wMDJBRC1HcmZDaHpQemFLUDQyWVdHUjV3azN5SVk?oc=5",
-          "source": "SportsAdda",
+          "title": "England Spain Score: Spain Shock England 3-2 In An Epic Wembley Thriller",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOUjVELUhvbGE0ckRGNFEyOUZOQS1CYXJFTkp3VXdFRlA2VUNuRHhmb1JzbkM0aDlCM21JOHNJeENRcmZvSTlkVURjR3pDb2t4cndGZ1V5VjVPazhVRUxMbllZSXZ2ejZ5cVpuWWhBWndCcGJFZHotcnloWXZ5bWtpV1hyMzlXWEU?oc=5",
+          "source": "Yahoo Sports",
           "published": "2026-09-30"
         }
       ],
@@ -9088,25 +9097,28 @@
             "46-60": 1
           },
           "goalsAgainstByInterval": {
-            "46-60": 1,
+            "46-60": 2,
+            "61-75": 1,
             "76-90": 1
           },
           "cardsYellowByInterval": {
             "31-45": 1,
             "91-105": 1
           },
-          "cardsRedByInterval": null,
-          "goalsForAvg": 1,
+          "cardsRedByInterval": {
+            "16-30": 1
+          },
+          "goalsForAvg": 0.5,
           "goalsAgainstAvg": 2,
-          "goalsForAvgHome": 1,
+          "goalsForAvgHome": 0.5,
           "goalsForAvgAway": 0,
           "goalsAgainstAvgHome": 2,
           "goalsAgainstAvgAway": 0,
           "cleanSheets": 0,
           "cleanSheetsHome": 0,
           "cleanSheetsAway": 0,
-          "failedToScore": 0,
-          "failedToScoreHome": 0,
+          "failedToScore": 1,
+          "failedToScoreHome": 1,
           "failedToScoreAway": 0,
           "penaltyScored": 0,
           "penaltyScoredPct": 0,
@@ -9115,17 +9127,17 @@
           "formations": [
             {
               "formation": "4-2-3-1",
-              "played": 1
+              "played": 2
             }
           ],
           "biggestStreak": {
             "wins": 0,
             "draws": 0,
-            "loses": 1
+            "loses": 2
           },
           "biggestWinHome": null,
           "biggestWinAway": null,
-          "biggestLossHome": "1-2",
+          "biggestLossHome": "0-2",
           "biggestLossAway": null,
           "biggestGoalsForHome": 1,
           "biggestGoalsForAway": 0,
@@ -9135,7 +9147,7 @@
           "winsAway": 0,
           "drawsHome": 0,
           "drawsAway": 0,
-          "losesHome": 1,
+          "losesHome": 2,
           "losesAway": 0
         }
       },
@@ -9153,6 +9165,42 @@
       "news": [],
       "newsCandidates": [
         {
+          "title": "Spain vs Czechia Prediction and Betting Tips | October 3rd 2026",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPMGhVdmV6bFFMTXh4cENiSFk4Y2dEcmk3dm5kQlRwQndwSFFRZEowODZldnB1WWNGenZISU5nVnJoZ25pc0NSU0JyeGFYZ043Z2RpcndkQU03Wk91aDNjaUtBQ2dMNmlrVE82UjB2ejE3d1RoeDl2SkpmLWYwRVg0X3BPdXFsQjhTeGJLWDZZRFo3VXlEWno4cW53?oc=5",
+          "source": "Sportskeeda",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "UEFA Nations League: 2026-27 Nations League format, schedule, standings, scores",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQTXYxSmpYeVZuTm1xZXhFa0huSEE5QjY4VnJiZThacEFJQnFvWjZlU3dpem5ZUDA1UWlXbnpDd2NUamt1cjVqOVlHNDNMT2FSaEtjRTZ0ck1ROVoyeGltc0JEWGVlbEFFS25QalJkVEdzYjhIWTlOWHFWdThzNVBrZGxCdVVPdFJCa2pnWmZ6YnFJNjFpOGJIOVEwVGFCZzVzdzNiWTNyNkRJQ3dJVm1ucHg0dw?oc=5",
+          "source": "NBC Sports",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "Ryan Naderi shares honest verdict on Rangers fans as he's primed for Czechia debut vs Spain",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOekhqd211RGlGT1g1WmQ0bTg1cVluczdlNVRwVjc1R0lIakJpT1czT25rSS1JR1o1Q01CUVpqNlAtSEp2aFEtZW85SXpEVGxkTmk0dm1zcU1USnBaMGVobUl0Smw5VmFNSU90eHFLMHQzZm9CTldxWjRQNnpicjJoc3NuV2k2aGR0S0ViS0lKdFpybmtGLTRFOEpoc0NYV3BxZWJ6eXVERzJON0pZc1RHclFkVnVMcUU5OHhOZlY0MA?oc=5",
+          "source": "Ibrox News",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "The Premier League v Manchester City and England beat Czechia – Football Weekly",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOY3A4elhJSXA0VmsyRWE2ajI1X0h4cnFxRTlrTWU0dDYxTGI1Mm4wUTB1SWU2WHAzckwzc2dHZmt1OEZYUktyc1VRTWpGcUpsTk84c1lzaGVWY3ExMjJiUG56UnA4NjFmal9aaVJTREFrWVY5OW1KMTVVeXRreWVPNTJxZ25FdXBVVFE3UVFvLTJWWjNzak5YTXB6ODZOOHl3d082dlRpT0lxTFhzQ3dnWUVvbzNuWTJpNlcwbnVZOXlxVmR0TURhZmpwYko?oc=5",
+          "source": "The Guardian",
+          "published": "2026-09-30"
+        },
+        {
+          "title": "Alexander-Arnold proves his worth to England with trademark assist against Czechia",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOdU5QdlA4bzJFWDU1Sk9PblhWQkVXREJjWlB1dG9ybXo4WkdHQ01CaEZGQzIwV1Nqak9HbkNfVnpSVEtVSnJRT2MtVDBPY0JPdU5SazhYYUxuM05ZOVdRWkpIUUdTc1ZfZkdodnhNS2tOb2pjU2R0czE0VklwWnFYX2RWVEpZNjM2cmxET2h1aVBRamttcVNsRldzRDMyMFZ1UUlXSG0zVUdKSTVlYXJRRTd2VWRzLW8?oc=5",
+          "source": "The Guardian",
+          "published": "2026-09-30"
+        },
+        {
+          "title": "Tuchel on Czechia win: ‘We deserved to win the second half’",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPT2VSVkl4UDhZTk10UHNfQ1dpdWR1QWh0cjBsM2ZPYnB4cjJUV3Rnak56NWxBQ3lHWWZOcTN2NVRqclhPNTBiMWlHUzlCc0szUTA5Sm55VS1DLVQ2UnAwNjR6ekxweGY0OElpNVhrTVpJQ1VxSGNpUzc4WnJ3dDhkQlQxS0tpdzVhTi0zTXowcW5vX0RYTURfT1ZXenBtem43aElTZUlhSFM3V1dzbWVhcDhHV19hcEFuSHFLN3pnNGEzejVybXFv?oc=5",
+          "source": "VAVEL.com",
+          "published": "2026-09-30"
+        },
+        {
           "title": "Czechia vs England player ratings — Kane, Gordon fire Three Lions to victory",
           "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOSENFWUtJdkQwN1Y0M2xadklsTnZrTlNqU05jV2g0Y1BiY1FCLWIyckhmLVFmTW96QnN3RGdIUk5SeUVWZVhSRS14a3ZCVTgtMVZVamdKbV9fdkRjY2VtSWFLamxnWDZKWW10cTN2WU5Gdm1xYldhZ2tWZjZRUzgybW9WT0VWRVExZk1oTURnNWJteVEtM2R2SXFqaFZrVzkwQ19NOHJWZWdQV1FfQVh6QmhTV0YyZXZIbzhfWjJZbnVBRUXSAcoBQVVfeXFMT0JPT0c5MFE4Z3ZURURXZ2ZWNDFsLS1OMjZYUzc4ckctZUZiYmttT3JvTC1MQTZiNFJJSXFKcXJpOWhoTW1Rc1ZvbkRmVXVZdWt0dmtMOXFBT2ZvbjdKTFBXUW9uMDRPd1dHR1N6clVmVzNEaExUdk9pU0hfekZlN0JlVFNVVHpoM1YtUk93R1Izb3dPV0RyaS11NVBzNV9VR05JY2s2UFV4OEdkN29mcXdpSWUyOUVxemNEVWpCUGg0TlJldXZCTWFGQQ?oc=5",
           "source": "Sportstar",
@@ -9162,42 +9210,6 @@
           "title": "Expert Football Betting Tips - Today's Best Football Tips For Czechia vs England",
           "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQZkotR25DWVlQc2g0b21IanlpZU1lU0hYeXNUcDZVMW90QXg2eXByNjV4dDZab05Lc3ZhX0l0RFRBMzh0QUdXcjV2eUNaU0ljVmNDeXRMZ3BfeFFtZUdYejZlRTQwajhqNUVfWnBLUGZVZmVrRlBmcXFOelg2X0FoX0YyTjNuT2VNdnJMbmprWmhiLUVtQTVhOFJDa2tZckdDMlE?oc=5",
           "source": "Bookies.com",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "UEFA Nations League: England beats Czechia, Spain thrashes Croatia",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNMU9oRFQ1V3NvUEJEVEpGWE50Nl8yQTJiOEpreDM5WmtNSDhkdGlwR092TGt3RFF2VUY2UHNLM2RsTnd6Uno4ejBseUx4WVV4ZGtIUmV1NEQ2YWpLMklNeDJRZkRsbGhZRHFJOGZ4LVhPY09yZGJybndqeEU1eHpFZVFvTkVjRHVjdk84cllVR056XzhVRWVwSGJn0gGfAUFVX3lxTE9rVkN4OVpzMkJ1Zm5lUG5JTjlucXB6S0x4ZkN0dHhNNE1HQ01IVE42RWdINk5NbWlLUTd0SktGWF9ia3VrbHpfY0pMdkVVXzZRZlVuSlR1RXVqOGE2OW9Xamt3Vm5DdnVRVmllNzhUZUp5ajhyaHNaT05neE1LZFFhb0ZHRzg3S1phX1FoSnJzeVRudmdkbTNrU3F1UlJMRQ?oc=5",
-          "source": "Report.az",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Trent Alexander-Arnold starts for England in win over Czechia",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNR3gyZXZNM1M3MlVFMkIzMkFwemQ1ajA2MjBaSnJQSmRiSVk1aE1GTVJEZFV0WkhHRVJSLTFZX3YzSTY4bmQxQ1NaSGtwSHdWLUQwUlNYVnM3NjV1S3dMTHN3UTBkcUlGaDJ0Tkx0MTY1QTFmbHhVakhQZlFXcndzczRfVW5ZQWQ1a3RnU2hTb056ZmRLMnkya1ZxU3g4ck5PVW9aYi1SOUtUNVZoVm1J?oc=5",
-          "source": "Operativ Məlumat Mərkəzi",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "England skipper Harry Kane reacts to Manchester City guilty verdict after Czechia win",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMl9mTTVhaVlfMFYzcVl4VERNeHRCS3FaTHJGbEQzSGJaenNUSURIYXlwZTc1N2tUSDhvOHRXLXA3ekxkcTBWblE2QV9YZVNORTNDZWJ3bnIwMDJLRUhiVzFiS2Vla3hqWEotcjVQSUYzS1NHS1c4RUJ2bTlrREdLQ3N6QXpoUDZ5Z3lHMzF4Q0c3cFo2emxqaVRLTXdib25NTmxXSGhJeHVWZ0NqQlpwLVFSWWgyZk5uS3c?oc=5",
-          "source": "Sportskeeda",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "czechia vs england: Explained",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQUFBkdnh3dUE0RXBvOEdYLVBoM2k2T3lHSzFXYzl4R3AzVFYtZmpEaXBNTXdzOFA2RDhlbFJEei1VSThqampUanJwUjRfcm43Z0JaVnpVTlVfMEh2a2RSVnY2WFJFYnNBZVJwZ3BKR0w3YXZUdWZ6TlJadFRVSTBMeXhITGJVQVNTVF9uQk9GUWppblU?oc=5",
-          "source": "JournalArta",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "UEFA Nations League 2026-27: Anthony Gordan, Kane Harry Score As England Beat 10-Man Czechia 2-0",
-          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPMURfR0J1ZnRwNFZ6bUk1NlNQcmpZMjlRWWV4a0FkQUFXSmtNQ25pemNZUkR4UjNHWllISk5mczVtemRYY2lhODdoSTR5SlA5QXNmaFdHdXk4YWhzWWtoU1lLdXd6U3J0UkR5NVNrY2pmYW9ZT2otTnFaTXRSdHNtT1hYeGkwYmdSazF2bkxDT0NzQ3U1a3NpczNJSmMzLXVqcFczc29IREllMENRa3NlS3c4M2hJVmQ3NVRESXJvbjVwQzk2RkFLNG9WN3BDZmtCTTVpZVg4LXhtV2tGcGZrTlBn0gHnAUFVX3lxTFB1dUo1Sks4XzgxQUhIYnlfX21meVlTS0czUzh3aDZFUFVTRWdfLU1qSW9nLW11VklWX2NncGc5Yno5X01mRmJTOXRyTGhNWnA0cHhwcGJEd04xXzJyMFBiWXVpQmQ3ZWdsS01uZG01V09xdHotblpDVng0OXMzUmNIUll5UlVldUMxME5MLWphVnRhbkkwd2gweWpMQ0xhdm5QUGVCYkw0VkZRbmRhUGhRTkZ6QVJVaWd2VEJ5RnNiT0FWU2k2MEFWUzVxOS1GaVFNblFQbktiZzRWVVJ1dDVNX194WUh5aw?oc=5",
-          "source": "LatestLY",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Spain thrash Croatia, England bounce back with win over Czechia in Nations League",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNSE9EazhmeVdIbFpyLUR3RzZXVFhuMzQ5ekR6aGNJQ2ItN1NBRFc3aFd2QzN1MjZkT01rS3NNYkk3RTdIbFN5M25qb19pMlAwN195MkMwUGpXWFlFa1hySDVLSktzZlJhamtrOGRxS2hKYXNRWmJIWG5pV1QwS3JmS0dvMDQ5Um9LZ0Z3S3g2S3VBLUVEbUlMbWNtd1dLb0dxbHE4eW5XaEpLUkdyQkt6V2pmc3p2c0RIY0Fycw?oc=5",
-          "source": "Anadolu Ajansı",
           "published": "2026-09-30"
         }
       ],

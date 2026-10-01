@@ -1,12 +1,12 @@
 {
   "slug": "unl-e3-croatia-england",
-  "generatedAt": "2026-09-30T11:16:34.204Z",
+  "generatedAt": "2026-10-01T11:44:04.147Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-09-30"
+      "accessed": "2026-10-01"
     }
   ],
   "competition": {
@@ -17,10 +17,17 @@
   },
   "kickoff": "2026-10-03T19:00:00+03:00",
   "venue": {
-    "name": "Stadion Maksimir",
-    "capacity": 25912,
-    "city": "Zagreb",
-    "notes": null
+    "name": "Stadion Rujevica",
+    "capacity": 8279,
+    "city": "Rijeka",
+    "notes": null,
+    "weather": {
+      "tempC": 22,
+      "condition": "cer clar",
+      "windKph": 10,
+      "precipitationMm": 0,
+      "forecastAt": "2026-10-01T11:44:04.698Z"
+    }
   },
   "referee": {
     "name": "n/d",
@@ -1200,26 +1207,26 @@
     "Cap la cap (5 meciuri): Croatia 1 - 1 - 3 England."
   ],
   "predictions": {
-    "winnerName": "Croatia",
+    "winnerName": "England",
     "winOrDraw": true,
-    "advice": "Combo Double chance : Croatia or draw and +1.5 goals",
+    "advice": "Combo Double chance : draw or England and +1.5 goals",
     "percent": {
-      "home": 35,
-      "draw": 35,
-      "away": 30
+      "home": 10,
+      "draw": 45,
+      "away": 45
     },
     "comparison": {
       "form": {
-        "home": 100,
-        "away": 0
-      },
-      "attack": {
         "home": 50,
         "away": 50
       },
+      "attack": {
+        "home": 43,
+        "away": 57
+      },
       "defense": {
-        "home": 75,
-        "away": 25
+        "home": 38,
+        "away": 63
       },
       "poisson": {
         "home": 0,
@@ -4514,22 +4521,30 @@
         ],
         "stats": {
           "goalsForByInterval": {
+            "16-30": 1,
             "46-60": 1,
             "76-90": 1
           },
           "goalsAgainstByInterval": {
-            "46-60": 1
+            "0-15": 1,
+            "31-45": 1,
+            "46-60": 1,
+            "61-75": 1,
+            "76-90": 1
           },
           "cardsYellowByInterval": {
+            "16-30": 1,
+            "31-45": 1,
+            "46-60": 2,
             "61-75": 1
           },
           "cardsRedByInterval": null,
-          "goalsForAvg": 2,
-          "goalsAgainstAvg": 1,
+          "goalsForAvg": 1.5,
+          "goalsAgainstAvg": 2.5,
           "goalsForAvgHome": 0,
-          "goalsForAvgAway": 2,
+          "goalsForAvgAway": 1.5,
           "goalsAgainstAvgHome": 0,
-          "goalsAgainstAvgAway": 1,
+          "goalsAgainstAvgAway": 2.5,
           "cleanSheets": 0,
           "cleanSheetsHome": 0,
           "cleanSheetsAway": 0,
@@ -4543,7 +4558,7 @@
           "formations": [
             {
               "formation": "4-2-3-1",
-              "played": 1
+              "played": 2
             }
           ],
           "biggestStreak": {
@@ -4554,17 +4569,17 @@
           "biggestWinHome": null,
           "biggestWinAway": "1-2",
           "biggestLossHome": null,
-          "biggestLossAway": null,
+          "biggestLossAway": "4-1",
           "biggestGoalsForHome": 0,
           "biggestGoalsForAway": 2,
           "biggestGoalsAgainstHome": 0,
-          "biggestGoalsAgainstAway": 1,
+          "biggestGoalsAgainstAway": 4,
           "winsHome": 0,
           "winsAway": 1,
           "drawsHome": 0,
           "drawsAway": 0,
           "losesHome": 0,
-          "losesAway": 0
+          "losesAway": 1
         }
       },
       "absences": [],
@@ -4574,52 +4589,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Spain ft. Ruiz and Ferran comfortably beat Croatia",
-          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPNFYtbU5ZeHRRTDBsVl9ndEVTM1RXczBydTQzT3FhbUFiU1VjeHZENnRMMFdxeWlBM1cza2Rpd2ExSGFoMnVhQzZIS1loYlRoQUU5cUd5NHJEMjV5ZUdBeGVWdFNDdGZienFyUmMyQU01VTBHSHJFMnI5S0U3dXhiMzR4QkNzV05TaTBZSFp5cGRaQzRvY1Z1U09QT2R3TEFRTWlSbWRIMV9YNFpjRW5sUnFWX0U4WUJ4RnB4VWo3Ujl4S3JxMUVScS05TQ?oc=5",
-          "source": "psg.fr",
-          "published": "2026-09-30"
+          "title": "England's memorable encounters with Croatia",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQclpVbzRPaVBqMHNfNUhHRWZBZFQySUwzQldxSG5FYUx5S0hXQ2FxWmVZVDQ2LVpHT2J6cXNtOHZJN0RZR0VsbEw1SzVqZng1QlRrckhlcEZfSUwtVWdyNjJZZVI2SjEwZkMxaHJ6Uk13NHFRNlhCWkV0UXd0Z005ZFY2S0t3TFRpRFA0a0NkbWJ5ak02S0dGU2xoODJZZXF2MFE?oc=5",
+          "source": "englandfootball.com",
+          "published": "2026-10-01"
         },
         {
-          "title": "Nations League highlights: Spain 4-1 Croatia",
-          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNUlJPYU1mWVJPbzd3TFlmbTN6Sldkc09ZX3NDUnU0N3l3ZTJfemplSW93WFVNdWt5eVE3ZzJHT3plUVVxbmhKMXBqV1FNWnI3NVQ5M25SM0pfS2kwUlpZN09QdmtYSnMtckNjbUhydHB1ZWo0LTctcUNHS0xOcWtzSzV0Xy1FY0RUbDFKRzV0Ni14amItLTQySjV2eF9STndONFhMaFg5YkdrdXd0TmxhSjBpRTdlUnlCWEZDRVNpMEd5M1k0RFd3d3NvbS1wbmk5Smh3?oc=5",
-          "source": "UEFA.com",
-          "published": "2026-09-30"
+          "title": "How to watch Spain vs Croatia: TV channel and live stream today",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNYlF1Zng5ZWVoU09EMXF2TlFlYVhSQy1BQVIwZW5PTHBsTmM0a2dneWRJQWJTM3dpUXBhQXNoVXgyYWF5eTBTajI2UzRsNk1rVXpqT2I2YlJLNVJwQWd4X1N1ZVBCeW9aNGFuYkhvSlBNcnpxU1lmek9Qc2lpTl9tRUo0SHd4V2J5dFZhbHQ5empaR3BabUhrQk9ORUVvUlFIeldqd0haWDVxZDh3MFFqRWNyc2xmQkZpRTYzTGt0SEp6TjlBbEhVdA?oc=5",
+          "source": "standard.co.uk",
+          "published": "2026-10-01"
         },
         {
-          "title": "Spain beat Croatia 4-1 in Seville, southern Spain, in Nations League",
-          "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE13YjVjY3M5a25BT1d0TGdFd0F5T1UxbDI4cFZMbkxZLWZtM0JaUTNESV8zSDJLT2FWQTIxeXRLd1NVUVRsZWkwVQ?oc=5",
-          "source": "وكالة الأنباء السورية – سانا",
-          "published": "2026-09-30"
+          "title": "Croatia vs England Prediction and Betting Tips | October 3rd 2026",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQTHFOLVZ0LTE0VWVFdXMyemp1QUdVUHIxX2ZTU3FzSk03ZVRmN0R3Rjg5U0ppZlNLek4tSnRNRTVHWUUwcm14MGtPYkF0M3dwNDNabHc0eklTQWdaMEJuMGtzV1g0eFk4SDJZZ2FSNmdVQnJycWpNSkwyVXVLZnRJUmVDVWQwemxJZ2FXY1BlTU1IelVlVHlpY05OZm4?oc=5",
+          "source": "Sportskeeda",
+          "published": "2026-10-01"
         },
         {
-          "title": "Spain's 25-Pass Masterpiece: Yamal Scores in 70 Seconds vs Croatia",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNbk5xb2VPMUpNZFRHUy13Nl9FUXJhbVJnVnRLcHVZZ0VuMHRFSnhhdXkySFZYSWx2UmJjOHE1VS1zNFJ5TGVWT2lucGstU2k5cUNRRmJtcnVHb3J4ekJISDFpdm8zNzhOSTBUSEdLZFpPRnU3aTQ5b1ZYcU1tSU1aSHpmdWtCZw?oc=5",
-          "source": "조선일보",
-          "published": "2026-09-30"
+          "title": "Croatia vs England Preview, prediction, team news, lineups | UEFA Nations League 2026-27",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOd09pSUhzVFI5YTVCeVpON0R2N2h6NGJsalNSYV9MWEVNRmNWWkRWbXdGYUtYREdzOEk4LWpsNGhhdUVSX2RsVzhlNm5TUUhOTUpwS3paTm92Q29mSncxa0djdlFCWGZ4dEM3NjlSemxndnVqRk9HZVJjTy1PQlBEMVQ2TFA2V1lTOHc?oc=5",
+          "source": "Khel Now",
+          "published": "2026-10-01"
         },
         {
-          "title": "Spain Brush Aside Croatia In Nations League, England Down Czech Republic",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORHo2b0F4M08xUnNsd0JKcjk2ek5RXzNKVTY1emhBTFI2NHluSUJKV3A0X3lQTXhrZGQ5MmxLTmw2UV84V1dISnBDbEFCQjRJZC1fNUJHNmtXVUtJMVFvX2hzYmUtUXktUy1Gbkl6YUUySUQwM1BEU3lmYm9pRXJ6ME5SNEY2VjZQMEdQWXFTSmFCaXU1TW80VXNUN1hSd3NsZ3l2aHdCNXhmZERQS2xpNEJ3Zw?oc=5",
-          "source": "NDTV Sports",
-          "published": "2026-09-30"
+          "title": "Nations League: Lamine Yamal scores twice in Spain's 4-1 victory over Croatia",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNX3RzN2hqMVVLN0xrSnVaSXdQTjk4VjJiUUxjS3lOdzNGSjJ3T3lGNWt0eUFVX3ZIZXpaYUdJUC05c0VaSU45Q20zTWp3RFhrMnY5a3VpY18wWWNkSDhyY25scGh0NW1zWERTclBfN1pINVg5ZnVsdktiOFpRMGFLTFdzWEVYZVctdng2b3VzN0dNdFQ3bDVHNllkNUt0NnZ2TGpIYUt4WG0wTVVMSVVpVEhPeXhETG5DZXpkZkFscDI3U3BMeG9xNnhyMEJEb2NW0gHQAUFVX3lxTE1fdHM3aGoxVUs3TGtKdVpJd1BOOThWMmJRTGNLeU53M0ZKMndPeUY1a3R5QVVfdkhlelphR0lQLTlzRVpJTjlDbTNNandEWGsydjlrdWljXzBZY2RIOHJjbmxwaHQ1bXNYRFNyUF83Wkg1WDlmdWx2S2I4WlEwYUtMV3NYRVhlVy12eDZvdXM3R010VDdsNUc2WWQ1S3Q2dnZMakhhS3hYbTBNVUxJVWlUSE95eERMbkNlemRmQWxwMjdTcEx4b3E2eHIwQkRvY1Y?oc=5",
+          "source": "Mid-Day",
+          "published": "2026-10-01"
         },
         {
-          "title": "Why Croatia vs England will be played behind closed doors - and why there will be fans there anyway",
-          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNWHdzdWRmQVkwWGxnMUttdHNJY0NHMHhESWY3UDVyVzFuczd1X29HcGlWeVZ0cjFxdDdtRGR5SmFnLVlDWkt4bG11ZHVEZmc1NVdIanlVMnZyNnN1Tk56WGhmSUh6RUh5bmxEdFc4d0pORDlqczgtbmNfSDRfZ2tJcWM4aWhiRHMwbUVQamFiSXdEUjM1ZVBkM3F6ZW1qbGYtZE5OU0VaRndrVmJVV2ZXMU4xNDdxczV5Yl9aSmJwME15SGg0V2s5T0s5Y3p2OFREVktzeQ?oc=5",
-          "source": "FourFourTwo",
-          "published": "2026-09-30"
+          "title": "Man City duo left out, Everton player starts: England predicted XI vs Croatia",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPWEJHT1ByZE1xbkM0UkRLc252M3JicTB1X3Bwc3BaSTFuRS1yb1JLcENYYlR5bGVMWS1yWXpvdGVYMl93S1NmXy1EbGZ4YTlrQWdOUnRpREF0SGFuVjF5bFBPN3lPTjJwQTJHa0t2aDFCMGR5TW00YkphTmJxZWZOcERCUnhObjNxWjVtQkRGd1JKaGRSTUtxYlZFOUoyM2hsZzBNRHpNU3dDc3laZEFlaUJaejRkWldiVlVwVXNWZUlzeFBqMnMtWV9B?oc=5",
+          "source": "Football Insider",
+          "published": "2026-10-01"
         },
         {
-          "title": "How to get Croatia vs England tickets: UEFA Nations League A prices, fixture information, last-minute sales & more",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNUTN3YVdjQ1c3QThiREpPS2lFLTdMRjhKangteFZmbHVfTVA1Uk90T3NCNTFqcDZ2RWZWalpmTVpyaUVMelBsZURrWDM3SndueDhiby1jV2ZjMV9vSnF3cVpKSkx6czFkM09nY0E0UEt1Ti1qRnlMaVVYY2F3Q0RzVWhseXg4UUppalBnYXptS1VVZWkxXzFvWQ?oc=5",
+          "title": "Croatia vs England UEFA Nations League preview: Everything you need to know",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQeGZFeDNVMTRlLTM2cWZIWll6Q0ZVZldjajRLd201RmZOa3c0U3Y1RFZvYUlLZ3I1S3ptNDhSeFZmV0hPeF9OdFhhd1l1RjNFRFpIRE5jaVJoenVEYVE4bzNDaDcxdVhQd2FkTnRFZGw5UE81Y0Fha2QySnVoem53cklqdE1yekw2Y0k3ZE5XLWRLcUd4TGZr?oc=5",
           "source": "Goal.com",
-          "published": "2026-09-30"
+          "published": "2026-10-01"
         },
         {
-          "title": "UEFA Nations League: England beats Czechia, Spain thrashes Croatia",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNMU9oRFQ1V3NvUEJEVEpGWE50Nl8yQTJiOEpreDM5WmtNSDhkdGlwR092TGt3RFF2VUY2UHNLM2RsTnd6Uno4ejBseUx4WVV4ZGtIUmV1NEQ2YWpLMklNeDJRZkRsbGhZRHFJOGZ4LVhPY09yZGJybndqeEU1eHpFZVFvTkVjRHVjdk84cllVR056XzhVRWVwSGJn0gGfAUFVX3lxTE9rVkN4OVpzMkJ1Zm5lUG5JTjlucXB6S0x4ZkN0dHhNNE1HQ01IVE42RWdINk5NbWlLUTd0SktGWF9ia3VrbHpfY0pMdkVVXzZRZlVuSlR1RXVqOGE2OW9Xamt3Vm5DdnVRVmllNzhUZUp5ajhyaHNaT05neE1LZFFhb0ZHRzg3S1phX1FoSnJzeVRudmdkbTNrU3F1UlJMRQ?oc=5",
-          "source": "Report.az",
-          "published": "2026-09-30"
+          "title": "Croatia vs England prediction & tips: England to win & BTTS @ 11/4 has strong appeal",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNbUJ1V3p1Z1d4T0ktNGw1cG9ESUZtQ0tKaDg4UFZjN280N3hPSlJxUk5wUVdvcmMxbWlLZDRFQlJoOEdMMHJncDVsc1M3VGZnRkRQYzFpSnBTNlJmVC15VUstb3lkOGp0bW1kODBtaGpYMnBrcnZoT19BVWhCTlE1bDJsU1YyczFFbUFXTDBTT096VkZob2FPRDJjekd3a3BVdXA1WFk5TG9EUXpLWjI0MFRBYTVwMk50WGVEYm5IQkpRM3RPTmg0TzJCRG16T1ZlbkI1MXJR?oc=5",
+          "source": "boylesports.com",
+          "published": "2026-10-01"
         }
       ],
       "stories": []
@@ -9156,7 +9171,9 @@
         ],
         "stats": {
           "goalsForByInterval": {
-            "31-45": 2
+            "31-45": 2,
+            "46-60": 1,
+            "61-75": 1
           },
           "goalsAgainstByInterval": {
             "0-15": 1,
@@ -9164,19 +9181,20 @@
             "61-75": 1
           },
           "cardsYellowByInterval": {
+            "31-45": 1,
             "61-75": 2,
             "76-90": 1
           },
           "cardsRedByInterval": null,
           "goalsForAvg": 2,
-          "goalsAgainstAvg": 3,
+          "goalsAgainstAvg": 1.5,
           "goalsForAvgHome": 2,
-          "goalsForAvgAway": 0,
+          "goalsForAvgAway": 2,
           "goalsAgainstAvgHome": 3,
           "goalsAgainstAvgAway": 0,
-          "cleanSheets": 0,
+          "cleanSheets": 1,
           "cleanSheetsHome": 0,
-          "cleanSheetsAway": 0,
+          "cleanSheetsAway": 1,
           "failedToScore": 0,
           "failedToScoreHome": 0,
           "failedToScoreAway": 0,
@@ -9187,7 +9205,7 @@
           "formations": [
             {
               "formation": "4-2-3-1",
-              "played": 1
+              "played": 2
             }
           ],
           "biggestStreak": {
@@ -9196,15 +9214,15 @@
             "loses": 1
           },
           "biggestWinHome": null,
-          "biggestWinAway": null,
+          "biggestWinAway": "0-2",
           "biggestLossHome": "2-3",
           "biggestLossAway": null,
           "biggestGoalsForHome": 2,
-          "biggestGoalsForAway": 0,
+          "biggestGoalsForAway": 2,
           "biggestGoalsAgainstHome": 3,
           "biggestGoalsAgainstAway": 0,
           "winsHome": 0,
-          "winsAway": 0,
+          "winsAway": 1,
           "drawsHome": 0,
           "drawsAway": 0,
           "losesHome": 1,
@@ -9225,52 +9243,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Trent? Kane? Gordon? - England player ratings for win vs Czech Republic",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOZFNDcEQyekdMaF9JZHFLWGktMTRkUXA3Z0c1OC10c1g4a2ozYkRwb0doN1h2YmpQS1RrSUFqTzRzdktwQ3dvTFpJdGloM04xV1Z0eTJDMGpxUFR6d3dVUEZUV0x2UnA2cFEteVdkUTZ0aUdpYWFCRzZpWm91eFJ0VkhfNDBDeVk0SWZkZkxzdkp1Q3FSck1lb1lEUW9qb0wzalJNazUzNVVqS1g3S3pVQ3V5NUxUaUk?oc=5",
+          "title": "England forward Ivan Toney pleads not guilty to nightclub assault",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQQ0JoaENnRWVCd2RfY0lYZ25hRnlOQW14UzdVRWdPTThVYmYxNVNtZTd5NjFjYWhOWmwwMUFqY3FyOWZtQkxRd1hmVVRwWXU5UHZfMEF2X1p2LWhveXdWSjZycTdJLVl4UDR2b0JLSWJHQmd5cDZGcDkzMFFqV2o4WFJUeVVxZzJlNVNmS0ZxNl9WQQ?oc=5",
+          "source": "The New York Times",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "England's memorable encounters with Croatia",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQclpVbzRPaVBqMHNfNUhHRWZBZFQySUwzQldxSG5FYUx5S0hXQ2FxWmVZVDQ2LVpHT2J6cXNtOHZJN0RZR0VsbEw1SzVqZng1QlRrckhlcEZfSUwtVWdyNjJZZVI2SjEwZkMxaHJ6Uk13NHFRNlhCWkV0UXd0Z005ZFY2S0t3TFRpRFA0a0NkbWJ5ak02S0dGU2xoODJZZXF2MFE?oc=5",
+          "source": "englandfootball.com",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "Man City duo left out, Everton player starts: England predicted XI vs Croatia",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1mR0hoNWRCRUxfaTNNNlpsaEY2Mm1pMTJRYzZSQnp3S0xGeFJ3cEdNT0NFZXM1bzdaZU9oUVZjMWhnLURHY3JGMXVPYVFneGZhUWJiTUxXU1lSZ2ZyUi00N2RWa2JUS2JKNjVJUk9fM19SczY4dnBDT3l2X0N6VDg?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "Thomas Tuchel: England 'will not get another Harry Kane', but Jude Bellingham can play No. 9",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPbzJhajV4NU03RWhFMWxkOTluaTJCNURXZ3B2OWt3UEcwd09YOGpqSEw2YVFBU1k5Sm94MXA4cGFYdXBJUnh1YWdiQ3ZPbVdnUzlnb0ViODlNRmwzQkdoQUNYNEE3UExuSE5TSktraXZmRXlId2ZnZkZ5QmtKVDlKeHhDRWhSa1U2dUlxZXpBVG5wb0hmRkN6UDBlSWlFWkg4dXFHN19BczRfdGxxaFE?oc=5",
+          "source": "ESPN Philippines",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "Women's coaching: Why so many female coaches are quitting",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5FY18tTEdRdkVuY2htNUxPcGhZZ0dteDlTUFpNaWRSa29zY3N6amdTV3BtOGZ3V2VNc1ZtY0tyeUE1N0EyX3U1MWNCYkx0bkdpZ0d4RGpHOHlFLVRWVWJDUnREVzNlVFhP?oc=5",
+          "source": "BBC",
+          "published": "2026-10-01"
+        },
+        {
+          "title": "Trent Alexander-Arnold 'always believed' he would play for England again after first start in over two years",
+          "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPSnh5TEs1T3BqN0hDWk0wRDN1V1RTSFVKaVdKMFZneU1RNkhDYlMxeV9mZEVvY0lHMjV1WW5fbHBXaHNoRUZ1a0tNYTJxVXdlTTkyTXJyRWxielJMb0lQSy05OEpYNERuVktSMmFERnlma0xJZEFnR0xWNlBhZTc0bHJRQUtnMHZoN3pPNnFELXF3ZkVlSVVVVnNfSTlfd3hubnd3cl9MUFdTa3NJN1pfeXZJWVR3ZzJUM1JLOWdYaVdweGFVanEtNlo2aENvcGE0YmNNR3hFb1RzclZZbDRwTFNBdE96NXg4aW13?oc=5",
           "source": "Sky Sports",
-          "published": "2026-09-30"
+          "published": "2026-10-01"
         },
         {
-          "title": "Fallout from England’s Premier League turmoil goes beyond football",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNNTRtaGxaMHFaMnBlZzJZMHlRLTdZdVViU0RZcjVjbzdJdERJVXVacGp5N09Ia2dDOGlTY25SVGEyVDVXVVFHU2FpRGo4b1FSOXFsWm9xdVFNVGtWSkxQc1ZYc2Q3a1IyeHVSZGIwRWltemtIay16YVd0dlhqTVJhVlRXVGhNZVp6THB3MmZjZ0laeHdTRXZqYWp3?oc=5",
-          "source": "tomorrowsaffairs.com",
-          "published": "2026-09-30"
+          "title": "Junior Football Report: Thunder's Harry Case’s 'crazy' journey from England to Regina",
+          "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQTXo5c1ZSOHl6S093UHpjTDYtZjRSUVlRNkhzaE9lU1REbmhGSm9pdHhlbHBUS1ZWZThqdHVqSkYtWG5NTFVSUmd2R3NHTkxSdnk3WTkyUFplVGxUWGhCZXRRRHNOUlFnc0tJa2N0eURGUWxfWldrV0lQOGRRUVhyQ1lhYTdRdHU4T2liUm8xdVhSYUtKYVJxRWlYVlBZdXRlUjlHQXJMbHJ1dWdFUjhLVmlyRG9iX1F4QmZUeVFMcVFZLVBha1dwT2g2QVRQNEZGNEpaUUt1ZzJXRmpTaU1CdmNyaksyTnpX?oc=5",
+          "source": "SportsCage.com",
+          "published": "2026-10-01"
         },
         {
-          "title": "Dropping Kelly and Toone could prove a World Cup masterstroke by Wiegman | Tom Garry",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNdElKU2lwdGcwWXNiMkMzVkF5VDZDaEt4OVFucXNLOFprUWxXTm5BSUo1THNqQnpmTklmTEJNbURGdkl5aW1Cdm56MmZ2T28tNExEdUZ0aHNDcHdNYWpOWVJUcmNBd0FSVXlsRWp0bW9sRkJlbTg5RXJFbHRuRVFJb1B0OHNiSGtUd0YwZ1pZM1ZOaHZ3UEhRWDhiYmlISFNxcGZBNkROdw?oc=5",
-          "source": "The Guardian",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Sarina Wiegman’s England squad shake-up sends a clear message. She picks on form",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOOE4yNDlRTWl6eDVwVzRYQkVyOGo2ZlpVaDhfUl9KVUR1b1c0LUZKOVRlT3NCVW4xZmNNMjBZTjd3cjNVb1NNX2JZdnU0ZFJqallVbExTcFlRcE5ScnY1cnhuZU4zYjhEMU1oVXBuZGVRLXhMT2xfYnVGZ1FBQjlBd0RyYmp3NkRackxRazJySEJFa2ZWM1RnYmdFNWZTaTM1Wk9XMjBJSQ?oc=5",
-          "source": "nytimes.com",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Is Anthony Gordon the future of England's frontline?",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPY1BJcFhuYWRrQWtfS2RkM2c0R1JNVTZUaHJjeTc1TnNRTFZlNUhPV0tLcGQ5a0VDRHhKSEtxZGVXU2ZTeUFEc2NXSDFpY0k5VGk0ZksyZW5yeEx5b1ljNm10ZV9PRHoybnpZRmF4cmN5VlBSWHowZnh0Mm14WjFBUzhJWGxvYU80V3o0WXlZWE5WbEJYVmdrUU1ja3ZYUFJXUkRFTmtIUDRJbEZwMFJFOVFvZUFfd2c?oc=5",
-          "source": "DAZN",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Czech Republic 0-2 England: Anthony Gordon, Harry Kane net to give Three Lions first Nations League win",
-          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOT0JOYkVPbXc1WUFZMVJDSXNCOFdrdFVGaTBFY05kZHdqSlNFSGRRdG14WGt0TTlpaThvSU5ZVkduay1KWlh0ZFktTm9kN25YWHYwcUg1emF3eTFQcFI0VXB5VWlrNGdTOWxDbjdpS1dQTkJuRlhmNFBtYTBWNHd1OFdXTWNjOHg0dFVFOURvd1Yyc1ExT3J2VHRsNE1ndjAtT3BFOFNHOGdEbEUyVkpNazZtWmZfQmN4dExUd1ZKZzZCTl95S2hMNVdkdm83SWwxTDAtejNIZUh2STBHYVdyNlhLQVY?oc=5",
-          "source": "Sky Sports",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "Bournemouth’s Alex Scott makes senior England debut",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNX0E4dUowM2JEZHpjd05DTm9jUlN2WHJoN3BpV3RsOTg1Mmwtc3pONEZFQlBYbWVWM3ptREJHeE02Yy1NMlVMRkJlMFZzdFVCbGNjMVhWdkJWdktXZ3FFbHRyakZDT0NybklmUlJwb09tX3hHQi1oTm1iMGI4OXFvVDNUeGpybEVfd2V6Y0dUV2xIYzNtYkVDQ090NUJDcnpzZW5IQjYxNjYtUzM1UW4xRXVGRmdpMEZhTUpfNWJ5aHZSdw?oc=5",
-          "source": "DAZN",
-          "published": "2026-09-30"
-        },
-        {
-          "title": "England player ratings vs Czech Republic: Arsenal star scores 5/10",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPRmI1QU9vUXBoZlpkZG1KWGR5YjA3clJHVFVqRzZHUHdiSmRoX0dWbXNfR25lQkhqUFpPVGVuOVZ6OGtRN0J3RndjXzhKY01WZ3RPZkNDSTJMRWFuaWVrSGNEZjcxVlo2eEtHWExDY2hHRFRRSExDUXA1UnBsNjFaTVNraU9LVXpKX1JfR1JfMk1hWk1TVVI0OHZHYzF5NFpJUUJVa0haTQ?oc=5",
-          "source": "London Evening Standard",
-          "published": "2026-09-30"
+          "title": "Morgan Gibbs-White speaks out after England call-up clip featuring his fiancee caused a stir",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQdUczX04xYld1RnZvWDNETG1fR0ZfN05VTjFORmFCdzYta2hvX3VQRUpkVG9MOU1MZkRHNE1Ta0k0b3Q2YVFzdWxvcWdaR05nSkJvUndKVzN4YmhSZVRmaFZtQVFCV25xZnBZYUxZVzhHRi05WktwM1ZQdzFFZW5hZWwwOGROdXJabFl3d1Ytc9IBlAFBVV95cUxNQmlLTVlhalR1enp3bXM3TmRuR1lLSDB4SlY3YVo2ZW5tRTBsWnFkemw0VU5aTEpYWGh2UmpyM0FuRVlSUDJDb29LdlpZVTlwcFdqLWZ6LU9jbnN2N0MxTGhXYklEclE4VWRsT3BXdmZvTkt4UU9BdVJBMGs1R0RabXFpbGtndzFWZWZnU0EyQXNSWGI3?oc=5",
+          "source": "The Mirror",
+          "published": "2026-10-01"
         }
       ],
       "stories": []
