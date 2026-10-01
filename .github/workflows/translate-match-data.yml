@@ -73,6 +73,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          SLUGS="${{ steps.translate.outputs.slugs }}"
+          if [ -z "$SLUGS" ]; then
+            echo "Nothing translated this run -- nothing to commit."
+            exit 0
+          fi
           # A concurrent run (schedule vs. manual dispatch, or two manual
           # dispatches) can start from the same stale main and pick the
           # same "untranslated" slugs, since actions/checkout pins the
@@ -81,27 +86,40 @@ jobs:
           # new file on both sides with different content -- an add/add
           # conflict `git pull --rebase` cannot auto-resolve, which failed
           # a real run outright (detached HEAD, then a push with no branch
-          # to push from). Fetch first and drop our copy of anything the
-          # remote already has: the other run's translation wins, ours is
-          # a wasted duplicate, not a real conflict to resolve.
+          # to push from). Fetch first and drop our copy of any slug THIS
+          # RUN wrote that the remote already has: the other run's
+          # translation wins, ours is a wasted duplicate, not a real
+          # conflict to resolve.
+          #
+          # Only ever loop over the slugs THIS run's translate step actually
+          # produced (its own `slugs` output), never a directory glob -- an
+          # earlier version globbed every *.i18n.json in the checkout, which
+          # matches every pre-existing translation too (they're always
+          # "already present on origin/main" by definition), so it deleted
+          # them all whenever this run itself produced nothing new. Confirmed
+          # live 2026-10-01: a run with zero successful translations deleted
+          # 11 unrelated, already-published translations and committed that
+          # as "Translate match data". Restored from git history same day.
           git fetch origin main
-          for f in docs/data/matches/*.i18n.json; do
+          IFS=',' read -ra SLUG_ARR <<< "$SLUGS"
+          FILES=()
+          for s in "${SLUG_ARR[@]}"; do
+            s="$(echo "$s" | xargs)"
+            [ -z "$s" ] && continue
+            f="docs/data/matches/$s.i18n.json"
             [ -f "$f" ] || continue
             if git cat-file -e "origin/main:$f" 2>/dev/null; then
               echo "Dropping $f -- already present on origin/main (a concurrent run got there first)."
               rm -f "$f"
+            else
+              FILES+=("$f")
             fi
           done
-          git add docs/data/matches/*.i18n.json
-          if git diff --cached --quiet; then
+          if [ ${#FILES[@]} -eq 0 ]; then
             echo "No changes to commit."
             exit 0
           fi
-          SLUGS="${{ steps.translate.outputs.slugs }}"
-          if [ -n "$SLUGS" ]; then
-            git commit -m "Translate match data: $SLUGS"
-          else
-            git commit -m "Translate match data"
-          fi
+          git add "${FILES[@]}"
+          git commit -m "Translate match data: $SLUGS"
           git pull --rebase --autostash origin main || true
           git push
