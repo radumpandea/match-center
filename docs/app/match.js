@@ -100,6 +100,20 @@
   // Season stat blurb for a squad/lineup entry: appearances + goals/assists
   // for outfield players, appearances + goals conceded for goalkeepers (API-
   // Football doesn't expose per-player clean sheets, only conceded/saves).
+  // Under-name label. In an international fixture (competition.country == 'INT')
+  // everyone on a side shares the nationality, so show the club he plays for and
+  // that club's country instead; any other fixture, or a player whose club isn't
+  // known yet, keeps age + nationality.
+  function playerSubLabel(d, p) {
+    if (d && d.competition && d.competition.country === 'INT' && p.club && has(p.club.name)) {
+      return '(' + [p.club.name, has(p.club.country) ? p.club.country : null].filter(Boolean).join(', ') + ')';
+    }
+    if (has(p.age) || has(p.nat)) {
+      return '(' + [has(p.age) ? t('player.ageValue', { n: p.age }) : null, p.nat].filter(Boolean).join(', ') + ')';
+    }
+    return null;
+  }
+
   function statLine(p) {
     var s = p.stats;
     if (!s) return '';
@@ -1468,8 +1482,8 @@
           ]),
           badges,
           el('div', { class: 'lbl', text: isEmpty ? t('pitch.emptySlot') : (view.fullNames ? (slot.name || '') : shortName(slot.name)) }),
-          (!isEmpty && full && (has(full.age) || has(full.nat)))
-            ? el('div', { class: 'lbl-sub', text: '(' + [has(full.age) ? t('player.ageValue', { n: full.age }) : null, full.nat].filter(Boolean).join(', ') + ')' })
+          (!isEmpty && full && playerSubLabel(d, full))
+            ? el('div', { class: 'lbl-sub', text: playerSubLabel(d, full) })
             : null,
           (!isEmpty && full && statLine(full))
             ? el('div', { class: 'lbl-stat', text: statLine(full) })
@@ -2247,8 +2261,7 @@
             p.photo ? el('img', { class: 'li-photo', src: p.photo, alt: '' }) : null,
             el('a', { href: '#', onclick: function (e) { e.preventDefault(); openPlayer(d, side, p); },
               text: (p.number != null ? p.number + '. ' : '') + p.name +
-                (has(p.age) || has(p.nat)
-                  ? ' (' + [has(p.age) ? t('player.ageValue', { n: p.age }) : null, p.nat].filter(Boolean).join(', ') + ')' : '') +
+                (playerSubLabel(d, p) ? ' ' + playerSubLabel(d, p) : '') +
                 (sl ? ' · ' + sl : '') +
                 (p.status && p.status !== 'available' ? ' · ' + statusLabel(p.status) : '') })
           ]);

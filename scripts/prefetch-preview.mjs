@@ -206,7 +206,9 @@ const CC3 = {
 function cc3(name) {
   if (!name) return null;
   const k = String(name).toLowerCase().trim();
-  return CC3[k] || (k.length >= 3 ? k.slice(0, 3).toUpperCase() : null);
+  // API-Football spells multi-word countries with hyphens ("Saudi-Arabia",
+  // "Costa-Rica"); without this they fell through to a wrong first-3-letters code.
+  return CC3[k] || CC3[k.replace(/-/g, ' ')] || (k.length >= 3 ? k.slice(0, 3).toUpperCase() : null);
 }
 const COUNTRY_NAMES = new Set(Object.keys(CC3));
 function looksNational(teamName) {
@@ -1079,13 +1081,15 @@ async function getH2H(homeId, awayId, homeName, awayName, cache, force) {
 }
 
 /* ---------- player careers (players/teams, cached 30d) ---------- */
-async function getCareer(playerId, cache) {
+async function getCareer(playerId, cache, needClub = false) {
   cache.careers = cache.careers || {};
   const hit = cache.careers[playerId];
   // A cached "no career" is retried much sooner than a real one: a legitimately
   // empty answer is rare, and a wrongly-empty one hides a player's whole career
   // card for the full TTL.
-  if (hit && hit.fetchedAt &&
+  // `club` is undefined on entries cached before it existed (not the same as
+  // null = "looked, no current club"), so a caller that needs it forces a refetch.
+  if (hit && hit.fetchedAt && !(needClub && hit.club === undefined) &&
       daysBetween(todayISO(), hit.fetchedAt) < (hit.career ? CAREER_TTL : CAREER_EMPTY_TTL)) return hit.career;
   const j = await af('players/teams', { player: playerId });
   // af() returns null on a failed call (HTTP error, 429 after retries, API
@@ -1098,9 +1102,16 @@ async function getCareer(playerId, cache) {
   const rows = j.response || [];
   const clubs = rows
     .filter((r) => r.team && r.team.name && !looksNational(r.team.name) && Array.isArray(r.seasons) && r.seasons.length)
-    .map((r) => ({ name: r.team.name, min: Math.min(...r.seasons), max: Math.max(...r.seasons) }))
+    .map((r) => ({ id: r.team.id != null ? r.team.id : null, name: r.team.name, min: Math.min(...r.seasons), max: Math.max(...r.seasons) }))
     .sort((a, b) => a.min - b.min || a.max - b.max);
   const thisYear = currentSeason();
+  // Current club = a club he has a row for in the current season (latest join
+  // wins, so a loan beats the parent club). A player with no appearance yet this
+  // season gets none rather than last season's club: he may have moved in the
+  // summer, and a wrong club on the pitch is worse than the age/nationality
+  // fallback the UI shows when `club` is absent.
+  const cur = clubs.filter((c) => c.max >= thisYear && c.id != null).sort((a, b) => b.min - a.min)[0];
+  const club = cur ? { id: cur.id, name: cur.name } : null;
   const parts = clubs.map((c) => {
     const end = c.max >= thisYear ? 'prezent' : String(c.max);
     return c.min === c.max && end !== 'prezent'
@@ -1108,7 +1119,7 @@ async function getCareer(playerId, cache) {
       : `${c.name} (${c.min}–${end})`;
   });
   const career = parts.length ? parts.slice(0, 10).join(' · ') : null;
-  cache.careers[playerId] = { fetchedAt: todayISO(), career };
+  cache.careers[playerId] = { fetchedAt: todayISO(), career, club };
   return career;
 }
 
@@ -1127,6 +1138,41 @@ async function applyCareers(doc, cache) {
     }
     if (filled) console.log(`  careers ${side}: ${filled}`);
   }
+}
+
+/* ---------- current club + the club's country (national-team matches) ----------
+   On the pitch, a national-team player's label shows the club he plays for and
+   that club's country instead of age/nationality (everyone on the side shares
+   the nationality). Club comes from the same players/teams call as the career;
+   the country from teams?id= (club countries never change, cached forever).
+   Only for international competitions (competition.country === 'INT'). */
+async function getTeamCountry(teamId, cache) {
+  cache.teamCountry = cache.teamCountry || {};
+  if (String(teamId) in cache.teamCountry) return cache.teamCountry[teamId];
+  const j = await af('teams', { id: teamId });
+  if (!j) return null;   // failed call: unknown, not cached
+  const row = j.response && j.response[0];
+  const country = row && row.team && row.team.country ? cc3(row.team.country) : null;
+  cache.teamCountry[teamId] = country;
+  return country;
+}
+
+async function applyClubs(doc, cache) {
+  if (!doc.competition || doc.competition.country !== 'INT') return false;
+  let touched = false;
+  for (const side of ['home', 'away']) {
+    for (const p of doc.teams[side].squad || []) {
+      if (p.apiId == null) continue;
+      await getCareer(p.apiId, cache, true);
+      const entry = cache.careers && cache.careers[p.apiId];
+      const club = entry && entry.club;
+      if (!club) continue;
+      const country = await getTeamCountry(club.id, cache);
+      const next = { name: club.name, country };
+      if (!p.club || p.club.name !== next.name || p.club.country !== next.country) { p.club = next; touched = true; }
+    }
+  }
+  return touched;
 }
 
 /* ---------- transfers (transfers?team=, cached 7d) ----------
@@ -1715,6 +1761,8 @@ async function main() {
         !needMatchDay && !needNews && !needWeather && !needMercato) continue;
     let touched = false;
 
+    if (await applyClubs(doc, cache)) touched = true;
+
     if (needNews) {
       const [hn, an] = await Promise.all([teamNews(f.home, f.away, f.comp), teamNews(f.away, f.home, f.comp)]);
       if (hn.length) { doc.teams.home.newsCandidates = hn; touched = true; }
@@ -1855,6 +1903,7 @@ async function main() {
     try {
       await applyStandingsAndForm(doc, f, season, cache);
       await applyCareers(doc, cache);
+      await applyClubs(doc, cache);
       await applyCoachTrophies(doc, cache);
     } catch (e) {
       console.error(`  enrich failed: ${e.message}`);

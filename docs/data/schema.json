@@ -656,6 +656,16 @@
         "weight": { "type": ["integer", "null"], "description": "kg" },
         "foot": { "type": ["string", "null"], "enum": ["L", "R", "B", null] },
         "nat": { "type": ["string", "null"], "description": "citizenship, 3-letter" },
+        "club": {
+          "type": ["object", "null"],
+          "description": "club he currently plays for and that club's country, from API-Football (players/teams + teams?id=). Only filled for international-competition packs (competition.country == INT), where the pitch label shows it instead of age/nationality. Absent when he has no appearance yet this season -- a stale club would be worse than none.",
+          "additionalProperties": false,
+          "properties": {
+            "name": { "type": "string" },
+            "country": { "type": ["string", "null"], "description": "club's country, 3-letter" }
+          },
+          "required": ["name"]
+        },
         "natTeam": { "type": ["string", "null"] },
         "birthCountry": { "type": ["string", "null"] },
         "pronunciation": { "type": ["string", "null"] },
