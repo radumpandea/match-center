@@ -72,6 +72,7 @@ const STANDINGS_TTL = 2;
 const TEAMSTATS_TTL = 2;
 const H2H_TTL = 14;
 const CAREER_TTL = 30;
+const CAREER_EMPTY_TTL = 7;   // a cached "no career" result is re-checked this often
 const TRANSFERS_TTL = 7;
 const TRANSFER_WINDOW_DAYS = 120; // covers a full summer (or winter) window without dragging in older history
 const AF_CALL_BUDGET = 5500;   // ceiling on the 7500/day Pro tier (refresh-fixtures uses ~8, build-match-data 0)
@@ -603,7 +604,8 @@ async function getTrophies(kind, id, cache) {
   const hit = cache.trophies[key];
   if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < TROPHY_TTL) return hit.list;
   const j = await af('trophies', { [kind]: id });
-  const rows = (j && j.response) || [];
+  if (!j) return hit ? hit.list : [];   // failed call: don't cache it as "no trophies"
+  const rows = j.response || [];
   const list = rows
     .filter((r) => r.league && r.place)
     .map((r) => ({
@@ -721,7 +723,10 @@ async function getTeamMeta(teamId, cache) {
   cache.teamMeta = cache.teamMeta || {};
   if (String(teamId) in cache.teamMeta) return cache.teamMeta[teamId];
   const j = await af('teams', { id: teamId });
-  const row = j && j.response && j.response[0];
+  // This cache has no TTL, so a failed call written here would pin a null
+  // venue/logo for that team permanently.
+  if (!j) return { venue: null, logo: null };
+  const row = j.response && j.response[0];
   const v = row && row.venue;
   const rec = {
     venue: (v && v.name) ? { name: v.name, capacity: num(v.capacity), city: v.city || null, notes: null } : null,
@@ -1077,9 +1082,20 @@ async function getH2H(homeId, awayId, homeName, awayName, cache, force) {
 async function getCareer(playerId, cache) {
   cache.careers = cache.careers || {};
   const hit = cache.careers[playerId];
-  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < CAREER_TTL) return hit.career;
+  // A cached "no career" is retried much sooner than a real one: a legitimately
+  // empty answer is rare, and a wrongly-empty one hides a player's whole career
+  // card for the full TTL.
+  if (hit && hit.fetchedAt &&
+      daysBetween(todayISO(), hit.fetchedAt) < (hit.career ? CAREER_TTL : CAREER_EMPTY_TTL)) return hit.career;
   const j = await af('players/teams', { player: playerId });
-  const rows = (j && j.response) || [];
+  // af() returns null on a failed call (HTTP error, 429 after retries, API
+  // error body, or the daily call budget being hit). That is "unknown", not
+  // "this player has no career" -- never write it to the cache. It used to be
+  // cached as null for 30 days: 715 of ~6000 cached careers were null, clustered
+  // on the heavy cold-run days (13-16% null vs 2-5% normally), which is why
+  // players like Mbappé and Daniel Maldini showed "career not available".
+  if (!j) return hit ? hit.career : null;
+  const rows = j.response || [];
   const clubs = rows
     .filter((r) => r.team && r.team.name && !looksNational(r.team.name) && Array.isArray(r.seasons) && r.seasons.length)
     .map((r) => ({ name: r.team.name, min: Math.min(...r.seasons), max: Math.max(...r.seasons) }))
@@ -1140,7 +1156,9 @@ async function getTransfers(teamId, cache) {
   const hit = cache.transfers[teamId];
   if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < TRANSFERS_TTL) return hit.data;
   const j = await af('transfers', { team: teamId });
-  const rows = (j && j.response) || [];
+  // Failed call != "no transfers": don't cache an empty mercato for the TTL.
+  if (!j) return hit ? hit.data : { mercatoIn: [], mercatoOut: [] };
+  const rows = j.response || [];
   const cutoff = Date.now() - TRANSFER_WINDOW_DAYS * 86400000;
   const mercatoIn = [], mercatoOut = [];
   for (const row of rows) {
