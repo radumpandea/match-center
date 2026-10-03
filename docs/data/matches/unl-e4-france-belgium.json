@@ -1,12 +1,12 @@
 {
   "slug": "unl-e4-france-belgium",
-  "generatedAt": "2026-10-02T15:15:43.919Z",
+  "generatedAt": "2026-10-03T10:31:35.459Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-10-02"
+      "accessed": "2026-10-03"
     }
   ],
   "competition": {
@@ -17,10 +17,17 @@
   },
   "kickoff": "2026-10-05T21:45:00+03:00",
   "venue": {
-    "name": "Groupama Stadium",
-    "capacity": 80698,
-    "city": "Saint-Denis",
-    "notes": null
+    "name": "Stade de France",
+    "capacity": null,
+    "city": "Paris",
+    "notes": null,
+    "weather": {
+      "tempC": 22,
+      "condition": "cer clar",
+      "windKph": 4,
+      "precipitationMm": 0,
+      "forecastAt": "2026-10-03T10:31:35.476Z"
+    }
   },
   "referee": {
     "name": "n/d",
@@ -1253,10 +1260,11 @@
     "summary": "Cap la cap (6 meciuri): France 6 - 0 - 0 Belgium."
   },
   "storyOfTheMatch": [
-    "France — locul 1 după 2 etape, 6 puncte, golaveraj 2-0.",
-    "France a păstrat poarta intactă în 2 din 2 etape.",
-    "Belgium — locul 2 după 2 etape, 3 puncte, golaveraj 2-1.",
-    "Belgium a păstrat poarta intactă în 1 din 2 etape.",
+    "France — locul 1 după 3 etape, 7 puncte, golaveraj 3-1.",
+    "France — 3 meciuri fără înfrângere.",
+    "France a păstrat poarta intactă în 2 din 3 etape.",
+    "Belgium — locul 2 după 3 etape, 6 puncte, golaveraj 5-1.",
+    "Belgium a păstrat poarta intactă în 2 din 3 etape.",
     "Leandro Trossard e cel mai bun marcator al echipei Belgium în acest start de sezon (2 goluri).",
     "Cap la cap (6 meciuri): France 6 - 0 - 0 Belgium."
   ],
@@ -1265,26 +1273,26 @@
     "winOrDraw": true,
     "advice": "Combo Double chance : France or draw and -3.5 goals",
     "percent": {
-      "home": 45,
-      "draw": 45,
-      "away": 10
+      "home": 35,
+      "draw": 35,
+      "away": 30
     },
     "comparison": {
       "form": {
-        "home": 67,
-        "away": 33
+        "home": 54,
+        "away": 46
       },
       "attack": {
+        "home": 38,
+        "away": 63
+      },
+      "defense": {
         "home": 50,
         "away": 50
       },
-      "defense": {
-        "home": 100,
-        "away": 0
-      },
       "poisson": {
         "home": 0,
-        "away": 0
+        "away": 100
       },
       "h2h": {
         "home": 100,
@@ -3679,23 +3687,283 @@
       ],
       "form": {
         "last5": [
+          "D",
           "W",
           "W"
         ],
-        "ppg": 3,
-        "homeAway": "Acasă 0-0-0, deplasare 2-0-0",
+        "ppg": 2.33,
+        "homeAway": "Acasă 0-1-0, deplasare 2-0-0",
         "position": 1,
-        "note": "Clasament 2026/27: locul 1, 6p (2-0)",
+        "note": "Clasament 2026/27: locul 1, 7p (3-1)",
         "table": {
-          "played": 2,
+          "played": 3,
           "win": 2,
-          "draw": 0,
+          "draw": 1,
           "loss": 0,
-          "gf": 2,
-          "ga": 0,
-          "points": 6
+          "gf": 3,
+          "ga": 1,
+          "points": 7
         },
         "recent": [
+          {
+            "date": "2026-10-02",
+            "opp": "Italy",
+            "homeAway": "H",
+            "comp": "UEFA Nations League",
+            "score": "1-1",
+            "result": "D",
+            "referee": "Jesus Gil Manzano",
+            "formation": {
+              "us": "4-3-3",
+              "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Maignan",
+                  "number": 16,
+                  "pos": "G"
+                },
+                {
+                  "name": "P. Kalulu",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Jacquet",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Upamecano",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Truffert",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Cherki",
+                  "number": 9,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. da Cunha",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Rabiot",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Olise",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "O. Dembélé",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "D. Doué",
+                  "number": 20,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "G. Donnarumma",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Kayode",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Scalvini",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Bastoni",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Calafiori",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Frattesi",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Tonali",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Fagioli",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Esposito",
+                  "number": 20,
+                  "pos": "F"
+                },
+                {
+                  "name": "F. Esposito",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Kean",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 54,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Nicolo Fagioli",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "us",
+                "type": "goal",
+                "player": "Michael Olise",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Pio Esposito",
+                "playerIn": "Antonio Vergara"
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sandro Tonali",
+                "playerIn": "Nicolò Barella"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "goal",
+                "player": "Alessandro Bastoni",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "yellow",
+                "player": "Dayot Upamecano",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Moise Kean",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Désiré Doue",
+                "playerIn": "Bradley Barcola"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Rayan Cherki",
+                "playerIn": "Eduardo Camavinga"
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sebastiano Esposito",
+                "playerIn": "Daniel Maldini"
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Davide Frattesi",
+                "playerIn": "Issa Doumbia"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Antonio Vergara",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "red",
+                "player": "Dayot Upamecano",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Lucas Da Cunha",
+                "playerIn": "Maxence Lacroix"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Nicolo Fagioli",
+                "playerIn": "Gianluca Scamacca"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Alessandro Bastoni",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
           {
             "date": "2026-09-28",
             "opp": "Belgium",
@@ -4966,226 +5234,9 @@
                 "playerIn": "M. Gusto"
               }
             ]
-          },
-          {
-            "date": "2026-07-04",
-            "opp": "Paraguay",
-            "homeAway": "A",
-            "comp": "World Cup",
-            "score": "1-0",
-            "result": "W",
-            "referee": "Ilgiz Tantashev, Uzbekistan",
-            "formation": {
-              "us": "4-2-3-1",
-              "opp": "5-4-1"
-            },
-            "lineups": {
-              "us": [
-                {
-                  "name": "M. Maignan",
-                  "number": 16,
-                  "pos": "G"
-                },
-                {
-                  "name": "J. Kounde",
-                  "number": 5,
-                  "pos": "D"
-                },
-                {
-                  "name": "D. Upamecano",
-                  "number": 4,
-                  "pos": "D"
-                },
-                {
-                  "name": "W. Saliba",
-                  "number": 17,
-                  "pos": "D"
-                },
-                {
-                  "name": "L. Digne",
-                  "number": 3,
-                  "pos": "D"
-                },
-                {
-                  "name": "M. Kone",
-                  "number": 6,
-                  "pos": "M"
-                },
-                {
-                  "name": "A. Rabiot",
-                  "number": 14,
-                  "pos": "M"
-                },
-                {
-                  "name": "O. Dembele",
-                  "number": 7,
-                  "pos": "M"
-                },
-                {
-                  "name": "M. Olise",
-                  "number": 11,
-                  "pos": "M"
-                },
-                {
-                  "name": "B. Barcola",
-                  "number": 12,
-                  "pos": "M"
-                },
-                {
-                  "name": "K. Mbappe",
-                  "number": 10,
-                  "pos": "F"
-                }
-              ],
-              "opp": [
-                {
-                  "name": "O. Gill",
-                  "number": 12,
-                  "pos": "G"
-                },
-                {
-                  "name": "J. Caceres",
-                  "number": 4,
-                  "pos": "D"
-                },
-                {
-                  "name": "G. Velazquez",
-                  "number": 2,
-                  "pos": "D"
-                },
-                {
-                  "name": "G. Gomez",
-                  "number": 15,
-                  "pos": "D"
-                },
-                {
-                  "name": "O. Alderete",
-                  "number": 3,
-                  "pos": "D"
-                },
-                {
-                  "name": "J. Alonso",
-                  "number": 6,
-                  "pos": "D"
-                },
-                {
-                  "name": "M. Almiron",
-                  "number": 10,
-                  "pos": "M"
-                },
-                {
-                  "name": "D. Gomez",
-                  "number": 8,
-                  "pos": "M"
-                },
-                {
-                  "name": "A. Cubas",
-                  "number": 14,
-                  "pos": "M"
-                },
-                {
-                  "name": "M. Galarza",
-                  "number": 23,
-                  "pos": "M"
-                },
-                {
-                  "name": "J. Enciso",
-                  "number": 19,
-                  "pos": "F"
-                }
-              ]
-            },
-            "events": [
-              {
-                "minute": 19,
-                "side": "us",
-                "type": "yellow",
-                "player": "Bradley Barcola",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 58,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "O. Alderete",
-                "playerIn": "J. Canale"
-              },
-              {
-                "minute": 61,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "J. Enciso",
-                "playerIn": "G. Caballero"
-              },
-              {
-                "minute": 61,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "B. Barcola",
-                "playerIn": "D. Doue"
-              },
-              {
-                "minute": 70,
-                "side": "us",
-                "type": "goal",
-                "player": "K. Mbappe",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 71,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "M. Almiron",
-                "playerIn": "G. Avalos"
-              },
-              {
-                "minute": 71,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "G. Gomez",
-                "playerIn": "Mauricio"
-              },
-              {
-                "minute": 81,
-                "side": "us",
-                "type": "yellow",
-                "player": "Manu Koné",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 84,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "O. Dembele",
-                "playerIn": "R. Cherki"
-              },
-              {
-                "minute": 90,
-                "side": "us",
-                "type": "yellow",
-                "player": "Michael Olise",
-                "playerOut": null,
-                "playerIn": null
-              }
-            ]
           }
         ],
         "next": [
-          {
-            "date": "2026-10-02",
-            "opp": "Italy",
-            "homeAway": "H",
-            "comp": "UEFA Nations League"
-          },
           {
             "date": "2026-10-05",
             "opp": "Belgium",
@@ -5197,24 +5248,34 @@
             "opp": "Italy",
             "homeAway": "A",
             "comp": "UEFA Nations League"
+          },
+          {
+            "date": "2026-11-15",
+            "opp": "Türkiye",
+            "homeAway": "H",
+            "comp": "UEFA Nations League"
           }
         ],
         "stats": {
           "goalsForByInterval": {
-            "46-60": 1,
+            "46-60": 2,
             "76-90": 1
           },
-          "goalsAgainstByInterval": null,
+          "goalsAgainstByInterval": {
+            "61-75": 1
+          },
           "cardsYellowByInterval": {
-            "61-75": 1,
+            "61-75": 2,
             "91-105": 2
           },
-          "cardsRedByInterval": null,
+          "cardsRedByInterval": {
+            "76-90": 1
+          },
           "goalsForAvg": 1,
-          "goalsAgainstAvg": 0,
-          "goalsForAvgHome": 0,
+          "goalsAgainstAvg": 0.3,
+          "goalsForAvgHome": 1,
           "goalsForAvgAway": 1,
-          "goalsAgainstAvgHome": 0,
+          "goalsAgainstAvgHome": 1,
           "goalsAgainstAvgAway": 0,
           "cleanSheets": 2,
           "cleanSheetsHome": 0,
@@ -5229,7 +5290,7 @@
           "formations": [
             {
               "formation": "4-3-3",
-              "played": 2
+              "played": 3
             }
           ],
           "biggestStreak": {
@@ -5241,13 +5302,13 @@
           "biggestWinAway": "0-1",
           "biggestLossHome": null,
           "biggestLossAway": null,
-          "biggestGoalsForHome": 0,
+          "biggestGoalsForHome": 1,
           "biggestGoalsForAway": 1,
-          "biggestGoalsAgainstHome": 0,
+          "biggestGoalsAgainstHome": 1,
           "biggestGoalsAgainstAway": 0,
           "winsHome": 0,
           "winsAway": 2,
-          "drawsHome": 0,
+          "drawsHome": 1,
           "drawsAway": 0,
           "losesHome": 0,
           "losesAway": 0
@@ -5267,52 +5328,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Italy XI vs France – Predicted lineup and team news",
-          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxORzhmREhHbnY0MFBaUkR5a1U3OURITHJWZmZKYUx1NGlwNnFKajBxX1dNMl9HeUwwUDNOUm1CVFpWd1lGb01fTndwZ3JvU3pJYWlnVDZYQTNuNVpYZVJuaWt2a1ljNWZUVS03X1pOMGh2ZFNoU3RxdzJVZm1JV2MxSkpPaw?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-02"
-        },
-        {
-          "title": "Zinedine Zidane is back, and France cannot wait to acclaim him",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOMmotYXU0ZXozTUtGd0wtZXBkWnhsbFgtTjBEdy1NdkdrVVZHdF92NGJkdzlsNnpNOUxuWlZXLVFWOW04ZTBHNDdJclBYVjJZVFdKSmJwUGdIdUJHRHdkM3ZDTlJaUjRkVzlkTjVPUDBZeVBpcURQMWRxTHpnaGxpR3lEMGF3Mi1Qajd1NWx1U0hjc0ls?oc=5",
+          "title": "Jeremy Jacquet is taking everything in his stride for Liverpool and France. Just ask Zinedine Zidane",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOMm9UeVMyLU81OXhmUG02U25VYnduVHVSUUtQclBJMWV3YmlQbU5OeTZWR0VEZGw3aEx6d1RFZmROdWY0VjcxejNfVmlvMVl0TkxOZUtqVThXSS00Tk5sZUl5ZG5YVWZNN2FRbFRvQXJ4U0RNOVlEV3oxdHR3RUlVZ0g4N1J3WUxBcnpWa2E5U2xIalMzM0E?oc=5",
           "source": "The New York Times",
-          "published": "2026-10-02"
+          "published": "2026-10-03"
         },
         {
-          "title": "Uefa Nations League today: How to watch France v Italy, TV channels & live stream Friday 2nd October",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQbm84MHhvbVlEWEk1NHFYSUlJZU1GZXlyS1dldmpEMDRhbUhrNnZwX1VkM2p6UnB0dGtsME5BSEQ0SHhRTFZGb29zX0V4U2lucm54azE3d0xCNmxGMmpMSXdTT1ZJSVdqU00tQzBmYUMwMVl4eDh2U0M5WFpzMzNUS3F4cmFpUlpPdlJRbVJOTkota2lHY2xDZ2p3?oc=5",
-          "source": "The Guardian",
-          "published": "2026-10-02"
+          "title": "Zidane delighted to return to Stade de France in front of fans",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOaFgyYWJqTjZQZGt3Q0V3Zm5UVzlUMFpHR2JXRTlHTTFHcG1zcVY2RXc4amhPd3AydXRSZjRsdUZIdlZkWWVtcnJOY0ZQay16Zi1VaUhuVmVfZUd5YlVPZk1vRUpyOW1NTkc5aGFxNmxkR2RFTnhTNElMYVYxS2tjZ00zSXBTSGlnd2lRMEJNcUVGMXBpU21PRlJrYm4xV0NXdVlRUlRrWQ?oc=5",
+          "source": "onefootball.com",
+          "published": "2026-10-03"
         },
         {
-          "title": "Zidane says 'no regrets' over World Cup headbutt as France prepare to meet Italy",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQR3R3QU5NNWxkUFBMMmdDX01EWm9nR3puOU45dFdxb19Dd19GcWp4M1ZnX2RIdnI5ZjRyQVBmdVJGcUJIYUU2U2VRRHE5V3ZaX211XzY0MTlrVmhZT0NTdU5uQkF1N1JnN1p0c0NvdXlKSzl0Nkdxa21vNFYxeXdmVHZWQ1dLd1NZNmFIN0NSbTI2Z0R2Y0plZ3RnU2xGMDZPVTR0dUpodjNfN3FIclBiNHVpbEdUNkE?oc=5",
-          "source": "RFI",
-          "published": "2026-10-02"
-        },
-        {
-          "title": "France vs Italy: UEFA Nations League stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFAybHFVQy00OGJmQXdKSXBOWlg0R2oyUDhVX3FxN1hyTHlBanE2NjIxNWNZZG55Wi1TN2M2UGxLak13RHZXUnJuYWZUYjBJRGRjWmJMVEZOdEtGOWtwSEJEVDJISQ?oc=5",
-          "source": "BBC",
-          "published": "2026-10-02"
-        },
-        {
-          "title": "France vs. Italy: Where to watch on TV, latest team news and probable line-ups",
-          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9RSzIzS20xYVRwY29iZHFNVE5memZodEpRZ25JYVhackIwY2ZKc1NZMTBCQi01a0I4UkZjTHBYR090Q2VXWVdQUS1OMHJ4S0Fvak9NSnBfejd6Ymo0ZlBCYzF1eTNXMFRrLTNScE5nZnB5QW_SAXhBVV95cUxOSjZ4WkQ2bXgyYkszSzc3ZUptVDhtSE5qa2t6Q3BuTml5dVByTXBDT2ZUWUpzUExoN1FwTTRYTEdtSjh5dUk0M1c0Nl9nUVZHZUd5bFA4THp0T2ZMRkQxYm5LcEk2TkNCUHJxM2VuYi1vQ2poeXdReXo?oc=5",
+          "title": "Zidane: France ‘deserved more’, Italy ‘defended well’",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE43aDN6eGk1OW9PQmpzT0diNldBekxNYXg0VW5VeXpvekxrbWZZRnYybjBfaUR1aUNpOUVaSU4tUU1PaUNjbVV0allkcFdHWjFLN2t1aHZ5MzdHNEZJbUVNUnR6VGM5d2loem9CalR3Zmt0bmpNWlJha3A3SmtuZVnSAYQBQVVfeXFMT2JhS2xjOFhPNGJwa0RZeUM0Z05Vekp3amJER0FORDctanI2ZHNyclNTUFZDNDh5eEhJVVhCWnRoTWJjeXFrN0MtVXBwaV85Z1ZtZTVhMFk1RXlNY1VURXhLWFpNZmhhN3FHVVAyMmQwazNaUlpWdWFCdUVPR2R5NC1nN2Jv?oc=5",
           "source": "Football Italia",
-          "published": "2026-10-02"
+          "published": "2026-10-03"
         },
         {
-          "title": "France predicted XI v Italy: Jérémy Jacquet to start, Ousmane Dembélé to captain in Kylian Mbappé’s absence",
-          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPWTFOT243TTZzVWtNeENCZnBwbEEwaXRpczI1ZWgwOWIyNHBVOVVmQktTTkVNMVB4T2pYQTNlekNFUkkxRzh0UGM5ZkNMWnVoVHQ0bndzMmhDQnJRVWstTGQ3MzVYdmlfTVBpaG9fVEYwdmJGaEZ4MkNJajg4ajg5QmVR?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-02"
+          "title": "Biggest football attendances in Europe this week: 77,000 at Stade de France for France vs. Italy thrilling draw",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPODlLSlZoa0tBQlFLRWZCMjRmQVFWV0diTnZsOEFDR0lXRW50UVVHTkhfREpFUDl2eU5GX1YxX3Fkb2NZMW44S3drdklNeWoyeUtGaGY2YlhWNTdFQkY0NExTbXdKanozd0dHOFZTeTlBeFQ3Y3hMdngyYXBiMG5DVDEzTjZyQzhra2ZKa2w4YWlXTXNGaU1RWVhDakZlal9aSXlDUS10SkpScmJlWk5wanRfLVhmWjU5RWQ4SWlDTFljbVN2a2pQdnF6WFdZa3ktYW5EVE9LMHBFcHpZRXQ3dGtkT1o?oc=5",
+          "source": "Football Ground Guide",
+          "published": "2026-10-03"
         },
         {
-          "title": "France v Italy: Zinedine Zidane set for home bow as Roberto Mancini begins 'long journey'",
-          "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPZUU4OGlnQ1Z6MTNsNUtMUmNHWGZaQmNmSWJfYjFwUS1OYTVUd2dvb1FQLWdUWnJzQXpFX05KZkxPdU8zMlI4UDRGWEcwTUhySmVzZ3hNRlJ5N0NjWl8xNU16RGhvSlNlTUFDU3JPbG1XbzlvNXVuSG1FOU1nb2w4UjR5V01jTlJHQ0ZqVmdET0UxTm9YNmYtV3QzdDFwQlhCNGxxZnV6Z1kxNFJveTFBRUx6bDRLc3RTMVEtVDN1ZFlwejJuZmN0MHZlc0dWcm9vWXNsR1RMcE5CNGxIaXc?oc=5",
-          "source": "thenationalnews.com",
-          "published": "2026-10-02"
+          "title": "France Scores & Fixtures",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOVXFRX0FmcXZxT05VNWNEd3RmWFhlQzl5UUlURHZGQVpMTHZMdGhjenRlQ3hpY3FWT0FXVFl2U0RwOEdOOEF3bzVwNjZBazBqZlpFZ3d2T2lFXzJnMHhpeWlCYmZVRW5xTXRmUVNyenFvMmZ6TWtQU2o5SkJHaFBzRlZhbk4zek40bGtNaHpEQQ?oc=5",
+          "source": "BBC",
+          "published": "2026-10-03"
+        },
+        {
+          "title": "Football: Soccer-Belgium's De Bruyne, Tielemans to miss France match due to suspension",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNT0RoRlRDQXdlZHRic05LZGhYa0lnVktVSzUwWnI4cTJuZ0E5X2pGZE5tSjlNQmRZcTZwbU9TMlJtUGx0clNmbHM2TE1nNGdwUXdtRTNza0luSjg3WVBDTUU1ZUo5LW9nWTVvUWQzUkhFeXFSdjllZERGYklaTlFMMmZOZ3pOM1VVb0p3aGJxNXpPa0tZMXhYNDFYWTJmOGQxT2JHSzd2UFJtWlFjdE41aEJPSl9UNWVCUUE1c2Jid1l6MXRwMXJ3QWJR?oc=5",
+          "source": "The Star",
+          "published": "2026-10-03"
+        },
+        {
+          "title": "Kevin De Bruyne's Brace Powers Belgium To 3-0 Win Over Turkey, France Held By Italy",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPanNCZ2tOTHdVTUpaQTNqQmhzcVdEQzFjSXdXMEFtSDBERW5QVm8zOTExWGxuZk1sQ3NCX2pVWTNvVTlqeU5CREE2djRweHBpRUFuM252dTNvQUthT2pJbmpsR0JCTFdzN2J1SzhXbTEzM0hLZnhoUkU4UExMNnVRUDF1MWREYWZLODdjODVobUZLVVFBem1qYWNnVzdZWjJNTlN0eGJEdlA0aW5yT1R4UVpTdGJocnRLbnA5cmZXVDg?oc=5",
+          "source": "NDTV Sports",
+          "published": "2026-10-03"
+        },
+        {
+          "title": "De Bruyne double sinks Turkey, Italy hold France",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPXzhBbEpCOC03TlZmaFNaZHBjSVhxWkMxZWIyLWpWZUdPN0lzcll1Sk5Td2NBUmMwb29CWXJhRkhpTy02NzZLd1NLbU5FenhTOFI0aC1pZFMxLTh2dzFEVnFxd182ampzU0U5M2U0M3JFOEhHR00tVzNaaFZST3RuaHdfaE5NaVczRXJSUkZaSnlZc2hIbHlaQtIBnAFBVV95cUxQSHZTLU9yMU1ZT0dYZVBLaGZmWS16Ym5iSnp2cHhaZnRURU9DdVdSTHREUE1pT2x5R29kXzhXMlhmckpUU3VKMmx6U3dkVy1LS0h3dXk0Wldnc3ExSmd3a2YzdElsWmFmb2wzWk40bWRjMjRKMGtVVDN3V0RQOUFMVEdhZkZnNlVQRnBIdVNQMnIycnBSU1M0MTJlQkg?oc=5",
+          "source": "Kuwait Times",
+          "published": "2026-10-03"
         }
       ],
       "stories": []
@@ -7469,23 +7530,315 @@
       ],
       "form": {
         "last5": [
+          "W",
           "L",
           "W"
         ],
-        "ppg": 1.5,
-        "homeAway": "Acasă 0-0-1, deplasare 1-0-0",
+        "ppg": 2,
+        "homeAway": "Acasă 1-0-1, deplasare 1-0-0",
         "position": 2,
-        "note": "Clasament 2026/27: locul 2, 3p (2-1)",
+        "note": "Clasament 2026/27: locul 2, 6p (5-1)",
         "table": {
-          "played": 2,
-          "win": 1,
+          "played": 3,
+          "win": 2,
           "draw": 0,
           "loss": 1,
-          "gf": 2,
+          "gf": 5,
           "ga": 1,
-          "points": 3
+          "points": 6
         },
         "recent": [
+          {
+            "date": "2026-10-02",
+            "opp": "Türkiye",
+            "homeAway": "H",
+            "comp": "UEFA Nations League",
+            "score": "3-0",
+            "result": "W",
+            "referee": "Rohit Saggi",
+            "formation": {
+              "us": "4-3-3",
+              "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "S. Lammens",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "T. Castagne",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Ngoy",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Mechele",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. De Cuyper",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. De Bruyne",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Tielemans",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "H. Vanaken",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Lukebakio",
+                  "number": 14,
+                  "pos": "F"
+                },
+                {
+                  "name": "C. De Ketelaere",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Godts",
+                  "number": 22,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "U. Çakır",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Z. Çelik",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Demiral",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Bardakcı",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Kadıoğlu",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "O. Aydın",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Elmaz",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "İ. Yüksek",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Aktürkoğlu",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Güler",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "B. Yılmaz",
+                  "number": 21,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 10,
+                "side": "us",
+                "type": "goal",
+                "player": "Kevin De Bruyne",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 26,
+                "side": "us",
+                "type": "yellow",
+                "player": "Dodi Lukebakio",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 30,
+                "side": "us",
+                "type": "yellow",
+                "player": "Youri Tielemans",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Baris Alper Yilmaz",
+                "playerIn": "Yunus Akgün"
+              },
+              {
+                "minute": 56,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Abdulkerim Bardakçı",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "goal",
+                "player": "Kevin De Bruyne",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Hans Vanaken",
+                "playerIn": "Romeo Lavia"
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Dodi Lukebakio",
+                "playerIn": "Romelu Lukaku"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Oğuz Aydın",
+                "playerIn": "Ilhan Fakili"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Kerem Aktürkoğlu",
+                "playerIn": "Deniz Gül"
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Merih Demiral",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Bartuğ Elmaz",
+                "playerIn": "Salih Özcan"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mika Godts",
+                "playerIn": "Leandro Trossard"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "goal",
+                "player": "Romelu Lukaku",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "yellow",
+                "player": "Kevin De Bruyne",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Charles De Ketelaere",
+                "playerIn": "Malick Fofana"
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Kevin De Bruyne",
+                "playerIn": "Loïs Openda"
+              },
+              {
+                "minute": 85,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ismail Yüksek",
+                "playerIn": "Demir Ege Tıknaz"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Arda Güler",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Nathan Ngoy",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
           {
             "date": "2026-09-28",
             "opp": "France",
@@ -8820,290 +9173,9 @@
                 "playerIn": null
               }
             ]
-          },
-          {
-            "date": "2026-06-27",
-            "opp": "New Zealand",
-            "homeAway": "A",
-            "comp": "World Cup",
-            "score": "5-1",
-            "result": "W",
-            "referee": "Adham Mohammad, Jordan",
-            "formation": {
-              "us": "4-2-3-1",
-              "opp": null
-            },
-            "lineups": {
-              "us": [
-                {
-                  "name": "T. Courtois",
-                  "number": 1,
-                  "pos": "G"
-                },
-                {
-                  "name": "T. Castagne",
-                  "number": 21,
-                  "pos": "D"
-                },
-                {
-                  "name": "B. Mechele",
-                  "number": 4,
-                  "pos": "D"
-                },
-                {
-                  "name": "A. Theate",
-                  "number": 3,
-                  "pos": "D"
-                },
-                {
-                  "name": "M. De Cuyper",
-                  "number": 5,
-                  "pos": "D"
-                },
-                {
-                  "name": "Y. Tielemans",
-                  "number": 8,
-                  "pos": "M"
-                },
-                {
-                  "name": "H. Vanaken",
-                  "number": 20,
-                  "pos": "M"
-                },
-                {
-                  "name": "J. Doku",
-                  "number": 11,
-                  "pos": "M"
-                },
-                {
-                  "name": "K. De Bruyne",
-                  "number": 7,
-                  "pos": "M"
-                },
-                {
-                  "name": "L. Trossard",
-                  "number": 10,
-                  "pos": "M"
-                },
-                {
-                  "name": "C. De Ketelaere",
-                  "number": 17,
-                  "pos": "F"
-                }
-              ],
-              "opp": [
-                {
-                  "name": "M. Crocombe",
-                  "number": 1,
-                  "pos": "G"
-                },
-                {
-                  "name": "T. Payne",
-                  "number": 2,
-                  "pos": "D"
-                },
-                {
-                  "name": "F. Surman",
-                  "number": 16,
-                  "pos": "D"
-                },
-                {
-                  "name": "T. Bindon",
-                  "number": 4,
-                  "pos": "D"
-                },
-                {
-                  "name": "L. Cacace",
-                  "number": 13,
-                  "pos": "D"
-                },
-                {
-                  "name": "J. Bell",
-                  "number": 6,
-                  "pos": "M"
-                },
-                {
-                  "name": "M. Stamenic",
-                  "number": 8,
-                  "pos": "M"
-                },
-                {
-                  "name": "S. Singh",
-                  "number": 10,
-                  "pos": "M"
-                },
-                {
-                  "name": "R. Thomas",
-                  "number": 23,
-                  "pos": "M"
-                },
-                {
-                  "name": "E. Just",
-                  "number": 11,
-                  "pos": "M"
-                },
-                {
-                  "name": "C. Wood",
-                  "number": 9,
-                  "pos": "F"
-                }
-              ]
-            },
-            "events": [
-              {
-                "minute": 28,
-                "side": "us",
-                "type": "goal",
-                "player": "L. Trossard",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 46,
-                "side": "opp",
-                "type": "yellow",
-                "player": "Marko Stamenić",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 46,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "R. Thomas",
-                "playerIn": "B. Old"
-              },
-              {
-                "minute": 46,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "S. Singh",
-                "playerIn": "J. Randall"
-              },
-              {
-                "minute": 50,
-                "side": "us",
-                "type": "goal",
-                "player": "L. Trossard",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 56,
-                "side": "opp",
-                "type": "yellow",
-                "player": "Elijah Just",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 56,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "J. Doku",
-                "playerIn": "M. Fernandez-Pardo"
-              },
-              {
-                "minute": 64,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "T. Payne",
-                "playerIn": "M. Boxall"
-              },
-              {
-                "minute": 64,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "J. Bell",
-                "playerIn": "C. McCowatt"
-              },
-              {
-                "minute": 66,
-                "side": "us",
-                "type": "goal",
-                "player": "K. De Bruyne",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 72,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "L. Trossard",
-                "playerIn": "A. Saelemaekers"
-              },
-              {
-                "minute": 72,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "K. De Bruyne",
-                "playerIn": "A. Onana"
-              },
-              {
-                "minute": 79,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "L. Cacace",
-                "playerIn": "F. De Vries"
-              },
-              {
-                "minute": 84,
-                "side": "opp",
-                "type": "goal",
-                "player": "E. Just",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 85,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "C. De Ketelaere",
-                "playerIn": "R. Lukaku"
-              },
-              {
-                "minute": 85,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Y. Tielemans",
-                "playerIn": "N. Raskin"
-              },
-              {
-                "minute": 86,
-                "side": "us",
-                "type": "goal",
-                "player": "R. Lukaku",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 90,
-                "side": "us",
-                "type": "goal",
-                "player": "A. Saelemaekers",
-                "playerOut": null,
-                "playerIn": null
-              }
-            ]
           }
         ],
         "next": [
-          {
-            "date": "2026-10-02",
-            "opp": "Türkiye",
-            "homeAway": "H",
-            "comp": "UEFA Nations League"
-          },
           {
             "date": "2026-10-05",
             "opp": "France",
@@ -9115,33 +9187,42 @@
             "opp": "Türkiye",
             "homeAway": "A",
             "comp": "UEFA Nations League"
+          },
+          {
+            "date": "2026-11-15",
+            "opp": "Italy",
+            "homeAway": "H",
+            "comp": "UEFA Nations League"
           }
         ],
         "stats": {
           "goalsForByInterval": {
+            "0-15": 1,
             "16-30": 1,
-            "61-75": 1
+            "46-60": 1,
+            "61-75": 1,
+            "76-90": 1
           },
           "goalsAgainstByInterval": {
             "76-90": 1
           },
           "cardsYellowByInterval": {
-            "16-30": 2,
+            "16-30": 4,
             "31-45": 1,
             "46-60": 1,
             "61-75": 1,
-            "76-90": 2,
-            "91-105": 1
+            "76-90": 3,
+            "91-105": 2
           },
           "cardsRedByInterval": null,
-          "goalsForAvg": 1,
-          "goalsAgainstAvg": 0.5,
-          "goalsForAvgHome": 0,
+          "goalsForAvg": 1.7,
+          "goalsAgainstAvg": 0.3,
+          "goalsForAvgHome": 1.5,
           "goalsForAvgAway": 2,
-          "goalsAgainstAvgHome": 1,
+          "goalsAgainstAvgHome": 0.5,
           "goalsAgainstAvgAway": 0,
-          "cleanSheets": 1,
-          "cleanSheetsHome": 0,
+          "cleanSheets": 2,
+          "cleanSheetsHome": 1,
           "cleanSheetsAway": 1,
           "failedToScore": 1,
           "failedToScoreHome": 1,
@@ -9154,22 +9235,26 @@
             {
               "formation": "4-2-3-1",
               "played": 2
+            },
+            {
+              "formation": "4-3-3",
+              "played": 1
             }
           ],
           "biggestStreak": {
             "wins": 1,
             "draws": 0,
-            "loses": 0
+            "loses": 1
           },
-          "biggestWinHome": null,
+          "biggestWinHome": "3-0",
           "biggestWinAway": "0-2",
           "biggestLossHome": "0-1",
           "biggestLossAway": null,
-          "biggestGoalsForHome": 0,
+          "biggestGoalsForHome": 3,
           "biggestGoalsForAway": 2,
           "biggestGoalsAgainstHome": 1,
           "biggestGoalsAgainstAway": 0,
-          "winsHome": 0,
+          "winsHome": 1,
           "winsAway": 1,
           "drawsHome": 0,
           "drawsAway": 0,
@@ -9197,52 +9282,52 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Turkiye XI vs Belgium – Predicted lineup and team news",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOMXdlSF95WUdGYzA0enJ3aXJRVVhTeDhwSTBaRk9GYjJyY05oRFhkbEtpeE9jQ2VKMVoyc2I3aG9qRGdMdFRlcWpoUWhtN0dvczlvRzZlOFNoZGlKV1plS2lJZk12NEhCVjU2cGUwbFpQdS0wR2dNRU94cXpwajdSWENHOENRbGc?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-02"
+          "title": "Godts and Belgium defeat Turkiye",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOdFAyVDNydkJUTWRnRDhKOTdydDc3azVpUFItb0NNWGRDUUMxcU9rLWFyeGdtSTIwWHlYa2steHlKaHF4ZGU4MHZUeWxrQXROdF9CenlPcTMxaHppRnNiNHo4X2VQSmctQksySFJDU1lGSFNtUHVtZlZUcDItTFZNT09QdGpiUW9fejU1XzJMTGNjbnZuSnVJ?oc=5",
+          "source": "Paris Saint-Germain",
+          "published": "2026-10-03"
         },
         {
-          "title": "Belgium vs Turkey: UEFA Nations League stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBGWHJ6U2k5SVA0UDRpM193cDExaHhfZzNqV0xCX0V1dWNtWmRlbXNWTlhZZkg0Y0tMOUJ3SXFtRGFvZlVLT0pDTlFWakN4RDRXaFY3YjI4cTdnR0JTREt0cWY5OA?oc=5",
+          "title": "Veterans De Bruyne (2) and Lukaku help Belgium past Turkey (3-0) in Nation League football",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOZEtPeUhPaHFnV2x3clJ2bm45NVhnRG5Va0NrMFRSYmxBQW5BMlB0VHZjWHVSNDU2SXg5UU13TENack5tQm1mdmk2LURnam5vZldFeEdLMlZQRUZ2VzJzdHJNSndjQmM5NXhHVVByVzFTWkFvbzZTLW1Ld2EtOGhmSFJ5ekY2dC1uN2tERl9KU1JabVpwdTgyakkzYlZ4bWo2T3dPVWk0ZTZpQUEzZEJqM19EXzMtd01XQWlPS1ZTakRpTTlQS1FiN1Z2ekRRbHcwdWdlTm9R?oc=5",
+          "source": "Belga Share",
+          "published": "2026-10-03"
+        },
+        {
+          "title": "Watch Belgium vs Türkiye",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxONENCSXpQUFQwMUREYlhRUjRidVhjUG9YaEdaOUp3V29hZHBrNm9ic2Fqc3JPcjVyNUFoc0VrVVE1TkpucC0xYTlNVXlxOTRINm9FR2ZwUXgyUFk0RnB1cDBESG9RNlpDck1yS1N5Z1NxWTlSRmFENGtubFpsaUFDb2haNXNybV9mUll6WTBsbGNFVWF6TmNpRg?oc=5",
+          "source": "TOD",
+          "published": "2026-10-03"
+        },
+        {
+          "title": "How to watch Belgium vs Turkey: TV channel and live stream for Nations League game today",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNa2h0ZGNZMXBiMWc2OE00LWdVSHE5cjdORXBkb25FaFAzOGJHUEhqWXJrZzR2Z0w3V1VRSS02R2tRcUhveVBMSjhUR2FzYlc4Y1NyZjNjMTR2OVpqUHlqT0dVVVhtYXVIaXkzRWh4eVVKbmplc1QzTDhkU3lCX3UtLVdzZGI1S3pEb1JfTjJoZHhBYkZhNy10WUZaV2RTVERSbWtSYkFaZml2OXNzN3JoR1NiQ0I5R0ljYUdES2NQTm9Bd3o2eFNHMEJNbXBkUmw2?oc=5",
+          "source": "London Evening Standard",
+          "published": "2026-10-03"
+        },
+        {
+          "title": "Belgium's De Bruyne, Tielemans to miss France match due to suspension",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOWmw5b0w0TGc4eXVuUE9NWUg2OUlfY2V6TWx2dFpSOG5Ua0JuS2pCLTA1SzBIYkdpLTgzeUNENDAtalNfSXpHX3lleGUybmtlOEdvWGEtanRHOXpSWmFBMlR6dkZ1Slg1YVIwVGlSTGxuVVYzWHRFU0RVVUVSWExPTjdkWTd0Y2xoUmczQjJKdHBmQUZCQi1IU0s4TVMtaG9yRUthajl5WFBDN0ZkMmpSZw?oc=5",
+          "source": "The Straits Times",
+          "published": "2026-10-03"
+        },
+        {
+          "title": "Belgium Scores & Fixtures",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOWHJubEVNUEtybUN6ZHM3QUdoNkN2SEhsekY5dTRnVGp4Z0YtQTNjbkgzMWJITEJkR3F0S3YwTWZ0RkhLaTZXd0VGbDJMTVhPQjkySkZFLXdjYXV0VTUxYkktcUpxRUFZcV90S2dnZEYySGdhb3dqd1FqZ0Rhc2I1VzlpeEw5d3hGSTBvUkt1SDU?oc=5",
           "source": "BBC",
-          "published": "2026-10-02"
+          "published": "2026-10-03"
         },
         {
-          "title": "Belgium vs Turkey - Prediction, where to watch, kick-off time and line-ups 02-10-2026",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOdjVWVVhLQXpzQUY3c0V3dWpTMXFYc1ppcUJBOHB6a3I2RTh5X1lnNl9xaFNnOXNIc1Z0TGVqVzNJTmo1cUNHTW1DT1NFbzBCTjBzUl8tdUZSajJxbFV4M1RJdDVJWWoyd0FtaVhZMk1oT09pMEZTNkduT0xFdHh6dlEza0Y?oc=5",
-          "source": "OneFootball",
-          "published": "2026-10-02"
+          "title": "Kevin De Bruyne's Brace Powers Belgium To 3-0 Win Over Turkey, France Held By Italy",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPanNCZ2tOTHdVTUpaQTNqQmhzcVdEQzFjSXdXMEFtSDBERW5QVm8zOTExWGxuZk1sQ3NCX2pVWTNvVTlqeU5CREE2djRweHBpRUFuM252dTNvQUthT2pJbmpsR0JCTFdzN2J1SzhXbTEzM0hLZnhoUkU4UExMNnVRUDF1MWREYWZLODdjODVobUZLVVFBem1qYWNnVzdZWjJNTlN0eGJEdlA0aW5yT1R4UVpTdGJocnRLbnA5cmZXVDg?oc=5",
+          "source": "NDTV Sports",
+          "published": "2026-10-03"
         },
         {
-          "title": "Belgium vs Türkiye: Nations League preview with form, H2H and key stats",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQc2RwU3lCRWRJT1pyV2hWc2p3cTF2a3hfbkxMejJTRXRlMlpka0tvYlItVk4wYWxhUzhsTmJtNWEwR3QxRERseGthbE9ZQThuNTd3TTU1Xzd4SGdZWFdzMzNnMThvYkFubkxUaTV4dHJWNjQzUFpIMkNzUjJ4R3lrLTVtX3ZneFNjVzZWa1lONXVuazBXR0VSMGNCNUlSMl8tZXc?oc=5",
-          "source": "Sofascore",
-          "published": "2026-10-02"
-        },
-        {
-          "title": "France vs Italy UEFA Nations League prediction: Match preview, team news, key stats & h2h",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQLWZTcHRoMElUeGhjNksxV1J4WWFreDgwNU1OelNyOGIzVmZHWWRhRElnYTc3SGZ3WWlqVkdGWEsyMzBVVmlueC1JMmk1ZEV2V01JWDU1YXNlNS1SQWNjMHdITDBPX2F0amI4Qi1rWjhMS0VVTVJZend4SXJWSWtoMmxoQTBfcWNEWDJDamhmTTVJQWY4VHQ3TXJ0LXZNcldySklPM3k0SVNueTNrUHBtVGxMVlByMV9DX2pUemFPcW9lOV8x?oc=5",
-          "source": "SportPesa Blog",
-          "published": "2026-10-02"
-        },
-        {
-          "title": "Belgium vs Turkey football prediction in Nations League",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQdS1RNUFHckYtdElXY1JzaVpUZ0dlTk5xVHh2LU8zMGlDR0p1ZzZjTFlsajRCY1dXV3czLTJyZnNfcjNHWDNBUGRVY1ZkZ2UxTW50ZXd3dmhjNEpodjV2NnJtVzkwOHdGUlphbXJnUVN6c25PYkRYUkh1Rmw3VTgzajMteEo1VVhKWVZrdWU4VGxiWDRyN3ZSZXJVeVlfeFF2Y044OG1JalA?oc=5",
-          "source": "news.laodong.vn",
-          "published": "2026-10-02"
-        },
-        {
-          "title": "France vs Italy football prediction at Nations League",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQY0FIQ2Y2UUhQY08zWExtMUJLaXlMdFZCNWVHS2JLRWdQdl80SldaWnBXQ2tXOUxQNWtJcjlWaEN5Y2oxM1JFNUFwX0ZzQzhFZ2ZaV3lKREhBajNvS0d3VTU4ZnJOeXczWnhBdkNlUkpKMUt5VWVtekRrVEVSTkQ5Z1NCRjZIRXBSS2hvV05hOFdXaU93LVNfSm5XMjlYN2dkR00xUw?oc=5",
-          "source": "news.laodong.vn",
-          "published": "2026-10-02"
-        },
-        {
-          "title": "Belgium vs Türkiye Prediction and Betting Tips | October 2nd 2026",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNbFdTaks3dzlSTXNWNEdTZUJYTTktektlS0Njd1VEa3k4YzFiVE5QcWs5NWpUUS1PY203SWswaXBjcjIxT2JiYzhmeGFsZE80RjJtNXloTDVoS3p2U0VOV3puTHZWZ29uRnJ3XzZFYlN6anZ1UmNQUTU3U19tc0M2TUI0WTZFZHd6Nk01SE9vREg0dGVQc0xfYjNnWTI?oc=5",
-          "source": "Sportskeeda",
-          "published": "2026-10-02"
+          "title": "Belgium vs Turkiye player ratings: De Bruyne shines with brace",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOTzc5X3RnYlhlSUU4SzJXSDA4b3lmWTJ5TnpYcy1qWUsxOWI4U3R6bWFRYjh4NnJvX0x4Z0ExT0tLS211V0pzMW1kd044ajdwZ3FuSjB6ZEZkQVVHVHRJeXRtQXBOYm5QcUV0TC1MOWpGNEVwUVJycURXNjlCamE4TGdqdEY3dlhTd1R4akthSTZzaWtFZmp6cW44bjlYWlBac19sREdIZjNZZ2RlWkHSAbQBQVVfeXFMUFd4OEV2OXhDXzhzM1NnRnV2NXpaMWsxMVUzelFUU1lyNF8xNzF5b0xmQV9TbkYxQWZ3WTJOR3hXNEFoWmVlbmxFNXJueHAyeFZFTXpFNFh2WXFfLW1MaXpobkRac3lHM3F0eWZUeWtmMUlmd3lEOU15V0NtbWhnQ2xqMTJCZmdEY2VzcXdBelA0eXo2NHBoc012a3Qyd0JQRUFycTBlSjJ5aG5JYjNHRlJrV3Vs?oc=5",
+          "source": "Sportstar",
+          "published": "2026-10-03"
         }
       ],
       "stories": []
@@ -9256,57 +9341,57 @@
         "rank": 1,
         "teamId": 2,
         "team": "France",
-        "played": 2,
+        "played": 3,
         "win": 2,
-        "draw": 0,
+        "draw": 1,
         "loss": 0,
-        "gf": 2,
-        "ga": 0,
+        "gf": 3,
+        "ga": 1,
         "gd": 2,
-        "points": 6,
-        "form": "WW"
+        "points": 7,
+        "form": "DWW"
       },
       {
         "rank": 2,
         "teamId": 1,
         "team": "Belgium",
-        "played": 2,
-        "win": 1,
+        "played": 3,
+        "win": 2,
         "draw": 0,
         "loss": 1,
-        "gf": 2,
+        "gf": 5,
         "ga": 1,
-        "gd": 1,
-        "points": 3,
-        "form": "LW"
+        "gd": 4,
+        "points": 6,
+        "form": "WLW"
       },
       {
         "rank": 3,
         "teamId": 768,
         "team": "Italy",
-        "played": 2,
+        "played": 3,
         "win": 1,
-        "draw": 0,
+        "draw": 1,
         "loss": 1,
-        "gf": 4,
-        "ga": 3,
+        "gf": 5,
+        "ga": 4,
         "gd": 1,
-        "points": 3,
-        "form": "WL"
+        "points": 4,
+        "form": "DWL"
       },
       {
         "rank": 4,
         "teamId": 777,
         "team": "Türkiye",
-        "played": 2,
+        "played": 3,
         "win": 0,
         "draw": 0,
-        "loss": 2,
+        "loss": 3,
         "gf": 1,
-        "ga": 5,
-        "gd": -4,
+        "ga": 8,
+        "gd": -7,
         "points": 0,
-        "form": "LL"
+        "form": "LLL"
       }
     ]
   }
