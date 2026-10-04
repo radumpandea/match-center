@@ -287,7 +287,16 @@ function parseTranslations(raw, expectedLen) {
 async function translateBatch(lang, batch, attempt = 1) {
   const raw = await callOpenRouter(buildMessages(lang, batch));
   const arr = parseTranslations(raw, batch.length);
-  if (arr) return arr;
+  if (arr) {
+    // The prompt numbers each source line ("0: ...", "1: ..."); the model sometimes
+    // echoes that index into the translation itself. Strip exactly the echoed index
+    // of this slot, and only when the Romanian source doesn't itself start that way.
+    return arr.map((t, i) => {
+      if (typeof t !== 'string') return t;
+      const echoed = new RegExp('^' + i + ':\\s+');
+      return echoed.test(t) && !echoed.test(batch[i].text) ? t.replace(echoed, '') : t;
+    });
+  }
   console.error(`  [${lang}] batch of ${batch.length} did not parse as expected (attempt ${attempt}), raw length=${raw.length}. Raw response:\n${raw.slice(0, 3000)}`);
   if (attempt >= 2) throw new Error(`Could not get a valid ${batch.length}-item translation for lang=${lang} after retry`);
   return translateBatch(lang, batch, attempt + 1);
