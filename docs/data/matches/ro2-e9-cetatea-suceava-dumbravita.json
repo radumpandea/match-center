@@ -1,6 +1,6 @@
 {
   "slug": "ro2-e9-cetatea-suceava-dumbravita",
-  "generatedAt": "2026-10-04T11:17:04.581Z",
+  "generatedAt": "2026-10-04T18:35:33.333Z",
   "partial": true,
   "sources": [
     {
@@ -19,7 +19,7 @@
   "venue": {
     "name": "Areni Stadium",
     "capacity": null,
-    "city": null,
+    "city": "Suceava",
     "notes": null
   },
   "referee": {
@@ -41,7 +41,42 @@
     "Dumbrăviţa — locul 21 după 8 etape, 3 puncte, golaveraj 5-16.",
     "Dumbrăviţa vine după 4 înfrângeri la rând."
   ],
-  "predictions": null,
+  "predictions": {
+    "winnerName": "Cetatea Suceava",
+    "winOrDraw": false,
+    "advice": "Winner : Cetatea Suceava",
+    "percent": {
+      "home": 50,
+      "draw": 50,
+      "away": 0
+    },
+    "comparison": {
+      "form": {
+        "home": 86,
+        "away": 14
+      },
+      "attack": {
+        "home": 77,
+        "away": 23
+      },
+      "defense": {
+        "home": 62,
+        "away": 38
+      },
+      "poisson": {
+        "home": 82,
+        "away": 18
+      },
+      "h2h": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": {
+        "home": 0,
+        "away": 0
+      }
+    }
+  },
   "teams": {
     "home": {
       "name": "Cetatea Suceava",
@@ -408,32 +443,6 @@
           "stats": null
         },
         {
-          "apiId": 672848,
-          "number": 8,
-          "name": "R. Chelari",
-          "photo": null,
-          "pos": "MID",
-          "positions": [
-            "MID"
-          ],
-          "role": "MID",
-          "age": 27,
-          "height": null,
-          "weight": null,
-          "foot": null,
-          "nat": null,
-          "natTeam": null,
-          "birthCountry": null,
-          "pronunciation": null,
-          "career": null,
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": null
-        },
-        {
           "apiId": 352841,
           "number": 33,
           "name": "Gabriel Eugen David",
@@ -574,32 +583,6 @@
           ],
           "role": "MID",
           "age": 17,
-          "height": null,
-          "weight": null,
-          "foot": null,
-          "nat": null,
-          "natTeam": null,
-          "birthCountry": null,
-          "pronunciation": null,
-          "career": null,
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": null
-        },
-        {
-          "apiId": 676953,
-          "number": 19,
-          "name": "S. Petraru",
-          "photo": null,
-          "pos": "MID",
-          "positions": [
-            "MID"
-          ],
-          "role": "MID",
-          "age": null,
           "height": null,
           "weight": null,
           "foot": null,
@@ -2468,8 +2451,120 @@
         }
       },
       "absences": [],
-      "mercatoIn": [],
-      "mercatoOut": [],
+      "mercatoIn": [
+        {
+          "name": "V. Kyrycsenko",
+          "from": "Dinamo Bucuresti (împrumut)",
+          "fee": null
+        },
+        {
+          "name": "C. Golofca",
+          "from": "Unirea Alba Iulia",
+          "fee": null
+        },
+        {
+          "name": "R. D. Sumanariu",
+          "from": "Foresta Suceava",
+          "fee": null
+        },
+        {
+          "name": "R. Farcas",
+          "from": "Politehnica Iasi",
+          "fee": null
+        },
+        {
+          "name": "L. Fülöp",
+          "from": "Soimii Gura Humorului",
+          "fee": null
+        },
+        {
+          "name": "A. Cerlinca",
+          "from": "Foresta Suceava",
+          "fee": null
+        },
+        {
+          "name": "Vlad Ilie",
+          "from": "Politehnica Iasi",
+          "fee": null
+        },
+        {
+          "name": "Bogdan Grosu",
+          "from": "Soimii Gura Humorului",
+          "fee": null
+        },
+        {
+          "name": "Aleksandru Robert Longher",
+          "from": "Gura Humorului",
+          "fee": null
+        },
+        {
+          "name": "Vladut Cimbru",
+          "from": "FC Bacau",
+          "fee": null
+        },
+        {
+          "name": "Alexandru Dohotariu",
+          "from": "Gura Humorului",
+          "fee": null
+        },
+        {
+          "name": "G. David",
+          "from": "FC Botosani (împrumut)",
+          "fee": null
+        },
+        {
+          "name": "A. Mihai",
+          "from": "Unirea Braniştea (împrumut)",
+          "fee": null
+        },
+        {
+          "name": "A. Micu",
+          "from": "Axiopolis",
+          "fee": null
+        },
+        {
+          "name": "A. Ciobanu",
+          "from": "FC Botosani (împrumut)",
+          "fee": null
+        },
+        {
+          "name": "Matei Manolache",
+          "from": "FCSB (împrumut)",
+          "fee": null
+        },
+        {
+          "name": "V. Cimbru",
+          "from": "FC Bacau",
+          "fee": null
+        },
+        {
+          "name": "A. Aftanache",
+          "from": "FC Bacau",
+          "fee": null
+        }
+      ],
+      "mercatoOut": [
+        {
+          "name": "Alexandru Iulian Zaharia",
+          "to": "Zaharia Alexandru",
+          "fee": null
+        },
+        {
+          "name": "G. Danaila",
+          "to": "Blejoi",
+          "fee": null
+        },
+        {
+          "name": "Juan Andres Pătrașcu",
+          "to": "Ştefăneşti",
+          "fee": null
+        },
+        {
+          "name": "A. Vlad",
+          "to": "Ştefăneşti",
+          "fee": null
+        }
+      ],
       "preseason": [],
       "news": [],
       "newsCandidates": [
