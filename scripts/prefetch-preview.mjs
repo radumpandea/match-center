@@ -1854,9 +1854,25 @@ async function main() {
         }
       }
       const fm = doc.teams[side].form;
-      if (fm && (!fm.next || !fm.next.length)) {
+      // The form guide and next-3 fixtures go stale every matchday, like
+      // standings. They were filled once ("if empty") and then frozen, so a pack
+      // built days before kickoff kept listing a match as "next" after it had been
+      // played and left the result out of the guide (seen live: Romania v Sweden
+      // built 29 Sep still ended its guide at 28 Sep after the 0-6 of 2 Oct).
+      // getFormGuide() is safe to re-run: per-match formations/lineups/events come
+      // from the fixtureDetails cache, so only a newly played match costs calls.
+      // An empty API answer (failure or nothing left) never overwrites good data.
+      if (fm && id != null) {
+        const guide = await getFormGuide(id, season, cache);
+        if (guide.length && JSON.stringify(guide) !== JSON.stringify(fm.recent || [])) { fm.recent = guide; touched = true; }
         const nx = await getNextFixtures(id, season);
-        if (nx.length) { fm.next = nx; touched = true; }
+        if (nx.length) {
+          if (JSON.stringify(nx) !== JSON.stringify(fm.next || [])) { fm.next = nx; touched = true; }
+        } else if (fm.next && fm.next.length) {
+          const today = todayDate();
+          const upcoming = fm.next.filter((x) => !x.date || x.date >= today);
+          if (upcoming.length !== fm.next.length) { fm.next = upcoming; touched = true; }
+        }
       }
       const coach = doc.teams[side].coach;
       const needCoachInfo = coach && has(coach.name) &&
