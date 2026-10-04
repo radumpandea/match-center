@@ -298,8 +298,17 @@ async function translateBatch(lang, batch, attempt = 1) {
     });
   }
   console.error(`  [${lang}] batch of ${batch.length} did not parse as expected (attempt ${attempt}), raw length=${raw.length}. Raw response:\n${raw.slice(0, 3000)}`);
-  if (attempt >= 2) throw new Error(`Could not get a valid ${batch.length}-item translation for lang=${lang} after retry`);
-  return translateBatch(lang, batch, attempt + 1);
+  if (attempt < 2) return translateBatch(lang, batch, attempt + 1);
+  // The same batch can fail the same way every time (seen live: a model that
+  // consistently returned 9 items for a specific 10, so a plain retry just
+  // repeats it and the whole match is skipped). Split it and translate each half
+  // on its own; a single-item batch has nothing left to miscount.
+  if (batch.length > 1) {
+    const mid = Math.ceil(batch.length / 2);
+    console.error(`  [${lang}] splitting the ${batch.length}-item batch into ${mid} + ${batch.length - mid}`);
+    return [...await translateBatch(lang, batch.slice(0, mid)), ...await translateBatch(lang, batch.slice(mid))];
+  }
+  throw new Error(`Could not get a valid ${batch.length}-item translation for lang=${lang} after retry`);
 }
 
 // A translated string byte-identical to its Romanian source is almost
