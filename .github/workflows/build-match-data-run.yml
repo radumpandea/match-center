@@ -2,7 +2,8 @@ name: Build Match Data (run)
 
 # The shared editorial-pass job. Called by build-match-data.yml (the daily
 # auto-pick / manual dispatch) and build-match-data-favourites.yml (the
-# per-favourite deep pass) so the prompt lives in exactly one place.
+# per-favourite deep pass) and build-match-data-weekly-premium.yml (the
+# weekend-prep queue) so the prompt lives in exactly one place.
 on:
   workflow_call:
     inputs:
@@ -21,6 +22,11 @@ on:
         required: false
         type: string
         default: ""
+      fallback:
+        description: "Dispatch the OpenRouter fallback build if the Claude build fails"
+        required: false
+        type: boolean
+        default: true
 
 jobs:
   build-match:
@@ -213,7 +219,7 @@ jobs:
             --allowedTools "Read,Write,Edit,Bash,Glob,Grep,WebSearch,WebFetch"
 
       - name: Redirect failed Claude build to configured fallback API
-        if: steps.claude-build.outcome == 'failure'
+        if: steps.claude-build.outcome == 'failure' && inputs.fallback
         env:
           GH_TOKEN: ${{ github.token }}
           MATCH: ${{ inputs.match }}

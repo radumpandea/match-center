@@ -1,0 +1,64 @@
+name: Build Match Data (Weekly premium)
+
+# The standing weekly plan for the commentator's weekend: starting Wednesday,
+# every run deep-builds ("premium") THREE matches — one each from Ligue 1,
+# Premier League and SuperLiga, soonest kick-off first, rotating — until every
+# Friday..Monday match of those leagues is premium. See
+# scripts/pick-weekly-premium.mjs for the exact queue rules. Once the queue is
+# empty a run is a no-op, so the surplus slots cost nothing.
+#
+# Budget: a deep build is ~2-4 % of the Claude Pro weekly window and all of
+# these share CLAUDE_CODE_OAUTH_TOKEN with interactive sessions, so three per
+# run is sized to one 5-hour window. Slots are spread ~5 h apart (UTC), off the
+# 06:00 / 06:20 daily builds and the 07:05 translation. To slow the drain,
+# remove slots; to stop it, disable the workflow.
+on:
+  schedule:
+    - cron: "40 8,13,18,23 * * 3-6"   # Wed..Sat, 4 slots/day
+  workflow_dispatch: {}
+
+# One queue at a time: a manual dispatch behind a scheduled run waits instead
+# of re-picking the same matches.
+concurrency:
+  group: weekly-premium
+  cancel-in-progress: false
+
+jobs:
+  pick:
+    runs-on: ubuntu-latest
+    outputs:
+      slugs: ${{ steps.pick.outputs.slugs }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Pick the next three weekend matches that still need the deep pass
+        id: pick
+        run: node scripts/pick-weekly-premium.mjs
+
+  build:
+    needs: pick
+    if: needs.pick.outputs.slugs != '[]'
+    strategy:
+      matrix:
+        slug: ${{ fromJson(needs.pick.outputs.slugs) }}
+      # One at a time: a rate-limit hit then stops wasting parallel runs, and
+      # each push rebases onto the previous one instead of racing it.
+      max-parallel: 1
+      fail-fast: false
+    # Must mirror the permissions build-match-data-run.yml's job requests —
+    # a reusable-workflow call that asks for more than the caller job grants
+    # fails at startup (0 jobs run), it doesn't just downgrade silently.
+    permissions:
+      contents: write
+      actions: write
+      id-token: write
+    uses: ./.github/workflows/build-match-data-run.yml
+    with:
+      match: ${{ matrix.slug }}
+      depth: deep
+      # A failed premium build should be retried by the next slot, not
+      # replaced by a degraded OpenRouter one (those can leave predictedXI empty).
+      fallback: false
+    secrets: inherit
