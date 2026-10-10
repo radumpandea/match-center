@@ -227,6 +227,7 @@
       window.MC_COLLAB.getEntity('coach', afKey(coach.apiId)).then(function (entity) {
         if (!entity || !has(entity.name) || entity.name === coach.name) return;
         coach.name = entity.name;
+        if (coach._name0 !== undefined) coach._name0 = entity.name;   // keep the "researched" name in step so resetting a local override lands on it
         render(data);
       });
     });
@@ -273,7 +274,7 @@
     ['home', 'away'].forEach(function (side) {
       var t = data.teams[side];
       if (!t) return;
-      [t.squad, t.predictedXI, t.confirmedXI].forEach(function (list) {
+      [t.squad, t.predictedXI, t.confirmedXI, t.substitutes].forEach(function (list) {
         (list || []).forEach(function (p) { if (p && p.apiId != null) keys.push(afKey(p.apiId)); });
       });
     });
@@ -283,11 +284,13 @@
       ['home', 'away'].forEach(function (side) {
         var t = data.teams[side];
         if (!t) return;
-        [t.squad, t.predictedXI, t.confirmedXI].forEach(function (list) {
+        [t.squad, t.predictedXI, t.confirmedXI, t.substitutes].forEach(function (list) {
           (list || []).forEach(function (p) {
             var entity = p && p.apiId != null && map[afKey(p.apiId)];
             if (!entity || !has(entity.name) || entity.name === p.name) return;
+            entityNames[p._name0 !== undefined ? p._name0 : p.name] = entity.name;
             p.name = entity.name;
+            if (p._name0 !== undefined) p._name0 = entity.name;
             touched = true;
           });
         });
@@ -613,6 +616,35 @@
       if (xi) Object.keys(xi).forEach(function (k) { set(xi[k]); });
     });
   }
+  // researched name -> display name, rebuilt by applyPname() on every render().
+  // Squad/XI/bench entries are objects and get renamed in place; the lineups and
+  // events of PAST matches (H2H / form-guide details) are plain strings with no
+  // object to rename, so they go through nm() instead.
+  var nameMap = Object.create(null);
+  // researched name -> shared entity name (mc_entities, incl. user corrections),
+  // filled by connectPlayerEntities() so past-match strings follow it too.
+  var entityNames = Object.create(null);
+  function nm(n) {
+    if (n == null) return n;
+    if (nameMap[n] !== undefined) return nameMap[n];
+    return entityNames[n] !== undefined ? entityNames[n] : n;
+  }
+  // Per-coach display name (store.cname[side]) -- same idea for the head coach,
+  // applied every render() so a researched/API name that is abbreviated
+  // ("L. Rosenior") or longer than wanted can be replaced.
+  function applyCname(d) {
+    var cn = store.cname || {};
+    ['home', 'away'].forEach(function (side) {
+      var c = d.teams[side].coach;
+      if (!c) return;
+      if (cn[side]) {
+        if (c._name0 === undefined) c._name0 = c.name;
+        c.name = cn[side];
+      } else if (c._name0 !== undefined) {
+        c.name = c._name0;
+      }
+    });
+  }
   // Per-player display-name overrides (store.pname[side][keyOf(p)]) — lets the
   // user show something other than the researched name (a nickname, a
   // correction) everywhere the player appears, without touching the source
@@ -621,6 +653,7 @@
   // after applyPnum so keyOf() already reflects any number override.
   function applyPname(d) {
     var pn = store.pname || {};
+    nameMap = Object.create(null);
     ['home', 'away'].forEach(function (side) {
       var map = pn[side] || {};
       var set = function (o) {
@@ -629,6 +662,7 @@
         if (Object.prototype.hasOwnProperty.call(map, k)) {
           if (o._name0 === undefined) o._name0 = o.name;   // remember the researched name
           o.name = map[k];
+          nameMap[o._name0] = o.name;
         } else if (o._name0 !== undefined) {
           o.name = o._name0;   // override was cleared -- restore the researched name
         }
@@ -636,6 +670,7 @@
       (d.teams[side].squad || []).forEach(set);
       (d.teams[side].predictedXI || []).forEach(set);
       (d.teams[side].confirmedXI || []).forEach(set);
+      (d.teams[side].substitutes || []).forEach(set);
       (store.manualSquad && store.manualSquad[side] || []).forEach(set);
       var xi = store.xi && store.xi[side];
       if (xi) Object.keys(xi).forEach(function (k) { set(xi[k]); });
@@ -729,6 +764,28 @@
     if (!name || name === orig) delete store.pname[side][k]; else store.pname[side][k] = name;
     if (!Object.keys(store.pname[side]).length) delete store.pname[side];
     save();
+    // Also store it on the shared player entity (when signed in) so the same
+    // short name shows in every other match this player appears in.
+    pushEntityName('player', p.apiId, (name && name !== orig) ? name : null);
+    var back = document.querySelector('.modal-back');
+    if (back) back.remove();
+    render(d);
+  }
+  // Shared display-name correction on mc_entities.overrides (see
+  // MC_COLLAB.setEntityOverride). Best effort: signed out / no apiId / offline
+  // just means the per-match override is all that exists.
+  function pushEntityName(kind, apiId, value) {
+    if (apiId == null || !window.MC_COLLAB || !window.MC_COLLAB.setEntityOverride) return;
+    window.MC_COLLAB.setEntityOverride(kind, afKey(apiId), 'name', value, apiId);
+  }
+  function setCoachName(d, side, c, name) {
+    name = (name || '').trim();
+    var orig = c._name0 !== undefined ? c._name0 : c.name;
+    store.cname = store.cname || {};
+    if (!name || name === orig) delete store.cname[side]; else store.cname[side] = name;
+    if (!Object.keys(store.cname).length) delete store.cname;
+    save();
+    pushEntityName('coach', c.apiId, (name && name !== orig) ? name : null);
     var back = document.querySelector('.modal-back');
     if (back) back.remove();
     render(d);
@@ -1040,6 +1097,7 @@
     applyManualOverlay(data);
     applyPnum(data);
     applyPname(data);
+    applyCname(data);
     applyDiscColors(data);
     applyI18nOverlay(data);
     document.title = data.teams.home.name + ' – ' + data.teams.away.name + ' · Match Center';
@@ -2514,7 +2572,7 @@
       return el('div', {}, [
         el('h4', { text: side.label }),
         el('ul', {}, side.lineup.map(function (p) {
-          return el('li', { text: (p.number != null ? p.number + '. ' : '') + p.name + (has(p.pos) ? '  ' + p.pos : '') });
+          return el('li', { text: (p.number != null ? p.number + '. ' : '') + nm(p.name) + (has(p.pos) ? '  ' + p.pos : '') });
         }))
       ]);
     }
@@ -2532,9 +2590,9 @@
         var meta = evMeta(e.type);
         var teamLabel = e.side === sideA.key ? sideA.label : sideB.label;
         var text = e.type === 'sub'
-          ? (e.minute != null ? e.minute + "'  " : '') + meta.icon + '  ' + (e.playerOut || '?') + ' → ' + (e.playerIn || '?') + '  (' + teamLabel + ')'
+          ? (e.minute != null ? e.minute + "'  " : '') + meta.icon + '  ' + (nm(e.playerOut) || '?') + ' → ' + (nm(e.playerIn) || '?') + '  (' + teamLabel + ')'
           : (e.minute != null ? e.minute + "'  " : '') + meta.icon +
-            (e.type === 'owngoal' ? t('panel.ownGoalSuffix') : '') + '  ' + e.player + '  (' + teamLabel + ')';
+            (e.type === 'owngoal' ? t('panel.ownGoalSuffix') : '') + '  ' + nm(e.player) + '  (' + teamLabel + ')';
         list.appendChild(el('div', { class: 'ev-row' }, [el('span', { text: text })]));
       });
     }
@@ -2966,7 +3024,18 @@
         });
         return tbl;
       },
-      [t('coach.tabNotes')]: function () { return notesBlock(id, t('coach.notesLabel', { team: d.teams[side].name })); }
+      [t('coach.tabNotes')]: function () { return notesBlock(id, t('coach.notesLabel', { team: d.teams[side].name })); },
+      [t('coach.tabName')]: function () {
+        var researched = c._name0 !== undefined ? c._name0 : c.name;
+        var nameIn = el('input', { class: 'field pname-in', type: 'text', placeholder: researched, value: c.name });
+        var save = el('button', { class: 'pick pnum-save', text: t('common.save'), onclick: function () { setCoachName(d, side, c, nameIn.value); } });
+        var reset = el('button', { class: 'pick pname-reset', text: '↺', title: t('coach.nameReset'), onclick: function () { setCoachName(d, side, c, ''); } });
+        return el('div', { class: 'pcard-edit' }, [
+          el('label', { text: t('player.displayName') }),
+          el('div', { class: 'pnum-row' }, [nameIn, save, reset]),
+          el('p', { class: 'form-note', text: t('coach.nameHint') })
+        ]);
+      }
     });
   }
 

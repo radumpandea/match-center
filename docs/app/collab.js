@@ -231,5 +231,33 @@
     } catch (e) { return {}; }
   }
 
-  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes, getEntity: getEntity, getEntities: getEntities };
+  // Writes ONE field of the shared `overrides` layer of an mc_entities row
+  // (kind: 'coach' | 'player', entityKey: 'af:<id>') -- a user correction that
+  // every match reading that entity picks up (getEntity/getEntities merge
+  // base || overrides). value null/'' removes the override. Needs a signed-in
+  // user (RLS: authenticated users update/insert). Logged to mc_entity_changes.
+  // Resolves { ok } and never throws: callers treat it as best-effort.
+  async function setEntityOverride(kind, entityKey, field, value, apiId) {
+    if (!enabled || !user || !entityKey) return { ok: false, reason: 'offline' };
+    try {
+      var cur = await client.from('mc_entities').select('base,overrides').eq('kind', kind).eq('entity_key', entityKey).maybeSingle();
+      if (cur.error) throw cur.error;
+      var now = new Date().toISOString();
+      var overrides = Object.assign({}, (cur.data && cur.data.overrides) || {});
+      var clear = value == null || value === '';
+      var oldVal = overrides[field] !== undefined ? overrides[field] : (((cur.data && cur.data.base) || {})[field]);
+      if (clear) delete overrides[field]; else overrides[field] = value;
+      var res = cur.data
+        ? await client.from('mc_entities').update({ overrides: overrides, updated_by: user.id, updated_by_name: name, updated_at: now }).eq('kind', kind).eq('entity_key', entityKey)
+        : await client.from('mc_entities').insert({ kind: kind, entity_key: entityKey, api_id: apiId == null ? null : apiId, base: {}, overrides: overrides, updated_by: user.id, updated_by_name: name, updated_at: now });
+      if (res.error) throw res.error;
+      await client.from('mc_entity_changes').insert({ kind: kind, entity_key: entityKey, field: field, old_value: oldVal === undefined ? null : oldVal, new_value: clear ? null : value, user_id: user.id, display_name: name || t('collab.defaultUser'), changed_at: now });
+      return { ok: true };
+    } catch (e) {
+      console.warn('Could not save the shared ' + kind + ' ' + field + '.', e);
+      return { ok: false, reason: 'error' };
+    }
+  }
+
+  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes, getEntity: getEntity, getEntities: getEntities, setEntityOverride: setEntityOverride };
 })();
