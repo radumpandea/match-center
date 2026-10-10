@@ -141,10 +141,17 @@
       "Construit pe teren recuperat din mare între 1981 și 1984, stadionul a fost inaugurat de prințul Rainier III pe 25 ianuarie 1985, pe locul vechiului Stade Louis II din 1939.",
       "Recordul de spectatori este de 20.000, stabilit la un meci AS Monaco - UC Sampdoria pe 3 aprilie 1990 — mult peste capacitatea actuală de 16.360.",
       "A fost gazda Supercupei Europei în 1986 și apoi în fiecare an între 1998 și 2012, și a ținut probele de atletism ale Jocurilor Micilor State Europene în 1987 și 2007 (reeditare programată pentru 2027)."
-    ]
+    ],
+    "weather": {
+      "tempC": 19,
+      "condition": "cer clar",
+      "windKph": 0,
+      "precipitationMm": 0,
+      "forecastAt": "2026-10-10T11:27:01.509Z"
+    }
   },
   "referee": {
-    "name": "n/d",
+    "name": "Ruddy Buquet",
     "country": null,
     "age": null,
     "apps": null,
@@ -1421,7 +1428,42 @@
     "Mark McKenzie, fundașul central american al lui Toulouse (30 de selecții SUA, prezent la CM 2026), este raportat ca fiind deja de acord cu o revenire la Philadelphia Union, din ianuarie 2027.",
     "Rafik Messali, francez de origine algeriană format la Toulouse, a fost preselecționat de Vladimir Petkovic pentru amicalele Algeriei, dar așteaptă încă primul apel la prima reprezentativă."
   ],
-  "predictions": null,
+  "predictions": {
+    "winnerName": "Monaco",
+    "winOrDraw": true,
+    "advice": "Double chance : Monaco or draw",
+    "percent": {
+      "home": 45,
+      "draw": 45,
+      "away": 10
+    },
+    "comparison": {
+      "form": {
+        "home": 72,
+        "away": 28
+      },
+      "attack": {
+        "home": 53,
+        "away": 47
+      },
+      "defense": {
+        "home": 75,
+        "away": 25
+      },
+      "poisson": {
+        "home": 77,
+        "away": 23
+      },
+      "h2h": {
+        "home": 62,
+        "away": 38
+      },
+      "goals": {
+        "home": 58,
+        "away": 42
+      }
+    }
+  },
   "commentatorResearch": [
     {
       "topic": "Modelul xG pre-meci",
@@ -1623,17 +1665,72 @@
       },
       "formation": "4-2-3-1 (estimare)",
       "predictedXI": [
-        { "apiId": 963, "number": 1, "name": "Lukáš Hrádecký", "pos": "GK" },
-        { "apiId": 291649, "number": 2, "name": "Vanderson", "pos": "RB" },
-        { "apiId": 175, "number": 15, "name": "Eric Dier", "pos": "RCB" },
-        { "apiId": 428084, "number": 72, "name": "Sadibou Sané", "pos": "LCB" },
-        { "apiId": 294722, "number": 20, "name": "Flávio Nazinho", "pos": "LB" },
-        { "apiId": 374058, "number": 8, "name": "Lamine Camara", "pos": "DM" },
-        { "apiId": 2810, "number": 6, "name": "Denis Zakaria", "pos": "DM" },
-        { "apiId": 109, "number": 10, "name": "Aleksandr Golovin", "pos": "RW" },
-        { "apiId": 340152, "number": 17, "name": "Stanis Idumbo-Muzambo", "pos": "CAM" },
-        { "apiId": 161622, "number": 11, "name": "Matthis Abline", "pos": "LW" },
-        { "apiId": 386276, "number": 29, "name": "Paris Brunner", "pos": "ST" }
+        {
+          "apiId": 963,
+          "number": 1,
+          "name": "Lukáš Hrádecký",
+          "pos": "GK"
+        },
+        {
+          "apiId": 291649,
+          "number": 2,
+          "name": "Vanderson",
+          "pos": "RB"
+        },
+        {
+          "apiId": 175,
+          "number": 15,
+          "name": "Eric Dier",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 428084,
+          "number": 72,
+          "name": "Sadibou Sané",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 294722,
+          "number": 20,
+          "name": "Flávio Nazinho",
+          "pos": "LB"
+        },
+        {
+          "apiId": 374058,
+          "number": 8,
+          "name": "Lamine Camara",
+          "pos": "DM"
+        },
+        {
+          "apiId": 2810,
+          "number": 6,
+          "name": "Denis Zakaria",
+          "pos": "DM"
+        },
+        {
+          "apiId": 109,
+          "number": 10,
+          "name": "Aleksandr Golovin",
+          "pos": "RW"
+        },
+        {
+          "apiId": 340152,
+          "number": 17,
+          "name": "Stanis Idumbo-Muzambo",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 161622,
+          "number": 11,
+          "name": "Matthis Abline",
+          "pos": "LW"
+        },
+        {
+          "apiId": 386276,
+          "number": 29,
+          "name": "Paris Brunner",
+          "pos": "ST"
+        }
       ],
       "confirmedXI": null,
       "substitutes": null,
@@ -3645,6 +3742,56 @@
             "Monaco n-a mai pierdut cu Toulouse acasă din 2018 — ultimele două dueluri directe s-au încheiat 1-0 și 2-2."
           ]
         }
+      ],
+      "newsCandidates": [
+        {
+          "title": "À quelle heure et sur quelle chaîne voir Monaco-Toulouse en Ligue 1 ?",
+          "url": "https://www.lequipe.fr/Football/Actualites/A-quelle-heure-et-sur-quelle-chaine-voir-monaco-toulouse-en-ligue-1/1724462#at_medium=RSS_feeds",
+          "source": "L'Équipe",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "« On peut se suivre partout » : d'un village sénégalais jusqu'à la tête de la Ligue 1 avec Monaco, Lamine Camara et Sadibou Sané racontent leur improbable destin commun",
+          "url": "https://www.lequipe.fr/Football/Article/-on-peut-se-suivre-partout-d-un-village-senegalais-jusqu-a-la-tete-de-la-ligue-1-avec-monaco-lamine-camara-et-sadibou-sane-racontent-leur-improbable-destin-commun/1724568#at_medium=RSS_feeds",
+          "source": "L'Équipe",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Monaco - Toulouse : à quelle heure et sur quelle chaîne TV regarder le match de Ligue 1 en direct ?",
+          "url": "https://rmcsport.bfmtv.com/football/ligue-1/monaco-toulouse-a-quelle-heure-et-sur-quelle-chaine-tv-regarder-le-match-de-ligue-1-en-direct_AN-202610100011.html",
+          "source": "RMC Sport",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "EXCLUSIVE | Mark Hateley on Monaco: “Filipe Luís has knocked it out of the park”",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOM2djVFBQSEQ4bHphdGhaUGNWbkxMY1A3TUdITXZIbmpfNFpkVGszRDdUa2NXbGxkeEZxR0ZZSkFQVThpT29BN0NMbkIxNExWQU1wdVFpNW1lYlc3N3o0Nm1LaHhzTWkwQ1VLaDJGTXAxeDdYTXNDMngxT21QQ2pLd0t0YmhmeDdOY0JZUzlB?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "AS Monaco vs Toulouse FC - Where to Watch, Stream Info, TV Channel, and Live Updates (October 10, 2026)",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQeHBNRzNzWUVtdmg0WmhqUWVNS2xSRHR4VWduS2NBZ1ViREZ0ZjFhUExDS2lWYUdFdGZqcXdPc0haZS1zMEp3bDJsVDZlR3Jnbl9zUFp3QTU5OGVGZUp0VTB3QlhBejlTZkJhdW5yenlIMlFLeDlVOElIZ1F2Wm5HdTYzVXlzOW0yZU5tOFpQN2NfQ1R4QVhkektqQmh3elRqSk1fQkE1Y0lKZmtMa2lJemFPY0hEQnZyUjFLTDdjdlpDOW81elNN?oc=5",
+          "source": "Fubo",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Lamine Camara and Sadibou Sané, from Diouloulou to Monaco’s Ligue 1 summit",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOVEJhVmNEMC1NSDc1bDNxTHBCcENXdTF0ZWhjaHAwVVd6VjAyQXNEczFuOVY5UjEzeUFJdjhoT1hOOE9GRGs5YVlWV0Nna3pLdlpFM2hQQUhyT25WbUNjbGxXdFZzcW93ZURtMHYwWHpyb3ZiSE9WUk9hUHFXa19xQ3cwNkZUaUs5d0xGdzBZWUQ4bUY5YnpDUE9NYjZLLWdXcFdWbzVXVWh4V01vVFlaeGpqRQ?oc=5",
+          "source": "OneFootball",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Filipe Luís cools ‘invincible’ talk, says Monaco must take one game at a time",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQeldXTHNaemdLaVptVFRUQlZneU1UeWdfNTRTNXBKVUh2cU1JNWdVLUZnU3U1WVJRTmZrTnBkOThRcXRXMUxfMmdDazRmZVlPQ0E4X2tSQWRhS2ZwenVtS0pjRzBpSEl4UE83MXd4UWxjZ2s3bjEtdmE2Q19Qc1Yzc1dQYkUzMkV4LVFidnp6U19HLUJzZnRFVzhmMnNSakhWc0plMXY5SEhHU0hMZGRiMFQwLVlWQQ?oc=5",
+          "source": "OneFootball",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "AS Monaco vs Toulouse Prediction and Betting Tips | October 10th 2026",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOQWZjczRKSVh2TEd6bHVFYV9ZRjkyR0dpdnQ4YWZVNnUtMkdsVjFCSzY1YVYzbUdoVGlEZ1ZNYjhMM2pOejQwZVRNeURoX3VYMV9YMnF4X084NDFrUVNfWkRsZ280cGxZWk4tVEZrQVROSk12Nkg5SFo0LWY3S3RjNGU0VXk5RUlPRnN6UnF4dTJPcmdfVEd5Wk9pYW8teGE3QVE?oc=5",
+          "source": "Sportskeeda",
+          "published": "2026-10-10"
+        }
       ]
     },
     "away": {
@@ -3708,17 +3855,72 @@
       },
       "formation": "4-2-3-1 (estimare)",
       "predictedXI": [
-        { "apiId": 325346, "number": 16, "name": "Guillaume Restes", "pos": "GK" },
-        { "apiId": 334952, "number": 22, "name": "Rafik Messali", "pos": "RB" },
-        { "apiId": 50735, "number": 3, "name": "Mark McKenzie", "pos": "RCB" },
-        { "apiId": 15793, "number": 2, "name": "Rasmus Nicolaisen", "pos": "LCB" },
-        { "apiId": 489905, "number": 5, "name": "Seny Koumbassa", "pos": "LB" },
-        { "apiId": 386277, "number": 8, "name": "Thomas Jørgensen", "pos": "DM" },
-        { "apiId": 50956, "number": 23, "name": "Cristian Cásseres Jr.", "pos": "DM" },
-        { "apiId": 489903, "number": 37, "name": "Ilyas Azizi", "pos": "LW" },
-        { "apiId": 203428, "number": 13, "name": "Jacen Russell-Rowe", "pos": "CAM" },
-        { "apiId": 472266, "number": 12, "name": "Christ Tapé", "pos": "RW" },
-        { "apiId": 162703, "number": 20, "name": "Casper Tengstedt", "pos": "ST" }
+        {
+          "apiId": 325346,
+          "number": 16,
+          "name": "Guillaume Restes",
+          "pos": "GK"
+        },
+        {
+          "apiId": 334952,
+          "number": 22,
+          "name": "Rafik Messali",
+          "pos": "RB"
+        },
+        {
+          "apiId": 50735,
+          "number": 3,
+          "name": "Mark McKenzie",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 15793,
+          "number": 2,
+          "name": "Rasmus Nicolaisen",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 489905,
+          "number": 5,
+          "name": "Seny Koumbassa",
+          "pos": "LB"
+        },
+        {
+          "apiId": 386277,
+          "number": 8,
+          "name": "Thomas Jørgensen",
+          "pos": "DM"
+        },
+        {
+          "apiId": 50956,
+          "number": 23,
+          "name": "Cristian Cásseres Jr.",
+          "pos": "DM"
+        },
+        {
+          "apiId": 489903,
+          "number": 37,
+          "name": "Ilyas Azizi",
+          "pos": "LW"
+        },
+        {
+          "apiId": 203428,
+          "number": 13,
+          "name": "Jacen Russell-Rowe",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 472266,
+          "number": 12,
+          "name": "Christ Tapé",
+          "pos": "RW"
+        },
+        {
+          "apiId": 162703,
+          "number": 20,
+          "name": "Casper Tengstedt",
+          "pos": "ST"
+        }
       ],
       "confirmedXI": null,
       "substitutes": null,
@@ -5580,6 +5782,56 @@
             "Cunoscut pentru că a dat minute multor jucători tineri — 26 de debuturi acordate la Motherwell în cinci sezoane și jumătate.",
             "Fost fundaș central danez, cu un singur trofeu ca jucător — League One cu Norwich City, în 2010."
           ]
+        }
+      ],
+      "newsCandidates": [
+        {
+          "title": "À quelle heure et sur quelle chaîne voir Monaco-Toulouse en Ligue 1 ?",
+          "url": "https://www.lequipe.fr/Football/Actualites/A-quelle-heure-et-sur-quelle-chaine-voir-monaco-toulouse-en-ligue-1/1724462#at_medium=RSS_feeds",
+          "source": "L'Équipe",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Quasiment autant d'internationaux mobilisés que le PSG : comment Toulouse a géré une trêve inédite",
+          "url": "https://www.lequipe.fr/Football/Actualites/Avec-16-internationaux-disperses-a-travers-le-monde-comment-toulouse-a-gere-cette-treve-inedite/1724540#at_medium=RSS_feeds",
+          "source": "L'Équipe",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Monaco - Toulouse : à quelle heure et sur quelle chaîne TV regarder le match de Ligue 1 en direct ?",
+          "url": "https://rmcsport.bfmtv.com/football/ligue-1/monaco-toulouse-a-quelle-heure-et-sur-quelle-chaine-tv-regarder-le-match-de-ligue-1-en-direct_AN-202610100011.html",
+          "source": "RMC Sport",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "AS Monaco vs Toulouse FC - Where to Watch, Stream Info, TV Channel, and Live Updates (October 10, 2026)",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQeHBNRzNzWUVtdmg0WmhqUWVNS2xSRHR4VWduS2NBZ1ViREZ0ZjFhUExDS2lWYUdFdGZqcXdPc0haZS1zMEp3bDJsVDZlR3Jnbl9zUFp3QTU5OGVGZUp0VTB3QlhBejlTZkJhdW5yenlIMlFLeDlVOElIZ1F2Wm5HdTYzVXlzOW0yZU5tOFpQN2NfQ1R4QVhkektqQmh3elRqSk1fQkE1Y0lKZmtMa2lJemFPY0hEQnZyUjFLTDdjdlpDOW81elNN?oc=5",
+          "source": "Fubo",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Monaco v Toulouse: kick-off time and TV channel for Ligue 1 clash",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNVGtOYUp5Z244SjM5YVRzYnNiUGVFV3ZSUGNsbGYzczlNSlhlanQzRlJZVkxTdkZCNkZqOXZIbjZlTW5vTG9ORHg0eG5jU0h6ZGZuMGpGQ2NyemVrc0NGckpCLTdCVFkzdkI5dTVjWDJMdjBYSW9CSk95VkdOZTNwTFBwM1lOSjZYVjQwMGVyVW9RM001MUN3Q3M5REx3TTVrTElHSlllaTA?oc=5",
+          "source": "OneFootball",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "AS Monaco vs Toulouse Prediction and Betting Tips | October 10th 2026",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOQWZjczRKSVh2TEd6bHVFYV9ZRjkyR0dpdnQ4YWZVNnUtMkdsVjFCSzY1YVYzbUdoVGlEZ1ZNYjhMM2pOejQwZVRNeURoX3VYMV9YMnF4X084NDFrUVNfWkRsZ280cGxZWk4tVEZrQVROSk12Nkg5SFo0LWY3S3RjNGU0VXk5RUlPRnN6UnF4dTJPcmdfVEd5Wk9pYW8teGE3QVE?oc=5",
+          "source": "Sportskeeda",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Monaco vs Toulouse: previous stats | Ligue 1 2026/2027",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQQVNEUUt3cXNhdmxuWHNLNmNoeWEwUDdqNUE0TzM1c3htN0xHa0pudkFjalBjYmFwSmV3a2tMb2VJUjlURndNUThvY3o5c2NvR2VMME0yTnhMU0thMTdHT0xxX1BSS2dHNTJWUDI0SVc2c2NkXzNtdWdLYXhuNWVBZGdBb1pZamxsM3hRQ2VhWTZRWkxN?oc=5",
+          "source": "Diario AS",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Monaco vs Toulouse: Lineups, Prediction, Odds & Bet Builder Tip",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOcnh6M3c4NWVkMUtsSkxNZHlUY3ZncmNyWTF5aWVDQkt5aFFLYjhkM3VUX29mdGRydlhWeU8xTWpLeE5OMWI1Z3hYUGV1WVVIWkNSTzFqUnA1ZTRBZ1BIMW5pd3dsOHlkcFpCTk5ZeEZQMkxuVUtNMkpuVzhma2pPX3Z5dm1GR1hXTEkwekhMMGxPZzdIeU9qMEdrdGZ1b19TYzVuZTgzYi0yYjVIOXREWlhDc25RRHAxcHpR?oc=5",
+          "source": "WhoScored.com",
+          "published": "2026-10-10"
         }
       ]
     }

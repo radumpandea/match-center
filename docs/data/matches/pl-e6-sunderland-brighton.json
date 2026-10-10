@@ -54,10 +54,17 @@
       "Deschis în 1997 pe locul fostei mine de cărbune Wearmouth Colliery, cu o capacitate inițială de 42.000 de locuri, extinsă la actuala capacitate în 2000.",
       "Numele face trimitere la trecutul minier al zonei — la intrare se află o statuie a unui miner cu lampă, simbol al minerilor care au lucrat pe acest amplasament.",
       "Recordul de spectatori este de 48.353, stabilit la meciul cu Liverpool din aprilie 2002."
-    ]
+    ],
+    "weather": {
+      "tempC": 12,
+      "condition": "cer clar",
+      "windKph": 33,
+      "precipitationMm": 0,
+      "forecastAt": "2026-10-10T11:20:39.115Z"
+    }
   },
   "referee": {
-    "name": "n/d",
+    "name": "Thomas Bramall",
     "country": null,
     "age": null,
     "apps": null,
@@ -706,7 +713,42 @@
     "Pascal Groß, 34 de ani, conduce atacul lui Brighton cu 3 goluri și 3 assist-uri din 5 etape — veteran al naționalei Germaniei, retras cu 19 selecții și un gol.",
     "Luka Vušković (18 ani, transferul-record al verii pentru Brighton, aproximativ 50 milioane de lire de la Tottenham) a fost titular în toate cele 5 etape și are deja un gol — una dintre poveștile sezonului pentru Albion."
   ],
-  "predictions": null,
+  "predictions": {
+    "winnerName": "Brighton",
+    "winOrDraw": false,
+    "advice": "Winner : Brighton",
+    "percent": {
+      "home": 0,
+      "draw": 50,
+      "away": 50
+    },
+    "comparison": {
+      "form": {
+        "home": 29,
+        "away": 71
+      },
+      "attack": {
+        "home": 27,
+        "away": 73
+      },
+      "defense": {
+        "home": 33,
+        "away": 67
+      },
+      "poisson": {
+        "home": 18,
+        "away": 82
+      },
+      "h2h": {
+        "home": 13,
+        "away": 88
+      },
+      "goals": {
+        "home": 0,
+        "away": 100
+      }
+    }
+  },
   "teams": {
     "home": {
       "name": "Sunderland",
@@ -744,17 +786,72 @@
       },
       "formation": "4-2-3-1",
       "predictedXI": [
-        { "apiId": 194536, "number": 22, "name": "Robin Roefs", "pos": "GK" },
-        { "apiId": 264, "number": 12, "name": "Thomas Meunier", "pos": "RB" },
-        { "apiId": 55904, "number": 5, "name": "Daniel Ballard", "pos": "RCB" },
-        { "apiId": 25287, "number": 4, "name": "Kevin Danso", "pos": "LCB" },
-        { "apiId": 22225, "number": 17, "name": "Reinildo", "pos": "LB" },
-        { "apiId": 1464, "number": 34, "name": "Granit Xhaka", "pos": "DM" },
-        { "apiId": 339201, "number": 11, "name": "Christopher Rigg", "pos": "CM" },
-        { "apiId": 336659, "number": 7, "name": "Chemsdine Talbi", "pos": "RW" },
-        { "apiId": 20638, "number": 28, "name": "Enzo Le Fée", "pos": "CAM" },
-        { "apiId": 365331, "number": 27, "name": "Noah Sadiki", "pos": "LW" },
-        { "apiId": 38750, "number": 9, "name": "Brian Brobbey", "pos": "ST" }
+        {
+          "apiId": 194536,
+          "number": 22,
+          "name": "Robin Roefs",
+          "pos": "GK"
+        },
+        {
+          "apiId": 264,
+          "number": 12,
+          "name": "Thomas Meunier",
+          "pos": "RB"
+        },
+        {
+          "apiId": 55904,
+          "number": 5,
+          "name": "Daniel Ballard",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 25287,
+          "number": 4,
+          "name": "Kevin Danso",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 22225,
+          "number": 17,
+          "name": "Reinildo",
+          "pos": "LB"
+        },
+        {
+          "apiId": 1464,
+          "number": 34,
+          "name": "Granit Xhaka",
+          "pos": "DM"
+        },
+        {
+          "apiId": 339201,
+          "number": 11,
+          "name": "Christopher Rigg",
+          "pos": "CM"
+        },
+        {
+          "apiId": 336659,
+          "number": 7,
+          "name": "Chemsdine Talbi",
+          "pos": "RW"
+        },
+        {
+          "apiId": 20638,
+          "number": 28,
+          "name": "Enzo Le Fée",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 365331,
+          "number": 27,
+          "name": "Noah Sadiki",
+          "pos": "LW"
+        },
+        {
+          "apiId": 38750,
+          "number": 9,
+          "name": "Brian Brobbey",
+          "pos": "ST"
+        }
       ],
       "confirmedXI": null,
       "substitutes": null,
@@ -777,7 +874,7 @@
           "natTeam": null,
           "birthCountry": "Sweden",
           "pronunciation": null,
-          "career": null,
+          "career": "Malmo FF (2020–2024) · Sunderland (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -833,7 +930,7 @@
           "natTeam": null,
           "birthCountry": "England",
           "pronunciation": null,
-          "career": null,
+          "career": "Brentford (2009–2012) · Cardiff (2013–2015) · Sheffield Utd (2016–2020) · Coventry (2021–2023) · Sunderland (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1226,7 +1323,7 @@
           "natTeam": null,
           "birthCountry": "England",
           "pronunciation": null,
-          "career": null,
+          "career": "Sunderland (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1675,7 +1772,7 @@
           "natTeam": null,
           "birthCountry": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Antwerp (2025) · Sunderland (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2124,7 +2221,7 @@
           "natTeam": null,
           "birthCountry": "Côte d'Ivoire",
           "pronunciation": null,
-          "career": null,
+          "career": "Hapoel Petah Tikva (2024) · Sunderland (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2180,7 +2277,7 @@
           "natTeam": null,
           "birthCountry": "England",
           "pronunciation": null,
-          "career": null,
+          "career": "Sunderland (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2518,7 +2615,7 @@
           "natTeam": null,
           "birthCountry": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Sunderland (2025)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2810,7 +2907,7 @@
         {
           "apiId": 553665,
           "number": 57,
-          "name": "T. Tuterov",
+          "name": "Timur Tuterov",
           "photo": "https://media.api-sports.io/football/players/553665.png",
           "pos": "ATT",
           "positions": [
@@ -3211,6 +3308,56 @@
             "Tânărul Chris Rigg (18 ani, din academie) rămâne cartea de vizită narativă a clubului, alături de debutanții sud-americani Angulo și Isidor."
           ]
         }
+      ],
+      "newsCandidates": [
+        {
+          "title": "Score Predictions: Can Sunderland Bounce Back Vs Brighton?",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNbWFyLW9wUS1MdFMtQU9vMzh1eXZ3V0FJcTc5QURFOE9sV0g1c0k2Q01USTRibXRiek5Ya0RIWEhaY2x2Yk9DS01hZnc1TEk0Q1JJTVpXd1JZVXRSdHdrTWdkR1hIdnNQYmV0LXZrVmtlcWJNTTFoQTdSSy1UaHhNYmo0b0YwRXhsbnpLaWFIQ3FTMlJOTE9ZVFQtcnRxMkxWQ24xRGQ2SnhSNGpESExxTA?oc=5",
+          "source": "Roker Report",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "[ＷＡＴＣＨSOCCER ２０２６]ＦＲＥＥ！] Brighton v Sunderland Football 𝐋𝐈𝐕𝐄 Stream ＯＮ Ｔｖ Ｃｈａｎｎｅｌ 10 October 2026",
+          "url": "https://news.google.com/rss/articles/CBMi8AJBVV95cUxOZkdhWXhFQXJIRGtJeDJCQ09vQWotalpFVjdQcXI0OG02ajlNazFLdmloMzgzT1M3WVlLczMxQmMwZVNwQXk3Zmpya0FQTGtLaTBCYUczU0Zsc2pPdmE1UWFyQXlqLU01aS1tMDFWUkNKdlBMTVRwdUN5Y1daQ2ZzMnpBOWZxTmg2eGNWTnp5MFhmVUQzR21NS2xoZDNfdzdxczBLSHNjeWFpdmdBMm9lWUtzMHNrRmh5QXZHUDZ6TnlTeGh1NXg0R1hpSTVuckROakpiM0JJTmZ4d3FfQmdrdGJnV3RqNUZXR19hbXU3WEwxMDNvTjc4bGRiR3E4djM3QXhxMTBuSFlfSXF2Zzk2eTI5a3NHZW9lWHFvUzRtWDRjRmlST0dsbjUtbHRfTnRfTzNZcGJYX1REc0JUX0tOOWEzOGdhdUpQdlE4UVJTRjI1WGJMXzVKLWpHRHpWYjVEbkR6T3FyNVpUTXV1dEs1aQ?oc=5",
+          "source": "Узнай Москву",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Sunderland AFC - Brighton & Hove Albion prediction & tips 10.10.2026",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNTUR0Rkx4TW9TckNxQnpWTVAwZXloVElPUUQ5cTVEZHFpeXMwbmg1am1wTWk5VDBZd2QwekFBeXBUWEJfUmJFUkJZUThYWVdGR2lJLVJScEQtOGdfQ2hNN3NhMXR2ZkRpNzBkMXktREhFbElmZXNiWkdfZGlQbXJUUmRIQUk2ZkkxWjlPMGt6Ry1TT09EQm9QMkZKUDVWMkJVeWJiZ19JOA?oc=5",
+          "source": "Transfermarkt",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Sunderland vs Brighton & Hove Albion Prediction and Betting Tips | October 10th 2026",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxON01PZmZmeS00NkxpU21tX3BvX1p2WEN0bGtzWDRvN3djY1FTN0FxRTlBNVBFYm5Yczc1Y3JWY2dQV2sxTFFDdE1Qb19MSmFtd05wX2lBelVuR1hMSnFTOTBmZVkxeVN1NUVZOXlMTDNJcm5jM0JMUXdENzFaRUpneWcwY1Q0UW90VmR4STl3X2F4QWZQeE9OYll1bFVDV3cybzBqMVhQQTZITGZMZ0RtUFluVQ?oc=5",
+          "source": "Sportskeeda",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Régis Le Bris explains what to expect from Juan Riquelme Angulo",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPcjBXaWFiTDRCeVBUbFZDWUlHcWlGcWY5ZDdVNmN6Rjc3dzFqeFN1VVJuY2xLNmMzOFVUdDZMLW4tUlYtOUp5SXFnUnlWTk5sQnZMRF92cU9tMy1JMk9Ic1ROdnRxb0hlR2lqNnc2WnoxQldUMlpqQmRWekZuanB3a1NfVWpjS2xGVUZKekVXang5OG5ORnpIRjdjak04Y09TRDEtV19tMzU2N3BMSmdLM0U5a1BaN1dhYkM3Q1I3MHZ0dXBS?oc=5",
+          "source": "Sunderland Echo",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Sunderland vs Brighton Prediction, Betting Tips, Lineups & Odds | 10 Oct 2026",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxORnVDWTVNZFZtMVJnSzlOSTUydWs5RGxTeWEzaWNCZ2MwTHlFN3ZDMi1pUmRBWTFsTkYxaW5FMzRBVnh1dXRZREF5NjVMd3BQU3FEUG5ESWwyaUhXUzRiTzAzMHVFSnBhcDBKeE0xbWRqTGh1dkVYc2hyLUJxdWI4MkJ3amVZbVlzVmdOeUZHUEhGaVhKRXhzbnJiTm0yR196Q1NMREJncERPOUhtZTlv?oc=5",
+          "source": "Sportsgambler",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Sunderland vs Brighton & Hove Albion Live Stream: How to Watch English Premier League (Oct. 10, 2026)",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOODE3MnJDUHEtV1BEdzdFdHl4NDVwcUlDQlQzUXZqZXBwc196SFhScTRyUVNvOHFkTXZ3LVlvZkl5Qy1CZ2FuNnUyazl4VUdlSUxUUTZudlAwMXotcEVRYm5LNDJIWXpaVGpNYlpRakZUWFVGZVJoUU91VGNSRW0xSEVRX1BWTTNzN2M0VnZ6ZkgtUEc2eFdCS3d5NUg1OEJMbjZjWnVtSl9jRk9CdXF2ZmphdTJQamJTWGQyWjNwLW1ZUVAxTWZDamRDNGM5aFJrZmR3WXlRcktRQQ?oc=5",
+          "source": "Fubo",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Sutton's predictions: Sunderland v Brighton",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOQTFWbGZ2NWRab1RUQndROTdSaHFON1dLZFAwRW82MFVpNGVFVTFnS0ZYQzFlM0g2Mmd3Y0JJZm9xV3dkdkRZeDRhMWx1ZUZFeGZLR3RBZDFpX0RjQUlFWjVLVHpVdUJKcEQ2M05QTC03YjRZaDFNUzVpMEJ5UnlPVnhqWUtEQ0JfT2E3X2V3?oc=5",
+          "source": "AOL.com",
+          "published": "2026-10-10"
+        }
       ]
     },
     "away": {
@@ -3257,17 +3404,72 @@
       },
       "formation": "4-2-3-1",
       "predictedXI": [
-        { "apiId": 129058, "number": 1, "name": "Bart Verbruggen", "pos": "GK" },
-        { "apiId": 1361, "number": 24, "name": "Ferdi Kadıoğlu", "pos": "RB" },
-        { "apiId": 387521, "number": 44, "name": "Luka Vušković", "pos": "RCB" },
-        { "apiId": 22160, "number": 21, "name": "Olivier Boscagli", "pos": "LCB" },
-        { "apiId": 162007, "number": 29, "name": "Maxim De Cuyper", "pos": "LB" },
-        { "apiId": 278370, "number": 25, "name": "Diego Gómez", "pos": "DM" },
-        { "apiId": 265820, "number": 26, "name": "Yasin Ayari", "pos": "CM" },
-        { "apiId": 106835, "number": 22, "name": "Kaoru Mitoma", "pos": "LW" },
-        { "apiId": 18970, "number": 13, "name": "Pascal Groß", "pos": "CAM" },
-        { "apiId": 392482, "number": 19, "name": "Charalampos Kostoulas", "pos": "RW" },
-        { "apiId": 90590, "number": 10, "name": "Georginio Rutter", "pos": "ST" }
+        {
+          "apiId": 129058,
+          "number": 1,
+          "name": "Bart Verbruggen",
+          "pos": "GK"
+        },
+        {
+          "apiId": 1361,
+          "number": 24,
+          "name": "Ferdi Kadıoğlu",
+          "pos": "RB"
+        },
+        {
+          "apiId": 387521,
+          "number": 44,
+          "name": "Luka Vušković",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 22160,
+          "number": 21,
+          "name": "Olivier Boscagli",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 162007,
+          "number": 29,
+          "name": "Maxim De Cuyper",
+          "pos": "LB"
+        },
+        {
+          "apiId": 278370,
+          "number": 25,
+          "name": "Diego Gómez",
+          "pos": "DM"
+        },
+        {
+          "apiId": 265820,
+          "number": 26,
+          "name": "Yasin Ayari",
+          "pos": "CM"
+        },
+        {
+          "apiId": 106835,
+          "number": 22,
+          "name": "Kaoru Mitoma",
+          "pos": "LW"
+        },
+        {
+          "apiId": 18970,
+          "number": 13,
+          "name": "Pascal Groß",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 392482,
+          "number": 19,
+          "name": "Charalampos Kostoulas",
+          "pos": "RW"
+        },
+        {
+          "apiId": 90590,
+          "number": 10,
+          "name": "Georginio Rutter",
+          "pos": "ST"
+        }
       ],
       "confirmedXI": null,
       "substitutes": null,
@@ -4720,7 +4922,7 @@
           "natTeam": null,
           "birthCountry": "Gambia",
           "pronunciation": null,
-          "career": null,
+          "career": "Wealdstone (2018) · Reading (2020–2023) · Millwall (2024–prezent)",
           "lastSeason": null,
           "funfact": "A marcat golul decisiv (1-0) pentru Brighton chiar pe Stadium of Light, în meciul tur din martie 2026.",
           "linkLine": "A marcat în fața lui Sunderland în ultima vizită la Stadium of Light (martie 2026, 0-1).",
@@ -4802,7 +5004,7 @@
           "natTeam": null,
           "birthCountry": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Wealdstone (2018) · Reading (2020–2023) · Millwall (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -5407,6 +5609,56 @@
             "A fost titular în toate cele 5 etape de campionat și are deja un gol — una dintre reușitele imediate ale ferestrei de transferuri.",
             "Alături de Boscagli, formează o pereche nouă de fundași centrali, în timp ce Dunk e doar o variantă de bancă din cauza unei probleme la genunchi."
           ]
+        }
+      ],
+      "newsCandidates": [
+        {
+          "title": "Brighton boss Hurzeler knows Sunderland is 'completely different game'",
+          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQN3ZXQ1RvMVNlRTE5WnNHRUJDOUdwRDZVVENEX3ZSUXhfYk9EajVvc09JUUlQXzMtMEZ4dDhiNXlHWXk1dVozeWpPLUFPS0xranp1ZWxxaGhCRkRVUC11ZkI3NmlGUnM3eHNxYWgyd19QQzlGcUNuOXRuZXNRWUhocDVMem1DR2xZNmxjLVlUU3RGREZVLXA5OTdVMHBoOE1uUzczS05IbGZjZExYdVdES2RkbGZ0YXZEanFkOS1BT0IyNmFtQkczLTBZbmFQT0lrd05DUkJxN1BPaUUxNDZmcg?oc=5",
+          "source": "VAVEL.com",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "SOCCER@TV! Sunderland v Brighton Football LIvE FrEe StReAm",
+          "url": "https://news.google.com/rss/articles/CBMi8gJBVV95cUxNbzFyU0toY3pobEZTYzZpdktXUXdNaXRoTHdmRlJTSE9ocDBMU0lCckZ0OGZ2Nm1YQlBteUVUaUROaHNBVXFzRWxodUM3Y2ZQTUtiU0tkNDgzX0x2bzZabEVvVEY2azU2X09hQTNyLTZpemsyZVN3bnpBTXN3cnRDRFJ1eUZmTXl4WmtuSTJiVXgtQzdaMmliOGZmaVdlWTd6d1ZaVDZqYm1Bb2IxbEo5MGxCcFNwVHBxQmpkcTlTdFA1bDItQTBWVFhwWWRKT1ZsTzVyWFdJdXdaNlNlMFJLRjhLWE9jTFN2TzVhODVMTTdxSmZJbld5SFhQcXB0NWhJMXM1bUw1U3V5ckYyOE9MMVdxdDlPS2pMOVRzM2h0VHg1ZjBXM2NQMHpOekt1NTVfSHFOZXJBN3J1eWFYYnJCb1JjdU9ZZzczN0RkWWZvblBfbURlN182dTN6UlgwTEh0TTdjZ256V1hZOHdWeS1zNjRn?oc=5",
+          "source": "Узнай Москву",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Sunderland vs Brighton predictions: Chris Sutton on Premier League game",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFB0WTFwdzdDcUN6Q2ZOd2g5clJ4OFUwWTRkYTREbmhHVlV3ZlVfbDdGZFpsbkRDZVZoTXN3LVJQeTdJY1JSQ2xWS2hjMVlkMUNNRy0zNE1EMTI3U3lqM3lWVmZRV1NwM3BFYW9Z?oc=5",
+          "source": "BBC",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Weekend Football Preview: Brighton Travel to Sunderland as Southampton Prepare for Portsmouth Derby",
+          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPTjJpTzloeFprSW14VW9mdlNnUW1VeWV1aVI2OUlJd0ZKVkFhSXhGNUllZHBod1c1alp5Zk1MT0laZGFJV0VBdzVOa3hiSE82cVpOb3Rzam9GNVJvYmVlN1pDajhRNHdUcmtiRlNvOWhVdTctQlFUQ3ZmVVdlb0lieFUzTlhjZVNlSzZMSVg3UC1fcC1lSXBaSHpKdVRrbVhmSEhPUkJQbG45ZHRWWGZrREVWTTRsczZZNUdRdVM0THZuMmppMkt6c0h4dnIyTmc5dUZaYnU0cw?oc=5",
+          "source": "V2 Radio",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Football prediction Sunderland vs Brighton in the Premier League",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPMkxlOEdid2tRamRGcEg2N2kybC1yVlc1aTVrODJSaXFmUy1tVzVDMk84djZGa05mNG1wTTBTeEJsa1VCeXRaSzNGSFhxakRpUEg1eFRpUUlNVXRJSE94X3kzODlfbl9UNnF2ak95NzNyWmgxSlB3QTViR0pJOERLaDhQWmNYeWoxOTJnQ3N4VkhrdmZGOWlkRGlWaFV3RDRqbmJkWjBmaFJuU3NhOXJlMw?oc=5",
+          "source": "Laodong.vn",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Brighton XI at Sunderland predicted - Lewis Dunk decision made and 'best ever' Georginio verdict",
+          "url": "https://news.google.com/rss/articles/CBMikgJBVV95cUxQaHVJRUZkZnAtRHlvV1RhNFcwSHAwZWE5VnNDYnBaWTBFc3RpY2doSzYyNUIyd0VBbVRqQzZRRmhtb3NrQUJQdGZ0c2hEVzJDYUtpenNna2docWZ1aEJqVWdkcVd4dHRnczBMZ2VVSm9TYURtbms1SGNfdjZpY3AwdHVrNGZDNWNRRTM4U1pacGxqZEU1R3J3NEF0RE85aUJhTEhYYm9OU1hYWXlMdUFtd21qQVVhblB5QjNncGp5ZTA3UVdXLXdUZExra0FKSE5LUkQ4THl4ZEFrTDBnNEZpOW9CSjFKRUg5b0h6WEUxaUZKcDBGczhJTVpCeUM2WGR6aWN0UjVSU2daQk11aF9ZcWhR?oc=5",
+          "source": "SussexWorld",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Sunderland vs Brighton & Hove Albion Prediction and Betting Tips | October 10th 2026",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxON01PZmZmeS00NkxpU21tX3BvX1p2WEN0bGtzWDRvN3djY1FTN0FxRTlBNVBFYm5Yczc1Y3JWY2dQV2sxTFFDdE1Qb19MSmFtd05wX2lBelVuR1hMSnFTOTBmZVkxeVN1NUVZOXlMTDNJcm5jM0JMUXdENzFaRUpneWcwY1Q0UW90VmR4STl3X2F4QWZQeE9OYll1bFVDV3cybzBqMVhQQTZITGZMZ0RtUFluVQ?oc=5",
+          "source": "Sportskeeda",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Sunderland vs Brighton Prediction, Betting Tips, Lineups & Odds | 10 Oct 2026",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxORnVDWTVNZFZtMVJnSzlOSTUydWs5RGxTeWEzaWNCZ2MwTHlFN3ZDMi1pUmRBWTFsTkYxaW5FMzRBVnh1dXRZREF5NjVMd3BQU3FEUG5ESWwyaUhXUzRiTzAzMHVFSnBhcDBKeE0xbWRqTGh1dkVYc2hyLUJxdWI4MkJ3amVZbVlzVmdOeUZHUEhGaVhKRXhzbnJiTm0yR196Q1NMREJncERPOUhtZTlv?oc=5",
+          "source": "Sportsgambler",
+          "published": "2026-10-10"
         }
       ]
     }

@@ -74,7 +74,14 @@
       "Poreclit „Theatre of Dreams” (porecla dată de Bobby Charlton), stadionul s-a deschis pe 19 februarie 1910.",
       "Un bombardament german din 11 martie 1941 a distrus mare parte din stadion, inclusiv tribuna principală — United a jucat pe Maine Road până în 1949; tunelul central e singura parte rămasă din construcția originală din 1910.",
       "A găzduit meciuri din grupele Campionatului Mondial 1966, meciuri de la Euro '96 și turneul de fotbal de la Jocurile Olimpice 2012; în martie 2025 United a confirmat planurile pentru un nou stadion de 100.000 de locuri, proiectat de Foster and Partners."
-    ]
+    ],
+    "weather": {
+      "tempC": 10,
+      "condition": "ploaie",
+      "windKph": 16,
+      "precipitationMm": 0,
+      "forecastAt": "2026-10-10T11:23:37.983Z"
+    }
   },
   "referee": {
     "name": "Michael Oliver",
@@ -1410,7 +1417,42 @@
     "Harry Maguire a fost exclus din lotul Angliei pentru Cupa Mondială 2026 de Thomas Tuchel, în ciuda revenirii sale în formula de bază a lui United sub Carrick — a recunoscut că a fost „șocat și devastat” de decizie.",
     "Arbitrul Michael Oliver a condus precedenta întâlnire directă (Manchester United 2-0 Tottenham, februarie 2026) și are un istoric contestat cu United, inclusiv un penalty neacordat pentru henț al lui Romero în 2023."
   ],
-  "predictions": null,
+  "predictions": {
+    "winnerName": "Manchester United",
+    "winOrDraw": false,
+    "advice": "Winner : Manchester United",
+    "percent": {
+      "home": 45,
+      "draw": 45,
+      "away": 10
+    },
+    "comparison": {
+      "form": {
+        "home": 71,
+        "away": 29
+      },
+      "attack": {
+        "home": 80,
+        "away": 20
+      },
+      "defense": {
+        "home": 50,
+        "away": 50
+      },
+      "poisson": {
+        "home": 100,
+        "away": 0
+      },
+      "h2h": {
+        "home": 29,
+        "away": 71
+      },
+      "goals": {
+        "home": 47,
+        "away": 53
+      }
+    }
+  },
   "teams": {
     "home": {
       "name": "Manchester United",
@@ -1453,17 +1495,72 @@
       },
       "formation": "4-2-3-1",
       "predictedXI": [
-        { "apiId": 162511, "number": 1, "name": "Senne Lammens", "pos": "GK" },
-        { "apiId": 886, "number": 2, "name": "Diogo Dalot", "pos": "RB" },
-        { "apiId": 2935, "number": 5, "name": "Harry Maguire", "pos": "RCB" },
-        { "apiId": 2467, "number": 6, "name": "Lisandro Martínez", "pos": "LCB" },
-        { "apiId": 891, "number": 23, "name": "Luke Shaw", "pos": "LB" },
-        { "apiId": 51494, "number": 25, "name": "Manuel Ugarte", "pos": "DM" },
-        { "apiId": 284322, "number": 37, "name": "Kobbie Mainoo", "pos": "CM" },
-        { "apiId": 20589, "number": 19, "name": "Bryan Mbeumo", "pos": "RW" },
-        { "apiId": 1485, "number": 8, "name": "Bruno Fernandes", "pos": "CAM" },
-        { "apiId": 1165, "number": 10, "name": "Matheus Cunha", "pos": "LW" },
-        { "apiId": 909, "number": 9, "name": "Marcus Rashford", "pos": "ST" }
+        {
+          "apiId": 162511,
+          "number": 1,
+          "name": "Senne Lammens",
+          "pos": "GK"
+        },
+        {
+          "apiId": 886,
+          "number": 2,
+          "name": "Diogo Dalot",
+          "pos": "RB"
+        },
+        {
+          "apiId": 2935,
+          "number": 5,
+          "name": "Harry Maguire",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 2467,
+          "number": 6,
+          "name": "Lisandro Martínez",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 891,
+          "number": 23,
+          "name": "Luke Shaw",
+          "pos": "LB"
+        },
+        {
+          "apiId": 51494,
+          "number": 25,
+          "name": "Manuel Ugarte",
+          "pos": "DM"
+        },
+        {
+          "apiId": 284322,
+          "number": 37,
+          "name": "Kobbie Mainoo",
+          "pos": "CM"
+        },
+        {
+          "apiId": 20589,
+          "number": 19,
+          "name": "Bryan Mbeumo",
+          "pos": "RW"
+        },
+        {
+          "apiId": 1485,
+          "number": 8,
+          "name": "Bruno Fernandes",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 1165,
+          "number": 10,
+          "name": "Matheus Cunha",
+          "pos": "LW"
+        },
+        {
+          "apiId": 909,
+          "number": 9,
+          "name": "Marcus Rashford",
+          "pos": "ST"
+        }
       ],
       "confirmedXI": null,
       "substitutes": null,
@@ -1916,7 +2013,7 @@
         {
           "apiId": 402330,
           "number": 2,
-          "name": "J. Kamason",
+          "name": "Diogo Dalot",
           "photo": null,
           "pos": "DEF",
           "positions": [
@@ -2431,7 +2528,7 @@
           "natTeam": null,
           "birthCountry": "Scotland",
           "pronunciation": null,
-          "career": null,
+          "career": "Newells Old Boys (2016) · Defensa Y Justicia (2017–2018) · Ajax (2019–2021) · Manchester United (2022–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -3062,7 +3159,7 @@
         {
           "apiId": 465942,
           "number": 17,
-          "name": "T. Thompson",
+          "name": "Andrey Santos",
           "photo": "https://media.api-sports.io/football/players/465942.png",
           "pos": "ATT",
           "positions": [
@@ -3077,7 +3174,7 @@
           "natTeam": null,
           "birthCountry": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Vasco DA Gama (2021–2022) · Chelsea (2023–2025) · Manchester United (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -3493,6 +3590,56 @@
             "Rămâne unul dintre cei mai folosiți fundași centrali ai lui United în acest start de sezon (450 de minute din 450 posibile)."
           ]
         }
+      ],
+      "newsCandidates": [
+        {
+          "title": "Tottenham XI vs Manchester United – Predicted lineup and team news",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPYWlOZUhidGVwN2p2ZmZlaUc0N095azJhR1NQemtFY3pJY0RTSjd6V0RnRjE5bXAwU0xQODlsNGpPeWpPWXlxbjJFN1BFTlN4T3dzeFpFWTBjSWJDdFBFUG1HdlpYMkZvWnVvN2dERFl2R3pweGZ6eEpmU1NvVER1alh0UWVmMmgyMmc?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Manchester United without Benjamin Sesko, Patrick Dorgu vs. Tottenham",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNQ1lSajV1QTRhcE41alRBNHpKZ0VpVlZIY0ZsclU3bnZ3RHVnM20tcm1UejYxWGVIWHp6NEZQUGJ6SzNNMjR3WkFieVlzSk1jemhLNkNLTXFUVWh2VmFjWGN5MnYzakpoTWRrenAyM055NzZsUnBHQldnTk9ld1dCdTdwOXJKYkVGeVhtbnFoUTlVcS1LVGZ3?oc=5",
+          "source": "The New York Times",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "JJ Gabriel: Manchester United could be forced to accept small fee for wantaway teen - Paper Talk | Football News",
+          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOS1NQQVBWZnBIeXY5OW5VZWk4V1Z6Q3ZnRG9iekpHQnpMM1QzQ3h3alMtbXFCTFM2TXQ2d280UWdhRjQxUlIzWWlmb3B1SHd5NkMwaEZjZHhYaTlwekFoU000TThfQUQxdU1pbUJQVjBJeC1qNGR4QTJNeS1RN0ZWOXY4V3BtRWRRb2FvYmpDWFhkVUVZUXBrZHhqb05nUVo4bXdrSlZOM3p4cXJxaV9TWF9tZ29wa3QxT3VpWHhxQWJsa3dIVHV0ajRBLXVNLUxJbk00Z1NrbEo4SnRGUHZxRVUyUWhsWTdENG1MMGF3?oc=5",
+          "source": "Sky Sports",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Former Manchester United player implores club to push for Harry Kane",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPeklrVl96QUZNaE1kZlMxN2JwY19FaHR0U1E5UEl2VEY4ajVwTDVQZ3gxR0VfVU02Nmx6a21ZWHdPMUlLZkhHLUxBYU5DMElSLTJ2cXlKS2hUSjJQNEpLSlpkbERXdXlmY3cyQ0FvN1ZxV0M5RkR6U3B1ck13eUh0UFN1eFNKbHdBWWJ5MkJtNGd2T2E4eERaaWZNSzBGUXBiS0xGTTVOeVJKTC14UUJGbWsyZHhZTFRfY2ItZXl4YjVrUmxPaS1FdA?oc=5",
+          "source": "Bavarian Football Works",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Man Utd predicted lineup vs Spurs: Three Reds set for first start of the season",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOLU1wdjN6R2VoM3pkUUJVcFczNXlRdlVxaEZHOWZ4dU8wNURBU3BmaFNrR1BFdElkeGp4S0Y2R2VxWkdqTzd1bC1ILTlRdFgtV1VheUk3bkZLV3lzdGNCSEd5RlZIbXhmOURXZ3hyZGJBNExPT25EWFprUFJKTW52TlR3?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "How close De Zerbi came to managing Manchester United",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQVGVnY0FXSkZ3d0RRWU9SbkF4SDYwYTZCVFVCRmhvMlE5RTlXa0lrbUZrV0pBejJWTjcxLVc1OEhwXzhheTAtX1dGeFdtV2YxZzFfUEF5RHJXbXpoYkFYMDhZNE9lMnVzd0dXaTM1VC0xWGRpellwZ0dKNHRLSTEtTXVPQWc5Y1hZTGlCcnN1SFN3X0phOGoybGVYYVBBOUVhR0hGaQ?oc=5",
+          "source": "The Telegraph",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Manchester United line-up vs Tottenham predicted as Carlos Baleba call made",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxONjZsdE9qNUQ4WVc5dGJTczRkd0FXUEpsaDRWMFkwMmJ1MExmX1RPeUZ1aWREeWJwb053aHdNOEVSYkpZQlVycnB5RS13X1FwUjVmS0NKNWRHN2tQR3hVWl9RdzRZR1cxNmZXeGg1bl9ZdHlDMzBtdDN0Y3ZBeHJPZkdGR25RMmdTSXk2bE9HQm5XNUNZVzNkZVMtLWU4UnduZVhJTHBMa200UdIBrwFBVV95cUxNcWZaY2RjWVhCZU1jYnQ1ZTVzUTY1RjU3cUpRMGVTYUNwX09vbFpiM2NpeE5IVW4yWE1sWXpHWDgwdXYxYmVvVVFCNHM2WWJydlQxVEpYTlNTZ3VVYzVVbW5yZzAyWGVmTVNIN2tqVFRFN3JqWU5lOW1YSmFnTUxZU29Mb3pxUW1YZXNTMlE5aFpvVnAyZEtOQkxra1ZjT2tNNEVDUG5vLVZpbENDeHFr?oc=5",
+          "source": "Manchester Evening News",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Napoli make initial contact for Manchester United’s Joshua Zirkzee",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNZmFMRDNBd0pienlmRUZ4eS1ndWJuYVRUV3gwLTVrYTUtMFk2TFY3Z0ZDN1ZmdWhpUXlDUmliQnJfejFGLUFSQnVOeTY3OEFReGw2Wk83dHdyelVuUzNQUUpETU9DYnFFZHBUOEtxTnVXRF9WVTBoU0U0TmN3dllfZ2Z2bWV6SGEwVEJhbHlOVWRjd2hVa05lMlRHUHUzMVVYTWFGVllROHFmblox?oc=5",
+          "source": "Get Italian Football News",
+          "published": "2026-10-10"
+        }
       ]
     },
     "away": {
@@ -3507,7 +3654,7 @@
       "coach": {
         "apiId": null,
         "name": "Roberto De Zerbi",
-        "photo": null,
+        "photo": "https://media.api-sports.io/football/coachs/28389.png",
         "country": "ITA",
         "age": 47,
         "tenureFrom": "2026-03",
@@ -3561,17 +3708,72 @@
       },
       "formation": "4-2-3-1",
       "predictedXI": [
-        { "apiId": 265826, "number": 31, "name": "Antonín Kinský", "pos": "GK" },
-        { "apiId": 328089, "number": 14, "name": "Archie Gray", "pos": "RB" },
-        { "apiId": 38695, "number": 6, "name": "Jan Paul van Hecke", "pos": "RCB" },
-        { "apiId": 152849, "number": 37, "name": "Micky van de Ven", "pos": "LCB" },
-        { "apiId": 289, "number": 3, "name": "Andrew Robertson", "pos": "LB" },
-        { "apiId": 31146, "number": 16, "name": "Sandro Tonali", "pos": "DM" },
-        { "apiId": 863, "number": 30, "name": "Rodrigo Bentancur", "pos": "CM" },
-        { "apiId": 266657, "number": 17, "name": "Sávio", "pos": "RW" },
-        { "apiId": 336585, "number": 18, "name": "Mateus Fernandes", "pos": "CAM" },
-        { "apiId": 270510, "number": 11, "name": "Mathys Tel", "pos": "LW" },
-        { "apiId": 81573, "number": 22, "name": "Omar Marmoush", "pos": "ST" }
+        {
+          "apiId": 265826,
+          "number": 31,
+          "name": "Antonín Kinský",
+          "pos": "GK"
+        },
+        {
+          "apiId": 328089,
+          "number": 14,
+          "name": "Archie Gray",
+          "pos": "RB"
+        },
+        {
+          "apiId": 38695,
+          "number": 6,
+          "name": "Jan Paul van Hecke",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 152849,
+          "number": 37,
+          "name": "Micky van de Ven",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 289,
+          "number": 3,
+          "name": "Andrew Robertson",
+          "pos": "LB"
+        },
+        {
+          "apiId": 31146,
+          "number": 16,
+          "name": "Sandro Tonali",
+          "pos": "DM"
+        },
+        {
+          "apiId": 863,
+          "number": 30,
+          "name": "Rodrigo Bentancur",
+          "pos": "CM"
+        },
+        {
+          "apiId": 266657,
+          "number": 17,
+          "name": "Sávio",
+          "pos": "RW"
+        },
+        {
+          "apiId": 336585,
+          "number": 18,
+          "name": "Mateus Fernandes",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 270510,
+          "number": 11,
+          "name": "Mathys Tel",
+          "pos": "LW"
+        },
+        {
+          "apiId": 81573,
+          "number": 22,
+          "name": "Omar Marmoush",
+          "pos": "ST"
+        }
       ],
       "confirmedXI": null,
       "substitutes": null,
@@ -3900,7 +4102,7 @@
           "natTeam": null,
           "birthCountry": "England",
           "pronunciation": null,
-          "career": null,
+          "career": "Manchester City (2015–2017) · West Brom (2018) · Blackburn (2019) · Fulham (2020–2023) · Chelsea (2024–2025)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -4629,7 +4831,7 @@
           "natTeam": null,
           "birthCountry": "England",
           "pronunciation": null,
-          "career": null,
+          "career": "NAC Breda (2018–2019) · Heerenveen (2020) · Blackburn (2021) · Brighton (2022–2025) · Tottenham (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -5163,7 +5365,7 @@
           "natTeam": null,
           "birthCountry": "England",
           "pronunciation": null,
-          "career": null,
+          "career": "Coventry (2013–2015) · Norwich (2016–2017) · Leicester (2018–2022) · Tottenham (2023–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -5652,6 +5854,56 @@
             "Sandro Tonali (32 selecții, 4 goluri pentru Italia) a fost cumpărat de la Newcastle, campioni ai Carabao Cup 2025, pentru aproape 100M de lire — cea mai mare sumă plătită vreodată de club.",
             "Ambii au adus experiență de top la mijlocul terenului lui Spurs, dar echipa rămâne ultima în campionat."
           ]
+        }
+      ],
+      "newsCandidates": [
+        {
+          "title": "Tottenham to fly to Marbella for training camp",
+          "url": "https://www.bbc.co.uk/sport/football/articles/cxr5y32r26l5o?at_medium=RSS&amp;at_campaign=rss",
+          "source": "BBC Sport",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Tottenham to leave UK immediately after Man United clash in rare decision",
+          "url": "https://talksport.com/football/4636032/tottenham-marbella-trip-man-united/",
+          "source": "talkSPORT",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Tottenham XI vs Manchester United – Predicted lineup and team news",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPYWlOZUhidGVwN2p2ZmZlaUc0N095azJhR1NQemtFY3pJY0RTSjd6V0RnRjE5bXAwU0xQODlsNGpPeWpPWXlxbjJFN1BFTlN4T3dzeFpFWTBjSWJDdFBFUG1HdlpYMkZvWnVvN2dERFl2R3pweGZ6eEpmU1NvVER1alh0UWVmMmgyMmc?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Tottenham news: Tottenham fly to Marbella for team-bonding camp",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFA2UWluNlNDSUFtdjNFbDEyUnVmQ05PU2t0R0U0MDgyNjhINDFUUDV3TWdZQnlVNl96THBGQS05bDg4NlF4ak4tUGR3MTVnR3R1VUxvMzVqSnEyRkxVWUxQbDl0bmdUYzVD?oc=5",
+          "source": "BBC",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Manchester United vs Tottenham Hotspur Live Stream: How to Watch English Premier League",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPM2dXakI0eGJCVzJyT1pLWFIzN0l1STA2clNkRm1laGFBVXFTQnBuS2p6Q05HRV9UWExwQnNSdjdfQnotV2VzdEJSYVp3emQ3ejlEbU1pY0VWWExNZXlNWmU3WERrY2pWeWJPRWhkM2pEQzcyQVhDUnNNWEc5UFUzQXN2dnNhNHhBQnpHYmM4SE1sdklrVl95dVlrV1B4cGloUWFSaFBUMFV4eHZ5T1lkZFp1QzV5UlZtczNvWVRGSlRJNm1hQTZ2cUplR2ctOFNrNXNwalZVTGVnQQ?oc=5",
+          "source": "Fubo",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Man Utd vs. Tottenham: Preview, Predictions and Lineups",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQby0tSXRLWE9VbnFqTWJEeEdwOHNadnVoZ1ZqTkpEdGhhSDRaU1dwQ1FTcTZua3g1YjB4QVk1NXh2ZzRsTmRoRDEyODAwd1JtUlo4eU93MnJHY0t2U09TbXNQdzhEOGpTamtwR3Vmc1VleGJaR0dNV0g3NmlRSTJCSV9yNDV3amIxT2Jv?oc=5",
+          "source": "Sports Illustrated",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Manchester United vs Tottenham Hotspur Premier League: How to watch and live stream for FREE and without cable",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPZ1pLLW1ORWxMRjNZVW4wLURtTXdfVnNFWlBfSEVGZDFzcWJFY1R4cWtwdnFFY0ltMnhsZmlMWm9NbkdZbzM0VkV5UkNYd2RCd0hEUTlFRTZvblR4dlkzVVFGQUlkUHNxdU9kMWpNYS1raVJ4UnBselN3YUxaUFlfVWVrSXhSWEtXMEQ3aGZZRFVDUXJyZXAwdUNVY1ZFa0NuOFBYcG1fX3lFM21Zemdz?oc=5",
+          "source": "Goal.com",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Where and when to watch Man United’s massive match against Tottenham Hotspur across the globe",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQbXBVaHpieW5XQUlZZjlJaTJ4aEc2MVpleG0xWTBWbVdia1pMY0NCVVIwVDZjdXY3YzBvYjdzODNKdHBNVEwyOS1TQUEyYUVBM3VLNjlMRHloZ0VONTJmd08tMEt0TWw4NEh1ejdhMGtacDYzM2RDa3oxdVR5SE1kem9pLUxEUQ?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-10-10"
         }
       ]
     }
