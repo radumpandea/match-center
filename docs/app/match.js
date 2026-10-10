@@ -656,11 +656,26 @@
     nameMap = Object.create(null);
     ['home', 'away'].forEach(function (side) {
       var map = pn[side] || {};
+      var squadAll = effSquad(d, side);
+      // Manual XI swaps / subs (store.xi) are snapshots {number, name, pos} saved
+      // WITHOUT apiId, so keyOf() gave them a number key that never matched the
+      // apiId key an override is stored under -- a swapped-in player kept his
+      // long researched name on the pitch and also showed up on the bench.
+      // Link such a snapshot back to its squad player (number + name first,
+      // then name alone) and adopt his apiId.
+      var link = function (o) {
+        if (!o || o.apiId != null || o.name == null) return null;
+        var same = function (p) { return p.name === o.name || p._name0 === o.name; };
+        var ref = squadAll.filter(function (p) { return p.number === o.number && same(p); })[0] || squadAll.filter(same)[0];
+        if (ref && ref.apiId != null) o.apiId = ref.apiId;
+        return ref || null;
+      };
       var set = function (o) {
         if (!o) return;
+        var ref = link(o);
         var k = keyOf(o);
         if (Object.prototype.hasOwnProperty.call(map, k)) {
-          if (o._name0 === undefined) o._name0 = o.name;   // remember the researched name
+          if (o._name0 === undefined) o._name0 = ref ? (ref._name0 !== undefined ? ref._name0 : ref.name) : o.name;   // remember the researched name
           o.name = map[k];
           nameMap[o._name0] = o.name;
         } else if (o._name0 !== undefined) {
@@ -913,8 +928,9 @@
     store.xi = store.xi || {};
     store.xi[side] = store.xi[side] || {};
     store.xi[side][idx] = {
+      apiId: player.apiId != null ? player.apiId : null,
       number: player.number != null ? player.number : null,
-      name: player.name,
+      name: player._name0 !== undefined ? player._name0 : player.name,   // researched name; the display override is re-applied on render
       pos: pred[idx] ? pred[idx].pos : player.pos,
       minute: isNaN(m) ? null : m,
       kind: kind === 'sub' ? 'sub' : 'xi'
