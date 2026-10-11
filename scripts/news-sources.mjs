@@ -46,6 +46,12 @@ export const NEWS_SOURCES = {
   'Ligue 1': [
     { name: "L'Équipe", url: 'https://dwh.lequipe.fr/api/edito/rss?path=/Football' },
     { name: 'RMC Sport', url: 'https://rmcsport.bfmtv.com/rss/football/' },
+    // Added 2026-10-11, verified live that day (HTTP 200, items from the same
+    // morning). Le Figaro's feed covers all sports (tennis, rugby...), which is
+    // harmless: items are kept only when they mention one of the match's teams.
+    { name: 'Get Football News France', url: 'https://www.getfootballnewsfrance.com/feed/' },
+    { name: 'Le Figaro', url: 'https://www.lefigaro.fr/rss/figaro_sport.xml' },
+    { name: 'Le Monde', url: 'https://www.lemonde.fr/en/football/rss_full.xml' },
     { name: 'The Analyst', url: 'https://theanalyst.com/feed' },
   ],
   'LaLiga': [
