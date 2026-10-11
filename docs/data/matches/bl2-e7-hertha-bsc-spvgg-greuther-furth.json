@@ -1,12 +1,12 @@
 {
   "slug": "bl2-e7-hertha-bsc-spvgg-greuther-furth",
-  "generatedAt": "2026-10-10T18:08:02.900Z",
+  "generatedAt": "2026-10-11T09:36:46.076Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-10-10"
+      "accessed": "2026-10-11"
     }
   ],
   "competition": {
@@ -18,12 +18,19 @@
   "kickoff": "2026-10-11T14:30:00+03:00",
   "venue": {
     "name": "Olympiastadion",
-    "capacity": null,
-    "city": null,
-    "notes": null
+    "capacity": 74667,
+    "city": "Berlin",
+    "notes": null,
+    "weather": {
+      "tempC": 11,
+      "condition": "ploaie ușoară",
+      "windKph": 15,
+      "precipitationMm": 0,
+      "forecastAt": "2026-10-11T09:36:46.724Z"
+    }
   },
   "referee": {
-    "name": "n/d",
+    "name": "Tobias Stieler",
     "country": null,
     "age": null,
     "apps": null,
@@ -1390,12 +1397,48 @@
   },
   "storyOfTheMatch": [
     "Hertha BSC — locul 1 după 6 etape, 18 puncte, golaveraj 17-7.",
+    "Hertha BSC — 6 meciuri fără înfrângere.",
     "Josip Brekalo e cel mai bun marcator al echipei Hertha BSC în acest start de sezon (4 goluri).",
-    "SpVgg Greuther Fürth — locul 12 după 6 etape, 6 puncte, golaveraj 9-11.",
+    "SpVgg Greuther Fürth — locul 14 după 6 etape, 6 puncte, golaveraj 9-11.",
     "Felix Klaus e cel mai bun marcator al echipei SpVgg Greuther Fürth în acest start de sezon (5 goluri).",
     "Cap la cap (8 meciuri): Hertha BSC 5 - 1 - 2 SpVgg Greuther Fürth."
   ],
-  "predictions": null,
+  "predictions": {
+    "winnerName": "Hertha BSC",
+    "winOrDraw": false,
+    "advice": "Combo Winner : Hertha BSC and +1.5 goals",
+    "percent": {
+      "home": 45,
+      "draw": 45,
+      "away": 10
+    },
+    "comparison": {
+      "form": {
+        "home": 75,
+        "away": 25
+      },
+      "attack": {
+        "home": 67,
+        "away": 33
+      },
+      "defense": {
+        "home": 59,
+        "away": 41
+      },
+      "poisson": {
+        "home": 68,
+        "away": 32
+      },
+      "h2h": {
+        "home": 71,
+        "away": 29
+      },
+      "goals": {
+        "home": 56,
+        "away": 44
+      }
+    }
+  },
   "teams": {
     "home": {
       "name": "Hertha BSC",
@@ -1488,8 +1531,8 @@
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 7.14,
-            "conceded": 5,
+            "rating": 7.13,
+            "conceded": 6,
             "saves": 21,
             "shotsTotal": 0,
             "shotsOn": 0,
@@ -1652,7 +1695,7 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 4.02,
+            "rating": 5.03,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 0,
@@ -1764,7 +1807,7 @@
             "apps": 6,
             "yellow": 2,
             "red": null,
-            "rating": 6.79,
+            "rating": 6.83,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 1,
@@ -1820,7 +1863,7 @@
             "apps": 6,
             "yellow": 2,
             "red": null,
-            "rating": 6.88,
+            "rating": 6.93,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 3,
@@ -1829,7 +1872,7 @@
             "passesKey": 5,
             "passesAccuracy": 87,
             "tacklesTotal": 13,
-            "tacklesBlocks": 2,
+            "tacklesBlocks": 4,
             "tacklesInterceptions": 7,
             "duelsTotal": 53,
             "duelsWon": 32,
@@ -1902,7 +1945,7 @@
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 7.18,
+            "rating": 7.2,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 1,
@@ -1958,16 +2001,16 @@
             "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 6.51,
+            "rating": 6.45,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 5,
+            "shotsTotal": 3,
             "shotsOn": 0,
             "passesTotal": 102,
             "passesKey": 9,
             "passesAccuracy": 80,
             "tacklesTotal": 2,
-            "tacklesBlocks": 2,
+            "tacklesBlocks": 0,
             "tacklesInterceptions": 1,
             "duelsTotal": 12,
             "duelsWon": 3,
@@ -1982,6 +2025,32 @@
             "penaltyMissed": 0,
             "penaltySaved": null
           }
+        },
+        {
+          "apiId": 685036,
+          "number": null,
+          "name": "P. Will",
+          "photo": null,
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
+          "role": "DEF",
+          "age": 17,
+          "height": null,
+          "weight": null,
+          "foot": null,
+          "nat": null,
+          "natTeam": null,
+          "birthCountry": null,
+          "pronunciation": null,
+          "career": null,
+          "lastSeason": null,
+          "funfact": null,
+          "linkLine": null,
+          "status": "available",
+          "statusNote": null,
+          "stats": null
         },
         {
           "apiId": 38120,
@@ -2014,7 +2083,7 @@
             "apps": 4,
             "yellow": 1,
             "red": 1,
-            "rating": 6.78,
+            "rating": 6.93,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 2,
@@ -2071,16 +2140,16 @@
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 7.12,
+            "rating": 7.05,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 10,
+            "shotsTotal": 8,
             "shotsOn": 5,
             "passesTotal": 58,
             "passesKey": 1,
             "passesAccuracy": 74,
             "tacklesTotal": 7,
-            "tacklesBlocks": 4,
+            "tacklesBlocks": 2,
             "tacklesInterceptions": 3,
             "duelsTotal": 50,
             "duelsWon": 27,
@@ -2123,11 +2192,11 @@
           "stats": {
             "goals": 0,
             "assists": 2,
-            "minutes": 245,
+            "minutes": 251,
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 6.34,
+            "rating": 6.39,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 7,
@@ -2184,7 +2253,7 @@
             "apps": 6,
             "yellow": 1,
             "red": null,
-            "rating": 5.52,
+            "rating": 6.9,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 2,
@@ -2296,11 +2365,11 @@
             "apps": 5,
             "yellow": 3,
             "red": 1,
-            "rating": 6.47,
+            "rating": 6.64,
             "conceded": 0,
-            "saves": 0,
+            "saves": null,
             "shotsTotal": 1,
-            "shotsOn": 0,
+            "shotsOn": null,
             "passesTotal": 225,
             "passesKey": 5,
             "passesAccuracy": 86,
@@ -2310,7 +2379,7 @@
             "duelsTotal": 28,
             "duelsWon": 12,
             "dribblesAttempts": 1,
-            "dribblesSuccess": 0,
+            "dribblesSuccess": null,
             "dribblesPast": null,
             "foulsDrawn": 1,
             "foulsCommitted": 7,
@@ -2352,16 +2421,16 @@
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 6.86,
+            "rating": 6.91,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 13,
+            "shotsTotal": 12,
             "shotsOn": 2,
             "passesTotal": 213,
             "passesKey": 5,
             "passesAccuracy": 77,
             "tacklesTotal": 8,
-            "tacklesBlocks": 6,
+            "tacklesBlocks": 5,
             "tacklesInterceptions": 5,
             "duelsTotal": 45,
             "duelsWon": 21,
@@ -2408,7 +2477,7 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 3.12,
+            "rating": 6.24,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 0,
@@ -2490,7 +2559,7 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.71,
+            "rating": 6.79,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 4,
@@ -2547,7 +2616,7 @@
             "apps": 6,
             "yellow": 3,
             "red": null,
-            "rating": 7.84,
+            "rating": 7.83,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 9,
@@ -2603,7 +2672,7 @@
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 6.71,
+            "rating": 6.72,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 12,
@@ -2741,16 +2810,16 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.38,
+            "rating": 6.01,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 8,
+            "shotsTotal": 7,
             "shotsOn": 2,
             "passesTotal": 17,
             "passesKey": 1,
             "passesAccuracy": 64,
             "tacklesTotal": 0,
-            "tacklesBlocks": 2,
+            "tacklesBlocks": 1,
             "tacklesInterceptions": 0,
             "duelsTotal": 7,
             "duelsWon": 1,
@@ -2797,7 +2866,7 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 4.6,
+            "rating": 5.52,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 3,
@@ -2854,16 +2923,16 @@
             "apps": 6,
             "yellow": 3,
             "red": null,
-            "rating": 7.48,
+            "rating": 7.37,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 11,
+            "shotsTotal": 8,
             "shotsOn": 6,
             "passesTotal": 96,
             "passesKey": 6,
             "passesAccuracy": 64,
             "tacklesTotal": 6,
-            "tacklesBlocks": 4,
+            "tacklesBlocks": 1,
             "tacklesInterceptions": 2,
             "duelsTotal": 44,
             "duelsWon": 22,
@@ -2957,6 +3026,1480 @@
           "ga": 7,
           "points": 18
         },
+        "recent": [
+          {
+            "date": "2026-10-02",
+            "opp": "FC Augsburg",
+            "homeAway": "A",
+            "comp": "Friendlies Clubs",
+            "score": "2-2",
+            "result": "D",
+            "referee": null,
+            "formation": null,
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Gersbeck",
+                  "number": 35,
+                  "pos": null
+                },
+                {
+                  "name": "J. Eitschberger",
+                  "number": 2,
+                  "pos": null
+                },
+                {
+                  "name": "J. Brekalo",
+                  "number": 7,
+                  "pos": null
+                },
+                {
+                  "name": "K. Sessa",
+                  "number": 8,
+                  "pos": null
+                },
+                {
+                  "name": "S. Gronning",
+                  "number": 17,
+                  "pos": null
+                },
+                {
+                  "name": "N. Kolbe",
+                  "number": 27,
+                  "pos": null
+                },
+                {
+                  "name": "J. Ndi",
+                  "number": 28,
+                  "pos": null
+                },
+                {
+                  "name": "P. Seguin",
+                  "number": 30,
+                  "pos": null
+                },
+                {
+                  "name": "S. Gouram",
+                  "number": 33,
+                  "pos": null
+                },
+                {
+                  "name": "P. Klemens",
+                  "number": 41,
+                  "pos": null
+                },
+                {
+                  "name": "D. Zeefuik",
+                  "number": 42,
+                  "pos": null
+                }
+              ],
+              "opp": [
+                {
+                  "name": "N. Labrovic",
+                  "number": 22,
+                  "pos": null
+                },
+                {
+                  "name": "C. Brackelmann",
+                  "number": 2,
+                  "pos": null
+                },
+                {
+                  "name": "H. Massengo",
+                  "number": 4,
+                  "pos": null
+                },
+                {
+                  "name": "J. Gouweleeuw",
+                  "number": 6,
+                  "pos": null
+                },
+                {
+                  "name": "R. Ribeiro",
+                  "number": 9,
+                  "pos": null
+                },
+                {
+                  "name": "Y. Keitel",
+                  "number": 14,
+                  "pos": null
+                },
+                {
+                  "name": "H. Behrens",
+                  "number": 16,
+                  "pos": null
+                },
+                {
+                  "name": "A. Claude-Maurice",
+                  "number": 20,
+                  "pos": null
+                },
+                {
+                  "name": "M. Wolf",
+                  "number": 27,
+                  "pos": null
+                },
+                {
+                  "name": "J. Bah",
+                  "number": 35,
+                  "pos": null
+                },
+                {
+                  "name": "U. Ogundu",
+                  "number": 39,
+                  "pos": null
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 35,
+                "side": "opp",
+                "type": "goal",
+                "player": "R. Ribeiro",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 39,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "U. Ogundu",
+                "playerIn": "R. Fellhauer"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "H. Massengo",
+                "playerIn": "C. Matsima"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Bah",
+                "playerIn": "T. Schnitzer"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Gersbeck",
+                "playerIn": "T. Goller"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Gronning",
+                "playerIn": "L. Schuler"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Ndi",
+                "playerIn": "K. Todorovic"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "goal",
+                "player": "A. Claude-Maurice",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "goal",
+                "player": "L. Schuler",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Y. Keitel",
+                "playerIn": "A. Selimovic"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Ribeiro",
+                "playerIn": "M. Adleff"
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Seguin",
+                "playerIn": "N. Hildebrandt"
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Sessa",
+                "playerIn": "S. Telib"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Wolf",
+                "playerIn": "B. Exner"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "goal",
+                "player": "L. Schuler",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": null,
+                "playerIn": "M. Pedersen"
+              }
+            ]
+          },
+          {
+            "date": "2026-09-29",
+            "opp": "Hertha Zehlendorf",
+            "homeAway": "A",
+            "comp": "Friendlies Clubs",
+            "score": "3-1",
+            "result": "W",
+            "referee": null,
+            "formation": null,
+            "lineups": {
+              "us": [],
+              "opp": []
+            },
+            "events": [
+              {
+                "minute": 18,
+                "side": "us",
+                "type": "goal",
+                "player": "S. Gouram",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 29,
+                "side": "opp",
+                "type": "goal",
+                "player": "D. Kruska",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "goal",
+                "player": "P. Will",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "goal",
+                "player": "P. Will",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-09-19",
+            "opp": "Dynamo Dresden",
+            "homeAway": "A",
+            "comp": "2. Bundesliga",
+            "score": "2-1",
+            "result": "W",
+            "referee": "C. Dingert",
+            "formation": {
+              "us": "4-4-2",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Gersbeck",
+                  "number": 35,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Eitschberger",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Gechter",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Kolbe",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Pedersen",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "O. Adewumi",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Seguin",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Sessa",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Brekalo",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Thorsteinsson",
+                  "number": 23,
+                  "pos": "F"
+                },
+                {
+                  "name": "S. Gronning",
+                  "number": 17,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "T. Schreiber",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Straudi",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Neininger",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Muhamedbegovic",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Rossipal",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Wagner",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Rapp",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Covic",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Hauptmann",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Bobzien",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Vermeij",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 10,
+                "side": "opp",
+                "type": "goal",
+                "player": "P. Covic",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 29,
+                "side": "us",
+                "type": "goal",
+                "player": "J. Thorsteinsson",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 32,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Robert Wagner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 37,
+                "side": "us",
+                "type": "yellow",
+                "player": "Mads Pedersen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 39,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Ahmet Muhamedbegović",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 43,
+                "side": "us",
+                "type": "yellow",
+                "player": "Josip Brekalo",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Gronning",
+                "playerIn": "G. Nilsson"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Hauptmann",
+                "playerIn": "T. Raschl"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "V. Vermeij",
+                "playerIn": "C. Daferner"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Straudi",
+                "playerIn": "J. Sterner"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Rapp",
+                "playerIn": "F. Muller"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Covic",
+                "playerIn": "J. Lemmer"
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Eitschberger",
+                "playerIn": "D. Zeefuik"
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. Adewumi",
+                "playerIn": "F. Alfa-Ruprecht"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "goal",
+                "player": "J. Thorsteinsson",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Thorsteinsson",
+                "playerIn": "S. Gouram"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Sessa",
+                "playerIn": "P. Klemens"
+              }
+            ]
+          },
+          {
+            "date": "2026-09-13",
+            "opp": "VfL Osnabrück",
+            "homeAway": "A",
+            "comp": "2. Bundesliga",
+            "score": "3-1",
+            "result": "W",
+            "referee": "F. Weller",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "3-4-2-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Gersbeck",
+                  "number": 35,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Eitschberger",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Gechter",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Kolbe",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Pedersen",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Klemens",
+                  "number": 41,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Sessa",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Thorsteinsson",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Adewumi",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Brekalo",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Gronning",
+                  "number": 17,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Krumrey",
+                  "number": 32,
+                  "pos": "G"
+                },
+                {
+                  "name": "R. Fabinski",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Muller",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Wiemann",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Kammerbauer",
+                  "number": 31,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Wagner",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Jacobsen",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "Jogo",
+                  "number": 42,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Beck",
+                  "number": 21,
+                  "pos": "F"
+                },
+                {
+                  "name": "L. Munst",
+                  "number": 8,
+                  "pos": "F"
+                },
+                {
+                  "name": "R. Meissner",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 10,
+                "side": "us",
+                "type": "yellow",
+                "player": "Josip Brekalo",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 37,
+                "side": "us",
+                "type": "yellow",
+                "player": "Linus Gechter",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 50,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Adrian Beck",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 50,
+                "side": "us",
+                "type": "goal",
+                "player": "J. Brekalo",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Robin Fabinski",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 60,
+                "side": "opp",
+                "type": "goal",
+                "player": "Robin Meißner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Munst",
+                "playerIn": "D. Kyereh"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Gronning",
+                "playerIn": "G. Nilsson"
+              },
+              {
+                "minute": 70,
+                "side": "us",
+                "type": "goal",
+                "player": "K. Sessa",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Kammerbauer",
+                "playerIn": "K. Faber"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Wagner",
+                "playerIn": "B. Riesselmann"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Pedersen",
+                "playerIn": "D. Zeefuik"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. Adewumi",
+                "playerIn": "F. Alfa-Ruprecht"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "goal",
+                "player": "Jogo",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Thorsteinsson",
+                "playerIn": "S. Gouram"
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Klemens",
+                "playerIn": "S. Telib"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Muller",
+                "playerIn": "T. Janotta"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jogo",
+                "playerIn": "L. Raimund"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "goal",
+                "player": "F. Alfa-Ruprecht",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-09-06",
+            "opp": "1. FC Magdeburg",
+            "homeAway": "H",
+            "comp": "2. Bundesliga",
+            "score": "2-1",
+            "result": "W",
+            "referee": "F. Exner",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Gersbeck",
+                  "number": 35,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Eitschberger",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Gechter",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Kolbe",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Pedersen",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Seguin",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Sessa",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Thorsteinsson",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Gouram",
+                  "number": 33,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Brekalo",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Gronning",
+                  "number": 17,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "D. Reimann",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "H. Bockhorn",
+                  "number": 7,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Muller",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Garcia MacNulty",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Nollenberger",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Hyrylainen",
+                  "number": 38,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Kwarteng",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Michel",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Iyoha",
+                  "number": 8,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Zukowski",
+                  "number": 22,
+                  "pos": "F"
+                },
+                {
+                  "name": "B. Atik",
+                  "number": 23,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 10,
+                "side": "us",
+                "type": "goal",
+                "player": "J. Brekalo",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 12,
+                "side": "us",
+                "type": "yellow",
+                "player": "Jón Dagur Þórsteinsson",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 31,
+                "side": "opp",
+                "type": "goal",
+                "player": "F. Michel",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Anselmo Garcia McNulty",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Gouram",
+                "playerIn": "O. Adewumi"
+              },
+              {
+                "minute": 47,
+                "side": "us",
+                "type": "goal",
+                "player": "O. Adewumi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 50,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Tobias Müller",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 51,
+                "side": "us",
+                "type": "yellow",
+                "player": "Paul Seguin",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "yellow",
+                "player": "Paul Seguin",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "red",
+                "player": "Paul Seguin",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Gronning",
+                "playerIn": "P. Klemens"
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Tobias Müller",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "red",
+                "player": "Tobias Müller",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Thorsteinsson",
+                "playerIn": "L. Schuler"
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Hyrylainen",
+                "playerIn": "T. Musel"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "H. Bockhorn",
+                "playerIn": "P. Nadjombe"
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Iyoha",
+                "playerIn": "F. Chavez"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Pedersen",
+                "playerIn": "M. Dardai"
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Kwarteng",
+                "playerIn": "R. Simic"
+              }
+            ]
+          },
+          {
+            "date": "2026-08-28",
+            "opp": "Eintracht Braunschweig",
+            "homeAway": "A",
+            "comp": "2. Bundesliga",
+            "score": "5-3",
+            "result": "W",
+            "referee": "R. Hempel",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-2-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "M. Gersbeck",
+                  "number": 35,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Eitschberger",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Gechter",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Kolbe",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Pedersen",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Seguin",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Sessa",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Thorsteinsson",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Gouram",
+                  "number": 33,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Brekalo",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Gronning",
+                  "number": 17,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "R. Hoffmann",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Aydin",
+                  "number": 8,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Ehlers",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Frenkert",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Katterbach",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Di Benedetto",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Flick",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Opoku",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Marie",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Entrup",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "Y. Sturm",
+                  "number": 7,
+                  "pos": null
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 9,
+                "side": "opp",
+                "type": "goal",
+                "player": "Y. Sturm",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 33,
+                "side": "opp",
+                "type": "goal",
+                "player": "K. Ehlers",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 44,
+                "side": "us",
+                "type": "goal",
+                "player": "J. Thorsteinsson",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "goal",
+                "player": "J. Brekalo",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Di Benedetto",
+                "playerIn": "L. Tempelmann"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Entrup",
+                "playerIn": "J. Urbich"
+              },
+              {
+                "minute": 53,
+                "side": "us",
+                "type": "owngoal",
+                "player": "K. Ehlers",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 57,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Y. Sturm",
+                "playerIn": "Junior Ze"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Katterbach",
+                "playerIn": "F. Di Michele Sanchez"
+              },
+              {
+                "minute": 64,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Jan Urbich",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Gouram",
+                "playerIn": "O. Adewumi"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Gronning",
+                "playerIn": "L. Schuler"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Lino Tempelmann",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 69,
+                "side": "us",
+                "type": "goal",
+                "player": "J. Brekalo",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "yellow",
+                "player": "Paul Seguin",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "yellow",
+                "player": "Jón Dagur Þórsteinsson",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Seguin",
+                "playerIn": "P. Klemens"
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Thorsteinsson",
+                "playerIn": "F. Alfa-Ruprecht"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Pedersen",
+                "playerIn": "M. Dardai"
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "goal",
+                "player": "O. Adewumi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 88,
+                "side": "us",
+                "type": "yellow",
+                "player": "Linus Gechter",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "goal",
+                "player": "J. Urbich",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "yellow",
+                "player": "Pascal Klemens",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          }
+        ],
+        "next": [
+          {
+            "date": "2026-10-11",
+            "opp": "SpVgg Greuther Fürth",
+            "homeAway": "H",
+            "comp": "2. Bundesliga"
+          },
+          {
+            "date": "2026-10-16",
+            "opp": "Holstein Kiel",
+            "homeAway": "A",
+            "comp": "2. Bundesliga"
+          },
+          {
+            "date": "2026-10-24",
+            "opp": "Arminia Bielefeld",
+            "homeAway": "H",
+            "comp": "2. Bundesliga"
+          }
+        ],
         "stats": {
           "goalsForByInterval": {
             "0-15": 2,
@@ -3204,8 +4747,26 @@
       "news": [],
       "newsCandidates": [
         {
+          "title": "Live hören: Hertha BSC gegen SpVgg Greuther Fürth - 2. Bundesliga",
+          "url": "https://www.sportschau.de/fussball/bundesliga2/hertha-bsc-gegen-spvgg-greuther-fuerth,audiostream-hertha-bsc-gegen-spvgg-greuther-fuerth-106.html",
+          "source": "Sportschau",
+          "published": "2026-10-11"
+        },
+        {
+          "title": "Hertha BSC vs Greuther Furth Prediction, Betting Tips, Lineups & Odds | 11 Oct 2026",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNMGtma09PdGtpcnZrMTM4UTVfTzh0UkZsZDhvSlMxdThJbzl1eUw3QVNjOU5Gd19Jdi1zaGVITk05V21GQzVhVXNocm5yWkdYRkhSb1psVEd6YVg1Z3ZoU0NSSk82czdGcmlYUVBQR0hVZ0hlZG9oYlZFWjB1dXdWS2R1N3l3X1ZqejVXVlpzVmRMU3phcE1kc01pUGlHdmJjZjNQZllCNHRtUGVvcGpWUUY4ZGRIczA?oc=5",
+          "source": "Sportsgambler",
+          "published": "2026-10-11"
+        },
+        {
           "title": "2. Bundesliga preview: Hertha BSC vs. Greuther Fürth",
           "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE02R2diNFRhdTdTczc3VGdrX3JPb1RMenJITFprdkltVGVYc1VETzRFTEpYX2RiRnBzT2oweWdhM200UFc5V2htUms2QVJYakprZTJEQnc1SHNvNUxPTlhvZHhUcXF0cUM1ZWxWVFJyVEFOTm84LUE?oc=5",
+          "source": "Bulinews",
+          "published": "2026-10-10"
+        },
+        {
+          "title": "Nürnberg and Wolfsburg split points in spectacular late drama",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOeE5zSEQ5VVdNNkFNVDdsZUtGcWlHNXUxYmMwQldrZEtHZXBkZV9DZzkwV2JXbXFLXzAxZG9BZm1wYzVSWVNfUk9CdmZzZWNjd0w1Q1podmhzUjZaOFl2ZDFJU0ZlWHJaSU1ZLTRGN3NyU2VOeUdnUml1TXB1WVNVUk9feTdOQQ?oc=5",
           "source": "Bulinews",
           "published": "2026-10-10"
         },
@@ -3214,6 +4775,12 @@
           "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFAwQjg2RWg0bFdITzVadHdwZXR0UzM1bExsb2JLdzRScGg4cm5KRW5pZGxiT3VHbWRRSm1WeDdHTTYxTGoyV040N2N5THVfSTN1OXgwTHlXeDVxWXFQNUtQUVJtRDVRSmpfdzd4MkJURTM?oc=5",
           "source": "Bulinews",
           "published": "2026-10-10"
+        },
+        {
+          "title": "As the second German professional club: Hertha BSC are also taking action against influencers in the stadium",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPbmZQVFlsaGdnSVlNeE5FZ0R0Y2VBanVodEliRWNzRXM5TnpwQXBlN2VVRTF4Y2RaNGZhWEpWdFphb1VhTXpVWmc1NzZsQ24yOTdyVGNJRHc0cXJ5dTZoY1l0WW9aSzVWM25QYktCM2g2SVZHckZtXzJuMTU2YXZqYmNKTmhkREU3MmdiX1dyUkhZTkg1NVVlbm41ZlhqM1F2bk5DN3RQc3d2OUlLSU8zOEd0d2RHNnRWemkzZHU5OEtvbkZtekRXVzhtcWtpZDRlYXFUMUNYbGdNMTVfZks1WlJrcTI?oc=5",
+          "source": "Goal.com",
+          "published": "2026-10-09"
         },
         {
           "title": "PSG effect and a döner ritual: why Hertha BSC are flying high despite the departure of their stars",
@@ -3226,30 +4793,6 @@
           "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQRGVwejhXb1pKVXBwNGlnZ2IxTkcxNmRxbi0yR3E5d3NWNThuSkl1MHQ2Tk05STZBQmNTSlJxTEowdmM5MlhIWUtZcjgtODBEbXBrZXc5V3o1cDhoaGtCLTFWVVVvWWNvYUhrZUlUNE9qZDJsOFZ4UU9KdUFoVmEwUjhwSHVUeDZHQTI2WGYyMzUtek9mQmtnTW1aSFI0dGs5RkJ4SEdvcnF1RnZaRmkwaXJGZzJsUExnanJxTzZaTWJpUWFPaWU4?oc=5",
           "source": "Flashscore.com",
           "published": "2026-10-09"
-        },
-        {
-          "title": "As the second German professional club: Hertha BSC are also taking action against influencers in the stadium",
-          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPbmZQVFlsaGdnSVlNeE5FZ0R0Y2VBanVodEliRWNzRXM5TnpwQXBlN2VVRTF4Y2RaNGZhWEpWdFphb1VhTXpVWmc1NzZsQ24yOTdyVGNJRHc0cXJ5dTZoY1l0WW9aSzVWM25QYktCM2g2SVZHckZtXzJuMTU2YXZqYmNKTmhkREU3MmdiX1dyUkhZTkg1NVVlbm41ZlhqM1F2bk5DN3RQc3d2OUlLSU8zOEd0d2RHNnRWemkzZHU5OEtvbkZtekRXVzhtcWtpZDRlYXFUMUNYbGdNMTVfZks1WlJrcTI?oc=5",
-          "source": "Goal.com",
-          "published": "2026-10-09"
-        },
-        {
-          "title": "1. FC Nürnberg vs. VfL Wolfsburg preview: Top-five contest in Saturday Topspiel",
-          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBEeTNPQVczYk16b0ZKZjUwazFWT1UtYUJhOGlBcWVueGZORFZKMVY2YjRBd0M2enQ4U3hOUHNVTTFReGIxWUlPX0owWG1YMDJWNW91bGw2REVkR0d5bUVoNUwtUFd2TVBmTWJFR1BGa2FUbkU?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-09"
-        },
-        {
-          "title": "Hertha BSC kündigt konsequentes Vorgehen gegen bestimmte Stadion-Vlogs an",
-          "url": "https://www.kicker.de/hertha-bsc-kuendigt-konsequentes-vorgehen-gegen-bestimmte-stadion-vlogs-an-1259415/artikel#omrss",
-          "source": "Kicker",
-          "published": "2026-10-08"
-        },
-        {
-          "title": "Hertha BSC place ban on all commercial and monetized stadium vlogs",
-          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOREtRZHF4YklxMEhabmpaS1pEM2RXR2xUN3JOWm5yb0pNWFJhYzJiR1VuNlprSS1DaDhodnp6LUkyQXNPUXZIRXpfb0I2Z1hpWjFadm05VEdrc1lac0ZtYmNlbzZfSi1mRldlSVlDczI4ODBrb2pMQTRMb0lDTjdVSGlJamkxN1BxTmRlVA?oc=5",
-          "source": "Bulinews",
-          "published": "2026-10-08"
         }
       ],
       "stories": []
@@ -3341,19 +4884,19 @@
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 7.07,
-            "conceded": 9,
+            "rating": 7.25,
+            "conceded": 6,
             "saves": 25,
             "shotsTotal": 0,
             "shotsOn": 0,
             "passesTotal": 269,
             "passesKey": 0,
             "passesAccuracy": 72,
-            "tacklesTotal": 1,
+            "tacklesTotal": 0,
             "tacklesBlocks": 0,
             "tacklesInterceptions": 0,
-            "duelsTotal": 3,
-            "duelsWon": 3,
+            "duelsTotal": 2,
+            "duelsWon": 2,
             "dribblesAttempts": 0,
             "dribblesSuccess": 0,
             "dribblesPast": null,
@@ -3393,32 +4936,32 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
             "rating": null,
             "conceded": 0,
-            "saves": null,
-            "shotsTotal": null,
-            "shotsOn": null,
-            "passesTotal": null,
-            "passesKey": null,
+            "saves": 0,
+            "shotsTotal": 0,
+            "shotsOn": 0,
+            "passesTotal": 0,
+            "passesKey": 0,
             "passesAccuracy": null,
-            "tacklesTotal": null,
-            "tacklesBlocks": null,
-            "tacklesInterceptions": null,
-            "duelsTotal": null,
-            "duelsWon": null,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "tacklesTotal": 0,
+            "tacklesBlocks": 0,
+            "tacklesInterceptions": 0,
+            "duelsTotal": 0,
+            "duelsWon": 0,
+            "dribblesAttempts": 0,
+            "dribblesSuccess": 0,
             "dribblesPast": null,
-            "foulsDrawn": null,
-            "foulsCommitted": null,
+            "foulsDrawn": 0,
+            "foulsCommitted": 0,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
-            "penaltyMissed": 0,
+            "penaltyMissed": null,
             "penaltySaved": null
           }
         },
@@ -3561,11 +5104,11 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 127,
+            "minutes": 120,
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.94,
+            "rating": 6.81,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 2,
@@ -3574,7 +5117,7 @@
             "passesKey": 1,
             "passesAccuracy": 87,
             "tacklesTotal": 0,
-            "tacklesBlocks": 0,
+            "tacklesBlocks": 2,
             "tacklesInterceptions": 3,
             "duelsTotal": 6,
             "duelsWon": 6,
@@ -3617,28 +5160,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
             "rating": null,
             "conceded": 0,
-            "saves": null,
-            "shotsTotal": null,
-            "shotsOn": null,
-            "passesTotal": null,
-            "passesKey": null,
+            "saves": 0,
+            "shotsTotal": 0,
+            "shotsOn": 0,
+            "passesTotal": 0,
+            "passesKey": 0,
             "passesAccuracy": null,
-            "tacklesTotal": null,
-            "tacklesBlocks": null,
-            "tacklesInterceptions": null,
-            "duelsTotal": null,
-            "duelsWon": null,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "tacklesTotal": 0,
+            "tacklesBlocks": 0,
+            "tacklesInterceptions": 0,
+            "duelsTotal": 0,
+            "duelsWon": 0,
+            "dribblesAttempts": 0,
+            "dribblesSuccess": 0,
             "dribblesPast": null,
-            "foulsDrawn": null,
-            "foulsCommitted": null,
+            "foulsDrawn": 0,
+            "foulsCommitted": 0,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -3677,12 +5220,12 @@
             "apps": 5,
             "yellow": 0,
             "red": null,
-            "rating": 5.41,
+            "rating": 6.5,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 6,
             "shotsOn": 1,
-            "passesTotal": 125,
+            "passesTotal": 126,
             "passesKey": 4,
             "passesAccuracy": 85,
             "tacklesTotal": 4,
@@ -3789,18 +5332,18 @@
             "apps": 6,
             "yellow": 2,
             "red": null,
-            "rating": 6.77,
+            "rating": 6.66,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 5,
+            "shotsTotal": 4,
             "shotsOn": 4,
-            "passesTotal": 322,
+            "passesTotal": 323,
             "passesKey": 1,
-            "passesAccuracy": 90,
-            "tacklesTotal": 8,
-            "tacklesBlocks": 5,
+            "passesAccuracy": 89,
+            "tacklesTotal": 7,
+            "tacklesBlocks": 4,
             "tacklesInterceptions": 9,
-            "duelsTotal": 35,
+            "duelsTotal": 34,
             "duelsWon": 21,
             "dribblesAttempts": 0,
             "dribblesSuccess": 0,
@@ -3845,19 +5388,19 @@
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 6.34,
+            "rating": 6.43,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 3,
+            "shotsTotal": 4,
             "shotsOn": 1,
-            "passesTotal": 229,
+            "passesTotal": 227,
             "passesKey": 8,
             "passesAccuracy": 74,
-            "tacklesTotal": 21,
-            "tacklesBlocks": 0,
+            "tacklesTotal": 20,
+            "tacklesBlocks": 1,
             "tacklesInterceptions": 3,
-            "duelsTotal": 51,
-            "duelsWon": 32,
+            "duelsTotal": 53,
+            "duelsWon": 31,
             "dribblesAttempts": 6,
             "dribblesSuccess": 3,
             "dribblesPast": null,
@@ -3901,18 +5444,18 @@
             "apps": 6,
             "yellow": 1,
             "red": null,
-            "rating": 6.5,
+            "rating": 6.63,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 1,
             "shotsOn": 1,
-            "passesTotal": 228,
+            "passesTotal": 227,
             "passesKey": 1,
-            "passesAccuracy": 82,
+            "passesAccuracy": 83,
             "tacklesTotal": 4,
             "tacklesBlocks": 7,
-            "tacklesInterceptions": 9,
-            "duelsTotal": 27,
+            "tacklesInterceptions": 11,
+            "duelsTotal": 24,
             "duelsWon": 12,
             "dribblesAttempts": 1,
             "dribblesSuccess": 0,
@@ -3953,28 +5496,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
             "rating": null,
             "conceded": 0,
-            "saves": null,
-            "shotsTotal": null,
-            "shotsOn": null,
-            "passesTotal": null,
-            "passesKey": null,
+            "saves": 0,
+            "shotsTotal": 0,
+            "shotsOn": 0,
+            "passesTotal": 0,
+            "passesKey": 0,
             "passesAccuracy": null,
-            "tacklesTotal": null,
-            "tacklesBlocks": null,
-            "tacklesInterceptions": null,
-            "duelsTotal": null,
-            "duelsWon": null,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "tacklesTotal": 0,
+            "tacklesBlocks": 0,
+            "tacklesInterceptions": 0,
+            "duelsTotal": 0,
+            "duelsWon": 0,
+            "dribblesAttempts": 0,
+            "dribblesSuccess": 0,
             "dribblesPast": null,
-            "foulsDrawn": null,
-            "foulsCommitted": null,
+            "foulsDrawn": 0,
+            "foulsCommitted": 0,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -4039,12 +5582,12 @@
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 6.82,
+            "rating": 6.71,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 3,
             "shotsOn": 0,
-            "passesTotal": 129,
+            "passesTotal": 130,
             "passesKey": 3,
             "passesAccuracy": 82,
             "tacklesTotal": 9,
@@ -4095,20 +5638,20 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.27,
+            "rating": 6.61,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 1,
             "shotsOn": 0,
             "passesTotal": 72,
             "passesKey": 0,
-            "passesAccuracy": 83,
-            "tacklesTotal": 2,
-            "tacklesBlocks": 0,
+            "passesAccuracy": 80,
+            "tacklesTotal": 3,
+            "tacklesBlocks": 2,
             "tacklesInterceptions": 1,
-            "duelsTotal": 15,
-            "duelsWon": 5,
-            "dribblesAttempts": 1,
+            "duelsTotal": 16,
+            "duelsWon": 6,
+            "dribblesAttempts": 2,
             "dribblesSuccess": 0,
             "dribblesPast": null,
             "foulsDrawn": 2,
@@ -4151,25 +5694,25 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.12,
+            "rating": 6.64,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 4,
+            "shotsTotal": 6,
             "shotsOn": 1,
             "passesTotal": 119,
             "passesKey": 5,
             "passesAccuracy": 84,
             "tacklesTotal": 5,
-            "tacklesBlocks": 0,
+            "tacklesBlocks": 2,
             "tacklesInterceptions": 3,
             "duelsTotal": 19,
             "duelsWon": 12,
-            "dribblesAttempts": 2,
+            "dribblesAttempts": 3,
             "dribblesSuccess": 1,
             "dribblesPast": null,
             "foulsDrawn": 6,
             "foulsCommitted": 2,
-            "penaltyWon": 2,
+            "penaltyWon": 1,
             "penaltyCommitted": null,
             "penaltyScored": 0,
             "penaltyMissed": 0,
@@ -4207,16 +5750,16 @@
             "apps": 3,
             "yellow": 1,
             "red": null,
-            "rating": 4.75,
+            "rating": 3.86,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 1,
+            "shotsTotal": 0,
             "shotsOn": 0,
             "passesTotal": 23,
             "passesKey": 0,
             "passesAccuracy": 86,
             "tacklesTotal": 2,
-            "tacklesBlocks": 1,
+            "tacklesBlocks": 0,
             "tacklesInterceptions": 1,
             "duelsTotal": 6,
             "duelsWon": 2,
@@ -4285,28 +5828,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 0,
+            "minutes": null,
             "apps": 0,
             "yellow": 0,
             "red": null,
             "rating": null,
             "conceded": 0,
-            "saves": 0,
-            "shotsTotal": 0,
-            "shotsOn": 0,
-            "passesTotal": 0,
-            "passesKey": 0,
+            "saves": null,
+            "shotsTotal": null,
+            "shotsOn": null,
+            "passesTotal": null,
+            "passesKey": null,
             "passesAccuracy": null,
-            "tacklesTotal": 0,
-            "tacklesBlocks": 0,
-            "tacklesInterceptions": 0,
-            "duelsTotal": 0,
-            "duelsWon": 0,
-            "dribblesAttempts": 0,
-            "dribblesSuccess": 0,
+            "tacklesTotal": null,
+            "tacklesBlocks": null,
+            "tacklesInterceptions": null,
+            "duelsTotal": null,
+            "duelsWon": null,
+            "dribblesAttempts": null,
+            "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": 0,
-            "foulsCommitted": 0,
+            "foulsDrawn": null,
+            "foulsCommitted": null,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -4345,20 +5888,20 @@
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 6.44,
+            "rating": 6.45,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 3,
             "shotsOn": 0,
-            "passesTotal": 163,
+            "passesTotal": 162,
             "passesKey": 3,
             "passesAccuracy": 84,
-            "tacklesTotal": 17,
+            "tacklesTotal": 16,
             "tacklesBlocks": 2,
             "tacklesInterceptions": 4,
-            "duelsTotal": 51,
-            "duelsWon": 21,
-            "dribblesAttempts": 6,
+            "duelsTotal": 52,
+            "duelsWon": 20,
+            "dribblesAttempts": 7,
             "dribblesSuccess": 1,
             "dribblesPast": null,
             "foulsDrawn": 1,
@@ -4401,7 +5944,7 @@
             "apps": 5,
             "yellow": 1,
             "red": null,
-            "rating": 5.39,
+            "rating": 6.34,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 0,
@@ -4414,7 +5957,7 @@
             "tacklesInterceptions": 0,
             "duelsTotal": 13,
             "duelsWon": 5,
-            "dribblesAttempts": 5,
+            "dribblesAttempts": 4,
             "dribblesSuccess": 1,
             "dribblesPast": null,
             "foulsDrawn": 0,
@@ -4458,19 +6001,19 @@
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 7.27,
+            "rating": 7.2,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 19,
+            "shotsTotal": 22,
             "shotsOn": 15,
-            "passesTotal": 182,
+            "passesTotal": 179,
             "passesKey": 10,
-            "passesAccuracy": 78,
-            "tacklesTotal": 3,
-            "tacklesBlocks": 0,
+            "passesAccuracy": 77,
+            "tacklesTotal": 2,
+            "tacklesBlocks": 4,
             "tacklesInterceptions": 0,
-            "duelsTotal": 60,
-            "duelsWon": 26,
+            "duelsTotal": 59,
+            "duelsWon": 25,
             "dribblesAttempts": 11,
             "dribblesSuccess": 5,
             "dribblesPast": null,
@@ -4479,7 +6022,7 @@
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 2,
-            "penaltyMissed": 1,
+            "penaltyMissed": 0,
             "penaltySaved": null
           }
         },
@@ -4566,20 +6109,20 @@
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 6.67,
+            "rating": 6.52,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 7,
+            "shotsTotal": 8,
             "shotsOn": 4,
-            "passesTotal": 145,
+            "passesTotal": 150,
             "passesKey": 4,
             "passesAccuracy": 90,
             "tacklesTotal": 10,
-            "tacklesBlocks": 0,
+            "tacklesBlocks": 1,
             "tacklesInterceptions": 1,
             "duelsTotal": 49,
             "duelsWon": 24,
-            "dribblesAttempts": 9,
+            "dribblesAttempts": 10,
             "dribblesSuccess": 3,
             "dribblesPast": null,
             "foulsDrawn": 6,
@@ -4622,24 +6165,24 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.6,
+            "rating": 4.13,
             "conceded": 0,
-            "saves": null,
+            "saves": 0,
             "shotsTotal": 1,
             "shotsOn": 1,
             "passesTotal": 6,
-            "passesKey": null,
+            "passesKey": 0,
             "passesAccuracy": 83,
             "tacklesTotal": 3,
-            "tacklesBlocks": null,
-            "tacklesInterceptions": null,
+            "tacklesBlocks": 0,
+            "tacklesInterceptions": 0,
             "duelsTotal": 4,
             "duelsWon": 3,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "dribblesAttempts": 0,
+            "dribblesSuccess": 0,
             "dribblesPast": null,
-            "foulsDrawn": null,
-            "foulsCommitted": null,
+            "foulsDrawn": 0,
+            "foulsCommitted": 0,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -4678,19 +6221,19 @@
             "apps": 6,
             "yellow": 1,
             "red": null,
-            "rating": 6.77,
+            "rating": 6.84,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 1,
             "shotsOn": 0,
-            "passesTotal": 286,
+            "passesTotal": 284,
             "passesKey": 9,
             "passesAccuracy": 85,
-            "tacklesTotal": 12,
-            "tacklesBlocks": 1,
-            "tacklesInterceptions": 9,
-            "duelsTotal": 45,
-            "duelsWon": 28,
+            "tacklesTotal": 15,
+            "tacklesBlocks": 2,
+            "tacklesInterceptions": 10,
+            "duelsTotal": 48,
+            "duelsWon": 31,
             "dribblesAttempts": 5,
             "dribblesSuccess": 3,
             "dribblesPast": null,
@@ -4734,18 +6277,18 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 4.14,
+            "rating": 6.29,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 1,
+            "shotsTotal": 3,
             "shotsOn": 0,
-            "passesTotal": 11,
+            "passesTotal": 10,
             "passesKey": 1,
             "passesAccuracy": 90,
             "tacklesTotal": 0,
-            "tacklesBlocks": 0,
+            "tacklesBlocks": 2,
             "tacklesInterceptions": 0,
-            "duelsTotal": 13,
+            "duelsTotal": 12,
             "duelsWon": 4,
             "dribblesAttempts": 1,
             "dribblesSuccess": 0,
@@ -4790,14 +6333,14 @@
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 7.1,
+            "rating": 6.92,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 6,
             "shotsOn": 5,
             "passesTotal": 45,
             "passesKey": 4,
-            "passesAccuracy": 75,
+            "passesAccuracy": 73,
             "tacklesTotal": 3,
             "tacklesBlocks": 0,
             "tacklesInterceptions": 0,
@@ -4846,19 +6389,19 @@
             "apps": 6,
             "yellow": 1,
             "red": null,
-            "rating": 6.58,
+            "rating": 6.37,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 3,
             "shotsOn": 1,
-            "passesTotal": 95,
+            "passesTotal": 94,
             "passesKey": 8,
-            "passesAccuracy": 72,
+            "passesAccuracy": 73,
             "tacklesTotal": 4,
-            "tacklesBlocks": 0,
-            "tacklesInterceptions": 2,
+            "tacklesBlocks": 1,
+            "tacklesInterceptions": 3,
             "duelsTotal": 29,
-            "duelsWon": 11,
+            "duelsWon": 12,
             "dribblesAttempts": 4,
             "dribblesSuccess": 2,
             "dribblesPast": null,
@@ -4870,32 +6413,6 @@
             "penaltyMissed": 0,
             "penaltySaved": null
           }
-        },
-        {
-          "apiId": 329438,
-          "number": 23,
-          "name": "Benjamin Merlin Zank",
-          "photo": "https://media.api-sports.io/football/players/329438.png",
-          "pos": "ATT",
-          "positions": [
-            "ATT"
-          ],
-          "role": "ATT",
-          "age": 21,
-          "height": null,
-          "weight": null,
-          "foot": null,
-          "nat": "GER",
-          "natTeam": null,
-          "birthCountry": "Germany",
-          "pronunciation": null,
-          "career": null,
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": null
         }
       ],
       "form": {
@@ -4908,8 +6425,8 @@
         ],
         "ppg": 1,
         "homeAway": "Acasă 0-1-2, deplasare 1-2-0",
-        "position": 12,
-        "note": "Clasament 2026/27: locul 12, 6p (9-11)",
+        "position": 14,
+        "note": "Clasament 2026/27: locul 14, 6p (9-11)",
         "table": {
           "played": 6,
           "win": 1,
@@ -4919,6 +6436,1611 @@
           "ga": 11,
           "points": 6
         },
+        "recent": [
+          {
+            "date": "2026-10-01",
+            "opp": "VfB Stuttgart",
+            "homeAway": "A",
+            "comp": "Friendlies Clubs",
+            "score": "0-5",
+            "result": "L",
+            "referee": null,
+            "formation": null,
+            "lineups": {
+              "us": [
+                {
+                  "name": "S. Prufrock",
+                  "number": 43,
+                  "pos": null
+                },
+                {
+                  "name": "L. Reich",
+                  "number": 2,
+                  "pos": null
+                },
+                {
+                  "name": "E. Benkara",
+                  "number": 4,
+                  "pos": null
+                },
+                {
+                  "name": "H. Blank",
+                  "number": 34,
+                  "pos": null
+                },
+                {
+                  "name": "D. Spath",
+                  "number": 49,
+                  "pos": null
+                },
+                {
+                  "name": "P. Will",
+                  "number": 13,
+                  "pos": null
+                },
+                {
+                  "name": "F. Klaus",
+                  "number": 30,
+                  "pos": null
+                },
+                {
+                  "name": "S. Appelkamp",
+                  "number": 8,
+                  "pos": null
+                },
+                {
+                  "name": "D. Srbeny",
+                  "number": 7,
+                  "pos": null
+                },
+                {
+                  "name": "O. Pohlmann",
+                  "number": 10,
+                  "pos": null
+                },
+                {
+                  "name": "Jordan",
+                  "number": 9,
+                  "pos": null
+                }
+              ],
+              "opp": [
+                {
+                  "name": "D. Seimen",
+                  "number": 41,
+                  "pos": null
+                },
+                {
+                  "name": "L. Stergiou",
+                  "number": 20,
+                  "pos": null
+                },
+                {
+                  "name": "J. Chabot",
+                  "number": 24,
+                  "pos": null
+                },
+                {
+                  "name": "R. Hendriks",
+                  "number": 3,
+                  "pos": null
+                },
+                {
+                  "name": "C. Schramm",
+                  "number": 50,
+                  "pos": null
+                },
+                {
+                  "name": "A. Stiller",
+                  "number": 6,
+                  "pos": null
+                },
+                {
+                  "name": "A. Karazor",
+                  "number": 16,
+                  "pos": null
+                },
+                {
+                  "name": "J. Leweling",
+                  "number": 18,
+                  "pos": null
+                },
+                {
+                  "name": "G. Promel",
+                  "number": 21,
+                  "pos": null
+                },
+                {
+                  "name": "C. Fuhrich",
+                  "number": 10,
+                  "pos": null
+                },
+                {
+                  "name": "D. Undav",
+                  "number": 26,
+                  "pos": null
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 15,
+                "side": "opp",
+                "type": "goal",
+                "player": "D. Undav",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 17,
+                "side": "opp",
+                "type": "goal",
+                "player": "G. Promel",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 37,
+                "side": "opp",
+                "type": "goal",
+                "player": "D. Undav",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Chabot",
+                "playerIn": "L. Assignon"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Schramm",
+                "playerIn": "J. Masanka Bungi"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Promel",
+                "playerIn": "T. van der Leij"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Prufrock",
+                "playerIn": "C. Ortag"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Will",
+                "playerIn": "J. Dehm"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Benkara",
+                "playerIn": "J. Heuer"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "H. Blank",
+                "playerIn": "K. Keresztes"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Spath",
+                "playerIn": "J. Krautkramer"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Appelkamp",
+                "playerIn": "O. Balliu"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Srbeny",
+                "playerIn": "S. Banse"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Klaus",
+                "playerIn": "A. Keller"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. Pohlmann",
+                "playerIn": "O. Megeed"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Reich",
+                "playerIn": "M. Wallentowitz"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jordan",
+                "playerIn": "O. Sillah"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": null,
+                "playerIn": "J. Vagnoman"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Seimen",
+                "playerIn": "M. Funk"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": null,
+                "playerIn": "L. Giandomenico"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "goal",
+                "player": "T. van der Leij",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "goal",
+                "player": "J. Leweling",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-09-18",
+            "opp": "1. FC Magdeburg",
+            "homeAway": "H",
+            "comp": "2. Bundesliga",
+            "score": "1-1",
+            "result": "D",
+            "referee": "C. Ballweg",
+            "formation": {
+              "us": "4-4-2",
+              "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "F. Hellstern",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "L. Reich",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Heuer",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Blank",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Itter",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Appelkamp",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Will",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Banse",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Pohlmann",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Klaus",
+                  "number": 30,
+                  "pos": "F"
+                },
+                {
+                  "name": "O. Sillah",
+                  "number": 42,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "D. Reimann",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "H. Bockhorn",
+                  "number": 7,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Muller",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Garcia MacNulty",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Nollenberger",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Musel",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Hyrylainen",
+                  "number": 38,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Michel",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Iyoha",
+                  "number": 8,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Zukowski",
+                  "number": 22,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Kwarteng",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 5,
+                "side": "opp",
+                "type": "goal",
+                "player": "E. Iyoha",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 20,
+                "side": "us",
+                "type": "goal",
+                "player": "O. Sillah",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 33,
+                "side": "us",
+                "type": "yellow",
+                "player": "Jannis Heuer",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 57,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Luka Hyryläinen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Banse",
+                "playerIn": "F. Ademi"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Appelkamp",
+                "playerIn": "D. Srbeny"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Hyrylainen",
+                "playerIn": "F. Chavez"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Nollenberger",
+                "playerIn": "R. Tachie"
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "yellow",
+                "player": "Paul Will",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. Pohlmann",
+                "playerIn": "A. Keller"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "yellow",
+                "player": "Dennis Srbeny",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "H. Blank",
+                "playerIn": "K. Keresztes"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "H. Bockhorn",
+                "playerIn": "P. Nadjombe"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Kwarteng",
+                "playerIn": "M. Baars"
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Zukowski",
+                "playerIn": "R. Simic"
+              }
+            ]
+          },
+          {
+            "date": "2026-09-12",
+            "opp": "VfL Bochum",
+            "homeAway": "A",
+            "comp": "2. Bundesliga",
+            "score": "1-1",
+            "result": "D",
+            "referee": "F. Bickel",
+            "formation": {
+              "us": "4-4-2",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "F. Hellstern",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "L. Reich",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Heuer",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Keresztes",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Itter",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Ademi",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Will",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Banse",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Pohlmann",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Klaus",
+                  "number": 30,
+                  "pos": "F"
+                },
+                {
+                  "name": "Jordan",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "T. Horn",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Klaiber",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Steinwender",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Mets",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Wittek",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Meyer",
+                  "number": 34,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Pannewig",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Rasmussen",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Miyoshi",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Holtmann",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Hofmann",
+                  "number": 33,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 16,
+                "side": "opp",
+                "type": "goal",
+                "player": "Philipp Hofmann",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 28,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Mats Henry Pannewig",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 30,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gerrit Holtmann",
+                "playerIn": "Jarne Steuckers"
+              },
+              {
+                "minute": 57,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Krisztián Keresztes",
+                "playerIn": "Hendry. Blank"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sacha Banse",
+                "playerIn": "Dennis Srbeny"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Christian Theodor Kjelder Rasmussen",
+                "playerIn": "alessandro crimaldi"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sean Klaiber",
+                "playerIn": "Yigit Karademir"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jordan Siebatcheu",
+                "playerIn": "Omar Sillah"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "goal",
+                "player": "Omar Sillah",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Tom Meyer",
+                "playerIn": "Daniel Hanslik"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Maximilian Wittek",
+                "playerIn": "Lasse Isbruch"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Faton Ademi",
+                "playerIn": "Doni Arifi"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Lukas Reich",
+                "playerIn": "Jannik Dehm"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "red",
+                "player": "Mats Henry Pannewig",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-09-06",
+            "opp": "1. FC Heidenheim",
+            "homeAway": "H",
+            "comp": "2. Bundesliga",
+            "score": "0-1",
+            "result": "L",
+            "referee": "K. Oldhafer",
+            "formation": {
+              "us": "4-4-2",
+              "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "F. Hellstern",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Dehm",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Heuer",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Keresztes",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Itter",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Ademi",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Will",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Banse",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Pohlmann",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Klaus",
+                  "number": 30,
+                  "pos": "F"
+                },
+                {
+                  "name": "D. Srbeny",
+                  "number": 7,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "T. Dahne",
+                  "number": 33,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Busch",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Mainka",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Fohrenbach",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Heule",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "O. Mhamdi",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Honsak",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Schoppner",
+                  "number": 3,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Costly",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Vogt",
+                  "number": 18,
+                  "pos": "F"
+                },
+                {
+                  "name": "B. Zivzivadze",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 12,
+                "side": "opp",
+                "type": "goal",
+                "player": "B. Zivzivadze",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Srbeny",
+                "playerIn": "O. Sillah"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Ademi",
+                "playerIn": "Jordan"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "yellow",
+                "player": "Krisztián Keresztes",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. Mhamdi",
+                "playerIn": "J. Niehues"
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Honsak",
+                "playerIn": "C. Conteh"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Dehm",
+                "playerIn": "L. Reich"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Banse",
+                "playerIn": "A. Keller"
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Keresztes",
+                "playerIn": "H. Blank"
+              },
+              {
+                "minute": 85,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Zivzivadze",
+                "playerIn": "M. Zrilic"
+              },
+              {
+                "minute": 85,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Vogt",
+                "playerIn": "M. Breunig"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Jan Schöppner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": null,
+                "playerIn": "T. Siersleben"
+              }
+            ]
+          },
+          {
+            "date": "2026-08-29",
+            "opp": "Energie Cottbus",
+            "homeAway": "A",
+            "comp": "2. Bundesliga",
+            "score": "4-3",
+            "result": "W",
+            "referee": "F. Weller",
+            "formation": {
+              "us": "4-4-2",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "F. Hellstern",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Dehm",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Heuer",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Keresztes",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Itter",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Appelkamp",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Banse",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Will",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Pohlmann",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Klaus",
+                  "number": 30,
+                  "pos": "F"
+                },
+                {
+                  "name": "D. Srbeny",
+                  "number": 7,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Lotka",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "L. Erlein",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Manu",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Doumbia",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Borgmann",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Bittencourt",
+                  "number": 32,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Michelbrink",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Hannemann",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Boziaris",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Kinsombi",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Copado",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 6,
+                "side": "opp",
+                "type": "goal",
+                "player": "L. Copado",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "goal",
+                "player": "F. Klaus",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Erlein",
+                "playerIn": "H. Rorig"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Hannemann",
+                "playerIn": "T. Cigerci"
+              },
+              {
+                "minute": 47,
+                "side": "us",
+                "type": "owngoal",
+                "player": "F. Doumbia",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 50,
+                "side": "us",
+                "type": "yellow",
+                "player": "Jannis Heuer",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 54,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Jannis Boziaris",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Doumbia",
+                "playerIn": "T. Campulka"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Srbeny",
+                "playerIn": "O. Sillah"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Kinsombi",
+                "playerIn": "J. Butler"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "goal",
+                "player": "T. Cigerci",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "goal",
+                "player": "O. Pohlmann",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Dehm",
+                "playerIn": "L. Reich"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "yellow",
+                "player": "King Manu",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Boziaris",
+                "playerIn": "D. Bogdanov"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "goal",
+                "player": "F. Klaus",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 83,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Banse",
+                "playerIn": "D. Arifi"
+              },
+              {
+                "minute": 83,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Appelkamp",
+                "playerIn": "A. Keller"
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "yellow",
+                "player": "Doni Arifi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "goal",
+                "player": "D. Bogdanov",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-08-23",
+            "opp": "VfL Bochum",
+            "homeAway": "H",
+            "comp": "DFB Pokal",
+            "score": "1-2",
+            "result": "L",
+            "referee": "F. Lechner",
+            "formation": {
+              "us": "4-4-2",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "F. Hellstern",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Dehm",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Heuer",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Keresztes",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Itter",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Appelkamp",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Banse",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Will",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Pohlmann",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Klaus",
+                  "number": 30,
+                  "pos": "F"
+                },
+                {
+                  "name": "D. Srbeny",
+                  "number": 7,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "T. Horn",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "O. Olsen",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Steinwender",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Mets",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Wittek",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Cokaj",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Pannewig",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Miyoshi",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Taz",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Rasmussen",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Hofmann",
+                  "number": 33,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 25,
+                "side": "opp",
+                "type": "goal",
+                "player": "C. Rasmussen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 36,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. Olsen",
+                "playerIn": "J. Mbom"
+              },
+              {
+                "minute": 57,
+                "side": "us",
+                "type": "yellow",
+                "player": "Krisztián Keresztes",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "yellow",
+                "player": "Paul Will",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Jean-Manuel Mbom",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Rasmussen",
+                "playerIn": "A. Crimaldi"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Taz",
+                "playerIn": "D. Hanslik"
+              },
+              {
+                "minute": 64,
+                "side": "opp",
+                "type": "goal",
+                "player": "P. Hofmann",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Dehm",
+                "playerIn": "L. Reich"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. Pohlmann",
+                "playerIn": "A. Keller"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Wittek",
+                "playerIn": "L. Sawas"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Keresztes",
+                "playerIn": "M. Dal"
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Pannewig",
+                "playerIn": "T. Meyer"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Dal",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Enis Çokaj",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Banse",
+                "playerIn": "O. Balliu"
+              }
+            ]
+          }
+        ],
+        "next": [
+          {
+            "date": "2026-10-11",
+            "opp": "Hertha BSC",
+            "homeAway": "A",
+            "comp": "2. Bundesliga"
+          },
+          {
+            "date": "2026-10-17",
+            "opp": "Eintracht Braunschweig",
+            "homeAway": "H",
+            "comp": "2. Bundesliga"
+          },
+          {
+            "date": "2026-10-25",
+            "opp": "VfL Osnabrück",
+            "homeAway": "A",
+            "comp": "2. Bundesliga"
+          }
+        ],
         "stats": {
           "goalsForByInterval": {
             "16-30": 2,
@@ -5248,26 +8370,38 @@
       "news": [],
       "newsCandidates": [
         {
+          "title": "Live hören: Hertha BSC gegen SpVgg Greuther Fürth - 2. Bundesliga",
+          "url": "https://www.sportschau.de/fussball/bundesliga2/hertha-bsc-gegen-spvgg-greuther-fuerth,audiostream-hertha-bsc-gegen-spvgg-greuther-fuerth-106.html",
+          "source": "Sportschau",
+          "published": "2026-10-11"
+        },
+        {
           "title": "Confirmed lineups: 1. FC Nürnberg vs. VfL Wolfsburg",
           "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFAwQjg2RWg0bFdITzVadHdwZXR0UzM1bExsb2JLdzRScGg4cm5KRW5pZGxiT3VHbWRRSm1WeDdHTTYxTGoyV040N2N5THVfSTN1OXgwTHlXeDVxWXFQNUtQUVJtRDVRSmpfdzd4MkJURTM?oc=5",
           "source": "Bulinews",
           "published": "2026-10-10"
         },
         {
-          "title": "1. FC Heidenheim - 1. FC Kaiserslautern Related Matches: Live Football Updates",
-          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNRXNsUHNPTTlENnVNbWtZSldsbmlrRmotaXhkNl90OW1za1NxQ1puZjZURFZSclZqZmczd05NdC1YYkVnUzBtRXVXRFVNZ0REdExSMG1PbzZkSjhEdktXS0p4UVEzMm9JVFNQdUd1T01PMmZZY0hiVjNWTUFPMGpSTm5mbHR1ZzM4MVBvVF9tNW93SHFXVTJwMU9lVjJJaVY2WHhWNkhNOXoycFFVRTRxYnZKTUtrWWdRdzI0WWRpQTFrTTRocHQ3VzRFeXV4dms?oc=5",
-          "source": "TNT Sports",
-          "published": "2026-10-09"
-        },
-        {
-          "title": "FC St. Pauli - Karlsruher SC Related Matches: Live Football Updates",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOeXp1dU1yVi1Ma01BQXVDb2tULXUyeUJLRktiRGpUY05ZWVRuWmR3NXpRZ204UWFNVFJxOGwtQ1N5dUFYVXdVOVBEaHdmSl9rM3B5RkR6VVAxZ1JvZTltTUtONWZoTV90SE5Xd2NjUnBDc2thUUFRamltYTcweUhXZkw2eG81eV9yYVg1elpCaXBmRUw2ZGxrLUdCNE5JdjBYR2ttS2lfY04xOUt1eXNoNHZNNlVnWTZld0E?oc=5",
-          "source": "TNT Sports",
-          "published": "2026-10-09"
+          "title": "Nürnberg and Wolfsburg split points in spectacular late drama",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOeE5zSEQ5VVdNNkFNVDdsZUtGcWlHNXUxYmMwQldrZEtHZXBkZV9DZzkwV2JXbXFLXzAxZG9BZm1wYzVSWVNfUk9CdmZzZWNjd0w1Q1podmhzUjZaOFl2ZDFJU0ZlWHJaSU1ZLTRGN3NyU2VOeUdnUml1TXB1WVNVUk9feTdOQQ?oc=5",
+          "source": "Bulinews",
+          "published": "2026-10-10"
         },
         {
           "title": "VfL Bochum - Arminia Bielefeld Related Matches: Live Football Updates",
           "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNTEFrVTBEVzB1ZWhTRmpwN1hYQU1OcVpwckhFQ05mTlUxd21kRTdRSnRCNVIwem9HSC1IcGtmUm82dDNVam50dDllRkJ5enY5NGxtNzg2N3VaOUVpUjNYUHUyU2tORFR1YVNQQkJpeWxNYnE2QjQySzNiM0hRbUkwblJZWU9TTWY0QXVJaXVrY0pyb2QzcGhRV3VUMTBjcjRiaDVBVWRUTEFTZHY3UGd2eUtXb3FYQm5ieVBDQw?oc=5",
+          "source": "TNT Sports",
+          "published": "2026-10-09"
+        },
+        {
+          "title": "1. FC Nürnberg vs. VfL Wolfsburg preview: Top-five contest in Saturday Topspiel",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBEeTNPQVczYk16b0ZKZjUwazFWT1UtYUJhOGlBcWVueGZORFZKMVY2YjRBd0M2enQ4U3hOUHNVTTFReGIxWUlPX0owWG1YMDJWNW91bGw2REVkR0d5bUVoNUwtUFd2TVBmTWJFR1BGa2FUbkU?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-10-09"
+        },
+        {
+          "title": "1. FC Heidenheim - 1. FC Kaiserslautern Related Matches: Live Football Updates",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNRXNsUHNPTTlENnVNbWtZSldsbmlrRmotaXhkNl90OW1za1NxQ1puZjZURFZSclZqZmczd05NdC1YYkVnUzBtRXVXRFVNZ0REdExSMG1PbzZkSjhEdktXS0p4UVEzMm9JVFNQdUd1T01PMmZZY0hiVjNWTUFPMGpSTm5mbHR1ZzM4MVBvVF9tNW93SHFXVTJwMU9lVjJJaVY2WHhWNkhNOXoycFFVRTRxYnZKTUtrWWdRdzI0WWRpQTFrTTRocHQ3VzRFeXV4dms?oc=5",
           "source": "TNT Sports",
           "published": "2026-10-09"
         },
@@ -5278,22 +8412,10 @@
           "published": "2026-10-09"
         },
         {
-          "title": "1. FC Nürnberg vs. VfL Wolfsburg preview: Top-five contest in Saturday Topspiel",
-          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBEeTNPQVczYk16b0ZKZjUwazFWT1UtYUJhOGlBcWVueGZORFZKMVY2YjRBd0M2enQ4U3hOUHNVTTFReGIxWUlPX0owWG1YMDJWNW91bGw2REVkR0d5bUVoNUwtUFd2TVBmTWJFR1BGa2FUbkU?oc=5",
-          "source": "Yahoo Sports",
+          "title": "FC St. Pauli - Karlsruher SC Related Matches: Live Football Updates",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOeXp1dU1yVi1Ma01BQXVDb2tULXUyeUJLRktiRGpUY05ZWVRuWmR3NXpRZ204UWFNVFJxOGwtQ1N5dUFYVXdVOVBEaHdmSl9rM3B5RkR6VVAxZ1JvZTltTUtONWZoTV90SE5Xd2NjUnBDc2thUUFRamltYTcweUhXZkw2eG81eV9yYVg1elpCaXBmRUw2ZGxrLUdCNE5JdjBYR2ttS2lfY04xOUt1eXNoNHZNNlVnWTZld0E?oc=5",
+          "source": "TNT Sports",
           "published": "2026-10-09"
-        },
-        {
-          "title": "Weitere Details zur Namensfrage bei der SpVgg Greuther Fürth bekannt",
-          "url": "https://www.kicker.de/weitere-details-zur-namensfrage-bei-der-spvgg-greuther-fuerth-bekannt-1259384/artikel#omrss",
-          "source": "Kicker",
-          "published": "2026-10-08"
-        },
-        {
-          "title": "VfL Bochum 1848 - DSC Arminia Bielefeld betting tip & best odds | 11.10.2026",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNaUs5dUR1SGtsell1c09GZzlpcjhwdklJYkxxMVUtUmZFblAtZlNpLVByMW9DYTVrRFBGWWlqV3dHRS1hOS13ZjBBNElySGt1cUtWUk5CcUNwWXJHZ1dCN2dXUjNudGZKaFpRQldqdjROMElkVGNSR2RKQnRmaW43TEN0bGVQdHJTRzNzQVJkWmNDLXE5bDRKUzU0VUUtVGlPZlhpV3V6bjh5SFU?oc=5",
-          "source": "Futbol24",
-          "published": "2026-10-08"
         }
       ],
       "stories": []
@@ -5321,88 +8443,116 @@
         "rank": 2,
         "teamId": 171,
         "team": "1. FC Nürnberg",
-        "played": 6,
+        "played": 7,
         "win": 5,
-        "draw": 1,
+        "draw": 2,
         "loss": 0,
-        "gf": 16,
-        "ga": 6,
+        "gf": 20,
+        "ga": 10,
         "gd": 10,
-        "points": 16,
-        "form": "WWDWW"
+        "points": 17,
+        "form": "DWWDW"
       },
       {
         "rank": 3,
         "teamId": 180,
         "team": "1. FC Heidenheim",
-        "played": 6,
+        "played": 7,
         "win": 4,
-        "draw": 1,
+        "draw": 2,
         "loss": 1,
         "gf": 14,
         "ga": 12,
         "gd": 2,
-        "points": 13,
-        "form": "DWWWL"
+        "points": 14,
+        "form": "DDWWW"
       },
       {
         "rank": 4,
-        "teamId": 161,
-        "team": "VfL Wolfsburg",
-        "played": 6,
-        "win": 3,
-        "draw": 2,
-        "loss": 1,
-        "gf": 15,
-        "ga": 8,
-        "gd": 7,
-        "points": 11,
-        "form": "WLDWW"
+        "teamId": 179,
+        "team": "1. FC Magdeburg",
+        "played": 7,
+        "win": 4,
+        "draw": 1,
+        "loss": 2,
+        "gf": 14,
+        "ga": 9,
+        "gd": 5,
+        "points": 13,
+        "form": "WDWLW"
       },
       {
         "rank": 5,
+        "teamId": 161,
+        "team": "VfL Wolfsburg",
+        "played": 7,
+        "win": 3,
+        "draw": 3,
+        "loss": 1,
+        "gf": 19,
+        "ga": 12,
+        "gd": 7,
+        "points": 12,
+        "form": "DWLDW"
+      },
+      {
+        "rank": 6,
         "teamId": 745,
         "team": "1. FC Kaiserslautern",
-        "played": 6,
+        "played": 7,
         "win": 3,
-        "draw": 2,
+        "draw": 3,
         "loss": 1,
         "gf": 6,
         "ga": 4,
         "gd": 2,
-        "points": 11,
-        "form": "WLWWD"
-      },
-      {
-        "rank": 6,
-        "teamId": 179,
-        "team": "1. FC Magdeburg",
-        "played": 6,
-        "win": 3,
-        "draw": 1,
-        "loss": 2,
-        "gf": 11,
-        "ga": 9,
-        "gd": 2,
-        "points": 10,
+        "points": 12,
         "form": "DWLWW"
       },
       {
         "rank": 7,
         "teamId": 1320,
         "team": "Energie Cottbus",
-        "played": 6,
+        "played": 7,
         "win": 2,
         "draw": 2,
-        "loss": 2,
-        "gf": 14,
-        "ga": 13,
-        "gd": 1,
+        "loss": 3,
+        "gf": 15,
+        "ga": 16,
+        "gd": -1,
         "points": 8,
-        "form": "DWDLL"
+        "form": "LDWDL"
       },
       {
         "rank": 8,
+        "teamId": 1324,
+        "team": "VfL Osnabrück",
+        "played": 7,
+        "win": 2,
+        "draw": 2,
+        "loss": 3,
+        "gf": 10,
+        "ga": 13,
+        "gd": -3,
+        "points": 8,
+        "form": "DDLWW"
+      },
+      {
+        "rank": 9,
+        "teamId": 744,
+        "team": "Eintracht Braunschweig",
+        "played": 7,
+        "win": 2,
+        "draw": 1,
+        "loss": 4,
+        "gf": 13,
+        "ga": 13,
+        "gd": 0,
+        "points": 7,
+        "form": "WLDLL"
+      },
+      {
+        "rank": 10,
         "teamId": 186,
         "team": "FC St. Pauli",
         "played": 6,
@@ -5416,7 +8566,7 @@
         "form": "DWDLD"
       },
       {
-        "rank": 9,
+        "rank": 11,
         "teamId": 176,
         "team": "VfL Bochum",
         "played": 6,
@@ -5430,35 +8580,35 @@
         "form": "LDWLW"
       },
       {
-        "rank": 10,
+        "rank": 12,
         "teamId": 166,
         "team": "Hannover 96",
-        "played": 6,
+        "played": 7,
         "win": 2,
         "draw": 1,
-        "loss": 3,
+        "loss": 4,
         "gf": 7,
-        "ga": 9,
-        "gd": -2,
+        "ga": 12,
+        "gd": -5,
         "points": 7,
-        "form": "WLDWL"
+        "form": "LWLDW"
       },
       {
-        "rank": 11,
-        "teamId": 1324,
-        "team": "VfL Osnabrück",
-        "played": 6,
+        "rank": 13,
+        "teamId": 181,
+        "team": "SV Darmstadt 98",
+        "played": 7,
         "win": 2,
         "draw": 1,
-        "loss": 3,
-        "gf": 9,
-        "ga": 12,
-        "gd": -3,
+        "loss": 4,
+        "gf": 8,
+        "ga": 14,
+        "gd": -6,
         "points": 7,
-        "form": "DLWWL"
+        "form": "WLWLL"
       },
       {
-        "rank": 12,
+        "rank": 14,
         "teamId": 178,
         "team": "SpVgg Greuther Fürth",
         "played": 6,
@@ -5472,7 +8622,7 @@
         "form": "DDLWL"
       },
       {
-        "rank": 13,
+        "rank": 15,
         "teamId": 188,
         "team": "Arminia Bielefeld",
         "played": 6,
@@ -5486,7 +8636,21 @@
         "form": "DLDLW"
       },
       {
-        "rank": 14,
+        "rank": 16,
+        "teamId": 183,
+        "team": "Dynamo Dresden",
+        "played": 7,
+        "win": 1,
+        "draw": 2,
+        "loss": 4,
+        "gf": 9,
+        "ga": 15,
+        "gd": -6,
+        "points": 5,
+        "form": "DLDLL"
+      },
+      {
+        "rank": 17,
         "teamId": 785,
         "team": "Karlsruher SC",
         "played": 6,
@@ -5500,60 +8664,18 @@
         "form": "LLDLD"
       },
       {
-        "rank": 15,
-        "teamId": 744,
-        "team": "Eintracht Braunschweig",
-        "played": 6,
-        "win": 1,
-        "draw": 1,
-        "loss": 4,
-        "gf": 12,
-        "ga": 13,
-        "gd": -1,
-        "points": 4,
-        "form": "LDLLL"
-      },
-      {
-        "rank": 16,
+        "rank": 18,
         "teamId": 191,
         "team": "Holstein Kiel",
-        "played": 6,
+        "played": 7,
         "win": 0,
         "draw": 4,
-        "loss": 2,
+        "loss": 3,
         "gf": 7,
-        "ga": 10,
-        "gd": -3,
+        "ga": 11,
+        "gd": -4,
         "points": 4,
-        "form": "DLDLD"
-      },
-      {
-        "rank": 17,
-        "teamId": 183,
-        "team": "Dynamo Dresden",
-        "played": 6,
-        "win": 1,
-        "draw": 1,
-        "loss": 4,
-        "gf": 8,
-        "ga": 14,
-        "gd": -6,
-        "points": 4,
-        "form": "LDLLW"
-      },
-      {
-        "rank": 18,
-        "teamId": 181,
-        "team": "SV Darmstadt 98",
-        "played": 6,
-        "win": 1,
-        "draw": 1,
-        "loss": 4,
-        "gf": 5,
-        "ga": 13,
-        "gd": -8,
-        "points": 4,
-        "form": "LWLLL"
+        "form": "LDLDL"
       }
     ]
   }
