@@ -1082,7 +1082,7 @@ async function getH2H(homeId, awayId, homeName, awayName, cache, force) {
 }
 
 /* ---------- player careers (players/teams, cached 30d) ---------- */
-async function getCareer(playerId, cache, needClub = false) {
+async function getCareer(playerId, cache, needClub = false, needNat = false) {
   cache.careers = cache.careers || {};
   const hit = cache.careers[playerId];
   // A cached "no career" is retried much sooner than a real one: a legitimately
@@ -1090,7 +1090,8 @@ async function getCareer(playerId, cache, needClub = false) {
   // card for the full TTL.
   // `club` is undefined on entries cached before it existed (not the same as
   // null = "looked, no current club"), so a caller that needs it forces a refetch.
-  if (hit && hit.fetchedAt && !(needClub && hit.club === undefined) &&
+  // `natTeam` is undefined on entries cached before it existed, same convention as `club`.
+  if (hit && hit.fetchedAt && !(needClub && hit.club === undefined) && !(needNat && hit.natTeam === undefined) &&
       daysBetween(todayISO(), hit.fetchedAt) < (hit.career ? CAREER_TTL : CAREER_EMPTY_TTL)) return hit.career;
   const j = await af('players/teams', { player: playerId });
   // af() returns null on a failed call (HTTP error, 429 after retries, API
@@ -1120,7 +1121,16 @@ async function getCareer(playerId, cache, needClub = false) {
       : `${c.name} (${c.min}–${end})`;
   });
   const career = parts.length ? parts.slice(0, 10).join(' · ') : null;
-  cache.careers[playerId] = { fetchedAt: todayISO(), career, club };
+  // The senior national team he last played for (players/teams lists national
+  // sides as rows too, youth/Olympic ones carry U21/Olympic in the name). The
+  // API's nationality field is the citizenship (a Ivory Coast international born
+  // in France still says France), so this is what tells them apart.
+  const seniorNat = rows
+    .filter((r) => r.team && r.team.name && COUNTRY_NAMES.has(String(r.team.name).toLowerCase().trim()) && Array.isArray(r.seasons) && r.seasons.length)
+    .map((r) => ({ name: r.team.name, max: Math.max(...r.seasons) }))
+    .sort((a, b) => b.max - a.max)[0];
+  const natTeam = seniorNat ? cc3(seniorNat.name) : null;
+  cache.careers[playerId] = { fetchedAt: todayISO(), career, club, natTeam };
   return career;
 }
 
@@ -1147,6 +1157,25 @@ async function applyCareers(doc, cache) {
    the nationality). Club comes from the same players/teams call as the career;
    the country from teams?id= (club countries never change, cached forever).
    Only for international competitions (competition.country === 'INT'). */
+/* Fill `natTeam` for the likely starters of CLUB matches when the national team
+   they play for differs from the citizenship API-Football gives (nat). Fill-only:
+   never overwrites a natTeam the editorial pass already set. */
+async function applyNatTeams(doc, cache) {
+  if (!doc.competition || doc.competition.country === 'INT') return false;
+  let touched = false;
+  for (const side of ['home', 'away']) {
+    const t = doc.teams[side];
+    const ids = new Set([].concat(t.predictedXI || [], t.confirmedXI || []).map((x) => x && x.apiId).filter((x) => x != null));
+    for (const p of t.squad || []) {
+      if (p.apiId == null || !ids.has(p.apiId) || has(p.natTeam) || !has(p.nat)) continue;
+      await getCareer(p.apiId, cache, false, true);
+      const e = cache.careers && cache.careers[p.apiId];
+      if (e && e.natTeam && e.natTeam !== p.nat) { p.natTeam = e.natTeam; touched = true; }
+    }
+  }
+  return touched;
+}
+
 async function getTeamCountry(teamId, cache) {
   cache.teamCountry = cache.teamCountry || {};
   if (String(teamId) in cache.teamCountry) return cache.teamCountry[teamId];
@@ -1796,6 +1825,7 @@ async function main() {
     let touched = false;
 
     if (await applyClubs(doc, cache)) touched = true;
+    if (await applyNatTeams(doc, cache)) touched = true;
     if (applyPlayerFacts(doc)) touched = true;
 
     if (needNews) {
@@ -1955,6 +1985,7 @@ async function main() {
       await applyStandingsAndForm(doc, f, season, cache);
       await applyCareers(doc, cache);
       await applyClubs(doc, cache);
+      await applyNatTeams(doc, cache);
       applyPlayerFacts(doc);
       await applyCoachTrophies(doc, cache);
     } catch (e) {

@@ -200,7 +200,12 @@ Wikipedia se amortizează pe toate meciurile viitoare ale jucătorului. Modul ap
 rotația realistă (vezi „Modul aprofundat").
 
 **Naționalitate vs. echipă națională reprezentată.** `nat` = cetățenia (codul de 3 litere);
-`natTeam` = naționala pentru care joacă efectiv, DOAR dacă diferă de `nat` (jucător
+`natTeam` = naționala pentru care joacă efectiv, DOAR dacă diferă de `nat`. **Nivelul 1 îl
+setează deja pentru primul 11 probabil** (din `players/teams` al API-Football, ultima
+națională de seniori) — verifică-l, dar nu-l rescrie fără motiv; pentru restul lotului, dacă
+știi sau vezi că un jucător a trecut la altă națională (schimbare de națională aprobată de
+FIFA, ex. născut în Franța dar cu selecții pentru Coasta de Fildeș), pune-l tu și scrie
+selecțiile în `funfacts`. (Jucător
 dual-eligibil, născut/cetățean într-o țară dar a ales altă naționala — ex. născut și cetățean
 francez, dar joacă pentru Mali sau Mauritania). Nu pune niciodată o naționala într-un `career[]`
 (acela e strict pentru cluburi) — dacă vezi asta la un jucător deja din pachet, mută informația
