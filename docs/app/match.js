@@ -1280,6 +1280,16 @@
     setupStickyMiniPitch(data);
   }
 
+  // Rarely used toolbar buttons keep only their leading icon ("↺ Reset positions"
+  // -> "↺"), the full text moves to the tooltip, so the whole toolbar fits one line.
+  function iconOnly(btn) {
+    var m = /^(\S{1,3})\s+(.+)$/.exec(btn.textContent);
+    if (!m) return btn;
+    btn.title = btn.title ? m[2] + ' — ' + btn.title : m[2];
+    btn.setAttribute('aria-label', m[2]);
+    btn.textContent = m[1];
+    return btn;
+  }
   function render(data) {
     applyManualOverlay(data);
     applyApiLineup(data);
@@ -1339,12 +1349,6 @@
         if (store.panelOrder) { delete store.panelOrder; ch = true; }
         if (store.panelWide) { delete store.panelWide; ch = true; }
         if (ch) { save(); rerenderPanels(data); }
-      }
-    });
-    var discReset = el('button', {
-      text: t('toolbar.resetColors'), title: t('toolbar.resetColorsTitle'),
-      onclick: function () {
-        if (store.discColors) { delete store.discColors; save(); render(data); }
       }
     });
     var favBtn = el('button', {
@@ -1420,22 +1424,20 @@
       el('div', { class: 'mc-toolbar' }, [
         lineupsBtn,
         lineupStatusEl,
-        swapBtn,
+        iconOnly(swapBtn),
         orientBtn,
         namesBtn,
         fontBtn,
-        discReset,
         favBtn,
         collabBtn,
-        resetPosBtn,
-        resetOrderBtn,
+        iconOnly(resetPosBtn),
+        iconOnly(resetOrderBtn),
         miniPitchToggleBtn,
-        el('button', { text: t('toolbar.print'), onclick: function () { window.print(); } }),
-        el('button', { text: t('toolbar.exportNotes'), onclick: function () { exportNotes(data); } }),
-        el('button', { text: t('toolbar.expandCollapse'), onclick: toggleAll }),
-        el('button', { text: t('toolbar.deleteAllNotes'), onclick: function () {
+        iconOnly(el('button', { text: t('toolbar.exportNotes'), onclick: function () { exportNotes(data); } })),
+        iconOnly(el('button', { text: t('toolbar.expandCollapse'), onclick: toggleAll })),
+        iconOnly(el('button', { text: t('toolbar.deleteAllNotes'), onclick: function () {
           if (confirm(t('toolbar.confirmDeleteAllNotes'))) { delete store.notes; save(); render(data); }
-        } })
+        } }))
       ])
     ]);
     root.appendChild(head);

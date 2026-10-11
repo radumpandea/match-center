@@ -62,9 +62,10 @@ button{font-family:inherit}
 .mc-teams .team-logo{height:26px;width:26px;object-fit:contain;vertical-align:-5px;margin-right:6px}
 .mc-meta{font-size:12.5px;color:var(--color-neutral-400)}
 .mc-meta .comp-logo{height:14px;width:14px;object-fit:contain;vertical-align:-2px;margin-right:5px}
-.mc-toolbar{display:flex;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-3)}
+.mc-toolbar{display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;margin-top:var(--space-3);padding-bottom:2px}
+.mc-toolbar>*{flex:none;white-space:nowrap}
 .mc-toolbar button{
-  font-size:11.5px;padding:var(--space-2) var(--space-4);border-radius:999px;cursor:pointer;
+  font-size:11px;padding:6px 9px;border-radius:999px;cursor:pointer;
   background:transparent;color:var(--color-neutral-400);border:1px solid var(--color-divider)
 }
 .mc-toolbar button:hover{color:var(--color-accent-200);border-color:var(--color-accent)}
