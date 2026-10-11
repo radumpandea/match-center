@@ -188,7 +188,7 @@
   var MKEY = 'mc:' + slug + ':me';
   var mine = (function () { try { return JSON.parse(localStorage.getItem(MKEY)) || {}; } catch (e) { return {}; } })();
   function saveMine() { try { localStorage.setItem(MKEY, JSON.stringify(mine)); } catch (e) {} }
-  var PRIVATE_KEYS = ['view', 'pname'];
+  var PRIVATE_KEYS = ['view', 'pname', 'discColors', 'panelOrder', 'panelWide', 'miniPitchClosed', 'miniPitchWidth'];
   // These two used to live in the shared state. Move what THIS device already
   // had into the private bucket once; anything that arrives from the shared
   // state afterwards (another user, an older cached client) is just dropped.
@@ -460,12 +460,12 @@
   function saveView() { mine.view = { orientation: view.orientation, swapped: view.swapped, fullNames: view.fullNames, labelSize: view.labelSize }; saveMine(); }
 
   /* ---------- disc (player node) colours per team ----------
-     user override (store.discColors) wins; then the pack's colors.primary;
+     user override (mine.discColors) wins; then the pack's colors.primary;
      then a default. Applied to the --home / --away CSS vars on <html>. */
   var DISC_DEFAULT = { home: '#6d28d9', away: '#b91c1c' };
   function hex6(v) { return /^#[0-9a-fA-F]{6}$/.test(v || '') ? v : null; }
   function resolveDisc(d, side) {
-    var ov = store.discColors && store.discColors[side];
+    var ov = mine.discColors && mine.discColors[side];
     if (hex6(ov)) return ov;
     var c = d.teams[side] && d.teams[side].colors;
     if (c && hex6(c.primary)) return c.primary;
@@ -494,9 +494,9 @@
       type: 'color', class: 'ds-input', value: resolveDisc(d, side),
       title: t('toolbar.discColorTitle', { team: d.teams[side].name }),
       oninput: function () {
-        store.discColors = store.discColors || {};
-        store.discColors[side] = inp.value;
-        save(); applyDiscColors(d); rerenderPitch(d);
+        mine.discColors = mine.discColors || {};
+        mine.discColors[side] = inp.value;
+        saveMine(); applyDiscColors(d); rerenderPitch(d);
       }
     });
     return el('label', { class: 'disc-swatch' }, [
@@ -1544,9 +1544,9 @@
       title: t('toolbar.resetPanelLayoutTitle'),
       onclick: function () {
         var ch = false;
-        if (store.panelOrder) { delete store.panelOrder; ch = true; }
-        if (store.panelWide) { delete store.panelWide; ch = true; }
-        if (ch) { save(); rerenderPanels(data); }
+        if (mine.panelOrder) { delete mine.panelOrder; ch = true; }
+        if (mine.panelWide) { delete mine.panelWide; ch = true; }
+        if (ch) { saveMine(); rerenderPanels(data); }
       }
     });
     var favBtn = el('button', {
@@ -1593,11 +1593,11 @@
     var themeToggle = window.MC_THEME.toggleEl();
     var miniPitchToggleBtn = el('button', {
       class: 'mp-toggle-btn',
-      text: store.miniPitchClosed ? t('toolbar.miniPitchShow') : t('toolbar.miniPitchHide'),
+      text: mine.miniPitchClosed ? t('toolbar.miniPitchShow') : t('toolbar.miniPitchHide'),
       title: t('toolbar.miniPitchTitle'),
       onclick: function () {
-        if (store.miniPitchClosed) delete store.miniPitchClosed; else store.miniPitchClosed = true;
-        save();
+        if (mine.miniPitchClosed) delete mine.miniPitchClosed; else mine.miniPitchClosed = true;
+        saveMine();
         setupStickyMiniPitch(data);
       }
     });
@@ -1775,15 +1775,15 @@
     var old = document.querySelector('.mc-mini-pitch');
     if (old) old.remove();
     updateMiniPitchToggleLabel();
-    if (store.miniPitchClosed) return;
+    if (mine.miniPitchClosed) return;
     var pitchRow = document.querySelector('.pitch-row');
     if (!pitchRow || typeof IntersectionObserver === 'undefined') return;
 
     var closeBtn = el('span', { class: 'mp-close', title: t('pitch.miniPitchClose'), text: '×' });
     closeBtn.addEventListener('click', function (e) {
       e.preventDefault(); e.stopPropagation();
-      store.miniPitchClosed = true;
-      save();
+      mine.miniPitchClosed = true;
+      saveMine();
       setupStickyMiniPitch(d);
     });
     var header = el('div', { class: 'mp-header' }, [
@@ -1804,7 +1804,7 @@
       box.style.left = store.miniPitchPos.left + 'px';
       box.style.right = 'auto';
     }
-    if (store.miniPitchWidth) box.style.width = store.miniPitchWidth + 'px';
+    if (mine.miniPitchWidth) box.style.width = mine.miniPitchWidth + 'px';
     document.body.appendChild(box);
     makeBoxDraggable(box, header);
     makeBoxResizable(box, resizeHandle);
@@ -1817,7 +1817,7 @@
         // box-sizing:border-box), so using contentRect here would shrink
         // the stored value by the padding+border on every reload.
         var w = Math.round(box.getBoundingClientRect().width);
-        if (w && w !== store.miniPitchWidth) { store.miniPitchWidth = w; save(); }
+        if (w && w !== mine.miniPitchWidth) { mine.miniPitchWidth = w; saveMine(); }
       });
       ro.observe(box);
     }
@@ -1832,7 +1832,7 @@
   // itself only offers a close button, not a re-open one).
   function updateMiniPitchToggleLabel() {
     var btn = document.querySelector('.mp-toggle-btn');
-    if (btn) btn.textContent = store.miniPitchClosed ? t('toolbar.miniPitchShow') : t('toolbar.miniPitchHide');
+    if (btn) btn.textContent = mine.miniPitchClosed ? t('toolbar.miniPitchShow') : t('toolbar.miniPitchHide');
   }
 
   function openCollaboration(data) {
@@ -2776,7 +2776,7 @@
     add('notes', panel(t('panel.notesMatch'), notesBlock('match', t('export.matchGeneral')), { lead: true, open: true }));
 
     // apply the user's saved order (unknown keys keep their natural spot at the end)
-    var saved = (store.panelOrder || []).filter(function (k) {
+    var saved = (mine.panelOrder || []).filter(function (k) {
       return defs.some(function (dd) { return dd.key === k; });
     });
     defs.sort(function (a, b) {
@@ -2847,7 +2847,7 @@
   // the user has explicitly toggled them, in which case that choice sticks.
   var DEFAULT_WIDE_PANELS = { advancedStats: true };
   function isPanelWide(key) {
-    var pref = store.panelWide && store.panelWide[key];
+    var pref = mine.panelWide && mine.panelWide[key];
     return pref !== undefined ? !!pref : !!DEFAULT_WIDE_PANELS[key];
   }
   function addPanelWiden(node, key, d) {
@@ -2863,9 +2863,9 @@
     });
     btn.addEventListener('click', function (e) {
       e.preventDefault(); e.stopPropagation();
-      store.panelWide = store.panelWide || {};
-      store.panelWide[key] = !isPanelWide(key);
-      save();
+      mine.panelWide = mine.panelWide || {};
+      mine.panelWide[key] = !isPanelWide(key);
+      saveMine();
       rerenderPanels(d);
     });
     var grip = sum.querySelector('.pgrip');
@@ -2916,8 +2916,8 @@
       order = order.filter(function (k) { return k !== src; });
       var ti = order.indexOf(key);
       order.splice(after ? ti + 1 : ti, 0, src);
-      store.panelOrder = order;
-      save();
+      mine.panelOrder = order;
+      saveMine();
       rerenderPanels(d);
     });
     var sum = node.querySelector('summary');
