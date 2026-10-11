@@ -561,21 +561,61 @@
     return pts;
   }
 
-  // (d, w) + near/far end -> {left, top} in %
+  // (d, w) + near/far end -> {left, top} in %.
+  // w runs from the team's own LEFT (0) to its own RIGHT (1), looking towards the
+  // opponent's goal. The near team attacks towards the far end, the far team the
+  // other way, so the far team is the near team's layout rotated 180 degrees: its
+  // d axis AND its w axis are reversed. (Reversing only d would mirror the team --
+  // its right back would end up on its left whenever the sides are swapped.)
   function place(pt, isNear) {
     var d = pt.d, w = pt.w;
     if (view.orientation === 'v') {
-      return isNear ? { left: w * 100, top: (1 - d) * 100 } : { left: w * 100, top: d * 100 };
+      return isNear ? { left: w * 100, top: (1 - d) * 100 } : { left: (1 - w) * 100, top: d * 100 };
     }
-    return isNear ? { left: d * 100, top: w * 100 } : { left: (1 - d) * 100, top: w * 100 };
+    return isNear ? { left: d * 100, top: w * 100 } : { left: (1 - d) * 100, top: (1 - w) * 100 };
   }
   // inverse of place(): left/top % (0..100) back to orientation-independent (d, w)
   function unplace(left, top, isNear) {
     var L = left / 100, T = top / 100;
     if (view.orientation === 'v') {
-      return isNear ? { d: 1 - T, w: L } : { d: T, w: L };
+      return isNear ? { d: 1 - T, w: L } : { d: T, w: 1 - L };
     }
-    return isNear ? { d: L, w: T } : { d: 1 - L, w: T };
+    return isNear ? { d: L, w: T } : { d: 1 - L, w: 1 - T };
+  }
+  // Left-to-right rank of a position label, from the team's own point of view.
+  var LAT_RANK = {
+    LWB: -4, LB: -4, LM: -4, LW: -4,
+    LCB: -2, LCM: -2, LF: -2, LST: -2,
+    CB: 0, DM: 0, CM: 0, CAM: 0, ST: 0,
+    RCB: 2, RCM: 2, RF: 2, RST: 2,
+    RB: 4, RWB: 4, RM: 4, RW: 4
+  };
+  // One layout point per XI slot. The XI is listed line by line (GK, then the lines of
+  // the formation) but the order WITHIN a line differs between sources -- some packs
+  // list right-to-left (Arsenal: RB, RCB, LCB, LB, which is also the API's grid order),
+  // others left-to-right -- so each line is arranged by the players' own position
+  // labels (LB left, RB right...). A line whose labels are not all known falls back
+  // to the right-to-left order the API uses, i.e. reversed.
+  function slotPoints(xi, formation) {
+    var pts = layout(formation);
+    var counts = [1].concat(String(formation || '4-4-2').split('-').map(function (x) { return parseInt(x, 10) || 0; }).filter(Boolean));
+    var out = new Array(xi.length);
+    var start = 0;
+    counts.forEach(function (n) {
+      var idx = [];
+      for (var k = 0; k < n; k++) idx.push(start + k);
+      if (n > 1) {
+        var ranks = idx.map(function (i) { var sl = xi[i]; return sl && LAT_RANK[String(sl.pos || '').toUpperCase()]; });
+        if (ranks.every(function (r) { return r !== undefined; })) {
+          idx.sort(function (a, b) { return ranks[a - start] - ranks[b - start] || a - b; });
+        } else {
+          idx.reverse();
+        }
+      }
+      idx.forEach(function (slotIndex, j) { out[slotIndex] = pts[start + j]; });
+      start += n;
+    });
+    return out;
   }
   function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
 
@@ -1684,7 +1724,7 @@
     ['home', 'away'].forEach(function (side) {
       var isNear = side === nearKey;
       var xi = effXI(d, side);
-      var pts = layout(effFormation(d, side));
+      var pts = slotPoints(xi, effFormation(d, side));
       xi.forEach(function (slot, i) {
         if (!has(slot.name)) return;
         var pos = place(pts[i] || { d: 0.03, w: 0.05 + i * 0.08 }, isNear);
@@ -1925,7 +1965,7 @@
       var tm = d.teams[side];
       var isNear = side === nearKey;
       var xi = effXI(d, side);
-      var pts = layout(effFormation(d, side));
+      var pts = slotPoints(xi, effFormation(d, side));
       var squad = effSquad(d, side);
       xi.forEach(function (slot, i) {
         var isEmpty = !has(slot.name);
