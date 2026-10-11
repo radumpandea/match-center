@@ -225,7 +225,12 @@
       if (res.error || !res.data) return {};
       var out = {};
       res.data.forEach(function (row) {
-        out[row.entity_key] = Object.assign({}, row.base || {}, row.overrides || {});
+        var ov = Object.assign({}, row.overrides || {});
+        // A player's display name is a private, per-user choice (see
+        // match.js `mine.pname`); a shared `name` override written before that
+        // change must not reach other users, so only the API name counts.
+        if (kind === 'player') delete ov.name;
+        out[row.entity_key] = Object.assign({}, row.base || {}, ov);
       });
       return out;
     } catch (e) { return {}; }
