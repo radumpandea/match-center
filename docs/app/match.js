@@ -2207,30 +2207,41 @@
   }
 
   // Below the pitch: one line per team listing the manual swaps, each removable.
+  // Under the pitch, per team: the lineup corrections and in-match substitutions
+  // AND the goals / own goals / cards entered for the match, in minute order.
+  // Every chip has a ✕ that removes that one entry.
   function subsStrip(d) {
     var strip = el('div', { class: 'subs-strip' });
+    var evRows = collectEvents(d).filter(function (r) { return r.type !== 'sub'; });
     ['home', 'away'].forEach(function (side) {
       var pred = baseXI(d, side);
       var ov = (mine.xi && mine.xi[side]) || {};
-      var made = [];
+      var items = [];
       pred.forEach(function (orig, i) {
         var cur = ov[i];
-        if (cur && !sameP(cur, orig)) made.push({ i: i, out: orig, inn: cur });
-      });
-      if (!made.length) return;
-      var row = el('div', { class: 'subs-team' }, [
-        el('span', { class: 'subs-label', text: d.teams[side].name })
-      ]);
-      made.forEach(function (m) {
-        var kind = (m.inn && m.inn.kind === 'sub') ? 'sub' : 'xi';
-        var mm = m.inn && m.inn.minute;
-        row.appendChild(el('span', { class: 'sub-chip ' + kind }, [
+        if (!(cur && !sameP(cur, orig))) return;
+        var kind = (cur.kind === 'sub') ? 'sub' : 'xi';
+        var mm = cur.minute;
+        items.push({ minute: (kind === 'sub' && mm != null) ? mm : -1, node: el('span', { class: 'sub-chip ' + kind }, [
           el('span', { class: 'sub-kind', text: kind === 'sub' ? t('sub.badgeMatch') : t('sub.badgeLineup') }),
           (kind === 'sub' && mm != null) ? el('span', { class: 'sub-min-badge', text: mm + "'" }) : null,
-          el('span', { text: shortName(m.out.name) + '  ' + (kind === 'sub' ? '↦' : '⇄') + '  ' + shortName(m.inn.name) }),
-          el('button', { text: '✕', title: t('sub.cancel'), onclick: function () { clearSub(d, side, m.i); } })
-        ]));
+          el('span', { text: shortName(orig.name) + '  ' + (kind === 'sub' ? '↦' : '⇄') + '  ' + shortName(cur.name) }),
+          el('button', { text: '✕', title: t('sub.cancel'), onclick: function () { clearSub(d, side, i); } })
+        ]) });
       });
+      evRows.filter(function (r) { return r.side === side; }).forEach(function (r) {
+        var meta = evMeta(r.type);
+        if (!meta) return;
+        items.push({ minute: r.minute == null ? 999 : r.minute, node: el('span', { class: 'sub-chip ev ' + r.type, title: meta.label }, [
+          r.minute != null ? el('span', { class: 'sub-min-badge', text: r.minute + "'" }) : null,
+          el('span', { text: meta.icon + (r.type === 'owngoal' ? ' ' + t('panel.ownGoalSuffix').trim() : '') + '  ' + shortName(r.player.name) }),
+          el('button', { text: '✕', title: t('common.delete'), onclick: function () { delEvent(r.side, r.player, r.id); rerenderPitch(d); rerenderPanels(d); } })
+        ]) });
+      });
+      if (!items.length) return;
+      items.sort(function (x, y) { return x.minute - y.minute; });
+      var row = el('div', { class: 'subs-team' }, [el('span', { class: 'subs-label', text: d.teams[side].name })]);
+      items.forEach(function (it) { row.appendChild(it.node); });
       strip.appendChild(row);
     });
     return strip;
