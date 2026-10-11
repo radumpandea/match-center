@@ -672,6 +672,7 @@
         "career": { "type": ["string", "null"] },
         "lastSeason": { "type": ["string", "null"] },
         "funfact": { "type": ["string", "null"] },
+        "funfacts": { "type": ["array", "null"], "items": { "type": "string" }, "maxItems": 10, "description": "3-6 verified biographical facts about the player (academy, professional debut, years at the club, appearances, national-team debut, titles...), one sentence each, Romanian. Reusable across matches: stored per player in docs/data/players/<apiId>.json" },
         "linkLine": { "type": ["string", "null"], "description": "verified direct history vs this opponent" },
         "status": { "type": ["string", "null"], "enum": ["available", "doubt", "out", "suspended", null] },
         "statusNote": { "type": ["string", "null"] },

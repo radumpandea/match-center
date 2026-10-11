@@ -124,6 +124,7 @@ function collectUnits(doc) {
     });
     (team.squad || []).forEach((p, i) => {
       add(['teams', side, 'squad', i, 'funfact'], p && p.funfact);
+      ((p && p.funfacts) || []).forEach((f, j) => add(['teams', side, 'squad', i, 'funfacts', j], f));
       add(['teams', side, 'squad', i, 'linkLine'], p && p.linkLine);
       add(['teams', side, 'squad', i, 'career'], p && p.career);
       add(['teams', side, 'squad', i, 'lastSeason'], p && p.lastSeason);
@@ -166,7 +167,7 @@ function buildSkeleton(doc) {
       }));
     }
     if (Array.isArray(team.squad)) {
-      t.squad = team.squad.map(() => ({ funfact: null, linkLine: null, career: null, lastSeason: null, statusNote: null }));
+      t.squad = team.squad.map((p) => ({ funfact: null, funfacts: Array.isArray(p && p.funfacts) ? p.funfacts.map(() => null) : undefined, linkLine: null, career: null, lastSeason: null, statusNote: null }));
     }
     out.teams[side] = t;
   }
@@ -184,7 +185,7 @@ function collapseNulls(langDoc) {
     const t = langDoc.teams && langDoc.teams[side];
     if (!t) continue;
     if (Array.isArray(t.squad)) {
-      t.squad = t.squad.map((p) => (p && Object.values(p).some((v) => v != null) ? p : null));
+      t.squad = t.squad.map((p) => (p && Object.values(p).some((v) => (Array.isArray(v) ? v.some((x) => x != null) : v != null)) ? p : null));
     }
     if (Array.isArray(t.stories)) {
       t.stories = t.stories.map((s) => {

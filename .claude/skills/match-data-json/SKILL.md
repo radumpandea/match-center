@@ -92,6 +92,10 @@ Nivelul 1 a pus deja **lotul complet pentru ambele echipe** cu număr, vârstă,
    `foot`, `funfact`, `linkLine`) se cercetează pentru: **primul 11 probabil al fiecărei
    echipe + orice jucător pe care îl atinge o poveste** (linkLine cu adversarul, revenire,
    bornă). Pentru restul lotului lasă câmpurile pe `null` — e normal, nu un eșec.
+   - `funfacts` (fapte biografice, vezi „Fun facts biografice per jucător" mai jos): Nivelul 1
+     le copiază DEJA din `docs/data/players/<apiId>.json` pentru jucătorii cercetați
+     vreodată — acolo unde `squad[].funfacts` e deja plin, nu cauți din nou. Cercetezi doar
+     jucătorii (din primul 11 probabil, apoi restul rotației) care încă n-au.
    - `career`: Nivelul 1 pune deja un istoric de cluburi cu ani. Verifică-l și, pentru
      primul 11, extinde-l cu roluri/realizări/goluri per club. Wikipedia (pagina
      individuală) e sursa unică cea mai eficientă: infobox cu înălțime + carieră +
@@ -137,6 +141,63 @@ nu ca o căutare separată per jucător, ci ca atenție la ce apare deja în sur
 
 Adaugă un fapt DOAR dacă există și e confirmat. Majoritatea rezervelor și tinerilor n-au
 nimic relevant — `funfact` / `linkLine` rămân `null`, e normal.
+
+### Fun facts biografice per jucător (`funfacts`) — cercetate o dată, salvate pentru jucător
+
+`funfact` (un singur șir) rămâne pentru povestea de meci a unui jucător. În plus, fiecare
+jucător important primește `funfacts`: **o listă de 3–6 fapte biografice**, câte o propoziție,
+în română, pe care comentatorul le poate rosti oricând în meci. Sunt afișate ca listă în
+fișa jucătorului (tab-ul „Funfact") și traduse odată cu pachetul.
+
+**Ce tipuri de fapte** (alege pe cele pe care le găsești confirmate, nu le forța pe toate):
+- *formare* — academia/clubul în care s-a format, țara, dacă e cunoscută pentru dezvoltarea
+  jucătorilor;
+- *debut profesionist* — când și în ce campionat, transferul timpuriu;
+- *longevitate la club* — de când e la club, cât de „veteran" e raportat la vârstă;
+- *cifre de carieră la club/competiție* — apariții, goluri, pasează decisive, **mereu cu
+  data** („la 11 octombrie 2026"): un număr fără dată îmbătrânește de la un meci la altul;
+- *națională* — debutul la naționala mare (data, adversarul dacă e cunoscut), selecții, sau
+  explicit „fără selecții la naționala mare" când e cazul;
+- *titluri și momente* — trofee (inclusiv la juniori), turnee, goluri/evenimente memorabile;
+- *poveste personală* — rude fotbaliști, origini, revenire după accidentare lungă.
+
+Exemplu de **format și ton** (despre un jucător de la Nice — NU copia faptele, doar stilul):
+„A fost format la Paradou AC, una dintre academiile algeriene cunoscute pentru dezvoltarea
+jucătorilor tehnici." · „A debutat profesionist în Algeria în ianuarie 2018, iar până în
+septembrie 2019 era deja transferat de Nice." · „E unul dintre veteranii lotului în sensul
+longevității la club: se află la Nice din 2019, deși are doar 27 de ani." · „La doar 19 ani a
+fost în lotul Algeriei care a câștigat Cupa Africii pe Națiuni 2019."
+
+**Reguli de acuratețe (aceleași ca peste tot, mai stricte aici):**
+- fiecare fapt are o sursă pe care ai citit-o (Wikipedia pagina jucătorului — infoboxul +
+  secțiunile de carieră dau de obicei 4–6 fapte dintr-un singur fetch —, Transfermarkt,
+  site-ul clubului/federației). Fără sursă, fapt omis;
+- „primul", „cel mai tânăr", „record", „revenire" — doar dacă sursa spune exact asta;
+- nu pune fapte care se schimbă de la o zi la alta (clasamente, formă, „în acest sezon")
+  — acelea au deja loc în `stats` / fire narative. Cifrele de carieră doar cu dată;
+- mai bine 3 fapte sigure decât 6 cu unul îndoielnic. Tinerii fără istoric: `funfacts: []`
+  sau lipsă, nu inventa.
+
+**Salvarea — o singură dată per jucător, refolosită în toate meciurile.** Pentru fiecare
+jucător pentru care ai găsit fapte, scrie/actualizează ȘI fișierul
+`docs/data/players/<apiId>.json` (apiId din `squad[]`; fără apiId nu salvezi):
+```json
+{ "apiId": 123456, "name": "Prenume Nume",
+  "funfacts": ["…", "…", "…"],
+  "sources": [ { "name": "Wikipedia", "url": "https://…", "accessed": "2026-10-11" } ],
+  "updatedAt": "2026-10-11" }
+```
+Dacă fișierul există deja, **păstrează faptele existente** și adaugă doar ce e nou și
+confirmat (fără dubluri); corectezi sau ștergi un fapt doar dacă ai dovada că e greșit sau
+depășit, și spui asta în mesajul de commit. În fișierul meciului pui aceeași listă în
+`squad[].funfacts`. Nivelul 1 (`scripts/prefetch-preview.mjs`) copiază apoi automat lista din
+`docs/data/players/` în ORICE alt pachet care îl conține pe jucător (alt meci de club,
+meci al naționalei) — completează doar pachete unde lista lipsește, nu le rescrie.
+
+**Buget.** Modul standard: cel mult **6 jucători pe meci** fără fapte încă (primul 11 întâi,
+începând cu cei mai cunoscuți); restul rămân pentru meciurile următoare — fiecare fetch
+Wikipedia se amortizează pe toate meciurile viitoare ale jucătorului. Modul aprofundat: toată
+rotația realistă (vezi „Modul aprofundat").
 
 **Naționalitate vs. echipă națională reprezentată.** `nat` = cetățenia (codul de 3 litere);
 `natTeam` = naționala pentru care joacă efectiv, DOAR dacă diferă de `nat` (jucător
@@ -346,8 +407,9 @@ trebuie să-i dea material, nu un rezumat. Față de modul standard, se schimbă
 **Buget.** ~50 de căutări/fetch-uri, un singur meci. Adâncimea bate viteza. Allowlist-ul de
 câmpuri din prompt NU se aplică — completează dens orice câmp din schemă.
 
-**Lotul — nu doar primul 11.** `career`, `funfact`, `linkLine`, `pronunciation`, `foot`,
-`height`, `lastSeason` pentru **toată rotația realistă**: primul 11 probabil + rezervele care
+**Lotul — nu doar primul 11.** `career`, `funfact`, **`funfacts`** (+ fișierele
+`docs/data/players/<apiId>.json`, vezi „Fun facts biografice per jucător"), `linkLine`,
+`pronunciation`, `foot`, `height`, `lastSeason` pentru **toată rotația realistă**: primul 11 probabil + rezervele care
 prind minute + orice tânăr sau transfer cu poveste. Doar jucătorii clar în afara planurilor
 rămân cu câmpuri `null`. `career` = roluri, ani, realizări, goluri per club — nu doar lista
 de cluburi. Wikipedia (infobox) + Transfermarkt (din fragmente) + footmercato/joueur.

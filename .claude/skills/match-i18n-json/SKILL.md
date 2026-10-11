@@ -46,7 +46,8 @@ Câmpuri de tradus, EXACT aceste chei din fișierul sursă:
 - `teams.<home|away>.coach.career[].note`
 - `teams.<home|away>.news[].text`
 - `teams.<home|away>.stories[].title`, `teams.<home|away>.stories[].bullets[]`
-- `teams.<home|away>.squad[].funfact`, `.linkLine`, `.career`, `.lastSeason`,
+- `teams.<home|away>.squad[].funfact`, `.funfacts[]` (listă de șiruri — **aceeași lungime ca
+  sursa**, același index), `.linkLine`, `.career`, `.lastSeason`,
   `.statusNote`
 
 Orice altă cheie din sursă (nume, scoruri, formații, statistici, id-uri) nu

@@ -150,6 +150,8 @@ function validateFile(i18nPath) {
           const sp = (st.squad || [])[i];
           if (!sp) return;
           checkTranslated(errors, warnings, `${lang}.teams.${side}.squad[${i}].funfact`, sp.funfact, p.funfact);
+          checkLen(errors, `${lang}.teams.${side}.squad[${i}].funfacts`, sp.funfacts, p.funfacts);
+          checkTranslatedArray(errors, warnings, `${lang}.teams.${side}.squad[${i}].funfacts`, sp.funfacts, p.funfacts);
           checkTranslated(errors, warnings, `${lang}.teams.${side}.squad[${i}].linkLine`, sp.linkLine, p.linkLine);
           checkTranslated(errors, warnings, `${lang}.teams.${side}.squad[${i}].career`, sp.career, p.career, true);
           checkTranslated(errors, warnings, `${lang}.teams.${side}.squad[${i}].lastSeason`, sp.lastSeason, p.lastSeason);

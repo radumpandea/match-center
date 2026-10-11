@@ -920,6 +920,7 @@
       });
       (team.squad || []).forEach(function (p, i) {
         add(['teams', side, 'squad', i, 'funfact'], btSrc(p, 'funfact'));
+        btArr(p, 'funfacts').forEach(function (f, j) { add(['teams', side, 'squad', i, 'funfacts', j], f); });
         add(['teams', side, 'squad', i, 'linkLine'], btSrc(p, 'linkLine'));
         add(['teams', side, 'squad', i, 'career'], btSrc(p, 'career'), 'career');
         add(['teams', side, 'squad', i, 'lastSeason'], btSrc(p, 'lastSeason'));
@@ -951,8 +952,8 @@
       if (Array.isArray(team.stories)) o.stories = team.stories.map(function (s) {
         return { title: null, bullets: btArr(s, 'bullets').map(function () { return null; }) };
       });
-      if (Array.isArray(team.squad)) o.squad = team.squad.map(function () {
-        return { funfact: null, linkLine: null, career: null, lastSeason: null, statusNote: null };
+      if (Array.isArray(team.squad)) o.squad = team.squad.map(function (p) {
+        return { funfact: null, funfacts: btArr(p, 'funfacts').map(function () { return null; }), linkLine: null, career: null, lastSeason: null, statusNote: null };
       });
       out.teams[side] = o;
     });
@@ -1133,6 +1134,7 @@
       (team.squad || []).forEach(function (p, i) {
         var tp = tt && tt.squad && tt.squad[i];
         field(p, 'funfact', tp && tp.funfact);
+        stringArrayField(p, 'funfacts', tp && tp.funfacts);
         field(p, 'linkLine', tp && tp.linkLine);
         field(p, 'career', tp && tp.career);
         field(p, 'lastSeason', tp && tp.lastSeason);
@@ -3132,7 +3134,9 @@
       },
       [t('player.tabFunfact')]: function () {
         var wrap = el('div');
-        wrap.appendChild(el('p', { text: has(p.funfact) ? p.funfact : '—' }));
+        var facts = Array.isArray(p.funfacts) ? p.funfacts.filter(has) : [];
+        if (has(p.funfact) || !facts.length) wrap.appendChild(el('p', { text: has(p.funfact) ? p.funfact : '—' }));
+        if (facts.length) wrap.appendChild(el('ul', { class: 'funfacts' }, facts.map(function (f) { return el('li', { text: f }); })));
         if (has(p.linkLine)) wrap.appendChild(el('p', { html: '<b style="color:var(--color-neutral-500)">' + t('player.linkLine') + '</b> ' + esc(p.linkLine) }));
         return wrap;
       },

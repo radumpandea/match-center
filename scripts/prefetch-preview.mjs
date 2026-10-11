@@ -93,6 +93,7 @@ const MATCHES_DIR = ROOT + 'docs/data/matches';
 const TEAMS_DIR = ROOT + 'docs/data/teams';
 const PREVIEWS = ROOT + 'docs/data/previews.json';
 const CACHE_FILE = `${TEAMS_DIR}/_afcache.json`;
+const PLAYERS_DIR = ROOT + 'docs/data/players';
 
 const SOURCE = {
   name: 'API-Football (api-sports.io)',
@@ -1157,6 +1158,38 @@ async function getTeamCountry(teamId, cache) {
   return country;
 }
 
+/* ---------- per-player fun facts (docs/data/players/<apiId>.json) ----------
+   The editorial skill (match-data-json) researches 3-6 biographical facts per
+   player ONCE and stores them in docs/data/players/<apiId>.json. They never go
+   stale like form or news, so every later pack that includes the same player --
+   a club match, a national-team match -- gets them here for free, without a
+   new web search. Fill-only: a pack that already has funfacts for that player is
+   left alone (the translation overlay maps arrays by index, so rewriting an
+   already-translated array would misalign it). dry = just report whether
+   anything would be filled. */
+const playerFactsCache = new Map();
+function playerFacts(apiId) {
+  if (!playerFactsCache.has(apiId)) {
+    const j = readJSON(`${PLAYERS_DIR}/${apiId}.json`);
+    playerFactsCache.set(apiId, j && Array.isArray(j.funfacts) ? j.funfacts.filter((x) => typeof x === 'string' && x.trim()) : []);
+  }
+  return playerFactsCache.get(apiId);
+}
+function applyPlayerFacts(doc, dry = false) {
+  let touched = false;
+  for (const side of ['home', 'away']) {
+    for (const p of (doc.teams && doc.teams[side] && doc.teams[side].squad) || []) {
+      if (p.apiId == null || (Array.isArray(p.funfacts) && p.funfacts.length)) continue;
+      const facts = playerFacts(p.apiId);
+      if (!facts.length) continue;
+      if (dry) return true;
+      p.funfacts = facts.slice();
+      touched = true;
+    }
+  }
+  return touched;
+}
+
 async function applyClubs(doc, cache) {
   if (!doc.competition || doc.competition.country !== 'INT') return false;
   let touched = false;
@@ -1757,11 +1790,13 @@ async function main() {
       const tm = doc.teams[s];
       return !(tm.mercatoIn && tm.mercatoIn.length) && !(tm.mercatoOut && tm.mercatoOut.length);
     });
+    const needFacts = applyPlayerFacts(doc, true);
     if (!needCareer && !needStandings && !needNext && !needVenue && !needPredictions && !needTrophies &&
-        !needMatchDay && !needNews && !needWeather && !needMercato) continue;
+        !needMatchDay && !needNews && !needWeather && !needMercato && !needFacts) continue;
     let touched = false;
 
     if (await applyClubs(doc, cache)) touched = true;
+    if (applyPlayerFacts(doc)) touched = true;
 
     if (needNews) {
       const [hn, an] = await Promise.all([teamNews(f.home, f.away, f.comp), teamNews(f.away, f.home, f.comp)]);
@@ -1920,6 +1955,7 @@ async function main() {
       await applyStandingsAndForm(doc, f, season, cache);
       await applyCareers(doc, cache);
       await applyClubs(doc, cache);
+      applyPlayerFacts(doc);
       await applyCoachTrophies(doc, cache);
     } catch (e) {
       console.error(`  enrich failed: ${e.message}`);
