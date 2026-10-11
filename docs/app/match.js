@@ -179,16 +179,17 @@
     try { localStorage.setItem(NKEY, JSON.stringify(store)); } catch (e) {}
     if (window.MC_COLLAB) window.MC_COLLAB.persist(store);
   }
-  // Per-user (per-device) preferences for this match: how the teams are shown
-  // (store-independent `view`: orientation, sides swapped, full/short names,
-  // label size) and the player display names a user chose (`pname`). Kept in
-  // their own localStorage key and NEVER passed to MC_COLLAB.persist, so two
-  // people on the same match each keep their own view and names while the
-  // lineup, bench, positions, numbers, events and notes stay shared.
+  // Per-user (per-device) state for this match, kept in its own localStorage key
+  // and NEVER passed to MC_COLLAB.persist: how the teams are shown (view, names,
+  // colours, panel layout, mini pitch) AND the user's own lineup work (XI swaps
+  // and subs, bench, formation, dragged positions, the confirm lock, the API
+  // lineup). Only notes, numbers, captain, events, manually added players and
+  // similar stay in the shared state.
   var MKEY = 'mc:' + slug + ':me';
   var mine = (function () { try { return JSON.parse(localStorage.getItem(MKEY)) || {}; } catch (e) { return {}; } })();
   function saveMine() { try { localStorage.setItem(MKEY, JSON.stringify(mine)); } catch (e) {} }
-  var PRIVATE_KEYS = ['view', 'pname', 'discColors', 'panelOrder', 'panelWide', 'miniPitchClosed', 'miniPitchWidth'];
+  var PRIVATE_KEYS = ['view', 'pname', 'discColors', 'panelOrder', 'panelWide', 'miniPitchClosed', 'miniPitchWidth',
+                      'xi', 'bench', 'formation', 'lineup', 'confirmed', 'apiLineup'];
   // These two used to live in the shared state. Move what THIS device already
   // had into the private bucket once; anything that arrives from the shared
   // state afterwards (another user, an older cached client) is just dropped.
@@ -514,7 +515,7 @@
     return has(d.teams[side].formation) ? d.teams[side].formation : '4-4-2';
   }
   function effFormation(d, side) {
-    return (store.formation && store.formation[side]) || baseFormation(d, side);
+    return (mine.formation && mine.formation[side]) || baseFormation(d, side);
   }
   function formationSelect(d, side) {
     var cur = effFormation(d, side);
@@ -523,11 +524,11 @@
       class: 'formation-select',
       title: 'Sistem tactic — ' + d.teams[side].name,
       onchange: function () {
-        store.formation = store.formation || {};
-        if (sel.value === baseFormation(d, side)) delete store.formation[side];
-        else store.formation[side] = sel.value;
-        if (!Object.keys(store.formation).length) delete store.formation;
-        save();
+        mine.formation = mine.formation || {};
+        if (sel.value === baseFormation(d, side)) delete mine.formation[side];
+        else mine.formation[side] = sel.value;
+        if (!Object.keys(mine.formation).length) delete mine.formation;
+        saveMine();
         rerenderPitch(d);
       }
     }, opts.map(function (f) { return el('option', { value: f, text: f }); }));
@@ -630,7 +631,7 @@
       (d.teams[side].predictedXI || []).forEach(set);
       (d.teams[side].confirmedXI || []).forEach(set);
       (store.manualSquad && store.manualSquad[side] || []).forEach(set);
-      var xi = store.xi && store.xi[side];
+      var xi = mine.xi && mine.xi[side];
       if (xi) Object.keys(xi).forEach(function (k) { set(xi[k]); });
     });
   }
@@ -675,7 +676,7 @@
     ['home', 'away'].forEach(function (side) {
       var map = pn[side] || {};
       var squadAll = effSquad(d, side);
-      // Manual XI swaps / subs (store.xi) are snapshots {number, name, pos} saved
+      // Manual XI swaps / subs (mine.xi) are snapshots {number, name, pos} saved
       // WITHOUT apiId, so keyOf() gave them a number key that never matched the
       // apiId key an override is stored under -- a swapped-in player kept his
       // long researched name on the pitch and also showed up on the bench.
@@ -705,7 +706,7 @@
       (d.teams[side].confirmedXI || []).forEach(set);
       (d.teams[side].substitutes || []).forEach(set);
       (store.manualSquad && store.manualSquad[side] || []).forEach(set);
-      var xi = store.xi && store.xi[side];
+      var xi = mine.xi && mine.xi[side];
       if (xi) Object.keys(xi).forEach(function (k) { set(xi[k]); });
     });
   }
@@ -715,8 +716,8 @@
      which holds the key. If that function isn't reachable, it falls back to the
      lineup the fetch-confirmed-lineups workflow already wrote into the published
      match file. Either way the result is stored in the SHARED state
-     (store.apiLineup[side]) -- a confirmed lineup is a fact, so one person's
-     click updates everybody on this match -- and re-applied on every render by
+     (mine.apiLineup[side], private to this user like every lineup edit) and
+     re-applied on every render by
      applyApiLineup(), which also marks the team as API-confirmed. */
   var POS_FROM_LETTER = { G: 'GK', D: 'DEF', M: 'MID', F: 'ATT' };
   // API lineup names are "K. Trapp" (initial + surname). The squad entry has the
@@ -733,7 +734,7 @@
     return given ? given + ' ' + m[2] : apiName;
   }
   function applyApiLineup(d) {
-    var al = store.apiLineup;
+    var al = mine.apiLineup;
     if (!al) return;
     ['home', 'away'].forEach(function (side) {
       var a = al[side], tm = d.teams[side];
@@ -805,24 +806,24 @@
   }
   function hasManualLineup() {
     var xiEdits = ['home', 'away'].some(function (side) {
-      var m = store.xi && store.xi[side];
+      var m = mine.xi && mine.xi[side];
       return m && Object.keys(m).some(function (i) { return m[i] && m[i].kind !== 'sub'; });
     });
-    var bench = store.bench && Object.keys(store.bench).length;
-    var form = store.formation && Object.keys(store.formation).length;
+    var bench = mine.bench && Object.keys(mine.bench).length;
+    var form = mine.formation && Object.keys(mine.formation).length;
     return !!(xiEdits || bench || form);
   }
   // Manual edits of the XI / bench / formation give way to the official sheet.
   // In-match substitutions (kind 'sub', with a minute) are match history, not
   // lineup edits, so they stay.
   function clearManualLineup(side) {
-    if (store.formation) { delete store.formation[side]; if (!Object.keys(store.formation).length) delete store.formation; }
-    if (store.xi && store.xi[side]) {
-      Object.keys(store.xi[side]).forEach(function (i) { if (store.xi[side][i] && store.xi[side][i].kind !== 'sub') delete store.xi[side][i]; });
-      if (!Object.keys(store.xi[side]).length) delete store.xi[side];
-      if (!Object.keys(store.xi).length) delete store.xi;
+    if (mine.formation) { delete mine.formation[side]; if (!Object.keys(mine.formation).length) delete mine.formation; }
+    if (mine.xi && mine.xi[side]) {
+      Object.keys(mine.xi[side]).forEach(function (i) { if (mine.xi[side][i] && mine.xi[side][i].kind !== 'sub') delete mine.xi[side][i]; });
+      if (!Object.keys(mine.xi[side]).length) delete mine.xi[side];
+      if (!Object.keys(mine.xi).length) delete mine.xi;
     }
-    if (store.bench) { delete store.bench[side]; if (!Object.keys(store.bench).length) delete store.bench; }
+    if (mine.bench) { delete mine.bench[side]; if (!Object.keys(mine.bench).length) delete mine.bench; }
   }
   var lineupBusy = false, lineupStatus = null;
   function timeLabel(iso) {
@@ -848,14 +849,14 @@
       .then(function (res) {
         if (!res) return;
         if (hasManualLineup() && !window.confirm(t('lineup.confirmOverwrite'))) { finish(null); return; }
-        store.apiLineup = store.apiLineup || {};
-        store.confirmed = store.confirmed || {};
+        mine.apiLineup = mine.apiLineup || {};
+        mine.confirmed = mine.confirmed || {};
         ['home', 'away'].forEach(function (side) {
           clearManualLineup(side);
-          store.apiLineup[side] = res[side];
-          store.confirmed[side] = true;   // official sheet = final, same lock as the manual "confirm" tick
+          mine.apiLineup[side] = res[side];
+          mine.confirmed[side] = true;   // official sheet = final, same lock as the manual "confirm" tick
         });
-        save();
+        saveMine();
         finish(res.home.source === 'api' ? t('lineup.doneApi', { time: timeLabel(res.home.fetchedAt) }) : t('lineup.doneFile'), 'ok');
       })
       .catch(function () { finish(t('lineup.unavailable'), 'warn'); });
@@ -1187,8 +1188,8 @@
     else store.pnum[side][p.name] = n;
     if (!Object.keys(store.pnum[side]).length) delete store.pnum[side];
     if (oldKey !== newKey) {
-      if (store.bench && store.bench[side]) {
-        store.bench[side] = store.bench[side].map(function (k) { return k === oldKey ? newKey : k; });
+      if (mine.bench && mine.bench[side]) {
+        mine.bench[side] = mine.bench[side].map(function (k) { return k === oldKey ? newKey : k; });
       }
       if (store.captain && store.captain[side] === oldKey) store.captain[side] = newKey;
       if (mine.pname && mine.pname[side] && Object.prototype.hasOwnProperty.call(mine.pname[side], oldKey)) {
@@ -1207,7 +1208,7 @@
     }
     if (p._num0 === undefined) p._num0 = p.number;   // keep pristine before mutating
     p.number = n;
-    save();
+    save(); saveMine();
     var back = document.querySelector('.modal-back');
     if (back) back.remove();
     render(d);
@@ -1230,10 +1231,10 @@
   function effXI(d, side) {
     var pred = baseXI(d, side).slice();
     while (pred.length < 11) pred.push({ number: null, name: null, pos: null });
-    var ov = (store.xi && store.xi[side]) || {};
+    var ov = (mine.xi && mine.xi[side]) || {};
     return pred.map(function (slot, i) { return ov[i] || slot; });
   }
-  // matchday bench: an explicit list of squad keys in store.bench[side]; when
+  // matchday bench: an explicit list of squad keys in mine.bench[side]; when
   // unset, the implicit bench prefers the API-confirmed substitutes list
   // (d.teams[side].substitutes -- filled alongside confirmedXI, never a
   // guess, see docs/data/schema.json) over the whole rest of the squad, so
@@ -1243,7 +1244,7 @@
     var xiKeys = effXI(d, side).map(keyOf);
     var squad = effSquad(d, side);
     var offPitch = function (p) { return xiKeys.indexOf(keyOf(p)) < 0; };
-    var explicit = store.bench && store.bench[side];
+    var explicit = mine.bench && mine.bench[side];
     if (explicit && explicit.length) {
       return explicit
         .map(function (k) { return squad.filter(function (p) { return keyOf(p) === k; })[0]; })
@@ -1256,9 +1257,9 @@
     return squad.filter(offPitch);
   }
   function setBench(d, side, keys) {
-    store.bench = store.bench || {};
-    if (keys && keys.length) store.bench[side] = keys; else delete store.bench[side];
-    save();
+    mine.bench = mine.bench || {};
+    if (keys && keys.length) mine.bench[side] = keys; else delete mine.bench[side];
+    saveMine();
     rerenderPitch(d);
   }
   // Locking the starting XI + bench in as final -- once confirmed, the
@@ -1267,12 +1268,12 @@
   // real substitution can only bring on a player who was named among the
   // reserves. Correcting the announced XI (kind 'xi') stays unrestricted
   // even after confirming, in case the graphic itself turns out wrong.
-  function isLineupConfirmed(side) { return !!(store.confirmed && store.confirmed[side]); }
+  function isLineupConfirmed(side) { return !!(mine.confirmed && mine.confirmed[side]); }
   function setLineupConfirmed(d, side, val) {
-    store.confirmed = store.confirmed || {};
-    if (val) store.confirmed[side] = true; else delete store.confirmed[side];
-    if (!Object.keys(store.confirmed).length) delete store.confirmed;
-    save();
+    mine.confirmed = mine.confirmed || {};
+    if (val) mine.confirmed[side] = true; else delete mine.confirmed[side];
+    if (!Object.keys(mine.confirmed).length) delete mine.confirmed;
+    saveMine();
     rerenderPitch(d);
   }
   // one captain per team, keyed by keyOf() like the bench
@@ -1293,9 +1294,9 @@
   function applySub(d, side, idx, player, minute, kind) {
     var pred = baseXI(d, side);
     var m = parseInt(minute, 10);
-    store.xi = store.xi || {};
-    store.xi[side] = store.xi[side] || {};
-    store.xi[side][idx] = {
+    mine.xi = mine.xi || {};
+    mine.xi[side] = mine.xi[side] || {};
+    mine.xi[side][idx] = {
       apiId: player.apiId != null ? player.apiId : null,
       number: player.number != null ? player.number : null,
       name: player._name0 !== undefined ? player._name0 : player.name,   // researched name; the display override is re-applied on render
@@ -1303,12 +1304,12 @@
       minute: isNaN(m) ? null : m,
       kind: kind === 'sub' ? 'sub' : 'xi'
     };
-    save();
+    saveMine();
     rerenderPitch(d);
     rerenderPanels(d);
   }
   function clearSub(d, side, idx) {
-    if (store.xi && store.xi[side]) { delete store.xi[side][idx]; save(); rerenderPitch(d); rerenderPanels(d); }
+    if (mine.xi && mine.xi[side]) { delete mine.xi[side][idx]; saveMine(); rerenderPitch(d); rerenderPanels(d); }
   }
 
   /* ---------- goals & cards per player (store.events) ---------- */
@@ -1403,8 +1404,8 @@
         });
       });
     });
-    // in-match substitutions (store.xi entries flagged kind === 'sub')
-    var xi = store.xi || {};
+    // in-match substitutions (mine.xi entries flagged kind === 'sub')
+    var xi = mine.xi || {};
     ['home', 'away'].forEach(function (side) {
       var pred = baseXI(d, side);
       var ov = xi[side] || {};
@@ -1517,7 +1518,7 @@
     var resetPosBtn = el('button', {
       text: t('toolbar.resetPositions'),
       onclick: function () {
-        if (store.lineup) { delete store.lineup; save(); rerenderPitch(data); }
+        if (mine.lineup) { delete mine.lineup; saveMine(); rerenderPitch(data); }
       }
     });
     var namesBtn = el('button', {
@@ -1921,7 +1922,7 @@
         var isEmpty = !has(slot.name);
         var full = isEmpty ? null : playerByNameOrNum(squad, slot);
         var pkey = slot.number != null ? String(slot.number) : slot.name;
-        var override = pkey && store.lineup && store.lineup[side] && store.lineup[side][pkey];
+        var override = pkey && mine.lineup && mine.lineup[side] && mine.lineup[side][pkey];
         var pos = place(override || pts[i] || { d: 0.03, w: 0.05 + i * 0.08 }, isNear);
         var stat = full && full.status;
         var cap = !isEmpty && isCaptain(side, full || slot);
@@ -1959,10 +1960,10 @@
             : null
         ]);
         makeDraggable(node, shell, function (p) {
-          store.lineup = store.lineup || {};
-          store.lineup[side] = store.lineup[side] || {};
-          store.lineup[side][pkey] = unplace(p.left, p.top, isNear);
-          save();
+          mine.lineup = mine.lineup || {};
+          mine.lineup[side] = mine.lineup[side] || {};
+          mine.lineup[side][pkey] = unplace(p.left, p.top, isNear);
+          saveMine();
           node.classList.add('moved');
         });
         shell.appendChild(node);
@@ -2066,7 +2067,7 @@
     var wrap = el('div', { class: 'bench-strip' });
     ['home', 'away'].forEach(function (side) {
       var players = benchList(d, side);
-      var explicit = !!(store.bench && store.bench[side] && store.bench[side].length);
+      var explicit = !!(mine.bench && mine.bench[side] && mine.bench[side].length);
       var confirmed = isLineupConfirmed(side);
       var squad = effSquad(d, side);
       var row = el('div', { class: 'bench-team ' + side }, [
@@ -2141,7 +2142,7 @@
     document.addEventListener('keydown', onKey);
 
     var xiKeys = effXI(d, side).map(keyOf);
-    var cur = (store.bench && store.bench[side]) || null;
+    var cur = (mine.bench && mine.bench[side]) || null;
     var chosen = {};
     var cand;
     var list = el('div', { class: 'bench-pick-list' });
@@ -2200,7 +2201,7 @@
     var strip = el('div', { class: 'subs-strip' });
     ['home', 'away'].forEach(function (side) {
       var pred = baseXI(d, side);
-      var ov = (store.xi && store.xi[side]) || {};
+      var ov = (mine.xi && mine.xi[side]) || {};
       var made = [];
       pred.forEach(function (orig, i) {
         var cur = ov[i];
@@ -3232,7 +3233,7 @@
 
     if (slotIdx >= 0) {
       var origName = pred[slotIdx] ? pred[slotIdx].name : null;
-      var swapped = !!(store.xi && store.xi[side] && store.xi[side][slotIdx]);
+      var swapped = !!(mine.xi && mine.xi[side] && mine.xi[side][slotIdx]);
       wrap.appendChild(el('p', { class: 'sub-head', text: t('sub.whoComesOn', { name: p.name }) }));
       wrap.appendChild(kindToggle);
       wrap.appendChild(minRow);
