@@ -183,7 +183,7 @@ const CC3 = {
   'croatia': 'CRO', 'slovenia': 'SVN', 'bosnia and herzegovina': 'BIH',
   'north macedonia': 'MKD', 'macedonia': 'MKD', 'montenegro': 'MNE',
   'albania': 'ALB', 'kosovo': 'KVX', 'greece': 'GRE', 'turkey': 'TUR',
-  'türkiye': 'TUR', 'ukraine': 'UKR', 'russia': 'RUS', 'belarus': 'BLR',
+  'türkiye': 'TUR', 'turkiye': 'TUR', 'ukraine': 'UKR', 'russia': 'RUS', 'belarus': 'BLR',
   'georgia': 'GEO', 'armenia': 'ARM', 'azerbaijan': 'AZE', 'cyprus': 'CYP',
   'israel': 'ISR', 'luxembourg': 'LUX', 'malta': 'MLT', 'moldova': 'MDA',
   'brazil': 'BRA', 'argentina': 'ARG', 'uruguay': 'URU', 'colombia': 'COL',
@@ -206,7 +206,8 @@ const CC3 = {
 };
 function cc3(name) {
   if (!name) return null;
-  const k = String(name).toLowerCase().trim();
+  // accents stripped: "Côte d'Ivoire" must find "cote d'ivoire", not fall through to "CÔT"
+  const k = String(name).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
   // API-Football spells multi-word countries with hyphens ("Saudi-Arabia",
   // "Costa-Rica"); without this they fell through to a wrong first-3-letters code.
   return CC3[k] || CC3[k.replace(/-/g, ' ')] || (k.length >= 3 ? k.slice(0, 3).toUpperCase() : null);
