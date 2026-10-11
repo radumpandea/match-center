@@ -177,17 +177,33 @@
     try { localStorage.setItem(NKEY, JSON.stringify(store)); } catch (e) {}
     if (window.MC_COLLAB) window.MC_COLLAB.persist(store);
   }
+  // Per-user (per-device) preferences for this match: how the teams are shown
+  // (store-independent `view`: orientation, sides swapped, full/short names,
+  // label size) and the player display names a user chose (`pname`). Kept in
+  // their own localStorage key and NEVER passed to MC_COLLAB.persist, so two
+  // people on the same match each keep their own view and names while the
+  // lineup, bench, positions, numbers, events and notes stay shared.
+  var MKEY = 'mc:' + slug + ':me';
+  var mine = (function () { try { return JSON.parse(localStorage.getItem(MKEY)) || {}; } catch (e) { return {}; } })();
+  function saveMine() { try { localStorage.setItem(MKEY, JSON.stringify(mine)); } catch (e) {} }
+  var PRIVATE_KEYS = ['view', 'pname'];
+  // These two used to live in the shared state. Move what THIS device already
+  // had into the private bucket once; anything that arrives from the shared
+  // state afterwards (another user, an older cached client) is just dropped.
+  PRIVATE_KEYS.forEach(function (k) {
+    if (store[k] !== undefined) { if (mine[k] === undefined) mine[k] = store[k]; delete store[k]; }
+  });
+  saveMine();
+  try { localStorage.setItem(NKEY, JSON.stringify(store)); } catch (e) {}
+  function dropPrivate(st) { PRIVATE_KEYS.forEach(function (k) { if (st) delete st[k]; }); return st; }
 
   var collaborationStarted = false;
   function connectCollaboration(data) {
     if (collaborationStarted || !window.MC_COLLAB) return;
     collaborationStarted = true;
     window.MC_COLLAB.start(slug, store, function (remoteState) {
-      store = remoteState || {};
+      store = dropPrivate(remoteState || {});   // this user's own view/names are not shared
       try { localStorage.setItem(NKEY, JSON.stringify(store)); } catch (e) {}
-      view = (store.view && typeof store.view === 'object')
-        ? { orientation: store.view.orientation === 'v' ? 'v' : 'h', swapped: !!store.view.swapped, fullNames: !!store.view.fullNames, labelSize: [0, 1, 2].indexOf(store.view.labelSize) >= 0 ? store.view.labelSize : 0 }
-        : { orientation: 'h', swapped: false, fullNames: false, labelSize: 0 };
       render(data);
     });
   }
@@ -436,10 +452,10 @@
   }
 
   /* ---------- pitch view (orientation + which team is nearest the viewer) ---------- */
-  var view = (store.view && typeof store.view === 'object')
-    ? { orientation: store.view.orientation === 'v' ? 'v' : 'h', swapped: !!store.view.swapped, fullNames: !!store.view.fullNames, labelSize: [0, 1, 2].indexOf(store.view.labelSize) >= 0 ? store.view.labelSize : 0 }
+  var view = (mine.view && typeof mine.view === 'object')
+    ? { orientation: mine.view.orientation === 'v' ? 'v' : 'h', swapped: !!mine.view.swapped, fullNames: !!mine.view.fullNames, labelSize: [0, 1, 2].indexOf(mine.view.labelSize) >= 0 ? mine.view.labelSize : 0 }
     : { orientation: 'h', swapped: false, fullNames: false, labelSize: 0 };
-  function saveView() { store.view = { orientation: view.orientation, swapped: view.swapped, fullNames: view.fullNames, labelSize: view.labelSize }; save(); }
+  function saveView() { mine.view = { orientation: view.orientation, swapped: view.swapped, fullNames: view.fullNames, labelSize: view.labelSize }; saveMine(); }
 
   /* ---------- disc (player node) colours per team ----------
      user override (store.discColors) wins; then the pack's colors.primary;
@@ -645,14 +661,14 @@
       }
     });
   }
-  // Per-player display-name overrides (store.pname[side][keyOf(p)]) — lets the
+  // Per-player display-name overrides (mine.pname[side][keyOf(p)], private to this user) — lets the
   // user show something other than the researched name (a nickname, a
   // correction) everywhere the player appears, without touching the source
   // data. Keyed by keyOf() (number-first, falls back to the pristine name) so
   // the override survives a later number edit. Applied every render(), right
   // after applyPnum so keyOf() already reflects any number override.
   function applyPname(d) {
-    var pn = store.pname || {};
+    var pn = mine.pname || {};
     nameMap = Object.create(null);
     ['home', 'away'].forEach(function (side) {
       var map = pn[side] || {};
@@ -774,21 +790,21 @@
     var k = keyOf(p);
     var orig = p._name0 !== undefined ? p._name0 : p.name;
     name = (name || '').trim();
-    store.pname = store.pname || {};
-    store.pname[side] = store.pname[side] || {};
-    if (!name || name === orig) delete store.pname[side][k]; else store.pname[side][k] = name;
-    if (!Object.keys(store.pname[side]).length) delete store.pname[side];
-    save();
-    // Also store it on the shared player entity (when signed in) so the same
-    // short name shows in every other match this player appears in.
-    pushEntityName('player', p.apiId, (name && name !== orig) ? name : null);
+    mine.pname = mine.pname || {};
+    mine.pname[side] = mine.pname[side] || {};
+    if (!name || name === orig) delete mine.pname[side][k]; else mine.pname[side][k] = name;
+    if (!Object.keys(mine.pname[side]).length) delete mine.pname[side];
+    if (!Object.keys(mine.pname).length) delete mine.pname;
+    saveMine();
     var back = document.querySelector('.modal-back');
     if (back) back.remove();
     render(d);
   }
   // Shared display-name correction on mc_entities.overrides (see
-  // MC_COLLAB.setEntityOverride). Best effort: signed out / no apiId / offline
-  // just means the per-match override is all that exists.
+  // MC_COLLAB.setEntityOverride). Used for COACHES only (a correction of the
+  // source name, e.g. "L. Rosenior"); players' display names are private to
+  // each user. Best effort: signed out / no apiId / offline just means the
+  // per-match override is all that exists.
   function pushEntityName(kind, apiId, value) {
     if (apiId == null || !window.MC_COLLAB || !window.MC_COLLAB.setEntityOverride) return;
     window.MC_COLLAB.setEntityOverride(kind, afKey(apiId), 'name', value, apiId);
@@ -824,9 +840,10 @@
         store.bench[side] = store.bench[side].map(function (k) { return k === oldKey ? newKey : k; });
       }
       if (store.captain && store.captain[side] === oldKey) store.captain[side] = newKey;
-      if (store.pname && store.pname[side] && Object.prototype.hasOwnProperty.call(store.pname[side], oldKey)) {
-        store.pname[side][newKey] = store.pname[side][oldKey];
-        delete store.pname[side][oldKey];
+      if (mine.pname && mine.pname[side] && Object.prototype.hasOwnProperty.call(mine.pname[side], oldKey)) {
+        mine.pname[side][newKey] = mine.pname[side][oldKey];
+        delete mine.pname[side][oldKey];
+        saveMine();
       }
       if (store.events) {
         var oe = side + ':' + oldKey;
