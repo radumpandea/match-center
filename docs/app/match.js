@@ -189,13 +189,16 @@
   var mine = (function () { try { return JSON.parse(localStorage.getItem(MKEY)) || {}; } catch (e) { return {}; } })();
   function saveMine() { try { localStorage.setItem(MKEY, JSON.stringify(mine)); } catch (e) {} }
   var PRIVATE_KEYS = ['view', 'pname', 'discColors', 'panelOrder', 'panelWide', 'miniPitchClosed', 'miniPitchWidth',
-                      'xi', 'bench', 'formation', 'lineup', 'confirmed', 'apiLineup'];
+                      'xi', 'bench', 'formation', 'lineup', 'confirmed', 'apiLineup', 'miniPitchPos'];
   // These two used to live in the shared state. Move what THIS device already
   // had into the private bucket once; anything that arrives from the shared
   // state afterwards (another user, an older cached client) is just dropped.
   PRIVATE_KEYS.forEach(function (k) {
     if (store[k] !== undefined) { if (mine[k] === undefined) mine[k] = store[k]; delete store[k]; }
   });
+  // The mini pitch's closed flag / position / width used to be shared: a colleague
+  // closing or moving it could hide it for everyone. Start everybody visible once.
+  if (!mine._mp2) { delete mine.miniPitchClosed; delete mine.miniPitchPos; mine._mp2 = true; }
   saveMine();
   try { localStorage.setItem(NKEY, JSON.stringify(store)); } catch (e) {}
   function dropPrivate(st) { PRIVATE_KEYS.forEach(function (k) { if (st) delete st[k]; }); return st; }
@@ -1693,7 +1696,7 @@
   }
 
   // Drag the box itself (via its header) to reposition on screen, in fixed
-  // viewport pixels. Persisted to store.miniPitchPos so it stays put across
+  // viewport pixels. Persisted to mine.miniPitchPos so it stays put across
   // re-renders; overrides the default CSS top-right corner once set.
   function makeBoxDraggable(box, header) {
     header.addEventListener('pointerdown', function (e) {
@@ -1717,8 +1720,8 @@
         if (moved) {
           box._dragged = true;
           setTimeout(function () { box._dragged = false; }, 350);
-          store.miniPitchPos = { top: parseFloat(box.style.top), left: parseFloat(box.style.left) };
-          save();
+          mine.miniPitchPos = { top: parseFloat(box.style.top), left: parseFloat(box.style.left) };
+          saveMine();
         }
       }
       header.addEventListener('pointermove', move);
@@ -1756,8 +1759,8 @@
         handle.removeEventListener('pointermove', move);
         handle.removeEventListener('pointerup', end);
         handle.removeEventListener('pointercancel', end);
-        store.miniPitchPos = { top: parseFloat(box.style.top), left: parseFloat(box.style.left) };
-        save();
+        mine.miniPitchPos = { top: parseFloat(box.style.top), left: parseFloat(box.style.left) };
+        saveMine();
       }
       handle.addEventListener('pointermove', move);
       handle.addEventListener('pointerup', end);
@@ -1800,9 +1803,13 @@
     });
     var resizeHandle = el('div', { class: 'mp-resize', title: t('pitch.miniPitchResize') });
     var box = el('div', { class: 'mc-mini-pitch' }, [header, shell, resizeHandle]);
-    if (store.miniPitchPos) {
-      box.style.top = store.miniPitchPos.top + 'px';
-      box.style.left = store.miniPitchPos.left + 'px';
+    // A saved position can come from another screen size (it used to be synced
+    // between users); one that would put the box outside this window is ignored.
+    var mp = mine.miniPitchPos;
+    if (mp && isFinite(mp.top) && isFinite(mp.left) && mp.top >= 0 && mp.left >= 0 &&
+        mp.top < window.innerHeight - 60 && mp.left < window.innerWidth - 80) {
+      box.style.top = mp.top + 'px';
+      box.style.left = mp.left + 'px';
       box.style.right = 'auto';
     }
     if (mine.miniPitchWidth) box.style.width = mine.miniPitchWidth + 'px';
