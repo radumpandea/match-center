@@ -861,6 +861,203 @@
       .catch(function () { finish(t('lineup.unavailable'), 'warn'); });
   }
 
+  /* ---------- in-browser translation (Chrome's built-in Translator API) ----------
+     When the chosen language has no translation file for this match (the
+     server-side pipeline hasn't produced one), a button translates the
+     Romanian editorial text on this device with the browser's own on-device
+     model. Nothing is sent to a server and no key or credit is involved. The
+     result has exactly the shape of a <slug>.i18n.json language block, so the
+     normal applyI18nOverlay() shows it; it is flagged _machine, cached in
+     localStorage (valid while the Romanian source is unchanged) and dropped as
+     soon as a real translation file exists. Career strings are NOT machine
+     translated (club names would get mangled): only their connecting words. */
+  var BT_WORDS = {
+    en: { prezent: 'present', 'împrumut': 'loan' },
+    de: { prezent: 'heute', 'împrumut': 'Leihe' },
+    it: { prezent: 'presente', 'împrumut': 'prestito' },
+    fr: { prezent: 'présent', 'împrumut': 'prêt' }
+  };
+  var btState = { busy: false, text: '', kind: 'info' };
+  function btSrc(o, k) {
+    if (!o) return undefined;
+    var b = o['_ro$' + k];
+    return b !== undefined ? b : o[k];
+  }
+  function btArr(o, k) { var v = btSrc(o, k); return Array.isArray(v) ? v : []; }
+  // Same field list as scripts/translate-match-data-openrouter.mjs collectUnits()
+  // and applyI18nOverlay() above, read from the Romanian originals.
+  function btUnits(d) {
+    var units = [];
+    var add = function (path, text, kind) {
+      if (typeof text === 'string' && text.trim() && text.trim() !== 'n/d') units.push({ path: path, text: text, kind: kind || 'text' });
+    };
+    btArr(d, 'storyOfTheMatch').forEach(function (s, i) { add(['storyOfTheMatch', i], s); });
+    if (d.h2h) add(['h2h', 'summary'], btSrc(d.h2h, 'summary'));
+    if (d.referee) add(['referee', 'history'], btSrc(d.referee, 'history'));
+    if (d.venue) {
+      add(['venue', 'notes'], btSrc(d.venue, 'notes'));
+      btArr(d.venue, 'stories').forEach(function (s, i) { add(['venue', 'stories', i], s); });
+    }
+    (d.commentatorResearch || []).forEach(function (c, i) {
+      add(['commentatorResearch', i, 'topic'], btSrc(c, 'topic'));
+      add(['commentatorResearch', i, 'fact'], btSrc(c, 'fact'));
+    });
+    ['home', 'away'].forEach(function (side) {
+      var team = d.teams && d.teams[side];
+      if (!team) return;
+      if (team.coach && Array.isArray(team.coach.career)) {
+        team.coach.career.forEach(function (c, i) { add(['teams', side, 'coach', 'career', i], btSrc(c, 'note')); });
+      }
+      (team.news || []).forEach(function (n, i) { add(['teams', side, 'news', i], btSrc(n, 'text')); });
+      (team.pressQuotes || []).forEach(function (q, i) { add(['teams', side, 'pressQuotes', i], btSrc(q, 'text')); });
+      (team.stories || []).forEach(function (s, i) {
+        add(['teams', side, 'stories', i, 'title'], btSrc(s, 'title'));
+        btArr(s, 'bullets').forEach(function (b, j) { add(['teams', side, 'stories', i, 'bullets', j], b); });
+      });
+      (team.squad || []).forEach(function (p, i) {
+        add(['teams', side, 'squad', i, 'funfact'], btSrc(p, 'funfact'));
+        add(['teams', side, 'squad', i, 'linkLine'], btSrc(p, 'linkLine'));
+        add(['teams', side, 'squad', i, 'career'], btSrc(p, 'career'), 'career');
+        add(['teams', side, 'squad', i, 'lastSeason'], btSrc(p, 'lastSeason'));
+        add(['teams', side, 'squad', i, 'statusNote'], btSrc(p, 'statusNote'));
+      });
+    });
+    return units;
+  }
+  // Every array must keep the source length (the overlay maps by index), so
+  // start from a skeleton of nulls -- same as the server script's buildSkeleton().
+  function btSkeleton(d) {
+    var out = {};
+    if (Array.isArray(btSrc(d, 'storyOfTheMatch'))) out.storyOfTheMatch = btArr(d, 'storyOfTheMatch').map(function () { return null; });
+    if (d.h2h) out.h2h = { summary: null };
+    if (d.referee) out.referee = { history: null };
+    if (d.venue) {
+      out.venue = { notes: null };
+      if (Array.isArray(btSrc(d.venue, 'stories'))) out.venue.stories = btArr(d.venue, 'stories').map(function () { return null; });
+    }
+    if (Array.isArray(d.commentatorResearch)) out.commentatorResearch = d.commentatorResearch.map(function () { return { topic: null, fact: null }; });
+    out.teams = {};
+    ['home', 'away'].forEach(function (side) {
+      var team = d.teams && d.teams[side];
+      if (!team) return;
+      var o = {};
+      if (team.coach && Array.isArray(team.coach.career)) o.coach = { career: team.coach.career.map(function () { return null; }) };
+      if (Array.isArray(team.news)) o.news = team.news.map(function () { return null; });
+      if (Array.isArray(team.pressQuotes)) o.pressQuotes = team.pressQuotes.map(function () { return null; });
+      if (Array.isArray(team.stories)) o.stories = team.stories.map(function (s) {
+        return { title: null, bullets: btArr(s, 'bullets').map(function () { return null; }) };
+      });
+      if (Array.isArray(team.squad)) o.squad = team.squad.map(function () {
+        return { funfact: null, linkLine: null, career: null, lastSeason: null, statusNote: null };
+      });
+      out.teams[side] = o;
+    });
+    return out;
+  }
+  function btSet(root, path, value) {
+    var node = root;
+    for (var i = 0; i < path.length - 1; i++) node = node[path[i]];
+    node[path[path.length - 1]] = value;
+  }
+  function btHash(units) {
+    var h = 5381;
+    units.forEach(function (u) {
+      var s = u.text;
+      for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0;
+    });
+    return units.length + ':' + h;
+  }
+  function btCareer(text, lang) {
+    var w = BT_WORDS[lang] || {};
+    return text.replace(/prezent|împrumut/g, function (m) { return w[m] || m; });
+  }
+  var BT_KEY = function (lang) { return 'mc:bt:' + slug + ':' + lang; };
+  // Re-attach a cached machine translation to i18nDoc (render pipeline, before
+  // applyI18nOverlay). Skipped as soon as a real translation file exists.
+  function btLoadCache(d) {
+    var lang = I18N.getLang();
+    if (lang === 'ro' || (i18nDoc && i18nDoc[lang])) return;
+    var raw; try { raw = localStorage.getItem(BT_KEY(lang)); } catch (e) { raw = null; }
+    if (!raw) return;
+    try {
+      var c = JSON.parse(raw);
+      if (c && c.doc && c.h === btHash(btUnits(d))) { i18nDoc = i18nDoc || {}; i18nDoc[lang] = c.doc; }
+    } catch (e) { /* unreadable cache: ignore */ }
+  }
+  function btSetStatus(text, kind) {
+    btState.text = text; btState.kind = kind || 'info';
+    var el0 = document.querySelector('.bt-status');
+    if (el0) { el0.textContent = text; el0.className = 'lineup-status bt-status ' + btState.kind; }
+  }
+  function btClear(d, lang) {
+    if (i18nDoc && i18nDoc[lang] && i18nDoc[lang]._machine) delete i18nDoc[lang];
+    try { localStorage.removeItem(BT_KEY(lang)); } catch (e) {}
+    btState = { busy: false, text: '', kind: 'info' };
+    render(d);
+  }
+  function btStart(d, lang) {
+    if (btState.busy) return;
+    var T = self.Translator;
+    if (!T || typeof T.create !== 'function') { btState = { busy: false, text: t('tr.unsupported'), kind: 'warn' }; render(d); return; }
+    btState = { busy: true, text: t('tr.progress', { done: 0, total: '…' }), kind: 'busy' };
+    render(d);
+    var units = btUnits(d);
+    var made = [];   // translators to chain: ro -> lang, or ro -> en -> lang
+    var onDl = function (e) { btSetStatus(t('tr.downloading', { pct: Math.round((e.loaded || 0) * 100) }), 'busy'); };
+    // An API that exists but never answers (some embedded browsers) must not leave
+    // the button spinning forever.
+    var within = function (p, ms) {
+      return new Promise(function (resolve, reject) {
+        var timer = setTimeout(function () { reject(new Error('timeout')); }, ms);
+        p.then(function (v) { clearTimeout(timer); resolve(v); }, function (e) { clearTimeout(timer); reject(e); });
+      });
+    };
+    var make = function (from, to) {
+      return within(T.availability({ sourceLanguage: from, targetLanguage: to }), 8000).then(function (a) {
+        if (a === 'unavailable') return null;
+        return T.create({ sourceLanguage: from, targetLanguage: to, monitor: function (m) { m.addEventListener('downloadprogress', onDl); } });
+      });
+    };
+    // create() needs the click's user activation when a model must be downloaded,
+    // so it is started right here, synchronously, before any other await.
+    var direct = make('ro', lang);
+    direct.then(function (tr) {
+      if (tr) return [tr];
+      if (lang === 'en') return null;
+      return Promise.all([make('ro', 'en'), make('en', lang)]).then(function (pair) { return pair[0] && pair[1] ? pair : null; });
+    }).then(function (chain) {
+      if (!chain) { btState = { busy: false, text: t('tr.pairUnavailable'), kind: 'warn' }; render(d); return; }
+      made = chain;
+      var run = function (text) {
+        return made.reduce(function (p, tr) { return p.then(function (x) { return within(tr.translate(x), 30000); }); }, Promise.resolve(text));
+      };
+      var out = btSkeleton(d);
+      var done = 0, next = 0, total = units.filter(function (u) { return u.kind !== 'career'; }).length;
+      var worker = function () {
+        if (next >= units.length) return Promise.resolve();
+        var u = units[next++];
+        if (u.kind === 'career') { btSet(out, u.path, btCareer(u.text, lang)); return worker(); }
+        return run(u.text).then(function (res) {
+          btSet(out, u.path, String(res || '').trim() || null);
+          done++;
+          if (done % 5 === 0 || done === total) btSetStatus(t('tr.progress', { done: done, total: total }), 'busy');
+        }).then(worker);
+      };
+      var pool = []; for (var k = 0; k < 6; k++) pool.push(worker());
+      return Promise.all(pool).then(function () {
+        out._machine = true;
+        i18nDoc = i18nDoc || {};
+        i18nDoc[lang] = out;
+        try { localStorage.setItem(BT_KEY(lang), JSON.stringify({ h: btHash(units), doc: out })); } catch (e) {}
+        btState = { busy: false, text: '', kind: 'info' };
+        render(d);
+      });
+    }).catch(function () {
+      btState = { busy: false, text: t('tr.error'), kind: 'warn' };
+      render(d);
+    });
+  }
+
   // Overlays translated editorial text (i18nDoc[lang]) onto the Romanian
   // source doc, applied fresh on every render() call — same pattern as
   // applyManualOverlay/applyPnum/applyPname above. Every translated array
@@ -1297,6 +1494,7 @@
     applyPname(data);
     applyCname(data);
     applyDiscColors(data);
+    btLoadCache(data);
     applyI18nOverlay(data);
     document.title = data.teams.home.name + ' – ' + data.teams.away.name + ' · Match Center';
     root.innerHTML = '';
@@ -1379,6 +1577,17 @@
       onclick: function () { refreshLineups(data); }
     }) : null;
     if (lineupsBtn && lineupBusy) lineupsBtn.disabled = true;
+    var uiLang = I18N.getLang();
+    var serverTr = !!(i18nDoc && i18nDoc[uiLang] && !i18nDoc[uiLang]._machine);
+    var machineTr = !!(i18nDoc && i18nDoc[uiLang] && i18nDoc[uiLang]._machine);
+    var translateBtn = (uiLang !== 'ro' && !serverTr) ? el('button', {
+      class: 'lineup-refresh-btn' + (machineTr ? ' is-on' : ''),
+      text: machineTr ? t('tr.active') : t('tr.button'),
+      title: machineTr ? t('tr.activeTitle') : t('tr.buttonTitle'),
+      onclick: function () { if (machineTr) btClear(data, uiLang); else btStart(data, uiLang); }
+    }) : null;
+    if (translateBtn && btState.busy) translateBtn.disabled = true;
+    var btStatusEl = btState.text ? el('span', { class: 'lineup-status bt-status ' + btState.kind, text: btState.text }) : null;
     var lineupStatusEl = lineupStatus ? el('span', { class: 'lineup-status ' + lineupStatus.kind, text: lineupStatus.text }) : null;
     var langSwitch = I18N.switcherEl(function () { render(data); });
     var themeToggle = window.MC_THEME.toggleEl();
@@ -1424,6 +1633,8 @@
       el('div', { class: 'mc-toolbar' }, [
         lineupsBtn,
         lineupStatusEl,
+        translateBtn,
+        btStatusEl,
         iconOnly(swapBtn),
         orientBtn,
         namesBtn,
