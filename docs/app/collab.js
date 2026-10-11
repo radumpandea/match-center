@@ -50,7 +50,7 @@
 
   function changedAreas(before, after) {
     var a = before || {}, b = after || {};
-    var keys = ['notes', 'lineup', 'xi', 'bench', 'events', 'captain', 'pnum', 'panelExtra', 'manual', 'discColors', 'view', 'panelOrder', 'confirmed'];
+    var keys = ['notes', 'lineup', 'xi', 'bench', 'events', 'captain', 'pnum', 'panelExtra', 'manual', 'discColors', 'view', 'panelOrder', 'confirmed', 'apiLineup'];
     return keys.filter(function (k) { return json(a[k]) !== json(b[k]); }).map(function (k) { return t('collab.change.' + k); });
   }
 
@@ -264,5 +264,24 @@
     }
   }
 
-  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes, getEntity: getEntity, getEntities: getEntities, setEntityOverride: setEntityOverride };
+  // Asks the `api-lineups` Edge Function (supabase/functions/api-lineups) for the
+  // official lineups of one API-Football fixture. The function holds the API
+  // key, so it never reaches the browser, and only answers signed-in users.
+  // Resolves { ok: true, data } or { ok: false, reason } and never throws:
+  // not_configured | not_signed_in | not_deployed | error.
+  async function fetchApiLineups(fixtureId) {
+    if (!enabled) return { ok: false, reason: 'not_configured' };
+    if (!user) await ensureUser();
+    if (!user) return { ok: false, reason: 'not_signed_in' };
+    try {
+      var res = await client.functions.invoke('api-lineups', { body: { fixture: fixtureId } });
+      if (res.error) {
+        var status = res.error.context && res.error.context.status;
+        return { ok: false, reason: status === 404 ? 'not_deployed' : status === 401 ? 'not_signed_in' : 'error' };
+      }
+      return { ok: true, data: res.data };
+    } catch (e) { return { ok: false, reason: 'error' }; }
+  }
+
+  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes, getEntity: getEntity, getEntities: getEntities, setEntityOverride: setEntityOverride, fetchApiLineups: fetchApiLineups };
 })();

@@ -17,6 +17,7 @@
   // match has been translated yet) and just means every language shows the
   // Romanian original, same as before this existed.
   var i18nDoc = null;
+  var curFixture = null;   // this match's fixtures.json row (eventId / homeId / awayId for the API lineup button)
 
   var params = new URLSearchParams(location.search);
   var slug = (params.get('m') || '').trim();
@@ -34,6 +35,7 @@
     var prep = results[1];
     i18nDoc = results[2];
     var fixture = fixtures.filter(function (f) { return f.slug === slug; })[0];
+    curFixture = fixture || null;
     if (!prep && !fixture) {
       fail(t('err.notFound', { slug: esc(slug) }));
       return;
@@ -707,6 +709,158 @@
       if (xi) Object.keys(xi).forEach(function (k) { set(xi[k]); });
     });
   }
+  /* ---------- lineup from API-Football (button) ----------
+     The browser never talks to api-sports.io itself (that would publish the API
+     key): the button asks a Supabase Edge Function (supabase/functions/api-lineups)
+     which holds the key. If that function isn't reachable, it falls back to the
+     lineup the fetch-confirmed-lineups workflow already wrote into the published
+     match file. Either way the result is stored in the SHARED state
+     (store.apiLineup[side]) -- a confirmed lineup is a fact, so one person's
+     click updates everybody on this match -- and re-applied on every render by
+     applyApiLineup(), which also marks the team as API-confirmed. */
+  var POS_FROM_LETTER = { G: 'GK', D: 'DEF', M: 'MID', F: 'ATT' };
+  // API lineup names are "K. Trapp" (initial + surname). The squad entry has the
+  // given names, but often more of them than anyone says ("Yvon Landry Mvogo
+  // Nganoma"), and shortName() would then pick the wrong surname. So combine: the
+  // squad's given name that starts with the API's initial + the API's surname.
+  function lineupName(apiName, ref) {
+    var m = /^(\S)\.\s+(.+)$/.exec(apiName || '');
+    var base = ref ? (ref._name0 !== undefined ? ref._name0 : ref.name) : null;
+    if (!m || !base) return apiName || base;
+    var plain = function (x) { return String(x).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); };
+    var tokens = String(base).split(/\s+/);
+    var given = tokens.filter(function (x, i) { return i < tokens.length - 1 && plain(x.charAt(0)) === plain(m[1]); })[0];
+    return given ? given + ' ' + m[2] : apiName;
+  }
+  function applyApiLineup(d) {
+    var al = store.apiLineup;
+    if (!al) return;
+    ['home', 'away'].forEach(function (side) {
+      var a = al[side], tm = d.teams[side];
+      if (!a || !a.xi || a.xi.length !== 11 || !tm) return;
+      tm.squad = tm.squad || [];
+      var conv = function (sl) {
+        var ref = sl.apiId != null ? tm.squad.filter(function (p) { return p.apiId === sl.apiId; })[0] : null;
+        if (!ref && sl.apiId != null) {
+          // a player on the official sheet who isn't in the squad file yet: add a
+          // minimal entry so his card opens (appended, so translation indexes hold)
+          ref = { apiId: sl.apiId, number: sl.number != null ? sl.number : null, name: sl.name, role: POS_FROM_LETTER[sl.pos] || 'MID',
+                  pos: null, status: 'available', statusNote: null, _fromApiLineup: true };
+          tm.squad.push(ref);
+        }
+        return {
+          apiId: sl.apiId,
+          number: sl.number != null ? sl.number : (ref ? ref.number : null),
+          name: lineupName(sl.name, ref),
+          pos: (ref && ref.pos) || POS_FROM_LETTER[sl.pos] || sl.pos || null
+        };
+      };
+      tm.confirmedXI = a.xi.map(conv);
+      tm.predictedXI = a.xi.map(conv);
+      tm.substitutes = (a.subs || []).map(conv);
+      if (has(a.formation)) tm.formation = a.formation;
+      tm._apiAt = a.fetchedAt || null;
+      tm._apiSource = a.source || 'api';
+    });
+  }
+  function gridKey(sl) {
+    var m = /^(\d+):(\d+)$/.exec(sl.grid || '');
+    return m ? parseInt(m[1], 10) * 100 + parseInt(m[2], 10) : 0;
+  }
+  function slotsOf(list) {
+    var out = (list || []).map(function (x, i) {
+      return { apiId: x.apiId != null ? x.apiId : (x.id != null ? x.id : null), number: x.number != null ? x.number : null,
+               name: x.name, pos: x.pos || null, grid: x.grid || null, _i: i };
+    });
+    // the layout draws rows from the goalkeeper outwards, left to right, which is
+    // exactly the API's grid order (row:col); no grid (published file) = keep order
+    if (out.some(function (x) { return x.grid; })) out.sort(function (a, b) { return gridKey(a) - gridKey(b) || a._i - b._i; });
+    return out.map(function (x) { return { apiId: x.apiId, number: x.number, name: x.name, pos: x.pos }; });
+  }
+  function lineupsFromApi(data, fx) {
+    var out = {};
+    (data.teams || []).forEach(function (row) {
+      var side = row.teamId === fx.homeId ? 'home' : row.teamId === fx.awayId ? 'away' : null;
+      if (side && row.startXI && row.startXI.length === 11) {
+        out[side] = { fetchedAt: data.fetchedAt || new Date().toISOString(), source: 'api', formation: row.formation || null,
+                      xi: slotsOf(row.startXI), subs: slotsOf(row.substitutes) };
+      }
+    });
+    return out.home && out.away ? out : null;
+  }
+  function lineupsFromPublished() {
+    return fetch('data/matches/' + encodeURIComponent(slug) + '.json?_=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (doc) {
+        if (!doc || !doc.teams) return null;
+        var out = {};
+        ['home', 'away'].forEach(function (side) {
+          var tm = doc.teams[side];
+          if (tm && tm.confirmedXI && tm.confirmedXI.length === 11) {
+            out[side] = { fetchedAt: null, source: 'published', formation: tm.formation || null, xi: slotsOf(tm.confirmedXI), subs: slotsOf(tm.substitutes) };
+          }
+        });
+        return out.home && out.away ? out : null;
+      }).catch(function () { return null; });
+  }
+  function hasManualLineup() {
+    var xiEdits = ['home', 'away'].some(function (side) {
+      var m = store.xi && store.xi[side];
+      return m && Object.keys(m).some(function (i) { return m[i] && m[i].kind !== 'sub'; });
+    });
+    var bench = store.bench && Object.keys(store.bench).length;
+    var form = store.formation && Object.keys(store.formation).length;
+    return !!(xiEdits || bench || form);
+  }
+  // Manual edits of the XI / bench / formation give way to the official sheet.
+  // In-match substitutions (kind 'sub', with a minute) are match history, not
+  // lineup edits, so they stay.
+  function clearManualLineup(side) {
+    if (store.formation) { delete store.formation[side]; if (!Object.keys(store.formation).length) delete store.formation; }
+    if (store.xi && store.xi[side]) {
+      Object.keys(store.xi[side]).forEach(function (i) { if (store.xi[side][i] && store.xi[side][i].kind !== 'sub') delete store.xi[side][i]; });
+      if (!Object.keys(store.xi[side]).length) delete store.xi[side];
+      if (!Object.keys(store.xi).length) delete store.xi;
+    }
+    if (store.bench) { delete store.bench[side]; if (!Object.keys(store.bench).length) delete store.bench; }
+  }
+  var lineupBusy = false, lineupStatus = null;
+  function timeLabel(iso) {
+    try { return new Date(iso).toLocaleTimeString(I18N.getLang(), { hour: '2-digit', minute: '2-digit' }); } catch (e) { return ''; }
+  }
+  function refreshLineups(d) {
+    if (lineupBusy) return;
+    lineupBusy = true;
+    var finish = function (text, kind) { lineupBusy = false; lineupStatus = text ? { text: text, kind: kind || 'info' } : null; render(d); };
+    lineupStatus = { text: t('lineup.loading'), kind: 'busy' };
+    render(d);
+    var fx = curFixture;
+    var canAsk = fx && fx.eventId != null && window.MC_COLLAB && window.MC_COLLAB.fetchApiLineups;
+    (canAsk ? window.MC_COLLAB.fetchApiLineups(fx.eventId) : Promise.resolve({ ok: false, reason: 'not_configured' }))
+      .then(function (r) {
+        if (r.ok && r.data && !r.data.published) { finish(t('lineup.notPublished'), 'warn'); return null; }
+        var fromApi = r.ok ? lineupsFromApi(r.data, fx) : null;
+        return fromApi ? fromApi : lineupsFromPublished().then(function (pub) {
+          if (!pub) finish(r.reason === 'not_signed_in' ? t('lineup.needSignIn') : t('lineup.unavailable'), 'warn');
+          return pub;
+        });
+      })
+      .then(function (res) {
+        if (!res) return;
+        if (hasManualLineup() && !window.confirm(t('lineup.confirmOverwrite'))) { finish(null); return; }
+        store.apiLineup = store.apiLineup || {};
+        store.confirmed = store.confirmed || {};
+        ['home', 'away'].forEach(function (side) {
+          clearManualLineup(side);
+          store.apiLineup[side] = res[side];
+          store.confirmed[side] = true;   // official sheet = final, same lock as the manual "confirm" tick
+        });
+        save();
+        finish(res.home.source === 'api' ? t('lineup.doneApi', { time: timeLabel(res.home.fetchedAt) }) : t('lineup.doneFile'), 'ok');
+      })
+      .catch(function () { finish(t('lineup.unavailable'), 'warn'); });
+  }
+
   // Overlays translated editorial text (i18nDoc[lang]) onto the Romanian
   // source doc, applied fresh on every render() call — same pattern as
   // applyManualOverlay/applyPnum/applyPname above. Every translated array
@@ -1128,6 +1282,7 @@
 
   function render(data) {
     applyManualOverlay(data);
+    applyApiLineup(data);
     applyPnum(data);
     applyPname(data);
     applyCname(data);
@@ -1213,6 +1368,14 @@
       title: t('toolbar.collabTitle'),
       onclick: function () { openCollaboration(data); }
     });
+    var lineupsBtn = (curFixture && curFixture.eventId != null) ? el('button', {
+      class: 'lineup-refresh-btn',
+      text: t('toolbar.refreshLineups'),
+      title: t('toolbar.refreshLineupsTitle'),
+      onclick: function () { refreshLineups(data); }
+    }) : null;
+    if (lineupsBtn && lineupBusy) lineupsBtn.disabled = true;
+    var lineupStatusEl = lineupStatus ? el('span', { class: 'lineup-status ' + lineupStatus.kind, text: lineupStatus.text }) : null;
     var langSwitch = I18N.switcherEl(function () { render(data); });
     var themeToggle = window.MC_THEME.toggleEl();
     var miniPitchToggleBtn = el('button', {
@@ -1255,6 +1418,8 @@
       metaWrap,
       (data._skeleton || data._partial) ? skeletonBanner(data) : null,
       el('div', { class: 'mc-toolbar' }, [
+        lineupsBtn,
+        lineupStatusEl,
         swapBtn,
         orientBtn,
         namesBtn,
@@ -1634,8 +1799,14 @@
   // is the only place that fact stays visible instead of silently blending
   // into an ordinary predicted XI.
   function apiConfirmedBadge(d, side) {
-    if (!d.teams[side].confirmedXI) return null;
-    return el('span', { class: 'api-confirmed-tag', title: t('pitch.apiConfirmedTitle'), text: t('pitch.apiConfirmedTag') });
+    var tm = d.teams[side];
+    if (!tm.confirmedXI) return null;
+    var at = tm._apiAt ? timeLabel(tm._apiAt) : '';
+    return el('span', {
+      class: 'api-confirmed-tag',
+      title: at ? t('pitch.apiConfirmedTitleAt', { time: at }) : t('pitch.apiConfirmedTitle'),
+      text: t('pitch.apiConfirmedTag') + (at ? ' · ' + at : '')
+    });
   }
   function matchGraphic(d) {
     var score = el('div', { class: 'match-graphic-score' }, [
@@ -1699,6 +1870,9 @@
         onclick: function () { setLineupConfirmed(d, side, !confirmed); }
       }));
       if (confirmed) row.appendChild(el('span', { class: 'confirmed-tag', text: t('pitch.lineupConfirmedTag') }));
+      if (d.teams[side].confirmedXI && d.teams[side].substitutes && d.teams[side].substitutes.length) {
+        row.appendChild(el('span', { class: 'api-confirmed-tag', title: t('pitch.apiBenchTitle'), text: t('pitch.apiBenchTag') }));
+      }
       if (!players.length) {
         row.appendChild(el('span', { class: 'bench-empty', text: explicit ? t('pitch.benchNone') : '—' }));
       }

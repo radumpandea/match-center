@@ -1,0 +1,9 @@
+# Minimal Supabase CLI project file -- only here so `supabase functions deploy`
+# works from CI. The database schema lives in docs/supabase.sql (run by hand in
+# the dashboard), not in migrations.
+project_id = "match-center"
+
+[functions.api-lineups]
+# Callers must present a valid JWT; the function itself additionally requires a
+# signed-in user (not just the public anon key).
+verify_jwt = true

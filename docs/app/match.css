@@ -603,3 +603,8 @@ table.mc.standings tr.is-mine td{background:var(--color-accent-900,rgba(120,140,
   .panel .body{color:#222}
   .panel:not([open]) .body{display:block}
 }
+.lineup-refresh-btn{font-weight:600}
+.lineup-refresh-btn:disabled{opacity:.6;cursor:progress}
+.lineup-status{font-size:11px;padding:3px 8px;border-radius:999px;background:var(--color-surface-2);color:var(--color-neutral-400);align-self:center}
+.lineup-status.ok{background:color-mix(in srgb,var(--color-accent) 22%,transparent);color:var(--color-accent-200)}
+.lineup-status.warn{background:color-mix(in srgb,#d97706 22%,transparent);color:#f59e0b}
