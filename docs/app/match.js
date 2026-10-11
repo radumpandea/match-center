@@ -1948,7 +1948,8 @@
         }, [
           el('div', { class: 'disc' }, [
             el('span', { text: isEmpty ? '+' : (slot.number != null ? String(slot.number) : (slot.pos || '')) }),
-            cap ? el('span', { class: 'cap-mark', text: 'C' }) : null
+            cap ? el('span', { class: 'cap-mark', text: 'C' }) : null,
+            (!isEmpty && stat && stat !== 'available') ? el('span', { class: 'status-mark ' + stat, title: statusLabel(stat), text: stat === 'doubt' ? '!' : stat === 'out' ? '✚' : '✕' }) : null
           ]),
           badges,
           el('div', { class: 'lbl', text: isEmpty ? t('pitch.emptySlot') : (view.fullNames ? (slot.name || '') : shortName(slot.name)) }),
