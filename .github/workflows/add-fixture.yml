@@ -1,0 +1,62 @@
+name: Add Fixture (one-off)
+
+# Adds a single match from API-Football to docs/data/fixtures.json for a
+# competition that is NOT tracked in scripts/refresh-fixtures.mjs. The entry is
+# flagged manual, so the daily refresh keeps it until its match day is over. Run
+# "Prefetch Preview Data" afterwards (builds the partial pack), then
+# "Build Match Data" with depth=deep for a premium pack.
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Match date, YYYY-MM-DD (Europe/Bucharest)"
+        required: true
+      home:
+        description: "Part of the HOME team name (e.g. ittihad)"
+        required: true
+      away:
+        description: "Part of the AWAY team name (e.g. ahli)"
+        required: true
+      league:
+        description: "API-Football league id (optional, narrows the search)"
+        required: false
+        default: ""
+
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Look the fixture up and add it
+        env:
+          APIFOOTBALL_KEY: ${{ secrets.APIFOOTBALL_KEY }}
+          DATE: ${{ inputs.date }}
+          HOME_TEAM: ${{ inputs.home }}
+          AWAY_TEAM: ${{ inputs.away }}
+          LEAGUE: ${{ inputs.league }}
+        run: node scripts/add-fixture.mjs
+
+      - name: Commit
+        env:
+          MSG: "Add fixture by hand: ${{ inputs.home }} - ${{ inputs.away }} (${{ inputs.date }})"
+        run: |
+          git config user.name "fixture-refresh-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/data/fixtures.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "$MSG"
+            git pull --rebase --autostash origin main || true
+            git push
+          fi

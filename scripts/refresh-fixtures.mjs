@@ -212,6 +212,12 @@ async function main() {
     out.push(...upcoming);
   }
 
+  // Fixtures added by hand (scripts/add-fixture.mjs, `manual: true`) are not in any
+  // COMPS pass above, so carry them over until their own match day is over.
+  for (const e of manifest) {
+    if (e.manual && e.date >= from && !out.some((x) => x.slug === e.slug || (x.eventId != null && x.eventId === e.eventId))) out.push(e);
+  }
+
   cleanupPlayedMatches(out);
 
   const rendered = JSON.stringify(out, null, 2) + '\n';
