@@ -1161,6 +1161,13 @@ async function applyCareers(doc, cache) {
 /* Fill `natTeam` for the likely starters of CLUB matches when the national team
    they play for differs from the citizenship API-Football gives (nat). Fill-only:
    never overwrites a natTeam the editorial pass already set. */
+// The check costs one players/teams call per player the first time (cached after),
+// and every cached career from before this existed needs it once -- thousands of
+// calls if done at once, which on 2026-10-11 pushed a run into the daily limit. So
+// it is gradual: at most NAT_CHECKS_PER_RUN uncached lookups per run, matches
+// processed soonest-kickoff first, the rest picked up by the next runs. Players
+// already answered (cache.careers[id].natTeam !== undefined) cost nothing.
+let natChecksLeft = Number(process.env.NAT_CHECKS_PER_RUN) || 120;
 async function applyNatTeams(doc, cache) {
   if (!doc.competition || doc.competition.country === 'INT') return false;
   let touched = false;
@@ -1169,6 +1176,11 @@ async function applyNatTeams(doc, cache) {
     const ids = new Set([].concat(t.predictedXI || [], t.confirmedXI || []).map((x) => x && x.apiId).filter((x) => x != null));
     for (const p of t.squad || []) {
       if (p.apiId == null || !ids.has(p.apiId) || has(p.natTeam) || !has(p.nat)) continue;
+      const known = cache.careers && cache.careers[p.apiId] && cache.careers[p.apiId].natTeam !== undefined;
+      if (!known) {
+        if (natChecksLeft <= 0) continue;
+        natChecksLeft--;
+      }
       await getCareer(p.apiId, cache, false, true);
       const e = cache.careers && cache.careers[p.apiId];
       if (e && e.natTeam && e.natTeam !== p.nat) { p.natTeam = e.natTeam; touched = true; }
