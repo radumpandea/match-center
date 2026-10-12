@@ -31,6 +31,11 @@
       .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
   ]).then(function (results) {
     var fixtures = results[0] || [];
+    // matches added by hand in this browser from the list page (index.html)
+    try {
+      var localManual = JSON.parse(localStorage.getItem('mc:manualFixtures'));
+      if (Array.isArray(localManual)) fixtures = fixtures.concat(localManual);
+    } catch (e) { /* none */ }
     allFixtures = fixtures;
     var prep = results[1];
     i18nDoc = results[2];

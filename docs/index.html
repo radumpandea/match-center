@@ -69,6 +69,15 @@
   }
   .chip.active{background:color-mix(in srgb,var(--color-accent) 18%,transparent);color:var(--color-accent-200);border-color:var(--color-accent)}
   .search{width:200px;font-size:12px;padding:var(--space-2) var(--space-4);margin-left:auto}
+  .manual-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:var(--space-3);padding:var(--space-4);border:1px solid var(--color-divider);border-radius:var(--radius-md);background:var(--color-surface)}
+  .manual-form[hidden]{display:none}
+  .manual-form label{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--color-neutral-500)}
+  .manual-form .input{font-size:12.5px;min-height:30px}
+  .manual-form .manual-actions{grid-column:1/-1;display:flex;gap:var(--space-2);align-items:center;flex-wrap:wrap}
+  .manual-hint{font-size:11.5px;color:var(--color-neutral-600)}
+  .manual-err{font-size:12px;color:#e5484d}
+  .row-del{width:28px;height:28px;padding:0;border:1px solid var(--color-divider);border-radius:50%;background:transparent;color:var(--color-neutral-500);font-size:13px;line-height:1;cursor:pointer}
+  .row-del:hover{color:#e5484d;border-color:#e5484d}
   .groups{display:flex;flex-direction:column;gap:var(--space-8)}
   .group{display:flex;flex-direction:column;gap:var(--space-3)}
   .group-head{display:flex;align-items:baseline;gap:var(--space-3);padding-bottom:var(--space-2);border-bottom:1px solid var(--color-divider)}
@@ -135,8 +144,11 @@
 
     <div class="filters">
       <div id="chips" style="display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center"></div>
+      <button id="addManualBtn" class="chip" type="button"></button>
       <input id="query" class="input search" type="text" placeholder="Caută echipă">
     </div>
+
+    <form id="manualForm" class="manual-form" hidden></form>
 
     <div id="groups" class="groups"></div>
     <div id="empty" class="empty" hidden>Niciun meci pentru filtrele alese.</div>
@@ -146,7 +158,7 @@
   </div>
 </div>
 
-<script src="app/i18n.js?v=20260920c"></script>
+<script src="app/i18n.js?v=20261012a"></script>
 <script src="app/theme.js?v=20260917c"></script>
 <script src="app/config.js?v=20260907h"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -161,10 +173,81 @@
     document.getElementById('query').placeholder = t('index.searchPlaceholder');
     document.getElementById('empty').textContent = t('index.empty');
     document.getElementById('pageFooter').textContent = t('index.footer');
+    document.getElementById('addManualBtn').textContent = t('index.addManual');
   }
   applyStaticText();
   document.getElementById('langSwitchHost').appendChild(window.MC_I18N.switcherEl(function () { applyStaticText(); renderAccount(); render(); }));
   document.getElementById('themeSwitchHost').appendChild(window.MC_THEME.toggleEl());
+
+  // ---- matches added by hand in this browser (not in fixtures.json) ----
+  var MANUAL_KEY = 'mc:manualFixtures';
+  function loadManual(){
+    try { var a = JSON.parse(localStorage.getItem(MANUAL_KEY)); return Array.isArray(a) ? a : []; } catch (e) { return []; }
+  }
+  function saveManual(a){ try { localStorage.setItem(MANUAL_KEY, JSON.stringify(a)); } catch (e) {} }
+  function slugPart(s){
+    return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-+|-+$)/g, '');
+  }
+  function offsetOf(d){
+    var m = -d.getTimezoneOffset(), sign = m >= 0 ? '+' : '-';
+    m = Math.abs(m);
+    return sign + String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
+  }
+  function buildManualForm(){
+    var form = document.getElementById('manualForm');
+    form.innerHTML = '';
+    function field(key, type, name, extra){
+      var lab = document.createElement('label');
+      lab.appendChild(document.createTextNode(t(key)));
+      var inp = document.createElement('input');
+      inp.className = 'input'; inp.type = type; inp.name = name;
+      if (extra) Object.keys(extra).forEach(function(k){ inp.setAttribute(k, extra[k]); });
+      lab.appendChild(inp);
+      form.appendChild(lab);
+      return inp;
+    }
+    field('index.manualComp', 'text', 'comp', { required: 'required' });
+    field('index.manualRound', 'text', 'round');
+    field('index.manualDate', 'date', 'date', { required: 'required' }).value = new Date().toLocaleDateString('en-CA');
+    field('index.manualTime', 'time', 'time', { required: 'required' });
+    field('index.manualHome', 'text', 'home', { required: 'required' });
+    field('index.manualAway', 'text', 'away', { required: 'required' });
+    field('index.manualVenue', 'text', 'venue');
+    var actions = document.createElement('div');
+    actions.className = 'manual-actions';
+    var save = document.createElement('button'); save.type = 'submit'; save.className = 'chip active'; save.textContent = t('index.manualSave');
+    var cancel = document.createElement('button'); cancel.type = 'button'; cancel.className = 'chip'; cancel.textContent = t('index.manualCancel');
+    cancel.onclick = function(){ form.hidden = true; };
+    var hint = document.createElement('span'); hint.className = 'manual-hint'; hint.textContent = t('index.manualHint');
+    var err = document.createElement('span'); err.className = 'manual-err'; err.id = 'manualErr';
+    actions.appendChild(save); actions.appendChild(cancel); actions.appendChild(hint); actions.appendChild(err);
+    form.appendChild(actions);
+    form.onsubmit = function(e){
+      e.preventDefault();
+      var v = function(n){ return (form.elements[n].value || '').trim(); };
+      var comp = v('comp'), home = v('home'), away = v('away'), date = v('date'), time = v('time');
+      if (!comp || !home || !away || !date || !time) { err.textContent = t('index.manualInvalid'); return; }
+      var when = new Date(date + 'T' + time + ':00');
+      if (isNaN(when)) { err.textContent = t('index.manualInvalid'); return; }
+      var entry = {
+        slug: 'manual-' + date.replace(/-/g, '') + '-' + slugPart(home) + '-' + slugPart(away),
+        comp: comp, country: 'WORLD', round: v('round') || '—', date: date, ko: time,
+        kickoff: date + 'T' + time + ':00' + offsetOf(when),
+        home: home, away: away, venue: v('venue') || 'n/d',
+        eventId: null, leagueId: null, homeId: null, awayId: null, homeLogo: null, awayLogo: null, compLogo: null,
+        ready: false, manual: true, local: true
+      };
+      var list = loadManual().filter(function(x){ return x.slug !== entry.slug; });
+      list.push(entry);
+      saveManual(list);
+      form.hidden = true;
+      location.href = 'match.html?m=' + encodeURIComponent(entry.slug);
+    };
+  }
+  document.getElementById('addManualBtn').addEventListener('click', function(){
+    var form = document.getElementById('manualForm');
+    if (form.hidden) { buildManualForm(); form.hidden = false; } else { form.hidden = true; }
+  });
 
   var state = { comp: null, query: '', favourites: false };
   var all = [];
@@ -321,7 +404,7 @@
         el.className = 'row' + (m.ready ? '' : ' pending');
         var isPremium = m.researchDepth === 'deep';
         var tagClass = isPremium ? 'premium' : (m.ready ? 'ready' : (partials[m.slug] ? 'partial' : 'pending'));
-        var tagText = isPremium ? t('index.tagPremium') : (m.ready ? t('index.tagReady') : (partials[m.slug] ? t('index.tagPartial') : t('index.tagLiveManual')));
+        var tagText = isPremium ? t('index.tagPremium') : (m.ready ? t('index.tagReady') : (partials[m.slug] ? t('index.tagPartial') : (m.local ? t('index.tagManual') : t('index.tagLiveManual'))));
         var homeLogo = m.homeLogo ? '<img class="row-logo" src="' + m.homeLogo + '" alt="">' : '';
         var awayLogo = m.awayLogo ? '<img class="row-logo" src="' + m.awayLogo + '" alt="">' : '';
         el.innerHTML =
@@ -329,6 +412,21 @@
           '<span class="row-mid"><span class="row-title">' + homeLogo + m.home + ' – ' + awayLogo + m.away + '</span>' +
           '<span class="row-sub">' + m.comp + ' · ' + m.round + (m.venue && m.venue !== 'n/d' ? ' · ' + m.venue : '') + '</span></span>' +
           '<span class="row-tag ' + tagClass + '">' + tagText + '</span>';
+        if (m.local) {
+          // a match added by hand in this browser: no favourite (nothing for the build to
+          // pick up), just a button to remove it
+          var del = document.createElement('button');
+          del.className = 'row-del'; del.textContent = '✕'; del.title = t('index.manualRemove');
+          del.onclick = function(e){
+            e.preventDefault(); e.stopPropagation();
+            saveManual(loadManual().filter(function(x){ return x.slug !== m.slug; }));
+            all = all.filter(function(x){ return x.slug !== m.slug; });
+            render();
+          };
+          el.appendChild(del);
+          group.appendChild(el);
+          return;
+        }
         var fav = document.createElement('button');
         var isFav = window.MC_COLLAB && window.MC_COLLAB.isFavourite(m.slug);
         fav.className = 'fav' + (isFav ? ' on' : '');
@@ -377,7 +475,7 @@
     fetch('data/previews.json', { cache: 'no-cache' }).then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; })
   ]).then(function(res){
     (res[1] || []).forEach(function(s){ partials[s] = true; });
-    all = (res[0] || []).filter(isUpcoming).sort(function(a, b){
+    all = (res[0] || []).concat(loadManual()).filter(isUpcoming).sort(function(a, b){
       return (a.date + (a.ko || '')).localeCompare(b.date + (b.ko || ''));
     });
     if (window.MC_COLLAB) window.MC_COLLAB.ready().then(function(){ renderAccount(); render(); });
