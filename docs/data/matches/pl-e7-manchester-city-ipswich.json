@@ -1,11 +1,46 @@
 {
   "slug": "pl-e7-manchester-city-ipswich",
   "generatedAt": "2026-10-14T10:30:52.019Z",
-  "partial": true,
+  "researchDepth": "deep",
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
+      "accessed": "2026-10-14"
+    },
+    {
+      "name": "Wikipedia — Erling Haaland",
+      "url": "https://en.wikipedia.org/wiki/Erling_Haaland",
+      "accessed": "2026-10-14"
+    },
+    {
+      "name": "Wikipedia — Rúben Dias",
+      "url": "https://en.wikipedia.org/wiki/Ruben_Dias",
+      "accessed": "2026-10-14"
+    },
+    {
+      "name": "Wikipedia — Leif Davis",
+      "url": "https://en.wikipedia.org/wiki/Leif_Davis",
+      "accessed": "2026-10-14"
+    },
+    {
+      "name": "Wikipedia — City of Manchester Stadium (Etihad Stadium)",
+      "url": "https://en.wikipedia.org/wiki/City_of_Manchester_Stadium",
+      "accessed": "2026-10-14"
+    },
+    {
+      "name": "Wikipedia — Ipswich Town F.C.",
+      "url": "https://en.wikipedia.org/wiki/Ipswich_Town_F.C.",
+      "accessed": "2026-10-14"
+    },
+    {
+      "name": "Press coverage — Vincenzo Maresca managerial career (Irish News, Express & Star, Chelsea FC)",
+      "url": "https://www.chelseafc.com/en/news/article/enzo-marescas-inspirational-journey-to-becoming-chelsea-head-coach",
+      "accessed": "2026-10-14"
+    },
+    {
+      "name": "Press coverage — Gary O'Neil managerial career (Premier League, ITV, Express & Star)",
+      "url": "https://www.premierleague.com/managers/128847/Gary-O'Neil/overview",
       "accessed": "2026-10-14"
     }
   ],
@@ -21,6 +56,11 @@
     "capacity": 55097,
     "city": "Manchester",
     "notes": null,
+    "stories": [
+      "Construit inițial ca stadion de atletism pentru Jocurile Commonwealth-ului din 2002, apoi convertit pentru fotbal.",
+      "Manchester City s-a mutat aici în 2003, de la vechiul Maine Road, în urma unei investiții de circa 110 milioane de lire.",
+      "S-a numit inițial City of Manchester Stadium — numele Etihad a venit în 2011, odată cu un sponsorship pe 10 ani cu Etihad Airways."
+    ],
     "weather": {
       "tempC": 11,
       "condition": "cer noros",
@@ -603,7 +643,13 @@
     "Ipswich — locul 10 după 6 etape, 9 puncte, golaveraj 9-12.",
     "Ipswich — 5 din 10 goluri marcate după minutul 75.",
     "Leif Davis e cel mai bun marcator al echipei Ipswich în acest start de sezon (2 goluri).",
-    "Cap la cap (2 meciuri): Manchester City 2 - 0 - 0 Ipswich."
+    "Cap la cap (2 meciuri): Manchester City 2 - 0 - 0 Ipswich.",
+    "City joacă acest meci în mijlocul unui sandviș european: a primit PSG în Liga Campionilor pe 14 octombrie și o va întâlni pe AEK Atena tot acasă, pe 20 octombrie — un test de rotație pentru Maresca.",
+    "Ipswich n-a păstrat poarta intactă în niciunul dintre primele 6 meciuri din sezon și a primit gol în fiecare partidă, cu un total de 12 goluri încasate.",
+    "Haaland a devenit cel mai rapid jucător din istoria Premier League care a ajuns la 100 de goluri, reușind performanța în doar 111 meciuri (2 decembrie 2025); tot el deține recordul de goluri într-un sezon de Premier League, cu 36 în 2022/23.",
+    "Rúben Dias, căpitanul lui City din 2021 și sosit de la Benfica în 2020, a strâns patru titluri de campion al Angliei la Manchester City.",
+    "Gary O'Neil, pe banca lui Ipswich din septembrie 2026, a fost demis de la Wolverhampton în decembrie 2024 la doar patru zile după o înfrângere chiar cu Ipswich — echipa pe care avea s-o preia ulterior.",
+    "Ambele echipe vor rata un titular suspendat după cartonaș roșu: Phil Foden la Manchester City și Issahaku Fatawu la Ipswich."
   ],
   "predictions": {
     "winnerName": "Manchester City",
@@ -644,8 +690,8 @@
   "teams": {
     "home": {
       "name": "Manchester City",
-      "shortName": null,
-      "nickname": null,
+      "shortName": "MCI",
+      "nickname": "The Citizens / Cityzens",
       "logo": "https://media.api-sports.io/football/teams/50.png",
       "colors": null,
       "coach": {
@@ -659,22 +705,22 @@
           {
             "club": "Manchester City",
             "period": "2026–prezent",
-            "note": null
+            "note": "Numit succesorul lui Pep Guardiola, după un deceniu de trofee sub comanda spaniolului."
           },
           {
             "club": "Chelsea",
-            "period": "2024–prezent",
-            "note": null
+            "period": "2024–2026",
+            "note": "A câștigat UEFA Conference League și Cupa Mondială a Cluburilor; aproape 60% victorii în 92 de meciuri pe bancă."
           },
           {
             "club": "Leicester City",
             "period": "2023–2024",
-            "note": null
+            "note": "Promovare directă în Premier League, campion al Championship-ului din prima încercare."
           },
           {
             "club": "Parma",
             "period": "2021–2021",
-            "note": null
+            "note": "Primul post de antrenor principal; a plecat în noiembrie, după doar 4 victorii din 14 meciuri în Serie B."
           },
           {
             "club": "Manchester City U21",
@@ -786,8 +832,20 @@
           }
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
+      "formation": "4-2-3-1",
+      "predictedXI": [
+        { "apiId": 1622, "number": 1, "name": "Gianluigi Donnarumma", "pos": "GK" },
+        { "apiId": 41621, "number": 27, "name": "Matheus Nunes", "pos": "RB" },
+        { "apiId": 567, "number": 3, "name": "Rúben Dias", "pos": "RCB" },
+        { "apiId": 67971, "number": 6, "name": "Marc Guéhi", "pos": "LCB" },
+        { "apiId": 307123, "number": 33, "name": "Nico O'Reilly", "pos": "LB" },
+        { "apiId": 138908, "number": 5, "name": "Elliot Anderson", "pos": "DM" },
+        { "apiId": 5996, "number": 17, "name": "Enzo Fernández", "pos": "CM" },
+        { "apiId": 19281, "number": 42, "name": "Antoine Semenyo", "pos": "RW" },
+        { "apiId": 156477, "number": 10, "name": "Rayan Cherki", "pos": "CAM" },
+        { "apiId": 18592, "number": 7, "name": "Iliman Ndiaye", "pos": "LW" },
+        { "apiId": 1100, "number": 9, "name": "Erling Haaland", "pos": "ST" }
+      ],
       "confirmedXI": null,
       "substitutes": null,
       "squad": [
@@ -1077,7 +1135,7 @@
           "number": 3,
           "name": "Rúben Dias",
           "photo": "https://media.api-sports.io/football/players/567.png",
-          "pos": "DEF",
+          "pos": "RCB",
           "positions": [
             "DEF"
           ],
@@ -1092,10 +1150,18 @@
           "pronunciation": null,
           "career": "Benfica B (2014–2016) · Benfica (2015–2019) · Manchester City (2020–prezent)",
           "lastSeason": null,
-          "funfact": null,
+          "funfact": "Căpitanul lui Manchester City din 15 septembrie 2021, de când a venit de la Benfica în 2020.",
           "linkLine": null,
           "status": "available",
           "statusNote": null,
+          "funfacts": [
+            "Născut la Amadora, lângă Lisabona, pe 14 mai 1997.",
+            "Format la academia lui Benfica din 2008; a debutat pentru Benfica B pe 30 septembrie 2015, apoi la echipa mare pe 16 septembrie 2017, cu Boavista.",
+            "A fost transferat la Manchester City pe 29 septembrie 2020, pentru o sumă inițială raportată de circa 68 de milioane de euro.",
+            "A debutat la naționala Portugaliei pe 28 mai 2018, într-un amical cu Tunisia.",
+            "Este căpitanul lui Manchester City din 15 septembrie 2021 și a câștigat patru titluri de campion al Angliei (2020/21–2023/24) plus Liga Campionilor în 2022/23.",
+            "A câștigat Liga Națiunilor cu Portugalia în 2018/19 și în 2025."
+          ],
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -1133,7 +1199,7 @@
           "number": 6,
           "name": "Addji Keaninkin Marc-Israel Guéhi",
           "photo": "https://media.api-sports.io/football/players/67971.png",
-          "pos": "DEF",
+          "pos": "LCB",
           "positions": [
             "DEF",
             "MID"
@@ -1471,7 +1537,7 @@
           "number": 5,
           "name": "Elliot Anderson",
           "photo": "https://media.api-sports.io/football/players/138908.png",
-          "pos": "MID",
+          "pos": "DM",
           "positions": [
             "MID"
           ],
@@ -1583,7 +1649,7 @@
           "number": 10,
           "name": "Mathis Rayan Cherki",
           "photo": "https://media.api-sports.io/football/players/156477.png",
-          "pos": "MID",
+          "pos": "CAM",
           "positions": [
             "MID"
           ],
@@ -1639,7 +1705,7 @@
           "number": 17,
           "name": "Enzo Jeremías Fernández",
           "photo": "https://media.api-sports.io/football/players/5996.png",
-          "pos": "MID",
+          "pos": "CM",
           "positions": [
             "MID"
           ],
@@ -1864,7 +1930,7 @@
           "number": 27,
           "name": "Matheus Nunes",
           "photo": "https://media.api-sports.io/football/players/41621.png",
-          "pos": "DEF",
+          "pos": "RB",
           "positions": [
             "DEF",
             "MID"
@@ -1921,7 +1987,7 @@
           "number": 33,
           "name": "N. O&apos;Reilly",
           "photo": "https://media.api-sports.io/football/players/307123.png",
-          "pos": "DEF",
+          "pos": "LB",
           "positions": [
             "DEF",
             "MID"
@@ -2092,7 +2158,7 @@
           "number": 9,
           "name": "Erling Braut Haaland",
           "photo": "https://media.api-sports.io/football/players/1100.png",
-          "pos": "ATT",
+          "pos": "ST",
           "positions": [
             "ATT"
           ],
@@ -2104,13 +2170,20 @@
           "nat": "NOR",
           "natTeam": null,
           "birthCountry": "England",
-          "pronunciation": null,
+          "pronunciation": "HO-lan",
           "career": "Bryne (2016) · Molde (2017) · Red Bull Salzburg (2018) · Borussia Dortmund (2019–2021) · Manchester City (2022–prezent)",
           "lastSeason": null,
-          "funfact": null,
+          "funfact": "Cel mai bun marcator al echipei în acest start de sezon, cu 6 goluri din primele 6 etape.",
           "linkLine": null,
           "status": "available",
           "statusNote": null,
+          "funfacts": [
+            "Născut la Leeds, în Anglia, pe 21 iulie 2000, în perioada în care tatăl său, Alf-Inge Haaland, juca pentru Leeds United.",
+            "Format la academia lui Bryne, din Norvegia, de la vârsta de cinci ani; a debutat la echipa mare pe 12 mai 2016, cu trei luni înainte să împlinească 16 ani.",
+            "A semnat cu Manchester City pe 10 mai 2022, după activarea clauzei de reziliere de la Borussia Dortmund (circa 60 de milioane de euro), și s-a alăturat clubului pe 1 iulie 2022.",
+            "A debutat la naționala Norvegiei pe 5 septembrie 2019, într-un meci de calificare la EURO 2020 cu Malta.",
+            "Deține recordul de goluri într-un sezon de Premier League — 36, în 2022/23 — și a devenit cel mai rapid jucător din istorie care a ajuns la 100 de goluri în campionat, reușind-o în doar 111 meciuri, pe 2 decembrie 2025."
+          ],
           "stats": {
             "goals": 6,
             "assists": 0,
@@ -2148,7 +2221,7 @@
           "number": 7,
           "name": "Iliman Cheikh Baroy Ndiaye",
           "photo": "https://media.api-sports.io/football/players/18592.png",
-          "pos": "MID",
+          "pos": "LW",
           "positions": [
             "MID",
             "ATT"
@@ -2205,7 +2278,7 @@
           "number": 42,
           "name": "Antoine Serlom Semenyo",
           "photo": "https://media.api-sports.io/football/players/19281.png",
-          "pos": "MID",
+          "pos": "RW",
           "positions": [
             "MID",
             "ATT"
@@ -4143,62 +4216,45 @@
       ],
       "preseason": [],
       "news": [],
-      "newsCandidates": [
+      "stories": [
         {
-          "title": "UEFA Champions League Matchday 2 Predictions Including PSG at Manchester City",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPcS1QTDEzc2FKMTBWbjdsa190a0VfOGxHSjdsdFRXVFN2Q1h3YVZUZ3dCamtXeFl0SklpRjB5TDBzbFVxd0dOLVBQZG11dWE1QkFBRTNVOVIxMU5nYVpaOHpaN18zNkZoM2p4SzNVLV9ydHdpMmJDcFhRQnNuV2FoMS1IdzNaYnY0?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-14"
+          "title": "Fără oprire: 6 din 6",
+          "bullets": [
+            "Locul 1 după 6 etape, 18 puncte din 18 posibile.",
+            "Golaveraj +11 (16-5), poartă intactă în 3 din 6 meciuri.",
+            "A câștigat atât acasă (3-0-0), cât și în deplasare (3-0-0)."
+          ]
         },
         {
-          "title": "Champions League: Enrique urges PSG to rise to Manchester City challenge",
-          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOSS1JWTBFRC1hM0UwRW1LRHUtZ2FBc2JnSkNOdGwyU1pFVWktQXFvc09oWFd4UnFqbzl3QWd4Z09LdTlCSW9LTUhCNHZpMlBLLW1nd3dfaUEzOWhiNGw3Mm81TlFPT24tbjM3QU56QVozS0xWQW1jell6TXlzSDQ1TUZJLWhsaFQxcjRpbXRUUUQxQ3RxRGZoQU82R2NkdS1wWmM1azJHNHBqS2IwOGc?oc=5",
-          "source": "RFI",
-          "published": "2026-10-14"
+          "title": "Haaland, motorul ofensiv",
+          "bullets": [
+            "6 goluri din cele 16 ale echipei în primele 6 etape.",
+            "Cel mai rapid jucător din istoria Premier League care a ajuns la 100 de goluri — în doar 111 meciuri (2 decembrie 2025).",
+            "Deține recordul de goluri într-un sezon de Premier League: 36, în 2022/23."
+          ]
         },
         {
-          "title": "Man City deserve to keep trophies despite charges, says PSG’s Luis Enrique",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPX1B1ZkduSnNudnF2c1lJR0ttbndiemlOTHdSOURMUmhrbmdRNDVWYnRTTzhEd3B6clpGVFJJUG16aU1jbzBwVE1HWDM4YlU4MldTZFlzdFNrZzBWMHdycWN3VkQxdjVxVGxGdkowbC1kanBXYlhELVJwVHdZTEZBcVBQc3gtZl95U0FsRkZEcjZ2N0h6WTNuSDVpaTVuWkFXa282VjN5SHFReE5yc3IxSlp0bnF4TloxOGlFQtIBvAFBVV95cUxPX1B1ZkduSnNudnF2c1lJR0ttbndiemlOTHdSOURMUmhrbmdRNDVWYnRTTzhEd3B6clpGVFJJUG16aU1jbzBwVE1HWDM4YlU4MldTZFlzdFNrZzBWMHdycWN3VkQxdjVxVGxGdkowbC1kanBXYlhELVJwVHdZTEZBcVBQc3gtZl95U0FsRkZEcjZ2N0h6WTNuSDVpaTVuWkFXa282VjN5SHFReE5yc3IxSlp0bnF4TloxOGlFQg?oc=5",
-          "source": "Al Jazeera",
-          "published": "2026-10-14"
+          "title": "Maresca, moștenirea lui Guardiola",
+          "bullets": [
+            "Instalat pe banca lui City din august 2026, ca succesor al lui Pep Guardiola.",
+            "A venit de la Chelsea, unde a câștigat Conference League și Cupa Mondială a Cluburilor.",
+            "95 de victorii în 159 de meciuri ca antrenor principal, la Parma, Leicester și Chelsea."
+          ]
         },
         {
-          "title": "Manchester City found guilty of 115 charges, breaks salary cap by over $1.1 billion",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNc1hUc214LUZOa2dvaHNlc2otYllLeDl5dUk0cTQ4aEEyODZ4LUt5cWlHQXhvbFRBLUQzcmZNdm5aV18zVmdEWWNraU9DTWFCOEdGcVkxM0JGSXlvSEU0SDd5QmZtcTgydUFBTlNIRDBmeWM4UE1Tc0lOT2NIdzBCR2pLbS1yRWFqaWZGVVJSOWhBRnBHZ3RRVmNVQ0E2MHJOaXlHaDVXZzNwX3RDdHdDUTUtbGU4eHJtSHN5QUVXeVYwZTlQYkw0?oc=5",
-          "source": "www.tcnjsignalnews.com",
-          "published": "2026-10-14"
-        },
-        {
-          "title": "PSG predicted XI v Manchester City: Ousmane Dembélé and Khvicha Kvaratskhelia to start",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNM05kRThaTXJraS1jN081aTctZFJpdVlWaFNYcTY5TUpiVXEtSFZWZncyMlZWdTUweUFGTkxtaGJhSXNVWjBIS2ZpTGF3X00zeWJvdkU3NGZ3eFdGdXQxMXc1c0RXdEZOc01jVTBZVk1OWnhfSFI1TzZwMU1IbTN6LWlkbkE?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-14"
-        },
-        {
-          "title": "Manchester City vs PSG: Latest City team news and predicted City starting eleven",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNQkVMYy02b1V5Z1REcVFOd1BudjlrTDBxcG1ScVhHV0tzbFFvOWowUlR6QWhUU1hhZkp3eUxNd0V0aEt0SUE5OFE2eU5BdFBONGNfSXlkajJlYnBlQUEwX054b0NQMU1jTWV0cFlXeHFmVVVNdEtPemdvdVNzV0NNWVlSbmI?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-14"
-        },
-        {
-          "title": "PSG manager Luis Enrique reveals that it was ‘difficult’ to sell Gianluigi Donnarumma to Manchester City",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQWXNFbHZUWHFjM3B4d2lnRURFTGN3YkNWWWR3N080dzhhRE85dDRnNWxHZmFHSGJsQUZMMXQ2d0s0bENiU252b0N0UWdLRTdERGdzazhPRnQ5dmFnY0dIV1k1VjVEOHJKa1NVTkx4YjUySXg1c3NMUkVGVnAwc2FKLVpRTExHdTU1?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-14"
-        },
-        {
-          "title": "The key numbers: Manchester City-Paris",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOLVpTRWxvWnFBSnRsTUgxcVZlaWx1ZWZtZDZ1SEJJaGVKdlB6eUpTeUxQRlJXaDU1SU05VDlseUNydjUwNFZ3amhOWERYd2JXcm5yaG9STXowTU5pYzBGVlVVSEJ5VHd3ZktBemFOcGdYTHhKdHZIOUlYNUJWV05RMnVNd2NydDN4UjhXdWhMUlZoTzZqSlZVdGZ6V1lESG5tLV96YXdRN09WbU1rU1R3?oc=5",
-          "source": "Paris Saint-Germain",
-          "published": "2026-10-14"
+          "title": "Lot remodelat, dar cu o absență importantă",
+          "bullets": [
+            "Sosiri grele în vară: Enzo Fernández, Donnarumma, Guéhi, Elliot Anderson, Cherki.",
+            "Plecări notabile: Rodri (Barcelona), Sávio și Marmoush (Tottenham), Nico González (Newcastle).",
+            "Phil Foden lipsește suspendat, după un cartonaș roșu."
+          ]
         }
-      ],
-      "stories": []
+      ]
     },
     "away": {
       "name": "Ipswich",
-      "shortName": null,
-      "nickname": null,
+      "shortName": "IPS",
+      "nickname": "The Tractor Boys / The Blues",
       "logo": "https://media.api-sports.io/football/teams/57.png",
       "colors": null,
       "coach": {
@@ -4217,12 +4273,12 @@
           {
             "club": "Wolverhampton Wanderers",
             "period": "2023–2024",
-            "note": null
+            "note": "A salvat echipa de la retrogradare în 2023/24 (locul 14); demis în decembrie 2024, la doar patru zile după o înfrângere chiar cu Ipswich — echipa pe care avea s-o preia ulterior."
           },
           {
             "club": "AFC Bournemouth",
             "period": "2022–2023",
-            "note": null
+            "note": "A preluat echipa interimar în august 2022, a fost confirmat pe banca permanentă în noiembrie și a asigurat salvarea în Premier League (locul 15); demis la scurt timp, în vara lui 2023."
           }
         ],
         "trophies": [
@@ -4234,8 +4290,20 @@
           }
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
+      "formation": "4-2-3-1",
+      "predictedXI": [
+        { "apiId": 19541, "number": 28, "name": "Christian Walton", "pos": "GK" },
+        { "apiId": 358166, "number": 42, "name": "Abdoul Ouattara", "pos": "RB" },
+        { "apiId": 18814, "number": 6, "name": "Issa Diop", "pos": "RCB" },
+        { "apiId": 17597, "number": 26, "name": "Dara O'Shea", "pos": "LCB" },
+        { "apiId": 19119, "number": 3, "name": "Leif Davis", "pos": "LB" },
+        { "apiId": 2823, "number": 23, "name": "Saša Lukić", "pos": "DM" },
+        { "apiId": 575, "number": 12, "name": "Florentino", "pos": "CM" },
+        { "apiId": 33224, "number": 38, "name": "Daizen Maeda", "pos": "RW" },
+        { "apiId": 70747, "number": 10, "name": "Julio Enciso", "pos": "CAM" },
+        { "apiId": 138931, "number": 11, "name": "Jaden Philogene", "pos": "LW" },
+        { "apiId": 321648, "number": 19, "name": "Emersonn", "pos": "ST" }
+      ],
       "confirmedXI": null,
       "substitutes": null,
       "squad": [
@@ -4494,7 +4562,7 @@
           "number": 3,
           "name": "Leif Davis",
           "photo": "https://media.api-sports.io/football/players/19119.png",
-          "pos": "DEF",
+          "pos": "LB",
           "positions": [
             "DEF"
           ],
@@ -4507,12 +4575,19 @@
           "natTeam": null,
           "birthCountry": "England",
           "pronunciation": null,
-          "career": "Leeds (2018–2020) · Bournemouth (2021) · Ipswich (2022–prezent)",
+          "career": "Morecambe (2016–2018) · Leeds (2018–2021) · Bournemouth (2021–2022, împrumut) · Ipswich (2022–prezent)",
           "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
+          "funfact": "Golgheterul lui Ipswich în acest start de sezon, din postura de fundaș stânga (2 goluri).",
+          "linkLine": "Și-a făcut debutul în Premier League chiar împotriva lui Manchester City, pe 3 octombrie 2020, pe când juca la Leeds United.",
           "status": "available",
           "statusNote": null,
+          "funfacts": [
+            "Născut la Newcastle upon Tyne, pe 31 decembrie 1999; format la Wallsend Boys Club și la academia lui Morecambe.",
+            "S-a transferat la Leeds United pe 4 iulie 2018 și și-a făcut debutul în Premier League pe 3 octombrie 2020, chiar împotriva lui Manchester City.",
+            "A fost împrumutat la Bournemouth în sezonul 2021/22, când clubul a promovat pe locul 2 în Championship.",
+            "S-a transferat definitiv la Ipswich pe 25 iulie 2022 și a debutat pe 30 iulie 2022, într-un 1-1 cu Bolton Wanderers.",
+            "A contribuit la două promovări consecutive ale lui Ipswich — din League One (2022/23) și din Championship, ca vicecampioni (2023/24) — și a semnat un nou contract până în 2028, pe 21 octombrie 2024."
+          ],
           "stats": {
             "goals": 2,
             "assists": 1,
@@ -4550,7 +4625,7 @@
           "number": 6,
           "name": "Issa Laye Lucas Jean Diop",
           "photo": "https://media.api-sports.io/football/players/18814.png",
-          "pos": "DEF",
+          "pos": "RCB",
           "positions": [
             "DEF"
           ],
@@ -4774,7 +4849,7 @@
           "number": 26,
           "name": "D. O&apos;Shea",
           "photo": "https://media.api-sports.io/football/players/17597.png",
-          "pos": "DEF",
+          "pos": "LCB",
           "positions": [
             "DEF"
           ],
@@ -4886,7 +4961,7 @@
           "number": 10,
           "name": "Julio César Enciso Espínola",
           "photo": "https://media.api-sports.io/football/players/70747.png",
-          "pos": "MID",
+          "pos": "CAM",
           "positions": [
             "MID"
           ],
@@ -4998,7 +5073,7 @@
           "number": 12,
           "name": "Florentino",
           "photo": "https://media.api-sports.io/football/players/575.png",
-          "pos": "MID",
+          "pos": "CM",
           "positions": [
             "MID"
           ],
@@ -5054,7 +5129,7 @@
           "number": 23,
           "name": "Saša Lukić",
           "photo": "https://media.api-sports.io/football/players/2823.png",
-          "pos": "MID",
+          "pos": "DM",
           "positions": [
             "MID"
           ],
@@ -5222,7 +5297,7 @@
           "number": 42,
           "name": "Abdoul Guemissongui Ouattara",
           "photo": "https://media.api-sports.io/football/players/358166.png",
-          "pos": "DEF",
+          "pos": "RB",
           "positions": [
             "DEF"
           ],
@@ -5560,7 +5635,7 @@
           "number": 19,
           "name": "Emersonn",
           "photo": "https://media.api-sports.io/football/players/321648.png",
-          "pos": "ATT",
+          "pos": "ST",
           "positions": [
             "ATT"
           ],
@@ -5673,7 +5748,7 @@
           "number": 38,
           "name": "Daizen Maeda",
           "photo": "https://media.api-sports.io/football/players/33224.png",
-          "pos": "MID",
+          "pos": "RW",
           "positions": [
             "MID",
             "ATT"
@@ -5844,7 +5919,7 @@
           "number": 11,
           "name": "Jaden Philogene-Bidace",
           "photo": "https://media.api-sports.io/football/players/138931.png",
-          "pos": "MID",
+          "pos": "LW",
           "positions": [
             "MID",
             "ATT"
@@ -7977,57 +8052,39 @@
       ],
       "preseason": [],
       "news": [],
-      "newsCandidates": [
+      "stories": [
         {
-          "title": "Worthing vs Ipswich Town U21: National League Cup stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9OcG16Ymgyc2xONEZwS1lLYjdNdjJ4TkFGQW1RalY2WGNoOGpQTXFaNEJycTVRSXlTV0VtMnRGRzNvenM4RnBIVjNGaVo0QV9mbjdIQi0zSmtIOXFRU2hocVRWTQ?oc=5",
-          "source": "BBC",
-          "published": "2026-10-14"
+          "title": "Supraviețuire grea în Premier League",
+          "bullets": [
+            "Locul 10 după 6 etape, 9 puncte (3V-0E-3Î), golaveraj 9-12.",
+            "0 clean sheet-uri în 6 meciuri — a primit gol în fiecare partidă din acest sezon.",
+            "A marcat în majoritatea meciurilor, dar fără constanță defensivă — abia 2 meciuri fără gol marcat."
+          ]
         },
         {
-          "title": "Hinshelwood: “A frustrating result, but there’s some positives there.” | Ipswich Town Reaction",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxORkJzQlBhVHJ3Nm5FanRNTXVuQWt1T0txLTNWejdrLXZGSFloT0Jzd09ERVFvNVNxazBaRWxNY05FenhSa0xDX0lsLXQzRkdlS25zRlFRajlnbUIzeERsZkd4QkVtYlBZMl9pS3l2X25saWN2Yk5fOUZ3dERHTzk3UmtHNjd3aVhMQ2RvT0ViNjRkNGJ0cTViU2ttN091aEdxZUNyYTJCbkEzLXNzY0FCUXFPNS1NYllvQ2c?oc=5",
-          "source": "Worthing FC",
-          "published": "2026-10-14"
+          "title": "Leif Davis, mai mult decât un fundaș",
+          "bullets": [
+            "Golgheterul echipei în acest start de sezon, cu 2 goluri, din postura de fundaș stânga.",
+            "Și-a făcut debutul în Premier League chiar împotriva lui Manchester City, în octombrie 2020, pe când juca la Leeds.",
+            "A contribuit la ambele promovări recente ale lui Ipswich — din League One (2022/23) și din Championship, ca vicecampioni (2023/24)."
+          ]
         },
         {
-          "title": "Who can Ipswich finish above? Assessing the Premier League relegation battle...",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPOFhZYUxLeGZNU2R2a1RtRlV6dTJuRV9sdnp4UVFNU25kdTZ0RkIwUXpaWDZWNm5sWS0xMVVmd1NINnRwQzlqRzFzMzBXMHE4ZHUyZlJGZ2VfTEJPVW9vX2otVjNLYzQwblJtdnZnNm02UUdPeTZpRm01azdCOHI3TzdGYXBJbk81aG9kLTh3UjBEbGFVUUhQMFRfZWVaa2ZJSEkxYVQwcEdaRmpUaFd2TEdXVQ?oc=5",
-          "source": "https://www.kingsofanglia.com/",
-          "published": "2026-10-14"
+          "title": "O'Neil, cu o răfuială veche",
+          "bullets": [
+            "Pe banca lui Ipswich din septembrie 2026.",
+            "Demis de la Wolverhampton în decembrie 2024, la doar patru zile după o înfrângere chiar cu Ipswich.",
+            "Anterior, a dus Bournemouth la salvarea în Premier League (locul 15, 2022/23)."
+          ]
         },
         {
-          "title": "Remember Jack Marriott? Ex-Town forward snaps up award after scoring run",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNYzRRdWpvWUtxVHVOOW8tR3hwUVo0NHFJT0FzQmZ5RmRCR0p6T3dOb28yY0lwNmNrY1FVdENhb0VVT0RKRm5McGM5ajBDVlltQjgyTWJrc1lLOXhWcjQ0MV9EQk43VzQtMUJZMWJLc2IwSW9lUHBsTWhBSkx4MnIybDBkN0ZnNVY3WVVaN1A2M1g0UTVIaWZQblhWQml5QQ?oc=5",
-          "source": "East Anglian Daily Times",
-          "published": "2026-10-14"
-        },
-        {
-          "title": "Manchester City - Ipswich Town prediction & tips 17.10.2026",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNN1dxRVUwQnZWTnEwbFpXRHlGdVl3WHVKSnhrR1dPa0dTWk1KUG9NN2NxV1FGRzhzRlIycEdKTTU5MS10NXo2RGg4UTdoVnc1Yms5NnZKbGtpVFdfZGZjWU03NjhHTy1CemR6MndUaXVGR0s3SHc5RXhQS190dE5VUnRHenVMaXlTblozUHdsM1hPRjZzUzNPNWQxa1l5QQ?oc=5",
-          "source": "Transfermarkt",
-          "published": "2026-10-14"
-        },
-        {
-          "title": "Football fan denies deliberately climbing onto roof at Ipswich FA Cup tie",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPd19FVzB5cHV0V01TQ0FXYTJNNWpYSUZPeWs1bUpQNHlwZ2ZVazdRTndlYm1Oa3J2ejRPQ2NZT3Bsa0dsYTRiSl9VQ1ZRUTRXTTlfRk9MRkE1RnJRYjUxZ1BwYXRHUnliMDdKb3ZvUm5BeUNRVTl1VlRLQTU5X3QyWFQ4Qmdpd1VsSEVlV1RYN191eHVEQm1CcE5zY3gtUQ?oc=5",
-          "source": "Ipswich Star",
-          "published": "2026-10-14"
-        },
-        {
-          "title": "Man City Predicted Lineup vs Ipswich: Foden Returns in 4-2-3-1",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOaFBMeDhpeUM3TVdhazE2WlRQSUc4bnk5ZzVKdVZyU0lqcUNVdkZzd0ZFdWpLZlpOSkhtOGdybVdnZ3M1Q3EwbGladk5SQmk4ZzlaZlZpdnJMUlVPTVhCWXUxWTNScFd3N1BMVFFDN0J3MklHd1JJLVF1ZS1NckUxNDA0Mi02cDhKT1E?oc=5",
-          "source": "The False 9",
-          "published": "2026-10-13"
-        },
-        {
-          "title": "Why Ipswich Town look better equipped for Premier League survival than last time",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQUTA3NTBTSEtZNHdMUC1Gc21QbkFHbmF4SWxEWU5sTlFuNjAxQ3V6c1JqX0JGNDlxQ1AybWh1dGRYSkg0ZHFqSGV4ZFdBR1pkWXdWMFdSSXd1SXd2OENJRTZvX29JdkVsN1lZSkZlUDY4VF9qZ0RMRUdGVTA5MEUxRXdST0FMZmE0ZFBEdEhyR29pUmZaS1paRUdn?oc=5",
-          "source": "Football365",
-          "published": "2026-10-13"
+          "title": "Fatawu, pierdere în linia de mijloc",
+          "bullets": [
+            "Issahaku Fatawu e suspendat pentru acest meci, după un cartonaș roșu primit pe 10 octombrie.",
+            "Echipa a mai avut probleme disciplinare: cele mai multe cartonașe galbene din sezon (5) au venit chiar între minutele 31-45."
+          ]
         }
-      ],
-      "stories": []
+      ]
     }
   },
   "standings": {
