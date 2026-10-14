@@ -1,0 +1,121 @@
+name: Build Player Facts
+
+# Fun facts per player (docs/data/players/<apiId>.json), as their own small job.
+# Researching them inside the match build only ever reached a few players per match
+# (a shared lookup budget); here a run does nothing else: it takes the next batch of
+# likely starters who still have none (premium matches first, soonest kick-off first,
+# see scripts/pick-player-facts.mjs), researches them with the cheap model, and copies
+# the result into every pack that contains them (scripts/apply-player-facts.mjs).
+# Gradual on purpose: PER_RUN players a run, three runs a day. Shares the Claude
+# subscription limits with every other run, so keep it small.
+on:
+  schedule:
+    - cron: "50 9,14,19 * * *"
+  workflow_dispatch:
+    inputs:
+      per_run:
+        description: "Players to research in this run"
+        required: false
+        default: "12"
+
+concurrency:
+  group: player-facts
+  cancel-in-progress: false
+
+jobs:
+  pick:
+    runs-on: ubuntu-latest
+    outputs:
+      players: ${{ steps.pick.outputs.players }}
+      count: ${{ steps.pick.outputs.count }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Pick the next players without facts
+        id: pick
+        env:
+          PER_RUN: ${{ inputs.per_run || '12' }}
+        run: node scripts/pick-player-facts.mjs
+
+  research:
+    needs: pick
+    if: needs.pick.outputs.count != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+      actions: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: anthropics/claude-code-action@v1
+        id: claude-facts
+        continue-on-error: true
+        with:
+          claude_code_oauth_token: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}"
+          show_full_output: true
+          prompt: |
+            You research short biographical "fun facts" about football players for a
+            commentator's Match Center. You run unattended in one shot: do everything
+            yourself, now, in this turn (no background agents), then stop.
+
+            ## Players (JSON: apiId, name, team, slug of a match they are in)
+            ${{ needs.pick.outputs.players }}
+
+            ## What to do, for EACH player
+            Follow the section "Fun facts biografice per jucător" in
+            `.claude/skills/match-data-json/SKILL.md` (read it first): 3-6 facts, one
+            sentence each, in Romanian (use the correct comma-below letters ș ț, never
+            the cedilla ş ţ), every fact from a source you actually read (the player's
+            Wikipedia page is the best single source; for Romanian players also
+            superliga.ro, for others Transfermarkt / the club site), every changing
+            number dated ("la data de ..."), no "first/record/return" claims unless the
+            source says exactly that, no allegations or unconfirmed reports, nothing
+            about private life beyond what a neutral reference states.
+
+            Write ONE file per player: `docs/data/players/<apiId>.json`
+            {"apiId": <number>, "name": "<name>", "funfacts": ["...", "..."],
+             "sources": [{"name": "...", "url": "...", "accessed": "<today YYYY-MM-DD>"}],
+             "updatedAt": "<today>"}
+            If the file already exists, keep its facts and only add new confirmed ones.
+            If you cannot find at least 2 reliable facts for a player, write the file
+            with "funfacts": [] and "checkedAt": "<today>" instead of guessing — that
+            marks him as looked-at so he is not retried for 60 days.
+
+            Budget: about 3 lookups per player, 40 in total; stop when you hit it and
+            leave the remaining players for the next run (do not write files for them).
+
+            ## Strictly
+            - Touch ONLY files under `docs/data/players/`. Do not edit match packs,
+              fixtures or anything else; a script copies the facts into the packs.
+            - Never invent. Fewer facts is fine, a wrong one is not.
+            - Do not commit or push; the workflow does that afterwards.
+          claude_args: |
+            --model claude-haiku-4-5-20251001
+            --max-turns 150
+            --allowedTools "Read,Write,Edit,Bash,Glob,Grep,WebSearch,WebFetch"
+
+      - name: Copy the facts into the packs
+        run: node scripts/apply-player-facts.mjs
+
+      - name: Commit and push
+        run: |
+          git config user.name "player-facts-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/data/players docs/data/matches
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit."
+          else
+            git commit -m "Player facts: $(git diff --cached --name-only -- docs/data/players | wc -l) player file(s)"
+            git pull --rebase --autostash origin main || true
+            git push
+          fi

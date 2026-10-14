@@ -139,11 +139,13 @@ jobs:
                - `funfacts` (3-6 verified biographical facts per player, see the skill's
                  "Fun facts biografice per jucător"): Level 1 has already copied any
                  that exist in `docs/data/players/<apiId>.json` -- do NOT research those
-                 again. For up to **6 players per match** that still have none (likely
-                 starters first), research them (the player's Wikipedia page usually gives
-                 4-6 facts in one fetch), put them in `squad[].funfacts` AND create/update
-                 `docs/data/players/<apiId>.json` (format in the skill; keep existing facts,
-                 add only new confirmed ones).
+                 again. Most players' facts are written by the separate "Build Player
+                 Facts" job, so here do at most **2 players** that still have none (the
+                 best-known starters): research them (the player's Wikipedia page usually
+                 gives 4-6 facts in one fetch), put them in `squad[].funfacts` AND
+                 create/update `docs/data/players/<apiId>.json` (format in the skill; keep
+                 existing facts, add only new confirmed ones). In DEPTH=deep spend at most
+                 8 lookups in total on `funfacts`.
                - `news[]`: triage `newsCandidates` — keep only match-relevant,
                  ≤2–3 days old; rewrite in Romanian, paraphrased. Then DELETE the
                  `newsCandidates` arrays.
@@ -197,8 +199,8 @@ jobs:
             ## Lookup budget
             DEPTH=standard: about **12 web lookups per match**, hard. Typical
             spend: 1 match-preview page, 1–2 team-news pages, 2 Wikipedia coach
-            pages, 2 FBref club pages, 1–2 for funfact/linkLine, up to 6 player pages
-            for `funfacts`, 1 SoccerStats. Do NOT
+            pages, 2 FBref club pages, 1–2 for funfact/linkLine, up to 2 player pages
+            for `funfacts` (8 lookups in deep), 1 SoccerStats. Do NOT
             verify squads player by player — Level 1 did that.
             DEPTH=deep: about **50 lookups for the single match**. Depth over
             coverage; still stop when you hit the budget.

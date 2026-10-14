@@ -194,10 +194,21 @@ depășit, și spui asta în mesajul de commit. În fișierul meciului pui aceea
 `docs/data/players/` în ORICE alt pachet care îl conține pe jucător (alt meci de club,
 meci al naționalei) — completează doar pachete unde lista lipsește, nu le rescrie.
 
-**Buget.** Modul standard: cel mult **6 jucători pe meci** fără fapte încă (primul 11 întâi,
-începând cu cei mai cunoscuți); restul rămân pentru meciurile următoare — fiecare fetch
-Wikipedia se amortizează pe toate meciurile viitoare ale jucătorului. Modul aprofundat: toată
-rotația realistă (vezi „Modul aprofundat").
+**Cine le cercetează.** Majoritatea faptelor NU se scriu în rularea care construiește pachetul
+meciului: un buget comun de căutări nu ajunge decât la câțiva jucători (pe un pachet deep
+Oțelul–Csíkszereda: 8 din 22 de titulari). Le face jobul separat „Build Player Facts"
+(`.github/workflows/build-player-facts.yml`, alege jucătorii cu
+`scripts/pick-player-facts.mjs` — meciurile premium întâi, primul 11, cel mai apropiat start
+primul — și copiază rezultatul în pachete cu `scripts/apply-player-facts.mjs`). Deci în
+rularea de meci: modul standard cel mult **2 jucători** (cei mai cunoscuți), modul aprofundat
+cel mult **8 căutări în total** pentru fapte — restul rămâne jobului separat. Fiecare fetch se
+amortizează pe toate meciurile viitoare ale jucătorului.
+
+**Fără surse sau fapte sigure.** Dacă pentru un jucător nu găsești măcar 2 fapte confirmate,
+scrie fișierul `docs/data/players/<apiId>.json` cu `"funfacts": []` și
+`"checkedAt": "<data de azi>"` — îl marchează ca „verificat" și nu va fi reîncercat 60 de zile.
+
+**Diacritice.** Română corectă: ș și ț cu virgulă (nu ş ţ cu sedilă).
 
 **Naționalitate vs. echipă națională reprezentată.** `nat` = cetățenia (codul de 3 litere);
 `natTeam` = naționala pentru care joacă efectiv, DOAR dacă diferă de `nat`. **Nivelul 1 îl
