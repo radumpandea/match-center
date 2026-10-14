@@ -18,7 +18,7 @@
 
 import { readFileSync, appendFileSync, existsSync } from 'node:fs';
 
-const PER_RUN = Number(process.env.PER_RUN) || 12;
+const PER_RUN = Number(process.env.PER_RUN) || 18;
 const DAYS_AHEAD = 6;
 const RECHECK_DAYS = 60;
 
@@ -60,7 +60,7 @@ for (const f of fixtures) {
     for (const p of t.squad || []) {
       if (p.apiId == null || !ids.has(p.apiId) || seen.has(p.apiId) || !needsFacts(p.apiId)) continue;
       seen.add(p.apiId);
-      picked.push({ apiId: p.apiId, name: p.name, team: t.name, slug: f.slug });
+      picked.push({ apiId: p.apiId, name: p.name, team: t.name, age: p.age != null ? p.age : null, slug: f.slug });
       if (picked.length >= PER_RUN) break outer;
     }
   }

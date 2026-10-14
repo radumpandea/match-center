@@ -6,6 +6,9 @@ name: Build Player Facts
 # likely starters who still have none (premium matches first, soonest kick-off first,
 # see scripts/pick-player-facts.mjs), researches them with the cheap model, and copies
 # the result into every pack that contains them (scripts/apply-player-facts.mjs).
+# Before the model starts, scripts/resolve-player-sources.mjs finds each player's
+# Wikipedia article and Wikidata record (deterministic, free) and saves the text, so the
+# model reads it instead of searching: fewer lookups per player, no same-name mix-ups.
 # Gradual on purpose: PER_RUN players a run, three runs a day. Shares the Claude
 # subscription limits with every other run, so keep it small.
 on:
@@ -16,7 +19,7 @@ on:
       per_run:
         description: "Players to research in this run"
         required: false
-        default: "12"
+        default: "18"
 
 concurrency:
   group: player-facts
@@ -36,7 +39,7 @@ jobs:
       - name: Pick the next players without facts
         id: pick
         env:
-          PER_RUN: ${{ inputs.per_run || '12' }}
+          PER_RUN: ${{ inputs.per_run || '18' }}
         run: node scripts/pick-player-facts.mjs
 
   research:
@@ -57,6 +60,11 @@ jobs:
         with:
           node-version: 22
 
+      - name: Find each player's Wikipedia article and Wikidata record
+        env:
+          PLAYERS: ${{ needs.pick.outputs.players }}
+        run: node scripts/resolve-player-sources.mjs
+
       - uses: anthropics/claude-code-action@v1
         id: claude-facts
         continue-on-error: true
@@ -72,6 +80,15 @@ jobs:
             ${{ needs.pick.outputs.players }}
 
             ## What to do, for EACH player
+            A script has already looked each player up: read
+            `.player-sources/<apiId>.txt` for him. It holds the text of his Wikipedia
+            article (the URL is on its first line) and what Wikidata knows (birth date,
+            clubs with years). Base the facts on that text and cite its URL as the
+            source; do NOT search the web for a player whose file has an article. If the
+            file says NO_WIKIPEDIA_PAGE (or RESOLVER_ERROR), use at most one web search
+            for him (superliga.ro / Transfermarkt / the club site) and otherwise write
+            the empty "checked" file described below.
+
             Follow the section "Fun facts biografice per jucător" in
             `.claude/skills/match-data-json/SKILL.md` (read it first): 3-6 facts, one
             sentence each, in Romanian (use the correct comma-below letters ș ț, never
@@ -91,8 +108,10 @@ jobs:
             with "funfacts": [] and "checkedAt": "<today>" instead of guessing — that
             marks him as looked-at so he is not retried for 60 days.
 
-            Budget: about 3 lookups per player, 40 in total; stop when you hit it and
-            leave the remaining players for the next run (do not write files for them).
+            Budget: the articles are already in the files, so this is mostly reading and
+            writing; at most 10 web lookups in total, for players without an article.
+            If you run short of turns, leave the remaining players for the next run (do
+            not write files for them).
 
             ## Strictly
             - Touch ONLY files under `docs/data/players/`. Do not edit match packs,
@@ -101,7 +120,7 @@ jobs:
             - Do not commit or push; the workflow does that afterwards.
           claude_args: |
             --model claude-haiku-4-5-20251001
-            --max-turns 150
+            --max-turns 200
             --allowedTools "Read,Write,Edit,Bash,Glob,Grep,WebSearch,WebFetch"
 
       - name: Copy the facts into the packs
