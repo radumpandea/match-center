@@ -134,13 +134,24 @@ jobs:
             If you run short of turns, leave the remaining players for the next run (do
             not write files for them).
 
+            ## Faithfulness (this is read on air; a wrong fact is worse than none)
+            - Stay close to the article: one event per sentence; copy names, dates,
+              numbers, scores and the ROUND of a match exactly as the article states
+              them (do not turn a round of 16 into a quarter-final, do not merge two
+              events, do not add context the article does not give).
+            - Prefer plain, common Romanian words; never invent a word or a transliteration
+              you are unsure of (say "faza eliminatorie", not a made-up term). Re-read every
+              sentence once for typos and for anything the article does not literally support.
+            - Valid JSON: never put a straight double quote inside a fact (use „ ” for
+              nicknames/quotes, with the closing ” being U+201D).
+
             ## Strictly
             - Touch ONLY files under `docs/data/players/`. Do not edit match packs,
               fixtures or anything else; a script copies the facts into the packs.
             - Never invent. Fewer facts is fine, a wrong one is not.
             - Do not commit or push; the workflow does that afterwards.
           claude_args: |
-            --model claude-haiku-4-5-20251001
+            --model claude-sonnet-5
             --max-turns 200
             --allowedTools "Read,Write,Edit,Bash,Glob,Grep,WebSearch,WebFetch"
 
