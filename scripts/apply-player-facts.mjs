@@ -8,7 +8,7 @@
 // new fact shows up in the packs at once instead of at the next daily prefetch.
 // Requires Node 18+.
 
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, unlinkSync } from 'node:fs';
 
 const PLAYERS_DIR = 'docs/data/players';
 const MATCHES_DIR = 'docs/data/matches';
@@ -17,7 +17,10 @@ const facts = new Map();
 let bad = 0;
 for (const file of readdirSync(PLAYERS_DIR).filter((f) => f.endsWith('.json'))) {
   let j;
-  try { j = JSON.parse(readFileSync(`${PLAYERS_DIR}/${file}`, 'utf8')); } catch { console.error(`${file}: not valid JSON, skipped`); bad++; continue; }
+  try { j = JSON.parse(readFileSync(`${PLAYERS_DIR}/${file}`, 'utf8')); } catch {
+    // A broken file (usually an unescaped quote inside a fact) would be committed as junk; drop it so the player is retried.
+    console.error(`${file}: not valid JSON, deleted so the player is researched again`); unlinkSync(`${PLAYERS_DIR}/${file}`); bad++; continue;
+  }
   const id = Number(file.replace(/\.json$/, ''));
   if (j.apiId !== id) { console.error(`${file}: apiId ${j.apiId} does not match the file name, skipped`); bad++; continue; }
   const list = Array.isArray(j.funfacts) ? j.funfacts : [];

@@ -60,9 +60,17 @@ async function article(lang, title) {
 
 async function findPage(p) {
   const expected = p.age != null ? THIS_YEAR - Number(p.age) : null;
+  // API-Football often gives the full legal name ("Achraf Hakimi Mouh", "Alejandro Garnacho
+  // Ferreyra"), which is not what the article is titled: also try shorter forms, and accept a
+  // title that contains ANY real part of the name (the footballer + birth-year checks below
+  // keep homonyms out).
   const short = String(p.name || '').split(/\s+/).filter(Boolean);
   const names = [p.name];
-  if (short.length > 2) names.push(`${short[0]} ${short[short.length - 1]}`);
+  if (short.length > 2) {
+    for (const alt of [`${short[0]} ${short[1]}`, `${short[0]} ${short[short.length - 1]}`, `${short[1]} ${short[short.length - 1]}`]) if (!names.includes(alt)) names.push(alt);
+  }
+  const parts = short.map(strip).filter((w) => w.replace(/[^a-z]/g, '').length >= 4);
+  if (!parts.length && short.length) parts.push(strip(short[short.length - 1]));
   for (const lang of ['en', 'ro']) {
     const word = lang === 'en' ? 'footballer' : 'fotbalist';
     const seen = new Set();
@@ -72,8 +80,8 @@ async function findPage(p) {
           if (seen.has(hit.title)) continue;
           seen.add(hit.title);
           const snippet = String(hit.snippet || '').replace(/<[^>]+>/g, '');
-          const first = strip(hit.title).includes(strip(nm.split(/\s+/).pop())) ? true : false;
-          if (!first) continue;
+          const title = strip(hit.title);
+          if (!parts.some((w) => title.includes(w))) continue;
           const art = await article(lang, hit.title);
           if (!art) continue;
           const intro = art.text.slice(0, 700);
