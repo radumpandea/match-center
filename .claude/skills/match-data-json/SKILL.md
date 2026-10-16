@@ -194,6 +194,12 @@ depășit, și spui asta în mesajul de commit. În fișierul meciului pui aceea
 `docs/data/players/` în ORICE alt pachet care îl conține pe jucător (alt meci de club,
 meci al naționalei) — completează doar pachete unde lista lipsește, nu le rescrie.
 
+**`rev`.** Fișierele scrise de jobul „Build Player Facts" (Sonnet, atent la fidelitate) primesc
+automat `"rev": 2` (`scripts/stamp-player-facts.mjs`). Fișierele fără `rev` sunt din prima trecere
+(Haiku, cu greșeli de rundă și formulări) și sunt cercetate din nou; un fișier `rev: 2`
+**înlocuiește** faptele deja copiate în pachete. Un fișier fără `rev` existent într-o rulare de
+meci nu se consideră de încredere: rescrie-l din sursă, nu îl completa.
+
 **Cine le cercetează.** Majoritatea faptelor NU se scriu în rularea care construiește pachetul
 meciului: un buget comun de căutări nu ajunge decât la câțiva jucători (pe un pachet deep
 Oțelul–Csíkszereda: 8 din 22 de titulari). Le face jobul separat „Build Player Facts"

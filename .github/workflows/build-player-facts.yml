@@ -124,7 +124,9 @@ jobs:
             {"apiId": <number>, "name": "<name>", "funfacts": ["...", "..."],
              "sources": [{"name": "...", "url": "...", "accessed": "<today YYYY-MM-DD>"}],
              "updatedAt": "<today>"}
-            If the file already exists, keep its facts and only add new confirmed ones.
+            If the file already exists it is a DRAFT from an earlier, less careful pass
+            (it may contain wrong rounds, scores or garbled words): do not trust or reuse
+            its facts, rewrite the whole file from the article.
             If you cannot find at least 2 reliable facts for a player, write the file
             with "funfacts": [] and "checkedAt": "<today>" instead of guessing — that
             marks him as looked-at so he is not retried for 60 days.
@@ -154,6 +156,9 @@ jobs:
             --model claude-sonnet-5
             --max-turns 200
             --allowedTools "Read,Write,Edit,Bash,Glob,Grep,WebSearch,WebFetch"
+
+      - name: Mark this run's files as the careful pass (rev 2)
+        run: node scripts/stamp-player-facts.mjs
 
       - name: Copy the facts into the packs
         run: node scripts/apply-player-facts.mjs

@@ -11,7 +11,8 @@
 // within a match the likely XI players. A player is "missing" when his store file does
 // not exist, or exists with no facts and was never checked, or was last checked more
 // than RECHECK_DAYS ago while still empty (a young player with no sources today may
-// have a Wikipedia page next season).
+// have a Wikipedia page next season). A file with facts but without "rev": 2 was written by
+// the first, less careful pass and is queued again (see scripts/stamp-player-facts.mjs).
 //
 // ONLY_SLUG (env): research exactly that match's likely starters instead of the queue --
 // used by the premium (deep) build, which calls the facts job right after the pack is
@@ -27,6 +28,7 @@ const PER_RUN = Number(process.env.PER_RUN) || 18;
 const ONLY_SLUG = (process.env.ONLY_SLUG || '').trim();
 const DAYS_AHEAD = 6;
 const RECHECK_DAYS = 60;
+const REV = 2;   // files without "rev": 2 are from the first (Haiku) pass and are researched again
 
 function output(name, value) {
   const line = `${name}=${value}\n`;
@@ -43,7 +45,7 @@ function needsFacts(apiId) {
   if (!existsSync(path)) return true;
   let j;
   try { j = JSON.parse(readFileSync(path, 'utf8')); } catch { return true; }
-  if (Array.isArray(j.funfacts) && j.funfacts.some((x) => typeof x === 'string' && x.trim())) return false;
+  if (Array.isArray(j.funfacts) && j.funfacts.some((x) => typeof x === 'string' && x.trim())) return !(j.rev >= REV);
   return !j.checkedAt || daysSince(j.checkedAt) > RECHECK_DAYS;
 }
 

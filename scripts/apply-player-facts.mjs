@@ -1,6 +1,6 @@
 // Deterministic, no AI, no API calls: validates docs/data/players/*.json and copies
 // each player's facts into every match pack that includes him (squad[].funfacts).
-// Fill-only, exactly like prefetch-preview.mjs's applyPlayerFacts(): a pack that
+// Fill-only (except that a rev-2 file replaces the first pass's facts), like prefetch-preview.mjs's applyPlayerFacts(): a pack that
 // already has funfacts for that player is left alone, because the translation overlay
 // maps arrays by index and rewriting a translated array would misalign it.
 //
@@ -13,7 +13,9 @@ import { readFileSync, writeFileSync, readdirSync, unlinkSync } from 'node:fs';
 const PLAYERS_DIR = 'docs/data/players';
 const MATCHES_DIR = 'docs/data/matches';
 
+const REV = 2;
 const facts = new Map();
+const careful = new Set();   // ids whose store file is rev >= 2: allowed to REPLACE facts already in a pack
 let bad = 0;
 for (const file of readdirSync(PLAYERS_DIR).filter((f) => f.endsWith('.json'))) {
   let j;
@@ -27,7 +29,7 @@ for (const file of readdirSync(PLAYERS_DIR).filter((f) => f.endsWith('.json'))) 
   if (list.length > 10 || list.some((x) => typeof x !== 'string' || !x.trim() || x.length > 400)) {
     console.error(`${file}: funfacts must be at most 10 non-empty strings of at most 400 characters, skipped`); bad++; continue;
   }
-  if (list.length) facts.set(id, list);
+  if (list.length) { facts.set(id, list); if (j.rev >= REV) careful.add(id); }
 }
 console.log(`${facts.size} player(s) with facts${bad ? `, ${bad} invalid file(s)` : ''}.`);
 
@@ -39,7 +41,11 @@ for (const file of readdirSync(MATCHES_DIR).filter((f) => f.endsWith('.json') &&
   let touched = false;
   for (const side of ['home', 'away']) {
     for (const p of (doc.teams && doc.teams[side] && doc.teams[side].squad) || []) {
-      if (p.apiId == null || (Array.isArray(p.funfacts) && p.funfacts.length) || !facts.has(p.apiId)) continue;
+      if (p.apiId == null || !facts.has(p.apiId)) continue;
+      const have = Array.isArray(p.funfacts) && p.funfacts.length;
+      // Fill-only, except that a careful (rev 2) file replaces what the first pass wrote. No
+      // translation overlay holds funfacts yet, so replacing cannot misalign one.
+      if (have && !(careful.has(p.apiId) && JSON.stringify(p.funfacts) !== JSON.stringify(facts.get(p.apiId)))) continue;
       p.funfacts = facts.get(p.apiId).slice();
       touched = true; filled++;
     }
