@@ -144,8 +144,10 @@ jobs:
                  best-known starters): research them (the player's Wikipedia page usually
                  gives 4-6 facts in one fetch), put them in `squad[].funfacts` AND
                  create/update `docs/data/players/<apiId>.json` (format in the skill; keep
-                 existing facts, add only new confirmed ones). In DEPTH=deep spend at most
-                 8 lookups in total on `funfacts`.
+                 existing facts, add only new confirmed ones). In DEPTH=deep do NOT
+                 research `funfacts` at all: a follow-up job right after this run writes
+                 them for every starter of the match (leave `squad[].funfacts` as Level 1
+                 left it).
                - `news[]`: triage `newsCandidates` — keep only match-relevant,
                  ≤2–3 days old; rewrite in Romanian, paraphrased. Then DELETE the
                  `newsCandidates` arrays.
@@ -200,7 +202,7 @@ jobs:
             DEPTH=standard: about **12 web lookups per match**, hard. Typical
             spend: 1 match-preview page, 1–2 team-news pages, 2 Wikipedia coach
             pages, 2 FBref club pages, 1–2 for funfact/linkLine, up to 2 player pages
-            for `funfacts` (8 lookups in deep), 1 SoccerStats. Do NOT
+            for `funfacts` (none in deep), 1 SoccerStats. Do NOT
             verify squads player by player — Level 1 did that.
             DEPTH=deep: about **50 lookups for the single match**. Depth over
             coverage; still stop when you hit the budget.
@@ -236,3 +238,19 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           MATCH: ${{ inputs.match }}
         run: gh workflow run build-match-data-fallback.yml --ref main -f match="${MATCH}" -f depth="${{ inputs.depth }}"
+
+  # A premium pack should come out complete: right after it is built, research the fun
+  # facts of that match's starters (Wikipedia/Wikidata text + the cheap model, see
+  # build-player-facts.yml) and copy them into the pack.
+  player-facts:
+    needs: build-match
+    if: ${{ inputs.depth == 'deep' && inputs.match != '' && needs.build-match.result == 'success' }}
+    permissions:
+      contents: write
+      actions: write
+      id-token: write
+    uses: ./.github/workflows/build-player-facts.yml
+    with:
+      only_slug: ${{ inputs.match }}
+      per_run: "30"
+    secrets: inherit

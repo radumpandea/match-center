@@ -11,6 +11,10 @@ name: Build Player Facts
 # model reads it instead of searching: fewer lookups per player, no same-name mix-ups.
 # Gradual on purpose: PER_RUN players a run, three runs a day. Shares the Claude
 # subscription limits with every other run, so keep it small.
+#
+# Also called by build-match-data-run.yml right after a premium (deep) pack is built, with
+# only_slug set: it then researches exactly that match's starters, so a premium pack is
+# complete in one go. The daily queue stays as the net for everything else.
 on:
   schedule:
     - cron: "50 9,14,19 * * *"
@@ -20,9 +24,25 @@ on:
         description: "Players to research in this run"
         required: false
         default: "18"
+      only_slug:
+        description: "Research only this match's starters (empty = the queue)"
+        required: false
+        default: ""
+  workflow_call:
+    inputs:
+      per_run:
+        required: false
+        type: string
+        default: "30"
+      only_slug:
+        required: false
+        type: string
+        default: ""
 
+# One queue run at a time; a per-match run has its own group so it never cancels (or is
+# cancelled by) a queued run.
 concurrency:
-  group: player-facts
+  group: player-facts-${{ inputs.only_slug || 'queue' }}
   cancel-in-progress: false
 
 jobs:
@@ -40,6 +60,7 @@ jobs:
         id: pick
         env:
           PER_RUN: ${{ inputs.per_run || '18' }}
+          ONLY_SLUG: ${{ inputs.only_slug }}
         run: node scripts/pick-player-facts.mjs
 
   research:

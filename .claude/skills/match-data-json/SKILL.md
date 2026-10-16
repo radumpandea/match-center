@@ -200,8 +200,9 @@ Oțelul–Csíkszereda: 8 din 22 de titulari). Le face jobul separat „Build Pl
 (`.github/workflows/build-player-facts.yml`, alege jucătorii cu
 `scripts/pick-player-facts.mjs` — meciurile premium întâi, primul 11, cel mai apropiat start
 primul — și copiază rezultatul în pachete cu `scripts/apply-player-facts.mjs`). Deci în
-rularea de meci: modul standard cel mult **2 jucători** (cei mai cunoscuți), modul aprofundat
-cel mult **8 căutări în total** pentru fapte — restul rămâne jobului separat. Fiecare fetch se
+rularea de meci: modul standard cel mult **2 jucători** (cei mai cunoscuți); modul aprofundat
+**nu cercetează deloc** fapte — imediat după pachet workflow-ul rulează același job pentru toți
+titularii meciului (`only_slug`), deci pachetul premium iese complet într-o singură rulare. Fiecare fetch se
 amortizează pe toate meciurile viitoare ale jucătorului.
 
 **Fără surse sau fapte sigure.** Dacă pentru un jucător nu găsești măcar 2 fapte confirmate,

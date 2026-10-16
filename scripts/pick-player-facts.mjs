@@ -13,12 +13,18 @@
 // than RECHECK_DAYS ago while still empty (a young player with no sources today may
 // have a Wikipedia page next season).
 //
+// ONLY_SLUG (env): research exactly that match's likely starters instead of the queue --
+// used by the premium (deep) build, which calls the facts job right after the pack is
+// finished so a premium pack comes out complete in one go. Any date is accepted then,
+// but a pack still marked "partial" is skipped (nobody's lineup is known yet).
+//
 // Output (GITHUB_OUTPUT): players=<json array of {apiId,name,team,slug}>, count=<n>.
 // Requires Node 18+.
 
 import { readFileSync, appendFileSync, existsSync } from 'node:fs';
 
 const PER_RUN = Number(process.env.PER_RUN) || 18;
+const ONLY_SLUG = (process.env.ONLY_SLUG || '').trim();
 const DAYS_AHEAD = 6;
 const RECHECK_DAYS = 60;
 
@@ -42,7 +48,7 @@ function needsFacts(apiId) {
 }
 
 const fixtures = JSON.parse(readFileSync('docs/data/fixtures.json', 'utf8'))
-  .filter((f) => f.date && f.date >= today && f.date <= horizon)
+  .filter((f) => (ONLY_SLUG ? f.slug === ONLY_SLUG : f.date && f.date >= today && f.date <= horizon))
   .sort((a, b) => ((b.researchDepth === 'deep') - (a.researchDepth === 'deep')) || String(a.kickoff).localeCompare(String(b.kickoff)));
 
 const picked = [];
@@ -53,6 +59,7 @@ for (const f of fixtures) {
   if (!existsSync(path)) continue;
   let doc;
   try { doc = JSON.parse(readFileSync(path, 'utf8')); } catch { continue; }
+  if (ONLY_SLUG && doc.partial) continue;
   for (const side of ['home', 'away']) {
     const t = doc.teams && doc.teams[side];
     if (!t) continue;
