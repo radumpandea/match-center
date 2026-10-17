@@ -1240,12 +1240,14 @@ let extrasChecksLeft = Number(process.env.EXTRAS_PER_RUN) || 150;
 async function getPlayerExtras(playerId, cache) {
   cache.playerExtras = cache.playerExtras || {};
   const hit = cache.playerExtras[playerId];
-  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < EXTRAS_TTL) return hit;
+  // v: bump when formatHonours()/formatInjuries() change, so cached results are rebuilt
+  if (hit && hit.v === 2 && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < EXTRAS_TTL) return hit;
   if (extrasChecksLeft <= 0) return hit || null;
   extrasChecksLeft--;
   const [tj, sj] = await Promise.all([af('trophies', { player: playerId }), af('sidelined', { player: playerId })]);
   if (!tj && !sj) return hit || null;
   const rec = {
+    v: 2,
     fetchedAt: todayISO(),
     honours: tj ? formatHonours(tj.response || []) : ((hit && hit.honours) || []),
     injuries: sj ? formatInjuries(sj.response || []) : ((hit && hit.injuries) || []),

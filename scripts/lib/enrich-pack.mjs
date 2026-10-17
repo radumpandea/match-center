@@ -88,16 +88,21 @@ export function computeLinkLines(doc, dry = false) {
   return changed;
 }
 
-const YOUTH = /\bu-?\d{2}\b|youth|junior|reserve|premier league 2|primavera|academy|u\d{2}/i;
+const YOUTH = /\bu-?\d{2}\b|youth|junior|reserve|premier league 2|primavera|academy|u\d{2}|juvenil/i;
+// friendlies and invitational cups add noise, not honours a commentator would quote
+const MINOR = /gamper|friendl|florida cup|queensland|revello|tournoi|international champions cup|audi cup|emirates cup/i;
+// API-Football names some national cups just "Cup" / "Super Cup": add the country so they are readable
+const GENERIC = /^(super |league )?cup$/i;
 
 // trophies?player= rows -> ["Ligue 1 ×3 (2022-23, 2023-24, 2024-25)", "Coupe de France (2023-24)", ...]
 export function formatHonours(rows) {
   const groups = new Map();
   for (const r of rows || []) {
-    if (!r || r.place !== 'Winner' || !r.league || YOUTH.test(r.league)) continue;
-    const g = groups.get(r.league) || [];
+    if (!r || r.place !== 'Winner' || !r.league || YOUTH.test(r.league) || MINOR.test(r.league)) continue;
+    const name = GENERIC.test(r.league) && r.country && !/^world$|^europe$/i.test(r.country) ? `${r.league} (${r.country})` : r.league;
+    const g = groups.get(name) || [];
     if (r.season != null) g.push(String(r.season));
-    groups.set(r.league, g);
+    groups.set(name, g);
   }
   return [...groups.entries()]
     .map(([league, seasons]) => ({ league, seasons: [...new Set(seasons)].sort().reverse(), n: seasons.length || 1 }))

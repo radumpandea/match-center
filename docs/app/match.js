@@ -2571,11 +2571,13 @@
 
   function injuryLabel(type) {
     var s = String(type || '').toLowerCase();
-    var map = [['hamstring', 'injury.hamstring'], ['knee', 'injury.knee'], ['ankle', 'injury.ankle'], ['calf', 'injury.calf'],
-      ['thigh', 'injury.thigh'], ['groin', 'injury.groin'], ['muscle', 'injury.muscle'], ['back', 'injury.back'],
-      ['shoulder', 'injury.shoulder'], ['foot', 'injury.foot'], ['illness', 'injury.illness'], ['virus', 'injury.illness'],
-      ['surgery', 'injury.surgery'], ['ligament', 'injury.ligament'], ['fracture', 'injury.fracture'],
-      ['concussion', 'injury.concussion'], ['fatigue', 'injury.fatigue']];
+    var map = [['acl', 'injury.acl'], ['cruciate', 'injury.acl'], ['broken', 'injury.fracture'], ['fracture', 'injury.fracture'],
+      ['hamstring', 'injury.hamstring'], ['knee', 'injury.knee'], ['ankle', 'injury.ankle'], ['calf', 'injury.calf'],
+      ['thigh', 'injury.thigh'], ['groin', 'injury.groin'], ['abdominal', 'injury.abdominal'], ['muscle', 'injury.muscle'], ['back', 'injury.back'],
+      ['shoulder', 'injury.shoulder'], ['foot', 'injury.foot'], ['illness', 'injury.illness'], ['virus', 'injury.illness'], ['covid', 'injury.illness'],
+      ['surgery', 'injury.surgery'], ['ligament', 'injury.ligament'], ['concussion', 'injury.concussion'], ['fatigue', 'injury.fatigue'],
+      ['knock', 'injury.knock'], ['strain', 'injury.strain'], ['sprain', 'injury.strain']];
+    if (s === 'injury') return t('injury.generic');
     for (var i = 0; i < map.length; i++) if (s.indexOf(map[i][0]) >= 0) return t(map[i][1]);
     return type;
   }
