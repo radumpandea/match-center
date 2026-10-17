@@ -323,6 +323,13 @@ jobs:
             echo "Nothing new to commit."
           else
             git commit -m "Player facts: $(git diff --cached --name-only -- docs/data/players | wc -l) player file(s), $(git diff --cached --name-only -- docs/data/clubs | wc -l) club file(s)"
-            git pull --rebase --autostash origin main || true
-            git push
+            # several fact runs (queue + per-match) can push at the same moment: retry on a lost race,
+            # letting this run's files win a same-line conflict
+            ok=0
+            for i in 1 2 3 4; do
+              if git pull --rebase -X theirs --autostash origin main && git push; then ok=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              sleep $((RANDOM % 10 + 8))
+            done
+            [ "$ok" = 1 ] || { echo "push failed after retries"; exit 1; }
           fi
