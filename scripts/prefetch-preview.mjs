@@ -57,6 +57,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
 import { NEWS_SOURCES } from './news-sources.mjs';
+import { computeLinkLines, formatHonours, formatInjuries, xiPlayers } from './lib/enrich-pack.mjs';
 
 const HOST = 'https://v3.football.api-sports.io';
 const API_KEY = process.env.APIFOOTBALL_KEY;
@@ -1232,6 +1233,41 @@ function applyPlayerFacts(doc, dry = false) {
   return touched;
 }
 
+/* ---------- player extras: honours (trophies?player=) and injury history (sidelined?player=) ----------
+   Only for the likely XI of premium (deep) packs. Cached per player; a failed call is not cached. */
+const EXTRAS_TTL = 30;
+let extrasChecksLeft = Number(process.env.EXTRAS_PER_RUN) || 150;
+async function getPlayerExtras(playerId, cache) {
+  cache.playerExtras = cache.playerExtras || {};
+  const hit = cache.playerExtras[playerId];
+  if (hit && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < EXTRAS_TTL) return hit;
+  if (extrasChecksLeft <= 0) return hit || null;
+  extrasChecksLeft--;
+  const [tj, sj] = await Promise.all([af('trophies', { player: playerId }), af('sidelined', { player: playerId })]);
+  if (!tj && !sj) return hit || null;
+  const rec = {
+    fetchedAt: todayISO(),
+    honours: tj ? formatHonours(tj.response || []) : ((hit && hit.honours) || []),
+    injuries: sj ? formatInjuries(sj.response || []) : ((hit && hit.injuries) || []),
+  };
+  cache.playerExtras[playerId] = rec;
+  return rec;
+}
+function needsPlayerExtras(doc) {
+  return doc.researchDepth === 'deep' && xiPlayers(doc).some(({ p }) => !Array.isArray(p.honours) || !Array.isArray(p.injuries));
+}
+async function applyPlayerExtras(doc, cache) {
+  if (doc.researchDepth !== 'deep') return false;
+  let touched = false;
+  for (const { p } of xiPlayers(doc)) {
+    const rec = await getPlayerExtras(p.apiId, cache);
+    if (!rec) continue;
+    if (JSON.stringify(p.honours) !== JSON.stringify(rec.honours)) { p.honours = rec.honours; touched = true; }
+    if (JSON.stringify(p.injuries) !== JSON.stringify(rec.injuries)) { p.injuries = rec.injuries; touched = true; }
+  }
+  return touched;
+}
+
 async function applyClubs(doc, cache) {
   if (!doc.competition || doc.competition.country !== 'INT') return false;
   let touched = false;
@@ -1833,13 +1869,17 @@ async function main() {
       return !(tm.mercatoIn && tm.mercatoIn.length) && !(tm.mercatoOut && tm.mercatoOut.length);
     });
     const needFacts = applyPlayerFacts(doc, true);
+    const needLinks = computeLinkLines(doc, true);
+    const needExtras = needsPlayerExtras(doc);
     if (!needCareer && !needStandings && !needNext && !needVenue && !needPredictions && !needTrophies &&
-        !needMatchDay && !needNews && !needWeather && !needMercato && !needFacts) continue;
+        !needMatchDay && !needNews && !needWeather && !needMercato && !needFacts && !needLinks && !needExtras) continue;
     let touched = false;
 
     if (await applyClubs(doc, cache)) touched = true;
     if (await applyNatTeams(doc, cache)) touched = true;
     if (applyPlayerFacts(doc)) touched = true;
+    if (computeLinkLines(doc)) touched = true;
+    if (await applyPlayerExtras(doc, cache)) touched = true;
 
     if (needNews) {
       const [hn, an] = await Promise.all([teamNews(f.home, f.away, f.comp), teamNews(f.away, f.home, f.comp)]);
@@ -2000,6 +2040,7 @@ async function main() {
       await applyClubs(doc, cache);
       await applyNatTeams(doc, cache);
       applyPlayerFacts(doc);
+      computeLinkLines(doc);
       await applyCoachTrophies(doc, cache);
     } catch (e) {
       console.error(`  enrich failed: ${e.message}`);

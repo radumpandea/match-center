@@ -604,6 +604,12 @@
             }
           }
         },
+        "clubFacts": {
+          "type": ["array", "null"],
+          "items": { "type": "string" },
+          "maxItems": 10,
+          "description": "evergreen talking points about the club (history, honours, records, famous players, stadium, derbies), Romanian, one sentence each. Reusable across matches: stored per club in docs/data/clubs/<teamId>.json"
+        },
         "pressQuotes": {
           "type": "array",
           "description": "statements from this team's pre-match press conference (deep/premium packs only) -- prefer a paraphrase; a direct quote must stay under 15 words per the accuracy rules' copyright limit",
@@ -674,6 +680,22 @@
         "funfact": { "type": ["string", "null"] },
         "funfacts": { "type": ["array", "null"], "items": { "type": "string" }, "maxItems": 10, "description": "3-6 verified biographical facts about the player (academy, professional debut, years at the club, appearances, national-team debut, titles...), one sentence each, Romanian. Reusable across matches: stored per player in docs/data/players/<apiId>.json" },
         "linkLine": { "type": ["string", "null"], "description": "verified direct history vs this opponent" },
+        "honours": { "type": ["array", "null"], "items": { "type": "string" }, "maxItems": 8, "description": "titles won (API-Football trophies?player=, winners only, youth competitions dropped), e.g. \"Ligue 1 ×3 (2024-2025, 2023-2024, 2022-2023)\"" },
+        "injuries": {
+          "type": ["array", "null"],
+          "maxItems": 5,
+          "description": "injury history, newest first (API-Football sidelined?player=)",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type"],
+            "properties": {
+              "type": { "type": "string" },
+              "start": { "type": ["string", "null"] },
+              "end": { "type": ["string", "null"], "description": "null = still out or unknown" }
+            }
+          }
+        },
         "status": { "type": ["string", "null"], "enum": ["available", "doubt", "out", "suspended", null] },
         "statusNote": { "type": ["string", "null"] },
         "stats": {

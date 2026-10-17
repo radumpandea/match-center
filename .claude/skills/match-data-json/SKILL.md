@@ -194,6 +194,8 @@ depășit, și spui asta în mesajul de commit. În fișierul meciului pui aceea
 `docs/data/players/` în ORICE alt pachet care îl conține pe jucător (alt meci de club,
 meci al naționalei) — completează doar pachete unde lista lipsește, nu le rescrie.
 
+**Ce se completează automat (nu le cerceta în rularea de meci).** `linkLine` (goluri/roșii din duelurile directe, din evenimentele API — Nivelul 1), `honours` și `injuries` pe titulari (API-Football `trophies`/`sidelined`), `pronunciation` (jobul „Build Player Facts", din introul Wikipedia/IPA), `teams.<side>.clubFacts` (povești „evergreen" pe club, `docs/data/clubs/<teamId>.json`). Poți adăuga un `linkLine` doar pentru o poveste verificată pe care evenimentele nu o arată (de ex. fostul club).
+
 **`rev`.** Fișierele scrise de jobul „Build Player Facts" (Sonnet, atent la fidelitate) primesc
 automat `"rev": 2` (`scripts/stamp-player-facts.mjs`). Fișierele fără `rev` sunt din prima trecere
 (Haiku, cu greșeli de rundă și formulări) și sunt cercetate din nou; un fișier `rev: 2`

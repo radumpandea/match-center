@@ -959,6 +959,7 @@
       }
       (team.news || []).forEach(function (n, i) { add(['teams', side, 'news', i], btSrc(n, 'text')); });
       (team.pressQuotes || []).forEach(function (q, i) { add(['teams', side, 'pressQuotes', i], btSrc(q, 'text')); });
+      btArr(team, 'clubFacts').forEach(function (f, i) { add(['teams', side, 'clubFacts', i], f); });
       (team.stories || []).forEach(function (s, i) {
         add(['teams', side, 'stories', i, 'title'], btSrc(s, 'title'));
         btArr(s, 'bullets').forEach(function (b, j) { add(['teams', side, 'stories', i, 'bullets', j], b); });
@@ -994,6 +995,7 @@
       if (team.coach && Array.isArray(team.coach.career)) o.coach = { career: team.coach.career.map(function () { return null; }) };
       if (Array.isArray(team.news)) o.news = team.news.map(function () { return null; });
       if (Array.isArray(team.pressQuotes)) o.pressQuotes = team.pressQuotes.map(function () { return null; });
+      if (Array.isArray(team.clubFacts)) o.clubFacts = team.clubFacts.map(function () { return null; });
       if (Array.isArray(team.stories)) o.stories = team.stories.map(function (s) {
         return { title: null, bullets: btArr(s, 'bullets').map(function () { return null; }) };
       });
@@ -1171,6 +1173,7 @@
       (team.pressQuotes || []).forEach(function (q, i) {
         field(q, 'text', tt && tt.pressQuotes && tt.pressQuotes[i]);
       });
+      stringArrayField(team, 'clubFacts', tt && tt.clubFacts);
       (team.stories || []).forEach(function (s, i) {
         var ts = tt && tt.stories && tt.stories[i];
         field(s, 'title', ts && ts.title);
@@ -2397,6 +2400,199 @@
     return box;
   }
 
+  /* ---------- context panel: what is at stake, rest, XI comparison, who stands out ----------
+     Everything is computed from data already in the pack (standings, form, squad stats): no extra
+     fetch, no model. */
+  function normTeam(s) {
+    return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  }
+  function standingsIndex(d, tm) {
+    var rows = (d.standings && d.standings.rows) || [];
+    var n = normTeam(tm.name), i;
+    for (i = 0; i < rows.length; i++) if (normTeam(rows[i].team) === n) return i;
+    for (i = 0; i < rows.length; i++) {
+      var r = normTeam(rows[i].team);
+      if (r && n && (r.indexOf(n) >= 0 || n.indexOf(r) >= 0)) return i;
+    }
+    return -1;
+  }
+  function dayNum(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
+    return m ? Date.UTC(+m[1], +m[2] - 1, +m[3]) / 86400000 : null;
+  }
+  function ddmmyyyy(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
+    return m ? m[3] + '.' + m[2] + '.' + m[1] : String(iso || '');
+  }
+  function ctxLine(label, value) {
+    return el('p', { class: 'ctx-line', html: '<b>' + esc(label) + '</b> ' + esc(value) });
+  }
+
+  // new table position of both teams for each of the three results
+  function scenarioTable(d) {
+    var rows = (d.standings && d.standings.rows) || [];
+    var hi = standingsIndex(d, d.teams.home), ai = standingsIndex(d, d.teams.away);
+    if (hi < 0 || ai < 0 || hi === ai) return null;
+    var hn = d.teams.home.shortName || d.teams.home.name, an = d.teams.away.shortName || d.teams.away.name;
+    function place(hd, ad) {
+      var list = rows.map(function (r, i) {
+        return { i: i, points: (r.points || 0) + (i === hi ? hd : 0) + (i === ai ? ad : 0), gd: r.gd || 0, gf: r.gf || 0, rank: r.rank || i + 1 };
+      });
+      list.sort(function (a, b) { return (b.points - a.points) || (b.gd - a.gd) || (b.gf - a.gf) || (a.rank - b.rank); });
+      function info(idx) {
+        var pos = 0, k;
+        for (k = 0; k < list.length; k++) if (list[k].i === idx) pos = k + 1;
+        var pts = list[pos - 1].points;
+        var tie = list.some(function (o) { return o.i !== idx && o.points === pts; });
+        return { pts: pts, rank: pos, tie: tie };
+      }
+      return { home: info(hi), away: info(ai) };
+    }
+    var cur = { home: { pts: rows[hi].points || 0, rank: rows[hi].rank || hi + 1 }, away: { pts: rows[ai].points || 0, rank: rows[ai].rank || ai + 1 } };
+    var cases = [
+      [t('ctx.homeWin', { team: hn }), place(3, 0)],
+      [t('ctx.draw'), place(1, 1)],
+      [t('ctx.awayWin', { team: an }), place(0, 3)]
+    ];
+    function cell(x, now) {
+      var delta = now.rank - x.rank;
+      var arrow = delta > 0 ? ' ▲' + delta : (delta < 0 ? ' ▼' + (-delta) : ' =');
+      return x.pts + ' ' + t('ctx.pts') + ' · ' + t('ctx.rank', { n: (x.tie ? '~' : '') + x.rank }) + arrow;
+    }
+    var tb = el('table', { class: 'mc ctx-scen' }, [
+      el('tr', {}, [
+        el('th', { text: t('ctx.result') }),
+        el('th', { text: hn + ' (' + cur.home.pts + ' ' + t('ctx.pts') + ' · ' + t('ctx.rank', { n: cur.home.rank }) + ')' }),
+        el('th', { text: an + ' (' + cur.away.pts + ' ' + t('ctx.pts') + ' · ' + t('ctx.rank', { n: cur.away.rank }) + ')' })
+      ])
+    ]);
+    cases.forEach(function (c) {
+      tb.appendChild(el('tr', {}, [el('td', { text: c[0] }), el('td', { text: cell(c[1].home, cur.home) }), el('td', { text: cell(c[1].away, cur.away) })]));
+    });
+    return el('div', {}, [
+      el('h4', { text: t('ctx.scenarios') }),
+      el('div', { class: 'standings-wrap' }, [tb]),
+      el('p', { class: 'ctx-note', text: t('ctx.tieNote') })
+    ]);
+  }
+
+  function topStat(squad, key, n) {
+    return squad.filter(function (p) { return p.stats && p.stats[key] > 0 && p.stats.apps > 0; })
+      .sort(function (a, b) { return b.stats[key] - a.stats[key]; }).slice(0, n)
+      .map(function (p) { return p.name + ' ' + p.stats[key]; }).join(', ');
+  }
+
+  function teamContext(d, tm, side) {
+    var wrap = el('div', { class: 'ctx-team' });
+    var matchDay = dayNum(d.kickoff);
+    var form = tm.form || {};
+
+    // rest and congestion
+    if (matchDay != null) {
+      var past = (form.recent || []).filter(function (r) { var n = dayNum(r.date); return n != null && n < matchDay; })
+        .sort(function (a, b) { return dayNum(b.date) - dayNum(a.date); });
+      if (past.length) {
+        var gap = matchDay - dayNum(past[0].date);
+        wrap.appendChild(ctxLine(t('ctx.rest'), t('ctx.restDays', { n: gap, comp: has(past[0].comp) ? past[0].comp : '—', date: ddmmyyyy(past[0].date) }) +
+          ' · ' + t('ctx.last14', { n: past.filter(function (r) { return matchDay - dayNum(r.date) <= 14; }).length })));
+      }
+      var nxt = (form.next || []).filter(function (r) { var n = dayNum(r.date); return n != null && n > matchDay; })
+        .sort(function (a, b) { return dayNum(a.date) - dayNum(b.date); })[0];
+      if (nxt) {
+        wrap.appendChild(ctxLine('', t('ctx.next', { comp: has(nxt.comp) ? nxt.comp : '—', opp: nxt.opp || '—',
+          ha: nxt.homeAway === 'H' ? t('common.home') : (nxt.homeAway === 'A' ? t('common.away') : '—'), date: ddmmyyyy(nxt.date) })));
+      }
+    }
+
+    // points gaps
+    var rows = (d.standings && d.standings.rows) || [];
+    var si = standingsIndex(d, tm);
+    if (si >= 0) {
+      var me = rows[si], byRank = rows.slice().sort(function (a, b) { return (a.rank || 0) - (b.rank || 0); });
+      var gaps = [];
+      if (byRank[0] && byRank[0] !== me) gaps.push(t('ctx.gapLeader', { n: byRank[0].points - me.points }));
+      else if (byRank[0] === me) gaps.push(t('ctx.isLeader'));
+      var above = rows.filter(function (r) { return r.rank === me.rank - 1; })[0];
+      var below = rows.filter(function (r) { return r.rank === me.rank + 1; })[0];
+      if (above && above !== byRank[0]) gaps.push(above.points === me.points ? t('ctx.gapLevel', { rank: above.rank, team: above.team }) : t('ctx.gapAbove', { n: above.points - me.points, rank: above.rank, team: above.team }));
+      if (below) gaps.push(below.points === me.points ? t('ctx.gapLevel', { rank: below.rank, team: below.team }) : t('ctx.gapBelow', { n: me.points - below.points, rank: below.rank, team: below.team }));
+      if (gaps.length) wrap.appendChild(ctxLine('', gaps.join(' · ')));
+    }
+
+    // XI comparison
+    var squad = tm.squad || [];
+    var xi = baseXI(d, side).map(function (slot) {
+      for (var i = 0; i < squad.length; i++) if (slot.apiId != null && squad[i].apiId === slot.apiId) return squad[i];
+      return null;
+    }).filter(Boolean);
+    if (xi.length >= 8) {
+      var ages = xi.filter(function (p) { return has(p.age); });
+      var hts = xi.filter(function (p) { return has(p.height); });
+      var nats = {};
+      xi.forEach(function (p) { if (has(p.nat)) nats[p.nat] = 1; });
+      var bits = [];
+      if (ages.length) bits.push(t('ctx.avgAge') + ' ' + (ages.reduce(function (s, p) { return s + p.age; }, 0) / ages.length).toFixed(1));
+      if (hts.length) bits.push(t('ctx.avgHeight') + ' ' + Math.round(hts.reduce(function (s, p) { return s + p.height; }, 0) / hts.length) + ' cm');
+      if (Object.keys(nats).length) bits.push(t('ctx.nations') + ' ' + Object.keys(nats).length);
+      wrap.appendChild(ctxLine(t('ctx.xi'), bits.join(' · ')));
+      if (ages.length > 1) {
+        var sorted = ages.slice().sort(function (a, b) { return a.age - b.age; });
+        wrap.appendChild(ctxLine('', t('ctx.youngest') + ': ' + sorted[0].name + ' (' + sorted[0].age + ') · ' + t('ctx.oldest') + ': ' + sorted[sorted.length - 1].name + ' (' + sorted[sorted.length - 1].age + ')'));
+      }
+    }
+
+    // who stands out in the squad stats
+    var lead = [
+      ['ctx.fouls', topStat(squad, 'foulsCommitted', 3)],
+      ['ctx.fouled', topStat(squad, 'foulsDrawn', 3)],
+      ['ctx.shotsOn', topStat(squad, 'shotsOn', 3)],
+      ['ctx.keyPasses', topStat(squad, 'passesKey', 3)],
+      ['ctx.cards', topStat(squad, 'yellow', 3)]
+    ];
+    var pens = squad.filter(function (p) { return p.stats && ((p.stats.penaltyScored || 0) + (p.stats.penaltyMissed || 0)) > 0; })
+      .sort(function (a, b) { return ((b.stats.penaltyScored || 0) + (b.stats.penaltyMissed || 0)) - ((a.stats.penaltyScored || 0) + (a.stats.penaltyMissed || 0)); })
+      .map(function (p) { var sc = p.stats.penaltyScored || 0; return p.name + ' (' + sc + '/' + (sc + (p.stats.penaltyMissed || 0)) + ')'; }).join(', ');
+    lead.push(['ctx.pens', pens]);
+    var any = lead.filter(function (l) { return l[1]; });
+    if (any.length) {
+      wrap.appendChild(el('h4', { class: 'stat-h', text: t('ctx.leaders') }));
+      any.forEach(function (l) { wrap.appendChild(ctxLine(t(l[0]), l[1])); });
+    }
+    return wrap;
+  }
+
+  function contextPanelBody(d) {
+    var scen = scenarioTable(d);
+    var body = el('div', {});
+    if (scen) body.appendChild(scen);
+    body.appendChild(twoCol(d, function (tm, side) { return teamContext(d, tm, side); }));
+    return body;
+  }
+
+  function injuryLabel(type) {
+    var s = String(type || '').toLowerCase();
+    var map = [['hamstring', 'injury.hamstring'], ['knee', 'injury.knee'], ['ankle', 'injury.ankle'], ['calf', 'injury.calf'],
+      ['thigh', 'injury.thigh'], ['groin', 'injury.groin'], ['muscle', 'injury.muscle'], ['back', 'injury.back'],
+      ['shoulder', 'injury.shoulder'], ['foot', 'injury.foot'], ['illness', 'injury.illness'], ['virus', 'injury.illness'],
+      ['surgery', 'injury.surgery'], ['ligament', 'injury.ligament'], ['fracture', 'injury.fracture'],
+      ['concussion', 'injury.concussion'], ['fatigue', 'injury.fatigue']];
+    for (var i = 0; i < map.length; i++) if (s.indexOf(map[i][0]) >= 0) return t(map[i][1]);
+    return type;
+  }
+  function injuryLine(x) {
+    var out = injuryLabel(x.type);
+    if (x.start) {
+      out += ' · ' + ddmmyyyy(x.start);
+      if (x.end) {
+        var days = Math.round(dayNum(x.end) - dayNum(x.start));
+        out += ' → ' + ddmmyyyy(x.end) + (isFinite(days) && days >= 0 ? ' (' + t('player.injuryDays', { n: days }) + ')' : '');
+      } else {
+        out += ' → ' + t('player.injuryOpen');
+      }
+    }
+    return out;
+  }
+
   function panels(d) {
     var defs = [];
     function add(key, node) { if (node) defs.push({ key: key, node: node }); }
@@ -2456,6 +2652,11 @@
         ]));
       });
       add('research', panel(t('panel.research'), researchBody, { open: true }));
+    }
+
+    // Evergreen club stories (docs/data/clubs/<teamId>.json, researched once per club)
+    if (['home', 'away'].some(function (sd) { return (d.teams[sd].clubFacts || []).length; })) {
+      add('clubFacts', panel(t('panel.clubFacts'), twoCol(d, function (tm) { return ul(tm.clubFacts || []); }), { open: true }));
     }
 
     // H2H
@@ -2657,6 +2858,9 @@
       }
       add('advancedStats', panel(t('panel.advancedStats'), wrap));
     })();
+
+    // What is at stake / rest / XI comparison / who stands out
+    if (d.teams.home.name && d.teams.away.name) add('context', panel(t('panel.context'), contextPanelBody(d), { open: true }));
 
     // League table
     if (d.standings && d.standings.rows && d.standings.rows.length) {
@@ -3194,6 +3398,14 @@
         if (has(p.funfact) || !facts.length) wrap.appendChild(el('p', { text: has(p.funfact) ? p.funfact : '—' }));
         if (facts.length) wrap.appendChild(el('ul', { class: 'funfacts' }, facts.map(function (f) { return el('li', { text: f }); })));
         if (has(p.linkLine)) wrap.appendChild(el('p', { html: '<b style="color:var(--color-neutral-500)">' + t('player.linkLine') + '</b> ' + esc(p.linkLine) }));
+        if (Array.isArray(p.honours) && p.honours.length) {
+          wrap.appendChild(el('h4', { class: 'stat-h', text: t('player.honours') }));
+          wrap.appendChild(ul(p.honours));
+        }
+        if (Array.isArray(p.injuries) && p.injuries.length) {
+          wrap.appendChild(el('h4', { class: 'stat-h', text: t('player.injuryHistory') }));
+          wrap.appendChild(ul(p.injuries.map(injuryLine)));
+        }
         return wrap;
       },
       [t('player.tabStatus')]: function () {

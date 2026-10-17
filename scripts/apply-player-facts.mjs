@@ -15,6 +15,7 @@ const MATCHES_DIR = 'docs/data/matches';
 
 const REV = 2;
 const facts = new Map();
+const pron = new Map();       // ids with a pronunciation
 const careful = new Set();   // ids whose store file is rev >= 2: allowed to REPLACE facts already in a pack
 let bad = 0;
 for (const file of readdirSync(PLAYERS_DIR).filter((f) => f.endsWith('.json'))) {
@@ -30,6 +31,7 @@ for (const file of readdirSync(PLAYERS_DIR).filter((f) => f.endsWith('.json'))) 
     console.error(`${file}: funfacts must be at most 10 non-empty strings of at most 400 characters, skipped`); bad++; continue;
   }
   if (list.length) { facts.set(id, list); if (j.rev >= REV) careful.add(id); }
+  if (typeof j.pronunciation === 'string' && j.pronunciation.trim() && j.pronunciation.length <= 120) pron.set(id, j.pronunciation.trim());
 }
 console.log(`${facts.size} player(s) with facts${bad ? `, ${bad} invalid file(s)` : ''}.`);
 
@@ -41,6 +43,8 @@ for (const file of readdirSync(MATCHES_DIR).filter((f) => f.endsWith('.json') &&
   let touched = false;
   for (const side of ['home', 'away']) {
     for (const p of (doc.teams && doc.teams[side] && doc.teams[side].squad) || []) {
+      // pronunciation: fill-only (the deep build may already have written one)
+      if (p.apiId != null && pron.has(p.apiId) && !p.pronunciation) { p.pronunciation = pron.get(p.apiId); touched = true; filled++; }
       if (p.apiId == null || !facts.has(p.apiId)) continue;
       const have = Array.isArray(p.funfacts) && p.funfacts.length;
       // Fill-only, except that a careful (rev 2) file replaces what the first pass wrote. No

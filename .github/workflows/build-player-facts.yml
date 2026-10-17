@@ -12,6 +12,10 @@ name: Build Player Facts
 # Gradual on purpose: PER_RUN players a run, three runs a day. Shares the Claude
 # subscription limits with every other run, so keep it small.
 #
+# The same run also (a) writes the pronunciation of likely starters' names from the intro of
+# their Wikipedia article (scripts/pick-pronunciation.mjs) and (b) researches the evergreen
+# talking points of the next clubs (scripts/pick-club-facts.mjs -> docs/data/clubs/).
+#
 # Also called by build-match-data-run.yml right after a premium (deep) pack is built, with
 # only_slug set: it then researches exactly that match's starters, so a premium pack is
 # complete in one go. The daily queue stays as the net for everything else.
@@ -51,6 +55,8 @@ jobs:
     outputs:
       players: ${{ steps.pick.outputs.players }}
       count: ${{ steps.pick.outputs.count }}
+      clubs: ${{ steps.pickclubs.outputs.clubs }}
+      clubCount: ${{ steps.pickclubs.outputs.clubCount }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -63,11 +69,17 @@ jobs:
           ONLY_SLUG: ${{ inputs.only_slug }}
         run: node scripts/pick-player-facts.mjs
 
+      - name: Pick the next clubs without talking points
+        id: pickclubs
+        continue-on-error: true
+        env:
+          ONLY_SLUG: ${{ inputs.only_slug }}
+        run: node scripts/pick-club-facts.mjs
+
   research:
     needs: pick
-    if: needs.pick.outputs.count != '0'
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     permissions:
       contents: write
       actions: write
@@ -82,12 +94,14 @@ jobs:
           node-version: 22
 
       - name: Find each player's Wikipedia article and Wikidata record
+        if: needs.pick.outputs.count != '0'
         env:
           PLAYERS: ${{ needs.pick.outputs.players }}
         run: node scripts/resolve-player-sources.mjs
 
       - uses: anthropics/claude-code-action@v1
         id: claude-facts
+        if: needs.pick.outputs.count != '0'
         continue-on-error: true
         with:
           claude_code_oauth_token: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}"
@@ -165,18 +179,150 @@ jobs:
       - name: Mark this run's files as the careful pass (rev 2)
         run: node scripts/stamp-player-facts.mjs
 
+      # Name pronunciation for the likely starters that were never looked at (docs/data/players/<id>.json
+      # gets "pronunciation" + "pronChecked"). Reads only the intro of the Wikipedia article (IPA).
+      - name: Pick the starters whose name pronunciation is not done yet
+        id: pickpron
+        continue-on-error: true
+        env:
+          ONLY_SLUG: ${{ inputs.only_slug }}
+        run: node scripts/pick-pronunciation.mjs
+
+      - name: Fetch the intro (IPA) of their Wikipedia articles
+        if: steps.pickpron.outcome == 'success' && steps.pickpron.outputs.pronCount != '0'
+        continue-on-error: true
+        env:
+          PLAYERS: ${{ steps.pickpron.outputs.pron }}
+          OUT_DIR: .pron-sources
+          INTRO_ONLY: "1"
+        run: node scripts/resolve-player-sources.mjs
+
+      - uses: anthropics/claude-code-action@v1
+        id: claude-pron
+        if: steps.pickpron.outcome == 'success' && steps.pickpron.outputs.pronCount != '0'
+        continue-on-error: true
+        with:
+          claude_code_oauth_token: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}"
+          show_full_output: true
+          prompt: |
+            You add the spoken form of football players' names for a Romanian live
+            commentator's Match Center. You run unattended in one shot: do everything
+            yourself, now, in this turn (no background agents), then stop.
+
+            ## Players (JSON: apiId, name, team, age)
+            ${{ steps.pickpron.outputs.pron }}
+
+            ## What to do, for EACH player
+            Read `.pron-sources/<apiId>.txt`: the intro of his Wikipedia article (URL on the
+            first line), where the IPA or a "pronunciation:" note usually is. Then open
+            `docs/data/players/<apiId>.json` (it exists) and set exactly two keys, leaving
+            every other key untouched (use Edit; keep the file valid JSON):
+            - "pronChecked": "<today YYYY-MM-DD>"
+            - "pronunciation": a respelling a Romanian commentator can read straight off the
+              screen, for the part of the name that is hard (usually the surname, or first +
+              last name): syllables separated by hyphens, the STRESSED syllable in capitals,
+              Romanian letters for the sounds (ș ț with comma, ă â î; never the cedilla ş ţ).
+              Examples: Skóraś -> "SKO-raș"; Šulc -> "SHULts"; Haraldsson -> "HA-rald-son";
+              Ueda -> "u-E-da"; Ntcam -> "en-CIA-mĕ".
+            - Derive it from the IPA when the file has one. With no IPA, give a respelling only
+              when you are certain how the name is said; otherwise null.
+            - null as well when a Romanian reads the name correctly as written.
+
+            ## Strictly
+            - Touch ONLY files under `docs/data/players/`, and only those two keys.
+            - Never guess a pronunciation: null is fine, a wrong one is not.
+            - Do not commit or push; the workflow does that afterwards.
+          claude_args: |
+            --model claude-sonnet-5
+            --max-turns 140
+            --allowedTools "Read,Write,Edit,Bash,Glob,Grep"
+
+      # Evergreen talking points per club (docs/data/clubs/<teamId>.json), researched once per
+      # club and reused by every match of that club.
+      - name: Find each club's Wikipedia article
+        if: needs.pick.outputs.clubCount != '' && needs.pick.outputs.clubCount != '0'
+        continue-on-error: true
+        env:
+          CLUBS: ${{ needs.pick.outputs.clubs }}
+        run: node scripts/resolve-club-sources.mjs
+
+      - uses: anthropics/claude-code-action@v1
+        id: claude-clubs
+        if: needs.pick.outputs.clubCount != '' && needs.pick.outputs.clubCount != '0'
+        continue-on-error: true
+        with:
+          claude_code_oauth_token: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}"
+          show_full_output: true
+          prompt: |
+            You research evergreen "talking points" about football clubs for a Romanian live
+            commentator's Match Center, to fill the time when a match is slow. You run
+            unattended in one shot: do everything yourself, now, in this turn (no background
+            agents), then stop.
+
+            ## Clubs (JSON: teamId, name, venue, city, slug of a match they are in)
+            ${{ needs.pick.outputs.clubs }}
+
+            ## What to do, for EACH club
+            Read `.club-sources/<teamId>.txt`: the text of the club's Wikipedia article (URL on
+            the first line) and what Wikidata knows. Base the facts on that text and cite its
+            URL. If the file says NO_WIKIPEDIA_PAGE (or RESOLVER_ERROR) use at most one web
+            search for that club, otherwise write the empty file described below.
+
+            Write ONE file per club: `docs/data/clubs/<teamId>.json`
+            {"teamId": <number>, "name": "<name>", "facts": ["...", "..."],
+             "sources": [{"name": "Wikipedia", "url": "...", "accessed": "<today YYYY-MM-DD>"}],
+             "updatedAt": "<today>", "rev": 1}
+            - 6 to 8 facts, one sentence each (at most 300 characters), in Romanian (the correct
+              comma-below letters ș ț, never the cedilla ş ţ).
+            - Different angles, as far as the article gives them: founding and early history;
+              the biggest honours; a record (attendance, appearances, goals, a big win); famous
+              players or managers tied to the club; the stadium (opened, history, capacity as
+              stated); derbies and rivalries; supporters, nickname or the origin of colours and
+              badge; one memorable match or season.
+            - Evergreen only: nothing that changes week to week (league position, current squad,
+              current manager, form). A number that can change (titles, capacity, records) is
+              dated ("până în <anul>" or "la data de ...") or tied to the year the article gives.
+            - If you cannot find 4 reliable facts, write the file with "facts": [] and
+              "checkedAt": "<today>" instead of guessing.
+
+            ## Faithfulness (this is read on air; a wrong fact is worse than none)
+            - Stay close to the article: one event per sentence; copy names, dates,
+              numbers, scores and the ROUND of a match exactly as the article states
+              them (do not turn a round of 16 into a quarter-final, do not merge two
+              events, do not add context the article does not give).
+            - Round names, exactly: Round of 32 = „șaisprezecimile de finală", Round of 16 =
+              „optimile de finală", quarter-final = „sferturile", semi-final = „semifinala".
+            - Prefer plain, common Romanian words; never invent a word or a transliteration
+              you are unsure of. Re-read every sentence once for typos and for anything the
+              article does not literally support.
+            - Valid JSON: never put a straight double quote inside a fact (use „ ” for
+              nicknames/quotes, with the closing ” being U+201D).
+
+            ## Strictly
+            - Touch ONLY files under `docs/data/clubs/`. Do not edit match packs or anything else.
+            - Never invent. Fewer facts is fine, a wrong one is not.
+            - Do not commit or push; the workflow does that afterwards.
+          claude_args: |
+            --model claude-sonnet-5
+            --max-turns 100
+            --allowedTools "Read,Write,Edit,Bash,Glob,Grep,WebSearch,WebFetch"
+
       - name: Copy the facts into the packs
         run: node scripts/apply-player-facts.mjs
+
+      - name: Copy the club talking points into the packs
+        continue-on-error: true
+        run: node scripts/apply-club-facts.mjs
 
       - name: Commit and push
         run: |
           git config user.name "player-facts-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add docs/data/players docs/data/matches
+          git add docs/data/players docs/data/clubs docs/data/matches
           if git diff --cached --quiet; then
             echo "Nothing new to commit."
           else
-            git commit -m "Player facts: $(git diff --cached --name-only -- docs/data/players | wc -l) player file(s)"
+            git commit -m "Player facts: $(git diff --cached --name-only -- docs/data/players | wc -l) player file(s), $(git diff --cached --name-only -- docs/data/clubs | wc -l) club file(s)"
             git pull --rebase --autostash origin main || true
             git push
           fi

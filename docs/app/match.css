@@ -622,3 +622,9 @@ table.mc.standings tr.is-mine td{background:var(--color-accent-900,rgba(120,140,
 .sub-chip.ev.goal,.sub-chip.ev.owngoal{border-color:color-mix(in srgb,var(--color-accent) 55%,transparent)}
 .sub-chip.ev.yellow{border-color:#f2c200}
 .sub-chip.ev.red{border-color:#d21c1c}
+
+/* context panel */
+.ctx-line { margin: .25rem 0; font-size: .92em; }
+.ctx-line b { color: var(--color-neutral-500); font-weight: 600; }
+.ctx-note { margin: .35rem 0 .75rem; font-size: .8em; color: var(--color-neutral-500); }
+table.ctx-scen td, table.ctx-scen th { white-space: normal; }

@@ -15,7 +15,9 @@
 
 import { mkdirSync, writeFileSync } from 'node:fs';
 
-const OUT = '.player-sources';
+// INTRO_ONLY=1 (pronunciation pass): keep just the intro, where Wikipedia puts the IPA, in OUT_DIR
+const OUT = process.env.OUT_DIR || '.player-sources';
+const INTRO_ONLY = !!process.env.INTRO_ONLY;
 const MAX_TEXT = 16000;
 const UA = { 'User-Agent': 'match-center-player-facts/1.0 (https://github.com/radumpandea/match-center)' };
 const THIS_YEAR = new Date().getFullYear();
@@ -142,8 +144,8 @@ for (const p of players) {
       body = `NO_WIKIPEDIA_PAGE for "${p.name}" (${p.team}, age ${p.age}). Use at most one web search; if nothing reliable turns up, write the file with funfacts [] and checkedAt.\n`;
     } else {
       found++;
-      const wd = await wikidataBlock(page.qid);
-      body = [`Source: https://${page.lang}.wikipedia.org/wiki/${encodeURIComponent(page.title.replace(/ /g, '_'))}`, `Matched: ${page.title} (born ${page.birthYear || '?'}) for ${p.name}, ${p.team}`, wd, '', page.text.slice(0, MAX_TEXT)].filter((x) => x !== undefined).join('\n');
+      const wd = INTRO_ONLY ? '' : await wikidataBlock(page.qid);
+      body = [`Source: https://${page.lang}.wikipedia.org/wiki/${encodeURIComponent(page.title.replace(/ /g, '_'))}`, `Matched: ${page.title} (born ${page.birthYear || '?'}) for ${p.name}, ${p.team}`, wd, '', page.text.slice(0, INTRO_ONLY ? 900 : MAX_TEXT)].filter((x) => x !== undefined).join('\n');
     }
   } catch (e) {
     body = `RESOLVER_ERROR for "${p.name}": ${e.message}. Search the web instead.\n`;

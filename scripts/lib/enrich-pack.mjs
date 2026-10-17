@@ -1,0 +1,139 @@
+// Pure helpers (no I/O, no network) that enrich a match pack from data it already holds or
+// from API-Football rows handed in by the caller. Used by scripts/prefetch-preview.mjs.
+//
+//  - computeLinkLines(doc): fills squad[].linkLine from the head-to-head meetings that carry
+//    goal / red-card events ("direct history vs this opponent"), deterministically.
+//  - formatHonours(rows) / formatInjuries(rows): compact player extras from trophies?player=
+//    and sidelined?player= responses.
+
+const strip = (s) => String(s || '')
+  .normalize('NFD').replace(/[̀-ͯ]/g, '')
+  .toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+
+// "O. Dembélé" (event, abbreviated) vs "Ousmane Dembélé" (squad); also "Oso" vs "Oso".
+export function nameMatches(eventName, squadName) {
+  const e = strip(eventName).split(' ').filter(Boolean);
+  const s = strip(squadName).split(' ').filter(Boolean);
+  if (!e.length || !s.length) return false;
+  const initials = [];
+  while (e.length > 1 && e[0].length === 1) initials.push(e.shift());
+  if (!e.length) return false;
+  if (!e.every((w) => s.includes(w))) return false;
+  return !initials.length || s.some((w) => w[0] === initials[0]);
+}
+
+const sameTeam = (a, b) => {
+  const x = strip(a), y = strip(b);
+  return !!x && !!y && (x === y || x.includes(y) || y.includes(x));
+};
+
+const ddmmyyyy = (iso) => {
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
+  return m ? `${m[3]}.${m[2]}.${m[1]}` : String(iso || '');
+};
+
+function describe(list) {
+  const byDate = new Map();
+  for (const x of list) {
+    if (!byDate.has(x.date)) byDate.set(x.date, []);
+    if (x.minute != null) byDate.get(x.date).push(x.minute);
+  }
+  return [...byDate.entries()]
+    .map(([date, mins]) => `${ddmmyyyy(date)}${mins.length ? ` (min. ${mins.join(', ')})` : ''}`)
+    .join('; ');
+}
+
+// Returns true when it changed (or, with dry = true, would change) at least one linkLine.
+export function computeLinkLines(doc, dry = false) {
+  const meetings = ((doc.h2h && doc.h2h.recent) || []).filter((r) => r && Array.isArray(r.events) && r.events.length);
+  if (!meetings.length) return false;
+  const players = [];
+  for (const side of ['home', 'away']) {
+    for (const p of (doc.teams && doc.teams[side] && doc.teams[side].squad) || []) players.push({ side, p });
+  }
+  const agg = new Map();
+  for (const m of meetings) {
+    const sc = /^(.*) (\d+)-(\d+) (.*)$/.exec(m.score || '');
+    if (!sc) continue;
+    const teamOf = { home: sc[1], away: sc[4] };
+    for (const e of m.events) {
+      if ((e.type !== 'goal' && e.type !== 'red') || !e.player) continue;
+      const cands = players.filter((x) => nameMatches(e.player, x.p.name));
+      if (cands.length !== 1) continue;                    // unknown or ambiguous: say nothing
+      const { side, p } = cands[0];
+      // only what he did FOR his current club against the current opponent
+      if (!sameTeam(teamOf[e.side], doc.teams[side].name)) continue;
+      const rec = agg.get(p) || { side, goals: [], reds: [] };
+      (e.type === 'goal' ? rec.goals : rec.reds).push({ date: m.date, minute: e.minute });
+      agg.set(p, rec);
+    }
+  }
+  let changed = false;
+  for (const [p, rec] of agg) {
+    if (p.linkLine) continue;
+    const opp = doc.teams[rec.side === 'home' ? 'away' : 'home'].name;
+    const n = meetings.length;
+    // "ultimele N" only when every examined meeting has events; otherwise say what we actually counted
+    const complete = n === ((doc.h2h.recent || []).length);
+    const span = n === 1 ? (complete ? `În ultimul duel direct cu ${opp}` : `Într-un duel direct recent cu ${opp}`)
+      : complete ? `În ultimele ${n} dueluri directe cu ${opp}` : `În ${n} dueluri directe recente cu ${opp}`;
+    const bits = [];
+    if (rec.goals.length) bits.push(`${rec.goals.length} ${rec.goals.length === 1 ? 'gol' : 'goluri'} — ${describe(rec.goals)}`);
+    if (rec.reds.length) bits.push(`cartonaș roșu — ${describe(rec.reds)}`);
+    if (!bits.length) continue;
+    if (dry) return true;
+    p.linkLine = `${span}: ${bits.join('; ')}.`;
+    changed = true;
+  }
+  return changed;
+}
+
+const YOUTH = /\bu-?\d{2}\b|youth|junior|reserve|premier league 2|primavera|academy|u\d{2}/i;
+
+// trophies?player= rows -> ["Ligue 1 ×3 (2022-23, 2023-24, 2024-25)", "Coupe de France (2023-24)", ...]
+export function formatHonours(rows) {
+  const groups = new Map();
+  for (const r of rows || []) {
+    if (!r || r.place !== 'Winner' || !r.league || YOUTH.test(r.league)) continue;
+    const g = groups.get(r.league) || [];
+    if (r.season != null) g.push(String(r.season));
+    groups.set(r.league, g);
+  }
+  return [...groups.entries()]
+    .map(([league, seasons]) => ({ league, seasons: [...new Set(seasons)].sort().reverse(), n: seasons.length || 1 }))
+    .sort((a, b) => b.n - a.n || String(b.seasons[0] || '').localeCompare(String(a.seasons[0] || '')))
+    .slice(0, 8)
+    .map(({ league, seasons, n }) => {
+      const list = seasons.slice(0, 4).join(', ') + (seasons.length > 4 ? ', …' : '');
+      return n > 1 ? `${league} ×${n}${list ? ` (${list})` : ''}` : `${league}${list ? ` (${list})` : ''}`;
+    });
+}
+
+const INJURY = /injur|illness|surgery|fracture|ligament|muscle|strain|sprain|concussion|virus|covid|torn|rupture|fatigue|knock|bruise|tendon|hernia|groin|hamstring|knee|ankle|calf|thigh|back|foot|shoulder/i;
+
+// sidelined?player= rows -> last 5 injuries [{type, start, end}], newest first
+export function formatInjuries(rows) {
+  return (rows || [])
+    .filter((r) => r && r.type && INJURY.test(r.type) && !/suspend|coach|decision|international/i.test(r.type))
+    .map((r) => ({ type: String(r.type), start: r.start ? String(r.start).slice(0, 10) : null, end: r.end ? String(r.end).slice(0, 10) : null }))
+    .sort((a, b) => String(b.start || '').localeCompare(String(a.start || '')))
+    .slice(0, 5);
+}
+
+// XI players of a pack (predicted or confirmed) as {side, p} entries
+export function xiPlayers(doc) {
+  const out = [];
+  for (const side of ['home', 'away']) {
+    const t = doc.teams && doc.teams[side];
+    if (!t) continue;
+    const ids = new Set([].concat(t.predictedXI || [], t.confirmedXI || []).map((x) => x && x.apiId).filter((x) => x != null));
+    for (const p of t.squad || []) if (p.apiId != null && ids.has(p.apiId)) out.push({ side, p });
+  }
+  return out;
+}
+
+// team id from the logo URL ("…/football/teams/95.png")
+export function teamIdFromLogo(logo) {
+  const m = /\/teams\/(\d+)\.png/.exec(logo || '');
+  return m ? Number(m[1]) : null;
+}
