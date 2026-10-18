@@ -19,6 +19,28 @@
   var i18nDoc = null;
   var curFixture = null;   // this match's fixtures.json row (eventId / homeId / awayId for the API lineup button)
 
+  // The API sometimes sends names with HTML entities ("L. O&apos;Nien"). Packs are cleaned when written, but a
+  // lineup this browser stored earlier (mine.apiLineup) or a fresh API answer can still carry them.
+  var ENT = { apos: "'", quot: '"', amp: '&', lt: '<', gt: '>', nbsp: ' ' };
+  function decodeText(s) {
+    if (typeof s !== 'string' || s.indexOf('&') < 0 || /^https?:\/\//i.test(s)) return s;
+    return s.replace(/&#x([0-9a-f]+);/gi, function (m, h) { return String.fromCodePoint(parseInt(h, 16)); })
+      .replace(/&#(\d+);/g, function (m, n) { return String.fromCodePoint(parseInt(n, 10)); })
+      .replace(/&(apos|quot|amp|lt|gt|nbsp);/g, function (m, n) { return ENT[n]; });
+  }
+  function decodeEntitiesDeep(o) {
+    if (Array.isArray(o)) {
+      for (var i = 0; i < o.length; i++) {
+        if (typeof o[i] === 'string') o[i] = decodeText(o[i]); else if (o[i] && typeof o[i] === 'object') decodeEntitiesDeep(o[i]);
+      }
+    } else if (o && typeof o === 'object') {
+      Object.keys(o).forEach(function (k) {
+        if (typeof o[k] === 'string') o[k] = decodeText(o[k]); else if (o[k] && typeof o[k] === 'object') decodeEntitiesDeep(o[k]);
+      });
+    }
+    return o;
+  }
+
   var params = new URLSearchParams(location.search);
   var slug = (params.get('m') || '').trim();
   if (!slug) { fail(t('err.missingSlug')); return; }
@@ -38,6 +60,8 @@
     } catch (e) { /* none */ }
     allFixtures = fixtures;
     var prep = results[1];
+    if (prep) decodeEntitiesDeep(prep);
+    if (typeof mine !== 'undefined' && mine.apiLineup) decodeEntitiesDeep(mine.apiLineup);
     i18nDoc = results[2];
     var fixture = fixtures.filter(function (f) { return f.slug === slug; })[0];
     curFixture = fixture || null;
@@ -842,6 +866,7 @@
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (doc) {
         if (!doc || !doc.teams) return null;
+        decodeEntitiesDeep(doc);
         var out = {};
         ['home', 'away'].forEach(function (side) {
           var tm = doc.teams[side];
@@ -901,7 +926,7 @@
         mine.confirmed = mine.confirmed || {};
         ['home', 'away'].forEach(function (side) {
           clearManualLineup(side);
-          mine.apiLineup[side] = res[side];
+          mine.apiLineup[side] = decodeEntitiesDeep(res[side]);
           mine.confirmed[side] = true;   // official sheet = final, same lock as the manual "confirm" tick
         });
         saveMine();

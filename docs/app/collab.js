@@ -207,7 +207,9 @@
       var res = await client.from('mc_entities').select('base,overrides')
         .eq('kind', kind).eq('entity_key', entityKey).maybeSingle();
       if (res.error || !res.data) return null;
-      return Object.assign({}, res.data.base || {}, res.data.overrides || {});
+      var merged = Object.assign({}, res.data.base || {}, res.data.overrides || {});
+      if (typeof merged.name === 'string') merged.name = decodeEntityText(merged.name);
+      return merged;
     } catch (e) { return null; }
   }
 
@@ -216,6 +218,13 @@
   // player. Returns a map of entityKey -> merged entity (base || overrides);
   // keys with no row or that fail are simply absent from the map, same
   // fallback contract as getEntity().
+  var ENTITY_CHARS = { apos: "'", quot: '"', amp: '&', lt: '<', gt: '>', nbsp: ' ' };
+  function decodeEntityText(s) {
+    return String(s).replace(/&#x([0-9a-f]+);/gi, function (m, h) { return String.fromCodePoint(parseInt(h, 16)); })
+      .replace(/&#(\d+);/g, function (m, n) { return String.fromCodePoint(parseInt(n, 10)); })
+      .replace(/&(apos|quot|amp|lt|gt|nbsp);/g, function (m, n) { return ENTITY_CHARS[n]; });
+  }
+
   async function getEntities(kind, entityKeys) {
     var keys = Array.from(new Set((entityKeys || []).filter(Boolean)));
     if (!enabled || !keys.length) return {};
@@ -230,7 +239,10 @@
         // match.js `mine.pname`); a shared `name` override written before that
         // change must not reach other users, so only the API name counts.
         if (kind === 'player') delete ov.name;
-        out[row.entity_key] = Object.assign({}, row.base || {}, ov);
+        var merged = Object.assign({}, row.base || {}, ov);
+        // names synced while the API still sent HTML entities ("L. O&apos;Nien") are decoded on read
+        if (typeof merged.name === 'string') merged.name = decodeEntityText(merged.name);
+        out[row.entity_key] = merged;
       });
       return out;
     } catch (e) { return {}; }

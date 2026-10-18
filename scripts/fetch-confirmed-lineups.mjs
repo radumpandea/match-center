@@ -19,6 +19,7 @@
 // that isn't already built (no Level 1/2 pack yet).
 
 import { readFileSync, writeFileSync, existsSync, appendFileSync } from 'node:fs';
+import { decodeDeep } from './lib/enrich-pack.mjs';
 
 const DATA_DIR = 'docs/data';
 const FIXTURES_PATH = `${DATA_DIR}/fixtures.json`;
@@ -31,6 +32,7 @@ function readJSON(p) {
   return JSON.parse(readFileSync(p, 'utf8'));
 }
 function writeJSON(p, v) {
+  decodeDeep(v);   // names from the API can carry HTML entities (O&apos;Nien)
   writeFileSync(p, JSON.stringify(v, null, 2) + '\n', 'utf8');
 }
 function num(v) {

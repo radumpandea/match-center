@@ -31,6 +31,16 @@ function json(body: unknown, status = 200): Response {
 }
 
 // deno-lint-ignore no-explicit-any
+// API-Football sometimes sends HTML entities in names ("L. O&apos;Nien")
+const ENT: Record<string, string> = { apos: "'", quot: '"', amp: "&", lt: "<", gt: ">", nbsp: " " };
+function decode(s: string): string {
+  if (typeof s !== "string" || s.indexOf("&") < 0) return s;
+  return s
+    .replace(/&#x([0-9a-f]+);/gi, (_m, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_m, n) => String.fromCodePoint(parseInt(n, 10)))
+    .replace(/&(apos|quot|amp|lt|gt|nbsp);/g, (_m, n) => ENT[n]);
+}
+
 function players(list: any[] | undefined) {
   return (list || [])
     // deno-lint-ignore no-explicit-any
@@ -41,7 +51,7 @@ function players(list: any[] | undefined) {
     .map((p: any) => ({
       id: p.id ?? null,
       number: p.number ?? null,
-      name: p.name,
+      name: decode(p.name),
       pos: p.pos ?? null,
       grid: p.grid ?? null,
     }));
