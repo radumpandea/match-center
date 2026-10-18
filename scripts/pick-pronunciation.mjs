@@ -9,9 +9,9 @@
 // Requires Node 18+.
 
 import { readFileSync, appendFileSync, existsSync } from 'node:fs';
-import { xiPlayers } from './lib/enrich-pack.mjs';
+import { squadByPriority } from './lib/enrich-pack.mjs';
 
-const PER_RUN = Number(process.env.PRON_PER_RUN) || 40;
+const PER_RUN = Number(process.env.PRON_PER_RUN) || 60;
 const ONLY_SLUG = (process.env.ONLY_SLUG || '').trim();
 const DAYS_AHEAD = 6;
 
@@ -45,7 +45,7 @@ for (const f of fixtures) {
   let doc;
   try { doc = JSON.parse(readFileSync(path, 'utf8')); } catch { continue; }
   if (ONLY_SLUG && doc.partial) continue;
-  for (const { side, p } of xiPlayers(doc)) {
+  for (const { side, p } of squadByPriority(doc, f.researchDepth === 'deep' || doc.researchDepth === 'deep')) {
     if (seen.has(p.apiId) || !needsPron(p.apiId)) continue;
     seen.add(p.apiId);
     picked.push({ apiId: p.apiId, name: p.name, team: doc.teams[side].name, age: p.age != null ? p.age : null });

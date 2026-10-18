@@ -943,6 +943,7 @@
     btArr(d, 'storyOfTheMatch').forEach(function (s, i) { add(['storyOfTheMatch', i], s); });
     if (d.h2h) add(['h2h', 'summary'], btSrc(d.h2h, 'summary'));
     if (d.referee) add(['referee', 'history'], btSrc(d.referee, 'history'));
+    if (d.referee) btArr(d.referee, 'funfacts').forEach(function (f, i) { add(['referee', 'funfacts', i], f); });
     if (d.venue) {
       add(['venue', 'notes'], btSrc(d.venue, 'notes'));
       btArr(d.venue, 'stories').forEach(function (s, i) { add(['venue', 'stories', i], s); });
@@ -960,6 +961,7 @@
       (team.news || []).forEach(function (n, i) { add(['teams', side, 'news', i], btSrc(n, 'text')); });
       (team.pressQuotes || []).forEach(function (q, i) { add(['teams', side, 'pressQuotes', i], btSrc(q, 'text')); });
       btArr(team, 'clubFacts').forEach(function (f, i) { add(['teams', side, 'clubFacts', i], f); });
+      if (team.coach) btArr(team.coach, 'funfacts').forEach(function (f, i) { add(['teams', side, 'coach', 'funfacts', i], f); });
       (team.stories || []).forEach(function (s, i) {
         add(['teams', side, 'stories', i, 'title'], btSrc(s, 'title'));
         btArr(s, 'bullets').forEach(function (b, j) { add(['teams', side, 'stories', i, 'bullets', j], b); });
@@ -986,13 +988,18 @@
       out.venue = { notes: null };
       if (Array.isArray(btSrc(d.venue, 'stories'))) out.venue.stories = btArr(d.venue, 'stories').map(function () { return null; });
     }
+    if (d.referee && Array.isArray(btSrc(d.referee, 'funfacts'))) out.referee.funfacts = btArr(d.referee, 'funfacts').map(function () { return null; });
     if (Array.isArray(d.commentatorResearch)) out.commentatorResearch = d.commentatorResearch.map(function () { return { topic: null, fact: null }; });
     out.teams = {};
     ['home', 'away'].forEach(function (side) {
       var team = d.teams && d.teams[side];
       if (!team) return;
       var o = {};
-      if (team.coach && Array.isArray(team.coach.career)) o.coach = { career: team.coach.career.map(function () { return null; }) };
+      if (team.coach && (Array.isArray(team.coach.career) || Array.isArray(btSrc(team.coach, 'funfacts')))) {
+        o.coach = {};
+        if (Array.isArray(team.coach.career)) o.coach.career = team.coach.career.map(function () { return null; });
+        if (Array.isArray(btSrc(team.coach, 'funfacts'))) o.coach.funfacts = btArr(team.coach, 'funfacts').map(function () { return null; });
+      }
       if (Array.isArray(team.news)) o.news = team.news.map(function () { return null; });
       if (Array.isArray(team.pressQuotes)) o.pressQuotes = team.pressQuotes.map(function () { return null; });
       if (Array.isArray(team.clubFacts)) o.clubFacts = team.clubFacts.map(function () { return null; });
@@ -1148,6 +1155,7 @@
     stringArrayField(d, 'storyOfTheMatch', tr && tr.storyOfTheMatch);
     field(d.h2h, 'summary', tr && tr.h2h && tr.h2h.summary);
     field(d.referee, 'history', tr && tr.referee && tr.referee.history);
+    if (d.referee) stringArrayField(d.referee, 'funfacts', tr && tr.referee && tr.referee.funfacts);
     if (d.venue) {
       field(d.venue, 'notes', tr && tr.venue && tr.venue.notes);
       stringArrayField(d.venue, 'stories', tr && tr.venue && tr.venue.stories);
@@ -1174,6 +1182,7 @@
         field(q, 'text', tt && tt.pressQuotes && tt.pressQuotes[i]);
       });
       stringArrayField(team, 'clubFacts', tt && tt.clubFacts);
+      if (team.coach) stringArrayField(team.coach, 'funfacts', tt && tt.coach && tt.coach.funfacts);
       (team.stories || []).forEach(function (s, i) {
         var ts = tt && tt.stories && tt.stories[i];
         field(s, 'title', ts && ts.title);
@@ -3759,6 +3768,10 @@
         });
         return tbl;
       },
+      [t('coach.tabFunfact')]: function () {
+        var facts = Array.isArray(c.funfacts) ? c.funfacts.filter(has) : [];
+        return facts.length ? el('ul', { class: 'funfacts' }, facts.map(function (f) { return el('li', { text: f }); })) : el('p', { text: '—' });
+      },
       [t('coach.tabNotes')]: function () { return notesBlock(id, t('coach.notesLabel', { team: d.teams[side].name })); },
       [t('coach.tabName')]: function () {
         var researched = c._name0 !== undefined ? c._name0 : c.name;
@@ -3794,6 +3807,10 @@
         var wrap = el('div', {}, [kv]);
         if (has(r.history)) wrap.appendChild(el('p', { text: r.history }));
         return wrap;
+      },
+      [t('referee.tabFunfact')]: function () {
+        var facts = Array.isArray(r.funfacts) ? r.funfacts.filter(has) : [];
+        return facts.length ? el('ul', { class: 'funfacts' }, facts.map(function (f) { return el('li', { text: f }); })) : el('p', { text: '—' });
       },
       [t('referee.tabNotes')]: function () { return notesBlock(id, t('referee.notesLabel')); }
     });

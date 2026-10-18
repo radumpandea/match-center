@@ -8,7 +8,8 @@
 // of the matches people actually use grows steadily.
 //
 // Order: premium (deep) matches first, then the rest, each soonest kick-off first;
-// within a match the likely XI players. A player is "missing" when his store file does
+// within a match the likely XI players, and for premium matches also the bench and then the rest
+// of the squad by minutes played (see squadByPriority()). A player is "missing" when his store file does
 // not exist, or exists with no facts and was never checked, or was last checked more
 // than RECHECK_DAYS ago while still empty (a young player with no sources today may
 // have a Wikipedia page next season). A file with facts but without "rev": 2 was written by
@@ -23,6 +24,7 @@
 // Requires Node 18+.
 
 import { readFileSync, appendFileSync, existsSync } from 'node:fs';
+import { squadByPriority } from './lib/enrich-pack.mjs';
 
 const PER_RUN = Number(process.env.PER_RUN) || 18;
 const ONLY_SLUG = (process.env.ONLY_SLUG || '').trim();
@@ -62,16 +64,13 @@ for (const f of fixtures) {
   let doc;
   try { doc = JSON.parse(readFileSync(path, 'utf8')); } catch { continue; }
   if (ONLY_SLUG && doc.partial) continue;
-  for (const side of ['home', 'away']) {
-    const t = doc.teams && doc.teams[side];
-    if (!t) continue;
-    const ids = new Set([].concat(t.predictedXI || [], t.confirmedXI || []).map((x) => x && x.apiId).filter((x) => x != null));
-    for (const p of t.squad || []) {
-      if (p.apiId == null || !ids.has(p.apiId) || seen.has(p.apiId) || !needsFacts(p.apiId)) continue;
-      seen.add(p.apiId);
-      picked.push({ apiId: p.apiId, name: p.name, team: t.name, age: p.age != null ? p.age : null, slug: f.slug });
-      if (picked.length >= PER_RUN) break outer;
-    }
+  // premium (deep) matches: the whole squad (starters, then the bench, then by minutes); the rest: starters only
+  const whole = f.researchDepth === 'deep' || doc.researchDepth === 'deep';
+  for (const { side, p } of squadByPriority(doc, whole)) {
+    if (seen.has(p.apiId) || !needsFacts(p.apiId)) continue;
+    seen.add(p.apiId);
+    picked.push({ apiId: p.apiId, name: p.name, team: doc.teams[side].name, age: p.age != null ? p.age : null, slug: f.slug });
+    if (picked.length >= PER_RUN) break outer;
   }
 }
 

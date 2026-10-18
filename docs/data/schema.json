@@ -91,7 +91,8 @@
         "apps": { "type": ["integer", "null"], "description": "career appearances" },
         "ycPerMatch": { "type": ["number", "null"] },
         "rcPerMatch": { "type": ["number", "null"] },
-        "history": { "type": ["string", "null"], "description": "record with these two teams, if known" }
+        "history": { "type": ["string", "null"], "description": "record with these two teams, if known" },
+        "funfacts": { "type": ["array", "null"], "items": { "type": "string" }, "maxItems": 10, "description": "3-6 verified facts about the referee, Romanian; stored per referee in docs/data/referees/<name-key>.json" }
       }
     },
     "h2h": {
@@ -290,6 +291,7 @@
             "country": { "type": ["string", "null"] },
             "age": { "type": ["integer", "null"], "description": "exact age on match day, derived from birthDate" },
             "birthDate": { "type": ["string", "null"], "description": "YYYY-MM-DD, API-Football coachs birth.date" },
+            "funfacts": { "type": ["array", "null"], "items": { "type": "string" }, "maxItems": 10, "description": "3-6 verified facts about the coach, Romanian; stored per coach in docs/data/coaches/<apiId>.json" },
             "tenureFrom": { "type": ["string", "null"], "description": "YYYY-MM or free text" },
             "career": {
               "type": "array",

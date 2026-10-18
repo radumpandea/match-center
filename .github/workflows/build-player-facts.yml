@@ -14,7 +14,9 @@ name: Build Player Facts
 #
 # The same run also (a) writes the pronunciation of likely starters' names from the intro of
 # their Wikipedia article (scripts/pick-pronunciation.mjs) and (b) researches the evergreen
-# talking points of the next clubs (scripts/pick-club-facts.mjs -> docs/data/clubs/).
+# talking points of the next clubs (scripts/pick-club-facts.mjs -> docs/data/clubs/) and (c) the
+# fun facts of the head coaches and referees (scripts/pick-staff-facts.mjs -> docs/data/coaches,
+# docs/data/referees). Premium matches get the WHOLE squad researched (starters, bench, then by minutes).
 #
 # Also called by build-match-data-run.yml right after a premium (deep) pack is built, with
 # only_slug set: it then researches exactly that match's starters, so a premium pack is
@@ -57,6 +59,8 @@ jobs:
       count: ${{ steps.pick.outputs.count }}
       clubs: ${{ steps.pickclubs.outputs.clubs }}
       clubCount: ${{ steps.pickclubs.outputs.clubCount }}
+      staff: ${{ steps.pickstaff.outputs.staff }}
+      staffCount: ${{ steps.pickstaff.outputs.staffCount }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -75,6 +79,13 @@ jobs:
         env:
           ONLY_SLUG: ${{ inputs.only_slug }}
         run: node scripts/pick-club-facts.mjs
+
+      - name: Pick the coaches and referees without facts
+        id: pickstaff
+        continue-on-error: true
+        env:
+          ONLY_SLUG: ${{ inputs.only_slug }}
+        run: node scripts/pick-staff-facts.mjs
 
   research:
     needs: pick
@@ -307,6 +318,73 @@ jobs:
             --max-turns 100
             --allowedTools "Read,Write,Edit,Bash,Glob,Grep,WebSearch,WebFetch"
 
+      # Fun facts for the head coaches and referees (docs/data/coaches, docs/data/referees)
+      - name: Find the Wikipedia articles of the coaches and referees
+        if: needs.pick.outputs.staffCount != '' && needs.pick.outputs.staffCount != '0'
+        continue-on-error: true
+        env:
+          STAFF: ${{ needs.pick.outputs.staff }}
+        run: node scripts/resolve-staff-sources.mjs
+
+      - uses: anthropics/claude-code-action@v1
+        id: claude-staff
+        if: needs.pick.outputs.staffCount != '' && needs.pick.outputs.staffCount != '0'
+        continue-on-error: true
+        with:
+          claude_code_oauth_token: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}"
+          show_full_output: true
+          prompt: |
+            You research short "fun facts" about football head coaches and referees for a
+            Romanian live commentator's Match Center. You run unattended in one shot: do
+            everything yourself, now, in this turn (no background agents), then stop.
+
+            ## People (JSON: kind "coach"|"referee", key, name, country, age, team)
+            ${{ needs.pick.outputs.staff }}
+
+            ## What to do, for EACH person
+            Read `.staff-sources/<kind>-<key>.txt`: the text of his Wikipedia article (URL on the
+            first line) and what Wikidata knows. Base the facts on that text and cite its URL. If the
+            file says NO_WIKIPEDIA_PAGE (or RESOLVER_ERROR) use at most one web search for him,
+            otherwise write the empty file described below.
+
+            Write ONE file per person:
+            - coach:   `docs/data/coaches/<key>.json`   {"coachId": <key as a number>, "name": "...", "funfacts": [...], "sources": [...], "updatedAt": "<today>", "rev": 1}
+            - referee: `docs/data/referees/<key>.json`  {"key": "<key>", "name": "...", "funfacts": [...], "sources": [...], "updatedAt": "<today>", "rev": 1}
+            `sources` = [{"name": "Wikipedia", "url": "...", "accessed": "<today YYYY-MM-DD>"}].
+            - 4 to 6 facts, one sentence each (at most 300 characters), in Romanian (the correct
+              comma-below letters ș ț, never the cedilla ş ţ).
+            - Coach: playing career in one line, the path into coaching, the biggest honours as a
+              coach (with the year), clubs and national teams managed, a distinctive trait or record
+              the article states (style, longest spell, promotions), nationality and place of birth.
+            - Referee: debut at the top level, international (FIFA) badge, major matches the article
+              names (finals, tournaments, derbies) with year, how he came to refereeing, any other
+              job the article states. Nothing about private life beyond what a neutral reference gives.
+            - Every number that can change (appearances, matches refereed) is dated ("la data de ...").
+            - If you cannot find 3 reliable facts, write the file with "funfacts": [] and
+              "checkedAt": "<today>" instead of guessing (he is not retried for 90 days).
+
+            ## Faithfulness (this is read on air; a wrong fact is worse than none)
+            - Stay close to the article: one event per sentence; copy names, dates,
+              numbers, scores and the ROUND of a match exactly as the article states
+              them (do not turn a round of 16 into a quarter-final, do not merge two
+              events, do not add context the article does not give).
+            - Round names, exactly: Round of 32 = „șaisprezecimile de finală", Round of 16 =
+              „optimile de finală", quarter-final = „sferturile", semi-final = „semifinala".
+            - Prefer plain, common Romanian words; never invent a word or a transliteration
+              you are unsure of. Re-read every sentence once for typos and for anything the
+              article does not literally support.
+            - Valid JSON: never put a straight double quote inside a fact (use „ ” for
+              nicknames/quotes, with the closing ” being U+201D).
+
+            ## Strictly
+            - Touch ONLY files under `docs/data/coaches/` and `docs/data/referees/`.
+            - Never invent. Fewer facts is fine, a wrong one is not.
+            - Do not commit or push; the workflow does that afterwards.
+          claude_args: |
+            --model claude-sonnet-5
+            --max-turns 100
+            --allowedTools "Read,Write,Edit,Bash,Glob,Grep,WebSearch,WebFetch"
+
       - name: Copy the facts into the packs
         run: node scripts/apply-player-facts.mjs
 
@@ -314,11 +392,15 @@ jobs:
         continue-on-error: true
         run: node scripts/apply-club-facts.mjs
 
+      - name: Copy the coaches' and referees' facts into the packs
+        continue-on-error: true
+        run: node scripts/apply-staff-facts.mjs
+
       - name: Commit and push
         run: |
           git config user.name "player-facts-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add docs/data/players docs/data/clubs docs/data/matches
+          git add docs/data/players docs/data/clubs docs/data/coaches docs/data/referees docs/data/matches
           if git diff --cached --quiet; then
             echo "Nothing new to commit."
           else

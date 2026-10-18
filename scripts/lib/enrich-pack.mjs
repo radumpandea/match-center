@@ -169,3 +169,28 @@ export function applyAges(doc) {
   }
   return changed;
 }
+
+// Squad players of a pack in research priority: likely starters first (both teams), then the
+// matchday bench (when published), then everyone else by minutes played this season.
+// With wholeSquad = false only the starters are returned.
+export function squadByPriority(doc, wholeSquad) {
+  const tiers = [[], [], []];
+  for (const side of ['home', 'away']) {
+    const t = doc.teams && doc.teams[side];
+    if (!t) continue;
+    const xi = new Set([].concat(t.predictedXI || [], t.confirmedXI || []).map((x) => x && x.apiId).filter((x) => x != null));
+    const bench = new Set((t.substitutes || []).map((x) => x && x.apiId).filter((x) => x != null));
+    for (const p of t.squad || []) {
+      if (p.apiId == null) continue;
+      if (xi.has(p.apiId)) tiers[0].push({ side, p });
+      else if (wholeSquad) (bench.has(p.apiId) ? tiers[1] : tiers[2]).push({ side, p });
+    }
+  }
+  tiers[2].sort((a, b) => ((b.p.stats && b.p.stats.minutes) || 0) - ((a.p.stats && a.p.stats.minutes) || 0));
+  return [].concat(tiers[0], tiers[1], tiers[2]);
+}
+
+// file-name key for a referee (they have no id in the data): "Willy Delajod" -> "willy-delajod"
+export function refereeKey(name) {
+  return strip(name).replace(/\s+/g, '-').replace(/^-+|-+$/g, '');
+}
