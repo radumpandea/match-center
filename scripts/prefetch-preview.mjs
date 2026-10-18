@@ -2025,6 +2025,8 @@ async function main() {
       const logo = await getLeagueLogo(leagueId, cache);
       if (logo) { doc.competition.logo = logo; touched = true; }
     }
+    // after the bio fill above, so a birthDate that arrived in this very run is used straight away
+    if (applyAges(doc)) touched = true;
     if (touched) { writeJSON(path, doc); console.log(`- ${f.slug}: topped up`); }
   }
 
