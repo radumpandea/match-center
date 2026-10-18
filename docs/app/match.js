@@ -1751,6 +1751,9 @@
   function makeBoxDraggable(box, header) {
     header.addEventListener('pointerdown', function (e) {
       if (e.button != null && e.button !== 0) return;
+      // The close button lives in this header: capturing the pointer here would redirect its
+      // click to the header and the button would never fire.
+      if (e.target && e.target.closest && e.target.closest('.mp-close')) return;
       var startX = e.clientX, startY = e.clientY, moved = false;
       var startRect = box.getBoundingClientRect();
       try { header.setPointerCapture(e.pointerId); } catch (err) {}
@@ -1834,6 +1837,7 @@
     if (!pitchRow || typeof IntersectionObserver === 'undefined') return;
 
     var closeBtn = el('span', { class: 'mp-close', title: t('pitch.miniPitchClose'), text: '×' });
+    closeBtn.addEventListener('pointerdown', function (e) { e.stopPropagation(); });
     closeBtn.addEventListener('click', function (e) {
       e.preventDefault(); e.stopPropagation();
       mine.miniPitchClosed = true;

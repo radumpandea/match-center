@@ -116,8 +116,8 @@ button{font-family:inherit}
 .mp-header{display:flex;align-items:center;justify-content:space-between;gap:8px;font:600 18px/1 "Inter",sans-serif;padding:2px 6px 8px;color:var(--color-text);cursor:move;user-select:none}
 .mp-header .mp-team{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:34%}
 .mp-score{font-variant-numeric:tabular-nums;color:var(--color-accent-200);flex:none}
-.mp-close{flex:none;width:20px;height:20px;line-height:20px;text-align:center;border-radius:50%;border:1px solid var(--color-divider);color:var(--color-neutral-400);cursor:pointer;font-size:13px}
-.mp-close:hover{border-color:var(--color-accent);color:var(--color-accent-200)}
+.mp-close{flex:none;width:28px;height:28px;line-height:26px;text-align:center;border-radius:50%;border:1px solid var(--color-neutral-400);color:var(--color-text);cursor:pointer;font-size:18px;font-weight:700}
+.mp-close:hover{border-color:var(--color-accent);color:var(--color-accent-200);background:var(--color-surface-2)}
 .mp-shell{
   position:relative;width:100%;aspect-ratio:100/64;border-radius:8px;overflow:hidden;cursor:pointer;
   background:repeating-linear-gradient(90deg,var(--pitch-green) 0 8%,var(--pitch-green-2) 8% 16%)
