@@ -57,7 +57,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
 import { NEWS_SOURCES } from './news-sources.mjs';
-import { computeLinkLines, formatHonours, formatInjuries, xiPlayers, applyAges } from './lib/enrich-pack.mjs';
+import { computeLinkLines, formatHonours, formatInjuries, xiPlayers, applyAges, decodeDeep } from './lib/enrich-pack.mjs';
 
 const HOST = 'https://v3.football.api-sports.io';
 const API_KEY = process.env.APIFOOTBALL_KEY;
@@ -122,10 +122,15 @@ function currentSeason(d = new Date()) {
 }
 
 function readJSON(path) {
-  try { return JSON.parse(readFileSync(path, 'utf8')); } catch { return null; }
+  try {
+    const j = JSON.parse(readFileSync(path, 'utf8'));
+    decodeDeep(j);   // "O&apos;Nien" -> "O'Nien" (see decodeText())
+    return j;
+  } catch { return null; }
 }
 function writeJSON(path, obj) {
   mkdirSync(dirname(path), { recursive: true });
+  decodeDeep(obj);   // never write "&apos;"-style entities (names from the API)
   writeFileSync(path, JSON.stringify(obj, null, 2) + '\n');
 }
 

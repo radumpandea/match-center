@@ -194,3 +194,34 @@ export function squadByPriority(doc, wholeSquad) {
 export function refereeKey(name) {
   return strip(name).replace(/\s+/g, '-').replace(/^-+|-+$/g, '');
 }
+
+// API-Football (and some feeds) send HTML entities inside names: "L. O&apos;Nien", "M. N&apos;Diaye".
+// decodeText() turns them into the real characters; decodeDeep() does it for every string of an object
+// in place (URLs are left alone) and reports whether anything changed.
+const NAMED = { apos: "'", quot: '"', amp: '&', lt: '<', gt: '>', nbsp: ' ' };
+export function decodeText(s) {
+  if (typeof s !== 'string' || s.indexOf('&') < 0 || /^https?:\/\//i.test(s)) return s;
+  return s
+    .replace(/&#x([0-9a-f]+);/gi, (m, h) => { try { return String.fromCodePoint(parseInt(h, 16)); } catch { return m; } })
+    .replace(/&#(\d+);/g, (m, d) => { try { return String.fromCodePoint(parseInt(d, 10)); } catch { return m; } })
+    .replace(/&(apos|quot|amp|lt|gt|nbsp);/g, (m, n) => NAMED[n]);
+}
+export function decodeDeep(o) {
+  let changed = false;
+  const walk = (node) => {
+    if (Array.isArray(node)) {
+      for (let i = 0; i < node.length; i++) {
+        if (typeof node[i] === 'string') { const v = decodeText(node[i]); if (v !== node[i]) { node[i] = v; changed = true; } }
+        else if (node[i] && typeof node[i] === 'object') walk(node[i]);
+      }
+    } else if (node && typeof node === 'object') {
+      for (const k of Object.keys(node)) {
+        const v = node[k];
+        if (typeof v === 'string') { const d = decodeText(v); if (d !== v) { node[k] = d; changed = true; } }
+        else if (v && typeof v === 'object') walk(v);
+      }
+    }
+  };
+  walk(o);
+  return changed;
+}
