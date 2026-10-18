@@ -196,6 +196,8 @@ meci al naționalei) — completează doar pachete unde lista lipsește, nu le r
 
 **Ce se completează automat (nu le cerceta în rularea de meci).** `linkLine` (goluri/roșii din duelurile directe, din evenimentele API — Nivelul 1), `honours` și `injuries` pe titulari (API-Football `trophies`/`sidelined`), `pronunciation` (jobul „Build Player Facts", din introul Wikipedia/IPA), `teams.<side>.clubFacts` (povești „evergreen" pe club, `docs/data/clubs/<teamId>.json`). Poți adăuga un `linkLine` doar pentru o poveste verificată pe care evenimentele nu o arată (de ex. fostul club).
 
+**Cine primește fapte.** La meciurile premium: TOT lotul (titularii, banca confirmată, apoi restul după minute); la celelalte: doar titularii așteptați. În plus: antrenorul principal (`coach.funfacts`, `docs/data/coaches/<apiId>.json`) și arbitrul (`referee.funfacts`, `docs/data/referees/<nume-cheie>.json`), cercetați o singură dată și refolosiți. Toate le scrie jobul „Build Player Facts", nu rularea de meci.
+
 **`rev`.** Fișierele scrise de jobul „Build Player Facts" (Sonnet, atent la fidelitate) primesc
 automat `"rev": 2` (`scripts/stamp-player-facts.mjs`). Fișierele fără `rev` sunt din prima trecere
 (Haiku, cu greșeli de rundă și formulări) și sunt cercetate din nou; un fișier `rev: 2`
