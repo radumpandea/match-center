@@ -464,9 +464,9 @@
 
   /* ---------- pitch view (orientation + which team is nearest the viewer) ---------- */
   var view = (mine.view && typeof mine.view === 'object')
-    ? { orientation: mine.view.orientation === 'v' ? 'v' : 'h', swapped: !!mine.view.swapped, fullNames: !!mine.view.fullNames, labelSize: [0, 1, 2].indexOf(mine.view.labelSize) >= 0 ? mine.view.labelSize : 0 }
-    : { orientation: 'h', swapped: false, fullNames: false, labelSize: 0 };
-  function saveView() { mine.view = { orientation: view.orientation, swapped: view.swapped, fullNames: view.fullNames, labelSize: view.labelSize }; saveMine(); }
+    ? { orientation: mine.view.orientation === 'v' ? 'v' : 'h', swapped: !!mine.view.swapped, fullNames: !!mine.view.fullNames, photos: !!mine.view.photos, labelSize: [0, 1, 2].indexOf(mine.view.labelSize) >= 0 ? mine.view.labelSize : 0 }
+    : { orientation: 'h', swapped: false, fullNames: false, photos: false, labelSize: 0 };
+  function saveView() { mine.view = { orientation: view.orientation, swapped: view.swapped, fullNames: view.fullNames, photos: view.photos, labelSize: view.labelSize }; saveMine(); }
 
   /* ---------- disc (player node) colours per team ----------
      user override (mine.discColors) wins; then the pack's colors.primary;
@@ -1583,6 +1583,22 @@
         rerenderPitch(data);
       }
     });
+    // dots with the shirt number (default) or the player's photo with the number in a corner
+    var photosBtn = el('button', { onclick: function () {
+      view.photos = !view.photos;
+      paintPhotosBtn();
+      saveView();
+      rerenderPitch(data);
+    } });
+    // icon only (the toolbar must stay on one line); the full label is the tooltip
+    function paintPhotosBtn() {
+      var label = view.photos ? t('toolbar.dots') : t('toolbar.photos');
+      var m = /^(\S{1,3})\s+(.+)$/.exec(label);
+      photosBtn.textContent = m ? m[1] : label;
+      photosBtn.title = (m ? m[2] : label) + ' — ' + t('toolbar.photosTitle');
+      photosBtn.setAttribute('aria-label', m ? m[2] : label);
+    }
+    paintPhotosBtn();
     var SIZE_LABELS = ['M', 'L', 'XL'];
     var fontBtn = el('button', {
       text: t('toolbar.textSize', { size: SIZE_LABELS[view.labelSize] }),
@@ -1692,6 +1708,7 @@
         iconOnly(swapBtn),
         orientBtn,
         namesBtn,
+        photosBtn,
         fontBtn,
         favBtn,
         collabBtn,
@@ -1986,6 +2003,7 @@
         var override = pkey && mine.lineup && mine.lineup[side] && mine.lineup[side][pkey];
         var pos = place(override || pts[i] || { d: 0.03, w: 0.05 + i * 0.08 }, isNear);
         var stat = full && full.status;
+        var usePhoto = !!(view.photos && !isEmpty && full && full.photo);
         var cap = !isEmpty && isCaptain(side, full || slot);
         var ec = full ? evCounts(side, full) : { goal: 0, owngoal: 0, yellow: 0, red: 0 };
         var badges = null;
@@ -2007,8 +2025,18 @@
             else if (full) openPlayer(d, side, full);
           }
         }, [
-          el('div', { class: 'disc' }, [
-            el('span', { text: isEmpty ? '+' : (slot.number != null ? String(slot.number) : (slot.pos || '')) }),
+          el('div', { class: 'disc' + (usePhoto ? ' has-photo' : '') }, [
+            usePhoto ? el('img', { class: 'disc-photo', src: full.photo, alt: '', loading: 'lazy', onerror: function () {
+              // broken/missing photo: fall back to the plain numbered dot
+              var dsc = this.parentNode;
+              if (dsc) {
+                dsc.classList.remove('has-photo');
+                var nc = dsc.querySelector('.num-corner');
+                if (nc) nc.classList.remove('num-corner');
+              }
+              this.remove();
+            } }) : null,
+            el('span', { class: usePhoto ? 'num-corner' : '', text: isEmpty ? '+' : (slot.number != null ? String(slot.number) : (slot.pos || '')) }),
             cap ? el('span', { class: 'cap-mark', text: 'C' }) : null,
             (!isEmpty && stat && stat !== 'available') ? el('span', { class: 'status-mark ' + stat, title: statusLabel(stat), text: stat === 'doubt' ? '!' : stat === 'out' ? '✚' : '✕' }) : null
           ]),
