@@ -288,7 +288,8 @@
             "name": { "type": "string" },
             "photo": { "type": ["string", "null"], "description": "API-Football coach headshot URL (media.api-sports.io), from the coachs endpoint" },
             "country": { "type": ["string", "null"] },
-            "age": { "type": ["integer", "null"] },
+            "age": { "type": ["integer", "null"], "description": "exact age on match day, derived from birthDate" },
+            "birthDate": { "type": ["string", "null"], "description": "YYYY-MM-DD, API-Football coachs birth.date" },
             "tenureFrom": { "type": ["string", "null"], "description": "YYYY-MM or free text" },
             "career": {
               "type": "array",
@@ -657,7 +658,8 @@
           "items": { "type": "string" }
         },
         "role": { "type": "string", "enum": ["GK", "DEF", "MID", "ATT"] },
-        "age": { "type": ["integer", "null"] },
+        "age": { "type": ["integer", "null"], "description": "exact age on the day of the match, derived from birthDate (API-Football's own age field is a year low for most players)" },
+        "birthDate": { "type": ["string", "null"], "description": "YYYY-MM-DD, API-Football players/coachs birth.date" },
         "height": { "type": ["integer", "null"], "description": "cm" },
         "weight": { "type": ["integer", "null"], "description": "kg" },
         "foot": { "type": ["string", "null"], "enum": ["L", "R", "B", null] },

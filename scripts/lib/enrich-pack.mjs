@@ -142,3 +142,30 @@ export function teamIdFromLogo(logo) {
   const m = /\/teams\/(\d+)\.png/.exec(logo || '');
   return m ? Number(m[1]) : null;
 }
+
+// Exact age on a given day from a birth date ("YYYY-MM-DD"). API-Football's own `age` field is
+// not reliable (it comes out a year low for most players born after January), so the age shown
+// is always derived from the birth date, on the day of the match.
+export function ageOn(birthDate, onDate) {
+  const b = /^(\d{4})-(\d{2})-(\d{2})/.exec(birthDate || '');
+  const d = /^(\d{4})-(\d{2})-(\d{2})/.exec(onDate || '');
+  if (!b || !d) return null;
+  let age = Number(d[1]) - Number(b[1]);
+  if (Number(d[2]) < Number(b[2]) || (Number(d[2]) === Number(b[2]) && Number(d[3]) < Number(b[3]))) age--;
+  return age >= 14 && age <= 60 ? age : null;   // anything else is a bad birth date: keep the old value
+}
+
+// Sets age on every squad player and on the coach that has a birthDate; true when something changed.
+export function applyAges(doc) {
+  const on = (doc.kickoff || '').slice(0, 10) || new Date().toISOString().slice(0, 10);
+  let changed = false;
+  for (const side of ['home', 'away']) {
+    const t = doc.teams && doc.teams[side];
+    if (!t) continue;
+    for (const p of [...(t.squad || []), ...(t.coach ? [t.coach] : [])]) {
+      const a = ageOn(p.birthDate, on);
+      if (a != null && p.age !== a) { p.age = a; changed = true; }
+    }
+  }
+  return changed;
+}

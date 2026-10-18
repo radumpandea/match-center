@@ -57,7 +57,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
 import { NEWS_SOURCES } from './news-sources.mjs';
-import { computeLinkLines, formatHonours, formatInjuries, xiPlayers } from './lib/enrich-pack.mjs';
+import { computeLinkLines, formatHonours, formatInjuries, xiPlayers, applyAges } from './lib/enrich-pack.mjs';
 
 const HOST = 'https://v3.football.api-sports.io';
 const API_KEY = process.env.APIFOOTBALL_KEY;
@@ -331,7 +331,11 @@ async function getSquad(teamId, teamName, leagueId, season) {
   // when no squad member has any stats at all -- nothing to migrate there.
   const statsSample = cached && cached.squad && cached.squad.find((p) => p.stats);
   const cacheHasExtendedStats = !statsSample || Object.prototype.hasOwnProperty.call(statsSample.stats, 'shotsTotal');
-  if (cached && cached.fetchedAt && cacheHasPhotoField && cacheHasExtendedStats && daysBetween(todayISO(), cached.fetchedAt) < SQUAD_TTL_DAYS) {
+  // ...and for birthDate (the exact age is derived from it, see applyAges()): a cache written before
+  // the field existed is rebuilt once.
+  const cacheHasBirthDate = !!(cached && cached.squad && cached.squad.length &&
+    Object.prototype.hasOwnProperty.call(cached.squad[0], 'birthDate'));
+  if (cached && cached.fetchedAt && cacheHasPhotoField && cacheHasExtendedStats && cacheHasBirthDate && daysBetween(todayISO(), cached.fetchedAt) < SQUAD_TTL_DAYS) {
     return cached;
   }
 
@@ -388,6 +392,7 @@ async function getSquad(teamId, teamName, leagueId, season) {
       if (dupe.height == null && pl) dupe.height = num(String(pl.height || '').replace(/[^0-9]/g, ''));
       if (dupe.weight == null && pl) dupe.weight = num(String(pl.weight || '').replace(/[^0-9]/g, ''));
       if (dupe.birthCountry == null && pl && pl.birth) dupe.birthCountry = pl.birth.country || null;
+      if (dupe.birthDate == null && pl && pl.birth) dupe.birthDate = pl.birth.date || null;
       if (dupe.number == null && number != null) dupe.number = num(number);
       return;
     }
@@ -406,6 +411,7 @@ async function getSquad(teamId, teamName, leagueId, season) {
       nat: pl ? cc3(pl.nationality) : null,
       natTeam: null,
       birthCountry: (pl && pl.birth && pl.birth.country) || null,
+      birthDate: (pl && pl.birth && pl.birth.date) || null,
       pronunciation: null,
       career: null,
       lastSeason: null,
@@ -453,6 +459,7 @@ async function getSquad(teamId, teamName, leagueId, season) {
       if (p.height == null) p.height = num(String(pl.height || '').replace(/[^0-9]/g, ''));
       if (p.weight == null) p.weight = num(String(pl.weight || '').replace(/[^0-9]/g, ''));
       if (p.birthCountry == null) p.birthCountry = (pl.birth && pl.birth.country) || null;
+      if (p.birthDate == null) p.birthDate = (pl.birth && pl.birth.date) || null;
       if (p.photo == null) p.photo = pl.photo || null;
       if (p.stats == null) p.stats = statsFrom(statRowFor(row.statistics, leagueId));
       const expanded = expandAbbreviatedName(p.name, pl);
@@ -469,6 +476,7 @@ async function getSquad(teamId, teamName, leagueId, season) {
         if (p.height == null) p.height = num(String(pl2.height || '').replace(/[^0-9]/g, ''));
         if (p.weight == null) p.weight = num(String(pl2.weight || '').replace(/[^0-9]/g, ''));
         if (p.birthCountry == null) p.birthCountry = (pl2.birth && pl2.birth.country) || null;
+        if (p.birthDate == null) p.birthDate = (pl2.birth && pl2.birth.date) || null;
         if (p.photo == null) p.photo = pl2.photo || null;
         const expanded2 = expandAbbreviatedName(p.name, pl2);
         if (expanded2) p.name = expanded2;
@@ -532,6 +540,7 @@ async function fetchMissingSquadPlayer(apiId, season, leagueId, numberHint, posH
     nat: cc3(pl.nationality),
     natTeam: null,
     birthCountry: (pl.birth && pl.birth.country) || null,
+    birthDate: (pl.birth && pl.birth.date) || null,
     pronunciation: null,
     career: null,
     lastSeason: null,
@@ -596,6 +605,7 @@ async function getCoach(teamId) {
     photo: cur.photo || null,
     country: cur.nationality || null,
     age: num(cur.age),
+    birthDate: (cur.birth && cur.birth.date) || null,
     tenureFrom: tenure && tenure.start ? tenure.start.slice(0, 7) : null,
     career: career.length ? career : undefined,
   };
@@ -1881,6 +1891,7 @@ async function main() {
     if (await applyNatTeams(doc, cache)) touched = true;
     if (applyPlayerFacts(doc)) touched = true;
     if (computeLinkLines(doc)) touched = true;
+    if (applyAges(doc)) touched = true;
     if (await applyPlayerExtras(doc, cache)) touched = true;
 
     if (needNews) {
@@ -1964,6 +1975,7 @@ async function main() {
           if (p.height == null && match.height != null) { p.height = match.height; touched = true; }
           if (p.weight == null && match.weight != null) { p.weight = match.weight; touched = true; }
           if (p.birthCountry == null && match.birthCountry != null) { p.birthCountry = match.birthCountry; touched = true; }
+          if (p.birthDate == null && match.birthDate != null) { p.birthDate = match.birthDate; touched = true; }
           if (p.photo == null && match.photo != null) { p.photo = match.photo; touched = true; }
           if (/^\S+\.\s/.test(p.name || '') && match.name && !/^\S+\.\s/.test(match.name)) {
             p.name = match.name; touched = true;
@@ -1996,11 +2008,12 @@ async function main() {
       }
       const coach = doc.teams[side].coach;
       const needCoachInfo = coach && has(coach.name) &&
-        ((needTrophies && (!coach.trophies || !coach.trophies.length)) || !coach.photo);
+        ((needTrophies && (!coach.trophies || !coach.trophies.length)) || !coach.photo || !coach.birthDate);
       if (needCoachInfo) {
         const cinfo = await getCoach(id);
         if (cinfo && cinfo.apiId != null) {
           if (!coach.photo && cinfo.photo) { coach.photo = cinfo.photo; touched = true; }
+          if (!coach.birthDate && cinfo.birthDate) { coach.birthDate = cinfo.birthDate; touched = true; }
           if (needTrophies && (!coach.trophies || !coach.trophies.length)) {
             const list = await getTrophies('coach', cinfo.apiId, cache);
             if (list.length) { coach.trophies = list; touched = true; }
@@ -2043,6 +2056,7 @@ async function main() {
       await applyNatTeams(doc, cache);
       applyPlayerFacts(doc);
       computeLinkLines(doc);
+      applyAges(doc);
       await applyCoachTrophies(doc, cache);
     } catch (e) {
       console.error(`  enrich failed: ${e.message}`);
