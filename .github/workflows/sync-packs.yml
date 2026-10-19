@@ -1,0 +1,44 @@
+name: Sync Packs to Supabase
+
+# Keeps the mc_packs table (the only place the app reads packs from once access control is on, see
+# supabase/access.sql and scripts/sync-packs-to-supabase.mjs) in step with docs/data/matches.
+# Commits made by other workflows with the default token do not trigger push workflows, so this one
+# listens to those workflows finishing, with an hourly run as the net.
+on:
+  workflow_run:
+    workflows:
+      - "Prefetch Preview Data"
+      - "Build Match Data"
+      - "Build Match Data (Favourites)"
+      - "Build Match Data (Weekly premium)"
+      - "Build Match Data (Fallback)"
+      - "Build Player Facts"
+      - "Fetch Confirmed Lineups"
+      - "Translate Match Data"
+      - "Refresh Fixtures"
+    types: [completed]
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: sync-packs
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Upload the packs that changed
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/sync-packs-to-supabase.mjs
