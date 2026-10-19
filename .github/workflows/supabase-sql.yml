@@ -1,0 +1,66 @@
+name: Supabase SQL
+
+# Runs a SQL file against the project's database through the Supabase Management API
+# (needs the repository secrets SUPABASE_ACCESS_TOKEN and SUPABASE_URL, already used by
+# deploy-supabase-functions.yml).
+#
+#   mode "test"  : BEGIN; <file>; <tests>; ROLLBACK;   -> proves the file works, keeps nothing
+#   mode "apply" : BEGIN; <file>; COMMIT;               -> really changes the database
+#
+# The default file is supabase/access.sql (who can open which pack, from how many devices).
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "test (rolled back) or apply"
+        required: true
+        default: "test"
+        type: choice
+        options: [test, apply]
+      file:
+        description: "SQL file to run"
+        required: true
+        default: "supabase/access.sql"
+      tests:
+        description: "SQL test file appended in test mode (empty = none)"
+        required: false
+        default: "supabase/tests/access_test.sql"
+
+jobs:
+  sql:
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      MODE: ${{ inputs.mode }}
+      SQL_FILE: ${{ inputs.file }}
+      TEST_FILE: ${{ inputs.tests }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Run it
+        run: |
+          set -euo pipefail
+          [ -n "$SUPABASE_ACCESS_TOKEN" ] && [ -n "$SUPABASE_URL" ] || { echo "SUPABASE_ACCESS_TOKEN / SUPABASE_URL missing"; exit 1; }
+          REF=$(echo "$SUPABASE_URL" | sed -E 's#https?://([^.]+)\..*#\1#')
+          {
+            echo "begin;"
+            cat "$SQL_FILE"
+            echo
+            if [ "$MODE" = "test" ]; then
+              [ -n "$TEST_FILE" ] && cat "$TEST_FILE"
+              echo
+              echo "rollback;"
+            else
+              echo "commit;"
+            fi
+          } > /tmp/run.sql
+          jq -Rs '{query: .}' /tmp/run.sql > /tmp/body.json
+          HTTP=$(curl -sS -o /tmp/out.json -w '%{http_code}' -X POST "https://api.supabase.com/v1/projects/$REF/database/query" \
+            -H "Authorization: Bearer $SUPABASE_ACCESS_TOKEN" -H "Content-Type: application/json" --data @/tmp/body.json)
+          echo "HTTP $HTTP"
+          cat /tmp/out.json; echo
+          [ "$HTTP" -ge 200 ] && [ "$HTTP" -lt 300 ] || exit 1
+          if [ "$MODE" = "test" ]; then grep -q "ALL ACCESS TESTS PASSED" /tmp/out.json || { echo "tests did not report success"; exit 1; }; fi
