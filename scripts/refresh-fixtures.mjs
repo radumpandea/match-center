@@ -46,6 +46,12 @@ const COMPS = [
   { id: 283, comp: 'Superliga', abbr: 'sl', country: 'RO' },
   { id: 284, comp: 'Liga 2', abbr: 'ro2', country: 'RO' },
   { id: 5,   comp: 'UEFA Nations League', abbr: 'unl', country: 'INT' },
+  // UEFA club competitions: country 'EU' on purpose -- 'INT' means national teams (see prefetch-preview.mjs).
+  { id: 2,   comp: 'Champions League', abbr: 'ucl', country: 'EU' },
+  { id: 3,   comp: 'Europa League', abbr: 'uel', country: 'EU' },
+  { id: 848, comp: 'Conference League', abbr: 'uecl', country: 'EU' },
+  { id: 94,  comp: 'Primeira Liga', abbr: 'pt', country: 'PT' },
+  { id: 285, comp: 'Cupa României', abbr: 'cr', country: 'RO' },
 ];
 const DAYS_AHEAD = 21; // rolling scan window
 const DEAD_STATUS = new Set(['CANC', 'ABD', 'AWD', 'WO']); // no match day worth showing at all

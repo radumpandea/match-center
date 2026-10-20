@@ -92,6 +92,45 @@ export const NEWS_SOURCES = {
     { name: 'Fanatik', url: 'https://www.fanatik.ro/feed/' },
     { name: 'Adevărul', url: 'https://adevarul.ro/rss/sport/' },
   ],
+  // UEFA club competitions: the teams come from many leagues, so mix the big English feeds with the
+  // Portuguese and Romanian outlets (a curated feed only counts when a headline names the team).
+  'Champions League': [
+    { name: 'BBC Sport', url: 'http://feeds.bbci.co.uk/sport/football/rss.xml' },
+    { name: 'The Guardian', url: 'https://www.theguardian.com/football/rss' },
+    { name: 'The Analyst', url: 'https://theanalyst.com/feed' },
+    { name: 'Record', url: 'https://www.record.pt/rss/' },
+    { name: 'Digi Sport', url: 'https://www.digisport.ro/rss' },
+    { name: 'GSP', url: 'https://www.gsp.ro/rss.xml' },
+  ],
+  'Europa League': [
+    { name: 'BBC Sport', url: 'http://feeds.bbci.co.uk/sport/football/rss.xml' },
+    { name: 'The Guardian', url: 'https://www.theguardian.com/football/rss' },
+    { name: 'The Analyst', url: 'https://theanalyst.com/feed' },
+    { name: 'Record', url: 'https://www.record.pt/rss/' },
+    { name: 'Digi Sport', url: 'https://www.digisport.ro/rss' },
+    { name: 'GSP', url: 'https://www.gsp.ro/rss.xml' },
+  ],
+  'Conference League': [
+    { name: 'BBC Sport', url: 'http://feeds.bbci.co.uk/sport/football/rss.xml' },
+    { name: 'The Guardian', url: 'https://www.theguardian.com/football/rss' },
+    { name: 'The Analyst', url: 'https://theanalyst.com/feed' },
+    { name: 'Record', url: 'https://www.record.pt/rss/' },
+    { name: 'Digi Sport', url: 'https://www.digisport.ro/rss' },
+    { name: 'GSP', url: 'https://www.gsp.ro/rss.xml' },
+  ],
+  'Primeira Liga': [
+    { name: 'Record', url: 'https://www.record.pt/rss/' },
+    { name: 'Maisfutebol', url: 'https://maisfutebol.iol.pt/rss' },
+    { name: 'RTP Desporto', url: 'https://www.rtp.pt/noticias/rss/desporto' },
+    { name: 'Notícias ao Minuto', url: 'https://www.noticiasaominuto.com/rss/desporto' },
+    { name: 'The Analyst', url: 'https://theanalyst.com/feed' },
+  ],
+  'Cupa României': [
+    { name: 'Digi Sport', url: 'https://www.digisport.ro/rss' },
+    { name: 'GSP', url: 'https://www.gsp.ro/rss.xml' },
+    { name: 'ProSport', url: 'https://www.prosport.ro/rss' },
+    { name: 'Adevărul', url: 'https://adevarul.ro/rss/sport/' },
+  ],
   'Liga 2': [
     { name: 'Digi Sport', url: 'https://www.digisport.ro/rss' },
     { name: 'ProSport', url: 'https://www.prosport.ro/feed' },
