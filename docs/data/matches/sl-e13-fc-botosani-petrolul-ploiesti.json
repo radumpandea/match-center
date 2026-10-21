@@ -1,12 +1,43 @@
 {
   "slug": "sl-e13-fc-botosani-petrolul-ploiesti",
-  "generatedAt": "2026-10-20T15:24:03.825Z",
-  "partial": true,
+  "generatedAt": "2026-10-21T00:00:00.000Z",
+  "generatedBy": "skill",
+  "researchDepth": "deep",
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
       "accessed": "2026-10-20"
+    },
+    {
+      "name": "Wikipedia (EN) — Marius Croitoru",
+      "url": "https://en.wikipedia.org/wiki/Marius_Croitoru",
+      "accessed": "2026-10-21"
+    },
+    {
+      "name": "Wikipedia (EN) — Ricardo Sousa",
+      "url": "https://en.wikipedia.org/wiki/Ricardo_Sousa",
+      "accessed": "2026-10-21"
+    },
+    {
+      "name": "LPF.ro — calendar FC Botoșani",
+      "url": "https://lpf.ro/cluburi/fc-botosani/8/calendar",
+      "accessed": "2026-10-21"
+    },
+    {
+      "name": "starting11.com — FC Botosani vs Petrolul Ploiesti",
+      "url": "https://starting11.com/fixtures/fc-botosani-vs-petrolul-ploiesti",
+      "accessed": "2026-10-21"
+    },
+    {
+      "name": "starting11.com — FC Botosani squad",
+      "url": "https://starting11.com/fc-botosani/squad",
+      "accessed": "2026-10-21"
+    },
+    {
+      "name": "Open-Meteo forecast",
+      "url": "https://api.open-meteo.com/v1/forecast",
+      "accessed": "2026-10-21"
     }
   ],
   "competition": {
@@ -16,16 +47,24 @@
     "logo": "https://media.api-sports.io/football/leagues/283.png"
   },
   "kickoff": "2026-10-23T18:00:00+03:00",
+  "broadcast": "Digi Sport / Prima Sport",
   "venue": {
     "name": "Stadionul Municipal",
-    "capacity": null,
-    "city": null,
+    "capacity": 7782,
+    "city": "Botosani",
     "notes": null,
     "stories": [
       "Stadionul a devenit gazda FC Botoșani în 2001; anterior, pe același amplasament au evoluat CS Botoșani (1973–1993) și Unirea Botoșani (1998–2000).",
       "Capacitate de 7.782 de locuri, toate pe scaune; a trecut prin renovări succesive în 2008, 2009, 2013 și 2014.",
       "A primit nocturnă abia în septembrie 2014 — în primul meci jucat sub lumini artificiale, FC Botoșani a învins Dinamo București cu 3-2 în Liga I."
-    ]
+    ],
+    "weather": {
+      "tempC": 11.4,
+      "condition": "cer senin",
+      "windKph": 3.6,
+      "precipitationMm": 0,
+      "forecastAt": "2026-10-21T00:00:00Z"
+    }
   },
   "referee": {
     "name": "n/d",
@@ -1274,11 +1313,19 @@
     "summary": "Cap la cap (10 meciuri): FC Botosani 2 - 3 - 5 Petrolul Ploiesti."
   },
   "storyOfTheMatch": [
-    "FC Botosani — locul 11 după 12 etape, 14 puncte, golaveraj 16-14.",
-    "Ioan Andrei Vasile Dumiter e cel mai bun marcator al echipei FC Botosani în acest start de sezon (6 goluri).",
-    "Petrolul Ploiesti — locul 4 după 12 etape, 20 puncte, golaveraj 15-16.",
-    "Breston Sumbula Malula e cel mai bun marcator al echipei Petrolul Ploiesti în acest start de sezon (3 goluri).",
-    "Cap la cap (10 meciuri): FC Botosani 2 - 3 - 5 Petrolul Ploiesti."
+    "FC Botoșani ocupă locul 11 după 12 etape, cu 14 puncte și golaveraj 16-14.",
+    "Ioan Andrei Vasile Dumiter e cel mai bun marcator al gazdelor în acest start de sezon, cu 6 goluri — aproape 40% din cele 16 goluri marcate de FC Botoșani în campionat.",
+    "Petrolul Ploiești vine de pe locul 4, cu 20 de puncte și golaveraj negativ, 15-16.",
+    "La Petrolul, trei jucători sunt la egalitate în fruntea clasamentului marcatorilor interni: fundașul Breston Sumbula Malula, mijlocașul Alejandro Bran Flores (singurul cu și 3 pase decisive) și atacantul Dan Nlundulu, fiecare cu câte 3 goluri.",
+    "Cap la cap (10 meciuri recente): FC Botoșani 2 victorii - 3 egaluri - 5 victorii Petrolul Ploiești, în favoarea ploieștenilor.",
+    "Pe teren propriu, FC Botoșani e aproape de netrecut: 3 victorii, 2 egaluri, nicio înfrângere, cu doar 0,2 goluri încasate în medie per meci.",
+    "În deplasare însă, Botoșaniul n-a câștigat niciun meci în acest sezon (0-3-4) și încasează aproape 2 goluri de joc — exact profilul care l-a ținut în partea inferioară a clasamentului.",
+    "Petrolul Ploiești n-a păstrat poarta intactă în nicio deplasare din acest sezon — 0 clean sheet-uri din 6 meciuri în afara Ploieștiului — și încasează în medie 2,2 goluri per meci departe de Ilie Oană.",
+    "Ambele echipe au un profil ofensiv rapid: FC Botoșani a marcat 4 goluri în primele 15 minute de joc în acest sezon, iar Petrolul a încasat peste jumătate din golurile primite (9 din 16) înainte de minutul 30.",
+    "FC Botoșani are cel mai prost cazier disciplinar dintre cele două: 3 cartonașe roșii în acest sezon, față de niciunul pentru Petrolul Ploiești.",
+    "La loviturile de la 11 metri, ambele echipe sunt eficiente: FC Botoșani a transformat 4 din 5 penalty-uri (80%), Petrolul este perfectă, 3 din 3 (100%).",
+    "Marius Croitoru e la al treilea mandat pe banca FC Botoșani, instalat din septembrie 2026 în locul lui Leontin Grozavu — tot sub conducerea lui, în 2019-20, echipa a obținut cea mai bună clasare din istorie, locul 4.",
+    "În vară, FC Botoșani și Petrolul Ploiești au adus fiecare câte un jucător de la același club scoțian, St Mirren: Roland Idowu la Botoșani, Dan Nlundulu la Petrolul."
   ],
   "predictions": {
     "winnerName": "FC Botosani",
@@ -1324,31 +1371,61 @@
       "logo": "https://media.api-sports.io/football/teams/2581.png",
       "colors": null,
       "coach": {
-        "apiId": 26545,
-        "name": "Leontin Grozavu",
-        "photo": "https://media.api-sports.io/football/coachs/26545.png",
-        "country": null,
-        "age": null,
-        "birthDate": null,
-        "tenureFrom": "2026-01",
+        "apiId": null,
+        "name": "Marius Croitoru",
+        "photo": null,
+        "country": "Romania",
+        "age": 46,
+        "birthDate": "1980-10-02",
+        "tenureFrom": "2026-09",
         "career": [
           {
             "club": "FC Botosani",
-            "period": "2026–prezent",
+            "period": "2019–2022",
+            "note": "a condus echipa la cea mai bună clasare din istorie, locul 4 în 2019-20"
+          },
+          {
+            "club": "FC U Craiova",
+            "period": "2022",
+            "note": "numit în iunie, plecat în octombrie"
+          },
+          {
+            "club": "Arges Pitesti",
+            "period": "2022–2023",
             "note": null
+          },
+          {
+            "club": "FC Botosani",
+            "period": "2023",
+            "note": "al doilea mandat, scurt, pe timpul verii"
+          },
+          {
+            "club": "FC U Craiova",
+            "period": "2024",
+            "note": "al doilea mandat, încheiat în octombrie"
+          },
+          {
+            "club": "FC Botosani",
+            "period": "2026–prezent",
+            "note": "al treilea mandat, din septembrie 2026, în locul lui Leontin Grozavu"
           }
         ],
-        "funfacts": [
-          "Leontin Grozavu (n. 19 august 1967) este un fost fotbalist și antrenor român.",
-          "Ca jucător a evoluat la FC Baia Mare, Dinamo București, Ceahlăul Piatra-Neamț și, în Germania, la 1. FC Saarbrücken (2000–2002).",
-          "A fost selecționat de două ori în echipa națională a României, în 1994.",
-          "După retragere a început cariera de antrenor la Armătura Zalău (2003–2005), a continuat la U Cluj (2005–2006), FC Baia Mare (2007) și FC Botoșani (2007–2008), apoi a fost secund al lui Viorel Moldovan la FC Vaslui, în 2009.",
-          "A fost vicecampion al României cu Sepsi OSK în Cupa României 2019–20 și a câștigat Liga II cu Politehnica Iași în sezonul 2022–23.",
-          "A lucrat și la academia de fotbal a lui Gheorghe Hagi, alături de Doru Carali."
-        ]
+        "funfacts": null
       },
-      "formation": "n/d",
-      "predictedXI": [],
+      "formation": "4-3-3",
+      "predictedXI": [
+        { "apiId": 47980, "number": 99, "name": "Giannis Anestis", "pos": "GK" },
+        { "apiId": 154791, "number": 2, "name": "Brian Jephte Bayeye", "pos": "RB" },
+        { "apiId": 43208, "number": 4, "name": "George Andrei Miron", "pos": "RCB" },
+        { "apiId": 2988, "number": 23, "name": "Elhadji Pape Djibril Diaw", "pos": "LCB" },
+        { "apiId": 419730, "number": 73, "name": "Narcis Cosmin Ilaș", "pos": "LB" },
+        { "apiId": 43223, "number": 26, "name": "Hervin Scicchitano Ongenda", "pos": "RCM" },
+        { "apiId": 43217, "number": 67, "name": "Enriko Papa", "pos": "DM" },
+        { "apiId": 129967, "number": 21, "name": "Lucas de Vega", "pos": "LCM" },
+        { "apiId": 334003, "number": 8, "name": "Roland Idowu", "pos": "RW" },
+        { "apiId": 42660, "number": 41, "name": "Ioan Andrei Vasile Dumiter", "pos": "ST" },
+        { "apiId": 43170, "number": 7, "name": "Sebastian Árpád Mailat", "pos": "LW" }
+      ],
       "confirmedXI": null,
       "substitutes": null,
       "squad": [
@@ -4762,57 +4839,40 @@
       ],
       "preseason": [],
       "news": [],
-      "newsCandidates": [
+      "stories": [
         {
-          "title": "Universitatea Cluj - Argeș Pitești betting tip & best odds | 19.10.2026",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOOWlJT0FGby1TellNVGw5V1Z0V0NsREsyVk94cDlGeUhSdnZRUkVWUHY0VXRtbU56YzZBc0JKQXNIb0FUUzY2VWZWTEpHenhzamlDbEM2blVqYVJSSlpHaGtpQ0FWWEoyekdJcThqdGtCUHhyMWNaWVRESmJVNG9ubVB4RzFJdkluS2l2eExLYlBXbTczZFRLdFRDdERONjFaQlFDSg?oc=5",
-          "source": "Futbol24",
-          "published": "2026-10-19"
+          "title": "Fortăreața din Moldova, dar doar acasă",
+          "bullets": [
+            "3 victorii, 2 egaluri, 0 înfrângeri pe teren propriu în acest sezon.",
+            "Doar 0,2 goluri încasate în medie per meci acasă — 4 clean sheet-uri din 5 jocuri pe Stadionul Municipal.",
+            "În deplasare, un singur rezultat pozitiv și acela egal: 0 victorii, 3 egaluri, 4 înfrângeri, cu aproape 2 goluri încasate pe meci."
+          ]
         },
         {
-          "title": "Otelul Galati vs ACS Sepsi OSK Sfantu Gheorghe prediction – Odds & stats – 1 November 2026",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNeS1hMUQxMlpUaEZmTGUtR25SU1NCOHBlSlYzNlBIQVhSMU44MGhpd0RMdjZKQ3ZuSHo3dWItdElqZnZtc3FiMFhidU1OTXRhR3VRYktlV0k4SWJOWnlPdGIzUUg0NC05ZmUxLWlQcVZtNDI3ZlZjbHdkX2hYSnJBUENYUzZIYXJsVmZxMHZSYlFRQVd5?oc=5",
-          "source": "Wincomparator",
-          "published": "2026-10-18"
+          "title": "Dumiter, aproape jumătate din atacul echipei",
+          "bullets": [
+            "6 goluri în 12 meciuri de campionat — mai mult decât oricare coechipier.",
+            "Reprezintă aproape 40% din golurile marcate de FC Botoșani în acest sezon.",
+            "Sebastian Mailat îl secondează cu 4 goluri și 2 pase decisive, cel mai bun raport notă-producție dintre atacanții echipei (7,09)."
+          ]
         },
         {
-          "title": "FC Dinamo Bucuresti 1948 vs FC Uta Arad prediction – Odds & stats – 1 November 2026",
-          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQZ2l1ZEdPRDQza09yUm9mYm5NQWE4ellWMWhEZ05yeFdrbTVORDlFY1FqOHduU3lPSjNHZ0ItcUtiVFJNTDdNaGRiYnVZdGJDMVN0b3ZxQlJYUlA2LUVuYzd3V2QwazBnZmtfLTR2cjRWWHlqQjIzdG4zdmlpTGhvYkFB?oc=5",
-          "source": "Wincomparator",
-          "published": "2026-10-18"
+          "title": "Cartonașele, punctul slab",
+          "bullets": [
+            "3 cartonașe roșii în acest sezon, cel mai prost bilanț disciplinar dintre cele două echipe din acest meci.",
+            "9 cartonașe galbene acumulate doar în intervalul 76-90, aproape o treime din totalul sezonului.",
+            "Cel mai mare număr de goluri încasate vine tot în ultimul sfert de oră al meciului — un tipar de lapsusuri de final."
+          ]
         },
         {
-          "title": "CS Universitatea Craiova vs Farul Constanta prediction – Odds & stats – 18 October 2026",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQRnVQSl8tQUdwVXJUalFlZ29JZ1pWalB2MkVQV2pYa0RxUFZyQUdobVRVRzNDTEJxaFlFd1lzVWg1aXQxQklSTUNHLUV5cElVNXB4NzZxekhjWmh3OG9pNEJON2s2ZkdLUjhTU2RzYUtKVHRaMG1aSmNqZkJRNmVZNGZaNzhaVm0waGNuYVRkWHBOTFcwY0E?oc=5",
-          "source": "Wincomparator",
-          "published": "2026-10-17"
-        },
-        {
-          "title": "~![ＬＩＶＥ＠ＳＴＲＥＡＭ#Tv !]Dinamo Bucuresti vs FC Botosani Ｌｉｖｅ Ｓｔｒｅａｍｓ Ｆｒｅｅ Ｃｏｖｅｒａｇｅ ＯＮ 17 October 2026",
-          "url": "https://news.google.com/rss/articles/CBMigwNBVV95cUxQa0ZxbktGc05Ba0hxeWZRaEwwczRUMS1ZRmF3UUdlZXhGYk14Ym5ONzhxd1d5T1IxU0tHUDBGNGlrSGxCUGtIM1BsekI0RkNLYlZjcy01d3kzUTlRTVFCVkFlaS1hc2xhLUhrMjFFNTJQaGdDbE92bWZEenpVVlNHLWtKMVd1MzZLc25DOUlPN2N2cV9pbHJYYW91TkJlc2U5MUpZNDQ4dFdWTHJZbm9YNlNOLU1oazFvZDdvN1lFRFQ1X0dUZTM2alQ1Q1Z1WFZBenE3RE5MTHl3eVhfUHdyRy1Xemd1dkJENEhYZ3VNbzlsUW5Hb214MkJEMHBqTVJFMHpFRkhTOWwzRnBHazhpRWFOY2FjQUR6Y0pOMXZhZWI4SUNDRzJfMTVBY1pKdmc4d3VLWE9uRlZDZGVrNzgtT18xbXBkZ1dtVVIzREx6THB2dHk5REhIUy1VT28wc21MU05paG0wYkdCN3ZGSzIyQ0JzZUtrYTdtam1SSGhacGxvVFk?oc=5",
-          "source": "Universidad de Córdoba (UCO)",
-          "published": "2026-10-16"
-        },
-        {
-          "title": "Später Elfmeter-Doppelpack! Dinamo verteidigt Tabellenführung | Dinamo Bukarest - FC Botosani",
-          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOVDgzLTQ4Z2lzUkhYLUxhMXJoSUFtLVhRbERRd25LeWtlN21ZZEF4alN5SUVrR0lIbkNfdHZsMUUwTUc4dmFLUjVmZV9lbWtVdllocFg0THZKWE96V2VHdUd0ZTlCTWpqczh3ZmRUN1NRTFI1N3owRElGUmVLTHQ2aDAycFlwTEs4NlN3OTFUTWxiSEl5ZHhTR0VETWZpLUh6NFZQTGFnUjczbE9mTERkbkl0NzUxaG1JcFhicHZTYmpMemZRend0RC13WjU?oc=5",
-          "source": "OneFootball",
-          "published": "2026-10-16"
-        },
-        {
-          "title": "!!+[OffiCial@!TV]*Dinamo Bucuresti vs FC Botosani LIVE STreams ON TV Channel 17 October 2026",
-          "url": "https://news.google.com/rss/articles/CBMi7AJBVV95cUxPTmZ5bTF3Y3VuenV1VmZ6UU53cWJpRkRocFFTaGVCT202dWZUeVBua0w2T2UzU2NrZG1YNHhxOFFjdDFROVV5blhyU0RDLXpBd0toZjNCcU9tV3JEYlhfTjI3V0FFVGd4bWJpakJETmdiQkpaMUxBVzJxdjUtUHNMWWl6WlJYN1Nza1VJUFdFQ244ZUw1a2dEaHd5NlBDem5ZUWtXekNMcHViY05HZXhLNFgzZU9BUU9rVzdidVFkSW5RRzhCaUVVUXVLMk95Z0tvcHpvZ2FfVjE3TFFCSUZ1d0haRWFCZV9mUllPSktjRzRTNlF3LWZpcWZXeGkzTXZtbko2MDluVmxuZ0Z5bDJWRmFWc04zOTk1LWhUU1VpSnJJY3g5Z21vQ2ZTM0VBTncyS3laMm1nQzZCdzF5QUk2T05qRXFJM1lCVTJGZnhlcDNNWk0wajZKQjBxenRvd2p5R2lwd0hrdUtpc0R2?oc=5",
-          "source": "Universidad de Córdoba (UCO)",
-          "published": "2026-10-16"
-        },
-        {
-          "title": "CFR Cluj - Csikszereda M. Ciuc",
-          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQMl9PWXJpM0Npa1IwMXdpcndiTmVCbUJiVDBwT3NrZjhQMl92ZERGNFliSU1DMm5YbEdkd2VKRGNOaktTeDQ2MDA5LWw5R1RRVzZRc3RydnZvdkFsSGVncF9VWVRJMFlHM0hUU1kzMTBlSnl5TWFrNE1KYmotdmljdWx5WVRQQnF6Z1JRVzkxUm1aWnNXc2huLTdJRjg2dl9lRWdnYjdJWmJpZk1OUkRFa0Y5R3pYSnhEYW83c3ZQaU9GS21FRGc?oc=5",
-          "source": "Flashscore.com",
-          "published": "2026-10-16"
+          "title": "Croitoru, la al treilea mandat pe aceeași bancă",
+          "bullets": [
+            "Marius Croitoru a preluat echipa în septembrie 2026, în locul lui Leontin Grozavu — al treilea său mandat la FC Botoșani, după 2019-2022 și un scurt episod în vara lui 2023.",
+            "Primul său mandat a adus cea mai bună clasare din istoria clubului, locul 4 în sezonul 2019-20.",
+            "Sub conducerea lui, echipa a jucat aproape exclusiv în 4-3-3 — sistemul folosit în 10 din ultimele 12 meciuri."
+          ]
         }
       ],
-      "stories": [],
       "clubFacts": [
         "Clubul a fost fondat în 2001 de doi oameni de afaceri, Salavastru și Sfaițer, cu susținerea consiliului local, și a început să evolueze în Divizia C.",
         "În 2013, FC Botoșani a devenit prima echipă din județul Botoșani promovată vreodată în prima ligă a fotbalului românesc.",
@@ -4833,11 +4893,56 @@
         "apiId": 28878,
         "name": "Ricardo Sousa",
         "photo": "https://media.api-sports.io/football/coachs/28878.png",
-        "country": null,
-        "age": null,
-        "birthDate": null,
+        "country": "Portugalia",
+        "age": 47,
+        "birthDate": "1979-01-11",
         "tenureFrom": "2026-07",
         "career": [
+          {
+            "club": "Sanjoanense",
+            "period": "2015",
+            "note": null
+          },
+          {
+            "club": "Lusitano VRSA",
+            "period": "2016–2017",
+            "note": null
+          },
+          {
+            "club": "Anadia",
+            "period": "2017",
+            "note": null
+          },
+          {
+            "club": "Felgueiras 1932",
+            "period": "2018–2019",
+            "note": null
+          },
+          {
+            "club": "Beira-Mar",
+            "period": "2019–2021",
+            "note": null
+          },
+          {
+            "club": "Mafra",
+            "period": "2021–2023",
+            "note": "semifinalistă Cupa Portugaliei 2021–22"
+          },
+          {
+            "club": "Feirense",
+            "period": "2023–2024",
+            "note": null
+          },
+          {
+            "club": "Al-Ain",
+            "period": "2024",
+            "note": "demisie în octombrie, din cauza problemelor financiare ale clubului"
+          },
+          {
+            "club": "Vizela",
+            "period": "2025",
+            "note": null
+          },
           {
             "club": "Petrolul Ploiesti",
             "period": "2026–prezent",
@@ -4853,8 +4958,20 @@
           "A pregătit și Feirense (2023–2024), iar din august 2024 echipa saudită Al-Ain FC, de la care a demisionat în octombrie din cauza problemelor financiare ale clubului."
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
+      "formation": "4-4-2",
+      "predictedXI": [
+        { "apiId": 30948, "number": 38, "name": "Lukáš Zima", "pos": "GK" },
+        { "apiId": 196382, "number": 2, "name": "Andres Mihai Dumitrescu", "pos": "RB" },
+        { "apiId": 50084, "number": 4, "name": "Paul Papp", "pos": "RCB" },
+        { "apiId": 159411, "number": 71, "name": "Breston Sumbula Malula", "pos": "LCB" },
+        { "apiId": 478066, "number": 22, "name": "Mark Țuțu", "pos": "LB" },
+        { "apiId": 41776, "number": 7, "name": "Rodrigo Martins", "pos": "RM" },
+        { "apiId": 40504, "number": 20, "name": "Sergiu Cătălin Hanca", "pos": "RCM" },
+        { "apiId": 297397, "number": 10, "name": "Alejandro Jesús Bran Flores", "pos": "LCM" },
+        { "apiId": 142069, "number": 19, "name": "Léo Teixeira", "pos": "LM" },
+        { "apiId": 130422, "number": 9, "name": "Dan Nlundulu", "pos": "RST" },
+        { "apiId": 216953, "number": 8, "name": "Luciano Gastón Vega Albornoz", "pos": "LST" }
+      ],
       "confirmedXI": null,
       "substitutes": null,
       "squad": [
@@ -7891,57 +8008,39 @@
       ],
       "preseason": [],
       "news": [],
-      "newsCandidates": [
+      "stories": [
         {
-          "title": "FC Voluntari vs FCSB Prediction, Betting Tips, Lineups & Odds | 19 Oct 2026",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQb1FBalRXb3JqV1FnVUt0dkZqQ3dJcjV3aFlEYW00LWtSX0xYMFFTSURqV0kzV1RQa1pxaFN4dUdOOFJfd052M2hGQnpmY0djR0JselByWXRhdnRrZk9DbGh4VV93ZmhKVm54ZS1BVS1kTUhQanVBQkdyVU1iMUFFb0VpUGJOOTBQOE5YTVZGT2FKb3ljelZHb2ZXSklRdS11eEYtQW9pOHJDcnBK?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-10-19"
+          "title": "Loc 4, dar cu o deplasare fragilă",
+          "bullets": [
+            "2 victorii, 1 egal, 3 înfrângeri în cele 6 meciuri jucate departe de Ilie Oană.",
+            "Nicio poartă păstrată intactă în deplasare în acest sezon — 0 clean sheet-uri din 6 meciuri.",
+            "2,2 goluri încasate în medie pe teren străin, de peste 4 ori mai mult decât acasă (0,5)."
+          ]
         },
         {
-          "title": "Petrolul Ploiesti vs Sepsi Prediction, Betting Tips, Lineups & Odds | 17 Oct 2026",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOOXFEZTA1eWpvYkxNMHV6aURXQ1JXclN5TmJQUUZxVm4wNXloWHY5S2RiSXN5NnN2ZWpaZ3ZYaGVyTFV0b1N2bEVTdkpJVUxGLUFJc2YydEdqS2xZdVVESzBjczVhMGZDeWhDNVBtRUM4cDVMczhteTM0aUdycFpJbFRGc0JYcTZEMl9MWmJ1WWVhTXVKNXlubUhVendaMEItRW1lVEdEWU1mcVluYnZRTEVQc0g?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-10-18"
+          "title": "Atac distribuit pe trei nume, fără un golgheter clar",
+          "bullets": [
+            "Breston Sumbula Malula (fundaș), Alejandro Bran Flores și Dan Nlundulu sunt la egalitate, cu câte 3 goluri fiecare.",
+            "Bran Flores e cel mai complet dintre cei trei: 3 goluri și 3 pase decisive în 12 meciuri, cea mai bună notă medie a lotului (7,11).",
+            "Léo Teixeira completează tabloul cu un gol și 3 pase decisive din postura de mijlocaș."
+          ]
         },
         {
-          "title": "Rapid Bucharest vs Corvinul Hunedoara Prediction, Betting Tips, Lineups & Odds | 17 Oct 2026",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPdmx0b21uR25SUWp5UFJycFJPSlVXcTZDdHNqNlFmbEVCRXg1azZ0STFUVnFrZE5ENjBxZVRDVGR3c0Y2ajN1d0tyaWdQbW1DSEZfV0tXZDA3UVVLUVRxZ0I1YlBtb0FiTjEyTjBNckh6bC1IRnNnRUdtbk1kd2hmYTNNaWtDZDQxNTlDZWpfckNwQmZ3V3JCQTRzQzlmMjVKdEtQVmlVa2RYM3M0TXV2YUR3eXZCTDZ3U2VLNVJXVkJ4TTQ?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-10-18"
+          "title": "Start lent defensiv",
+          "bullets": [
+            "Peste jumătate din golurile încasate în acest sezon (9 din 16) au venit în primele 30 de minute de joc.",
+            "Contrastează cu un adversar care a marcat deja 4 goluri în primul sfert de oră în acest sezon."
+          ]
         },
         {
-          "title": "Otelul Galati vs ACS Sepsi OSK Sfantu Gheorghe prediction – Odds & stats – 1 November 2026",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNeS1hMUQxMlpUaEZmTGUtR25SU1NCOHBlSlYzNlBIQVhSMU44MGhpd0RMdjZKQ3ZuSHo3dWItdElqZnZtc3FiMFhidU1OTXRhR3VRYktlV0k4SWJOWnlPdGIzUUg0NC05ZmUxLWlQcVZtNDI3ZlZjbHdkX2hYSnJBUENYUzZIYXJsVmZxMHZSYlFRQVd5?oc=5",
-          "source": "Wincomparator",
-          "published": "2026-10-18"
-        },
-        {
-          "title": "FC Dinamo Bucuresti 1948 vs FC Uta Arad prediction – Odds & stats – 1 November 2026",
-          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQZ2l1ZEdPRDQza09yUm9mYm5NQWE4ellWMWhEZ05yeFdrbTVORDlFY1FqOHduU3lPSjNHZ0ItcUtiVFJNTDdNaGRiYnVZdGJDMVN0b3ZxQlJYUlA2LUVuYzd3V2QwazBnZmtfLTR2cjRWWHlqQjIzdG4zdmlpTGhvYkFB?oc=5",
-          "source": "Wincomparator",
-          "published": "2026-10-18"
-        },
-        {
-          "title": "++[Watch Live]TV!] Petrolul Ploiesti vs Sepsi OSK Sfantu Gheorghe Football LIVE STreams On TV Channel 17 October 2026, Streaming Petrolul Ploiesti vs Sepsi OSK Sfantu Gheorghe Live Coverage: Watch the Liga I match live with updated scores and highli",
-          "url": "https://news.google.com/rss/articles/CBMi5gJBVV95cUxQb2dWczVYUVFjX1ItVXJJamphQ2RUOFZiQVhwRjlmbE1HRHQxR0xBT0NQZTVGUFdNR0R5bm9lUlpsSnN4TFY3WDZzcXJmUkdSaklUNU5lVDZlMDdsdlB3aGZJU0lDdFJKVlgwY0lWeHlMSTRlQVY0T0J1VjNfYkdZYm0yLUpibzlzMzV2UXFBYjduSlhGQU5BdndjMHVOR0lKNy1NYXJDVldLVTN5VnpBd2xWXzg2cUVLNmdrN3ZwSzZVTkpwWE50bzNnMEE3dXpOQzVzUjVQUUo2c1ZSLUp6S0EtanM1N3hvYzlzcXdGM2RORmVWS3NRQXNyNmxZa1BQUnMycVVheDFUYnk0SkxuYWh2azZqZUJ5VWt6d2h5d2UyUW5LVHYwZldhbmJKM0hiME1JX3ZBeHl3ZnFTWWhiWFpic3dwVUw1c1NScXdwVHVUZ2hJd0NEU1lTR05jb25VOVh6WFVn?oc=5",
-          "source": "Universidad de Córdoba (UCO)",
-          "published": "2026-10-17"
-        },
-        {
-          "title": "CS Universitatea Craiova vs Farul Constanta prediction – Odds & stats – 18 October 2026",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQRnVQSl8tQUdwVXJUalFlZ29JZ1pWalB2MkVQV2pYa0RxUFZyQUdobVRVRzNDTEJxaFlFd1lzVWg1aXQxQklSTUNHLUV5cElVNXB4NzZxekhjWmh3OG9pNEJON2s2ZkdLUjhTU2RzYUtKVHRaMG1aSmNqZkJRNmVZNGZaNzhaVm0waGNuYVRkWHBOTFcwY0E?oc=5",
-          "source": "Wincomparator",
-          "published": "2026-10-17"
-        },
-        {
-          "title": "FC Corvinul Hunedoara 1921 vs Universitatea Cluj prediction – Odds & stats – 23 October 2026",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQnFReF9Qd29fQkZTTXV4UFNCamItQ0pTbnZFRTNfNkI0dmx3WFpoV1lMRFAzTDZ1YmVfU1BpaTRzcWl1NVQ5cnMyRzZhVGd1UzBpUFA1SG1XOV9IcTY3TDh3ZDBvbERvYXVRMTItcExFQlVTbFV3OElnYjVVMEswQXFCZ2VJLXp0QVQ1bHFtZmRzc256QWc?oc=5",
-          "source": "Wincomparator",
-          "published": "2026-10-16"
+          "title": "Disciplină impecabilă",
+          "bullets": [
+            "Niciun cartonaș roșu în acest sezon, singura echipă din această confruntare fără eliminări.",
+            "100% din loviturile de departajare transformate (3 din 3 penalty-uri).",
+            "Ricardo Sousa a rotit cinci sisteme de joc diferite în acest sezon, de la 4-2-3-1 la 5-3-2, semn al unei echipe încă în căutarea formulei ideale."
+          ]
         }
       ],
-      "stories": [],
       "clubFacts": [
         "Petrolul Ploiești a fost fondat la București în 1924, sub numele Juventus, prin fuziunea cluburilor Triumf și Romcomit, mutându-se la Ploiești în 1952 și adoptând numele actual în 1957.",
         "Clubul a cucerit patru titluri de campion al României (1929–1930, 1957–1958, 1958–1959, 1965–1966) și trei Cupe ale României, ultima dată în sezonul 2012–2013.",
