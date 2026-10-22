@@ -1,11 +1,25 @@
 {
   "slug": "pl-e8-chelsea-tottenham",
   "generatedAt": "2026-10-22T10:36:03.006Z",
-  "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
+      "accessed": "2026-10-22"
+    },
+    {
+      "name": "Wikipedia - Roberto De Zerbi",
+      "url": "https://en.wikipedia.org/wiki/Roberto_De_Zerbi",
+      "accessed": "2026-10-22"
+    },
+    {
+      "name": "Wikipedia - Chris Kavanagh (referee)",
+      "url": "https://en.wikipedia.org/wiki/Chris_Kavanagh_(referee)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "name": "Web search (research sintetizat) - presa engleza (Football London, Evening Standard, Sky Sports, 90min, Sports Mole, Yorkshire Evening Post, Ahram, TheStar, Illawarra Mercury)",
+      "url": "https://www.skysports.com/football",
       "accessed": "2026-10-22"
     }
   ],
@@ -36,12 +50,12 @@
   },
   "referee": {
     "name": "Chris Kavanagh",
-    "country": null,
-    "age": null,
+    "country": "England",
+    "age": 41,
     "apps": null,
-    "ycPerMatch": null,
+    "ycPerMatch": 4.4,
     "rcPerMatch": null,
-    "history": null
+    "history": "Englez, născut la 4 septembrie 1985 în Manchester; a debutat în Premier League în aprilie 2017 (West Bromwich Albion - Southampton) și face parte din Select Group of Referees de atunci, fiind promovat pe lista elită UEFA în decembrie 2025. Peste 20 de meciuri cu fiecare dintre cele două echipe: la Tottenham (cca. 21-22 partide, bilanț aproximativ 11v-5e-5i pentru „Spurs”, fără cartonaș roșu direct unui jucător de-al lor, 3 roșii adversarilor) și la Chelsea (cca. 26 de meciuri, 49 de cartonașe galbene, 2 roșii, 6 penalty-uri acordate) — inclusiv finala Cupei Ligii engleze 2023/24, pierdută de Chelsea 0-1 cu Liverpool, după prelungiri. Medie de circa 4,4 cartonașe galbene pe meci în sezonul 2025/26."
   },
   "h2h": {
     "recent": [
@@ -1497,11 +1511,19 @@
     "summary": "Cap la cap (10 meciuri): Chelsea 7 - 1 - 2 Tottenham."
   },
   "storyOfTheMatch": [
-    "Chelsea — locul 4 după 7 etape, 13 puncte, golaveraj 17-13.",
-    "João Pedro e cel mai bun marcator al echipei Chelsea în acest start de sezon (5 goluri).",
-    "Tottenham — locul 16 după 7 etape, 6 puncte, golaveraj 6-10.",
-    "Tottenham — 4 din 6 goluri marcate după minutul 75.",
-    "Cap la cap (10 meciuri): Chelsea 7 - 1 - 2 Tottenham."
+    "Chelsea e pe locul 4 după 7 etape, cu 13 puncte (4v-1e-2i) și golaveraj 17-13.",
+    "Tottenham e pe locul 16, cu doar 6 puncte din 7 meciuri (1v-3e-3i) și golaveraj 6-10 — exact zona din care Roberto De Zerbi a salvat echipa în ultima etapă a sezonului trecut.",
+    "João Pedro e golgheterul Chelsea în acest start de sezon, cu 5 goluri din primele 6 meciuri jucate.",
+    "4 din cele 6 goluri marcate de Tottenham în acest sezon au venit după minutul 75 — un atac care se trezește abia spre final.",
+    "Cap la cap (ultimele 10 meciuri): Chelsea 7v - 1e - 2i cu Tottenham.",
+    "Pe 19 mai 2026, în ultimul duel direct, Chelsea s-a impus 2-1 la Stamford Bridge chiar și fiind depășită la xG (0,63 față de 1,27) — un rezultat câștigat mai mult pe eficiență decât pe joc.",
+    "Emiliano Martínez, portarul adus de Chelsea de la Aston Villa în această vară (7,5 milioane de lire), a suferit o comoție cerebrală și și-a fracturat maxilarul în meciul cu Everton; Mike Penders, 21 de ani, și-a făcut debutul în Premier League în locul lui și a păstrat poarta curată, fiind anunțat de Xabi Alonso ca titular și pentru meciul cu Tottenham.",
+    "Tottenham se prezintă la Stamford Bridge decimată: Rodrigo Bentancur este suspendat după un cartonaș roșu, iar alți opt jucători (Bergvall, Mudryk, Odobert, Simons, Adarabioyo, Porro, Robertson, Udogie) sunt indisponibili din accidentare.",
+    "Xabi Alonso, instalat la Chelsea în această vară după doar șapte luni pe banca lui Real Madrid, întâlnește pentru prima dată Tottenham ca tehnician al „albaștrilor”.",
+    "Roberto De Zerbi a fost numit tehnician al lui Tottenham pe 31 martie 2026, succedându-i lui Igor Tudor (interimar după demiterea lui Thomas Frank), și a salvat echipa de la retrogradare chiar în ultima etapă a sezonului trecut.",
+    "Tottenham a spart recordul de transfer al clubului în această vară cu Sandro Tonali, adus de la Newcastle pentru circa 100 de milioane de lire — la pachet cu cele 85 de milioane plătite pentru Mateus Fernandes, de la West Ham — dar investiția masivă nu s-a văzut încă în clasament.",
+    "În deplasare, Tottenham n-a câștigat niciun meci de Premier League în acest sezon: 0 victorii, 2 egaluri și o înfrângere din cele trei partide jucate în afara propriului stadion.",
+    "Chelsea marchează de peste două ori mai mult acasă decât în deplasare în acest sezon: 3,7 goluri/meci pe Stamford Bridge, față de 1,5 goluri/meci în deplasare."
   ],
   "predictions": {
     "winnerName": "Chelsea",
@@ -1699,8 +1721,75 @@
           }
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
+      "formation": "4-2-3-1",
+      "predictedXI": [
+        {
+          "apiId": 340151,
+          "number": 39,
+          "name": "Mike Penders",
+          "pos": "GK"
+        },
+        {
+          "apiId": 366735,
+          "number": 34,
+          "name": "Joshua Acheampong",
+          "pos": "RB"
+        },
+        {
+          "apiId": 20995,
+          "number": 5,
+          "name": "Maxence Lacroix",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 152953,
+          "number": 6,
+          "name": "Levi Colwill",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 341642,
+          "number": 21,
+          "name": "Jorrel Hato",
+          "pos": "LB"
+        },
+        {
+          "apiId": 116117,
+          "number": 25,
+          "name": "Moisés Caicedo",
+          "pos": "DM"
+        },
+        {
+          "apiId": 292,
+          "number": 14,
+          "name": "Jordan Henderson",
+          "pos": "CM"
+        },
+        {
+          "apiId": 1864,
+          "number": 7,
+          "name": "Pedro Neto",
+          "pos": "RW"
+        },
+        {
+          "apiId": 152982,
+          "number": 10,
+          "name": "Cole Palmer",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 19170,
+          "number": 17,
+          "name": "Morgan Rogers",
+          "pos": "LW"
+        },
+        {
+          "apiId": 10329,
+          "number": 9,
+          "name": "João Pedro",
+          "pos": "ST"
+        }
+      ],
       "confirmedXI": null,
       "substitutes": null,
       "squad": [
@@ -1727,8 +1816,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Fractură de maxilar",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -1885,7 +1974,7 @@
           "number": 34,
           "name": "Joshua Kofi Acheampong",
           "photo": "https://media.api-sports.io/football/players/366735.png",
-          "pos": "DEF",
+          "pos": "RB",
           "positions": [
             "DEF"
           ],
@@ -2023,8 +2112,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Accidentare",
           "stats": {
             "goals": 0,
             "assists": 1,
@@ -2068,7 +2157,7 @@
           "number": 6,
           "name": "Levi Lemar Samuels Colwill",
           "photo": "https://media.api-sports.io/football/players/152953.png",
-          "pos": "DEF",
+          "pos": "LCB",
           "positions": [
             "DEF"
           ],
@@ -2209,8 +2298,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Afecțiune medicală",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -2248,7 +2337,7 @@
           "number": 21,
           "name": "Jorrel Hato",
           "photo": "https://media.api-sports.io/football/players/341642.png",
-          "pos": "DEF",
+          "pos": "LB",
           "positions": [
             "DEF",
             "MID"
@@ -2325,8 +2414,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Accidentare la genunchi",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -2364,7 +2453,7 @@
           "number": 5,
           "name": "Maxence Guy Lacroix",
           "photo": "https://media.api-sports.io/football/players/20995.png",
-          "pos": "DEF",
+          "pos": "RCB",
           "positions": [
             "DEF"
           ],
@@ -2543,7 +2632,7 @@
           "number": 25,
           "name": "Moisés Isaac Caicedo Corozo",
           "photo": "https://media.api-sports.io/football/players/116117.png",
-          "pos": "MID",
+          "pos": "DM",
           "positions": [
             "MID"
           ],
@@ -2608,7 +2697,7 @@
           "number": 14,
           "name": "Jordan Brian Henderson",
           "photo": "https://media.api-sports.io/football/players/292.png",
-          "pos": "MID",
+          "pos": "CM",
           "positions": [
             "MID"
           ],
@@ -2787,7 +2876,7 @@
           "number": 10,
           "name": "Cole Jermaine Palmer",
           "photo": "https://media.api-sports.io/football/players/152982.png",
-          "pos": "MID",
+          "pos": "CAM",
           "positions": [
             "MID",
             "ATT"
@@ -2853,7 +2942,7 @@
           "number": 17,
           "name": "Morgan Elliot Rogers",
           "photo": "https://media.api-sports.io/football/players/19170.png",
-          "pos": "MID",
+          "pos": "LW",
           "positions": [
             "MID",
             "ATT"
@@ -3051,8 +3140,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Accidentare musculară",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -3166,8 +3255,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Accidentare la gleznă",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -3205,7 +3294,7 @@
           "number": 9,
           "name": "João Pedro",
           "photo": "https://media.api-sports.io/football/players/10329.png",
-          "pos": "ATT",
+          "pos": "ST",
           "positions": [
             "ATT"
           ],
@@ -3270,7 +3359,7 @@
           "number": 7,
           "name": "Pedro Neto",
           "photo": "https://media.api-sports.io/football/players/1864.png",
-          "pos": "MID",
+          "pos": "RW",
           "positions": [
             "MID",
             "ATT"
@@ -3533,8 +3622,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Împrumutat la Como (Serie A) pentru sezonul 2026/27",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -5403,7 +5492,7 @@
         {
           "name": "E. Martínez",
           "from": "Aston Villa",
-          "fee": null
+          "fee": "7,5 mil. lire"
         },
         {
           "name": "D. Satpaev",
@@ -5433,7 +5522,7 @@
         {
           "name": "M. Lacroix",
           "from": "Crystal Palace",
-          "fee": null
+          "fee": "52 mil. lire"
         },
         {
           "name": "Harrison Bettoni",
@@ -5644,58 +5733,42 @@
         }
       ],
       "preseason": [],
-      "news": [],
-      "newsCandidates": [
+      "news": [
         {
-          "title": "Chelsea vs Tottenham: Key statistics and facts | News | Official Site",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZ0xLQW43RWhDM2oxVHcyV0hQRy15c0RLUnB2XzhlLXNXSTBBM2dxLTUtMUV6WTVWVzEzOXFKZERPYy02OG01RGlOclc1dlZNanJhbXowaFJMNmphVDRUTEp0RkZUZHkwZWwxQWI0RGd3bkpGY1kzRms5UjRhOUpkU3p0eW5Va1BXbllkY1paSWxIbGc4YXI5Sg?oc=5",
-          "source": "Chelsea Football Club",
-          "published": "2026-10-22"
+          "date": "2026-10-22",
+          "text": "Emiliano Martínez va rata partida cu Tottenham din cauza fracturii de maxilar suferită în meciul cu Everton; presa britanică estimează revenirea lui abia în jurul pauzei internaționale de la începutul lunii noiembrie. Pep Chavarría și Reece James continuă, de asemenea, perioadele de refacere."
         },
         {
-          "title": "English Premier football clubs post about their players’ Christian faith",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPX3RFQkg1NW04N1pRMzM3bkJNb3IySHJ2ZEZqY0RTUUVoVDlyWXpDVzVlLUVuS2RSajBPMmZ6MDR3UE9Kemt6N2ZienI4Y0ZWWjBGejlVblV4clc2RlFueXZYSzR4ZnRLRU1lNGpnaTk4dFBHZW5UeGN5MWdJSXg1bmpQMTRwc05nRDN2QW5PMW5qV3lKYzFwMjBhRld4dlpRNnNENldzVGJuS01lbVdrSV8wRFk0Nm8?oc=5",
-          "source": "Evangelical Focus",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Transfer news LIVE: Galatasaray consider Ayari move, Liverpool join the race to sign Mexico star",
-          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNcDhKNGJPYjNjdDhXTnc2ZXBJUW1fSHRhYWJOWjFBMXd5QnpMcG9QQ290T1Y3Y2t2VnVKVXNabmMweXhZTkNrOUluaWw0TlpmWGUxUnliQmIxd3VFMklqdllNSWo3NEtqcm5rSnNZOERiaE9fYjY4MnkxQ1FaNm1OMTBsdVpwaTFFZTIydEtkZUw4bF9BWF9QNEJwN3RfN0hqMm5sZ3pzR0REX1pYTGZrMHlsVnhLUGVqRkdqSjc5d0JzQ1Z6TWVmdEdQaHJPaWhIRXZQcVFnN20?oc=5",
-          "source": "Transfermarkt",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Tottenham must break eight-year Chelsea curse and Roberto De Zerbi may just know how",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNM3BTVDV3MVR0VURVUlE5SGdub0thb2oybkY0Nkl0aWZMaU5ZdnkzajFoTVlQWV9DMWpScEhoazBkSUYwc293a1FWVjBUQXM5Qmdfb1pucE9tZlFITWlCTElFSHVnVWtUb2JDblFCMlY5TUpiS0RLanU1YkIyN2EzT3B3ODdSdkZzRFptZHVIWlVDZjU0TU9xa0d30gGfAUFVX3lxTE4zd2RQRW9jQm1tdHJzdkx3VUNacDZ6SkVYYjhHSnM1TS1VUXczYnpjUEtVMTYzbE9CcGZzR1lEcEsySXN1alRBT1RtQmR6eXRrSXdKRFZET1BvSllpa3BvM2NzS2pFTUZNdms1cjgyZ1BhdHFzNWJyaE4tcDUwVEwtLVY5Nm1oeHpSTU91b2hwUzFXdlpzZzdpczh3Z1hzQQ?oc=5",
-          "source": "Football London",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Chelsea: What games Emi Martinez will miss after injury timeline is 'revealed'",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQbFZPeUFhNWVXcG9CQ2V3NHpjem5HQ001aXowVzdCcnhCRUEyNFVYMmVYVVduNjVDQkFQdTduZG80WUlsSlFTSWJ4RnVhdUlIMFBNc2ptd2U5Q2dyck9yV3YtNUFwd1Z2MjU0MWJvQWlOLVV2U2g2T0xYdFY1SXMwZTBIcHdQZlJINF9MTEN6N2FLTEIxcDdvcFVvblBjcFhwbmI3QmM4RXFRdkRPRlc5SU9n?oc=5",
-          "source": "London Evening Standard",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Matthew Harding remembered: His life, death and legacy at Chelsea | News | Official Site",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPWXRTdDQ2NUtwaDJLWE1wb1FxQWhSYkdsYW5nRF9ial9kcnBob0hSakQ5N3BQUG5oX0RMTDRUa29aNGJTNHJuNXFUZDRqSWxyNDJPMEdlTnc2UUVBRldNUGZQb05nbEhybDVwS2poVVpHbnZHeV9rR3J6eHNidW9GSDNOTVBXQzJWV3BabWk0bW9hbWhjdEtDTUhUVDlzaGxQNkxmRDVuQ2k?oc=5",
-          "source": "Chelsea Football Club",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Chelsea injury update: Martinez, Chavarria, James latest return dates",
-          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUEFSZzF1NnhHb3E1YlF0WUNRdjhhc2Z2dmw3UXVlNzMzWnhJNENLWVFVVkx6Ul9YdVZsZWdzSFBQbDE3eXlSSmFiWFR3QkVYdUxKU2c4dURCWGozTjhGQ2F6RFBpbzItSFJXanh3bnhZdXRleVRrR1lWVlpvRFFfaWNVaVVTNHlvQUdUNjBtRld0VE1IY3pKMWl2X3BzSk9IMFFPWWRRY05oVGs1YVktdVZoRHZzY1B4UWthcEg2YWRuSHRxNDFpcjl3?oc=5",
-          "source": "London Evening Standard",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Alejandro Garnacho to Chelsea transfer almost collapsed as failed bid and secret talks revealed",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNRDFnbHJNamwzQ1MzSm9IUlI1OXdZZmJ5aGFLVVQ1bm5CTk1PUmZYM0FNMnRGaS1iT1RPdWM0RV8wQWQ0RDROUEF4ZThVa3d0X0xnNUgxNTlwSHk0SXlDSTZSbkxNQmZFdWZSaS13aGVIend4NHBJU3RvbTF3RExxeW9sa05oaGVjZGhLYUU5eDdYY19yUGNoUTdRNU5WTzQx0gGgAUFVX3lxTE1EMWdsck1qbDNDUzNKb0hSUjU5d1lmYnloYUtVVDVubkJOTU9SZlgzQU0ydEZpLWJPVE91YzRFXzBBZDRENE5QQXhlOFVrd3RfTGc1SDE1OXBIeTRJeUNJNlJuTE1CZkV1ZlJpLXdoZUh6d3g0cElTdG9tMXdETHF5b2xrTmhoZWNkaEthRTl4N1hjX3JQY2hRN1E1TlZPNDE?oc=5",
-          "source": "Football London",
-          "published": "2026-10-22"
+          "date": "2026-10-22",
+          "text": "Mike Penders, 21 de ani, rămâne titular în poartă și pentru meciul cu Tottenham, după debutul din Premier League și poarta curată de la Everton, în locul lui Martínez."
         }
       ],
-      "stories": [],
+      "stories": [
+        {
+          "title": "Alonso, între un început de drum la Chelsea și o formulă neterminată",
+          "bullets": [
+            "Instalat pe banca Chelsea în această vară, după doar șapte luni la Real Madrid — primul duel cu Tottenham în postura de tehnician al „albaștrilor”.",
+            "Sistemul lui preferat la Leverkusen a fost 3-4-2-1 (campion neînvins în Bundesliga 2023/24), folosit și în 5 din primele 7 meciuri de Premier League la Chelsea, dar a revenit la clasicul 4-2-3-1 în ultima victorie, 2-0 la Everton.",
+            "Lotul a fost întors pe dos: Lacroix (52 mil. lire de la Crystal Palace), Rogers, Palestra și Martínez (7,5 mil. lire de la Aston Villa) au venit, în timp ce Enzo Fernández (la Manchester City) și Nicolas Jackson (la Aston Villa) au plecat."
+          ]
+        },
+        {
+          "title": "João Pedro, singurul care a tras constant de căruță",
+          "bullets": [
+            "5 goluri din primele 6 meciuri jucate — de două ori mai mult decât orice alt atacant Chelsea în acest start de sezon.",
+            "S-a impus ca prima opțiune a lui Alonso pe postul de vârf, titularizat constant de la începutul sezonului.",
+            "Rămâne principalul pericol offensiv al Chelsea chiar și cu un lot decimat de accidentări în fața porții."
+          ]
+        },
+        {
+          "title": "Criza dintre buturi",
+          "bullets": [
+            "Emiliano Martínez, adus din vară de la Aston Villa și titularizat din prima zi, a suferit o comoție și și-a fracturat maxilarul în meciul cu Everton — out până spre pauza internațională din noiembrie.",
+            "Mike Penders, belgianul de 21 de ani, i-a luat locul, a debutat în Premier League și a păstrat poarta curată la Everton — Alonso i-a confirmat încrederea și pentru meciul cu Tottenham.",
+            "Robert Sánchez, fostul titular, a fost împrumutat la Como încă din 1 septembrie, așa că nu mai e o variantă de rezervă; în spatele lui Penders rămân doar tineri fără minute în Premier League (Sharman-Lowe, Słonina)."
+          ]
+        }
+      ],
       "clubFacts": [
         "Chelsea a fost fondat pe 10 martie 1905, într-un pub aflat vizavi de intrarea principală a stadionului Stamford Bridge, de omul de afaceri Gus Mears, care avea nevoie de o echipă pentru stadionul pe care îl achiziționase.",
         "Numele clubului vine de la cartierul londonez Chelsea, aflat în vecinătatea stadionului, deoarece numele Fulham era deja folosit de o altă echipă locală.",
@@ -5714,23 +5787,130 @@
       "logo": "https://media.api-sports.io/football/teams/47.png",
       "colors": null,
       "coach": {
-        "apiId": 28389,
-        "name": "Bruno Saltor",
-        "photo": "https://media.api-sports.io/football/coachs/28389.png",
-        "country": null,
-        "age": null,
-        "birthDate": null,
-        "tenureFrom": "2025-11",
+        "apiId": null,
+        "name": "Roberto De Zerbi",
+        "photo": null,
+        "country": "Italy",
+        "age": 47,
+        "birthDate": "1979-06-06",
+        "tenureFrom": "2026-03",
         "career": [
           {
             "club": "Tottenham",
-            "period": "2025–prezent",
+            "period": "2026–prezent",
+            "note": "Numit pe 31 martie 2026, contract pe cinci ani; i-a succedat lui Igor Tudor, care fusese interimar șapte meciuri după demiterea lui Thomas Frank. A salvat echipa de la retrogradare în ultima etapă din 2025/26."
+          },
+          {
+            "club": "Marseille",
+            "period": "2024–2026",
+            "note": "Locul 2 în Ligue 1 în 2024/25; a plecat pe 11 februarie 2026."
+          },
+          {
+            "club": "Brighton & Hove Albion",
+            "period": "2022–2024",
+            "note": "Despărțire amiabilă, anunțată pe 18 mai 2024."
+          },
+          {
+            "club": "Shakhtar Donetsk",
+            "period": "2021–2022",
+            "note": "Cupa Supercupei Ucrainei 2021; a plecat după invazia Rusiei în Ucraina."
+          },
+          {
+            "club": "Sassuolo",
+            "period": "2018–2021",
+            "note": null
+          },
+          {
+            "club": "Benevento",
+            "period": "2017–2018",
+            "note": "Echipa a retrogradat în Serie B."
+          },
+          {
+            "club": "Palermo",
+            "period": "2016",
+            "note": "Demis după doar câteva luni, înlocuit de Eugenio Corini."
+          },
+          {
+            "club": "Foggia",
+            "period": "2014–2016",
+            "note": "Coppa Italia Lega Pro 2015/16."
+          },
+          {
+            "club": "Darfo Boario",
+            "period": "2013–2014",
             "note": null
           }
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
+      "formation": "4-2-3-1",
+      "predictedXI": [
+        {
+          "apiId": 265826,
+          "number": 31,
+          "name": "Antonín Kinský",
+          "pos": "GK"
+        },
+        {
+          "apiId": 328089,
+          "number": 14,
+          "name": "Archie Gray",
+          "pos": "RB"
+        },
+        {
+          "apiId": 152849,
+          "number": 37,
+          "name": "Micky van de Ven",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 38695,
+          "number": 6,
+          "name": "Jan Paul van Hecke",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 459203,
+          "number": 5,
+          "name": "Malachi Hardy",
+          "pos": "LB"
+        },
+        {
+          "apiId": 31146,
+          "number": 16,
+          "name": "Sandro Tonali",
+          "pos": "DM"
+        },
+        {
+          "apiId": 336585,
+          "number": 18,
+          "name": "Mateus Fernandes",
+          "pos": "CM"
+        },
+        {
+          "apiId": 15911,
+          "number": 20,
+          "name": "Mohammed Kudus",
+          "pos": "RW"
+        },
+        {
+          "apiId": 18784,
+          "number": 10,
+          "name": "James Maddison",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 81573,
+          "number": 22,
+          "name": "Omar Marmoush",
+          "pos": "LW"
+        },
+        {
+          "apiId": 18883,
+          "number": 19,
+          "name": "Dominic Solanke",
+          "pos": "ST"
+        }
+      ],
       "confirmedXI": null,
       "substitutes": null,
       "squad": [
@@ -5922,8 +6102,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Accidentare",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -6034,7 +6214,7 @@
           "number": 14,
           "name": "Archie James Francis Gray",
           "photo": "https://media.api-sports.io/football/players/328089.png",
-          "pos": "MID",
+          "pos": "RB",
           "positions": [
             "MID",
             "DEF"
@@ -6100,7 +6280,7 @@
           "number": 5,
           "name": "Malachi Hardy",
           "photo": "https://media.api-sports.io/football/players/459203.png",
-          "pos": "DEF",
+          "pos": "LB",
           "positions": [
             "DEF"
           ],
@@ -6184,8 +6364,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Accidentare musculară",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -6249,8 +6429,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Accidentare",
           "stats": {
             "goals": 0,
             "assists": 2,
@@ -6379,8 +6559,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Accidentare la genunchi",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -6426,7 +6606,7 @@
           "number": 6,
           "name": "Jan Paul van Hecke",
           "photo": "https://media.api-sports.io/football/players/38695.png",
-          "pos": "DEF",
+          "pos": "LCB",
           "positions": [
             "DEF"
           ],
@@ -6491,7 +6671,7 @@
           "number": 37,
           "name": "Micky van de Ven",
           "photo": "https://media.api-sports.io/football/players/152849.png",
-          "pos": "DEF",
+          "pos": "RCB",
           "positions": [
             "DEF"
           ],
@@ -6574,8 +6754,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "suspended",
+          "statusNote": "Suspendat după cartonaș roșu",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -6639,8 +6819,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Accidentare la genunchi",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -6686,7 +6866,7 @@
           "number": 18,
           "name": "Mateus Fernandes",
           "photo": "https://media.api-sports.io/football/players/336585.png",
-          "pos": "MID",
+          "pos": "CM",
           "positions": [
             "MID"
           ],
@@ -6881,7 +7061,7 @@
           "number": 20,
           "name": "Mohammed Kudus",
           "photo": "https://media.api-sports.io/football/players/15911.png",
-          "pos": "MID",
+          "pos": "RW",
           "positions": [
             "MID"
           ],
@@ -6973,7 +7153,7 @@
           "number": 10,
           "name": "James Daniel Maddison",
           "photo": "https://media.api-sports.io/football/players/18784.png",
-          "pos": "MID",
+          "pos": "CAM",
           "positions": [
             "MID"
           ],
@@ -7056,8 +7236,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Accidentare la genunchi",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -7103,7 +7283,7 @@
           "number": 16,
           "name": "Sandro Tonali",
           "photo": "https://media.api-sports.io/football/players/31146.png",
-          "pos": "MID",
+          "pos": "DM",
           "positions": [
             "MID"
           ],
@@ -7168,7 +7348,7 @@
           "number": 22,
           "name": "Omar Marmoush",
           "photo": "https://media.api-sports.io/football/players/81573.png",
-          "pos": "MID",
+          "pos": "LW",
           "positions": [
             "MID",
             "ATT"
@@ -7253,8 +7433,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Accidentare la gleznă",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -7365,7 +7545,7 @@
           "number": 19,
           "name": "Dominic Ayodele Solanke-Mitchell",
           "photo": "https://media.api-sports.io/football/players/18883.png",
-          "pos": "ATT",
+          "pos": "ST",
           "positions": [
             "ATT"
           ],
@@ -9514,12 +9694,12 @@
         {
           "name": "S. Tonali",
           "from": "Newcastle",
-          "fee": null
+          "fee": "100 mil. lire (record de transfer al clubului)"
         },
         {
           "name": "Mateus Fernandes",
           "from": "West Ham",
-          "fee": null
+          "fee": "85 mil. lire"
         },
         {
           "name": "J. van Hecke",
@@ -9534,7 +9714,7 @@
         {
           "name": "A. Robertson",
           "from": "Liverpool",
-          "fee": null
+          "fee": "transfer liber"
         },
         {
           "name": "M. Dúbravka",
@@ -9735,58 +9915,42 @@
         }
       ],
       "preseason": [],
-      "news": [],
-      "newsCandidates": [
+      "news": [
         {
-          "title": "Luca Williams-Barnett is Tottenham’s ‘precious diamond’. But when will he get a chance to shine? - The Athletic",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPT2p5cmh0NU9tMEVxbjZXNDNUUW52RFZwWDloWGY4cGNiLVJ5X3ZpTTNMSXlMdXVXbG5SYk15d0Z1OTRVVlBZb3VLTERJbFFWamZBTWUzWTRLTDYyczk0YXZXNldhREpoeXFDVFpuc3hJalV2UW1FUUFrVTF2VWZMem9Ld2t3ajFGWDVqYnpFZmdkZDJJRURyZEZmNUVydFQ2dUNuaTJaVE1ETXAx?oc=5",
-          "source": "The New York Times",
-          "published": "2026-10-22"
+          "date": "2026-10-22",
+          "text": "Pedro Porro și Destiny Udogie rămân indisponibili, alături de Andy Robertson și Abdul Adarabioyo — practic toată linia de fundași titulari e la refacere înaintea deplasării la Chelsea."
         },
         {
-          "title": "WSL Fantasy | Spurs Gameweek 7 Preview",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPUl94SXp3QTlpQS1nY1ZYY0FlWWR4WkJaVWpKT1JfZldzcEx4NnJjRTJGQlBpNE44eXBBVk9ybHBFYTIzTE90S2FQM1c4eG82TmJzMFJvNXhiU21tbjZFVm5saEktNDJ2Wm9kQ3M5M1UwMzQ1anlSLWgxUTZ6b2EwcXpsRXZFTjFqWkE?oc=5",
-          "source": "Tottenham Hotspur",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "The Hoddle of Coffee: Tottenham Hotspur News and Links for Thursday, October 22",
-          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQNlZNcWxOR0E4SHRMbDAzNHEzclo2cFJ6Mk1qNXVJT2hYVlIzTFlSaGpjckRobUFSWmZSRWJ4Q09sN3prMk1Rc052V3kzUy1yaDhOS1ZldWM1dFd5aDdYZHpIZzlWeXdnWHFWaXI0WXRWNmRQQ09QZG5PMlVDUzM1N1NhWGthSGxfODZ0OHhkdHdVVHJiV0FKeTRoeC1QSjNZVmd0TFdud3YxMFVxNkVVSzVRVTJVZTFUcDJqcmVfRGUtU3dWQ0dyVXNOLWlvV2dJSjVDMkotVm5aUQ?oc=5",
-          "source": "Cartilage Free Captain",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Chelsea vs Tottenham: Key statistics and facts | News | Official Site",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZ0xLQW43RWhDM2oxVHcyV0hQRy15c0RLUnB2XzhlLXNXSTBBM2dxLTUtMUV6WTVWVzEzOXFKZERPYy02OG01RGlOclc1dlZNanJhbXowaFJMNmphVDRUTEp0RkZUZHkwZWwxQWI0RGd3bkpGY1kzRms5UjRhOUpkU3p0eW5Va1BXbllkY1paSWxIbGc4YXI5Sg?oc=5",
-          "source": "Chelsea Football Club",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Tottenham must break eight-year Chelsea curse and Roberto De Zerbi may just know how",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNM3BTVDV3MVR0VURVUlE5SGdub0thb2oybkY0Nkl0aWZMaU5ZdnkzajFoTVlQWV9DMWpScEhoazBkSUYwc293a1FWVjBUQXM5Qmdfb1pucE9tZlFITWlCTElFSHVnVWtUb2JDblFCMlY5TUpiS0RLanU1YkIyN2EzT3B3ODdSdkZzRFptZHVIWlVDZjU0TU9xa0d30gGfAUFVX3lxTE4zd2RQRW9jQm1tdHJzdkx3VUNacDZ6SkVYYjhHSnM1TS1VUXczYnpjUEtVMTYzbE9CcGZzR1lEcEsySXN1alRBT1RtQmR6eXRrSXdKRFZET1BvSllpa3BvM2NzS2pFTUZNdms1cjgyZ1BhdHFzNWJyaE4tcDUwVEwtLVY5Nm1oeHpSTU91b2hwUzFXdlpzZzdpczh3Z1hzQQ?oc=5",
-          "source": "Football London",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Roberto De Zerbi unlocks undroppable Tottenham star just in time for huge Chelsea clash",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQjJZUE5lblo4ZDhLN29BUkhieGs3NERBc1NsekpzUmhIOEhudTFKUVJka0RLOVFHVXJ4d2kzRTQ2dzZOTFFuU29WZENjaWhYZWhwYTFmdHpmR1k3aWlsTmFpakVaVndYUF85Y25qc29WR3N1YlR1Mm1Sbmp0cEFScXZ5dk9aSUE5d0xIV0pxeU96ZExmcmE4SnhaT2FEcm9N0gGmAUFVX3lxTFBTUVpPZHJGV2ZjWkxLU01aSmxNQVVyWXdUSURYelhud3AxQmZ4b0U0MERRV0dRUTB4VUNVVmExLU52S0xnUnhweUV4OFdHWVNGLXpISGhaZVJuTDh2UF9Xc1JzV0pSYUx4UVI1ZVRTeEp4VXl1NHpsT1dIeDlHU0dYWUR2RV96WFpRRlVXVXpRcGRwOFBLQUVQV1YzeHBXY0paZXNYeGc?oc=5",
-          "source": "Football London",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "James Maddison has unlocked Tottenham teammate in 'big boost' - ex-scout",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNSVo3cXpQaUZLYm1KZlRvNzB1UEFwS0JQTWxQVzc2aWhmcjRzNWRsV3lWWkRiRkt2Y1RnYlVneW42ODRwMVJBZkdTcFc0OG9RekdpQUpnTXpLeS1KSkZYVjhxOVRYUkxWU0FMemxzX3FaNllhTUJHWEJ6NU92MVRMUWZCc0tBWGhLdEFwWkcwbTlCYWR0?oc=5",
-          "source": "Yahoo",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Spurs injury update: Marmoush, Udogie, Porro latest return dates",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNRVhzTGxCYXRBeHJ1TzJ1RzMxTUpFUTExT24yd3NQNnFHOUhPMW13VHBxQ1VoRHBQOXhDbExvRmhncGE3M1RYQWxwdkVYbHloZm02SGRrZFl4TEJHQU5NRmhsampuVjVSM2k1eWhYdDNIUFVpYWJGd01MWXYyR1lwOHd1MGlzNnlrTG9ZdnhsX25ORDNhUHdZNGRtRVBhTUtLZDNmTUdvXzk3STRydWpJbVkzckloc2lhMDRhMFEyN2o0MElD?oc=5",
-          "source": "London Evening Standard",
-          "published": "2026-10-22"
+          "date": "2026-10-22",
+          "text": "Omar Marmoush, integrat rapid în noua echipă, rămâne una dintre puținele certitudini din atacul lui De Zerbi, alături de Dominic Solanke."
         }
       ],
-      "stories": [],
+      "stories": [
+        {
+          "title": "De Zerbi, misiunea continuă la Tottenham",
+          "bullets": [
+            "Numit pe 31 martie 2026, i-a succedat lui Igor Tudor (interimar după demiterea lui Thomas Frank) și a scos echipa din zona retrogradării chiar în ultima etapă a sezonului trecut.",
+            "A ajuns la Spurs după un parcurs italian și european încărcat: Sassuolo, Shakhtar Donetsk, Brighton și Marseille (locul 2 în Ligue 1 2024/25), de unde a plecat în februarie 2026.",
+            "Șapte etape mai târziu, Tottenham e tot pe locul 16 (6 puncte) — a confirmat 4-2-3-1 ca formulă de bază în toate cele șapte meciuri de campionat de până acum."
+          ]
+        },
+        {
+          "title": "Linia defensivă, aproape dispărută",
+          "bullets": [
+            "Porro, Udogie, Robertson și Adarabioyo — toți titulari cu puține etape în urmă — sunt indisponibili din accidentare, iar Bentancur e suspendat după un cartonaș roșu.",
+            "De Zerbi rămâne fără niciun fundaș lateral „natural” sănătos; Archie Gray, folosit frecvent ca fundaș dreapta improvizat, devine soluția cea mai probabilă.",
+            "În 3 meciuri în deplasare din acest sezon de Premier League, Tottenham n-a câștigat niciuna (0v-2e-1i)."
+          ]
+        },
+        {
+          "title": "Cel mai scump mijloc de teren din istoria clubului",
+          "bullets": [
+            "Sandro Tonali a venit de la Newcastle pentru aproximativ 100 de milioane de lire, cel mai mare transfer din istoria lui Tottenham.",
+            "Mateus Fernandes a costat 85 de milioane de lire de la West Ham, în același val de achiziții din vară.",
+            "Investiția nu s-a reflectat încă în clasament: Spurs rămân pe locul 16, cu doar o victorie din 7 meciuri de campionat."
+          ]
+        }
+      ],
       "clubFacts": [
         "Tottenham Hotspur a fost înființat pe 5 septembrie 1882, de un grup de elevi conduși de Bobby Buckle, membri ai clubului de cricket Hotspur.",
         "În 1901, Tottenham a câștigat FA Cup, devenind singurul club din afara ligii profesioniste care a reușit acest lucru de la înființarea Football League, în 1888.",
@@ -10084,5 +10248,7 @@
         "form": "LLLLD"
       }
     ]
-  }
+  },
+  "researchDepth": "deep",
+  "generatedBy": "skill"
 }
