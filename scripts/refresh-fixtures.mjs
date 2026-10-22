@@ -52,6 +52,7 @@ const COMPS = [
   { id: 848, comp: 'Conference League', abbr: 'uecl', country: 'EU' },
   { id: 94,  comp: 'Primeira Liga', abbr: 'pt', country: 'PT' },
   { id: 285, comp: 'Cupa României', abbr: 'cr', country: 'RO' },
+  { id: 17,  comp: 'AFC Champions League', abbr: 'afcl', country: 'AS' },   // AFC Champions League Elite
 ];
 const DAYS_AHEAD = 21; // rolling scan window
 const DEAD_STATUS = new Set(['CANC', 'ABD', 'AWD', 'WO']); // no match day worth showing at all

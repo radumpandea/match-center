@@ -131,6 +131,11 @@ export const NEWS_SOURCES = {
     { name: 'ProSport', url: 'https://www.prosport.ro/rss' },
     { name: 'Adevărul', url: 'https://adevarul.ro/rss/sport/' },
   ],
+  'AFC Champions League': [
+    { name: 'BBC Sport', url: 'http://feeds.bbci.co.uk/sport/football/rss.xml' },
+    { name: 'The Guardian', url: 'https://www.theguardian.com/football/rss' },
+    { name: 'The Analyst', url: 'https://theanalyst.com/feed' },
+  ],
   'Liga 2': [
     { name: 'Digi Sport', url: 'https://www.digisport.ro/rss' },
     { name: 'ProSport', url: 'https://www.prosport.ro/feed' },

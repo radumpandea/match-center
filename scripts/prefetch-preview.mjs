@@ -106,7 +106,7 @@ const AF_LEAGUE_ID = {
   'Bundesliga': 78, '2. Bundesliga': 79, 'Superliga': 283, 'Liga 2': 284,
   'Coppa Italia': 137,
   'Champions League': 2, 'Europa League': 3, 'Conference League': 848,
-  'Primeira Liga': 94, 'Cupa României': 285,
+  'Primeira Liga': 94, 'Cupa României': 285, 'AFC Champions League': 17,
 };
 
 /* ---------- small helpers ---------- */
@@ -844,12 +844,16 @@ async function getStandings(leagueId, season, cache) {
   cache.standings = cache.standings || {};
   const hit = cache.standings[leagueId];
   // v:2 added the full `rows` table — ignore older cache entries that lack it
-  if (hit && hit.v === 2 && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < STANDINGS_TTL) return hit;
+  if (hit && hit.v === 3 && hit.fetchedAt && daysBetween(todayISO(), hit.fetchedAt) < STANDINGS_TTL) return hit;
   const j = await af('standings', { league: leagueId, season });
-  const table = j && j.response && j.response[0] && j.response[0].league
-    && j.response[0].league.standings && j.response[0].league.standings[0];
-  if (!Array.isArray(table) || !table.length) return hit || null;
-  const byId = {}, byName = {}, rows = [];
+  // API-Football returns one table per group (the AFC Champions League Elite has a West and an East table,
+  // a Superliga championship round its own group): keep them all, refreshStandings() picks the match's group.
+  const tables = ((j && j.response && j.response[0] && j.response[0].league && j.response[0].league.standings) || [])
+    .filter((tb) => Array.isArray(tb) && tb.length);
+  if (!tables.length) return hit || null;
+  const byId = {}, byName = {}, groups = [];
+  for (const table of tables) {
+  const rows = [];
   for (const row of table) {
     const t = row.team || {};
     const rec = {
@@ -871,7 +875,9 @@ async function getStandings(leagueId, season, cache) {
       gf: rec.gf, ga: rec.ga, gd: num(row.goalsDiff), points: rec.points, form: rec.form,
     });
   }
-  const rec = { fetchedAt: todayISO(), v: 2, season, byId, byName, rows };
+  groups.push({ name: (table[0] && table[0].group) || null, rows });
+  }
+  const rec = { fetchedAt: todayISO(), v: 3, season, byId, byName, rows: groups[0].rows, groups };
   cache.standings[leagueId] = rec;
   return rec;
 }
@@ -1690,7 +1696,13 @@ async function refreshStandings(doc, fx, leagueId, season, cache) {
   if (!st || !Array.isArray(st.rows) || !st.rows.length) return false;
   let changed = false;
 
-  const newStandings = { league: fx.comp, season, rows: st.rows };
+  let rows = st.rows;
+  if (Array.isArray(st.groups) && st.groups.length > 1) {
+    const ids = [fx.homeId, fx.awayId];
+    const g = st.groups.find((x) => x.rows.some((r) => ids.includes(r.teamId)));
+    if (g) rows = g.rows;
+  }
+  const newStandings = { league: fx.comp, season, rows };
   if (JSON.stringify(doc.standings) !== JSON.stringify(newStandings)) {
     doc.standings = newStandings;
     changed = true;
