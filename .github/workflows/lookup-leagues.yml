@@ -1,0 +1,23 @@
+name: Lookup leagues (temporary)
+
+# One-off helper: prints API-Football league ids/names/coverage so a new competition can be added to
+# scripts/refresh-fixtures.mjs with the right id. Safe to delete once the competition is wired in.
+on:
+  workflow_dispatch:
+    inputs:
+      query:
+        description: "Query string for /leagues, e.g. country=Romania&season=2026"
+        required: true
+        default: "country=Romania&season=2026"
+
+jobs:
+  lookup:
+    runs-on: ubuntu-latest
+    env:
+      APIFOOTBALL_KEY: ${{ secrets.APIFOOTBALL_KEY }}
+      Q: ${{ inputs.query }}
+    steps:
+      - name: Ask API-Football
+        run: |
+          curl -sS -H "x-apisports-key: $APIFOOTBALL_KEY" "https://v3.football.api-sports.io/leagues?$Q" \
+            | jq -r '.response[] | [(.league.id|tostring), .league.name, .league.type, .country.name, ((.seasons|map(select(.current==true))|.[0].year|tostring)), ((.seasons|map(select(.current==true))|.[0].coverage.fixtures.events|tostring)), ((.seasons|map(select(.current==true))|.[0].coverage.standings|tostring))] | @tsv'
