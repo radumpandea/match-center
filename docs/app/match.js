@@ -1695,6 +1695,7 @@
     var lineupStatusEl = lineupStatus ? el('span', { class: 'lineup-status ' + lineupStatus.kind, text: lineupStatus.text }) : null;
     var langSwitch = I18N.switcherEl(function () { render(data); });
     var themeToggle = window.MC_THEME.toggleEl();
+    var helpBtn = el('button', { text: '❓ ' + t('help.link'), onclick: function () { window.open('help.html', '_blank', 'noopener'); } });
     var miniPitchToggleBtn = el('button', {
       class: 'mp-toggle-btn',
       text: mine.miniPitchClosed ? t('toolbar.miniPitchShow') : t('toolbar.miniPitchHide'),
@@ -1749,6 +1750,7 @@
         iconOnly(resetPosBtn),
         iconOnly(resetOrderBtn),
         miniPitchToggleBtn,
+        iconOnly(helpBtn),
         iconOnly(el('button', { text: t('toolbar.exportNotes'), onclick: function () { exportNotes(data); } })),
         iconOnly(el('button', { text: t('toolbar.expandCollapse'), onclick: toggleAll })),
         iconOnly(el('button', { text: t('toolbar.deleteAllNotes'), onclick: function () {
