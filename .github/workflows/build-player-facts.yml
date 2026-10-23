@@ -62,8 +62,11 @@ jobs:
       staff: ${{ steps.pickstaff.outputs.staff }}
       staffCount: ${{ steps.pickstaff.outputs.staffCount }}
     steps:
+      # ref: main, not the default: when this workflow is called from a build that has just pushed a pack,
+      # the default checkout is the commit the whole run STARTED on and would not contain that pack.
       - uses: actions/checkout@v6
         with:
+          ref: main
           fetch-depth: 1
 
       - name: Pick the next players without facts
@@ -96,8 +99,11 @@ jobs:
       actions: write
       id-token: write
     steps:
+      # ref: main, not the default: when this workflow is called from a build that has just pushed a pack,
+      # the default checkout is the commit the whole run STARTED on and would not contain that pack.
       - uses: actions/checkout@v6
         with:
+          ref: main
           fetch-depth: 1
 
       - uses: actions/setup-node@v4
