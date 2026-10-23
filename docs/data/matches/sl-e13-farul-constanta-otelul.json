@@ -1,11 +1,62 @@
 {
   "slug": "sl-e13-farul-constanta-otelul",
   "generatedAt": "2026-10-23T07:42:04.340Z",
-  "partial": true,
+  "generatedBy": "skill",
+  "researchDepth": "deep",
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "Wikipedia — Ioan Ovidiu Sabău",
+      "url": "https://ro.wikipedia.org/wiki/Ioan_Ovidiu_Sab%C4%83u",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "Wikipedia — Stjepan Tomas",
+      "url": "https://en.wikipedia.org/wiki/Stjepan_Tomas",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "Wikipedia — Rui Duarte (footballer, born 1978)",
+      "url": "https://en.wikipedia.org/wiki/Rui_Duarte_(footballer,_born_1978)",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "informat.ro — Rui Duarte, Oțelul Galați's new head coach",
+      "url": "https://informat.ro/en/sport/rui-duarte-otelul-galatis-new-head-coach-140893",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "Wikipedia — Rafael Munteanu",
+      "url": "https://en.wikipedia.org/wiki/Rafael_Munteanu",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "Wikipedia — Victor Dican",
+      "url": "https://en.wikipedia.org/wiki/Victor_Dican",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "Wikipedia — Eduard Radaslavescu",
+      "url": "https://en.wikipedia.org/wiki/Eduard_Radaslavescu",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "spotmedia.ro — Cine este Răzvan Marincean",
+      "url": "https://spotmedia.ro/stiri/sport/cine-este-razvan-marincean-noua-promisiune-a-farului-la-17-ani-a-fost-dorit-de-benfica-si-a-plecat-de-acasa-pentru-fotbal",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "Wikipedia — Teodor Lungu",
+      "url": "https://en.wikipedia.org/wiki/Teodor_Lungu",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "Flashscore — preview Universitatea Craiova - Farul Constanța (etapa 12)",
+      "url": "https://www.flashscore.ro/stiri/fotbal-superliga-live-superliga-universitatea-craiova-farul-constanta-marinarii-joaca-in-derby-ul-etapei-fara-alibec/hCp5pkK8/",
       "accessed": "2026-10-23"
     }
   ],
@@ -18,7 +69,7 @@
   "kickoff": "2026-10-25T16:00:00+02:00",
   "venue": {
     "name": "Stadionul Viitorul",
-    "capacity": null,
+    "capacity": 4554,
     "city": "Ovidiu",
     "notes": null,
     "stories": [
@@ -1218,7 +1269,57 @@
     "Eduard Gabriel Rădăslăvescu e cel mai bun marcator al echipei Farul Constanta în acest start de sezon (5 goluri).",
     "Oţelul — locul 14 după 12 etape, 11 puncte, golaveraj 12-17.",
     "Patrick e cel mai bun marcator al echipei Oţelul în acest start de sezon (4 goluri).",
-    "Cap la cap (9 meciuri): Farul Constanta 2 - 5 - 2 Oţelul."
+    "Cap la cap (9 meciuri): Farul Constanta 2 - 5 - 2 Oţelul.",
+    "Oţelul traversează cea mai slabă perioadă din sezon: un singur punct din ultimele 5 etape (D-L-L-L-L).",
+    "Rui Duarte, portughezul instalat pe 28 septembrie 2026 în locul lui Stjepan Tomaš (demis după al treilea eșec la rând), e încă în căutarea primei victorii: 0-1 cu FCSB, 1-1 cu Csikszereda.",
+    "Farul e o echipă total diferită în funcție de teren: 4 victorii și o remiză din 5 meciuri acasă, dar niciuna din 7 în deplasare (0-4-3).",
+    "Farul n-a transformat niciun penalty în acest sezon: 0 din 2 execuții, ambele ratate.",
+    "Aproape jumătate din golurile primite de Oţelul (8 din 17) vin în ultima jumătate de oră a meciurilor (min. 61-90).",
+    "O treime din cartonașele galbene ale Oţelului (8 din 24) și jumătate dintre cele roșii (2 din 4) au venit în ultimele 15 minute — semn de nervi sub presiune, mai ales pe final de meci.",
+    "Răzvan Marincean, 17 ani, crescut la Academia Hagi, a devenit pe 3 noiembrie 2025, la 16 ani, primul jucător născut în 2009 din academie care a jucat în Liga I; Benfica a arătat deja interes pentru el.",
+    "Denis Alibec, veteranul atacului de la Farul, cu un gol în ultimele 4 confruntări directe cu Oţelul, e incert pentru această rundă."
+  ],
+  "commentatorResearch": [
+    {
+      "topic": "Farul, altă echipă acasă față de deplasare",
+      "fact": "4 victorii și o remiză din 5 meciuri acasă (medie 2,4 goluri marcate), dar 0 victorii din 7 în deplasare (0-4-3, medie 0,7 goluri marcate).",
+      "source": "date agregate din form.table/form.stats ale API-Football, verificate manual"
+    },
+    {
+      "topic": "Oţelul se clatină în ultima jumătate de oră",
+      "fact": "8 din cele 17 goluri primite de Oţelul în acest sezon (47%) au venit între minutele 61 și 90; o treime din cartonașele galbene (8 din 24) și jumătate dintre cele roșii (2 din 4) au venit în ultimele 15 minute.",
+      "source": "agregate goluri/cartonașe pe intervale, API-Football"
+    },
+    {
+      "topic": "Cap la cap, în răspăr cu clasamentul",
+      "fact": "Oţelul conduce la cap la cap cu 5 victorii din ultimele 9 confruntări directe (2 pentru Farul, 2 egaluri), deși e cu 6 puncte și 7 locuri sub Farul în acest sezon.",
+      "source": "h2h.recent, pachetul de meci"
+    },
+    {
+      "topic": "Rui Duarte, încă în căutarea primei victorii",
+      "fact": "Portughezul a fost numit la Oţelul pe 28 septembrie 2026, în locul lui Stjepan Tomaš (demis după al treilea eșec la rând); în primele două meciuri a avut o înfrângere (0-1 cu FCSB) și o remiză (1-1 cu Csikszereda).",
+      "source": "Wikipedia (Stjepan Tomas), informat.ro, flashscore.ro"
+    },
+    {
+      "topic": "Marincean, 17 ani, deja urmărit de Benfica",
+      "fact": "Crescut la Academia Hagi, a plecat de acasă din Sighet la 12 ani; pe 3 noiembrie 2025, la 16 ani, a devenit primul jucător născut în 2009 din academie care a jucat în Liga I. Benfica a făcut o ofertă inițială de circa 400.000 de euro în vara lui 2026.",
+      "source": "spotmedia.ro, abola.pt, fanatik.ro"
+    },
+    {
+      "topic": "Farul, 0 din 2 la penalty-uri",
+      "fact": "Farul n-a transformat niciun penalty în acest sezon: 2 execuții, 2 ratate (0%).",
+      "source": "form.stats, API-Football"
+    },
+    {
+      "topic": "Sabău și precedentul european",
+      "fact": "În 2009-10, pe banca Politehnicii Timișoara, Sabău a eliminat-o pe deținătoarea Cupei UEFA, Shakhtar Donețk, în preliminariile Ligii Campionilor.",
+      "source": "Wikipedia (Ioan Ovidiu Sabău)"
+    },
+    {
+      "topic": "Vestiar lusitan la Oţelul",
+      "fact": "Miguel Silva, Rafael Brito, Pedro Nuno și Andrézinho sunt portughezi, iar noul antrenor, Rui Duarte, le este compatriot — al cincilea portughez într-un singur club din Superliga.",
+      "source": "squad-ul din pachet, confirmat pe nat per jucător"
+    }
   ],
   "predictions": {
     "winnerName": "Farul Constanta",
@@ -1267,11 +1368,61 @@
         "apiId": 28825,
         "name": "Ioan Sabau",
         "photo": "https://media.api-sports.io/football/coachs/28825.png",
-        "country": null,
-        "age": null,
-        "birthDate": null,
-        "tenureFrom": "2026-07",
+        "country": "Romania",
+        "age": 58,
+        "birthDate": "1968-02-12",
+        "tenureFrom": "2026-06",
         "career": [
+          {
+            "club": "Universitatea Cluj",
+            "period": "2000–2001",
+            "note": "a promovat echipa în Liga a II-a, apoi a plecat"
+          },
+          {
+            "club": "Gaz Metan Mediaș",
+            "period": "2003–2005",
+            "note": null
+          },
+          {
+            "club": "Gloria Bistrița",
+            "period": "2005–2009",
+            "note": "cea mai bună clasare, locul 6 în 2006-07; a salvat echipa de la retrogradare în 2009, apoi a demisionat"
+          },
+          {
+            "club": "FC Politehnica Timișoara",
+            "period": "2009–2010",
+            "note": "a eliminat Shakhtar Donețk în preliminariile Ligii Campionilor; locul 5 în Liga I 2009-10"
+          },
+          {
+            "club": "FCM Târgu Mureș",
+            "period": "2010–2011",
+            "note": null
+          },
+          {
+            "club": "FCM Târgu Mureș",
+            "period": "2012",
+            "note": "al doilea mandat"
+          },
+          {
+            "club": "Rapid București",
+            "period": "2012",
+            "note": null
+          },
+          {
+            "club": "ASA Târgu Mureș",
+            "period": "2013–2014",
+            "note": null
+          },
+          {
+            "club": "Universitatea Cluj",
+            "period": "2023",
+            "note": "finala Cupei României, pierdută la loviturile de departajare cu Sepsi OSK"
+          },
+          {
+            "club": "Universitatea Cluj",
+            "period": "2023–2025",
+            "note": "al doilea mandat, demisie în octombrie 2025"
+          },
           {
             "club": "Farul Constanta",
             "period": "2026–prezent",
@@ -1287,8 +1438,20 @@
           "În prezent, Sabău este antrenorul echipei Farul Constanța din Liga I, după ce a demisionat de la Universitatea Cluj în octombrie 2025."
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
+      "formation": "3-4-3",
+      "predictedXI": [
+        { "apiId": 396210, "number": 12, "name": "Rafael Munteanu", "pos": "GK" },
+        { "apiId": 128375, "number": 6, "name": "Victor Dican", "pos": "LCB" },
+        { "apiId": 43157, "number": 17, "name": "Ionuț Larie", "pos": "CB" },
+        { "apiId": 302946, "number": 4, "name": "Gustavo Marins", "pos": "RCB" },
+        { "apiId": 47126, "number": 11, "name": "Cristian Ganea", "pos": "LM" },
+        { "apiId": 178572, "number": 23, "name": "Tony Njiké", "pos": "LCM" },
+        { "apiId": 87321, "number": 70, "name": "Mattéo Ahlinvi", "pos": "RCM" },
+        { "apiId": 174974, "number": 24, "name": "Sofyane Bouzamoucha", "pos": "RM" },
+        { "apiId": 43097, "number": 8, "name": "Ionuț Vînă", "pos": "LW" },
+        { "apiId": 522179, "number": 99, "name": "Răzvan Marincean", "pos": "RW" },
+        { "apiId": 322177, "number": 20, "name": "Eduard Rădăslăvescu", "pos": "ST" }
+      ],
       "confirmedXI": null,
       "substitutes": null,
       "squad": [
@@ -1424,7 +1587,7 @@
           ],
           "role": "GK",
           "age": 20,
-          "height": null,
+          "height": 190,
           "weight": null,
           "foot": null,
           "nat": "ROU",
@@ -1493,8 +1656,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "doubt",
+          "statusNote": "accidentat conform presei înaintea rundei cu Universitatea Craiova (18 oct.); statut neconfirmat pentru acest meci",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -1851,7 +2014,7 @@
         {
           "apiId": 452875,
           "number": 33,
-          "name": "JoÃ£o VÃ­tor",
+          "name": "João Vítor",
           "photo": "https://media.api-sports.io/football/players/452875.png",
           "pos": "DEF",
           "positions": [
@@ -2054,8 +2217,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "doubt",
+          "statusNote": "accidentat conform presei înaintea rundei cu Universitatea Craiova (18 oct.); statut neconfirmat pentru acest meci",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -2291,7 +2454,7 @@
           ],
           "role": "DEF",
           "age": 26,
-          "height": null,
+          "height": 189,
           "weight": null,
           "foot": null,
           "nat": "ROU",
@@ -2598,7 +2761,7 @@
           ],
           "role": "ATT",
           "age": 22,
-          "height": null,
+          "height": 180,
           "weight": null,
           "foot": null,
           "nat": "ROU",
@@ -2804,8 +2967,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": "În 4 dueluri directe recente cu Oţelul: 1 gol — 09.05.2026 (min. 66).",
-          "status": "available",
-          "statusNote": null,
+          "status": "doubt",
+          "statusNote": "suspendat conform presei înaintea rundei cu Universitatea Craiova (18 oct.), nu a fost folosit în acel meci; statut neconfirmat pentru acest meci",
           "stats": {
             "goals": 1,
             "assists": 2,
@@ -2934,8 +3097,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "doubt",
+          "statusNote": "incert conform presei înaintea rundei cu Universitatea Craiova (18 oct.); statut neconfirmat pentru acest meci",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -3049,18 +3212,18 @@
             "ATT"
           ],
           "role": "ATT",
-          "age": 16,
+          "age": 17,
           "height": null,
           "weight": null,
           "foot": null,
-          "nat": null,
+          "nat": "ROU",
           "natTeam": null,
-          "birthCountry": null,
+          "birthCountry": "Romania",
           "birthDate": null,
           "pronunciation": null,
           "career": "Farul Constanta (2025–prezent)",
           "lastSeason": null,
-          "funfact": null,
+          "funfact": "Format la Academia Hagi, a plecat de acasă, din Sighet, la 12 ani; pe 3 noiembrie 2025, la 16 ani, a devenit primul jucător născut în 2009 din academie care a jucat în Liga I. Benfica a arătat interes pentru el în vara lui 2026.",
           "linkLine": null,
           "status": "available",
           "statusNote": null,
@@ -4698,7 +4861,32 @@
           "losesAway": 3
         }
       },
-      "absences": [],
+      "absences": [
+        {
+          "name": "Denis Alibec",
+          "reason": "suspension",
+          "detail": "suspendat conform presei înaintea rundei cu Universitatea Craiova (18 oct.); nu a fost folosit în acel meci. Statut neconfirmat pentru acest meci.",
+          "since": "2026-10"
+        },
+        {
+          "name": "Dan Sîrbu",
+          "reason": "injury",
+          "detail": "accidentat conform presei înaintea rundei cu Universitatea Craiova (18 oct.). Statut neconfirmat pentru acest meci.",
+          "since": "2026-10"
+        },
+        {
+          "name": "Nabil Aberdin",
+          "reason": "injury",
+          "detail": "accidentat conform presei înaintea rundei cu Universitatea Craiova (18 oct.). Statut neconfirmat pentru acest meci.",
+          "since": "2026-10"
+        },
+        {
+          "name": "Muhamet Hyseni",
+          "reason": "doubt",
+          "detail": "incert conform presei înaintea rundei cu Universitatea Craiova (18 oct.). Statut neconfirmat pentru acest meci.",
+          "since": "2026-10"
+        }
+      ],
       "mercatoIn": [
         {
           "name": "Y. Kitala",
@@ -4756,7 +4944,7 @@
           "fee": null
         },
         {
-          "name": "D. PÄcuraru",
+          "name": "D. Păcuraru",
           "from": "Concordia (împrumut)",
           "fee": null
         },
@@ -4838,7 +5026,7 @@
           "fee": null
         },
         {
-          "name": "È. DuÈu",
+          "name": "Ș. Duțu",
           "to": "Popești-Leordeni (împrumut)",
           "fee": null
         },
@@ -4915,39 +5103,40 @@
       ],
       "preseason": [],
       "news": [],
-      "newsCandidates": [
+      "stories": [
         {
-          "title": "Arges Pitesti vs UTA Arad Prediction, Betting Tips, Lineups & Odds | 24 Oct 2026",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQR2NSd0dQRUNCd1NBTmpEQWZxa1FwdzlUSk11cGpYNUVYN1kySmNNU3ViOW10dC1zV2hiQzZhdlZGdk5ndWEzcmk1eERKNkpCUXJDODRUa3FfdFE4VHhoZlM5dThKaFRDWTloRV80WmVQVFkwWVBGZ3haLTBWY0UtZktrb0lOSG44YlJfVHh1NVZaQzBtYXVRZmlhamRYbUF0cGY3STNGU05WQm5pcjBjQmNsVQ?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-10-22"
+          "title": "Sabău, reconstrucția de la malul mării",
+          "bullets": [
+            "Instalat pe banca Farului în iunie 2026, la peste 25 de ani de la debutul ca antrenor (Universitatea Cluj, 2000).",
+            "A ajuns în 2009-10, cu Politehnica Timișoara, până la eliminarea deținătoarei Cupei UEFA, Shakhtar Donețk, în preliminariile Champions League.",
+            "Preferă schema 3-4-3: folosită în 8 din primele 13 meciuri ale sezonului.",
+            "A plecat de la Universitatea Cluj în octombrie 2025, după o finală de Cupa României pierdută la penalty-uri (2023)."
+          ]
         },
         {
-          "title": "Botosani vs Petrolul Ploiesti Prediction, Betting Tips, Lineups & Odds | 23 Oct 2026",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQWDZheXRmMVpWUUpaZlk5b1pJWXpLWGwya09vVzhPWFg1SmRQa3UyaDJrcFRLSDRvOHg2Z0JnVEJEbUt3SHRIVzU0YlBBODlxWUJQYmlaWkN4WjdmMG15bEZVWG43V0dpeVlfTGJ0djFpM0wwcWc2ZTU0V2VPOFQ5cDIyOS1GTTM1NVdBeDllZHphbTRQVGQ5WlcxdWxTcXhvU3BKQ2ZCREczZWFHNG04anFwdmdSa3RR?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-10-21"
+          "title": "Fortăreața de la Ovidiu, pustiu în deplasare",
+          "bullets": [
+            "Acasă: 4 victorii și o remiză din 5 meciuri; în deplasare: 0 victorii din 7 (0-4-3).",
+            "2 clean sheet-uri acasă față de 1 în deplasare; a ratat să înscrie o singură dată acasă, dar de 3 ori în deplasare.",
+            "Medie de goluri marcate: 2,4/meci acasă, doar 0,7/meci în deplasare."
+          ]
         },
         {
-          "title": "FC Rapid 1923 Sa - Farul Constanţa, Result, Match Info",
-          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQaWxqV2RXSkptdnk2WHBtVTE1R3l0cHg2a1VtYkxTSUxqUWFPb0NFa2NMTlJidFI2T0tIaS1vUTB6SlVONHBDeXNLLWxHNzhmV01ESG4xUkl2UGlFYWpsMld4N3l5MklmX0dSOWxyZWQzZW1JTFl1cFZSN1R2bFA0Mw?oc=5",
-          "source": "Forza Football",
-          "published": "2026-10-20"
+          "title": "Marincean, următorul val al Academiei Hagi",
+          "bullets": [
+            "17 ani, a plecat de acasă din Sighet la 12 ani pentru a se pregăti la academie.",
+            "Pe 3 noiembrie 2025, la 16 ani, a devenit primul jucător născut în 2009 din academie care a jucat în Liga I.",
+            "Benfica a arătat interes pentru el în vara lui 2026, cu o ofertă inițială de aproximativ 400.000 de euro."
+          ]
         },
         {
-          "title": "Inter Club d’Escaldes vs Universitatea Craiova Preview & Prediction | 2026-27 UEFA Conference League | League Phase",
-          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOcG5JZndYMm1JSGk3VEd3YmxFbFFSWkZxeVF1MTlWeUlPY19VcTU3YlhYVVpKcEFRQnN1U2lBMVJxVUtuZGZrUkcwRGZzb0s2U1ZkaTlmSU1NbVU4NUp2eTd5SnJra21WZkF1dlJOZTkwRWRBVlU4LXpkTEU4YVQzUUVSVmdrY1lyYWtvMUxGeEdQcWdEc1FYTWdXanVrenQwRXVRc1pDbjJVRHZYaDNTUWRhSW1BQTZHcEJNaW1zdERPdzc4VFh3ZGNpTW9VZ1duVUNnNm1PQXNIYUQ2?oc=5",
-          "source": "The Stats Zone",
-          "published": "2026-10-19"
-        },
-        {
-          "title": "FC Voluntari vs FCSB Prediction, Betting Tips, Lineups & Odds | 19 Oct 2026",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQb1FBalRXb3JqV1FnVUt0dkZqQ3dJcjV3aFlEYW00LWtSX0xYMFFTSURqV0kzV1RQa1pxaFN4dUdOOFJfd052M2hGQnpmY0djR0JselByWXRhdnRrZk9DbGh4VV93ZmhKVm54ZS1BVS1kTUhQanVBQkdyVU1iMUFFb0VpUGJOOTBQOE5YTVZGT2FKb3ljelZHb2ZXSklRdS11eEYtQW9pOHJDcnBK?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-10-19"
+          "title": "Generații la distanță de 22 de ani în același lot",
+          "bullets": [
+            "Ionuț Larie, 39 de ani, cel mai vârstnic jucător din lot, e coleg cu Marincean (17) și Goncear (16).",
+            "Cristian Ganea, 34 de ani, revenit la Farul în 2023 după un periplu prin Grecia (Aris, Panathinaikos), e un reper de experiență în fața unei linii de atac tânără."
+          ]
         }
       ],
-      "stories": [],
       "clubFacts": [
         "FCV Farul Constanța a fost înființat în 1920 sub numele SPM Constanța (Serviciul Porturi Maritime) și a purtat acest nume până în 1946, când a fost redenumit PCA Constanța (Porturi Comunicații Ape).",
         "În 2021, Farul a fuzionat cu Viitorul Constanța; înainte de fuziune, cele mai bune clasări ale Farului în campionat au fost trei locuri patru.",
@@ -4966,23 +5155,70 @@
       "logo": "https://media.api-sports.io/football/teams/6886.png",
       "colors": null,
       "coach": {
-        "apiId": 28876,
-        "name": "Stjepan Tomas",
-        "photo": "https://media.api-sports.io/football/coachs/28876.png",
-        "country": null,
-        "age": null,
-        "birthDate": null,
-        "tenureFrom": "2026-07",
+        "apiId": null,
+        "name": "Rui Duarte",
+        "photo": null,
+        "country": "Portugal",
+        "age": 48,
+        "birthDate": "1978-09-16",
+        "tenureFrom": "2026-09",
         "career": [
+          {
+            "club": "Farense",
+            "period": "2015–2019",
+            "note": "antrenor secund (2015–17), apoi antrenor principal (2017–19)"
+          },
+          {
+            "club": "Casa Pia",
+            "period": "2019",
+            "note": null
+          },
+          {
+            "club": "Trofense",
+            "period": "2020–2021",
+            "note": "campion Campeonato de Portugal 2020-21"
+          },
+          {
+            "club": "Braga U23",
+            "period": "2022–2024",
+            "note": null
+          },
+          {
+            "club": "Braga",
+            "period": "2024",
+            "note": "antrenor interimar la prima echipă"
+          },
+          {
+            "club": "Maritimo",
+            "period": "2024–2025",
+            "note": null
+          },
+          {
+            "club": "Athletic Club (Brazilia)",
+            "period": "2025–2026",
+            "note": "Seria B braziliană, plecat în februarie 2026"
+          },
           {
             "club": "Oţelul",
             "period": "2026–prezent",
-            "note": null
+            "note": "numit în locul lui Stjepan Tomaš, al cărui contract a fost reziliat de comun acord pe 22 septembrie 2026, după un 2-3 cu Corvinul Hunedoara (a treia înfrângere la rând)"
           }
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
+      "formation": "4-2-3-1",
+      "predictedXI": [
+        { "apiId": 42534, "number": 1, "name": "Cosmin Dur-Bozoancă", "pos": "GK" },
+        { "apiId": 78468, "number": 44, "name": "Dominick Zator", "pos": "LB" },
+        { "apiId": 26826, "number": 3, "name": "Giannis Christopoulos", "pos": "LCB" },
+        { "apiId": 43086, "number": 6, "name": "Paul Iacob", "pos": "RCB" },
+        { "apiId": 96326, "number": 28, "name": "Miguel Silva", "pos": "RB" },
+        { "apiId": 134822, "number": 8, "name": "Rafael Brito", "pos": "DM" },
+        { "apiId": 112902, "number": 39, "name": "Teodor Lungu", "pos": "CM" },
+        { "apiId": 666925, "number": 77, "name": "Alexandru Balanica", "pos": "LM" },
+        { "apiId": 41127, "number": 27, "name": "Pedro Nuno", "pos": "CAM" },
+        { "apiId": 119291, "number": 10, "name": "Andrézinho", "pos": "RM" },
+        { "apiId": 41452, "number": 9, "name": "Patrick", "pos": "ST" }
+      ],
       "confirmedXI": null,
       "substitutes": null,
       "squad": [
@@ -5957,7 +6193,7 @@
           ],
           "role": "MID",
           "age": 31,
-          "height": null,
+          "height": 180,
           "weight": null,
           "foot": null,
           "nat": "MDA",
@@ -5967,7 +6203,7 @@
           "pronunciation": null,
           "career": "Sfîntul Gheorghe (2018–2021) · ACS Foresta Suceava (2019) · Petrocub (2022–2025) · Oţelul (2026–prezent)",
           "lastSeason": null,
-          "funfact": null,
+          "funfact": "A cucerit campionatul Moldovei cu Petrocub Hîncești în 2024, înainte de a veni la Oţelul ca jucător liber de contract; deține și cetățenia română.",
           "linkLine": null,
           "status": "available",
           "statusNote": null,
@@ -6134,7 +6370,7 @@
         {
           "apiId": 666925,
           "number": 77,
-          "name": "A. Balanica",
+          "name": "Alexandru Balanica",
           "photo": "https://media.api-sports.io/football/players/666925.png",
           "pos": "MID",
           "positions": [
@@ -8318,12 +8554,12 @@
         },
         {
           "name": "L. Andronache",
-          "to": "Andronache Luca",
+          "to": null,
           "fee": null
         },
         {
           "name": "Ș. Farcaș",
-          "to": "Farcas Stefan",
+          "to": null,
           "fee": null
         },
         {
@@ -8339,8 +8575,31 @@
       ],
       "preseason": [],
       "news": [],
-      "newsCandidates": [],
-      "stories": []
+      "stories": [
+        {
+          "title": "Al treilea antrenor în câteva luni",
+          "bullets": [
+            "Laszlo Balint a demisionat în play-out, Stjepan Tomaš a fost numit în martie 2026 și și-a prelungit contractul după un final de sezon bun.",
+            "Tomaš a fost demis pe 22 septembrie 2026, de comun acord, după a treia înfrângere la rând (2-3 cu Corvinul Hunedoara).",
+            "Rui Duarte, portughez, venit după un sezon în liga a doua braziliană, e încă în căutarea primei victorii: 0-1 cu FCSB, 1-1 cu Csikszereda."
+          ]
+        },
+        {
+          "title": "Prăbușire în ultima jumătate de oră",
+          "bullets": [
+            "8 din cele 17 goluri primite (47%) vin între minutele 61 și 90.",
+            "O treime din cartonașele galbene (8 din 24) și jumătate dintre cele roșii (2 din 4) au venit în ultimele 15 minute.",
+            "Formă: un singur punct din ultimele 5 etape (D-L-L-L-L)."
+          ]
+        },
+        {
+          "title": "Legiunea lusitană din vestiar",
+          "bullets": [
+            "Miguel Silva, Rafael Brito, Pedro Nuno și Andrézinho sunt toți portughezi — iar noul antrenor, Rui Duarte, le este compatriot.",
+            "Teodor Lungu, moldovean cu cetățenie română, a venit liber de contract după ce a cucerit campionatul Moldovei cu Petrocub Hîncești (2024)."
+          ]
+        }
+      ]
     }
   },
   "standings": {
