@@ -1,11 +1,35 @@
 {
   "slug": "l1-e8-paris-saint-germain-lyon",
   "generatedAt": "2026-10-23T07:43:22.509Z",
-  "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "Footmercato - fise arbitri Ligue 1",
+      "url": "https://www.footmercato.net/france/ligue-1/2025-2026/arbitre",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "Wikipedia - Jerome Brisard",
+      "url": "https://en.wikipedia.org/wiki/J%C3%A9r%C3%B4me_Brisard",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "beIN Sports - transferuri PSG/Lyon vara 2026",
+      "url": "https://www.beinsports.com/en-us/soccer/ligue-1/articles/akliouche-swaps-monaco-for-psg-in-50m-deal-2026-08-06",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "Olympique Lyonnais - anunturi oficiale transferuri",
+      "url": "https://www.getfootballnewsfrance.com/2026/lyon-set-to-complete-malick-fofanas-medical-with-crystal-palace-and-sunderland-awaiting-transfer-decision/",
+      "accessed": "2026-10-23"
+    },
+    {
+      "name": "RMC Sport - Hoffenheim-OL",
+      "url": "https://rmcsport.bfmtv.com",
       "accessed": "2026-10-23"
     }
   ],
@@ -15,7 +39,7 @@
     "country": "FR",
     "logo": "https://media.api-sports.io/football/leagues/61.png"
   },
-  "kickoff": "2026-10-25T21:45:00+02:00",
+  "kickoff": "2026-10-25T20:45:00+01:00",
   "venue": {
     "name": "Parc des Princes",
     "capacity": 47929,
@@ -35,13 +59,13 @@
     }
   },
   "referee": {
-    "name": "Jerome Brisard",
-    "country": null,
-    "age": null,
-    "apps": null,
-    "ycPerMatch": null,
-    "rcPerMatch": null,
-    "history": null
+    "name": "Jérôme Brisard",
+    "country": "France",
+    "age": 40,
+    "apps": 17,
+    "ycPerMatch": 4.41,
+    "rcPerMatch": 0.41,
+    "history": "A arbitrat PSG de 26 de ori (18 victorii, 3 egaluri, 5 înfrângeri) și Lyon de 24 de ori (8 victorii, 5 egaluri, 11 înfrângeri); singurul lor duel direct cu el la centru a fost finala Cupei Ligii 2020, câștigată de PSG la penalty-uri după 0-0."
   },
   "h2h": {
     "recent": [
@@ -1366,7 +1390,13 @@
     "Paris Saint Germain — 6 din 14 goluri marcate după minutul 75.",
     "Ferran Torres e cel mai bun marcator al echipei Paris Saint Germain în acest start de sezon (4 goluri).",
     "Lyon — locul 1 după 7 etape, 14 puncte, golaveraj 13-5.",
-    "Cap la cap (10 meciuri): Paris Saint Germain 7 - 1 - 2 Lyon."
+    "Cap la cap (10 meciuri): Paris Saint Germain 7 - 1 - 2 Lyon.",
+    "Lyon se prezintă la Paris fără 7 jucători: Pavel Šulc și Lois Openda (ambii atacanți) accidentați, Keito Nakamura suspendat după un cartonaș roșu, plus Mohamed Ouédraogo, Nicolás Tagliafico, Steeve Kango și Alpha Hamdani indisponibili.",
+    "PSG are și el lotul subțiat în fața porții adverse: Ousmane Dembélé, Khvicha Kvaratskhelia, Marquinhos și Nuno Mendes sunt toți accidentați.",
+    "PSG a transformat un singur penalty din trei executate în acest sezon de Ligue 1 (o reușită, două rateuri); Lyon nu a avut niciun penalty acordat.",
+    "Profil similar de final de meci: 43% din golurile lui PSG (6 din 14) și 31% din cele ale lui Lyon (4 din 13) au venit în ultimele 15 minute.",
+    "Lyon are cea mai bună defensivă dintre echipele de pe primele două locuri — doar 5 goluri primite în 7 etape — și 3 clean sheet-uri, față de 1 pentru PSG.",
+    "Vară contrastantă pe piața transferurilor: PSG a cheltuit aproape 100 M€ pe Ferran Torres și Maghnes Akliouche, în timp ce Lyon a fost obligat să vândă (Fofana, Maitland-Niles, De Carvalho) pentru a echilibra bugetul."
   ],
   "predictions": {
     "winnerName": "Paris Saint Germain",
@@ -1407,10 +1437,13 @@
   "teams": {
     "home": {
       "name": "Paris Saint Germain",
-      "shortName": null,
+      "shortName": "PSG",
       "nickname": "Roș-albaștrii",
       "logo": "https://media.api-sports.io/football/teams/85.png",
-      "colors": null,
+      "colors": {
+        "primary": "#041E42",
+        "secondary": "#DA291C"
+      },
       "coach": {
         "apiId": 193,
         "name": "Luis Enrique",
@@ -1579,8 +1612,75 @@
           }
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
+      "formation": "4-3-3",
+      "predictedXI": [
+        {
+          "apiId": 2068,
+          "number": 39,
+          "name": "M. Safonov",
+          "pos": "GK"
+        },
+        {
+          "apiId": 9,
+          "number": 2,
+          "name": "A. Hakimi",
+          "pos": "RB"
+        },
+        {
+          "apiId": 161671,
+          "number": 6,
+          "name": "I. Zabarnyi",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 16367,
+          "number": 51,
+          "name": "W. Pacho",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 2724,
+          "number": 12,
+          "name": "L. Digne",
+          "pos": "LB"
+        },
+        {
+          "apiId": 335051,
+          "number": 87,
+          "name": "João Neves",
+          "pos": "DM"
+        },
+        {
+          "apiId": 128384,
+          "number": 17,
+          "name": "Vitinha",
+          "pos": "RCM"
+        },
+        {
+          "apiId": 328,
+          "number": 8,
+          "name": "Fabián Ruiz",
+          "pos": "LCM"
+        },
+        {
+          "apiId": 931,
+          "number": 9,
+          "name": "Ferran Torres",
+          "pos": "RW"
+        },
+        {
+          "apiId": 343027,
+          "number": 14,
+          "name": "D. Doué",
+          "pos": "ST"
+        },
+        {
+          "apiId": 274300,
+          "number": 11,
+          "name": "M. Akliouche",
+          "pos": "LW"
+        }
+      ],
       "confirmedXI": null,
       "substitutes": null,
       "squad": [
@@ -4839,7 +4939,7 @@
         {
           "name": "Ferran Torres",
           "from": "Barcelona",
-          "fee": null
+          "fee": "~50 M€ (Barcelona)"
         },
         {
           "name": "L. Digne",
@@ -4849,7 +4949,7 @@
         {
           "name": "M. Akliouche",
           "from": "Monaco",
-          "fee": null
+          "fee": "~50 M€ (Monaco)"
         },
         {
           "name": "A. Longoni",
@@ -5005,58 +5105,54 @@
         }
       ],
       "preseason": [],
-      "news": [],
-      "newsCandidates": [
+      "news": [
         {
-          "title": "Team A vs Team B Football Playing XI | Confirmed Team Line-ups & Substitutes",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQMHRmU2RSM1pyTjRaRVFrRGFNZ0syZjVHcm5HYjJ5c3luUk9IWnYtQmRqSXA0cGZLZl9udTFLNlg3eHJRS3o3UTRTN1ZVNVp2bGFvcjkzY2JneGdLQ3ZJNjllMklRMjZkSks2WDlFd0k0bk9henE4YURLMTFwaUxZbkJDWk1CU0k?oc=5",
-          "source": "Firstpost",
-          "published": "2026-10-23"
+          "date": "2026-10-22",
+          "text": "Luis Enrique analizează trei variante pentru a-l înlocui pe Khvicha Kvaratskhelia, accidentat la genunchi, în așteptarea unui diagnostic complet."
         },
         {
-          "title": "Preview: Paris Saint-Germain vs Lyon - prediction, team news, lineups",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNR1VFQVhSckx2UDNQMGF5TDdvMDJia2dWWDlib2p2T21LdkRMZ3p2bnM2bTdIdDV2Y05hemhvQkwwdWZpWDZHMV8wWm1Kd3NzaXZLMFFib0ZJcnVxeThzSmlQd3JHeW5CWXNhSWhSLWkxdm4wTnNuOXVQa2hjWW9lTG5nQnp4S2dQWXd3ZUs5U1UtNTYwelZ2dUJvLXk5Z2xhUF9tMQ?oc=5",
-          "source": "Sports Mole",
-          "published": "2026-10-23"
+          "date": "2026-10-22",
+          "text": "Contractul lui Kvaratskhelia ar putea fi prelungit de club chiar și în condițiile accidentării grave la genunchi, potrivit presei britanice."
         },
         {
-          "title": "PSG not planning to sign new goalkeeper this winter, despite rumours",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQVWNHQXhXdUo3X2FZSENUSWR2b3VuMTRrN3M0SFQ0cjg2bjQ2VzFfQ1FDTU03WHNrejNUY195R3NxOWtSS0M3NVRWMy1ZSVoxdUF2ZlRUUW95dVpaVWhDM1RzMWY0amZlUjR5eEpsd2o0UjhJNUNVeUk5UUNwNUVSYjBmNlA1MEFD?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "PSG manager Luis Enrique weighs three options to replace Kvicha Kvaratskhelia",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQczlldldEY1AtMnRvWHY0MXd6U2d5M0lVek96RXRfTmUyUzl3Sks2bm9oeUJmRm10UHhja04yYlRJTHNpN3U2d2ZfQnUtZ1FacDc5azdLUzBtbnhVWkhWR2xHTHE3MHl2ZlRKTmx4bEpsZ0cyZk1BY2tDSUFtVldhQlIwemlXLVU?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "PSG look to extend Khvicha Kvaratskhelia’s contract, despite ACL injury",
-          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPNHRpc0NjeGZzVVZRMWxpT0x6a2hFUFhnTzNnejJYSUpWU3A1ZUlRY0wzOVQ0V2p6RXFwaVAweXdIMlVEd1ZiSnJkQzlNOXFlTUZPeW1YYXhrTHhmYXdmdUJVeXo5NjN2OFZBM01VbjhtbnlmT0xMRXZQbEpWT2Y1Rkt0S0dKU1BnN1RxYmJNNA?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Timescale for Ousmane Dembélé’s return revealed",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNRTRYWklWcnlVX0pUa0tkOHpEVHVHajVyRzE1UzE2Z0NKMTd3MG9IUmNMM1lVRkFuXzNRT3NHbzNOS2gyVTB6NDRJT1ZVSjBHcUtwb041UEdWMzctN21VWkhuOWhMdzBnc2lGMnRQanV4eXp6T0VydDUwSk90TVNVN1ZsYjlfS2M?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Barcelona report Paris Saint-Germain to UEFA over tifo display",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOQkRBcmNEZUFybEUtUTY5MHFFUTF1SlVtM2Vmb1hhcVBEWlhEMFV2VGM0UGdvYXhnOHdmUTFyaU5Qbk8waHNoZlRyMGVwcjZVWlRLSDJMVTNvNzVfRmpjS3VJcUNpZWFaZWo3TUpaZlNHRV9uVWFXOTF6X1Zla0sybTdDdE5Ca0NlaTZGYkdtQWFhYkhlRFd3OEh0QU4yTVdVVUhxMnVacW1rUDMtQ0RN?oc=5",
-          "source": "Inside World Football",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Aston Villa - Paris Saint-Germain Related Matches: Live Football Updates",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNcTd4SFZ2N0c0WWgwckkxaWt0LTZoUHdXdkU4dnIzRGYxU05UX2RQd3BZV3RtSVAwREFlN192OWRZWGhJcEh3a2s5TXFzNkdJYl9vNDR5TEZWT2hnalBTd0IxTFFycDJnTmV1MzlFWTUtanNYZW5CNWRxek1vV3R1ZHZNbTQ0TEF3b2Z6VWR4VHYtSDhxTnZaZFp6MmhMMGRtWVBsTVQ4QkRGYnA2eV9QdjRMalhLb3Vpai0xYlRnWUlVRngw?oc=5",
-          "source": "TNT Sports",
-          "published": "2026-10-22"
+          "date": "2026-10-22",
+          "text": "A fost dezvăluit un calendar estimativ pentru revenirea lui Ousmane Dembélé, accidentat la coapsă — fotbalistul va rata meciul cu Lyon."
         }
       ],
-      "stories": [],
+      "stories": [
+        {
+          "title": "Fără Dembélé și Kvaratskhelia",
+          "bullets": [
+            "Doi dintre marcatorii de top ai lui PSG din ultimele sezoane sunt indisponibili: Ousmane Dembélé (coapsă) și Khvicha Kvaratskhelia (genunchi).",
+            "Clubul discută totuși o prelungire de contract cu Kvaratskhelia în paralel cu recuperarea acestuia.",
+            "Luis Enrique are alternative pe bandă: Désiré Doué, Maghnes Akliouche și Ferran Torres, acesta din urmă golgheterul echipei cu 4 goluri."
+          ]
+        },
+        {
+          "title": "Sextuplul și seria de forma",
+          "bullets": [
+            "PSG vine după 6 victorii consecutive în toate competițiile, incluzând un 4-2 cu Barcelona în Champions League.",
+            "Echipa a câștigat Liga Campionilor în 2025, sub Luis Enrique, într-un sezon încheiat cu un sextuplu fără precedent în fotbalul francez.",
+            "Pe teren propriu, bilanțul din acest sezon de Ligue 1 e strâns: o victorie și o înfrângere din două meciuri disputate la Parc des Princes."
+          ]
+        },
+        {
+          "title": "Mercato de aproape 100 de milioane pe bandă",
+          "bullets": [
+            "Ferran Torres a venit de la Barcelona pentru circa 50 M€, după finala Cupei Mondiale câștigată cu Spania.",
+            "Maghnes Akliouche a costat o sumă similară, circa 50 M€, de la Monaco, în fața concurenței anunțate de Liverpool.",
+            "Ambii au semnat contracte pe termen lung — Akliouche până în 2031 — și sunt candidați la un loc în primul 11 de duminică."
+          ]
+        },
+        {
+          "title": "Atac exploziv, dar inconsecvent la 11 metri",
+          "bullets": [
+            "PSG a marcat 14 goluri în 7 etape, cel mai prolific atac de pe primele două locuri alături de Lyon, dar a ratat 2 din 3 penalty-uri executate în acest sezon.",
+            "43% din golurile echipei (6 din 14) au venit după minutul 75, semn al unei bănci care schimbă ritmul meciurilor.",
+            "În același timp, PSG a primit 9 goluri în 7 meciuri — cea mai slabă cifră defensivă dintre echipele de pe podiumul campionatului."
+          ]
+        }
+      ],
       "clubFacts": [
         "Paris Saint-Germain a fost fondat pe 12 august 1970, prin fuziunea dintre Paris FC și Stade Saint-Germain.",
         "În 1972, cele două cluburi fondatoare s-au separat: Paris FC a rămas în Ligue 1, iar PSG a fost retrogradat administrativ în Division 3, revenind în Ligue 1 abia în 1974.",
@@ -5070,10 +5166,13 @@
     },
     "away": {
       "name": "Lyon",
-      "shortName": null,
+      "shortName": "OL",
       "nickname": "Les Gones",
       "logo": "https://media.api-sports.io/football/teams/80.png",
-      "colors": null,
+      "colors": {
+        "primary": "#0F4C92",
+        "secondary": "#E4002B"
+      },
       "coach": {
         "apiId": 2431,
         "name": "Paulo Fonseca",
@@ -5228,8 +5327,75 @@
           "A mai pregătit AS Roma, Lille și AC Milan, iar din ianuarie 2025 este antrenorul lui Lyon."
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
+      "formation": "4-2-3-1",
+      "predictedXI": [
+        {
+          "apiId": 61142,
+          "number": 1,
+          "name": "D. Greif",
+          "pos": "GK"
+        },
+        {
+          "apiId": 396380,
+          "number": 13,
+          "name": "Z. Athekame",
+          "pos": "RB"
+        },
+        {
+          "apiId": 25916,
+          "number": 19,
+          "name": "M. Niakhaté",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 68,
+          "number": 22,
+          "name": "Clinton Mata",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 9700,
+          "number": 16,
+          "name": "Abner",
+          "pos": "LB"
+        },
+        {
+          "apiId": 80752,
+          "number": 6,
+          "name": "T. Tessmann",
+          "pos": "DM"
+        },
+        {
+          "apiId": 162189,
+          "number": 2,
+          "name": "M. Bidstrup",
+          "pos": "CM"
+        },
+        {
+          "apiId": 361352,
+          "number": 99,
+          "name": "N. Nartey",
+          "pos": "RW"
+        },
+        {
+          "apiId": 368230,
+          "number": 24,
+          "name": "J. Duranville",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 350856,
+          "number": 7,
+          "name": "E. Nuamah",
+          "pos": "LW"
+        },
+        {
+          "apiId": 405237,
+          "number": 26,
+          "name": "K. Boudache",
+          "pos": "ST"
+        }
+      ],
       "confirmedXI": null,
       "substitutes": null,
       "squad": [
@@ -7047,198 +7213,6 @@
             "A fost transferat la Juventus pe 1 septembrie 2025, iar obligația de cumpărare, de circa 40,6 milioane de euro, s-a activat în aprilie 2026, după calificarea echipei italiene în prima jumătate a clasamentului Serie A.",
             "A fost convocat pentru prima dată la naționala Belgiei pentru meciurile din Nations League din iunie 2022 și a fost inclus în lotul pentru Campionatul Mondial din 2022."
           ]
-        },
-        {
-          "apiId": 1456,
-          "number": 98,
-          "name": "Ainsley Cory Maitland-Niles",
-          "photo": "https://media.api-sports.io/football/players/1456.png",
-          "pos": "MID",
-          "positions": [
-            "MID"
-          ],
-          "role": "MID",
-          "age": 29,
-          "height": 177,
-          "weight": 71,
-          "foot": null,
-          "nat": "ENG",
-          "natTeam": null,
-          "birthCountry": "England",
-          "birthDate": "1997-08-29",
-          "pronunciation": "EINZ-li MEIT-lănd-NAILZ",
-          "career": "Arsenal (2014–2022) · Ipswich (2015) · Lyon (2023–prezent)",
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": "În ultimele 5 dueluri directe cu Paris Saint Germain: 1 gol — 09.11.2025 (min. 50).",
-          "status": "available",
-          "statusNote": null,
-          "stats": {
-            "goals": 1,
-            "assists": 1,
-            "minutes": 318,
-            "apps": 4,
-            "yellow": 1,
-            "red": null,
-            "rating": 6.9,
-            "conceded": 0,
-            "saves": null,
-            "shotsTotal": 1,
-            "shotsOn": 1,
-            "passesTotal": 134,
-            "passesKey": 10,
-            "passesAccuracy": 81,
-            "tacklesTotal": 5,
-            "tacklesBlocks": null,
-            "tacklesInterceptions": 2,
-            "duelsTotal": 27,
-            "duelsWon": 12,
-            "dribblesAttempts": 4,
-            "dribblesSuccess": 2,
-            "dribblesPast": null,
-            "foulsDrawn": 1,
-            "foulsCommitted": 3,
-            "penaltyWon": null,
-            "penaltyCommitted": null,
-            "penaltyScored": 0,
-            "penaltyMissed": 0,
-            "penaltySaved": null
-          },
-          "funfacts": [
-            "Produs al academiei lui Arsenal, pe care a intrat la șase ani, a jucat pentru club de la debutul din 2014 până la expirarea contractului în 2023, cu împrumuturi la Ipswich Town, West Bromwich Albion, AS Roma și Southampton.",
-            "A câștigat FA Cup cu Arsenal în 2019/20, fiind titular în finala cu Chelsea.",
-            "Și-a făcut debutul pentru naționala mare a Angliei pe 8 septembrie 2020, ca rezervă, într-un meci cu Danemarca, în UEFA Nations League.",
-            "A ajuns la Everton pe 1 septembrie 2026, liber de la Lyon, și a marcat la debut, intrând ca rezervă și egalând în prelungiri contra lui Manchester United (2-2, 6 septembrie 2026).",
-            "A apărut în docuseria Amazon „All or Nothing: Arsenal”, despre sezonul 2021/22 al clubului."
-          ]
-        },
-        {
-          "apiId": 361348,
-          "number": 11,
-          "name": "Malick Martin Fofana",
-          "photo": "https://media.api-sports.io/football/players/361348.png",
-          "pos": "ATT",
-          "positions": [
-            "ATT"
-          ],
-          "role": "ATT",
-          "age": 21,
-          "height": 169,
-          "weight": 61,
-          "foot": null,
-          "nat": "BEL",
-          "natTeam": null,
-          "birthCountry": "Belgium",
-          "birthDate": "2005-03-31",
-          "pronunciation": null,
-          "career": "Gent (2021–2022) · Lyon (2023–prezent)",
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": {
-            "goals": 1,
-            "assists": 0,
-            "minutes": 279,
-            "apps": 4,
-            "yellow": 0,
-            "red": null,
-            "rating": 7.03,
-            "conceded": 0,
-            "saves": null,
-            "shotsTotal": 9,
-            "shotsOn": 9,
-            "passesTotal": 102,
-            "passesKey": 3,
-            "passesAccuracy": 87,
-            "tacklesTotal": 3,
-            "tacklesBlocks": null,
-            "tacklesInterceptions": 1,
-            "duelsTotal": 20,
-            "duelsWon": 14,
-            "dribblesAttempts": 4,
-            "dribblesSuccess": 3,
-            "dribblesPast": null,
-            "foulsDrawn": 8,
-            "foulsCommitted": 4,
-            "penaltyWon": null,
-            "penaltyCommitted": null,
-            "penaltyScored": 0,
-            "penaltyMissed": 0,
-            "penaltySaved": null
-          },
-          "funfacts": [
-            "A început fotbalul la Eendracht Aalst, înainte de a se alătura academiei lui Gent la 9 ani.",
-            "A debutat ca profesionist pentru Gent pe 30 iulie 2022, într-un 1-1 cu Sint-Truiden.",
-            "S-a transferat la Lyon pe 10 ianuarie 2024, pentru 17 milioane de euro plus 5 milioane în bonusuri, devenind al treilea jucător belgian din istoria clubului francez, după Éric Deflandre și Jason Denayer.",
-            "S-a transferat la Sunderland pe 1 septembrie 2026, pentru o sumă raportată de 25,7 milioane de lire sterline.",
-            "A debutat pentru prima reprezentativă a Belgiei pe 14 octombrie 2024, în Liga Națiunilor, contra Italiei.",
-            "Este de origine guineeză, franceză și filipineză."
-          ]
-        },
-        {
-          "apiId": 438692,
-          "number": 39,
-          "name": "Mathys de Carvalho Soares",
-          "photo": "https://media.api-sports.io/football/players/438692.png",
-          "pos": "MID",
-          "positions": [
-            "MID"
-          ],
-          "role": "MID",
-          "age": 21,
-          "height": null,
-          "weight": null,
-          "foot": null,
-          "nat": "FRA",
-          "natTeam": null,
-          "birthCountry": "France",
-          "birthDate": "2005-05-01",
-          "pronunciation": "kar-VA-liu",
-          "career": "Olympique Lyonnais II (2023) · Lyon (2024–prezent)",
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": {
-            "goals": 0,
-            "assists": 0,
-            "minutes": 75,
-            "apps": 1,
-            "yellow": 0,
-            "red": null,
-            "rating": 6.5,
-            "conceded": 0,
-            "saves": null,
-            "shotsTotal": null,
-            "shotsOn": null,
-            "passesTotal": 29,
-            "passesKey": null,
-            "passesAccuracy": 89,
-            "tacklesTotal": 1,
-            "tacklesBlocks": null,
-            "tacklesInterceptions": null,
-            "duelsTotal": 4,
-            "duelsWon": 2,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
-            "dribblesPast": null,
-            "foulsDrawn": 1,
-            "foulsCommitted": 2,
-            "penaltyWon": null,
-            "penaltyCommitted": null,
-            "penaltyScored": 0,
-            "penaltyMissed": 0,
-            "penaltySaved": null
-          },
-          "funfacts": [
-            "Format la academia lui Lyon, a semnat primul contract profesionist cu clubul pe 11 iulie 2025, pentru trei ani.",
-            "A debutat pentru Lyon pe 19 septembrie 2025, ca rezervă, într-o victorie 1-0 pe teren propriu cu Angers, iar pe 25 septembrie a jucat prima dată ca titular, într-o victorie 1-0 asupra lui Utrecht, în Europa League.",
-            "A fost transferat la saudiții de la Diriyah pe 7 septembrie 2026, pentru 1,1 milioane de euro.",
-            "Eligibil pentru Franța și Portugalia, a optat pentru naționala Portugaliei și a debutat la nivel U20 în octombrie 2025."
-          ]
         }
       ],
       "form": {
@@ -9028,7 +9002,7 @@
         {
           "name": "Keito Nakamura",
           "from": "Reims",
-          "fee": null
+          "fee": "1 M€ fix, pana la 20 M€ cu bonusuri (Reims)"
         },
         {
           "name": "Z. Athekame",
@@ -9043,7 +9017,7 @@
         {
           "name": "L. Openda",
           "from": "Juventus (împrumut)",
-          "fee": null
+          "fee": "3,5 M€ (imprumut, Juventus)"
         },
         {
           "name": "N. Kamara",
@@ -9115,17 +9089,17 @@
         {
           "name": "M. de Carvalho",
           "to": "Al Diriyah",
-          "fee": null
+          "fee": "1,1 M€ (Al-Diriyah)"
         },
         {
           "name": "A. Maitland-Niles",
           "to": "Everton",
-          "fee": null
+          "fee": "3,5 M€ (Everton)"
         },
         {
           "name": "M. Fofana",
           "to": "Sunderland",
-          "fee": null
+          "fee": "~30 M€ (Sunderland)"
         },
         {
           "name": "D. Ćaleta-Car",
@@ -9209,58 +9183,54 @@
         }
       ],
       "preseason": [],
-      "news": [],
-      "newsCandidates": [
+      "news": [
         {
-          "title": "Hoffenheim-OL: avant d'aller défier Paris, Lyon \"a pris une vraie paire de gifles\" en Allemagne pour Riolo",
-          "url": "https://rmcsport.bfmtv.com/football/europa-league/hoffenheim-ol-avant-d-aller-defier-paris-lyon-a-pris-une-vraie-paire-de-gifles-en-allemagne-pour-riolo_AV-202610230155.html",
-          "source": "RMC Sport",
-          "published": "2026-10-23"
+          "date": "2026-10-23",
+          "text": "Lyon a încasat un 0-3 clar la Hoffenheim în Europa League, iar presa franceză a vorbit despre o înfrângere dureroasă cu doar câteva zile înainte de deplasarea la Paris."
         },
         {
-          "title": "Fonseca bemoans Lyon's lack of aggression at Hoffenheim, Olympique Lyonnais",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPNkNpdXd1Si16dFRYZ1kzR1k0bnVaVXIzMmxqbk52SGxfNkgxWkhvY1J2T1dhUXMzdTBrSzE4Qk52RW9qV2M4T1BpamIzSl90cHNZS1A4M3dnR1FqN0tHc25ZSEI4QkxiZHhLdmIwbGNmb1ppQmluYnN5b0VnNER6S0djUEpnd25HWlduNzVGMXlMaEsyaDBsOE5tcw?oc=5",
-          "source": "Forza Football",
-          "published": "2026-10-23"
+          "date": "2026-10-23",
+          "text": "Paulo Fonseca a criticat lipsa de agresivitate a echipei sale la Hoffenheim, semnalând nevoia unei reacții imediate înaintea duelului cu PSG."
         },
         {
-          "title": "Preview: Paris Saint-Germain vs Lyon - prediction, team news, lineups",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNR1VFQVhSckx2UDNQMGF5TDdvMDJia2dWWDlib2p2T21LdkRMZ3p2bnM2bTdIdDV2Y05hemhvQkwwdWZpWDZHMV8wWm1Kd3NzaXZLMFFib0ZJcnVxeThzSmlQd3JHeW5CWXNhSWhSLWkxdm4wTnNuOXVQa2hjWW9lTG5nQnp4S2dQWXd3ZUs5U1UtNTYwelZ2dUJvLXk5Z2xhUF9tMQ?oc=5",
-          "source": "Sports Mole",
-          "published": "2026-10-23"
-        },
-        {
-          "title": "Clinton Mata (Lyon) : « Il y a des choses à corriger, on va en parler en interne »",
-          "url": "https://www.lequipe.fr/Football/Actualites/Clinton-mata-lyon-il-y-a-des-choses-a-corriger-on-va-en-parler-en-interne/1737923#at_medium=RSS_feeds",
-          "source": "L'Équipe",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Hoffenheim 3-0 OL : NAUFRAGE lyonnais en Allemagne, les Comms RMC",
-          "url": "https://rmcsport.bfmtv.com/football/europa-league/video-hoffenheim-3-0-ol-naufrage-lyonnais-en-allemagne-les-comms-rmc_VN-202610220995.html",
-          "source": "RMC Sport",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Hoffenheim-Lyon : Kramaric chirurgical, Baumann infranchissable, des Gones malmenés toute la soirée… Les tops et les flops",
-          "url": "https://www.lefigaro.fr/sports/football/ligue-europa/hoffenheim-lyon-kramaric-chirurgical-baumann-infranchissable-des-gones-malmenes-toute-la-soiree-les-tops-et-les-flops-20261022",
-          "source": "Le Figaro",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Ligue Europa : gros coup d’arrêt pour l’Olympique Lyonnais, corrigé par Hoffenheim",
-          "url": "https://www.lefigaro.fr/sports/football/ligue-europa/ligue-europe-gros-coup-d-arret-pour-l-olympique-lyonnais-corrige-par-hoffenheim-20261022",
-          "source": "Le Figaro",
-          "published": "2026-10-22"
-        },
-        {
-          "title": "Olympique Lyon vs. TSG Hoffenheim - October 22, 2026",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMkpHcmhRell1VkRFbHM4NkxkNzRBRWoyUEJrYzlfWHlIeWI0alJQclNhaHlLSjVWTWdFdHlwOXFhX2JYaDdfTkFhVE5JUm1pZGZwOE5FOW8xcXQxd1ZzRGZxbWNhNEF4YVFlUzhKVXQ0RTJxTEhLRjlaVFlKX05zcDY2WW9vcU1tTUQ4TGpR?oc=5",
-          "source": "Bleacher Report",
-          "published": "2026-10-22"
+          "date": "2026-10-22",
+          "text": "Clinton Mata a recunoscut, după eșecul din Germania, că 'sunt lucruri de corectat' și că discuțiile se vor purta în interiorul grupului înainte de meciul cu liderul campionatului."
         }
       ],
-      "stories": [],
+      "stories": [
+        {
+          "title": "Lider surpriză, dar cu infirmeria plină",
+          "bullets": [
+            "Lyon ocupă locul 1 după 7 etape, cu cea mai bună defensivă dintre echipele de pe primele două locuri — doar 5 goluri primite.",
+            "Echipa se deplasează la Paris fără 7 jucători: Pavel Šulc și Lois Openda (ambii atacanți) accidentați, Keito Nakamura suspendat, plus Mohamed Ouédraogo, Nicolás Tagliafico, Steeve Kango și Alpha Hamdani indisponibili.",
+            "Paulo Fonseca trebuie să improvizeze un atac fără doi dintre principalii săi finisori de această iarnă."
+          ]
+        },
+        {
+          "title": "Vânzările obligatorii ale verii",
+          "bullets": [
+            "Lipsa calificării europene de top a dus la vânzări importante: Malick Fofana a plecat la Sunderland pentru aproape 30 M€, după ce Arsenal a refuzat să plătească cei 40 M€ ceruți de Lyon.",
+            "Ainsley Maitland-Niles (119 meciuri pentru club) a fost cedat la Everton pentru 3,5 M€, iar Mathys De Carvalho a plecat în Arabia Saudită, la Al-Diriyah, pentru 1,1 M€.",
+            "În compensare au venit Keito Nakamura (Reims, 1 M€ fix, posibil 20 M€ cu bonusuri) și împrumuturile lui Lois Openda (Juventus) și Mads Bidstrup (RB Salzburg)."
+          ]
+        },
+        {
+          "title": "Fonseca, antrenor cu palmares internațional",
+          "bullets": [
+            "Paulo Fonseca a dus Șahtior Donețk până în optimile Ligii Campionilor 2017-2018, după o victorie memorabilă cu Manchester City-ul lui Pep Guardiola.",
+            "Portughezul e la Lyon din ianuarie 2025 și a mai pregătit AS Roma, Lille și AC Milan înainte de această numire.",
+            "Sub conducerea lui, Lyon a trecut de la o poziție incertă în clasament la postura de lider al Ligue 1."
+          ]
+        },
+        {
+          "title": "Un atac care explodează în repriza a doua",
+          "bullets": [
+            "4 din cele 13 goluri ale lui Lyon (31%) au venit în ultimele 15 minute ale meciurilor — un profil de final de meci asemănător cu cel al lui PSG (43%).",
+            "Lyon nu a avut niciun penalty acordat în acest sezon de Ligue 1, o raritate pentru o echipă de vârf de clasament.",
+            "Echipa are 3 clean sheet-uri în 7 meciuri, cea mai bună cifră dintre echipele din partea superioară a clasamentului."
+          ]
+        }
+      ],
       "clubFacts": [
         "Secția de fotbal a apărut în 1899 sub numele „Olympique de Lyon”, în cadrul clubului Lyon Olympique Universitaire, iar Olympique Lyonnais ca entitate separată a fost fondat pe 26 mai 1950, cu Armand Groslevin ca prim președinte.",
         "Lyon a cucerit primul titlu de campion al Ligue 1 în 2002, debutul unui record național de șapte titluri consecutive.",
@@ -9530,5 +9500,49 @@
         "form": "LLLDL"
       }
     ]
-  }
+  },
+  "researchDepth": "deep",
+  "broadcast": "Ligue 1+",
+  "commentatorResearch": [
+    {
+      "topic": "Lider la egalitate de puncte",
+      "fact": "PSG și Lyon ajung la acest meci la egalitate de puncte (14) după 7 etape, ocupând primele două locuri din Ligue 1 — doar golaverajul le separă (14-9 pentru PSG, 13-5 pentru Lyon).",
+      "source": "Clasament Ligue 1 (API-Football)"
+    },
+    {
+      "topic": "Serie de 6 victorii consecutive pentru PSG",
+      "fact": "Paris Saint-Germain a câștigat ultimele 6 meciuri jucate, în toate competițiile, incluzând dubla cu Barcelona în Champions League (victorie 4-2 pe teren propriu).",
+      "source": "Formă recentă (API-Football)"
+    },
+    {
+      "topic": "Lyon, decimat de absențe",
+      "fact": "Olympique Lyonnais se prezintă la Parc des Princes fără 7 jucători: Šulc, Openda și Ouédraogo accidentați, Nakamura suspendat după un cartonaș roșu, plus Tagliafico, Kango și Hamdani indisponibili.",
+      "source": "Absențe (API-Football)"
+    },
+    {
+      "topic": "PSG, și el cu lotul subțiat în atac",
+      "fact": "Luis Enrique nu îi are la dispoziție pe Dembélé, Kvaratskhelia, Marquinhos și Nuno Mendes, toți accidentați, plus portarul rezervă Longoni.",
+      "source": "Absențe (API-Football)"
+    },
+    {
+      "topic": "Jérôme Brisard, un bilanț contrastant",
+      "fact": "Arbitrul partidei, ales cel mai bun arbitru din Ligue 1 în ultimele două sezoane, are un bilanț mult mai bun cu PSG (18 victorii din 26 meciuri arbitrate) decât cu Lyon (doar 8 victorii din 24); singura lor întâlnire directă a fost finala Cupei Ligii 2020, câștigată de PSG la penalty-uri.",
+      "source": "CulturePSG"
+    },
+    {
+      "topic": "Vara cheltuielilor pentru PSG",
+      "fact": "PSG a investit aproape 100 de milioane de euro pe doi jucători de bandă, Ferran Torres (~50 M€, de la Barcelona) și Maghnes Akliouche (~50 M€, de la Monaco), ambii candidați la primul 11 de duminică.",
+      "source": "L'Équipe / beIN Sports"
+    },
+    {
+      "topic": "Lyon, obligat să vândă",
+      "fact": "Fără calificare europeană de top, Lyon a cedat trei jucători care erau titulari cu o lună înainte — Malick Fofana (~30 M€, Sunderland), Ainsley Maitland-Niles (3,5 M€, Everton) și Mathys De Carvalho (1,1 M€, Al-Diriyah).",
+      "source": "Anunțuri oficiale Olympique Lyonnais"
+    },
+    {
+      "topic": "Goluri târzii pe ambele părți",
+      "fact": "43% din golurile marcate de PSG în acest sezon (6 din 14) și 31% din cele ale lui Lyon (4 din 13) au venit în ultimele 15 minute ale meciului — ambele echipe termină în forță.",
+      "source": "Statistici de formă (API-Football)"
+    }
+  ]
 }
