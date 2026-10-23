@@ -2,7 +2,10 @@ name: Build Match Data (Favourites)
 
 on:
   schedule:
-    - cron: "20 6 * * *"   # 06:20 UTC — 20 min after Build Match Data, so it never races the same files
+    # Hourly: picking is a cheap deterministic step that exits at once when nothing is favourited and still
+    # waiting for the deep pass, so a new favourite is built within the hour instead of at the next daily
+    # run. (The instant database trigger needs the "github_actions_pat" Vault secret, see docs/supabase.sql.)
+    - cron: "20 * * * *"
   workflow_dispatch: {}
 
 jobs:
