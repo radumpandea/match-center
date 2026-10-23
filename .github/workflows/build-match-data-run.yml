@@ -177,7 +177,8 @@ jobs:
                "## Modul aprofundat": rotation-wide player depth, tactical/stat
                angles (set-piece %, goal-timing split, xG vs actual from
                Understat/FBref), 10–14 `storyOfTheMatch` lines, 3–4 `stories` per
-               team, real referee averages. Do NOT research `pronunciation`, `funfacts`,
+               team (a deep pack MUST have both teams' story bars), 6–8 `commentatorResearch`
+               cards {topic, fact, source}, real referee averages. Do NOT research `pronunciation`, `funfacts`,
                player honours/injuries or club history: follow-up steps write them from
                structured sources (and Level 1 fills `linkLine` from the head-to-head
                events -- keep it; add a `linkLine` only for a verified story the events
@@ -245,9 +246,23 @@ jobs:
   # A premium pack should come out complete: right after it is built, research the fun
   # facts of that match's starters (Wikipedia/Wikidata text + the cheap model, see
   # build-player-facts.yml) and copy them into the pack.
-  player-facts:
+  # Premium packs sometimes come out without the per-team story columns or the research cards: check, and fill
+  # only what is missing (scripts/check-premium-complete.mjs). Before the facts, so two jobs never write the pack.
+  complete:
     needs: build-match
     if: ${{ inputs.depth == 'deep' && inputs.match != '' && needs.build-match.result == 'success' }}
+    permissions:
+      contents: write
+      actions: write
+      id-token: write
+    uses: ./.github/workflows/build-match-data-complete.yml
+    with:
+      match: ${{ inputs.match }}
+    secrets: inherit
+
+  player-facts:
+    needs: [build-match, complete]
+    if: ${{ !cancelled() && inputs.depth == 'deep' && inputs.match != '' && needs.build-match.result == 'success' }}
     permissions:
       contents: write
       actions: write

@@ -454,7 +454,7 @@ de cluburi. Wikipedia (infobox) + Transfermarkt (din fragmente) + footmercato/jo
 - serii: meciuri fără gol primit, fără înfrângere, fără victorie în deplasare etc.;
 - The Analyst (theanalyst.com) pentru unghiul editorial pe ligile mari.
 
-**Fire narative extinse.** `storyOfTheMatch[]` = 10–14 propoziții, fiecare un unghi în sine.
+**Fire narative extinse.** Un pachet premium are OBLIGATORIU `teams.<side>.stories[]` (3–4 bare per echipă) și `commentatorResearch[]` (6–8 cărți `{topic, fact, source}`); lipsa lor e prinsă de `scripts/check-premium-complete.mjs` și completată după aceea. `storyOfTheMatch[]` = 10–14 propoziții, fiecare un unghi în sine.
 `teams.<side>.stories[]` = 3–4 bare per echipă, titlu punchy + 3–5 bullet-uri, unghiuri
 distincte (o bară tactică, una de om, una de context/sezon, una de miză).
 

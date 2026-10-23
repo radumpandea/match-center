@@ -1,0 +1,46 @@
+name: Complete Premium Packs
+
+# The net under build-match-data-run.yml: every hour, look for upcoming premium packs that still lack
+# the per-team stories or the commentator research cards (scripts/check-premium-complete.mjs --list) and
+# run the targeted completion for each, one at a time. A pack that is already complete costs nothing.
+on:
+  schedule:
+    - cron: "25 * * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: complete-premium-packs
+  cancel-in-progress: false
+
+jobs:
+  pick:
+    runs-on: ubuntu-latest
+    outputs:
+      slugs: ${{ steps.pick.outputs.slugs }}
+      count: ${{ steps.pick.outputs.count }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Premium packs with parts missing
+        id: pick
+        run: node scripts/check-premium-complete.mjs --list
+
+  complete:
+    needs: pick
+    if: needs.pick.outputs.count != '0' && needs.pick.outputs.count != ''
+    strategy:
+      matrix:
+        slug: ${{ fromJson(needs.pick.outputs.slugs) }}
+      max-parallel: 1
+      fail-fast: false
+    permissions:
+      contents: write
+      actions: write
+      id-token: write
+    uses: ./.github/workflows/build-match-data-complete.yml
+    with:
+      match: ${{ matrix.slug }}
+    secrets: inherit

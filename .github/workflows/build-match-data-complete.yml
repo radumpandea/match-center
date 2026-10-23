@@ -1,0 +1,119 @@
+name: Complete Premium Pack
+
+# A premium (deep) pack sometimes comes out of the big editorial pass without some parts (the two
+# per-team story columns, the commentator research cards). scripts/check-premium-complete.mjs finds
+# what is missing; if anything is, a SHORT, targeted pass fills only that and commits it.
+#
+# Called by build-match-data-run.yml right after a deep build, and by complete-premium-packs.yml for
+# packs that were built earlier. Can also be run by hand for one slug.
+on:
+  workflow_call:
+    inputs:
+      match:
+        description: "Exact slug of a premium pack"
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      match:
+        description: "Exact slug of a premium pack"
+        required: true
+
+concurrency:
+  group: complete-${{ inputs.match }}
+  cancel-in-progress: false
+
+jobs:
+  complete:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+      actions: write
+      id-token: write
+    env:
+      MATCH: ${{ inputs.match }}
+    steps:
+      # ref: main: when called from a build that has just pushed the pack, the default checkout would be
+      # the commit the whole run started on and would not contain it.
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: What is missing?
+        id: check
+        run: node scripts/check-premium-complete.mjs "$MATCH"
+
+      - name: Install validator dependencies
+        if: steps.check.outputs.missingCount != '0'
+        run: npm install --no-audit --no-fund
+
+      - uses: anthropics/claude-code-action@v1
+        id: claude-complete
+        if: steps.check.outputs.missingCount != '0'
+        continue-on-error: true
+        with:
+          claude_code_oauth_token: "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}"
+          show_full_output: true
+          prompt: |
+            You complete a PREMIUM match pack for a football commentator's Match Center. You run unattended in
+            one shot: do everything yourself, now, in this turn (no background agents), then stop.
+
+            ## The pack
+            `docs/data/matches/${{ inputs.match }}.json` came out of the deep editorial pass with parts missing.
+            Read it first and read the "Reguli de acuratețe" and the "Modul aprofundat" sections of
+            `.claude/skills/match-data-json/SKILL.md`. Everything the pack already holds (squad with season stats,
+            form, standings, head-to-head, news, coach careers, mercato, absences, storyOfTheMatch) is your base.
+
+            ## What is missing (JSON)
+            ${{ steps.check.outputs.missing }}
+
+            ## Do ONLY this
+            - `stories:home` / `stories:away`: write `teams.<side>.stories[]` for that team: 3 or 4 bars, each
+              `{"title": "<punchy headline, Sky/Opta style>", "bullets": ["...", "..."]}` with 3-5 bullets, each a
+              different angle (tactical, a man to watch, context of the season, the stake). Build them from the pack
+              itself: stats of the squad, form, standings, head-to-head, news, the coach's career, absences. Compute
+              every figure from those fields and check the arithmetic twice.
+            - `research`: write `commentatorResearch[]`: 6 to 8 cards `{"topic": "...", "fact": "...", "source": "<URL or name of the source you read>"}`
+              for live commentary: a rivalry or past meeting that matters, a player or coach story, a record, a
+              stadium or city fact, the stake of the match. Use the pack's own data and at most 20 web lookups in
+              total (Wikipedia, club sites, the league's official site).
+            - Romanian, professional commentator tone, concise, complete sentences. Correct diacritics (ș ț ă â î).
+            - Never invent. A "first / record / return" claim needs a source that says exactly that. Names exactly
+              as they are in the pack. If you cannot support a card or bullet, leave it out; fewer is fine, a wrong
+              one is not (but try to reach the minimum: 3 bars per team and 6 cards).
+            - Touch NO other field of the pack and no other file.
+            - When done: `node scripts/validate-match.mjs docs/data/matches/${{ inputs.match }}.json` must exit 0.
+              Fix every `✗`. Do not commit or push; the workflow does that afterwards.
+          claude_args: |
+            --model claude-sonnet-5
+            --max-turns 90
+            --allowedTools "Read,Write,Edit,Bash,Glob,Grep,WebSearch,WebFetch"
+
+      - name: Validate
+        if: steps.check.outputs.missingCount != '0'
+        run: node scripts/validate-match.mjs "docs/data/matches/${MATCH}.json"
+
+      - name: Commit and push
+        if: steps.check.outputs.missingCount != '0'
+        run: |
+          git config user.name "complete-premium-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add "docs/data/matches/${MATCH}.json"
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit."
+          else
+            git commit -m "Premium pack completed: ${MATCH}"
+            ok=0
+            for i in 1 2 3 4; do
+              if git pull --rebase -X theirs --autostash origin main && git push; then ok=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              sleep $((RANDOM % 10 + 8))
+            done
+            [ "$ok" = 1 ] || { echo "push failed after retries"; exit 1; }
+          fi
