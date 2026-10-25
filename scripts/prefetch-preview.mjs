@@ -2009,6 +2009,12 @@ async function main() {
           }
           if (match.stats && JSON.stringify(match.stats) !== JSON.stringify(p.stats)) {
             p.stats = match.stats; touched = true;
+          } else if (!match.stats && p.stats) {
+            // The API has no stats for this player now. Keep an old value only if it is his own: a copy
+            // that another squad member carries too is a leftover of the number-collision bug above.
+            const mine = JSON.stringify(p.stats);
+            const shared = (doc.teams[side].squad || []).some((q) => q !== p && q.apiId !== p.apiId && q.stats && JSON.stringify(q.stats) === mine);
+            if (shared) { p.stats = null; touched = true; }
           }
         }
       }
