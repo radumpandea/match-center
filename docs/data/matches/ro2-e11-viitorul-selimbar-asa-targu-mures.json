@@ -1,12 +1,12 @@
 {
   "slug": "ro2-e11-viitorul-selimbar-asa-targu-mures",
-  "generatedAt": "2026-10-24T09:45:57.105Z",
+  "generatedAt": "2026-10-25T14:37:17.126Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-10-24"
+      "accessed": "2026-10-25"
     }
   ],
   "competition": {
@@ -20,7 +20,14 @@
     "name": "Stadionul Municipal",
     "capacity": 13013,
     "city": "Sibiu",
-    "notes": null
+    "notes": null,
+    "weather": {
+      "tempC": 7,
+      "condition": "cer noros",
+      "windKph": 2,
+      "precipitationMm": 0,
+      "forecastAt": "2026-10-25T14:37:17.408Z"
+    }
   },
   "referee": {
     "name": "n/d",
@@ -275,8 +282,8 @@
   },
   "storyOfTheMatch": [
     "Viitorul Şelimbăr — locul 20 după 10 etape, 6 puncte, golaveraj 7-20.",
-    "Viitorul Şelimbăr vine după 5 înfrângeri la rând.",
     "ASA Targu Mures — locul 15 după 10 etape, 11 puncte, golaveraj 14-20.",
+    "ASA Targu Mures vine după 3 înfrângeri la rând.",
     "Cap la cap (1 meciuri): Viitorul Şelimbăr 0 - 0 - 1 ASA Targu Mures."
   ],
   "predictions": {
@@ -302,8 +309,8 @@
         "away": 52
       },
       "poisson": {
-        "home": 56,
-        "away": 44
+        "home": 55,
+        "away": 45
       },
       "h2h": {
         "home": 0,
@@ -336,13 +343,6 @@
             "period": "2026–prezent",
             "note": null
           }
-        ],
-        "funfacts": [
-          "Ca jucător a evoluat la Minaur Zlatna, Apulum Alba Iulia, FC Sibiu, Voința Sibiu și Măgura Cisnădie, câștigând titluri în ligile inferioare românești.",
-          "A început cariera de antrenor la Măgura Cisnădie, cu care a câștigat Liga IV – Sibiu County în 2013–14.",
-          "A pregătit și echipa Hermannstadt, cu care a câștigat Liga III în 2016–17.",
-          "În 2024–25 a câștigat Liga III cu SCM Râmnicu Vâlcea.",
-          "S-a născut la 1 iulie 1978."
         ]
       },
       "formation": "n/d",
@@ -703,7 +703,7 @@
         },
         {
           "apiId": 556194,
-          "number": 22,
+          "number": 19,
           "name": "A. Cismas",
           "photo": null,
           "pos": "MID",
@@ -1102,6 +1102,27 @@
           "points": 6
         },
         "recent": [
+          {
+            "date": "2026-10-25",
+            "opp": "ASA Targu Mures",
+            "homeAway": "H",
+            "comp": "Liga II",
+            "score": "1-0",
+            "result": "W",
+            "referee": null,
+            "formation": null,
+            "lineups": null,
+            "events": [
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "goal",
+                "player": "G. Monea",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
           {
             "date": "2026-10-17",
             "opp": "Concordia",
@@ -1806,263 +1827,9 @@
                 "playerIn": null
               }
             ]
-          },
-          {
-            "date": "2026-09-05",
-            "opp": "Metalul Buzău",
-            "homeAway": "H",
-            "comp": "Liga II",
-            "score": "1-1",
-            "result": "D",
-            "referee": null,
-            "formation": null,
-            "lineups": {
-              "us": [
-                {
-                  "name": "R. Malutan",
-                  "number": 12,
-                  "pos": null
-                },
-                {
-                  "name": "K. Wiktorski",
-                  "number": 4,
-                  "pos": null
-                },
-                {
-                  "name": "C. Natea",
-                  "number": 6,
-                  "pos": null
-                },
-                {
-                  "name": "I. Mihart",
-                  "number": 27,
-                  "pos": null
-                },
-                {
-                  "name": "A. Luca",
-                  "number": 33,
-                  "pos": null
-                },
-                {
-                  "name": "R. Boboc",
-                  "number": 15,
-                  "pos": null
-                },
-                {
-                  "name": "A. Oroian",
-                  "number": 17,
-                  "pos": null
-                },
-                {
-                  "name": "B. Kielhorn",
-                  "number": 42,
-                  "pos": null
-                },
-                {
-                  "name": "P. Petrescu",
-                  "number": 7,
-                  "pos": null
-                },
-                {
-                  "name": "D. Benzar",
-                  "number": 10,
-                  "pos": null
-                },
-                {
-                  "name": "C. Cocos",
-                  "number": 9,
-                  "pos": null
-                }
-              ],
-              "opp": [
-                {
-                  "name": "A. Ureche",
-                  "number": 23,
-                  "pos": null
-                },
-                {
-                  "name": "A. N. Olaru",
-                  "number": 4,
-                  "pos": null
-                },
-                {
-                  "name": "D. D. Oprea",
-                  "number": 8,
-                  "pos": null
-                },
-                {
-                  "name": "R. Milea",
-                  "number": 10,
-                  "pos": null
-                },
-                {
-                  "name": "A. Moldovan",
-                  "number": 11,
-                  "pos": null
-                },
-                {
-                  "name": "D. Bancila",
-                  "number": 19,
-                  "pos": null
-                },
-                {
-                  "name": "N. Baxevanos",
-                  "number": 26,
-                  "pos": null
-                },
-                {
-                  "name": "V. Robu",
-                  "number": 28,
-                  "pos": null
-                },
-                {
-                  "name": "R. Caldararu",
-                  "number": 80,
-                  "pos": null
-                },
-                {
-                  "name": "A. Nica",
-                  "number": 97,
-                  "pos": null
-                },
-                {
-                  "name": "C. Bortoneanu",
-                  "number": 99,
-                  "pos": null
-                }
-              ]
-            },
-            "events": [
-              {
-                "minute": 43,
-                "side": "opp",
-                "type": "goal",
-                "player": "V. Robu",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 57,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "D. Benzar",
-                "playerIn": "R. Cristea"
-              },
-              {
-                "minute": 61,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "R. Milea",
-                "playerIn": "A. Saim Tudor"
-              },
-              {
-                "minute": 64,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "B. Kielhorn",
-                "playerIn": "T. Lantos"
-              },
-              {
-                "minute": 75,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "A. Oroian",
-                "playerIn": "A. Serban"
-              },
-              {
-                "minute": 75,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "I. Mihart",
-                "playerIn": "D. Iancu"
-              },
-              {
-                "minute": 75,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "R. Boboc",
-                "playerIn": "G. Monea"
-              },
-              {
-                "minute": 75,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "A. Nica",
-                "playerIn": "G. Cretu"
-              },
-              {
-                "minute": 79,
-                "side": "opp",
-                "type": "yellow",
-                "player": "G. Cretu",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 84,
-                "side": "us",
-                "type": "goal",
-                "player": "A. Serban",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 86,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "A. Moldovan",
-                "playerIn": "C. Dumitru"
-              },
-              {
-                "minute": 86,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "C. Bortoneanu",
-                "playerIn": "K. Hayashi"
-              },
-              {
-                "minute": 89,
-                "side": "us",
-                "type": "yellow",
-                "player": "D. Iancu",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 90,
-                "side": "us",
-                "type": "yellow",
-                "player": "C. Cocos",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 90,
-                "side": "us",
-                "type": "yellow",
-                "player": "T. Lantos",
-                "playerOut": null,
-                "playerIn": null
-              }
-            ]
           }
         ],
         "next": [
-          {
-            "date": "2026-10-25",
-            "opp": "ASA Targu Mures",
-            "homeAway": "H",
-            "comp": "Liga II"
-          },
           {
             "date": "2026-10-31",
             "opp": "CSM Satu Mare",
@@ -2073,6 +1840,12 @@
             "date": "2026-11-07",
             "opp": "Ştefăneşti",
             "homeAway": "H",
+            "comp": "Liga II"
+          },
+          {
+            "date": "2026-11-21",
+            "opp": "Popești-Leordeni",
+            "homeAway": "A",
             "comp": "Liga II"
           }
         ],
@@ -2266,27 +2039,25 @@
       "news": [],
       "newsCandidates": [
         {
+          "title": "Metaloglobus vs CSM Râmnicu Vâlcea: match statistics and data",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUnJuM0ltSXpUY3ptelM0bHdtcHZtaUFGbUxYWDVZVDVOYkE2eVUwb0hBZnRqYXAxclJFQl92ZW1nT2N5ajQ0eF8xZlNLdzIwY2hRRmN4SUgzOFR0bzlUQzlCSUJWYS1PdllQMVR4bFlST1BYZV9VZXpGZEhlMTEyaWtWSmpuQ192?oc=5",
+          "source": "BetMines",
+          "published": "2026-10-25"
+        },
+        {
+          "title": "Cetatea Suceava vs CSM Slatina: match statistics and data",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNRTQwX2dOaWVhVlJTdFZ5amx0SFJGWDd1dERCeUQ3RGJTem9DbzRfSjdwUUhsbldVem9oQy1ZTnp2VjEwZlIyX1FuTjFJQ0tDckJrN29xbmpjeS01bTBPNTJmQ3VvekxOcWhqcEowcVd5Z1g5THJaQW5iOWcwb2RyMTYxTQ?oc=5",
+          "source": "BetMines",
+          "published": "2026-10-24"
+        },
+        {
           "title": "Viitorul Şelimbăr vs ASA Târgu Mureș - Watch Online for Free",
           "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOOHBfN2lLZzk1QlZPdm5LQU92SVJiUVZiYzZCZmg5aXQ1cVdqc29fZWFNTHQ2bksxQXZMdVpzQ0hlOWltbi1uS3o0NHJFYWJlTUxaMTllUFdxRkN2VmVycHBjMmNWNGx6SjRKT1dFRnd0QXlfNmNSQ0NCSFBQZ1ZKdUJCM3U?oc=5",
           "source": "APWin",
           "published": "2026-10-23"
-        },
-        {
-          "title": "Unirea Slobozia vs Concordia Chiajna predictions and preview",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOekJIcnJpYlUtdHdsR3JUY2FmckE0NEdWRG5IdVNXd0lOcmVxVEJVQXpBbzJULTdiU2ZvZVowMG03R3JJcTJRZGxpN1l5Y2Rib2tjMWR3M2dyVWh3MGg0NTF1LWRPVUlZaGQ1OFpHdnJyU1A2R1kya3ptOFExM1ZvWDZJXzhiUmZPeU1yUFZZenU5T2FXYk1qQ3hIc1lURjhQOFAw?oc=5",
-          "source": "APWin",
-          "published": "2026-10-21"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "Clubul a fost înființat în 2016, sub numele de Viitorul Șelimbăr, de un grup de tineri din comună coordonați de Nicolae Preuteasa, după desființarea echipei locale Sevișul Șelimbăr.",
-        "În primii doi ani, echipa a evoluat în Liga a IV-a Sibiu, terminând pe locul 6 în 2016–17 și pe locul 2 în 2017–18, apoi a promovat în Liga a III-a după ce a învins-o pe CS Gheorgheni cu 5–3 la general, în baraj.",
-        "Clubul a cucerit Liga a III-a în sezonul 2020–21, sub antrenorul Florin Maxim, fiind prima echipă din Șelimbăr care a reușit promovarea în Liga a II-a; în aceeași vară a fost redenumit CSC 1599 Șelimbăr.",
-        "Printre celelalte trofee ale clubului se numără titlul de campioană a Ligii a IV-a Sibiu din 2018–19 și Cupa României la nivel județean, câștigată în 2017–18.",
-        "Din primăvara anului 2019, echipa și-a disputat meciurile de acasă pe Stadionul Măgura din Cisnădie, cu o capacitate de 2.450 de locuri, în timp ce stadionul propriu din Șelimbăr era modernizat.",
-        "Printre jucătorii străini care au evoluat la club se numără croatul Matko Babić, portughezul Yazalde și suedezul Valmir Berisha."
-      ]
+      "stories": []
     },
     "away": {
       "name": "ASA Targu Mures",
@@ -2308,11 +2079,6 @@
             "period": "2026–prezent",
             "note": null
           }
-        ],
-        "funfacts": [
-          "Eusebiu Iulian Tudor s-a născut la 1 iulie 1974 și este antrenor român de fotbal, fost jucător.",
-          "Ca jucător, a cucerit titlul de Divizia B cu Petrolul Ploiești în sezonul 2002–03.",
-          "La data de 19 octombrie 2026, Eusebiu Tudor este antrenorul echipei ASA Târgu Mureș, din Liga II."
         ]
       },
       "formation": "n/d",
@@ -2430,7 +2196,7 @@
         },
         {
           "apiId": 426586,
-          "number": 18,
+          "number": 16,
           "name": "R. CÄlugÄr",
           "photo": null,
           "pos": "DEF",
@@ -3126,6 +2892,27 @@
           "points": 11
         },
         "recent": [
+          {
+            "date": "2026-10-25",
+            "opp": "Viitorul Şelimbăr",
+            "homeAway": "A",
+            "comp": "Liga II",
+            "score": "0-1",
+            "result": "L",
+            "referee": null,
+            "formation": null,
+            "lineups": null,
+            "events": [
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "goal",
+                "player": "G. Monea",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
           {
             "date": "2026-10-20",
             "opp": "Chindia Targoviste",
@@ -4103,255 +3890,9 @@
                 "playerIn": null
               }
             ]
-          },
-          {
-            "date": "2026-08-30",
-            "opp": "FC Politehnica Timisoara",
-            "homeAway": "A",
-            "comp": "Liga II",
-            "score": "0-3",
-            "result": "L",
-            "referee": null,
-            "formation": null,
-            "lineups": {
-              "us": [
-                {
-                  "name": "F. Iacob",
-                  "number": 93,
-                  "pos": null
-                },
-                {
-                  "name": "O. Siafa",
-                  "number": 7,
-                  "pos": null
-                },
-                {
-                  "name": "M. Dohatca",
-                  "number": 13,
-                  "pos": null
-                },
-                {
-                  "name": "S. Ekollo",
-                  "number": 20,
-                  "pos": null
-                },
-                {
-                  "name": "O. Chatziterzoglu",
-                  "number": 22,
-                  "pos": null
-                },
-                {
-                  "name": "M. Cioiu",
-                  "number": 24,
-                  "pos": null
-                },
-                {
-                  "name": "Z. Demeter",
-                  "number": 30,
-                  "pos": null
-                },
-                {
-                  "name": "E. Vinau",
-                  "number": 55,
-                  "pos": null
-                },
-                {
-                  "name": "R. Trif",
-                  "number": 77,
-                  "pos": null
-                },
-                {
-                  "name": "A. Moga",
-                  "number": 80,
-                  "pos": null
-                },
-                {
-                  "name": "A. F. Iancu",
-                  "number": 6,
-                  "pos": null
-                }
-              ],
-              "opp": [
-                {
-                  "name": "T. Cosa",
-                  "number": 30,
-                  "pos": null
-                },
-                {
-                  "name": "A. Huszti",
-                  "number": 6,
-                  "pos": null
-                },
-                {
-                  "name": "S. Draghici",
-                  "number": 7,
-                  "pos": null
-                },
-                {
-                  "name": "A. Chitu",
-                  "number": 9,
-                  "pos": null
-                },
-                {
-                  "name": "I. Vasluian",
-                  "number": 16,
-                  "pos": null
-                },
-                {
-                  "name": "A. Artean",
-                  "number": 18,
-                  "pos": null
-                },
-                {
-                  "name": "C. Toma",
-                  "number": 19,
-                  "pos": null
-                },
-                {
-                  "name": "S. Stefanovici",
-                  "number": 22,
-                  "pos": null
-                },
-                {
-                  "name": "I. Doana",
-                  "number": 24,
-                  "pos": null
-                },
-                {
-                  "name": "O. Popescu",
-                  "number": 27,
-                  "pos": null
-                },
-                {
-                  "name": "P. Paul",
-                  "number": 4,
-                  "pos": null
-                }
-              ]
-            },
-            "events": [
-              {
-                "minute": 6,
-                "side": "opp",
-                "type": "goal",
-                "player": "I. Doana",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 41,
-                "side": "opp",
-                "type": "red",
-                "player": "A. Artean",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 46,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "I. Doana",
-                "playerIn": "R. Burlacu"
-              },
-              {
-                "minute": 46,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "S. Stefanovici",
-                "playerIn": "I. Rotariu"
-              },
-              {
-                "minute": 57,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "A. Moga",
-                "playerIn": "M. Samake"
-              },
-              {
-                "minute": 57,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "A. F. Iancu",
-                "playerIn": "R. Calugar"
-              },
-              {
-                "minute": 57,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "R. Trif",
-                "playerIn": "B. Kocsis"
-              },
-              {
-                "minute": 65,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "E. Vinau",
-                "playerIn": "D. Faragau"
-              },
-              {
-                "minute": 68,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "C. Toma",
-                "playerIn": "C. Ene"
-              },
-              {
-                "minute": 73,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "M. Cioiu",
-                "playerIn": "A. Capac"
-              },
-              {
-                "minute": 79,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "I. Vasluian",
-                "playerIn": "R. Benzar"
-              },
-              {
-                "minute": 84,
-                "side": "opp",
-                "type": "goal",
-                "player": "A. Chitu",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 86,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "A. Chitu",
-                "playerIn": "K. Appiah Nyarko"
-              },
-              {
-                "minute": 90,
-                "side": "opp",
-                "type": "goal",
-                "player": "K. Appiah Nyarko",
-                "playerOut": null,
-                "playerIn": null
-              }
-            ]
           }
         ],
         "next": [
-          {
-            "date": "2026-10-25",
-            "opp": "Viitorul Şelimbăr",
-            "homeAway": "A",
-            "comp": "Liga II"
-          },
           {
             "date": "2026-10-31",
             "opp": "Unirea Slobozia",
@@ -4361,6 +3902,12 @@
           {
             "date": "2026-11-07",
             "opp": "Concordia",
+            "homeAway": "A",
+            "comp": "Liga II"
+          },
+          {
+            "date": "2026-11-21",
+            "opp": "Slatina",
             "homeAway": "A",
             "comp": "Liga II"
           }
@@ -4583,23 +4130,31 @@
       "news": [],
       "newsCandidates": [
         {
+          "title": "Etapa 11 Liga 2 | Steaua câștigă fără probleme în fața Afumațiului, Chindia trece cu emoții pe final de CSM Olimpia. CSC Șelimbăr a dat lovitura în prelungiri contra AFC ASA Târgu Mureș",
+          "url": "https://www.prosport.ro/fotbal-intern/liga-2/etapa-11-liga-2-slobozia-sibiu-si-targoviste-gazduiesc-meciurile-de-astazi-din-liga-secunda-si-toate-incep-la-ora-1100-20555281",
+          "source": "ProSport",
+          "published": "2026-10-25"
+        },
+        {
+          "title": "Metaloglobus vs CSM Râmnicu Vâlcea: match statistics and data",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUnJuM0ltSXpUY3ptelM0bHdtcHZtaUFGbUxYWDVZVDVOYkE2eVUwb0hBZnRqYXAxclJFQl92ZW1nT2N5ajQ0eF8xZlNLdzIwY2hRRmN4SUgzOFR0bzlUQzlCSUJWYS1PdllQMVR4bFlST1BYZV9VZXpGZEhlMTEyaWtWSmpuQ192?oc=5",
+          "source": "BetMines",
+          "published": "2026-10-25"
+        },
+        {
+          "title": "Cetatea Suceava vs CSM Slatina: match statistics and data",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNRTQwX2dOaWVhVlJTdFZ5amx0SFJGWDd1dERCeUQ3RGJTem9DbzRfSjdwUUhsbldVem9oQy1ZTnp2VjEwZlIyX1FuTjFJQ0tDckJrN29xbmpjeS01bTBPNTJmQ3VvekxOcWhqcEowcVd5Z1g5THJaQW5iOWcwb2RyMTYxTQ?oc=5",
+          "source": "BetMines",
+          "published": "2026-10-24"
+        },
+        {
           "title": "Viitorul Şelimbăr vs ASA Târgu Mureș - Watch Online for Free",
           "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOOHBfN2lLZzk1QlZPdm5LQU92SVJiUVZiYzZCZmg5aXQ1cVdqc29fZWFNTHQ2bksxQXZMdVpzQ0hlOWltbi1uS3o0NHJFYWJlTUxaMTllUFdxRkN2VmVycHBjMmNWNGx6SjRKT1dFRnd0QXlfNmNSQ0NCSFBQZ1ZKdUJCM3U?oc=5",
           "source": "APWin",
           "published": "2026-10-23"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "Asociația Sportivă a Armatei Târgu Mureș a fost înființată în 1962, sub patronajul Armatei Române, iar în septembrie 1964 a fuzionat cu CS Mureșul Târgu Mureș, luându-i locul în Divizia B.",
-        "Cea mai bună clasare din istoria clubului în prima ligă a fost locul doi, în sezonul 1974–75, în spatele lui Dinamo București.",
-        "László Bölöni a jucat 406 meciuri și a marcat 64 de goluri pentru ASA, înainte de a se transfera la Steaua București, club cu care a câștigat Cupa Campionilor Europeni în 1986.",
-        "Florea Ispir și-a petrecut întreaga carieră în Divizia A la ASA, adunând 485 de meciuri în prima ligă.",
-        "Clubul a jucat trei sezoane consecutive în Cupa UEFA în anii '70, fiind eliminat în primul tur de Dynamo Dresda (1975–76), Dinamo Zagreb (1976–77) și AEK Atena (1977–78).",
-        "ASA a jucat finala Cupei Balcanilor din 1973, pierdută în fața lui Lokomotiv Sofia.",
-        "Clubul originar a dat faliment în 2005, iar numele ASA a fost reînființat ca entitate separată abia în 2021, sub forma Asociației Fotbal Club ASA Târgu Mureș.",
-        "Din vara anului 2025, ASA a revenit în Liga II, după ce Federația Română de Fotbal a aprobat transferul locului de participare de la CS Unirea Ungheni 2018."
-      ]
+      "stories": []
     }
   },
   "standings": {
@@ -4608,34 +4163,48 @@
     "rows": [
       {
         "rank": 1,
-        "teamId": 6898,
-        "team": "Slatina",
-        "played": 10,
+        "teamId": 2606,
+        "team": "FC Politehnica Timisoara",
+        "played": 11,
         "win": 8,
-        "draw": 1,
-        "loss": 1,
-        "gf": 19,
+        "draw": 3,
+        "loss": 0,
+        "gf": 21,
         "ga": 8,
-        "gd": 11,
-        "points": 25,
-        "form": "WLWWW"
+        "gd": 13,
+        "points": 27,
+        "form": "WWDWW"
       },
       {
         "rank": 2,
-        "teamId": 2606,
-        "team": "FC Politehnica Timisoara",
-        "played": 10,
-        "win": 7,
-        "draw": 3,
-        "loss": 0,
-        "gf": 20,
-        "ga": 8,
-        "gd": 12,
-        "points": 24,
-        "form": "WDWWD"
+        "teamId": 6898,
+        "team": "Slatina",
+        "played": 11,
+        "win": 8,
+        "draw": 1,
+        "loss": 2,
+        "gf": 19,
+        "ga": 10,
+        "gd": 9,
+        "points": 25,
+        "form": "LWLWW"
       },
       {
         "rank": 3,
+        "teamId": 6891,
+        "team": "Popești-Leordeni",
+        "played": 11,
+        "win": 7,
+        "draw": 3,
+        "loss": 1,
+        "gf": 26,
+        "ga": 15,
+        "gd": 11,
+        "points": 24,
+        "form": "WWWLW"
+      },
+      {
+        "rank": 4,
         "teamId": 2586,
         "team": "Chindia Targoviste",
         "played": 10,
@@ -4649,21 +4218,35 @@
         "form": "WWWWL"
       },
       {
-        "rank": 4,
-        "teamId": 6891,
-        "team": "Popești-Leordeni",
-        "played": 10,
+        "rank": 5,
+        "teamId": 26674,
+        "team": "Cetatea Suceava",
+        "played": 11,
         "win": 6,
         "draw": 3,
-        "loss": 1,
-        "gf": 24,
-        "ga": 14,
+        "loss": 2,
+        "gf": 22,
+        "ga": 12,
         "gd": 10,
         "points": 21,
-        "form": "WWLWW"
+        "form": "WWWDW"
       },
       {
-        "rank": 5,
+        "rank": 6,
+        "teamId": 6875,
+        "team": "Metalul Buzău",
+        "played": 11,
+        "win": 6,
+        "draw": 3,
+        "loss": 2,
+        "gf": 13,
+        "ga": 7,
+        "gd": 6,
+        "points": 21,
+        "form": "WDWWW"
+      },
+      {
+        "rank": 7,
         "teamId": 6229,
         "team": "CSM Reşiţa",
         "played": 11,
@@ -4677,49 +4260,35 @@
         "form": "LLWWL"
       },
       {
-        "rank": 6,
-        "teamId": 22000,
-        "team": "FC Bacau",
-        "played": 10,
-        "win": 5,
-        "draw": 3,
-        "loss": 2,
-        "gf": 22,
-        "ga": 9,
-        "gd": 13,
-        "points": 18,
-        "form": "WLDWW"
-      },
-      {
-        "rank": 7,
+        "rank": 8,
         "teamId": 2580,
         "team": "Concordia",
-        "played": 10,
+        "played": 11,
         "win": 6,
-        "draw": 0,
+        "draw": 1,
         "loss": 4,
-        "gf": 24,
-        "ga": 16,
+        "gf": 26,
+        "ga": 18,
         "gd": 8,
-        "points": 18,
-        "form": "WLLWL"
-      },
-      {
-        "rank": 8,
-        "teamId": 26674,
-        "team": "Cetatea Suceava",
-        "played": 10,
-        "win": 5,
-        "draw": 3,
-        "loss": 2,
-        "gf": 20,
-        "ga": 12,
-        "gd": 8,
-        "points": 18,
-        "form": "WWDWD"
+        "points": 19,
+        "form": "DWLLW"
       },
       {
         "rank": 9,
+        "teamId": 22000,
+        "team": "FC Bacau",
+        "played": 11,
+        "win": 5,
+        "draw": 3,
+        "loss": 3,
+        "gf": 22,
+        "ga": 10,
+        "gd": 12,
+        "points": 18,
+        "form": "LWLDW"
+      },
+      {
+        "rank": 10,
         "teamId": 20033,
         "team": "Bihor Oradea",
         "played": 11,
@@ -4733,21 +4302,21 @@
         "form": "WWWLW"
       },
       {
-        "rank": 10,
-        "teamId": 6875,
-        "team": "Metalul Buzău",
-        "played": 10,
-        "win": 5,
-        "draw": 3,
-        "loss": 2,
-        "gf": 10,
-        "ga": 7,
-        "gd": 3,
+        "rank": 11,
+        "teamId": 22824,
+        "team": "Gloria Bistriţa",
+        "played": 11,
+        "win": 6,
+        "draw": 0,
+        "loss": 5,
+        "gf": 15,
+        "ga": 14,
+        "gd": 1,
         "points": 18,
-        "form": "DWWWD"
+        "form": "WLWLL"
       },
       {
-        "rank": 11,
+        "rank": 12,
         "teamId": 2608,
         "team": "CS Afumati",
         "played": 10,
@@ -4759,20 +4328,6 @@
         "gd": 2,
         "points": 17,
         "form": "LWWDW"
-      },
-      {
-        "rank": 12,
-        "teamId": 22824,
-        "team": "Gloria Bistriţa",
-        "played": 10,
-        "win": 5,
-        "draw": 0,
-        "loss": 5,
-        "gf": 13,
-        "ga": 13,
-        "gd": 0,
-        "points": 15,
-        "form": "LWLLW"
       },
       {
         "rank": 13,
@@ -4820,15 +4375,15 @@
         "rank": 16,
         "teamId": 6916,
         "team": "Unirea Slobozia",
-        "played": 10,
+        "played": 11,
         "win": 2,
-        "draw": 1,
+        "draw": 2,
         "loss": 7,
-        "gf": 12,
-        "ga": 13,
+        "gf": 14,
+        "ga": 15,
         "gd": -1,
-        "points": 7,
-        "form": "LWLLW"
+        "points": 8,
+        "form": "DLWLL"
       },
       {
         "rank": 17,
@@ -4848,15 +4403,15 @@
         "rank": 18,
         "teamId": 19170,
         "team": "CS Dinamo București",
-        "played": 10,
+        "played": 11,
         "win": 2,
         "draw": 1,
-        "loss": 7,
-        "gf": 15,
-        "ga": 30,
-        "gd": -15,
+        "loss": 8,
+        "gf": 16,
+        "ga": 32,
+        "gd": -16,
         "points": 7,
-        "form": "WDLLL"
+        "form": "LWDLL"
       },
       {
         "rank": 19,
@@ -4890,13 +4445,13 @@
         "rank": 21,
         "teamId": 21686,
         "team": "Ştefăneşti",
-        "played": 10,
+        "played": 11,
         "win": 2,
         "draw": 0,
-        "loss": 8,
+        "loss": 9,
         "gf": 7,
-        "ga": 23,
-        "gd": -16,
+        "ga": 26,
+        "gd": -19,
         "points": 6,
         "form": "LLLLL"
       },
@@ -4904,13 +4459,13 @@
         "rank": 22,
         "teamId": 7469,
         "team": "Dumbrăviţa",
-        "played": 10,
+        "played": 11,
         "win": 0,
         "draw": 3,
-        "loss": 7,
-        "gf": 6,
-        "ga": 21,
-        "gd": -15,
+        "loss": 8,
+        "gf": 7,
+        "ga": 23,
+        "gd": -16,
         "points": 3,
         "form": "LLLLL"
       }
