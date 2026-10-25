@@ -1993,7 +1993,17 @@ async function main() {
             const taken = new Set((doc.teams[side].squad || []).filter((q) => q !== p).map((q) => q.apiId));
             if (sameNo.length === 1 && !taken.has(sameNo[0].apiId)) match = sameNo[0];
           }
-          if (!match) continue;
+          if (!match) {
+            // Not in the API squad any more (left / loan): a stats copy that another squad member carries
+            // too is a leftover of the number-collision bug, not his own.
+            if (p.stats) {
+              const mine = JSON.stringify(p.stats);
+              if ((doc.teams[side].squad || []).some((q) => q !== p && q.apiId !== p.apiId && q.stats && JSON.stringify(q.stats) === mine)) {
+                p.stats = null; touched = true;
+              }
+            }
+            continue;
+          }
           if (!has(p.career) && match.apiId != null) {
             const c = await getCareer(match.apiId, cache);
             if (c) { p.career = c; touched = true; }
