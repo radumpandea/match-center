@@ -112,7 +112,10 @@ async function main() {
     }
     const rows = lj && lj.response;
     if (!rows || rows.length !== 2) {
-      console.log('  not published yet.');
+      // An API error (daily quota used up, rate limit) also comes back as an empty response: show it, so
+      // "not published yet" is not reported when the call itself was refused.
+      const err = lj && lj.errors && (Array.isArray(lj.errors) ? lj.errors.length : Object.keys(lj.errors).length) ? ` API errors: ${JSON.stringify(lj.errors)}` : '';
+      console.log(`  not published yet (${rows ? rows.length : 'no'} lineup rows, results=${lj && lj.results}).${err}`);
       continue;
     }
 
