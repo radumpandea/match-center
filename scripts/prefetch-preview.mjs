@@ -1984,7 +1984,15 @@ async function main() {
         }
         const ids = sq && sq.squad || [];
         for (const p of doc.teams[side].squad || []) {
-          const match = ids.find((x) => norm(x.name) === norm(p.name) || (p.number != null && x.number === p.number));
+          // Identity first (apiId, then name). A shirt number is only a last resort, and only when it is
+          // unambiguous: API-Football reuses numbers inside a squad (two #10, two #7), and a plain
+          // "name || number" find() copied the first #10's stats onto the other #10.
+          let match = (p.apiId != null && ids.find((x) => x.apiId === p.apiId)) || ids.find((x) => norm(x.name) === norm(p.name));
+          if (!match && p.number != null) {
+            const sameNo = ids.filter((x) => x.number === p.number);
+            const taken = new Set((doc.teams[side].squad || []).filter((q) => q !== p).map((q) => q.apiId));
+            if (sameNo.length === 1 && !taken.has(sameNo[0].apiId)) match = sameNo[0];
+          }
           if (!match) continue;
           if (!has(p.career) && match.apiId != null) {
             const c = await getCareer(match.apiId, cache);
