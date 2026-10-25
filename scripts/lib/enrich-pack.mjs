@@ -225,3 +225,31 @@ export function decodeDeep(o) {
   walk(o);
   return changed;
 }
+
+// absences[] (API-Football injuries/suspensions plus what the editorial pass added) -> squad[].status, so a
+// suspended, injured or doubtful player is marked on the pitch and on his card, not only listed in the
+// absences panel. A player no longer in absences[] whose status has no note (nothing editorial to lose) goes
+// back to "available". Returns true when something changed.
+const ABS_STATUS = { injury: 'out', suspension: 'suspended', doubt: 'doubt' };
+export function applyAbsenceStatus(doc) {
+  let changed = false;
+  for (const side of ['home', 'away']) {
+    const t = doc.teams && doc.teams[side];
+    if (!t) continue;
+    const hit = new Set();
+    for (const a of t.absences || []) {
+      const want = ABS_STATUS[a && a.reason];
+      if (!want || !a.name) continue;
+      const cands = (t.squad || []).filter((p) => nameMatches(a.name, p.name));
+      if (cands.length !== 1) continue;           // unknown or ambiguous: leave it
+      const p = cands[0];
+      hit.add(p);
+      if (p.status !== want) { p.status = want; changed = true; }
+      if (a.detail && p.statusNote !== a.detail) { p.statusNote = a.detail; changed = true; }
+    }
+    for (const p of t.squad || []) {
+      if (!hit.has(p) && (p.status === 'out' || p.status === 'suspended' || p.status === 'doubt') && !p.statusNote) { p.status = 'available'; changed = true; }
+    }
+  }
+  return changed;
+}
