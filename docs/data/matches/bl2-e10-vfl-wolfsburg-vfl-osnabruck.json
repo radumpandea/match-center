@@ -1,12 +1,12 @@
 {
   "slug": "bl2-e10-vfl-wolfsburg-vfl-osnabruck",
-  "generatedAt": "2026-10-25T15:09:34.283Z",
+  "generatedAt": "2026-10-26T11:34:13.672Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-10-25"
+      "accessed": "2026-10-26"
     }
   ],
   "competition": {
@@ -18,9 +18,16 @@
   "kickoff": "2026-10-31T14:00:00+02:00",
   "venue": {
     "name": "Volkswagen Arena",
-    "capacity": null,
-    "city": null,
-    "notes": null
+    "capacity": 30000,
+    "city": "Wolfsburg",
+    "notes": null,
+    "weather": {
+      "tempC": 9,
+      "condition": "cer noros",
+      "windKph": 6,
+      "precipitationMm": 0,
+      "forecastAt": "2026-10-26T11:34:14.226Z"
+    }
   },
   "referee": {
     "name": "n/d",
@@ -37,12 +44,47 @@
   },
   "storyOfTheMatch": [
     "VfL Wolfsburg — locul 4 după 9 etape, 16 puncte, golaveraj 23-14.",
+    "VfL Wolfsburg — 5 meciuri fără înfrângere.",
     "Robert-Nesta Glatzel e cel mai bun marcator al echipei VfL Wolfsburg în acest start de sezon (5 goluri).",
     "VfL Osnabrück — locul 12 după 8 etape, 8 puncte, golaveraj 11-15.",
-    "VfL Osnabrück — 5 din 10 goluri marcate după minutul 75.",
     "Robin Maximilian Meißner e cel mai bun marcator al echipei VfL Osnabrück în acest start de sezon (3 goluri)."
   ],
-  "predictions": null,
+  "predictions": {
+    "winnerName": "VfL Wolfsburg",
+    "winOrDraw": true,
+    "advice": "Combo Double chance : VfL Wolfsburg or draw and +1.5 goals",
+    "percent": {
+      "home": 45,
+      "draw": 45,
+      "away": 10
+    },
+    "comparison": {
+      "form": {
+        "home": 62,
+        "away": 38
+      },
+      "attack": {
+        "home": 65,
+        "away": 35
+      },
+      "defense": {
+        "home": 50,
+        "away": 50
+      },
+      "poisson": {
+        "home": 63,
+        "away": 37
+      },
+      "h2h": {
+        "home": 50,
+        "away": 50
+      },
+      "goals": {
+        "home": 0,
+        "away": 0
+      }
+    }
+  },
   "teams": {
     "home": {
       "name": "VfL Wolfsburg",
@@ -89,13 +131,6 @@
             "period": "2012–2015",
             "note": null
           }
-        ],
-        "funfacts": [
-          "S-a născut la 12 octombrie 1987; fotbalist german retras, a jucat pentru FC Pipinsried și pentru Ingolstadt (echipa a doua și prima).",
-          "A început cariera de antrenor la echipa a doua a lui Augsburg, apoi a pregătit FC Schweinfurt, Ingolstadt II și TSV 1860 Rosenheim.",
-          "Ultimul său club înainte de Wolfsburg a fost SC Verl, pe care l-a condus la locul 6 în 3. Liga și la câștigarea Cupei Westfaliei în sezonul 2025–26.",
-          "La data de 19 octombrie 2026, Tobias Strobl este noul antrenor principal al lui VfL Wolfsburg, cu un contract valabil până la 30 iunie 2028.",
-          "Numirea sa la Wolfsburg a venit după retrogradarea clubului din Bundesliga, pierdută la baraj cu Paderborn, și îl succede pe Dieter Hecking, care a devenit director sportiv."
         ]
       },
       "formation": "n/d",
@@ -131,28 +166,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 0,
+            "minutes": null,
             "apps": 0,
             "yellow": 0,
             "red": null,
             "rating": null,
             "conceded": 0,
-            "saves": 0,
-            "shotsTotal": 0,
-            "shotsOn": 0,
-            "passesTotal": 0,
-            "passesKey": 0,
+            "saves": null,
+            "shotsTotal": null,
+            "shotsOn": null,
+            "passesTotal": null,
+            "passesKey": null,
             "passesAccuracy": null,
-            "tacklesTotal": 0,
-            "tacklesBlocks": 0,
-            "tacklesInterceptions": 0,
-            "duelsTotal": 0,
-            "duelsWon": 0,
-            "dribblesAttempts": 0,
-            "dribblesSuccess": 0,
+            "tacklesTotal": null,
+            "tacklesBlocks": null,
+            "tacklesInterceptions": null,
+            "duelsTotal": null,
+            "duelsWon": null,
+            "dribblesAttempts": null,
+            "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": 0,
-            "foulsCommitted": 0,
+            "foulsDrawn": null,
+            "foulsCommitted": null,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -188,23 +223,23 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 1,
+            "minutes": 180,
+            "apps": 2,
             "yellow": 1,
             "red": null,
-            "rating": 7.99,
-            "conceded": 1,
-            "saves": 7,
+            "rating": 7.98,
+            "conceded": 2,
+            "saves": 11,
             "shotsTotal": 0,
             "shotsOn": 0,
-            "passesTotal": 36,
+            "passesTotal": 77,
             "passesKey": 0,
-            "passesAccuracy": 69,
-            "tacklesTotal": 0,
+            "passesAccuracy": 80,
+            "tacklesTotal": 1,
             "tacklesBlocks": 0,
             "tacklesInterceptions": 0,
-            "duelsTotal": 1,
-            "duelsWon": 1,
+            "duelsTotal": 2,
+            "duelsWon": 2,
             "dribblesAttempts": 0,
             "dribblesSuccess": 0,
             "dribblesPast": null,
@@ -249,8 +284,8 @@
             "apps": 7,
             "yellow": 0,
             "red": null,
-            "rating": 6.03,
-            "conceded": 8,
+            "rating": 5.32,
+            "conceded": 12,
             "saves": 22,
             "shotsTotal": 1,
             "shotsOn": 0,
@@ -306,7 +341,7 @@
             "apps": 2,
             "yellow": 1,
             "red": null,
-            "rating": 3.15,
+            "rating": 4.2,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 1,
@@ -363,7 +398,7 @@
             "apps": 4,
             "yellow": 2,
             "red": 1,
-            "rating": 5.17,
+            "rating": 4.38,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 2,
@@ -372,12 +407,12 @@
             "passesKey": 2,
             "passesAccuracy": 90,
             "tacklesTotal": 8,
-            "tacklesBlocks": 0,
+            "tacklesBlocks": 3,
             "tacklesInterceptions": 6,
-            "duelsTotal": 36,
-            "duelsWon": 18,
-            "dribblesAttempts": 2,
-            "dribblesSuccess": 2,
+            "duelsTotal": 37,
+            "duelsWon": 19,
+            "dribblesAttempts": 3,
+            "dribblesSuccess": 3,
             "dribblesPast": null,
             "foulsDrawn": 2,
             "foulsCommitted": 9,
@@ -416,28 +451,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 245,
-            "apps": 3,
+            "minutes": 335,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 7.11,
+            "rating": 7.04,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 0,
             "shotsOn": 0,
-            "passesTotal": 209,
+            "passesTotal": 300,
             "passesKey": 0,
-            "passesAccuracy": 89,
+            "passesAccuracy": 91,
             "tacklesTotal": 4,
             "tacklesBlocks": 1,
             "tacklesInterceptions": 1,
-            "duelsTotal": 35,
-            "duelsWon": 23,
+            "duelsTotal": 41,
+            "duelsWon": 26,
             "dribblesAttempts": 3,
             "dribblesSuccess": 3,
             "dribblesPast": null,
             "foulsDrawn": 7,
-            "foulsCommitted": 6,
+            "foulsCommitted": 8,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -477,17 +512,17 @@
             "apps": 7,
             "yellow": 0,
             "red": null,
-            "rating": 5.58,
+            "rating": 4.84,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 2,
             "shotsOn": 0,
             "passesTotal": 213,
-            "passesKey": 4,
+            "passesKey": 3,
             "passesAccuracy": 82,
             "tacklesTotal": 15,
             "tacklesBlocks": 2,
-            "tacklesInterceptions": 6,
+            "tacklesInterceptions": 5,
             "duelsTotal": 53,
             "duelsWon": 27,
             "dribblesAttempts": 4,
@@ -557,28 +592,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 358,
-            "apps": 4,
-            "yellow": 1,
+            "minutes": 448,
+            "apps": 5,
+            "yellow": 2,
             "red": null,
-            "rating": 6.73,
+            "rating": 6.67,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 2,
             "shotsOn": 1,
-            "passesTotal": 176,
+            "passesTotal": 234,
             "passesKey": 4,
-            "passesAccuracy": 85,
-            "tacklesTotal": 8,
+            "passesAccuracy": 84,
+            "tacklesTotal": 10,
             "tacklesBlocks": 0,
-            "tacklesInterceptions": 4,
-            "duelsTotal": 40,
-            "duelsWon": 18,
-            "dribblesAttempts": 11,
-            "dribblesSuccess": 5,
+            "tacklesInterceptions": 6,
+            "duelsTotal": 50,
+            "duelsWon": 26,
+            "dribblesAttempts": 12,
+            "dribblesSuccess": 6,
             "dribblesPast": null,
-            "foulsDrawn": 2,
-            "foulsCommitted": 8,
+            "foulsDrawn": 6,
+            "foulsCommitted": 10,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -614,27 +649,27 @@
           "stats": {
             "goals": 0,
             "assists": 4,
-            "minutes": 629,
-            "apps": 7,
+            "minutes": 719,
+            "apps": 8,
             "yellow": 1,
             "red": null,
-            "rating": 6.85,
+            "rating": 6.84,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 6,
-            "shotsOn": 1,
-            "passesTotal": 335,
+            "shotsTotal": 7,
+            "shotsOn": 2,
+            "passesTotal": 392,
             "passesKey": 11,
-            "passesAccuracy": 87,
+            "passesAccuracy": 88,
             "tacklesTotal": 16,
-            "tacklesBlocks": 3,
-            "tacklesInterceptions": 10,
-            "duelsTotal": 57,
-            "duelsWon": 33,
-            "dribblesAttempts": 10,
+            "tacklesBlocks": 2,
+            "tacklesInterceptions": 12,
+            "duelsTotal": 62,
+            "duelsWon": 36,
+            "dribblesAttempts": 11,
             "dribblesSuccess": 7,
             "dribblesPast": null,
-            "foulsDrawn": 7,
+            "foulsDrawn": 9,
             "foulsCommitted": 1,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -671,27 +706,27 @@
           "stats": {
             "goals": 2,
             "assists": 0,
-            "minutes": 725,
-            "apps": 8,
+            "minutes": 815,
+            "apps": 9,
             "yellow": 2,
             "red": null,
-            "rating": 6.98,
+            "rating": 7.09,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 4,
+            "shotsTotal": 5,
             "shotsOn": 2,
-            "passesTotal": 511,
+            "passesTotal": 591,
             "passesKey": 5,
             "passesAccuracy": 91,
-            "tacklesTotal": 8,
-            "tacklesBlocks": 5,
-            "tacklesInterceptions": 16,
-            "duelsTotal": 45,
-            "duelsWon": 25,
-            "dribblesAttempts": 1,
+            "tacklesTotal": 10,
+            "tacklesBlocks": 7,
+            "tacklesInterceptions": 20,
+            "duelsTotal": 50,
+            "duelsWon": 30,
+            "dribblesAttempts": 0,
             "dribblesSuccess": 0,
             "dribblesPast": null,
-            "foulsDrawn": 5,
+            "foulsDrawn": 6,
             "foulsCommitted": 7,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -785,27 +820,27 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 124,
-            "apps": 6,
+            "minutes": 171,
+            "apps": 7,
             "yellow": 0,
             "red": null,
-            "rating": 5.67,
+            "rating": 5.99,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 0,
-            "shotsOn": 0,
-            "passesTotal": 79,
+            "shotsTotal": 2,
+            "shotsOn": 1,
+            "passesTotal": 130,
             "passesKey": 1,
-            "passesAccuracy": 87,
-            "tacklesTotal": 3,
+            "passesAccuracy": 88,
+            "tacklesTotal": 6,
             "tacklesBlocks": 0,
-            "tacklesInterceptions": 2,
-            "duelsTotal": 14,
-            "duelsWon": 10,
-            "dribblesAttempts": 0,
-            "dribblesSuccess": 0,
+            "tacklesInterceptions": 4,
+            "duelsTotal": 24,
+            "duelsWon": 18,
+            "dribblesAttempts": 1,
+            "dribblesSuccess": 1,
             "dribblesPast": null,
-            "foulsDrawn": 5,
+            "foulsDrawn": 8,
             "foulsCommitted": 3,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -841,28 +876,28 @@
           "statusNote": null,
           "stats": {
             "goals": 3,
-            "assists": 0,
-            "minutes": 596,
-            "apps": 8,
+            "assists": 1,
+            "minutes": 684,
+            "apps": 9,
             "yellow": 1,
             "red": null,
-            "rating": 7.11,
+            "rating": 7.06,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 22,
-            "shotsOn": 13,
-            "passesTotal": 298,
-            "passesKey": 11,
-            "passesAccuracy": 80,
-            "tacklesTotal": 6,
+            "shotsTotal": 23,
+            "shotsOn": 14,
+            "passesTotal": 356,
+            "passesKey": 14,
+            "passesAccuracy": 81,
+            "tacklesTotal": 8,
             "tacklesBlocks": 2,
             "tacklesInterceptions": 1,
-            "duelsTotal": 60,
-            "duelsWon": 25,
-            "dribblesAttempts": 16,
-            "dribblesSuccess": 9,
+            "duelsTotal": 68,
+            "duelsWon": 28,
+            "dribblesAttempts": 15,
+            "dribblesSuccess": 8,
             "dribblesPast": null,
-            "foulsDrawn": 10,
+            "foulsDrawn": 11,
             "foulsCommitted": 8,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -956,27 +991,27 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 333,
-            "apps": 8,
+            "minutes": 399,
+            "apps": 9,
             "yellow": 0,
             "red": null,
-            "rating": 6.31,
+            "rating": 6.4,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 8,
+            "shotsTotal": 7,
             "shotsOn": 3,
-            "passesTotal": 125,
-            "passesKey": 4,
-            "passesAccuracy": 76,
+            "passesTotal": 159,
+            "passesKey": 5,
+            "passesAccuracy": 78,
             "tacklesTotal": 4,
             "tacklesBlocks": 1,
             "tacklesInterceptions": 0,
-            "duelsTotal": 28,
-            "duelsWon": 15,
+            "duelsTotal": 31,
+            "duelsWon": 19,
             "dribblesAttempts": 1,
             "dribblesSuccess": 1,
             "dribblesPast": null,
-            "foulsDrawn": 3,
+            "foulsDrawn": 4,
             "foulsCommitted": 4,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -1070,23 +1105,23 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 383,
-            "apps": 6,
-            "yellow": 1,
+            "minutes": 407,
+            "apps": 7,
+            "yellow": 2,
             "red": null,
-            "rating": 6.61,
+            "rating": 6.59,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 4,
             "shotsOn": 2,
-            "passesTotal": 191,
+            "passesTotal": 203,
             "passesKey": 8,
-            "passesAccuracy": 80,
-            "tacklesTotal": 9,
+            "passesAccuracy": 81,
+            "tacklesTotal": 10,
             "tacklesBlocks": 0,
-            "tacklesInterceptions": 4,
-            "duelsTotal": 32,
-            "duelsWon": 17,
+            "tacklesInterceptions": 5,
+            "duelsTotal": 35,
+            "duelsWon": 19,
             "dribblesAttempts": 2,
             "dribblesSuccess": 1,
             "dribblesPast": null,
@@ -1184,28 +1219,28 @@
           "stats": {
             "goals": 2,
             "assists": 2,
-            "minutes": 674,
-            "apps": 8,
+            "minutes": 717,
+            "apps": 9,
             "yellow": 2,
             "red": null,
-            "rating": 7.21,
+            "rating": 7.11,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 3,
             "shotsOn": 2,
-            "passesTotal": 384,
+            "passesTotal": 391,
             "passesKey": 9,
-            "passesAccuracy": 86,
-            "tacklesTotal": 19,
-            "tacklesBlocks": 4,
-            "tacklesInterceptions": 8,
-            "duelsTotal": 62,
-            "duelsWon": 33,
-            "dribblesAttempts": 5,
-            "dribblesSuccess": 2,
+            "passesAccuracy": 85,
+            "tacklesTotal": 21,
+            "tacklesBlocks": 5,
+            "tacklesInterceptions": 7,
+            "duelsTotal": 68,
+            "duelsWon": 36,
+            "dribblesAttempts": 7,
+            "dribblesSuccess": 3,
             "dribblesPast": null,
             "foulsDrawn": 4,
-            "foulsCommitted": 15,
+            "foulsCommitted": 16,
             "penaltyWon": null,
             "penaltyCommitted": 1,
             "penaltyScored": 0,
@@ -1245,12 +1280,12 @@
           "number": 17,
           "name": "Alexander Olof Bernhardsson",
           "photo": "https://media.api-sports.io/football/players/47696.png",
-          "pos": "ATT",
+          "pos": "MID",
           "positions": [
-            "ATT",
-            "MID"
+            "MID",
+            "ATT"
           ],
-          "role": "ATT",
+          "role": "MID",
           "age": 28,
           "height": 185,
           "weight": 70,
@@ -1269,28 +1304,28 @@
           "stats": {
             "goals": 4,
             "assists": 2,
-            "minutes": 505,
-            "apps": 6,
+            "minutes": 571,
+            "apps": 7,
             "yellow": 0,
             "red": null,
-            "rating": 7.64,
+            "rating": 7.43,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 14,
-            "shotsOn": 7,
-            "passesTotal": 173,
-            "passesKey": 17,
-            "passesAccuracy": 71,
-            "tacklesTotal": 10,
+            "shotsTotal": 15,
+            "shotsOn": 8,
+            "passesTotal": 195,
+            "passesKey": 20,
+            "passesAccuracy": 70,
+            "tacklesTotal": 11,
             "tacklesBlocks": 2,
             "tacklesInterceptions": 0,
-            "duelsTotal": 56,
-            "duelsWon": 26,
-            "dribblesAttempts": 18,
-            "dribblesSuccess": 7,
+            "duelsTotal": 65,
+            "duelsWon": 31,
+            "dribblesAttempts": 21,
+            "dribblesSuccess": 9,
             "dribblesPast": null,
-            "foulsDrawn": 3,
-            "foulsCommitted": 7,
+            "foulsDrawn": 4,
+            "foulsCommitted": 8,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -1326,25 +1361,25 @@
           "stats": {
             "goals": 2,
             "assists": 1,
-            "minutes": 93,
-            "apps": 7,
+            "minutes": 117,
+            "apps": 8,
             "yellow": 1,
             "red": null,
-            "rating": 6.77,
+            "rating": 6.84,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 6,
             "shotsOn": 3,
-            "passesTotal": 32,
-            "passesKey": 2,
-            "passesAccuracy": 68,
-            "tacklesTotal": 2,
-            "tacklesBlocks": 2,
+            "passesTotal": 40,
+            "passesKey": 4,
+            "passesAccuracy": 72,
+            "tacklesTotal": 4,
+            "tacklesBlocks": 1,
             "tacklesInterceptions": 1,
-            "duelsTotal": 12,
-            "duelsWon": 3,
-            "dribblesAttempts": 5,
-            "dribblesSuccess": 1,
+            "duelsTotal": 19,
+            "duelsWon": 8,
+            "dribblesAttempts": 7,
+            "dribblesSuccess": 3,
             "dribblesPast": null,
             "foulsDrawn": 0,
             "foulsCommitted": 2,
@@ -1383,28 +1418,28 @@
           "stats": {
             "goals": 5,
             "assists": 1,
-            "minutes": 453,
-            "apps": 7,
+            "minutes": 543,
+            "apps": 8,
             "yellow": 0,
             "red": null,
-            "rating": 7.34,
+            "rating": 7.19,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 15,
+            "shotsTotal": 16,
             "shotsOn": 9,
-            "passesTotal": 126,
+            "passesTotal": 147,
             "passesKey": 9,
-            "passesAccuracy": 79,
+            "passesAccuracy": 76,
             "tacklesTotal": 2,
-            "tacklesBlocks": 1,
-            "tacklesInterceptions": 0,
-            "duelsTotal": 47,
-            "duelsWon": 20,
-            "dribblesAttempts": 8,
-            "dribblesSuccess": 5,
+            "tacklesBlocks": 2,
+            "tacklesInterceptions": 1,
+            "duelsTotal": 63,
+            "duelsWon": 29,
+            "dribblesAttempts": 10,
+            "dribblesSuccess": 7,
             "dribblesPast": null,
-            "foulsDrawn": 5,
-            "foulsCommitted": 12,
+            "foulsDrawn": 10,
+            "foulsCommitted": 14,
             "penaltyWon": 2,
             "penaltyCommitted": null,
             "penaltyScored": 1,
@@ -1532,12 +1567,11 @@
           "number": 11,
           "name": "Fabian Reese",
           "photo": "https://media.api-sports.io/football/players/25167.png",
-          "pos": "ATT",
+          "pos": "MID",
           "positions": [
-            "ATT",
             "MID"
           ],
-          "role": "ATT",
+          "role": "MID",
           "age": 28,
           "height": 187,
           "weight": 80,
@@ -1554,29 +1588,29 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 3,
+            "goals": 4,
             "assists": 6,
-            "minutes": 688,
-            "apps": 8,
+            "minutes": 778,
+            "apps": 9,
             "yellow": 1,
             "red": null,
-            "rating": 7.5,
+            "rating": 7.75,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 19,
-            "shotsOn": 7,
-            "passesTotal": 246,
+            "shotsTotal": 21,
+            "shotsOn": 8,
+            "passesTotal": 283,
             "passesKey": 28,
-            "passesAccuracy": 76,
-            "tacklesTotal": 16,
+            "passesAccuracy": 78,
+            "tacklesTotal": 15,
             "tacklesBlocks": 0,
             "tacklesInterceptions": 8,
-            "duelsTotal": 60,
-            "duelsWon": 36,
-            "dribblesAttempts": 24,
-            "dribblesSuccess": 14,
+            "duelsTotal": 65,
+            "duelsWon": 38,
+            "dribblesAttempts": 30,
+            "dribblesSuccess": 16,
             "dribblesPast": null,
-            "foulsDrawn": 4,
+            "foulsDrawn": 5,
             "foulsCommitted": 5,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -1613,16 +1647,16 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 237,
-            "apps": 7,
+            "minutes": 239,
+            "apps": 8,
             "yellow": 1,
             "red": null,
-            "rating": 6.4,
+            "rating": 6.59,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 4,
             "shotsOn": 2,
-            "passesTotal": 40,
+            "passesTotal": 41,
             "passesKey": 3,
             "passesAccuracy": 75,
             "tacklesTotal": 1,
@@ -1634,7 +1668,7 @@
             "dribblesSuccess": 6,
             "dribblesPast": null,
             "foulsDrawn": 1,
-            "foulsCommitted": 6,
+            "foulsCommitted": 7,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -1664,9 +1698,1582 @@
           "ga": 14,
           "points": 16
         },
+        "recent": [
+          {
+            "date": "2026-10-23",
+            "opp": "VfL Bochum",
+            "homeAway": "A",
+            "comp": "2. Bundesliga",
+            "score": "1-1",
+            "result": "D",
+            "referee": "Eric-Dominic Weisbach",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "T. Wellenreuther",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Kumbedi",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Wahl",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "Cleiton",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Mæhle",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Gerhardt",
+                  "number": 31,
+                  "pos": "M"
+                },
+                {
+                  "name": "Vinicius Souza",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Bernhardsson",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Damar",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Reese",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Glatzel",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "T. Horn",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Klaiber",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Steinwender",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Mets",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Wittek",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Meyer",
+                  "number": 34,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Pannewig",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Taz",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Holtmann",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Miyoshi",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Hofmann",
+                  "number": 33,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 2,
+                "side": "us",
+                "type": "goal",
+                "player": "Fabian Reese",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 43,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vinicius de Souza Costa",
+                "playerIn": "Maximilian Arnold"
+              },
+              {
+                "minute": 57,
+                "side": "us",
+                "type": "yellow",
+                "player": "Saël Kumbedi Nseke",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "goal",
+                "player": "Sean Klaiber",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Alexander Bernhardsson",
+                "playerIn": "Alessio Besio"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Yannick Gerhardt",
+                "playerIn": "Elvis Rexhbecaj"
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Koji Miyoshi",
+                "playerIn": "Jarne Steuckers"
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Berkan Taz",
+                "playerIn": "Christian Theodor Kjelder Rasmussen"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Philipp Hofmann",
+                "playerIn": "Daniel Hanslik"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gerrit Holtmann",
+                "playerIn": "Mansour Ouro-Tagba"
+              },
+              {
+                "minute": 88,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Muhammed Damar",
+                "playerIn": "Kento Shiogai"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sean Klaiber",
+                "playerIn": "Yigit Karademir"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Elvis Rexhbecaj",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-17",
+            "opp": "1. FC Heidenheim",
+            "homeAway": "H",
+            "comp": "2. Bundesliga",
+            "score": "3-1",
+            "result": "W",
+            "referee": "Tom Bauer",
+            "formation": {
+              "us": "4-3-3",
+              "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "T. Wellenreuther",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Kumbedi",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Wahl",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "Cleiton",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Mæhle",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Gerhardt",
+                  "number": 31,
+                  "pos": "M"
+                },
+                {
+                  "name": "Vinicius Souza",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Damar",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Bernhardsson",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "R. Glatzel",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "F. Reese",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "T. Dähne",
+                  "number": 33,
+                  "pos": "G"
+                },
+                {
+                  "name": "O. Mhamdi",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Mainka",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Föhrenbach",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Heule",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Hennrich",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Schöppner",
+                  "number": 3,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Niehues",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Conteh",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Kaufmann",
+                  "number": 29,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Vogt",
+                  "number": 18,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 1,
+                "side": "us",
+                "type": "goal",
+                "player": "Alexander Bernhardsson",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 21,
+                "side": "opp",
+                "type": "goal",
+                "player": "Patrick Mainka",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 32,
+                "side": "us",
+                "type": "yellow",
+                "player": "Hauke Wahl",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "goal",
+                "player": "Robert Glatzel",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Christian Conteh",
+                "playerIn": "Marcel Costly"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "yellow",
+                "player": "Timon Wellenreuther",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "yellow",
+                "player": "Fabian Reese",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Yannick Gerhardt",
+                "playerIn": "Elvis Rexhbecaj"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "goal",
+                "player": "Muhammed Damar",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Julian niehues",
+                "playerIn": "Mathias Honsak"
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Michael Heule",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Paul Hennrich",
+                "playerIn": "Yannik Wagner"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Fabian Reese",
+                "playerIn": "Alessio Besio"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "yellow",
+                "player": "Alessio Besio",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Alexander Bernhardsson",
+                "playerIn": "Bence Dárdai"
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Muhammed Damar",
+                "playerIn": "Kento Shiogai"
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mikkel Kaufmann",
+                "playerIn": "Tim Siersleben"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-10",
+            "opp": "1. FC Nürnberg",
+            "homeAway": "A",
+            "comp": "2. Bundesliga",
+            "score": "4-4",
+            "result": "D",
+            "referee": "Lars Erbst, Germany",
+            "formation": {
+              "us": "4-3-3",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Zieliński",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "K. Fischer",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Wahl",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Angely",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Mæhle",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Gerhardt",
+                  "number": 31,
+                  "pos": "M"
+                },
+                {
+                  "name": "Vinicius Souza",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Damar",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Bernhardsson",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "R. Glatzel",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "F. Reese",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Reichert",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "T. Janisch",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Kalogeropoulos",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Otto",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Porstner",
+                  "number": 41,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Marhiev",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Fernandez",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Justvan",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Ghrieb",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Zoma",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Scobel",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 12,
+                "side": "us",
+                "type": "goal",
+                "player": "Hauke Wahl",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 20,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Mohamed Alì Zoma",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 29,
+                "side": "us",
+                "type": "goal",
+                "player": "Muhammed Damar",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 52,
+                "side": "opp",
+                "type": "goal",
+                "player": "Piet Scobel",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "goal",
+                "player": "Piet Scobel",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Yannick Gerhardt",
+                "playerIn": "Elvis Rexhbecaj"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "yellow",
+                "player": "Hauke Wahl",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Tim janisch",
+                "playerIn": "Giannis Masouras"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Rayan Ghrieb",
+                "playerIn": "Rafael Lubach"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "goal",
+                "player": "Mohamed Alì Zoma",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Alexander Bernhardsson",
+                "playerIn": "Alessio Besio"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Fabian Reese",
+                "playerIn": "Kento Shiogai"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "yellow",
+                "player": "Mathys Angély",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vinicius de Souza Costa",
+                "playerIn": "Maximilian Arnold"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Julian Justvan",
+                "playerIn": "William Bøving"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Eric Porstner",
+                "playerIn": "andrea ceresoli"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "yellow",
+                "player": "Kento Shiogai",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Alexios Kalogeropoulos",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "goal",
+                "player": "Alessio Besio",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "goal",
+                "player": "Giannis Masouras",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Giannis Masouras",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mohamed Alì Zoma",
+                "playerIn": "Sigurd Haugen"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "goal",
+                "player": "Alessio Besio",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-01",
+            "opp": "Havelse",
+            "homeAway": "H",
+            "comp": "Friendlies Clubs",
+            "score": "4-1",
+            "result": "W",
+            "referee": null,
+            "formation": null,
+            "lineups": {
+              "us": [
+                {
+                  "name": "P. Pervan",
+                  "number": 12,
+                  "pos": null
+                },
+                {
+                  "name": "K. Fischer",
+                  "number": 2,
+                  "pos": null
+                },
+                {
+                  "name": "Vini Souza",
+                  "number": 5,
+                  "pos": null
+                },
+                {
+                  "name": "F. Reese",
+                  "number": 11,
+                  "pos": null
+                },
+                {
+                  "name": "R. Glatzel",
+                  "number": 19,
+                  "pos": null
+                },
+                {
+                  "name": "M. Damar",
+                  "number": 20,
+                  "pos": null
+                },
+                {
+                  "name": "A. Zehnter",
+                  "number": 25,
+                  "pos": null
+                },
+                {
+                  "name": "M. Arnold",
+                  "number": 27,
+                  "pos": null
+                },
+                {
+                  "name": "Y. Gerhardt",
+                  "number": 31,
+                  "pos": null
+                },
+                {
+                  "name": "Cleiton",
+                  "number": 33,
+                  "pos": null
+                },
+                {
+                  "name": "A. Vranckx",
+                  "number": 36,
+                  "pos": null
+                }
+              ],
+              "opp": [
+                {
+                  "name": "A. Guiddir",
+                  "number": 20,
+                  "pos": null
+                },
+                {
+                  "name": "L. Sommer-Deiss",
+                  "number": 22,
+                  "pos": null
+                },
+                {
+                  "name": "Y. Mausehund",
+                  "number": 24,
+                  "pos": null
+                },
+                {
+                  "name": "D. Nduka",
+                  "number": 27,
+                  "pos": null
+                },
+                {
+                  "name": "J. Tugbenyo",
+                  "number": 33,
+                  "pos": null
+                },
+                {
+                  "name": "T. Opitz",
+                  "number": 1,
+                  "pos": null
+                },
+                {
+                  "name": "M. Lamby",
+                  "number": 3,
+                  "pos": null
+                },
+                {
+                  "name": "J. Berger",
+                  "number": 8,
+                  "pos": null
+                },
+                {
+                  "name": "K. Schumacher",
+                  "number": 10,
+                  "pos": null
+                },
+                {
+                  "name": "D. Duah",
+                  "number": 15,
+                  "pos": null
+                },
+                {
+                  "name": "E. Voufack",
+                  "number": 19,
+                  "pos": null
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 2,
+                "side": "us",
+                "type": "goal",
+                "player": "F. Reese",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 13,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Damar",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 33,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Damar",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Cleiton",
+                "playerIn": "B. Dardai"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Vranckx",
+                "playerIn": "P. Hensel"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "F. Reese",
+                "playerIn": "C. Sticherling"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "goal",
+                "player": "R. Velasco",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Damar",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-09-18",
+            "opp": "SV Darmstadt 98",
+            "homeAway": "H",
+            "comp": "2. Bundesliga",
+            "score": "5-1",
+            "result": "W",
+            "referee": "Martin Petersen, Germany",
+            "formation": {
+              "us": "4-3-3",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Zielinski",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Kumbedi",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Wahl",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "Cleiton",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Maehle",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Damar",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "Vini Souza",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Gerhardt",
+                  "number": 31,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Bernhardsson",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "R. Glatzel",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "F. Reese",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Schuhen",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "C. Lannert",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Pfeiffer",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Vukotic",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Petretta",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Sickinger",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Klefisch",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Verkooijen",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Smit",
+                  "number": 36,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Weisshaupt",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "Lee Ho-Jae",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 14,
+                "side": "us",
+                "type": "goal",
+                "player": "A. Bernhardsson",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 29,
+                "side": "opp",
+                "type": "goal",
+                "player": "M. Smit",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 38,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Raoul Petretta",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 40,
+                "side": "us",
+                "type": "goal",
+                "player": "R. Glatzel",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 42,
+                "side": "us",
+                "type": "yellow",
+                "player": "Muhammed Damar",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 51,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Nicolas Verkooijen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "goal",
+                "player": "A. Bernhardsson",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Damar",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Petretta",
+                "playerIn": "W. Mikelbrencis"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Lee Ho-Jae",
+                "playerIn": "L. Duijvestijn"
+              },
+              {
+                "minute": 70,
+                "side": "us",
+                "type": "yellow",
+                "player": "Saël Kumbedi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vini Souza",
+                "playerIn": "M. Arnold"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Y. Gerhardt",
+                "playerIn": "B. Dardai"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "goal",
+                "player": "R. Glatzel",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 83,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Kumbedi",
+                "playerIn": "K. Fischer"
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Glatzel",
+                "playerIn": "A. Besio"
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Sickinger",
+                "playerIn": "M. Richter"
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Smit",
+                "playerIn": "I. El Kadiri"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Damar",
+                "playerIn": "P. Hensel"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Pharell Hensel",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-09-12",
+            "opp": "FC St. Pauli",
+            "homeAway": "A",
+            "comp": "2. Bundesliga",
+            "score": "0-1",
+            "result": "L",
+            "referee": "Sören Storks, Germany",
+            "formation": {
+              "us": "4-3-3",
+              "opp": "4-1-3-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Zielinski",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "K. Fischer",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Wahl",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "Cleiton",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Maehle",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Damar",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "Vini Souza",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Svanberg",
+                  "number": 32,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Bernhardsson",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "K. Shiogai",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "F. Reese",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "B. Voll",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Pyrka",
+                  "number": 11,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Nemeth",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Ritzka",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Oppie",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Smith",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Niang",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Rasmussen",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Fujita",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Metcalfe",
+                  "number": 24,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Ceesay",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 4,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Lars Ritzka",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 12,
+                "side": "us",
+                "type": "yellow",
+                "player": "Cleiton Santana dos Santos",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 32,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Abdoulie Ceesay",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Cleiton",
+                "playerIn": "J. Adjetey"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Damar",
+                "playerIn": "B. Dardai"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Ritzka",
+                "playerIn": "A. Dzwigala"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Y. Niang",
+                "playerIn": "M. Kaars"
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Svanberg",
+                "playerIn": "M. Arnold"
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Shiogai",
+                "playerIn": "Y. Gerhardt"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "yellow",
+                "player": "Tobias Strobl",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Bernhardsson",
+                "playerIn": "A. Besio"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "yellow",
+                "player": "Joakim Maehle",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "goal",
+                "player": "J. Fujita",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Metcalfe",
+                "playerIn": "S. Klein"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Ceesay",
+                "playerIn": "T. Hara"
+              }
+            ]
+          }
+        ],
+        "next": [
+          {
+            "date": "2026-10-28",
+            "opp": "SC Freiburg",
+            "homeAway": "A",
+            "comp": "DFB Pokal"
+          },
+          {
+            "date": "2026-10-31",
+            "opp": "VfL Osnabrück",
+            "homeAway": "H",
+            "comp": "2. Bundesliga"
+          },
+          {
+            "date": "2026-11-07",
+            "opp": "Hertha BSC",
+            "homeAway": "A",
+            "comp": "2. Bundesliga"
+          }
+        ],
         "stats": {
           "goalsForByInterval": {
-            "0-15": 5,
+            "0-15": 6,
             "16-30": 3,
             "31-45": 3,
             "46-60": 1,
@@ -1678,25 +3285,26 @@
             "16-30": 2,
             "31-45": 1,
             "46-60": 3,
-            "61-75": 2,
+            "61-75": 3,
             "76-90": 3
           },
           "cardsYellowByInterval": {
             "0-15": 1,
             "31-45": 2,
-            "46-60": 1,
+            "46-60": 2,
             "61-75": 6,
-            "76-90": 8
+            "76-90": 8,
+            "91-105": 1
           },
           "cardsRedByInterval": {
             "76-90": 1
           },
-          "goalsForAvg": 2.8,
+          "goalsForAvg": 2.6,
           "goalsAgainstAvg": 1.6,
           "goalsForAvgHome": 3,
-          "goalsForAvgAway": 2.5,
+          "goalsForAvgAway": 2.2,
           "goalsAgainstAvgHome": 1.5,
-          "goalsAgainstAvgAway": 1.8,
+          "goalsAgainstAvgAway": 1.6,
           "cleanSheets": 2,
           "cleanSheetsHome": 1,
           "cleanSheetsAway": 1,
@@ -1719,6 +3327,10 @@
             {
               "formation": "5-4-1",
               "played": 1
+            },
+            {
+              "formation": "4-2-3-1",
+              "played": 1
             }
           ],
           "biggestStreak": {
@@ -1737,7 +3349,7 @@
           "winsHome": 2,
           "winsAway": 2,
           "drawsHome": 2,
-          "drawsAway": 1,
+          "drawsAway": 2,
           "losesHome": 0,
           "losesAway": 1
         }
@@ -1961,65 +3573,55 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Bundesliga 2, Matchday 9: Kaiserslautern jump to third, Wolfsburg and Heidenheim lose ground on Hertha Berlin",
-          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNNmwyR2pxT1QxNm11MEpsbGFiaW1rakp0SktDUGVCT1J6TGozQTJxVGl3OTAyUUpSMUxjRVBVcGVwUks1bFZVT2FWRFR6THpPa1FlLXFLMmN4U3MzdkVFd2JZaHFwLTdhb1BjYTB0Q2paNHdpaWNhcFRNRHl0WU5NM21iMDFrMy1ISjB5LTRNbV8yTnA0SHRrYlozR1J2YVkyMV9XelZqMUg3RHRuMmF0TlpWdFVBYnc4bDZKQzlNa3dTMm5PeC15Zjgxa2oyQWgtdWRidFJB?oc=5",
-          "source": "Bundesliga | official website",
-          "published": "2026-10-25"
-        },
-        {
-          "title": "VfL Osnabrück - SpVgg Greuther Fürth Live - 2. Bundesliga: Football Scores & Highlights - 25/10/2026",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPM2NDMGNNYWRmSG9iMTBfdVhMMDlKQjlOZHhma2hGN3lfVkZOaUlWTTVPUzVMOEJNanFVN2NsM0pjYnZETzEycDRwM0tuS2YxYURYNXRoUWZfemxscWc2RmM2dzNQaUNPc0w3Zlo2RjVGUHRMZUNSTERhWXVTajgzcVlnRzZQcmNCMklJbVc2VHo5WHU4ai1xWEdIZ1FZbUhSQWZON2Fjcngya2ZpTndEVkJZeE1PQTRQdEZzU0dKbnQ3Ync?oc=5",
-          "source": "TNT Sports",
-          "published": "2026-10-24"
-        },
-        {
-          "title": "VfL Osnabrück - SpVgg Greuther Fürth Related Matches: Live Football Updates",
-          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPQTV4OGJYZEJVMFd6OEJaTjV6YkN6dzVEd2JpS2ttcl9kb3FkN2pqLWhaSTdLcndBaC1kdzdzendiQXowSEpVWmRSX2ZfZ1JGNVFCMldKMHZTbnl1Mk44bFQ2bzVsQWx0aUR1YnRGVi1KdHF6MFVONnZfYjM3SXJhNDlEamktOUZvOWtYQXNzSFBURWtBZUJjdEU1ZXZpekVfN3d1eXlkUFpteFY2X1FDYnYxaEVzZ050Y0ZmZktEVWw3bWVrNFoyZmRmYUxQUQ?oc=5",
-          "source": "TNT Sports",
-          "published": "2026-10-24"
-        },
-        {
-          "title": "Osnabrück - Greuther Fürth",
-          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9TdXBUelk0Q240XzliTGFiS3RUZW5hY1pmMG5RQUgyZVNHc1BMaG9ycFVHdktlMW5qanBpVW5odWdIcGl0eDNzY1RoYU82SU9ROHBpdGxOb05LY0VtVm9WNUdRUGs3VjVxblZtbE9hdkdlS0k?oc=5",
-          "source": "Bulinews",
-          "published": "2026-10-24"
-        },
-        {
-          "title": "Eintracht Braunschweig - Hannover 96 Related Matches: Live Football Updates",
-          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQRVJQNU5nLTllWm9pTFVNYmM5cjZYbWJwSXFrbnFqUkg3c3RkRndJU29pVzJYckl3eHNBcmxPdmY1TWg0eHZaTEZPVUZGQW5JcVNMX3QyS2t5MUVmbzdYZzNJU1FEd2FnbWkzUk5BUHBDbmFBTGFGSm9Hc1FKY2UwVUdGZ0RTV0xKcXJIV29EMHh2RWpLRERGQ3EtazdtN3V6dkZNR3hsSUlDSjJCT2JPYVVjWU1lT3JyNVpXWDJkaURSM1dMNUtYeDJxMA?oc=5",
-          "source": "TNT Sports",
-          "published": "2026-10-24"
-        },
-        {
-          "title": "Confirmed 2. Bundesliga Lineups: VfL Bochum vs. VfL Wolfsburg",
-          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQdlNCMFVSYWtVMjhpSlBneFJDS3M2dkxCTkFocnZISmk3QV9XZGZLTEpsUm1LTWl2QlJ1eldyMmRwdmx1M3FfMlZaT0lORHJ0eE1jSEZYVm4yQzNwNmdMOERhRDZUeWZiN1ZKUDhHMDJsbnRPNExaMGRselRJSXI3QVBB?oc=5",
-          "source": "Bulinews",
-          "published": "2026-10-23"
-        },
-        {
-          "title": "Confirmed line-ups for VfL Bochum vs VfL Wolfsburg in 2. Bundesliga",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPUENjaVE4Q2FZWXBxc0RXZXpCLXZDMGp0aVJNdklDbVhJM3lWWU44Y1l1VDhtMjRiYVA5Wm1zSUY3QTZGMVB2ZzJvNzYzYlhZZ01sVFdCa3JiVEZORFRLQ3ZoQW9VZEtGaUcxZnFiUTV4ci1zZlBpZ0dWdXB0RnRMSzA1S3JiT3JYRGxybFFrSzJ0bDM1N3B5ZHU2X3NGZFB3aHpDV1BISHVTVHM?oc=5",
+          "title": "MLS: Mejores atajadas de la semana",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNMjJNSm1LT3RfclpsX2VqMWpTRDV0SUFnV3B3bVdJVTlfeElOU3BRME5ncDI0ZFp5Wm5Tb1FseHBnR0FhX1gwckgyUHg0NXVnLU1KQllZNHlCM3N4U1FOTVJVWUo1S0hMR3Y4NlZNNXFJYTlHeGZTaVZ6Tmg0M0RiUU15Ump3QmJ1aG1adlR4R2NOdUVFVlJlU0N3?oc=5",
           "source": "OneFootball",
-          "published": "2026-10-23"
+          "published": "2026-10-26"
         },
         {
-          "title": "%$#[ＬＩＶＥＳｔｒｅａｍ]NOW!!] Darmstadt 98 vs FC St. Pauli Live Free TV",
-          "url": "https://news.google.com/rss/articles/CBMi3AJBVV95cUxPVmtaMG1GMUpXY0NzbnFVQXkxdEVXY25MX3FNV3dDb080Y25SQ3ZuOFhVVHFSUXdaM2hFeGNTUkUtbXVSSjZkRFJ5N0p3cHBoUDdTUlVUUEpwSWQ0dENYNkpyTE5wcVNEajhwdzFrTl9vRlpsNFg0NkxDeFdPRGtPSFlmN0lJeTlZM01sS0VmR2txYjQxdkNjbmQyQVVRSzQyUXRhRW5OR3FHVzZoM0tFN0ZhN1VxekZ5aE5KS2pPTkJpWW9tbFpwMlN0a2FLS1BqdTNlekdkYWdidlZ4TzdSb24ySFZMY1YwdHR1bGNZWjVHalp5NExGc2RtQzZWb3NXa2NPM0gtMTFVc1g1RTNXSml3eEpjbUs5ZXRHTVVYQlB5X3ltR0IzSDFwb0xOUzc0Ynp5bEpnR3QyN3NrLWxHY2lrTDh1MFdLUGR3eVBoY3lsTExSNm4zdFJNVDA?oc=5",
-          "source": "小豆島町",
-          "published": "2026-10-23"
+          "title": "Frauen-Bundesliga - Werder Bremen Women 4 - 3 SC Freiburg Women",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPekVMM0QtZWdnZFZkZWZKTVgxSHZSVlFNNlc1T245aWxxbjl0VVlzeDBBdm1CU2Q3N3BGbjN3N0ZLUmJuLURRRERTbFlEcDRZbEthNG5yQmV2dVhvZTNPOVJpTmIxOGs0bEhKRjlXVE1odTdmcjJBYzhZSkZpQzZxLWRnZ0c0a2JKd3QweVBUa2lCUTNYUGp0ay1qZjkxVmk3WGNz?oc=5",
+          "source": "OneFootball",
+          "published": "2026-10-26"
+        },
+        {
+          "title": "Pitchside: Alvarado iguala el marcador para Chivas ante Rayados",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOVjl2SXQyaXRQRFpSaFVIRHdiYVNZSzJmeWlWVXRneUsyMUJ6ZkM3NGhLTUZ3TGkzc29wenBjMVdHd2tTRGlvTmZ3ckdhVlVhOVJELWMxSS1ITHV3UEdOdzRqYzJXQVF5TEdKcG4wSk83UXNUVDhPa2hjci13OEhQbzYxMVJNWUhUSmZuLW1SRURhZThBRVZPeDQ1VE8wRjhLRmtaR0c1QQ?oc=5",
+          "source": "OneFootball",
+          "published": "2026-10-26"
+        },
+        {
+          "title": "Highlights: Timbers2 0-1 Ventura County FC (MLS Next Pro)",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPMXBtRWloZFl0OFJIbVdyUzA0dmpQVHk5UmwzSzFrREtIODFqd0EyMVZBa0dtaG4tTUJhUEI4UlhEeVF6Slo3MHg4QVgxRjhkSGtyWHA3Y2N0YkFEU1ZHaGp3ckZ6T2s0NVNxQXRhQWNjRXFMWVNRT0NXdkJtVWU4R1pxTTVvSzFSWUQzYkQtOURnMWdmRmdmVWNDcWI?oc=5",
+          "source": "OneFootball",
+          "published": "2026-10-26"
+        },
+        {
+          "title": "Behind the scenes: PSG stars celebrate with fans after crazy night against Barcelona",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdHNKbE85WUhrTXM3TWktS2Q1dEw0eHZka1BYQzN3SDRsQjloUGN3TDl2TzVjOVF1S01pWmdnTUVhWnNPQkZObmVKVksyanBhMnY4a0hYWHpDb1MxRGVwRmMtTkRoRUZWY3V3YUlCMnRzV19DVER1bkV6M3JEWi1oVGhuUXN0aTZFckY3V2x4eDFVamh5QVJvY2ZEZlVuRjlFOTY5MkFvQ3dmWjhaV294aW4wWnN3dU1Vand4UGV6b0RIdWM?oc=5",
+          "source": "OneFootball",
+          "published": "2026-10-26"
+        },
+        {
+          "title": "Frauen-Bundesliga - RB Leipzig Women 1 - 5 Bayern Munich Women",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPc3FoUkNKRXBrTzBrdzNJYUhIell5UTIyVVlob1EzR3ZIZXNZNDNWQTB0MHJQY0IyZzFkUVAxdkZqSncyWS1ub3ZXR3ZJVWFOQzRsN0pmbVhqSDlTRzIycjdJUWttM0hYU2Q3OWpaU0U2Xzg4TEJ3X2kxbkhtZlBIdkdJWVZ3Ym9CVmRiNkEyeXBLSzRoUjhEd0tpcjg1UzY4UVE?oc=5",
+          "source": "OneFootball",
+          "published": "2026-10-26"
+        },
+        {
+          "title": "Hinter den Kulissen Gladbach feiert den packenden 3:2-Auswärtssieg gegen Stuttgart",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNQWc1UnpuVjUzdWJCSjl0NlZ6Z0MwMGpJcGRXVjRrNEdocW40dllNdlhXaklrcWd1TGVvSFhTcGVnYjJCNGd6Zm93RXpSYVp5T0lkaDI5VFc1MVc3ZkgtcTlIdTZCVFpMRUlHdXI4dEZwVEQwaVNkUTU4UlU4aEdDb3ZJUzJEVWhUZFhISWNUQzhiQmJ1NndWTmw2cS00YW1ab1BqUjlXaW1Gd1Fxd09xWGhYcVIzTWJJaHV1WEVnVlZLdw?oc=5",
+          "source": "OneFootball",
+          "published": "2026-10-26"
+        },
+        {
+          "title": "SC Freiburg vs VfL Wolfsburg | October 28, 2026 | DFB Cup Matchup",
+          "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE96SmpzRzl5RUwyMHZiUzNBbUU2MVRBRVF1R0dOWGJvRkhuVnB2RnVZWGQzNExqY3h3a0ppSXNqTU41NGJ6ZExMLVd0S2pBLWVaVk1ZRA?oc=5",
+          "source": "theScore",
+          "published": "2026-10-24"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "VfL Wolfsburg a fost înființat la 12 septembrie 1945, inițial sub numele VSK Wolfsburg, din echipa uzinei Volkswagen; numele a fost schimbat în VfL Wolfsburg în decembrie 1945.",
-        "Clubul a câștigat Bundesliga o singură dată, în sezonul 2008-09, și Cupa Germaniei (DFB-Pokal) în 2015, 3-1 în finală cu Borussia Dortmund.",
-        "Maximilian Arnold este jucătorul cu cele mai multe apariții pentru Wolfsburg (475), iar Edin Džeko este golgheterul all-time al clubului, cu 85 de goluri.",
-        "Mijlocașul Kevin De Bruyne a jucat pentru Wolfsburg înainte ca transferul său la Manchester City să stabilească un record de taxă de transfer în Bundesliga.",
-        "Echipa joacă pe Volkswagen Arena, finalizată în 2002, cu o capacitate de 30.000 de locuri; înainte juca pe VfL-Stadion, cu 21.600 de locuri.",
-        "Porecla clubului este „Die Wölfe” (Lupii), iar culorile tradiționale, verde și alb, sunt purtate de atunci.",
-        "În sezonul 2008-09, sub antrenorul Felix Magath, Wolfsburg a cucerit primul titlu de campion al Bundesligii, sigilat printr-o victorie 5-1 cu Werder Bremen pe 23 mai 2009.",
-        "Wolfsburg a înregistrat zece victorii consecutive în a doua parte a sezonului 2008-09, egalând un record al Bundesligii pentru un singur sezon."
-      ]
+      "stories": []
     },
     "away": {
       "name": "VfL Osnabrück",
@@ -2069,14 +3671,6 @@
             "season": "2009/2010",
             "place": "2nd Place"
           }
-        ],
-        "funfacts": [
-          "Ca jucător a evoluat la Werder Bremen (rezerve), VfB Lübeck, Holstein Kiel și, din 2005, la FC St. Pauli, unde și-a încheiat cariera în 2012.",
-          "A debutat în 2. Bundesliga pe 10 august 2007, iar în Bundesliga pe 25 septembrie 2010, ambele cu St. Pauli.",
-          "Drumul spre antrenorat a început din 2011, ca antrenor secund și de juniori la St. Pauli, club la care a devenit antrenor principal pe 12 iulie 2020.",
-          "A pregătit și FC Basel (2023), de unde a fost demis în septembrie 2023, și 1. FC Köln (2024), înainte de a fi numit la VfL Osnabrück pe 17 iunie 2025.",
-          "A câștigat 3. Liga cu VfL Osnabrück în sezonul 2025–26.",
-          "S-a născut la Wittmund, Germania, la 26 august 1977."
         ]
       },
       "formation": "n/d",
@@ -3559,12 +5153,1059 @@
           "ga": 15,
           "points": 8
         },
+        "recent": [
+          {
+            "date": "2026-10-25",
+            "opp": "SpVgg Greuther Fürth",
+            "homeAway": "H",
+            "comp": "2. Bundesliga",
+            "score": "3-0",
+            "result": "W",
+            "referee": "Justin Joel Hasmann",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Krumrey",
+                  "number": 32,
+                  "pos": "G"
+                },
+                {
+                  "name": "R. Fabinski",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Müller",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Wiemann",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Kammerbauer",
+                  "number": 31,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Münst",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Jacobsen",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Gómez",
+                  "number": 42,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Beck",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Kyereh",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Meißner",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Florian Hellstern",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Dehm",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Heuer",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "Hendry Aron Blank",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Itter",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Will",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Bansé",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Klaus",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Appelkamp",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Ole Pohlmann",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Siebatcheu",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 30,
+                "side": "us",
+                "type": "yellow",
+                "player": "Patrick Kammerbauer",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 37,
+                "side": "us",
+                "type": "goal",
+                "player": "Daniel-Kofi Kyereh",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 39,
+                "side": "us",
+                "type": "goal",
+                "player": "Robin Meißner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Patrick Kammerbauer",
+                "playerIn": "Konrad Faber"
+              },
+              {
+                "minute": 56,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sacha Banse",
+                "playerIn": "Faton Ademi"
+              },
+              {
+                "minute": 56,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Shinta Karl Appelkamp",
+                "playerIn": "Omar Sillah"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Daniel-Kofi Kyereh",
+                "playerIn": "Ismail Badjie"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jordan Siebatcheu",
+                "playerIn": "Dennis Srbeny"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jannik Dehm",
+                "playerIn": "Mika Wallentowitz"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "goal",
+                "player": "Ismail Badjie",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ole Pohlmann",
+                "playerIn": "Aaron Keller"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Leonhard Luis Munst",
+                "playerIn": "Bernd Riesselmann"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jannik Müller",
+                "playerIn": "Theo Janotta"
+              },
+              {
+                "minute": 88,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Bjarke Jacobsen",
+                "playerIn": "Fridolin Wagner"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-18",
+            "opp": "Arminia Bielefeld",
+            "homeAway": "A",
+            "comp": "2. Bundesliga",
+            "score": "1-2",
+            "result": "L",
+            "referee": "Michael Bacher",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "4-1-4-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Krumrey",
+                  "number": 32,
+                  "pos": "G"
+                },
+                {
+                  "name": "R. Fabinski",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Müller",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Wiemann",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Kammerbauer",
+                  "number": 31,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Flach",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Jacobsen",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Gómez",
+                  "number": 42,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Badjie",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Beck",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Meißner",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Kersken",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "F. Hagmann",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Bauer",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Großer",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Sicker",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Russo",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "Benjamin Bediako Boakye",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Jensen",
+                  "number": 31,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Wörl",
+                  "number": 38,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Young",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Grodowski",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 2,
+                "side": "us",
+                "type": "yellow",
+                "player": "Robin Fabinski",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 16,
+                "side": "us",
+                "type": "goal",
+                "player": "Robin Meißner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 26,
+                "side": "opp",
+                "type": "goal",
+                "player": "Maximilian Bauer",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 38,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Benjamin boakye",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Isaiah Young",
+                "playerIn": "monju thaddaus momuluh"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Benjamin boakye",
+                "playerIn": "Jannik Rochelt"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-10",
+            "opp": "Dynamo Dresden",
+            "homeAway": "H",
+            "comp": "2. Bundesliga",
+            "score": "1-1",
+            "result": "D",
+            "referee": "Florian Exner, Germany",
+            "formation": {
+              "us": "3-5-2",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Krumrey",
+                  "number": 32,
+                  "pos": "G"
+                },
+                {
+                  "name": "R. Fabinski",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Müller",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Wiemann",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Kammerbauer",
+                  "number": 31,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Beck",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Jacobsen",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Wagner",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Gómez",
+                  "number": 42,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Riesselmann",
+                  "number": 22,
+                  "pos": "F"
+                },
+                {
+                  "name": "R. Meißner",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "L. Grill",
+                  "number": 22,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Sterner",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Rapp",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Muller",
+                  "number": 42,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Straudi",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Wagner",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Raschl",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Čović",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Hauptmann",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Bobzien",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Vermeij",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 38,
+                "side": "opp",
+                "type": "goal",
+                "player": "Niklas Hauptmann",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "yellow",
+                "player": "Robin Meißner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Fridolin Wagner",
+                "playerIn": "Leon Maximilian Flach"
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Patrick Kammerbauer",
+                "playerIn": "Konrad Faber"
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jonathan Gómez",
+                "playerIn": "Ismail Badjie"
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Bernd Riesselmann",
+                "playerIn": "Daniel-Kofi Kyereh"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Nicolai Rapp",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vincent Vermeij",
+                "playerIn": "Christoph Daferner"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Jonas Sterner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "yellow",
+                "player": "Robin Fabinski",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Patrice Čović",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Simon Straudi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Niklas Hauptmann",
+                "playerIn": "Jakob Lemmer"
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Bjarke Jacobsen",
+                "playerIn": "Luca Raimund"
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "yellow",
+                "player": "Konrad Faber",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "goal",
+                "player": "Robin Fabinski",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Patrice Čović",
+                "playerIn": "Kennedy Okpala"
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ben Bobzien",
+                "playerIn": "Ahmet Muhamedbegovic"
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Simon Straudi",
+                "playerIn": "Alexander Rossipal"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Leon Maximilian Flach",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Adrian Beck",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-03",
+            "opp": "Djurgardens IF",
+            "homeAway": "H",
+            "comp": "Friendlies Clubs",
+            "score": "0-1",
+            "result": "L",
+            "referee": null,
+            "formation": null,
+            "lineups": {
+              "us": [
+                {
+                  "name": "N. Sauter",
+                  "number": 1,
+                  "pos": null
+                },
+                {
+                  "name": "L. Munst",
+                  "number": 8,
+                  "pos": null
+                },
+                {
+                  "name": "L. Flach",
+                  "number": 18,
+                  "pos": null
+                },
+                {
+                  "name": "L. Opitz",
+                  "number": 19,
+                  "pos": null
+                },
+                {
+                  "name": "T. Janotta",
+                  "number": 20,
+                  "pos": null
+                },
+                {
+                  "name": "B. Riesselmann",
+                  "number": 22,
+                  "pos": null
+                },
+                {
+                  "name": "J. Muller",
+                  "number": 24,
+                  "pos": null
+                },
+                {
+                  "name": "N. Wiemann",
+                  "number": 25,
+                  "pos": null
+                },
+                {
+                  "name": "F. Wagner",
+                  "number": 26,
+                  "pos": null
+                },
+                {
+                  "name": "K. Faber",
+                  "number": 28,
+                  "pos": null
+                },
+                {
+                  "name": "Jogo",
+                  "number": 42,
+                  "pos": null
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Rinne",
+                  "number": 35,
+                  "pos": null
+                },
+                {
+                  "name": "J. Une",
+                  "number": 4,
+                  "pos": null
+                },
+                {
+                  "name": "P. Langhoff",
+                  "number": 6,
+                  "pos": null
+                },
+                {
+                  "name": "P. Aslund",
+                  "number": 8,
+                  "pos": null
+                },
+                {
+                  "name": "K. Lien",
+                  "number": 9,
+                  "pos": null
+                },
+                {
+                  "name": "A. Abdulmalik",
+                  "number": 10,
+                  "pos": null
+                },
+                {
+                  "name": "D. Stensson",
+                  "number": 13,
+                  "pos": null
+                },
+                {
+                  "name": "M. Marques",
+                  "number": 21,
+                  "pos": null
+                },
+                {
+                  "name": "M. Larsson",
+                  "number": 24,
+                  "pos": null
+                },
+                {
+                  "name": "S. Ringberg",
+                  "number": 27,
+                  "pos": null
+                },
+                {
+                  "name": "C. Selfven",
+                  "number": 36,
+                  "pos": null
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 55,
+                "side": "opp",
+                "type": "goal",
+                "player": "K. Lien",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-02",
+            "opp": "VfL Bochum",
+            "homeAway": "A",
+            "comp": "Friendlies Clubs",
+            "score": "1-4",
+            "result": "L",
+            "referee": null,
+            "formation": null,
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Krumrey",
+                  "number": 32,
+                  "pos": null
+                },
+                {
+                  "name": "J. Abu Hanna",
+                  "number": 4,
+                  "pos": null
+                },
+                {
+                  "name": "J. Wensing",
+                  "number": 5,
+                  "pos": null
+                },
+                {
+                  "name": "R. Meissner",
+                  "number": 11,
+                  "pos": null
+                },
+                {
+                  "name": "B. Jacobsen",
+                  "number": 15,
+                  "pos": null
+                },
+                {
+                  "name": "L. Raimund",
+                  "number": 17,
+                  "pos": null
+                },
+                {
+                  "name": "A. Beck",
+                  "number": 21,
+                  "pos": null
+                },
+                {
+                  "name": "T. Lesueur",
+                  "number": 23,
+                  "pos": null
+                },
+                {
+                  "name": "R. Fabinski",
+                  "number": 27,
+                  "pos": null
+                },
+                {
+                  "name": "P. Kammerbauer",
+                  "number": 31,
+                  "pos": null
+                },
+                {
+                  "name": "E. Bakatukanda",
+                  "number": 38,
+                  "pos": null
+                }
+              ],
+              "opp": [
+                {
+                  "name": "H. Rolleke",
+                  "number": 38,
+                  "pos": null
+                },
+                {
+                  "name": "S. Klaiber",
+                  "number": 2,
+                  "pos": null
+                },
+                {
+                  "name": "Y. Karademir",
+                  "number": 4,
+                  "pos": null
+                },
+                {
+                  "name": "C. Rasmussen",
+                  "number": 7,
+                  "pos": null
+                },
+                {
+                  "name": "B. Taz",
+                  "number": 10,
+                  "pos": null
+                },
+                {
+                  "name": "J. Steuckers",
+                  "number": 14,
+                  "pos": null
+                },
+                {
+                  "name": "M. Steinwender",
+                  "number": 15,
+                  "pos": null
+                },
+                {
+                  "name": "C. Patino",
+                  "number": 28,
+                  "pos": null
+                },
+                {
+                  "name": "M. Wittek",
+                  "number": 32,
+                  "pos": null
+                },
+                {
+                  "name": "P. Hofmann",
+                  "number": 33,
+                  "pos": null
+                },
+                {
+                  "name": "T. Meyer",
+                  "number": 34,
+                  "pos": null
+                }
+              ]
+            },
+            "events": []
+          },
+          {
+            "date": "2026-09-23",
+            "opp": "Wiedenbrück",
+            "homeAway": "A",
+            "comp": "Friendlies Clubs",
+            "score": "3-0",
+            "result": "W",
+            "referee": null,
+            "formation": null,
+            "lineups": {
+              "us": [],
+              "opp": []
+            },
+            "events": [
+              {
+                "minute": 17,
+                "side": "us",
+                "type": "goal",
+                "player": "J. Wensing",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 28,
+                "side": "us",
+                "type": "goal",
+                "player": "L. Opitz",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 30,
+                "side": "us",
+                "type": "goal",
+                "player": "L. Opitz",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          }
+        ],
+        "next": [
+          {
+            "date": "2026-10-31",
+            "opp": "VfL Wolfsburg",
+            "homeAway": "A",
+            "comp": "2. Bundesliga"
+          },
+          {
+            "date": "2026-11-07",
+            "opp": "1. FC Kaiserslautern",
+            "homeAway": "H",
+            "comp": "2. Bundesliga"
+          },
+          {
+            "date": "2026-11-22",
+            "opp": "Karlsruher SC",
+            "homeAway": "A",
+            "comp": "2. Bundesliga"
+          }
+        ],
         "stats": {
           "goalsForByInterval": {
             "0-15": 1,
             "16-30": 2,
-            "31-45": 1,
+            "31-45": 3,
             "46-60": 1,
+            "61-75": 1,
             "76-90": 5
           },
           "goalsAgainstByInterval": {
@@ -3577,7 +6218,7 @@
           },
           "cardsYellowByInterval": {
             "0-15": 4,
-            "16-30": 2,
+            "16-30": 3,
             "31-45": 2,
             "46-60": 3,
             "61-75": 3,
@@ -3585,14 +6226,14 @@
             "91-105": 2
           },
           "cardsRedByInterval": null,
-          "goalsForAvg": 1.4,
-          "goalsAgainstAvg": 1.9,
-          "goalsForAvgHome": 1.3,
+          "goalsForAvg": 1.6,
+          "goalsAgainstAvg": 1.7,
+          "goalsForAvgHome": 1.6,
           "goalsForAvgAway": 1.5,
-          "goalsAgainstAvgHome": 2,
+          "goalsAgainstAvgHome": 1.6,
           "goalsAgainstAvgAway": 1.8,
-          "cleanSheets": 1,
-          "cleanSheetsHome": 0,
+          "cleanSheets": 2,
+          "cleanSheetsHome": 1,
           "cleanSheetsAway": 1,
           "failedToScore": 1,
           "failedToScoreHome": 1,
@@ -3604,7 +6245,7 @@
           "formations": [
             {
               "formation": "3-4-2-1",
-              "played": 6
+              "played": 7
             },
             {
               "formation": "3-4-3",
@@ -3620,7 +6261,7 @@
             "draws": 2,
             "loses": 2
           },
-          "biggestWinHome": "3-1",
+          "biggestWinHome": "3-0",
           "biggestWinAway": "0-1",
           "biggestLossHome": "0-3",
           "biggestLossAway": "4-3",
@@ -3628,7 +6269,7 @@
           "biggestGoalsForAway": 3,
           "biggestGoalsAgainstHome": 3,
           "biggestGoalsAgainstAway": 4,
-          "winsHome": 1,
+          "winsHome": 2,
           "winsAway": 1,
           "drawsHome": 1,
           "drawsAway": 1,
@@ -3820,10 +6461,10 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Sieg über Greuther Fürth: VfL Osnabrück schießt sich aus der Mini-Krise",
-          "url": "https://www.sportschau.de/fussball/bundesliga2/vfl-osnabrueck-schiesst-sich-aus-der-mini-krise,spielbericht-vfl-osnabrueck-greuther-fuerth-100.html",
-          "source": "Sportschau",
-          "published": "2026-10-25"
+          "title": "Ghanaian Players Abroad: Boakye, Afena-Gyan and Ofori score decisive goals",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQWU01SmotMGR1bjNmTVEzZjRlSnlBSVVwRm9LRWhId3Y4Q0w5RkU0dy0xUEtZU0tIYnRzNGZyMkhvUlhabmRQVDVfWE1ZTnlmOGFxeGtERG9lR2lldWNsLUcwdzFGcVRvb2ZnNHF3UGtSZjVQMW01RTAzMHJmbm80YzBtaHFQWFZ5UllVdmttTHJDbFRycHdlblFEYnRqTEhocll0dUFuSEhNWjI5YVFB?oc=5",
+          "source": "Citi Sports Online",
+          "published": "2026-10-26"
         },
         {
           "title": "2. Bundesliga - VfL Osnabrück 3-0 SpVgg Greuther Fürth",
@@ -3844,41 +6485,31 @@
           "published": "2026-10-25"
         },
         {
-          "title": "De Zerbi elogia la qualità dei giocatori degli Spurs dopo il successo a Stamford Bridge",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOQW0yM1dHMmh4bXlkZ3RtRGVpZUdOcFhHNXlWdHoxXzhkNzBpNFNwYmF1SXFHb0VuczhOVmo0SGw2aDJTNFV6cWtrWkY4SC1qVWR6aURFUDI2QkVtd05Hd2RVVmNfcnZwNVl5UWxzRlllaFdsQ0ZMQnNJcnBrbEs3QlhXWkoyWk9QREZ1LUhpQUNGU0IxdFNSWnExclI5WXN2dGtCZ0t1aVJBV2tabXNtMHdxTk9qTzdLbTNiRWRsRkpLR2I4aURBQw?oc=5",
-          "source": "OneFootball",
-          "published": "2026-10-25"
-        },
-        {
           "title": "!♻️√(WATCH@ONLINE) VfL Osnabrück vs SpVgg Greuther Fürth Live Free Stream",
           "url": "https://news.google.com/rss/articles/CBMi7AJBVV95cUxOZVNkdFFoQ2N5YWpMR0tYSi1aS1dOZlhPUlZnUXRQY3JFcE9zOFVVY3FEamtMU1lMcmh5SWNMa25waUt4Q3dJRFFhZ2Nkcy1vMkE2bUZIU3ZlblpFTVZocVlHOVQ1Z01XRU9IZmZqd01iOERfQldBTENfaGNndnYwUUJSczJtNWN5bVI0YW1Nam9FUHVlcGx4RjRHTUptVVFQamV2cTg1ajFUQVBwUkJjM2prOHRIRnhxamJ1aUszYlF1MG4ydG80cURSdWx6NHhYQjZpcTRrMjAxUmdGSmhPdkY3dWZvODRaWHRpMk02OTFtZzZSWTVUSEUwREtZNEFIUF9uUjVFNEl2UFRaNXlwVGhPYTJuVTRXWEJGSEI2TXN1c1VpRmN4STVqX1Bwb1NZd0JBdFJNaFFRbWl5dmNMakg5TVBPcWhBZnRPeUwxTXdxTUNSVEUwRmxHQm1RMWhEbW14ZTh1bjFFdkZt?oc=5",
           "source": "FC東京オフィシャルホームページ",
           "published": "2026-10-25"
         },
         {
-          "title": "Bundesliga 2, Matchday 9: Kaiserslautern jump to third, Wolfsburg and Heidenheim lose ground on Hertha Berlin",
-          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNNmwyR2pxT1QxNm11MEpsbGFiaW1rakp0SktDUGVCT1J6TGozQTJxVGl3OTAyUUpSMUxjRVBVcGVwUks1bFZVT2FWRFR6THpPa1FlLXFLMmN4U3MzdkVFd2JZaHFwLTdhb1BjYTB0Q2paNHdpaWNhcFRNRHl0WU5NM21iMDFrMy1ISjB5LTRNbV8yTnA0SHRrYlozR1J2YVkyMV9XelZqMUg3RHRuMmF0TlpWdFVBYnc4bDZKQzlNa3dTMm5PeC15Zjgxa2oyQWgtdWRidFJB?oc=5",
-          "source": "Bundesliga | official website",
+          "title": "Portland Timbers - Charlotte FC 0 - 1 | GOAL - Pep Biel",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQSjhCR25uMGJYV0p5d1M4ZEdEZzQxUWFyakhTR2R4QWhkSGgweE0wSXFYM09tRXpPRktLM0RDeFhBOVZJOHpVYUFqZm5aTkRVeW1PM3MxWmpNNVgtalNVdW4wTXAtQWpadi1SM0U3bDlmY0JPZVpnd1NtbEVZTFJVMHpLeVBSOXFDd2E5el9EZ2hxeFE?oc=5",
+          "source": "OneFootball",
           "published": "2026-10-25"
         },
         {
-          "title": "VfL Osnabrück - SpVgg Greuther Fürth Live - 2. Bundesliga: Football Scores & Highlights - 25/10/2026",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPM2NDMGNNYWRmSG9iMTBfdVhMMDlKQjlOZHhma2hGN3lfVkZOaUlWTTVPUzVMOEJNanFVN2NsM0pjYnZETzEycDRwM0tuS2YxYURYNXRoUWZfemxscWc2RmM2dzNQaUNPc0w3Zlo2RjVGUHRMZUNSTERhWXVTajgzcVlnRzZQcmNCMklJbVc2VHo5WHU4ai1xWEdIZ1FZbUhSQWZON2Fjcngya2ZpTndEVkJZeE1PQTRQdEZzU0dKbnQ3Ync?oc=5",
-          "source": "TNT Sports",
-          "published": "2026-10-24"
+          "title": "Highlights MLS: Portland Timbers 3-2 Charlotte FC",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWWdKWFRkSHlQZEl0eW5nMzBVcmt0MEVXcTIwaXhrNy1NLWRYR2JHSElQRW5fWHAxX1I3VnZWT0dJTmdFaml2eVh3WFdiQjhJVjlMR3IyZlNSSlVqMXhROXdlWWFRcHVVTXR2cHFWdEJreXUzb25PTkZGNzh1UlpJUndncVRmeG5QTlIyUFIwNmJsY2RK?oc=5",
+          "source": "OneFootball",
+          "published": "2026-10-25"
+        },
+        {
+          "title": "Daniel-Kofi Kyereh stars with goal and assist as VfL Osnabruck thump Greuther Furth 3-0",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQR0dHVUpGYXhfck9MWEplMWc0RGttNnFYVGRhU1RUOWlINGxoTnoxWTluRjdXdm5CZHUwYUhCZU93SVlqWWE5djZuU3FiZTBzaF9fTU5DcDcyanFuQ2ttWjY1Z0h6R3k5OFh4YWNnak1VNGlpRTVMdHVPQ1o1M2hVTmlYTHMtQnFuRTFvNUE5M1RPTHAxcFNUMTMyZE5lMUV2SVBqMEtYYkJUb1ZIdTJmSmQ3YjY?oc=5",
+          "source": "GhanaSoccernet",
+          "published": "2026-10-25"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "VfL Osnabrück a luat naștere pe 17 aprilie 1899, prin unirea cluburilor „sălbatice” Antipodia, Germania și Minerva, formând Fußball Club 1899 Osnabrück.",
-        "Clubul deține recordul pentru cele mai multe sezoane jucate în liga a doua germană (2. Bundesliga) fără a ajunge vreodată în Bundesliga, fiind pe locul 10 în clasamentul all-time al ligii secunde.",
-        "În Cupa Germaniei 1978-79, Osnabrück a obținut una dintre cele mai celebre victorii din istoria sa, 5-4 cu Bayern München pe Olympiastadion, grație unui hattrick al lui Andreas Wagner.",
-        "Clubul a câștigat titlul de campioană a Germaniei amatoare în 1995 și a cucerit de trei ori liga a treia (3. Liga), în 2009-10, 2018-19 și 2025-26.",
-        "Osnabrück joacă pe Stadionul de la Bremer Brücke, construit în 1931 de Rapid Osnabrück, club reunit cu VfL în 1938; stadionul a avut cândva peste 30.000 de locuri, iar acum are puțin peste 16.000.",
-        "Culorile clubului sunt violet și alb, echipa fiind numită „die Lila-Weißen” (cei violeți-albi).",
-        "Principala rivalitate a clubului este cu SC Preußen Münster.",
-        "Fostul jucător Joe Enochs este fotbalistul cu cele mai multe meciuri disputate pentru VfL Osnabrück."
-      ]
+      "stories": []
     }
   },
   "standings": {
