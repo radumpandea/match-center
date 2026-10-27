@@ -1,0 +1,16 @@
+name: Tmp League Lookup
+on: workflow_dispatch
+jobs:
+  q:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          K: ${{ secrets.APIFOOTBALL_KEY }}
+        run: |
+          curl -s -H "x-apisports-key: $K" "https://v3.football.api-sports.io/leagues?search=AFC" | python3 -c "
+          import json,sys
+          j=json.load(sys.stdin)
+          print('errors',j.get('errors'))
+          for r in j.get('response',[]):
+              l=r['league']; print(l['id'],l['name'],l['type'],[ (s['year'],s['current']) for s in r['seasons'][-2:]])
+          "
