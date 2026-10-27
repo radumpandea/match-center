@@ -48,7 +48,9 @@ function roundLabel(round) {
 
 async function main() {
   const qs = new URLSearchParams({ date: DATE, timezone: 'Europe/Bucharest' });
-  if (LEAGUE) qs.set('league', LEAGUE);
+  // API-Football refuses a league filter without a season: the calendar year the season starts in
+  // (July onwards = this year, before that = the previous one).
+  if (LEAGUE) { qs.set('league', LEAGUE); qs.set('season', String(Number(DATE.slice(5, 7)) >= 7 ? DATE.slice(0, 4) : Number(DATE.slice(0, 4)) - 1)); }
   const res = await fetch(`https://v3.football.api-sports.io/fixtures?${qs}`, { headers: { 'x-apisports-key': API_KEY } });
   if (!res.ok) throw new Error(`API HTTP ${res.status}`);
   const j = await res.json();
