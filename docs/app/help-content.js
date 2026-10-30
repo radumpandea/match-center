@@ -83,7 +83,7 @@ window.MC_HELP = {
         ['Probabilă', `Până apare cea oficială, primul 11 este cel așteptat de presă și de surse.`],
         ['Confirmat', `Butonul „Confirmă primul 11 și rezervele” marchează alinierea ca definitivă la tine. „Anulează confirmarea alinierii” o redeschide.`],
         ['Aliniere API', `Când API-Football publică alinierea (de obicei cu aproximativ o oră înainte de meci), apare automat, cu eticheta „Aliniere API”.`],
-        ['🔄 Aliniere din API', `Aduce acum alinierea oficială, dacă a fost publicată. Cere conectare și înlocuiește modificările tale manuale ale primului 11, rezervelor și sistemului tactic (te întreabă înainte).`],
+        ['🔄 Aliniere din API', `Aduce acum alinierea oficială, dacă a fost publicată. Cere conectare și înlocuiește modificările tale manuale ale primului 11, rezervelor și sistemului tactic (te întreabă înainte). Dacă API-Football nu răspunde (de exemplu a epuizat cota zilnică) sau nu are încă foaia, folosește automat ESPN ca sursă de rezervă; mesajul de sub buton spune ce sursă s-a folosit, iar la unele sisteme tactice neobișnuite așezarea pe teren poate fi aproximativă, așa că verific-o.`],
       ] },
       { id: 'panels', h: 'Panourile cu informații', intro: `Nu toate meciurile au toate panourile: pachetele parțiale conțin mai puține.`, items: [
         ['Story of the match', `Firele narative ale meciului, gata de povestit.`],
@@ -215,7 +215,7 @@ window.MC_HELP = {
         ['Likely', `Until the official one is out, the starting XI is the one expected by the press and other sources.`],
         ['Confirmed', `The "Confirm starting XI and bench" button marks the lineup as final for you. "Undo lineup confirmation" reopens it.`],
         ['API lineup', `When API-Football publishes the lineup (usually about an hour before kick-off) it appears automatically, tagged "API lineup".`],
-        ['🔄 Lineup from API', `Fetches the official lineup now, if published. It needs sign-in and replaces your manual changes to the starting XI, substitutes and formation (it asks first).`],
+        ['🔄 Lineup from API', `Fetches the official lineup now, if published. It needs sign-in and replaces your manual changes to the starting XI, substitutes and formation (it asks first). If API-Football cannot answer (for example its daily request limit is used up) or does not have the sheet yet, it automatically uses ESPN as a backup source; the message under the button says which source was used, and for some unusual formations the placement on the pitch can be approximate, so check it.`],
       ] },
       { id: 'panels', h: 'The information panels', intro: `Not every match has every panel: partial packs contain fewer.`, items: [
         ['Story of the match', `The match storylines, ready to tell.`],
@@ -347,7 +347,7 @@ window.MC_HELP = {
         ['Wahrscheinlich', `Bis die offizielle vorliegt, ist die Startelf die von Presse und anderen Quellen erwartete.`],
         ['Bestätigt', `Die Schaltfläche „Startelf und Bank bestätigen“ markiert die Aufstellung für dich als endgültig. „Bestätigung der Aufstellung aufheben“ öffnet sie wieder.`],
         ['API-Aufstellung', `Sobald API-Football die Aufstellung veröffentlicht (meist etwa eine Stunde vor Anpfiff), erscheint sie automatisch mit dem Label „API-Aufstellung“.`],
-        ['🔄 Aufstellung per API', `Holt jetzt die offizielle Aufstellung, falls veröffentlicht. Sie erfordert eine Anmeldung und ersetzt deine manuellen Änderungen an Startelf, Ersatzspielern und Formation (vorher wirst du gefragt).`],
+        ['🔄 Aufstellung per API', `Holt jetzt die offizielle Aufstellung, falls veröffentlicht. Sie erfordert eine Anmeldung und ersetzt deine manuellen Änderungen an Startelf, Ersatzspielern und Formation (vorher wirst du gefragt). Kann API-Football nicht antworten (etwa weil das Tageslimit aufgebraucht ist) oder liegt die Aufstellung dort noch nicht vor, wird automatisch ESPN als Ersatzquelle genutzt; die Meldung unter der Schaltfläche nennt die verwendete Quelle, und bei ungewöhnlichen Formationen kann die Platzierung auf dem Feld ungefähr sein: bitte prüfen.`],
       ] },
       { id: 'panels', h: 'Die Informations-Panels', intro: `Nicht jedes Spiel hat alle Panels: Teilpakete enthalten weniger.`, items: [
         ['Story of the match', `Die Geschichten des Spiels, fertig zum Erzählen.`],
@@ -479,7 +479,7 @@ window.MC_HELP = {
         ['Probabile', `Finché non esce quella ufficiale, l'undici titolare è quello atteso da stampa e altre fonti.`],
         ['Confermata', `Il pulsante «Conferma formazione titolare e panchina» segna la formazione come definitiva per te. «Annulla la conferma della formazione» la riapre.`],
         ['Formazione API', `Quando API-Football pubblica la formazione (di solito circa un'ora prima del calcio d'inizio) compare automaticamente, con l'etichetta «Formazione API».`],
-        ['🔄 Formazione da API', `Recupera subito la formazione ufficiale, se pubblicata. Richiede l'accesso e sostituisce le tue modifiche manuali a undici, riserve e modulo (prima te lo chiede).`],
+        ['🔄 Formazione da API', `Recupera subito la formazione ufficiale, se pubblicata. Richiede l'accesso e sostituisce le tue modifiche manuali a undici, riserve e modulo (prima te lo chiede). Se API-Football non risponde (ad esempio ha esaurito il limite giornaliero) o non ha ancora la formazione, usa automaticamente ESPN come fonte di riserva; il messaggio sotto il pulsante indica la fonte usata e, per alcuni moduli insoliti, la disposizione in campo può essere approssimativa: da verificare.`],
       ] },
       { id: 'panels', h: 'I pannelli informativi', intro: `Non tutte le partite hanno tutti i pannelli: i pacchetti parziali ne contengono meno.`, items: [
         ['Story of the match', `I fili narrativi della partita, pronti da raccontare.`],

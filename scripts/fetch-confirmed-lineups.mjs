@@ -17,9 +17,16 @@
 // confirmedXI + substitutes (and predictedXI, now that it's no longer a
 // prediction) directly onto the existing match file; never touches a match
 // that isn't already built (no Level 1/2 pack yet).
+//
+// Backup: when API-Football cannot answer (daily request limit used up, outage)
+// or has not published the sheet, the same lineup is taken from ESPN's public
+// site API (supabase/functions/_shared/espn-lineups.mjs, no key, no quota) and
+// its players are matched to the pack's squad. Only written when all 11
+// starters are found in the squad.
 
 import { readFileSync, writeFileSync, existsSync, appendFileSync } from 'node:fs';
 import { decodeDeep } from './lib/enrich-pack.mjs';
+import { espnLineups, matchSquadPlayer } from '../supabase/functions/_shared/espn-lineups.mjs';
 
 const DATA_DIR = 'docs/data';
 const FIXTURES_PATH = `${DATA_DIR}/fixtures.json`;
@@ -62,11 +69,36 @@ function minutesToKickoff(f, now) {
   return (ko - now) / 60000;
 }
 
-async function main() {
-  if (!API_KEY) {
-    console.error('APIFOOTBALL_KEY not set.');
-    process.exit(1);
+// ESPN's lineup for a fixture, written onto the pack the way the API-Football one is. true when something changed.
+async function lineupFromEspn(f, doc) {
+  let r;
+  try { r = await espnLineups({ kickoff: f.kickoff, home: f.home, away: f.away }); }
+  catch (e) { console.log(`  backup (ESPN) failed: ${e.message}`); return false; }
+  if (!r) { console.log('  backup (ESPN): no published lineup either.'); return false; }
+  let changed = false;
+  for (const side of ['home', 'away']) {
+    const t = doc.teams[side], e = r.teams[side];
+    if (t.confirmedXI && t.confirmedXI.length) continue;
+    const squad = t.squad || [];
+    const pick = (p) => { const m = matchSquadPlayer(squad, p); return m && m.apiId != null ? { apiId: m.apiId, number: p.number != null ? p.number : m.number, name: m.name, pos: p.pos || 'n/d' } : null; };
+    const xi = e.startXI.map(pick);
+    if (xi.some((x) => !x)) {
+      console.log(`  backup (ESPN): ${side} has starters that are not in the squad (${e.startXI.filter((p, i) => !xi[i]).map((p) => p.name).join(', ')}), skipped.`);
+      continue;
+    }
+    t.confirmedXI = xi;
+    t.predictedXI = xi.map((x) => ({ ...x }));
+    if (e.formation) t.formation = e.formation;
+    const subs = e.substitutes.map(pick).filter(Boolean);
+    if (subs.length && (!t.substitutes || !t.substitutes.length)) t.substitutes = subs;
+    changed = true;
   }
+  if (changed) console.log(`  lineup taken from ESPN (backup)${r.teams.home.approx || r.teams.away.approx ? ', placement on the pitch approximate' : ''}.`);
+  return changed;
+}
+
+async function main() {
+  if (!API_KEY) console.error('APIFOOTBALL_KEY not set: using the backup source only.');
   const fixtures = readJSON(FIXTURES_PATH);
   const now = Date.now();
 
@@ -103,12 +135,13 @@ async function main() {
     const mins = minutesToKickoff(f, now);
     console.log(`Checking lineup for ${f.slug} (kickoff in ${mins.toFixed(0)} min)...`);
 
-    let lj;
-    try {
-      lj = await af('fixtures/lineups', { fixture: f.eventId });
-    } catch (e) {
-      console.error(`  fetch failed: ${e.message}`);
-      continue;
+    let lj = null;
+    if (API_KEY) {
+      try {
+        lj = await af('fixtures/lineups', { fixture: f.eventId });
+      } catch (e) {
+        console.error(`  fetch failed: ${e.message}`);
+      }
     }
     const rows = lj && lj.response;
     if (!rows || rows.length !== 2) {
@@ -116,6 +149,8 @@ async function main() {
       // "not published yet" is not reported when the call itself was refused.
       const err = lj && lj.errors && (Array.isArray(lj.errors) ? lj.errors.length : Object.keys(lj.errors).length) ? ` API errors: ${JSON.stringify(lj.errors)}` : '';
       console.log(`  not published yet (${rows ? rows.length : 'no'} lineup rows, results=${lj && lj.results}).${err}`);
+      // the backup source: a refused / failed API call (quota) or a sheet it does not have yet
+      if (await lineupFromEspn(f, doc)) { writeJSON(path, doc); changedCount++; }
       continue;
     }
 

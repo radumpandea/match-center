@@ -805,6 +805,25 @@
     var given = tokens.filter(function (x, i) { return i < tokens.length - 1 && plain(x.charAt(0)) === plain(m[1]); })[0];
     return given ? given + ' ' + m[2] : apiName;
   }
+  // Squad entry for a player of the backup source: surname (+ shirt number), or a unique surname.
+  function squadMatch(squad, sl) {
+    var norm = function (x) { return String(x || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/['’`]/g, '').toLowerCase().split(/[^a-z0-9]+/).filter(function (w) { return w.length > 1; }); };
+    var hit = function (a, b) {
+      if (a === b) return true;
+      var n = Math.min(a.length, b.length), i = 0;
+      if (n < 4) return false;
+      while (i < n && a.charAt(i) === b.charAt(i)) i++;
+      return i >= 4;
+    };
+    var pt = norm(sl.name), last = pt[pt.length - 1];
+    if (!last) return null;
+    var cands = squad.filter(function (p) { return norm(p.name).some(function (t) { return hit(t, last); }); });
+    var sameNo = cands.filter(function (p) { return sl.number != null && p.number === sl.number; });
+    if (sameNo.length === 1) return sameNo[0];
+    if (cands.length === 1) return cands[0];
+    var both = cands.filter(function (p) { return pt.filter(function (t) { return norm(p.name).some(function (u) { return hit(t, u); }); }).length >= 2; });
+    return both.length === 1 ? both[0] : null;
+  }
   function applyApiLineup(d) {
     var al = mine.apiLineup;
     if (!al) return;
@@ -812,8 +831,15 @@
       var a = al[side], tm = d.teams[side];
       if (!a || !a.xi || a.xi.length !== 11 || !tm) return;
       tm.squad = tm.squad || [];
+      var viaEspn = a.source === 'espn';
       var conv = function (sl) {
-        var ref = sl.apiId != null ? tm.squad.filter(function (p) { return p.apiId === sl.apiId; })[0] : null;
+        // the backup source (ESPN) has no API-Football ids: find the player in the squad by name / number
+        var ref = sl.apiId != null ? tm.squad.filter(function (p) { return p.apiId === sl.apiId; })[0] : (viaEspn ? squadMatch(tm.squad, sl) : null);
+        if (!ref && viaEspn && sl.apiId == null) {
+          ref = { apiId: null, number: sl.number != null ? sl.number : null, name: sl.name, role: POS_FROM_LETTER[sl.pos] || 'MID',
+                  pos: null, status: 'available', statusNote: null, _fromApiLineup: true };
+          tm.squad.push(ref);
+        }
         if (!ref && sl.apiId != null) {
           // a player on the official sheet who isn't in the squad file yet: add a
           // minimal entry so his card opens (appended, so translation indexes hold)
@@ -822,10 +848,13 @@
           tm.squad.push(ref);
         }
         return {
-          apiId: sl.apiId,
+          apiId: ref && ref.apiId != null ? ref.apiId : sl.apiId,
           number: sl.number != null ? sl.number : (ref ? ref.number : null),
-          name: lineupName(sl.name, ref),
-          pos: (ref && ref.pos) || POS_FROM_LETTER[sl.pos] || sl.pos || null
+          // ESPN spells names its own way: the squad's name is the one the rest of the page uses
+          name: viaEspn && ref ? (ref._name0 !== undefined ? ref._name0 : ref.name) : lineupName(sl.name, ref),
+          // the backup's position label (RCB, LCM...) is what the pitch uses to order a line; the API's letters are not
+          pos: (viaEspn && (sl.pos === 'GK' || LAT_RANK[String(sl.pos || '').toUpperCase()] !== undefined) ? sl.pos : null) ||
+               (ref && ref.pos) || POS_FROM_LETTER[sl.pos] || sl.pos || null
         };
       };
       tm.confirmedXI = a.xi.map(conv);
@@ -855,8 +884,8 @@
     (data.teams || []).forEach(function (row) {
       var side = row.teamId === fx.homeId ? 'home' : row.teamId === fx.awayId ? 'away' : null;
       if (side && row.startXI && row.startXI.length === 11) {
-        out[side] = { fetchedAt: data.fetchedAt || new Date().toISOString(), source: 'api', formation: row.formation || null,
-                      xi: slotsOf(row.startXI), subs: slotsOf(row.substitutes) };
+        out[side] = { fetchedAt: data.fetchedAt || new Date().toISOString(), source: data.source === 'espn' ? 'espn' : 'api', formation: row.formation || null,
+                      approx: !!row.approx, apiProblem: data.apiProblem || null, xi: slotsOf(row.startXI), subs: slotsOf(row.substitutes) };
       }
     });
     return out.home && out.away ? out : null;
@@ -910,7 +939,9 @@
     render(d);
     var fx = curFixture;
     var canAsk = fx && fx.eventId != null && window.MC_COLLAB && window.MC_COLLAB.fetchApiLineups;
-    (canAsk ? window.MC_COLLAB.fetchApiLineups(fx.eventId) : Promise.resolve({ ok: false, reason: 'not_configured' }))
+    // the match, for the backup source the function falls back to when API-Football cannot answer
+    var backup = fx ? { kickoff: fx.kickoff, home: fx.home, away: fx.away, homeId: fx.homeId, awayId: fx.awayId } : null;
+    (canAsk ? window.MC_COLLAB.fetchApiLineups(fx.eventId, backup) : Promise.resolve({ ok: false, reason: 'not_configured' }))
       .then(function (r) {
         if (r.ok && r.data && !r.data.published) { finish(t('lineup.notPublished'), 'warn'); return null; }
         var fromApi = r.ok ? lineupsFromApi(r.data, fx) : null;
@@ -930,7 +961,9 @@
           mine.confirmed[side] = true;   // official sheet = final, same lock as the manual "confirm" tick
         });
         saveMine();
-        finish(res.home.source === 'api' ? t('lineup.doneApi', { time: timeLabel(res.home.fetchedAt) }) : t('lineup.doneFile'), 'ok');
+        finish(res.home.source === 'api' ? t('lineup.doneApi', { time: timeLabel(res.home.fetchedAt) })
+          : res.home.source === 'espn' ? t('lineup.doneEspn', { time: timeLabel(res.home.fetchedAt) }) + (res.home.approx || res.away.approx ? ' ' + t('lineup.espnApprox') : '')
+          : t('lineup.doneFile'), 'ok');
       })
       .catch(function () { finish(t('lineup.unavailable'), 'warn'); });
   }
@@ -2144,8 +2177,8 @@
     var at = tm._apiAt ? timeLabel(tm._apiAt) : '';
     return el('span', {
       class: 'api-confirmed-tag',
-      title: at ? t('pitch.apiConfirmedTitleAt', { time: at }) : t('pitch.apiConfirmedTitle'),
-      text: t('pitch.apiConfirmedTag') + (at ? ' · ' + at : '')
+      title: at ? t(tm._apiSource === 'espn' ? 'pitch.espnConfirmedTitleAt' : 'pitch.apiConfirmedTitleAt', { time: at }) : t('pitch.apiConfirmedTitle'),
+      text: t(tm._apiSource === 'espn' ? 'pitch.espnConfirmedTag' : 'pitch.apiConfirmedTag') + (at ? ' · ' + at : '')
     });
   }
   function matchGraphic(d) {

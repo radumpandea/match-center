@@ -281,12 +281,14 @@
   // key, so it never reaches the browser, and only answers signed-in users.
   // Resolves { ok: true, data } or { ok: false, reason } and never throws:
   // not_configured | not_signed_in | not_deployed | error.
-  async function fetchApiLineups(fixtureId) {
+  // `fallback` ({ kickoff, home, away, homeId, awayId }) lets the function ask ESPN instead when
+  // API-Football cannot answer (daily limit used up, outage) or has not published yet.
+  async function fetchApiLineups(fixtureId, fallback) {
     if (!enabled) return { ok: false, reason: 'not_configured' };
     if (!user) await ensureUser();
     if (!user) return { ok: false, reason: 'not_signed_in' };
     try {
-      var res = await client.functions.invoke('api-lineups', { body: { fixture: fixtureId } });
+      var res = await client.functions.invoke('api-lineups', { body: { fixture: fixtureId, fallback: fallback || undefined } });
       if (res.error) {
         var status = res.error.context && res.error.context.status;
         return { ok: false, reason: status === 404 ? 'not_deployed' : status === 401 ? 'not_signed_in' : 'error' };
