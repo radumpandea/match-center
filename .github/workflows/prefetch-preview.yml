@@ -57,6 +57,14 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "Prefetch preview data ($(date -u +%Y-%m-%d))"
-            git pull --rebase --autostash origin main || true
-            git push
+            # Other workflows commit to the same packs while this one runs (it starts late, around the
+            # time the deep builds land): a plain `pull --rebase || true` followed by `push` left a
+            # half-finished rebase and failed the run. Retry; on a conflicting hunk the fresh API data wins.
+            ok=0
+            for i in 1 2 3 4; do
+              if git pull --rebase -X theirs --autostash origin main && git push; then ok=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              sleep $((RANDOM % 10 + 8))
+            done
+            [ "$ok" = 1 ] || { echo "push failed after retries"; exit 1; }
           fi
