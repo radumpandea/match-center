@@ -1,12 +1,37 @@
 {
   "slug": "pl-e9-coventry-sunderland",
   "generatedAt": "2026-10-28T11:36:02.379Z",
-  "partial": true,
+  "researchDepth": "deep",
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
       "accessed": "2026-10-28"
+    },
+    {
+      "name": "Wikipedia — Stephen Mfuni",
+      "url": "https://en.wikipedia.org/wiki/Stephen_Mfuni",
+      "accessed": "2026-10-30"
+    },
+    {
+      "name": "Wikipedia — Caleb Yirenkyi",
+      "url": "https://en.wikipedia.org/wiki/Caleb_Yirenkyi",
+      "accessed": "2026-10-30"
+    },
+    {
+      "name": "Wikipedia — Chris Rigg",
+      "url": "https://en.wikipedia.org/wiki/Chris_Rigg",
+      "accessed": "2026-10-30"
+    },
+    {
+      "name": "Sky Sports — Sunderland 1-1 Coventry City (AET, 3-2 agg)",
+      "url": "https://www.skysports.com/football/news/11688/13362586/sunderland-1-1-coventry-city-aet-agg-3-2-dan-ballards-last-minute-winner-sends-black-cats-to-championship-play-off-final",
+      "accessed": "2026-10-30"
+    },
+    {
+      "name": "footballdream.in — Coventry City vs Sunderland GW9 preview",
+      "url": "https://www.footballdream.in/blog/coventry-city-vs-sunderland-gw9-premier-league-2026-27",
+      "accessed": "2026-10-30"
     }
   ],
   "competition": {
@@ -18,7 +43,7 @@
   "kickoff": "2026-10-31T17:00:00+02:00",
   "venue": {
     "name": "Coventry Building Society Arena",
-    "capacity": null,
+    "capacity": 32609,
     "city": "Coventry",
     "notes": null,
     "stories": [
@@ -1285,7 +1310,16 @@
     "Jack Edward Rudoni e cel mai bun marcator al echipei Coventry în acest start de sezon (2 goluri).",
     "Sunderland — locul 20 după 8 etape, 5 puncte, golaveraj 6-14.",
     "Brian Ebenezer Adjei Brobbey e cel mai bun marcator al echipei Sunderland în acest start de sezon (3 goluri).",
-    "Cap la cap (10 meciuri): Coventry 4 - 5 - 1 Sunderland."
+    "Cap la cap (10 meciuri): Coventry 4 - 5 - 1 Sunderland.",
+    "Meciul de pe CBS Arena e un duel direct la coada clasamentului — cele două nou-promovate ocupă ultimele două locuri după 8 etape.",
+    "Coventry a câștigat doar 2 din ultimele 5 meciuri de campionat (2V-0E-3Î); Sunderland e fără victorie în ultimele 5 (1E-4Î).",
+    "Ultima întâlnire directă a fost semifinala barajului din Championship, în mai 2025 — Sunderland s-a impus după prelungiri, grație golului lui Daniel Ballard din minutul 122, care a trimis „Pisicile Negre” la Wembley; Lampard a numit acea înfrângere una dintre cele mai dureroase ale carierei sale.",
+    "Kevin Danso e suspendat (cartonaș roșu) și nu poate juca pentru Sunderland, care mai are indisponibili din accidentare pe Daniel Ballard, Wilson Isidor, Thomas Meunier și Romaine Mundle.",
+    "Coventry rămâne fără patru jucători din cauza accidentărilor: Aurèle Amenda, Josh Eccles, Luke Woolfenden și Haji Wright.",
+    "Coventry a primit gol în ultimul sfert de oră al meciurilor de 4 ori din cele 15 goluri încasate; Sunderland a primit 5 din cele 14 goluri ale sale chiar la începutul reprizei secunde (min. 46-60).",
+    "Sunderland a folosit același 4-2-3-1 în toate cele 8 meciuri de campionat; Coventry a rotat între 4-2-3-1 (4 meciuri), 3-4-2-1 (3) și 4-1-4-1 (1).",
+    "Singura victorie la pas a lui Coventry în acest sezon a venit pe 12 octombrie, 4-1 cu Newcastle — meci în care fundașul împrumutat Stephen Mfuni a marcat primul său gol de senior.",
+    "Caleb Yirenkyi, sosit în august de la FC Nordsjælland pentru o sumă raportată la 25 de milioane de euro, e cel mai scump transfer din istoria lui Coventry City."
   ],
   "predictions": {
     "winnerName": "Coventry",
@@ -1323,10 +1357,52 @@
       }
     }
   },
+  "commentatorResearch": [
+    {
+      "topic": "Ultima întâlnire directă",
+      "fact": "Sunderland a eliminat Coventry din barajul promovării din Championship în mai 2025, câștigând returul 1-1 (3-2 la general) grație unui gol al lui Daniel Ballard din minutul 122 al prelungirilor.",
+      "source": "Sky Sports"
+    },
+    {
+      "topic": "Premieră în Premier League",
+      "fact": "E prima întâlnire dintre Coventry City și Sunderland la nivelul Premier League; toate cele 10 confruntări directe anterioare au avut loc în eșaloanele inferioare ale fotbalului englez.",
+      "source": "API-Football (h2h)"
+    },
+    {
+      "topic": "Transfer-record pentru Coventry",
+      "fact": "Caleb Yirenkyi, sosit de la FC Nordsjælland în august 2026 pentru o sumă raportată la 25 de milioane de euro, e cel mai scump transfer din istoria clubului Coventry City.",
+      "source": "docs/data/players/475575.json (funfacts)"
+    },
+    {
+      "topic": "Xhaka, omul meciurilor complete",
+      "fact": "Granit Xhaka e singurul jucător din cele două loturi care a jucat toate cele 720 de minute posibile din primele 8 etape de campionat.",
+      "source": "API-Football (squad stats)"
+    },
+    {
+      "topic": "Contractul lui Rigg",
+      "fact": "Chris Rigg, crescut integral la academia lui Sunderland, a semnat pe 28 august 2025 o prelungire pe cinci ani, valabilă până în 2030, respingând interesul altor cluburi din Premier League.",
+      "source": "Wikipedia / SAFC.com"
+    },
+    {
+      "topic": "Formație neschimbată la Sunderland",
+      "fact": "Sunderland a folosit 4-2-3-1 în toate cele 8 meciuri de campionat din acest sezon; Coventry a rotat între 4-2-3-1, 3-4-2-1 și 4-1-4-1.",
+      "source": "API-Football (form.stats)"
+    },
+    {
+      "topic": "Gol de debut pentru împrumutatul lui City",
+      "fact": "Stephen Mfuni, fundaș împrumutat de la Manchester City, a marcat primul său gol de senior pentru Coventry pe 12 octombrie, în victoria cu 4-1 asupra lui Newcastle — singurul succes la pas al echipei până acum.",
+      "source": "API-Football (form.recent)"
+    },
+    {
+      "topic": "Lampard, legătura cu Chelsea",
+      "fact": "Frank Lampard, golgheterul all-time al lui Chelsea cu 211 goluri și câștigător al Ligii Campionilor ca jucător, antrenează Coventry din noiembrie 2024 și a dus clubul direct în Premier League, câștigând Championship-ul în 2025-26.",
+      "source": "docs/data/coaches (funfacts)"
+    }
+  ],
   "teams": {
     "home": {
       "name": "Coventry",
-      "shortName": null,
+      "shortName": "COV",
       "nickname": "Sky Blues",
       "logo": "https://media.api-sports.io/football/teams/1346.png",
       "colors": null,
@@ -1496,8 +1572,20 @@
           "Cu Coventry City a câștigat Championship-ul în sezonul 2025–26."
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
+      "formation": "4-2-3-1",
+      "predictedXI": [
+        { "apiId": 278088, "number": 19, "name": "C. Rushworth", "pos": "GK" },
+        { "apiId": 37961, "number": 27, "name": "M. van Ewijk", "pos": "RB" },
+        { "apiId": 264437, "number": 4, "name": "B. Thomas", "pos": "RCB" },
+        { "apiId": 19789, "number": 2, "name": "E. Pinnock", "pos": "LCB" },
+        { "apiId": 19260, "number": 3, "name": "J. Dasilva", "pos": "LB" },
+        { "apiId": 19328, "number": 6, "name": "M. Grimes", "pos": "DM" },
+        { "apiId": 475575, "number": 8, "name": "C. Yirenkyi", "pos": "CM" },
+        { "apiId": 33462, "number": 7, "name": "T. Sakamoto", "pos": "RW" },
+        { "apiId": 20372, "number": 5, "name": "J. Rudoni", "pos": "CAM" },
+        { "apiId": 82090, "number": 23, "name": "B. Thomas-Asante", "pos": "LW" },
+        { "apiId": 421875, "number": 49, "name": "S. Cherif", "pos": "ST" }
+      ],
       "confirmedXI": null,
       "substitutes": null,
       "squad": [
@@ -1829,7 +1917,7 @@
           "number": 3,
           "name": "Jay Rhys Dasilva",
           "photo": "https://media.api-sports.io/football/players/19260.png",
-          "pos": "DEF",
+          "pos": "LB",
           "positions": [
             "DEF"
           ],
@@ -1959,13 +2047,13 @@
           "number": 12,
           "name": "Stephen Mfuni",
           "photo": "https://media.api-sports.io/football/players/382358.png",
-          "pos": "DEF",
+          "pos": "CB",
           "positions": [
             "DEF"
           ],
           "role": "DEF",
           "age": 18,
-          "height": null,
+          "height": 193,
           "weight": null,
           "foot": null,
           "nat": "ENG",
@@ -2023,7 +2111,7 @@
           "number": 2,
           "name": "Ethan Rupert Pinnock",
           "photo": "https://media.api-sports.io/football/players/19789.png",
-          "pos": "DEF",
+          "pos": "LCB",
           "positions": [
             "DEF"
           ],
@@ -2087,7 +2175,7 @@
           "number": 4,
           "name": "Bobby Craig Thomas",
           "photo": "https://media.api-sports.io/football/players/264437.png",
-          "pos": "DEF",
+          "pos": "RCB",
           "positions": [
             "DEF"
           ],
@@ -2185,7 +2273,7 @@
           "number": 27,
           "name": "Milan Fabrizio van Ewijk",
           "photo": "https://media.api-sports.io/football/players/37961.png",
-          "pos": "DEF",
+          "pos": "RB",
           "positions": [
             "DEF"
           ],
@@ -2314,7 +2402,7 @@
           "number": 6,
           "name": "Matthew Jacob Grimes",
           "photo": "https://media.api-sports.io/football/players/19328.png",
-          "pos": "MID",
+          "pos": "DM",
           "positions": [
             "MID"
           ],
@@ -2573,7 +2661,7 @@
           "number": 5,
           "name": "Jack Edward Rudoni",
           "photo": "https://media.api-sports.io/football/players/20372.png",
-          "pos": "MID",
+          "pos": "CAM",
           "positions": [
             "MID"
           ],
@@ -2638,7 +2726,7 @@
           "number": 7,
           "name": "Tatsuhiro Sakamoto",
           "photo": "https://media.api-sports.io/football/players/33462.png",
-          "pos": "MID",
+          "pos": "RW",
           "positions": [
             "MID"
           ],
@@ -2765,13 +2853,13 @@
           "number": 8,
           "name": "Caleb Marfo Yirenkyi",
           "photo": "https://media.api-sports.io/football/players/475575.png",
-          "pos": "MID",
+          "pos": "CM",
           "positions": [
             "MID"
           ],
           "role": "MID",
           "age": 20,
-          "height": null,
+          "height": 182,
           "weight": null,
           "foot": null,
           "nat": "GHA",
@@ -2894,7 +2982,7 @@
           "number": 49,
           "name": "Sidiki Cherif",
           "photo": "https://media.api-sports.io/football/players/421875.png",
-          "pos": "ATT",
+          "pos": "ST",
           "positions": [
             "ATT"
           ],
@@ -3220,7 +3308,7 @@
           "number": 23,
           "name": "Solomon Brandon Michael Clarke Thomas-Asante",
           "photo": "https://media.api-sports.io/football/players/82090.png",
-          "pos": "MID",
+          "pos": "LW",
           "positions": [
             "MID",
             "ATT"
@@ -5146,58 +5234,55 @@
         }
       ],
       "preseason": [],
-      "news": [],
-      "newsCandidates": [
+      "news": [
         {
-          "title": "FOOTBALL - Coventry City supporters can bid on match-worn shirts from Newcastle United win will all proceeds to go to charity",
-          "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNMW9GOVdTRzloZ1lENmJ2VzNDam1nNmJsY2pzWGhkaS1tZDJjWU5wTzY0TmF1d0VWU3k1Z1hZc0xZb1hVTEJtQjBBb2U5aUFSLU5iNS1wZTUtamk4UUNPallFVGFtSUJ3VlctNWZRR0lWeFhGb3cwVFJidS1lM05WZ1ZCSFZFZ3o5UVFPSmxhYnI2dFd3MjFUS3JUNkw4ckN4VlpLSGdGYkxmMGtWX3FKOFRfaFpjV2RON1FtNk1fanFfZ3Z1NTR2dDNJXzJyQ196UGlIb0hDcDJidWh3S21fOS1COXRWRzhnT0NudTktZ3hRUTQ?oc=5",
-          "source": "The Coventry Observer",
-          "published": "2026-10-28"
+          "date": "2026-10-27",
+          "text": "Ethan Pinnock și Jay Dasilva au discutat deschis despre înfrângerea cu Fulham (0-1), recunoscând că echipa trebuie să fie mai eficientă în fața porții adverse înainte de meciul cu Sunderland."
         },
         {
-          "title": "U21 Match Centre | Cardiff City vs. Coventry City",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNZ3ItWTdhRTVDOUtxN3VhbXFSWXY5QXdfeXpTLTJxVjEwMDJMMXFkLWdrTmY5NUFxcVVvc2xaSVBZYU5memxILVhJaTFqeldaX3hvLTAxZElXSHFGY0xYSzdVa001R0Z1STRBbENqRGRKTE5VOXZjRmN6MW1VZ1daSkhULU13cklwNGlGWGN3?oc=5",
-          "source": "Cardiff City",
-          "published": "2026-10-27"
+          "date": "2026-10-27",
+          "text": "Fostul tehnician Gordon Strachan, care a pregătit Coventry între 1996 și 2001, a cerut răbdare conducerii și suporterilor, insistând că stabilitatea pe termen lung contează mai mult decât rezultatele imediate din primul sezon de Premier League."
         },
         {
-          "title": "Coventry podcast: Ogrizovic says Gboho needs minutes",
-          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPUXVSMGxhdGdOZlgtSGw0Q0NPNmxMbUpNSlgycWdtdDBPSnZ1ME41LWlubmJjSDYySEtUTDN5YTV0dF91QVZQZkFHSl9yc1NUUk82c1lnOGdzUV84U1RhMlh4ZE1JSHkxX1pSczI3WVZlTTV6OXpiSWZEZTlPZDJwZlBYRTVzRTNtRlRYLVcxcGhMbExkQk9jUnFkTG1QT25sOHJoOFVWaHBwelplcVJXNk10VjhRYm5jYnhpYmx6ckJJc2NqenNhdDBTaWhsZVc1WXRtRFFRYTlKa3ZKNlZmZklR?oc=5",
-          "source": "BBC",
-          "published": "2026-10-27"
-        },
-        {
-          "title": "Some honesty on the Newcastle United defeat at Coventry City would be useful",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNcExfVU5EV0l0WmdhMFJDVVoxeUZkdjlrcmhJVDFEYmhfZzhoWHQtOXhseUJzVXFER0lUaEdEUmg3bGJsVmZsWkVadWp5MUVzc1dGbXpTLWp1VXJ3LVJacmRxa0djTG1oQ09BTFZTVWRSUklEb2VTNlpvNFlmNDFBY2xFcktHM3U4cTA3YkZaU2RPem5vRTluSnR3TWxBeWgxVlg2c1RiMnRZaWVYQm5J?oc=5",
-          "source": "The Mag",
-          "published": "2026-10-27"
-        },
-        {
-          "title": "Coventry City FC announces Carling brewer, Molson Coors, as Official Beer and Pouring Partner",
-          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPNEJ5a2kwX2c5RUNnamdGRmNjcXBZUjctMjVnUHJZa0pEMzhQeWdKa19rYm9UWWY4YWgwS0xtLXMzOUo4OFpsV2lUanV5c3VLQnZjcnZFNDYtbFplWVZkbXFqTW9VM0E4MUc4aXlMN0VqYU5QdUNmUFMzNktyRmxBQVpCWHNEV0ZzNk9PQl85NDFuS2NFTkVpb1JDeGNSNTZLdkVRRDBYc1E1NENMbjlRMUh6cnItZHBPT0doRmRGODdoR0F5V2xaNk1YYzNMMi1sUzhkdw?oc=5",
-          "source": "CCFC.co.uk",
-          "published": "2026-10-27"
-        },
-        {
-          "title": "FOOTBALL - Gordon Strachan insists Coventry City must prioritise long-term stability over results on pitch",
-          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOOFVUdF9yeEt3Y1RYazRGQWM0TWMtY2tHckQwb045U2wxYTNCQWxkR0tvZmdIV1lQSlkyRTkzdXNBeHQxOHM0czg5SUR0REFsRnNXMnJzNkFRV21lZU5xU1RqTUZoa3Q2SkxGVzlhSHlacFNMbmEwdW44WG5FTE5lc0ZSUWdCRjdGZFVZRDdrRV9qS21pTmVEU2xFV3l2TUQxQlVOcV9zcFJqMkpSTll5WlBpWG0wWGRGMEsxN3ZUNDVYRXNOS3N6THpfYzEycmttLTh0MzctbGFNZw?oc=5",
-          "source": "The Coventry Observer",
-          "published": "2026-10-27"
-        },
-        {
-          "title": "FOOTBALL – Coventry City pair Ethan Pinnock and Jay Dasilva discuss Fulham defeat",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNRTMwcXFKQ2hhM0w3WEVCa3hRSFNfMWs3X2Y0Q2VkaXVrZUREQ2g0b2Zia3BGYUE5MnNwNUhvOXZldU9kYjBzNkxqXzFWb2ZjdDVDZTBsVnFNOWRXTTJycXUtY3E2Y3RhNTljcG13bjN2Z3FoalRSTGNaaTBEUmdVSE1xWFluMFhkbmpVSWpoTm50SjdaYkwwczM2LWtzczdIR0x0V3FBaUp4dG1RdnFEZnBYZkxDb1Vr?oc=5",
-          "source": "The Coventry Observer",
-          "published": "2026-10-27"
-        },
-        {
-          "title": "FOOTBALL – Coventry City youngsters make Stratford Town loan move",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOS2J2RmotTWlZWXExc1ZRaXVxRXotWEU2bl84QldoT0ZBSnRETHNhRGczY1pzcFIzSVkzRTZ3TlpGdXBUN2FPcVlrbEMtMWdJUjlFZF8yRWw4T2Z6UFktTmRrRlAwTzM5ZllQcFFRdG51V3NtRjFmY3doTXBHZmIxdDA5TURsNnJlcjlJMS1NRUFwc1owaVh2TVB4RVJKU3VMNmdV?oc=5",
-          "source": "The Coventry Observer",
-          "published": "2026-10-27"
+          "date": "2026-10-27",
+          "text": "Legenda clubului Steve Ogrizovic a spus, într-un podcast oficial, că noul atacant Yann Gboho are nevoie de minute de joc pentru a se adapta la ritmul Premier League."
         }
       ],
-      "stories": [],
+      "stories": [
+        {
+          "title": "Lampard, sub lupă în elită",
+          "bullets": [
+            "Promovat campion al Championship-ului în 2025-26, Frank Lampard conduce Coventry în primul sezon din Premier League după 25 de ani de absență.",
+            "Echipa a adunat doar 6 puncte din primele 8 etape și se află pe locul 19, în zona retrogradării.",
+            "Fostul tehnician Gordon Strachan, care a pregătit clubul între 1996 și 2001, a cerut răbdare: stabilitatea pe termen lung contează mai mult decât rezultatele imediate într-un sezon de revenire.",
+            "Lampard a semnat în această vară un nou contract pe trei ani cu clubul."
+          ]
+        },
+        {
+          "title": "Recordul transferat în fereastra de vară",
+          "bullets": [
+            "Caleb Yirenkyi a venit de la FC Nordsjælland pentru o sumă raportată la 25 de milioane de euro — cel mai mare transfer din istoria clubului.",
+            "Fundașul Stephen Mfuni a ajuns sub formă de împrumut de la Manchester City și a marcat gol de debut în victoria cu 4-1 asupra lui Newcastle.",
+            "Lotul de vară a mai inclus atacantul Taiwo Awoniyi (de la Nottingham Forest) și fundașul Ethan Pinnock (de la Brentford), amândoi cu experiență în Premier League."
+          ]
+        },
+        {
+          "title": "O apărare care cedează în rate",
+          "bullets": [
+            "15 goluri primite în 8 etape — una dintre cele mai vulnerabile defensive ale campionatului.",
+            "Un singur clean sheet reușit până acum, obținut în deplasare.",
+            "4 din cele 15 goluri primite au venit în ultimul sfert de oră al meciurilor (min. 76-90)."
+          ]
+        },
+        {
+          "title": "Fantoma play-off-ului cu Sunderland",
+          "bullets": [
+            "Ultima dată când s-au întâlnit, în mai 2025, Sunderland a eliminat Coventry din barajul Championship-ului, grație golului lui Ballard din minutul 122 al returului.",
+            "E prima întâlnire dintre cele două echipe la nivelul Premier League.",
+            "În ultimele 10 confruntări directe, Sunderland are 5 victorii, Coventry 4, cu un singur egal."
+          ]
+        }
+      ],
       "clubFacts": [
         "Coventry City a fost înființat în 1883, ca Singers F.C., de angajați ai companiei Singer Cycle, și și-a schimbat numele în Coventry City în 1898.",
         "Echipa este supranumită „Sky Blues”, după culoarea albastru-deschis a echipamentului, purtat neîntrerupt din 1962.",
@@ -5211,7 +5296,7 @@
     },
     "away": {
       "name": "Sunderland",
-      "shortName": null,
+      "shortName": "SUN",
       "nickname": "Pisicile Negre",
       "logo": "https://media.api-sports.io/football/teams/746.png",
       "colors": null,
@@ -5249,8 +5334,20 @@
           "Le Bris, breton, s-a născut pe 6 decembrie 1975 și a crescut la Plonéour-Lanvern, în Bretania, unde a început fotbalul la echipa locală US Plonéour."
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
+      "formation": "4-2-3-1",
+      "predictedXI": [
+        { "apiId": 194536, "number": 22, "name": "R. Roefs", "pos": "GK" },
+        { "apiId": 119121, "number": 32, "name": "T. Hume", "pos": "RB" },
+        { "apiId": 1146, "number": 20, "name": "N. Mukiele", "pos": "RCB" },
+        { "apiId": 19911, "number": 13, "name": "L. O'Nien", "pos": "LCB" },
+        { "apiId": 22225, "number": 17, "name": "Reinildo", "pos": "LB" },
+        { "apiId": 1464, "number": 34, "name": "G. Xhaka", "pos": "DM" },
+        { "apiId": 365331, "number": 27, "name": "N. Sadiki", "pos": "CM" },
+        { "apiId": 339201, "number": 11, "name": "C. Rigg", "pos": "RW" },
+        { "apiId": 20638, "number": 28, "name": "E. Le Fée", "pos": "CAM" },
+        { "apiId": 311543, "number": 10, "name": "N. Angulo", "pos": "LW" },
+        { "apiId": 38750, "number": 9, "name": "B. Brobbey", "pos": "ST" }
+      ],
       "confirmedXI": null,
       "substitutes": null,
       "squad": [
@@ -5710,7 +5807,7 @@
           "number": 32,
           "name": "Trai Hume",
           "photo": "https://media.api-sports.io/football/players/119121.png",
-          "pos": "DEF",
+          "pos": "RB",
           "positions": [
             "DEF",
             "MID"
@@ -5947,7 +6044,7 @@
           "number": 17,
           "name": "Reinildo",
           "photo": "https://media.api-sports.io/football/players/22225.png",
-          "pos": "DEF",
+          "pos": "LB",
           "positions": [
             "DEF"
           ],
@@ -5961,7 +6058,7 @@
           "birthCountry": "Mozambique",
           "birthDate": "1994-01-21",
           "pronunciation": "rei-NIL-do",
-          "career": "Benfica B (2015) · Fafe (2016) · Mozambique (2016–prezent) · SC Covilha (2017) · Lille (2018–2020) · Atletico Madrid (2021–2024) · Sunderland (2025–prezent)",
+          "career": "Benfica B (2015) · Fafe (2016) · SC Covilha (2017) · Lille (2018–2020) · Atletico Madrid (2021–2024) · Sunderland (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6141,7 +6238,7 @@
           "number": 20,
           "name": "Nordi Mukiele Mulere",
           "photo": "https://media.api-sports.io/football/players/1146.png",
-          "pos": "DEF",
+          "pos": "RCB",
           "positions": [
             "DEF"
           ],
@@ -6206,7 +6303,7 @@
           "number": 13,
           "name": "L. O'Nien",
           "photo": "https://media.api-sports.io/football/players/19911.png",
-          "pos": "MID",
+          "pos": "LCB",
           "positions": [
             "MID",
             "DEF"
@@ -6523,7 +6620,7 @@
           "number": 28,
           "name": "Enzo Jérémy Le Fée",
           "photo": "https://media.api-sports.io/football/players/20638.png",
-          "pos": "MID",
+          "pos": "CAM",
           "positions": [
             "MID"
           ],
@@ -6645,7 +6742,7 @@
           "number": 11,
           "name": "Christopher Rigg",
           "photo": "https://media.api-sports.io/football/players/339201.png",
-          "pos": "MID",
+          "pos": "RW",
           "positions": [
             "MID"
           ],
@@ -6710,7 +6807,7 @@
           "number": 27,
           "name": "Noah Junior Sadiki",
           "photo": "https://media.api-sports.io/football/players/365331.png",
-          "pos": "MID",
+          "pos": "CM",
           "positions": [
             "MID"
           ],
@@ -6902,7 +6999,7 @@
           "number": 34,
           "name": "Granit Xhaka",
           "photo": "https://media.api-sports.io/football/players/1464.png",
-          "pos": "MID",
+          "pos": "DM",
           "positions": [
             "MID"
           ],
@@ -7030,7 +7127,7 @@
           "number": 10,
           "name": "Nilson David Angulo Ramírez",
           "photo": "https://media.api-sports.io/football/players/311543.png",
-          "pos": "MID",
+          "pos": "LW",
           "positions": [
             "MID"
           ],
@@ -7095,7 +7192,7 @@
           "number": 9,
           "name": "Brian Ebenezer Adjei Brobbey",
           "photo": "https://media.api-sports.io/football/players/38750.png",
-          "pos": "ATT",
+          "pos": "ST",
           "positions": [
             "ATT"
           ],
@@ -9335,58 +9432,55 @@
         }
       ],
       "preseason": [],
-      "news": [],
-      "newsCandidates": [
+      "news": [
         {
-          "title": "Brentford FC vs. Sunderland AFC - October 28, 2026",
-          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5ad1UwOThmQXFpQjFxSDFBZlBONndXYkNNSWMwa2RWSmVlVlZldWlKSEtjQVc4UHNOUVN0aDI5TEVkLW1nalNua1YwZ0J3bkxQZFZfazNZQzlBNGZaZ2Q5OEtxbE1FaXhaMXJ6LUFVVFRHY0tFMWx3OW9zcWU?oc=5",
-          "source": "Bleacher Report",
-          "published": "2026-10-28"
+          "date": "2026-10-28",
+          "text": "Sunderland Echo a analizat factorii din spatele startului slab de sezon al echipei în Premier League și ce ar trebui să se schimbe înainte de deplasarea la Coventry."
         },
         {
-          "title": "Sunderland vs Brentford: League Cup stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5iaFBtd3pNMjRka1RPWTJsTWdYU2ZKeHlEX0wzRFV2QkZKVlljb3BwdUZuNE1INGRpQWh1cXU4aE1fcFN5cHBnNGM0ajc4bG5LVGRhdWdHSExGUXpmak5iWDRrc2tiQQ?oc=5",
-          "source": "BBC",
-          "published": "2026-10-28"
+          "date": "2026-10-28",
+          "text": "Trai Hume și-a confirmat disponibilitatea de a juca „la foc continuu” și în Carabao Cup, după meciul cu Brentford din 28 octombrie, cu doar câteva zile înaintea deplasării la Coventry."
         },
         {
-          "title": "The key factors behind Sunderland's poor Premier League start and what's next",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPNEhKQ2psanlGbHhSbFgyNkdzTjVIQ3FOTEdPSWZSRVBjOFlxWVphSldtTXVMQ002V0Rsck5TMVdiX2xEeFIxLU5OVjJjbUJfVW04ektPVmg0UmwxdlpoV2l6cTNpSXp5XzVXOTVjY0Z3R1RhcWplYi1MTTRPV3NNY2MxTjVvdGVRR1UxWW9wb0JZUGdjcFZvQlBRRzN4Y05w?oc=5",
-          "source": "Sunderland Echo",
-          "published": "2026-10-28"
-        },
-        {
-          "title": "Trai Hume makes Carabao Cup stance clear with ‘full throttle’ Brentford vow",
-          "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOcWcwMF8wN1BzUy1BaFE1UzM0Q1dFMlVvalR1NTcwVk9lZWhXdmIxNW9zUmhFcVB5WU9BUUNjQkx3ZVlXb0ppdEkwbEFCallvbDdJQ3E4dmlFeGdqMHBSTEoyU3RZeDFDa0lPbHJWWGlWZ2s1WHJzbXB4cnlRT2g1bmk3UDBMZTB6V1ItMWh5dGZDMUlpbGVlSVJMdE05NDF1dTFzZWYzRjhvSWtOeVFFYnJJUGhsMVpVMzdraHgzUXVodE15eHRuZHhlcXdqZ3V6TV9Ka3Q1RnFXMzFCdHhnaVp3RTVKQTJtbEJDR2FFQ3kwN09n?oc=5",
-          "source": "Sunderland Echo",
-          "published": "2026-10-28"
-        },
-        {
-          "title": "Sunderland vs Brentford Prediction, Betting Tips, Lineups & Odds | 28 Oct 2026",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPaG5FSUM0dHJ5Nkd6QnRtSE1lcEVyZlJOYkVOT25wRXB3djFFMkRXRkxNTTlzclk5OC00cnJLSTVXVVo5LWtYYmZZTkV6d2RVblFQUWxBVjhUTXpjOEtKQXRIdzcxMHVuNV9iNmR1blZTcmJQTFk5UHlqbUM2T1lIODBYakJ3Zk1zQk1lZWV3R1VZalpaSG1FYVhBOFFacTQ0aVJ0bTk0Q2hoV2dYck91VA?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-10-28"
-        },
-        {
-          "title": "Sunderland AFC opens new store in The Bridges Shopping Centre",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOY0cyUnU2WEtpblRTLV8yNDVsRFNMVVhtSGdwUS1RNzhvRHBxb1VnSmVEWk1wcG80WUhtbUlrNkJrbHRLekYwUWVWRmhPYUlqZnlqNDlpOFJKNGdSRlB4RzNtSnB2aXJOblNtSkFKV3VGdkdZQkxCNmtmaF9IbVR4OEFJcDdpRE0tYml0WDRxMXZieDMzNmhGNS1rdjBRZw?oc=5",
-          "source": "Sunderland AFC",
-          "published": "2026-10-27"
-        },
-        {
-          "title": "Chris Rigg: Sunderland’s Latest Centurion",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQd1k2VDVvZVRmMm5DOC1rSWdiMzBIcklxb2RnMWVaYnRMVTA4M2xFQUJkSzlRQ1hDanYtWWJ2dWJnTXBSQ2Z3VXl3T2dRT0l4d0h0VTQyblZkekpaSzV1X1Z2ZVVIenFXTFJkSUgyLTBYS24yd3Fxb3E2SFR2T2Rpdk42WDV2ZFN3aFNueU5SZ1g?oc=5",
-          "source": "Roker Report",
-          "published": "2026-10-27"
-        },
-        {
-          "title": "Sunderland AFC announce retained list for 2026-27",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOLUZSRFRSVkFjejlzRVMwMW5RVkZ4bFFRSW5GamRYejVfYjRSRC1UY3BEOV9HaDlzZGxDWk8wZ0hEcDFRODhObndIQ3ZFMDJLRll5Q1pUTTlBNDNZNTIxYS1xNnJJNXF2VnQxRE5iN0ttbzlkWE5QQ201Nno0YkIyUVo3WVdNQXZyRGd3akNwUEw3SE0?oc=5",
-          "source": "Sunderland AFC",
-          "published": "2026-10-27"
+          "date": "2026-10-27",
+          "text": "Roker Report a marcat un nou prag de apariții pentru mijlocașul Christopher Rigg, unul dintre produsele academiei aflate în centrul proiectului lui Régis Le Bris."
         }
       ],
-      "stories": [],
+      "stories": [
+        {
+          "title": "Xhaka, singurul stabil într-un sezon de criză",
+          "bullets": [
+            "Granit Xhaka a jucat toate cele 720 de minute posibile din primele 8 etape de campionat, cu cel mai mare rating din lot (7,37).",
+            "A oferit 485 de pase și 17 pase-cheie, cu mult peste orice alt coechipier.",
+            "Veteranul elvețian conduce un lot tânăr, într-un sezon în care echipa a câștigat un singur meci din 8."
+          ]
+        },
+        {
+          "title": "Brobbey, aproape toată producția ofensivă",
+          "bullets": [
+            "Brian Brobbey are 3 din cele 6 goluri marcate de Sunderland în campionat, exact jumătate din producția echipei.",
+            "E singurul jucător din lot cu mai mult de un gol în acest start de sezon.",
+            "Fără el în teren, Sunderland ar rămâne doar cu Wilson Isidor (accidentat) și tinerii din rotație pentru postul de vârf."
+          ]
+        },
+        {
+          "title": "Lot decimat de accidentări și o suspendare",
+          "bullets": [
+            "Kevin Danso e suspendat după un cartonaș roșu, în timp ce Daniel Ballard, Wilson Isidor, Thomas Meunier și Romaine Mundle sunt indisponibili din accidentare.",
+            "Linia defensivă a trebuit completată cu Luke O'Nien, folosit ca fundaș central în ultimele etape.",
+            "Lotul a mai jucat și în Carabao Cup, cu Brentford, pe 28 octombrie — cu doar trei zile înainte de deplasarea la Coventry, program încărcat pentru o echipă deja subțiată de accidentări.",
+            "Formația a rămas constantă — 4-2-3-1 în toate cele 8 meciuri de campionat — în ciuda rotațiilor forțate."
+          ]
+        },
+        {
+          "title": "Un proiect al academiei, în ciuda rezultatelor",
+          "bullets": [
+            "Mijlocașul Chris Rigg, produs integral al academiei, a semnat în august 2025 o prelungire pe cinci ani, valabilă până în 2030, respingând interesul altor cluburi din Premier League.",
+            "Antrenorul Régis Le Bris, care a promovat Sunderland din Championship în 2025 și a dus echipa înapoi în elită după opt ani de absență, continuă să mizeze pe jucători crescuți la club.",
+            "Echipa e fără victorie în ultimele 5 meciuri de campionat (1 egal, 4 înfrângeri)."
+          ]
+        }
+      ],
       "clubFacts": [
         "Clubul a fost fondat în 1879 de învățătorul James Allan, sub numele de Sunderland and District Teachers A.F.C., înainte de a deveni Sunderland A.F.C. în 1880.",
         "Sunderland a câștigat șase titluri de campion al primei divizii engleze (1892, 1893, 1895, 1902, 1913 și 1936) și a fost de două ori vicecampioană.",
