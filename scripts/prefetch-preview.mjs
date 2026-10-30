@@ -57,7 +57,8 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
 import { NEWS_SOURCES } from './news-sources.mjs';
-import { computeLinkLines, formatHonours, formatInjuries, xiPlayers, applyAges, decodeDeep, applyAbsenceStatus } from './lib/enrich-pack.mjs';
+import { computeLinkLines, formatHonours, formatInjuries, xiPlayers, applyAges, decodeDeep, applyAbsenceStatus,
+  parseFixtureStatistics, penaltiesFromEvents, matchStatsFor, aggregateRecentStats } from './lib/enrich-pack.mjs';
 
 const HOST = 'https://v3.football.api-sports.io';
 const API_KEY = process.env.APIFOOTBALL_KEY;
@@ -1002,12 +1003,73 @@ async function getFixtureDetails(fixtureId, cache) {
     })
     .filter((e) => e && (e.player || e.playerIn || e.playerOut));
   const rec = { formationByTeam, startXIByTeam, events };
+  // penalties (scored / missed, per team) come from the same answer -- no extra call; older cache entries
+  // get them in getFixtureExtras() when a premium pack asks for the match statistics
+  if (ej && Array.isArray(ej.response)) rec.pens = penaltiesFromEvents(ej.response);
   // Only cache a fixture once at least one of the two calls actually came
   // back (budget exhaustion / a transient error returns null from af() for
   // both) -- otherwise this fixture would be silently skipped forever
   // instead of retried once budget/availability recovers on a later run.
   if (lj || ej) cache.fixtureDetails[fixtureId] = rec;
   return rec;
+}
+
+// Match statistics (corners, shots, xG, possession, fouls, offsides) and penalties of ONE played fixture, for the
+// premium packs. Finished matches never change: cached forever under cache.fixtureExtras. Costs 1 call
+// (fixtures/statistics) for a fixture seen after this existed, 2 for an older cached one (events again, for the
+// penalties). MATCHSTATS_CALLS_PER_RUN caps the calls of one run so the daily API-Football quota is never spent
+// here; whatever does not fit is simply picked up by the next run. A failed call is not cached (returns null).
+const MATCHSTATS_CALLS = { left: Number(process.env.MATCHSTATS_CALLS_PER_RUN) || 100 };
+async function getFixtureExtras(fixtureId, cache) {
+  cache.fixtureExtras = cache.fixtureExtras || {};
+  if (cache.fixtureExtras[fixtureId]) return cache.fixtureExtras[fixtureId];
+  const det = cache.fixtureDetails && cache.fixtureDetails[fixtureId];
+  const needEvents = !(det && det.pens);
+  if (MATCHSTATS_CALLS.left < (needEvents ? 2 : 1)) return null;
+  MATCHSTATS_CALLS.left--;
+  const sj = await af('fixtures/statistics', { fixture: fixtureId });
+  if (!sj || !Array.isArray(sj.response)) return null;
+  let pens = det && det.pens;
+  if (needEvents) {
+    MATCHSTATS_CALLS.left--;
+    const ej = await af('fixtures/events', { fixture: fixtureId });
+    if (!ej || !Array.isArray(ej.response)) return null;
+    pens = penaltiesFromEvents(ej.response);
+    if (det) det.pens = pens;
+  }
+  // an empty answer (a competition without statistics coverage) is cached too: asking again never helps
+  const rec = { stats: parseFixtureStatistics(sj.response), pens: pens || {} };
+  cache.fixtureExtras[fixtureId] = rec;
+  return rec;
+}
+
+// one side's matchStats for a form-guide match, from the cached extras (null when there are none)
+function matchStatsFromExtras(extras, teamId) {
+  if (!extras || !extras.stats) return null;
+  const ids = Object.keys(extras.stats).map(Number);
+  const oppId = ids.find((i) => i !== teamId);
+  const us = matchStatsFor(teamId, extras.stats, extras.pens), opp = oppId != null ? matchStatsFor(oppId, extras.stats, extras.pens) : null;
+  return us && opp ? { us, opp } : null;
+}
+
+// Premium packs: fill matchStats on the form guide's matches (newest first, within the run's call cap) and
+// derive form.stats.recentExtras. true when the pack changed.
+async function enrichMatchStats(fm, teamId, cache) {
+  if (!fm || !Array.isArray(fm.recent) || !fm.recent.length) return false;
+  let touched = false;
+  for (const r of fm.recent) {
+    if (r.fixtureId == null || r.matchStats) continue;
+    const extras = await getFixtureExtras(r.fixtureId, cache);
+    const ms = matchStatsFromExtras(extras, teamId);
+    if (ms) { r.matchStats = ms; touched = true; }
+  }
+  const agg = aggregateRecentStats(fm.recent);
+  if (agg && JSON.stringify(agg) !== JSON.stringify((fm.stats && fm.stats.recentExtras) || null)) {
+    fm.stats = fm.stats || {};
+    fm.stats.recentExtras = agg;
+    touched = true;
+  }
+  return touched;
 }
 
 // last ~6 results, this team's perspective (form guide)
@@ -1040,8 +1102,12 @@ async function getFormGuide(teamId, season, cache) {
       score: `${us}-${them}`,
       result: us > them ? 'W' : us < them ? 'L' : 'D',
       referee: f.fixture.referee || null,
+      fixtureId: f.fixture.id != null ? f.fixture.id : null,
       formation, lineups, events,
     });
+    // statistics already looked up for a premium pack travel with the match (a guide rebuilt later keeps them)
+    const ms = matchStatsFromExtras(cache.fixtureExtras && cache.fixtureExtras[f.fixture.id], teamId);
+    if (ms) out[out.length - 1].matchStats = ms;
   }
   return out;
 }
@@ -2040,6 +2106,7 @@ async function main() {
       if (fm && id != null) {
         const guide = await getFormGuide(id, season, cache);
         if (guide.length && JSON.stringify(guide) !== JSON.stringify(fm.recent || [])) { fm.recent = guide; touched = true; }
+        if ((doc.researchDepth === 'deep' || f.researchDepth === 'deep') && await enrichMatchStats(fm, id, cache)) touched = true;
         const nx = await getNextFixtures(id, season);
         if (nx.length) {
           if (JSON.stringify(nx) !== JSON.stringify(fm.next || [])) { fm.next = nx; touched = true; }

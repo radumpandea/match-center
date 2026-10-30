@@ -2897,6 +2897,18 @@
           row(t('stats.failedToScore'), fmtHA(s.failedToScore, s.failedToScoreHome, s.failedToScoreAway));
           row(t('stats.penaltyScored'), has(s.penaltyScored) ? s.penaltyScored + (has(s.penaltyScoredPct) ? ' (' + s.penaltyScoredPct + '%)' : '') : null);
           row(t('stats.penaltyMissed'), has(s.penaltyMissed) ? s.penaltyMissed + (has(s.penaltyMissedPct) ? ' (' + s.penaltyMissedPct + '%)' : '') : null);
+          // premium packs: averages over the last matches that have statistics (API-Football fixtures/statistics)
+          var rx = s.recentExtras;
+          if (rx && rx.matches) {
+            var avg = function (v, dec) { return has(v) ? Number(v).toFixed(dec) : '–'; };
+            var pair = function (a, b, dec) { return (has(a) || has(b)) ? avg(a, dec) + ' / ' + avg(b, dec) : null; };
+            row(t('stats.recentCorners', { n: rx.matches }), pair(rx.cornersFor, rx.cornersAgainst, 1));
+            row(t('stats.recentShots'), (has(rx.shotsFor) || has(rx.shotsAgainst))
+              ? avg(rx.shotsFor, 1) + (has(rx.shotsOnFor) ? ' (' + avg(rx.shotsOnFor, 1) + ')' : '') + ' / ' + avg(rx.shotsAgainst, 1) + (has(rx.shotsOnAgainst) ? ' (' + avg(rx.shotsOnAgainst, 1) + ')' : '') : null);
+            row(t('stats.recentXg'), pair(rx.xgFor, rx.xgAgainst, 2));
+            row(t('stats.recentPossession'), has(rx.possession) ? Math.round(rx.possession) + '%' : null);
+            row(t('stats.recentPenalties', { n: rx.matches }), has(rx.penaltiesAwarded) ? rx.penaltiesAwarded + ' / ' + (rx.penaltiesScored || 0) + ' / ' + (rx.penaltiesConceded || 0) : null);
+          }
           row(t('stats.biggestWin'), [has(s.biggestWinHome) && (t('common.home') + ' ' + s.biggestWinHome), has(s.biggestWinAway) && (t('common.away') + ' ' + s.biggestWinAway)].filter(Boolean).join('  ·  ') || null);
           row(t('stats.biggestLoss'), [has(s.biggestLossHome) && (t('common.home') + ' ' + s.biggestLossHome), has(s.biggestLossAway) && (t('common.away') + ' ' + s.biggestLossAway)].filter(Boolean).join('  ·  ') || null);
           var rec = [];

@@ -452,6 +452,12 @@ de cluburi. Wikipedia (infobox) + Transfermarkt (din fragmente) + footmercato/jo
 - formațiile folosite în sezon și cum se schimbă acasă/deplasare;
 - executanții de penalty / cornere / lovituri libere;
 - serii: meciuri fără gol primit, fără înfrângere, fără victorie în deplasare etc.;
+- cornere, șuturi, xG, posesie și penalty-uri acordate / primite pe ultimele meciuri: sunt DEJA în pachet
+  (puse de `prefetch-preview.mjs` din API-Football, doar la pachetele premium) la
+  `teams.<side>.form.stats.recentExtras` (medii pe `matches` meciuri) și, per meci, la
+  `form.recent[].matchStats` (`us` / `opp`). Folosește-le în bare și în cardurile de research, cu cifrele din
+  pachet; dacă lipsesc, nu le căuta pe site-uri care interzic extragerea automată (FotMob, de exemplu) și nu le
+  inventa. Golurile din faze fixe NU sunt în pachet: spune-le doar dacă o sursă permisă le dă explicit;
 - The Analyst (theanalyst.com) pentru unghiul editorial pe ligile mari.
 
 **Fire narative extinse.** Un pachet premium are OBLIGATORIU `teams.<side>.stories[]` (3–4 bare per echipă) și `commentatorResearch[]` (6–8 cărți `{topic, fact, source}`); lipsa lor e prinsă de `scripts/check-premium-complete.mjs` și completată după aceea. `storyOfTheMatch[]` = 10–14 propoziții, fiecare un unghi în sine.

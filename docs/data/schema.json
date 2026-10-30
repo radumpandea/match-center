@@ -244,6 +244,23 @@
     }
   },
   "definitions": {
+    "teamMatchStats": {
+      "description": "one side's match statistics in a PAST fixture (form.recent[].matchStats), from API-Football fixtures/statistics + events. Numbers only; null = the provider has no figure",
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "corners": { "type": ["integer", "null"] },
+        "shots": { "type": ["integer", "null"] },
+        "shotsOn": { "type": ["integer", "null"] },
+        "possession": { "type": ["number", "null"], "description": "percent" },
+        "xg": { "type": ["number", "null"] },
+        "fouls": { "type": ["integer", "null"] },
+        "offsides": { "type": ["integer", "null"] },
+        "penAwarded": { "type": ["integer", "null"], "description": "penalties this side was given (scored + missed), from events" },
+        "penScored": { "type": ["integer", "null"] },
+        "penMissed": { "type": ["integer", "null"] }
+      }
+    },
     "homeAwayPct": {
       "type": ["object", "null"],
       "additionalProperties": false,
@@ -402,6 +419,16 @@
                       "opp": { "type": "array", "items": { "$ref": "#/definitions/pastLineupPlayer" } }
                     }
                   },
+                  "fixtureId": { "type": ["integer", "null"], "description": "API-Football fixture id of THIS past fixture" },
+                  "matchStats": {
+                    "type": ["object", "null"],
+                    "additionalProperties": false,
+                    "description": "corners, shots, xG, possession, penalties of THIS past fixture, each side (premium packs only)",
+                    "properties": {
+                      "us": { "$ref": "#/definitions/teamMatchStats" },
+                      "opp": { "$ref": "#/definitions/teamMatchStats" }
+                    }
+                  },
                   "events": {
                     "type": "array",
                     "description": "goals, cards and substitutions from THIS past fixture, from API-Football events",
@@ -494,6 +521,26 @@
                     "wins": { "type": ["integer", "null"] },
                     "draws": { "type": ["integer", "null"] },
                     "loses": { "type": ["integer", "null"] }
+                  }
+                },
+                "recentExtras": {
+                  "type": ["object", "null"],
+                  "additionalProperties": false,
+                  "description": "averages / totals over the form-guide matches that have matchStats (derived by scripts/lib/enrich-pack.mjs aggregateRecentStats; premium packs only)",
+                  "properties": {
+                    "matches": { "type": ["integer", "null"] },
+                    "cornersFor": { "type": ["number", "null"] },
+                    "cornersAgainst": { "type": ["number", "null"] },
+                    "shotsFor": { "type": ["number", "null"] },
+                    "shotsAgainst": { "type": ["number", "null"] },
+                    "shotsOnFor": { "type": ["number", "null"] },
+                    "shotsOnAgainst": { "type": ["number", "null"] },
+                    "xgFor": { "type": ["number", "null"] },
+                    "xgAgainst": { "type": ["number", "null"] },
+                    "possession": { "type": ["number", "null"] },
+                    "penaltiesAwarded": { "type": ["integer", "null"] },
+                    "penaltiesScored": { "type": ["integer", "null"] },
+                    "penaltiesConceded": { "type": ["integer", "null"] }
                   }
                 }
               }
