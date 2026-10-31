@@ -104,6 +104,7 @@ function collectUnits(doc) {
   if (doc.referee) add(['referee', 'history'], doc.referee.history);
   if (doc.venue) {
     add(['venue', 'notes'], doc.venue.notes);
+    add(['venue', 'cityInfo'], doc.venue.cityInfo);
     (doc.venue.stories || []).forEach((s, i) => add(['venue', 'stories', i], s));
   }
   (doc.commentatorResearch || []).forEach((c, i) => {
@@ -145,6 +146,7 @@ function buildSkeleton(doc) {
   if (doc.referee) out.referee = { history: null };
   if (doc.venue) {
     out.venue = { notes: null };
+    if (typeof doc.venue.cityInfo === 'string' && doc.venue.cityInfo.trim()) out.venue.cityInfo = null;
     if (Array.isArray(doc.venue.stories)) out.venue.stories = doc.venue.stories.map(() => null);
   }
   if (Array.isArray(doc.commentatorResearch)) {

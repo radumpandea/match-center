@@ -454,6 +454,18 @@ de cluburi. Wikipedia (infobox) + Transfermarkt (din fragmente) + footmercato/jo
 - serii: meciuri fără gol primit, fără înfrângere, fără victorie în deplasare etc.;
 - The Analyst (theanalyst.com) pentru unghiul editorial pe ligile mari.
 
+**Orașul (secțiunea de stadion).** `venue.cityInfo` = un singur string cu EXACT 3 propoziții în română despre
+ORAȘUL în care se joacă (`venue.city`), nu despre stadion: ce este și unde se află (regiune, fluviu / coastă,
+port, industrie), liniile mari ale istoriei și economiei, și pentru ce e cunoscut azi, cu fotbalul lui dacă are o
+legătură clară. Sursa: articolul de Wikipedia al orașului; numele, datele și afirmațiile „primul / cel mai mare"
+exact cum le dă sursa. Exemplu de stil (Hull): „Hull, oficial Kingston upon Hull, este un oraș-port din estul
+Angliei, situat pe malul estuarului Humber, cu o istorie strâns legată de comerțul maritim și pescuit. În Evul
+Mediu a devenit un important centru comercial, iar în secolele al XVIII-lea și al XIX-lea s-a dezvoltat puternic
+datorită industriei navale, comerțului cu lână și pescuitului oceanic. Orașul a jucat un rol important în cel
+de-Al Doilea Război Mondial, fiind puternic bombardat, iar astăzi este cunoscut pentru patrimoniul său maritim,
+muzeele sale și pentru echipa de fotbal Hull City." Nu copia textul pentru alt oraș. Lipsa câmpului e prinsă de
+`scripts/check-premium-complete.mjs` (`city`) și completată după aceea.
+
 **Fire narative extinse.** Un pachet premium are OBLIGATORIU `teams.<side>.stories[]` (3–4 bare per echipă) și `commentatorResearch[]` (6–8 cărți `{topic, fact, source}`); lipsa lor e prinsă de `scripts/check-premium-complete.mjs` și completată după aceea. `storyOfTheMatch[]` = 10–14 propoziții, fiecare un unghi în sine.
 `teams.<side>.stories[]` = 3–4 bare per echipă, titlu punchy + 3–5 bullet-uri, unghiuri
 distincte (o bară tactică, una de om, una de context/sezon, una de miză).

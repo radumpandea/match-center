@@ -61,6 +61,7 @@
         "capacity": { "type": ["integer", "null"] },
         "city": { "type": ["string", "null"] },
         "notes": { "type": ["string", "null"] },
+        "cityInfo": { "type": ["string", "null"], "description": "exactly 3 sentences about the city where the match is played (location, history / economy, what it is known for, its football), in the stadium section; sourced from Wikipedia or equivalent, never invented" },
         "stories": {
           "type": "array",
           "description": "2-3 short, commentary-ready trivia bits about the stadium or its city (history, records, a notable event) — sourced from Wikipedia or equivalent, never invented",

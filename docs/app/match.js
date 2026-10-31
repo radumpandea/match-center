@@ -1004,6 +1004,7 @@
     if (d.referee) btArr(d.referee, 'funfacts').forEach(function (f, i) { add(['referee', 'funfacts', i], f); });
     if (d.venue) {
       add(['venue', 'notes'], btSrc(d.venue, 'notes'));
+      add(['venue', 'cityInfo'], btSrc(d.venue, 'cityInfo'));
       btArr(d.venue, 'stories').forEach(function (s, i) { add(['venue', 'stories', i], s); });
     }
     (d.commentatorResearch || []).forEach(function (c, i) {
@@ -1044,6 +1045,7 @@
     if (d.referee) out.referee = { history: null };
     if (d.venue) {
       out.venue = { notes: null };
+      if (typeof btSrc(d.venue, 'cityInfo') === 'string' && btSrc(d.venue, 'cityInfo').trim()) out.venue.cityInfo = null;
       if (Array.isArray(btSrc(d.venue, 'stories'))) out.venue.stories = btArr(d.venue, 'stories').map(function () { return null; });
     }
     if (d.referee && Array.isArray(btSrc(d.referee, 'funfacts'))) out.referee.funfacts = btArr(d.referee, 'funfacts').map(function () { return null; });
@@ -1216,6 +1218,7 @@
     if (d.referee) stringArrayField(d.referee, 'funfacts', tr && tr.referee && tr.referee.funfacts);
     if (d.venue) {
       field(d.venue, 'notes', tr && tr.venue && tr.venue.notes);
+      field(d.venue, 'cityInfo', tr && tr.venue && tr.venue.cityInfo);
       stringArrayField(d.venue, 'stories', tr && tr.venue && tr.venue.stories);
     }
     if (d.commentatorResearch) {
@@ -3088,6 +3091,10 @@
       }
       var vb = el('div', {}, [v]);
       if (has(d.venue.notes)) vb.appendChild(el('p', { text: d.venue.notes }));
+      if (has(d.venue.cityInfo)) {
+        vb.appendChild(el('h4', { class: 'stat-h', text: t('panel.aboutCity') }));
+        vb.appendChild(el('p', { text: d.venue.cityInfo }));
+      }
       if (d.venue.stories && d.venue.stories.length) {
         vb.appendChild(el('h4', { class: 'stat-h', text: t('panel.curiosities') }));
         vb.appendChild(ul(d.venue.stories));

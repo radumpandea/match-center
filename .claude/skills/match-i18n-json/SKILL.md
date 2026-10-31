@@ -41,7 +41,7 @@ Câmpuri de tradus, EXACT aceste chei din fișierul sursă:
 - `storyOfTheMatch[]`
 - `h2h.summary`
 - `referee.history`
-- `venue.notes`, `venue.stories[]`
+- `venue.notes`, `venue.cityInfo`, `venue.stories[]`
 - `commentatorResearch[].topic`, `commentatorResearch[].fact`
 - `teams.<home|away>.coach.career[].note`
 - `teams.<home|away>.news[].text`
@@ -120,7 +120,7 @@ Exemplu (trunchiat, doar `en`):
     "storyOfTheMatch": ["...", "...", null, "..."],
     "h2h": { "summary": "..." },
     "referee": { "history": null },
-    "venue": { "notes": null, "stories": ["...", "..."] },
+    "venue": { "notes": null, "cityInfo": "...", "stories": ["...", "..."] },
     "commentatorResearch": [ { "topic": "...", "fact": "..." } ],
     "teams": {
       "home": {

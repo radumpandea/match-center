@@ -9,6 +9,7 @@
 // What counts as missing:
 //   stories:<side>  fewer than MIN_STORIES bars (title + bullets) for that team (the "informatii echipa" column)
 //   research        fewer than MIN_RESEARCH commentatorResearch cards (the "Research pentru comentator" panel)
+//   city            no venue.cityInfo (the 3 sentences about the city, in the stadium section) while the venue has a city
 // Referee statistics are not checked: for most Superliga / Liga 2 referees no source has them, so a retry
 // would never succeed.
 // Requires Node 18+.
@@ -35,6 +36,9 @@ export function missingOf(doc) {
   }
   const cards = (doc.commentatorResearch || []).filter((c) => c && c.topic && c.fact).length;
   if (cards < MIN_RESEARCH) out.push('research');
+  const v = doc.venue || {};
+  const city = typeof v.city === 'string' && v.city.trim() && v.city.trim() !== 'n/d';
+  if (city && !(typeof v.cityInfo === 'string' && v.cityInfo.trim())) out.push('city');
   return out;
 }
 

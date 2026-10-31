@@ -98,6 +98,10 @@ function validateFile(i18nPath) {
     if (tr.venue) {
       checkStr(errors, `${lang}.venue.notes`, tr.venue.notes);
       checkTranslated(errors, warnings, `${lang}.venue.notes`, src.venue && src.venue.notes, tr.venue.notes);
+      if (src.venue && typeof src.venue.cityInfo === 'string' && src.venue.cityInfo.trim()) {
+        checkStr(errors, `${lang}.venue.cityInfo`, tr.venue.cityInfo);
+        checkTranslated(errors, warnings, `${lang}.venue.cityInfo`, src.venue.cityInfo, tr.venue.cityInfo);
+      }
       checkLen(errors, `${lang}.venue.stories`, src.venue && src.venue.stories, tr.venue.stories);
       checkTranslatedArray(errors, warnings, `${lang}.venue.stories`, src.venue && src.venue.stories, tr.venue.stories);
     }

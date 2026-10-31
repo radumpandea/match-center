@@ -83,11 +83,25 @@ jobs:
               for live commentary: a rivalry or past meeting that matters, a player or coach story, a record, a
               stadium or city fact, the stake of the match. Use the pack's own data and at most 20 web lookups in
               total (Wikipedia, club sites, the league's official site).
+            - `city`: write `venue.cityInfo`, a single string of EXACTLY 3 sentences, in Romanian, about the CITY
+              where the match is played (`venue.city`), not about the stadium: what it is and where it lies
+              (region / river / coast, port, industry), the main lines of its history and economy, and what it is
+              known for today, with its football if it has a clear link to it. Read the city's Wikipedia article
+              (Romanian or English, at most 4 lookups) and take every fact from it: names, dates and "first / biggest"
+              claims exactly as the source gives them, no superlative without a source. Style, as written by the
+              user for Hull: "Hull, oficial Kingston upon Hull, este un oraș-port din estul Angliei, situat pe malul
+              estuarului Humber, cu o istorie strâns legată de comerțul maritim și pescuit. În Evul Mediu a devenit
+              un important centru comercial, iar în secolele al XVIII-lea și al XIX-lea s-a dezvoltat puternic datorită
+              industriei navale, comerțului cu lână și pescuitului oceanic. Orașul a jucat un rol important în cel
+              de-Al Doilea Război Mondial, fiind puternic bombardat, iar astăzi este cunoscut pentru patrimoniul său
+              maritim, muzeele sale și pentru echipa de fotbal Hull City." Never copy that text for another city.
+              If a city is a district of a bigger one, write about the place named in `venue.city`. Touch only
+              `venue.cityInfo` for this item.
             - Romanian, professional commentator tone, concise, complete sentences. Correct diacritics (ș ț ă â î).
             - Never invent. A "first / record / return" claim needs a source that says exactly that. Names exactly
               as they are in the pack. If you cannot support a card or bullet, leave it out; fewer is fine, a wrong
               one is not (but try to reach the minimum: 3 bars per team and 6 cards).
-            - Touch NO other field of the pack and no other file.
+            - Touch NO other field of the pack than the ones above (`stories`, `commentatorResearch`, `venue.cityInfo`) and no other file.
             - When done: `node scripts/validate-match.mjs docs/data/matches/${{ inputs.match }}.json` must exit 0.
               Fix every `✗`. Do not commit or push; the workflow does that afterwards.
           claude_args: |
