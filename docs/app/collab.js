@@ -6,7 +6,7 @@
   var cfg = window.PM_CONFIG || {};
   var enabled = !!(cfg.supabaseUrl && cfg.supabaseAnonKey && window.supabase);
   var client = enabled ? window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey) : null;
-  var user = null, name = '', activeSlug = '', lastJson = '', timer = null, onRemote = null;
+  var user = null, name = '', activeSlug = '', timer = null, onRemote = null, getLocal = null;
   var favs = {};
   var FAV_LIMIT = 4;   // matches the mc_favourites_cap trigger in supabase.sql
 
@@ -22,6 +22,7 @@
     if (!enabled) return null;
     var got = await client.auth.getUser();
     user = got.data && got.data.user;
+    try { var sess = await client.auth.getSession(); token = (sess.data && sess.data.session && sess.data.session.access_token) || ''; } catch (e) { token = ''; }
     name = localName() || (user && user.user_metadata && user.user_metadata.display_name) || (user && user.email ? user.email.split('@')[0] : '');
     emit();
     return user;
@@ -45,13 +46,13 @@
     if (!enabled) return;
     var res = await client.auth.signOut();
     if (res.error) throw res.error;
-    user = null; favs = {}; name = ''; emit();
+    user = null; favs = {}; name = ''; synced = false; token = ''; emit();
   }
 
   function changedAreas(before, after) {
     var a = before || {}, b = after || {};
     var keys = ['notes', 'lineup', 'xi', 'bench', 'events', 'captain', 'pnum', 'panelExtra', 'manual', 'discColors', 'view', 'panelOrder', 'confirmed', 'apiLineup'];
-    return keys.filter(function (k) { return json(a[k]) !== json(b[k]); }).map(function (k) { return t('collab.change.' + k); });
+    return keys.filter(function (k) { return canon(a[k]) !== canon(b[k]); }).map(function (k) { return t('collab.change.' + k); });
   }
 
   async function loadFavourites() {
@@ -63,62 +64,206 @@
     emit();
   }
 
-  async function start(slug, localState, remoteCallback) {
-    activeSlug = slug; onRemote = remoteCallback;
-    if (!enabled) { emit(); return; }
-    try {
-      await ensureUser();
-      if (!user) { emit(); return; }
-      await loadFavourites();
-      var res = await client.from('mc_match_state').select('state').eq('match_slug', slug).maybeSingle();
-      if (res.error) throw res.error;
-      var remote = res.data && res.data.state;
-      // Preserve edits already made on this device; nested maps merge so a new
-      // note/position does not erase unrelated remote maps on first connect.
-      var merged = merge(remote || {}, localState || {});
-      lastJson = json(merged);
-      if (onRemote && json(merged) !== json(localState || {})) onRemote(merged);
-      if (!res.data && json(merged) !== '{}') await write(merged, {}, true);
-      client.channel('mc-state-' + slug)
-        .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'mc_match_state', filter: 'match_slug=eq.' + slug }, function (payload) {
-          if (!payload.new || !payload.new.state || payload.new.updated_by === user.id) return;
-          lastJson = json(payload.new.state);
-          if (onRemote) onRemote(payload.new.state, payload.new.updated_by);
-        }).subscribe();
-    } catch (e) {
-      console.warn('Match Center collaboration is unavailable.', e);
-      enabled = false; emit();
-    }
-  }
+  /* ---------- shared match state: three-way merge sync ----------
+     The shared state (notes, events, captain, ...) is one jsonb document per
+     match. Writing this device's copy over it would erase whatever another
+     device (or colleague) saved in the meantime, so every write is a merge of
+       base   = the server state this device last saw (also kept in localStorage),
+       local  = what is on this screen now,
+       remote = what the server holds right now.
+     Lists of {id, ...} items (notes, events) merge item by item: an item added
+     on either side is kept, an item deleted on this side is deleted. */
+  var BASE_KEY = function (slug) { return 'mc:' + slug + ':base'; };
+  var base = {}, lastAt = null, token = '';
+  var synced = false, dirty = false, writing = false, again = false, pendingLog = false;
+  var retryTimer = null, lastPull = 0, attachedGlobal = false, startTries = 0;
 
-  function merge(remote, local) {
-    var out = Object.assign({}, remote || {});
-    Object.keys(local || {}).forEach(function (k) {
-      if (remote && remote[k] && typeof remote[k] === 'object' && !Array.isArray(remote[k]) && typeof local[k] === 'object' && !Array.isArray(local[k])) out[k] = Object.assign({}, remote[k], local[k]);
-      else out[k] = local[k];
+  function canon(v) {
+    if (Array.isArray(v)) return '[' + v.map(canon).join(',') + ']';
+    if (v && typeof v === 'object') return '{' + Object.keys(v).sort().map(function (k) { return JSON.stringify(k) + ':' + canon(v[k]); }).join(',') + '}';
+    return JSON.stringify(v);
+  }
+  function same(a, b) { return canon(a) === canon(b); }
+  function clone(v) { return v === undefined ? v : JSON.parse(JSON.stringify(v)); }
+  function isObj(v) { return !!v && typeof v === 'object' && !Array.isArray(v); }
+  function isIdList(a) { return Array.isArray(a) && a.every(function (x) { return isObj(x) && typeof x.id === 'string'; }); }
+  function byId(list) { var m = {}; list.forEach(function (x) { m[x.id] = x; }); return m; }
+
+  function mergeLists(b, l, r) {
+    var bm = byId(b), lm = byId(l), seen = {}, out = [];
+    r.forEach(function (it) {
+      seen[it.id] = true;
+      if (bm[it.id] && !lm[it.id]) return;                    // deleted on this device
+      out.push(lm[it.id] ? merge3(bm[it.id], lm[it.id], it) : it);
     });
+    l.forEach(function (it) { if (!seen[it.id] && !bm[it.id]) out.push(it); });   // added on this device (if the server dropped it, it was deleted there)
     return out;
   }
+  function merge3(b, l, r) {
+    if (same(l, b)) return r;                                 // untouched here: the server's value
+    if (same(r, b) || same(l, r)) return l;                   // untouched on the server: ours
+    if (isObj(l) && isObj(r)) {
+      var bb = isObj(b) ? b : {}, out = {}, keys = {};
+      [l, r].forEach(function (o) { Object.keys(o).forEach(function (k) { keys[k] = true; }); });
+      Object.keys(keys).forEach(function (k) {
+        var v = merge3(bb[k], l[k], r[k]);
+        if (v !== undefined) out[k] = v;
+      });
+      return out;
+    }
+    if (isIdList(l) && isIdList(r)) return mergeLists(isIdList(b) ? b : [], l, r);
+    return l;                                                 // both changed the same value: this device wins
+  }
 
-  async function write(state, before, silent) {
-    if (!enabled || !user || !activeSlug) return;
-    var now = new Date().toISOString();
-    var res = await client.from('mc_match_state').upsert({ match_slug: activeSlug, state: state, updated_by: user.id, updated_by_name: name, updated_at: now });
+  function localNow() { var v = getLocal ? getLocal() : null; return clone(v && typeof v === 'object' ? v : {}); }
+  function saveBase() { try { localStorage.setItem(BASE_KEY(activeSlug), JSON.stringify(base)); } catch (e) {} }
+  function loadBase() { try { return JSON.parse(localStorage.getItem(BASE_KEY(activeSlug))) || {}; } catch (e) { return {}; } }
+  function isEmpty(v) { return !v || !Object.keys(v).length; }
+  function applyToScreen(merged, by) {
+    var now = localNow();
+    if (!same(merged, now) && onRemote) onRemote(clone(merged), by);
+  }
+  function scheduleFlush(ms, log) {
+    dirty = true; if (log) pendingLog = true;
+    clearTimeout(timer); timer = setTimeout(flush, ms);
+  }
+
+  // Reads the server copy and folds it into the screen (and queues a write if
+  // this device holds something the server does not).
+  async function pull() {
+    var res = await client.from('mc_match_state').select('state,updated_at').eq('match_slug', activeSlug).maybeSingle();
     if (res.error) throw res.error;
-    var areas = changedAreas(before, state);
-    if (!silent && areas.length) {
-      await client.from('mc_match_changes').insert({ match_slug: activeSlug, user_id: user.id, display_name: name, summary: t('collab.changedSummary', { areas: areas.join(', ') }), changed_at: now });
+    var remote = res.data ? (res.data.state || {}) : null;
+    var local = localNow();
+    var merged = remote ? merge3(base, local, remote) : local;
+    base = clone(remote || {}); saveBase();
+    lastAt = res.data ? res.data.updated_at : null;
+    applyToScreen(merged);
+    if (!isEmpty(merged) && !same(merged, remote || {})) scheduleFlush(0, false);
+    lastPull = Date.now();
+  }
+
+  async function flush() {
+    if (!enabled || !user || !activeSlug || !synced) return;
+    if (writing) { again = true; return; }
+    writing = true; clearTimeout(timer); clearTimeout(retryTimer);
+    var log = pendingLog; pendingLog = false;
+    try {
+      for (var attempt = 0; attempt < 4; attempt++) {
+        var cur = await client.from('mc_match_state').select('state,updated_at').eq('match_slug', activeSlug).maybeSingle();
+        if (cur.error) throw cur.error;
+        var remote = cur.data ? (cur.data.state || {}) : null;
+        var local = localNow();
+        var merged = remote ? merge3(base, local, remote) : local;
+        if (remote ? same(merged, remote) : isEmpty(merged)) {      // nothing to write
+          base = clone(remote || {}); saveBase(); lastAt = cur.data ? cur.data.updated_at : null;
+          applyToScreen(merged); dirty = false; return;
+        }
+        var now = new Date().toISOString();
+        var row = { match_slug: activeSlug, state: merged, updated_by: user.id, updated_by_name: name, updated_at: now };
+        var res;
+        if (!cur.data) res = await client.from('mc_match_state').insert(row);
+        else {
+          var q = client.from('mc_match_state').update(row).eq('match_slug', activeSlug);
+          if (attempt < 3) q = q.eq('updated_at', cur.data.updated_at);   // only if nobody wrote in between
+          res = await q.select('match_slug');
+        }
+        if (res.error) { if (!cur.data && res.error.code === '23505') continue; throw res.error; }
+        if (cur.data && !(res.data && res.data.length)) continue;          // somebody wrote in between: merge again
+        var areas = changedAreas(remote || {}, merged);
+        if (log && areas.length) {
+          await client.from('mc_match_changes').insert({ match_slug: activeSlug, user_id: user.id, display_name: name, summary: t('collab.changedSummary', { areas: areas.join(', ') }), changed_at: now });
+        }
+        base = clone(merged); saveBase(); lastAt = now;
+        // keep what was typed while the request was in flight
+        var typed = localNow();
+        applyToScreen(merge3(local, typed, merged));
+        dirty = !same(typed, merged);
+        return;
+      }
+    } catch (e) {
+      console.warn(t('collab.syncFailed'), e);
+      dirty = true; pendingLog = pendingLog || log;
+      retryTimer = setTimeout(flush, 10000);
+    } finally {
+      writing = false;
+      if (again) { again = false; scheduleFlush(0, false); }
     }
   }
 
   function persist(state) {
-    if (!enabled || !user) return;
-    var next = json(state);
-    if (next === lastJson) return;
-    var before; try { before = JSON.parse(lastJson || '{}'); } catch (e) { before = {}; }
-    lastJson = next;
-    clearTimeout(timer);
-    timer = setTimeout(function () { write(state, before, false).catch(function (e) { console.warn(t('collab.syncFailed'), e); }); }, 500);
+    if (!enabled || !user || !synced) return;
+    if (same(state, base)) return;
+    scheduleFlush(500, true);
+  }
+
+  // The tab is going away: a normal request may never finish, so send the
+  // state in a keep-alive request that only applies if nobody wrote since.
+  function flushOnExit() {
+    if (!dirty || !synced || !user || !token || !lastAt || !activeSlug) return;
+    var local = localNow();
+    if (same(local, base)) return;
+    var body = JSON.stringify({ state: local, updated_by: user.id, updated_by_name: name, updated_at: new Date().toISOString() });
+    if (body.length > 60000) return;
+    try {
+      fetch(cfg.supabaseUrl + '/rest/v1/mc_match_state?match_slug=eq.' + encodeURIComponent(activeSlug) + '&updated_at=eq.' + encodeURIComponent(lastAt), {
+        method: 'PATCH', keepalive: true,
+        headers: { apikey: cfg.supabaseAnonKey, Authorization: 'Bearer ' + token, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+        body: body
+      });
+    } catch (e) { /* the next load merges it */ }
+  }
+
+  function attachGlobal() {
+    if (attachedGlobal) return;
+    attachedGlobal = true;
+    document.addEventListener('visibilitychange', function () {
+      if (!synced) return;
+      if (document.visibilityState === 'hidden') { if (dirty) flush(); }
+      else refresh();
+    });
+    window.addEventListener('pagehide', flushOnExit);
+    window.addEventListener('online', function () { if (synced) { if (dirty) flush(); refresh(); } });
+    window.addEventListener('focus', function () { if (synced) refresh(); });
+    client.auth.onAuthStateChange(function (ev, session) { token = (session && session.access_token) || ''; });
+  }
+  // Another device of the same account (or a colleague) may have saved while
+  // this tab sat in the background or offline.
+  function refresh() {
+    if (!synced || writing || Date.now() - lastPull < 5000) return;
+    pull().catch(function (e) { console.warn(t('collab.syncFailed'), e); });
+  }
+
+  async function start(slug, localState, remoteCallback) {
+    activeSlug = slug; onRemote = remoteCallback;
+    getLocal = typeof localState === 'function' ? localState : function () { return localState; };
+    if (!enabled) { emit(); return; }
+    try {
+      await ensureUser();
+      if (!user) { emit(); return; }
+      base = loadBase();
+      await loadFavourites();
+      await pull();
+      synced = true;
+      attachGlobal();
+      client.channel('mc-state-' + slug)
+        .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'mc_match_state', filter: 'match_slug=eq.' + slug }, function (payload) {
+          var st = payload.new && payload.new.state;
+          if (!st || !synced) return;
+          if (same(st, base)) return;                    // the echo of our own write
+          lastAt = payload.new.updated_at;
+          var merged = merge3(base, localNow(), st);
+          base = clone(st); saveBase();
+          applyToScreen(merged, payload.new.updated_by);
+          if (!same(merged, st)) scheduleFlush(500, false);
+        }).subscribe();
+    } catch (e) {
+      // Do not give up on sharing for the whole session after one failed
+      // request: the local copy stays safe and the sync is tried again.
+      console.warn('Match Center collaboration is unavailable.', e);
+      if (++startTries <= 5) setTimeout(function () { start(slug, localState, remoteCallback); }, 5000 * startTries);
+      else { enabled = false; emit(); }
+    }
   }
 
   async function setName(value) {

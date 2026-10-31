@@ -236,7 +236,8 @@
   function connectCollaboration(data) {
     if (collaborationStarted || !window.MC_COLLAB) return;
     collaborationStarted = true;
-    window.MC_COLLAB.start(slug, store, function (remoteState) {
+    // a getter, not `store` itself: the object is replaced whenever a merged state arrives
+    window.MC_COLLAB.start(slug, function () { return store; }, function (remoteState) {
       store = dropPrivate(remoteState || {});   // this user's own view/names are not shared
       try { localStorage.setItem(NKEY, JSON.stringify(store)); } catch (e) {}
       render(data);
