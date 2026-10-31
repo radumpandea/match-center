@@ -1328,7 +1328,42 @@
     "Everton a părăsit Goodison Park, folosit din 1892, și joacă din acest sezon pe noul Hill Dickinson Stadium — un capitol nou în istoria clubului.",
     "St James' Park are o capacitate de peste 52.000 de locuri, după reconstrucția finalizată în 2000, și e casa lui Newcastle din 1892."
   ],
-  "predictions": null,
+  "predictions": {
+    "winnerName": "Everton",
+    "winOrDraw": true,
+    "advice": "Double chance : draw or Everton",
+    "percent": {
+      "home": 10,
+      "draw": 45,
+      "away": 45
+    },
+    "comparison": {
+      "form": {
+        "home": 55,
+        "away": 45
+      },
+      "attack": {
+        "home": 67,
+        "away": 33
+      },
+      "defense": {
+        "home": 38,
+        "away": 63
+      },
+      "poisson": {
+        "home": 58,
+        "away": 42
+      },
+      "h2h": {
+        "home": 20,
+        "away": 80
+      },
+      "goals": {
+        "home": 42,
+        "away": 58
+      }
+    }
+  },
   "commentatorResearch": [
     {
       "topic": "Jaissle la Newcastle",
@@ -1377,7 +1412,10 @@
       "shortName": "NEW",
       "nickname": "Magpies",
       "logo": "https://media.api-sports.io/football/teams/34.png",
-      "colors": { "primary": "#000000", "secondary": "#FFFFFF" },
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      },
       "coach": {
         "apiId": 13959,
         "name": "Matthias Jaissle",
@@ -1467,17 +1505,72 @@
       },
       "formation": "4-3-3",
       "predictedXI": [
-        { "apiId": 269349, "number": 21, "name": "Lukáš Horníček", "pos": "GK" },
-        { "apiId": 7318, "number": 37, "name": "Amar Dedić", "pos": "RB" },
-        { "apiId": 163189, "number": 12, "name": "Malick Thiaw", "pos": "RCB" },
-        { "apiId": 38734, "number": 4, "name": "Sven Botman", "pos": "LCB" },
-        { "apiId": 284492, "number": 3, "name": "Lewis Hall", "pos": "LB" },
-        { "apiId": 161933, "number": 6, "name": "Nico González", "pos": "DM" },
-        { "apiId": 328105, "number": 67, "name": "Lewis Miley", "pos": "CM" },
-        { "apiId": 1463, "number": 28, "name": "Joe Willock", "pos": "RCM" },
-        { "apiId": 18778, "number": 11, "name": "Harvey Barnes", "pos": "LW" },
-        { "apiId": 19163, "number": 23, "name": "Jacob Murphy", "pos": "RW" },
-        { "apiId": 20649, "number": 9, "name": "Yoane Wissa", "pos": "ST" }
+        {
+          "apiId": 269349,
+          "number": 21,
+          "name": "Lukáš Horníček",
+          "pos": "GK"
+        },
+        {
+          "apiId": 7318,
+          "number": 37,
+          "name": "Amar Dedić",
+          "pos": "RB"
+        },
+        {
+          "apiId": 163189,
+          "number": 12,
+          "name": "Malick Thiaw",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 38734,
+          "number": 4,
+          "name": "Sven Botman",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 284492,
+          "number": 3,
+          "name": "Lewis Hall",
+          "pos": "LB"
+        },
+        {
+          "apiId": 161933,
+          "number": 6,
+          "name": "Nico González",
+          "pos": "DM"
+        },
+        {
+          "apiId": 328105,
+          "number": 67,
+          "name": "Lewis Miley",
+          "pos": "CM"
+        },
+        {
+          "apiId": 1463,
+          "number": 28,
+          "name": "Joe Willock",
+          "pos": "RCM"
+        },
+        {
+          "apiId": 18778,
+          "number": 11,
+          "name": "Harvey Barnes",
+          "pos": "LW"
+        },
+        {
+          "apiId": 19163,
+          "number": 23,
+          "name": "Jacob Murphy",
+          "pos": "RW"
+        },
+        {
+          "apiId": 20649,
+          "number": 9,
+          "name": "Yoane Wissa",
+          "pos": "ST"
+        }
       ],
       "confirmedXI": null,
       "substitutes": null,
@@ -1613,7 +1706,12 @@
             "A fost numit cel mai bun portar al sezonului 2020-21 din Liga Revelação, la echipa de tineret a celor de la Braga.",
             "A debutat la naționala Cehiei pe 31 mai 2026, într-un amical câștigat cu 2-1 în fața Kosovo, iar apoi a fost confirmat în lotul de 26 de jucători pentru Campionatul Mondial 2026.",
             "A semnat cu Newcastle United la 3 august 2026."
-          ]
+          ],
+          "honours": [
+            "Taça da Liga (2023/2024)",
+            "Taça de Portugal (2020/2021)"
+          ],
+          "injuries": []
         },
         {
           "apiId": 329640,
@@ -1807,6 +1905,41 @@
             "A fost transferat la Newcastle United pe 28 iunie 2022, pentru 40 de milioane de euro, pe un contract de cinci ani.",
             "A suferit o accidentare la ligamentul încrucișat anterior în martie 2024, într-un meci de FA Cup cu Manchester City, revenind pe teren abia pe 16 decembrie, într-un meci al echipei de dezvoltare.",
             "La 12 ianuarie 2026 și-a prelungit contractul cu Newcastle United până în vara anului 2030."
+          ],
+          "honours": [
+            "League Cup (England) (2024/2025)",
+            "Trophée des Champions (2021)",
+            "Ligue 1 (2020/2021)",
+            "Super Cup (Netherlands) (2019)",
+            "Eredivisie (2018/2019)",
+            "KNVB Beker (2018/2019)"
+          ],
+          "injuries": [
+            {
+              "type": "Groin Injury",
+              "start": "2025-07-28",
+              "end": "2025-08-08"
+            },
+            {
+              "type": "Knee Injury",
+              "start": "2025-05-12",
+              "end": "2025-05-17"
+            },
+            {
+              "type": "ACL Knee Injury",
+              "start": "2025-02-08",
+              "end": "2025-04-25"
+            },
+            {
+              "type": "Groin Injury",
+              "start": "2025-01-08",
+              "end": "2025-01-14"
+            },
+            {
+              "type": "Knee Injury",
+              "start": "2024-03-17",
+              "end": "2024-12-15"
+            }
           ]
         },
         {
@@ -1937,6 +2070,28 @@
             "La 18 august 2026 s-a transferat la Newcastle United printr-un contract pe cinci ani, pentru o sumă raportată de 29,5 milioane de lire sterline, fiind reunit cu antrenorul Matthias Jaissle.",
             "A debutat la naționala mare a Bosniei și Herțegovinei pe 29 martie 2022, iar primul gol internațional l-a marcat pe 23 martie 2023, într-un meci de calificare la EURO 2024 cu Islanda.",
             "A fost convocat la Campionatul Mondial 2026, unde a debutat în meciul cu Canada din 12 iunie."
+          ],
+          "honours": [
+            "Bundesliga ×2 (2022/2023, 2020/2021)",
+            "Super Cup (Portugal) (2025)",
+            "Cup (Austria) (2020/2021)"
+          ],
+          "injuries": [
+            {
+              "type": "Muscle Injury",
+              "start": "2024-11-08",
+              "end": "2024-11-21"
+            },
+            {
+              "type": "Muscle Injury",
+              "start": "2024-10-23",
+              "end": "2024-11-04"
+            },
+            {
+              "type": "Injury",
+              "start": "2024-04-12",
+              "end": "2024-06-27"
+            }
           ]
         },
         {
@@ -2002,6 +2157,28 @@
             "S-a transferat la Newcastle United sub formă de împrumut cu obligație de cumpărare pe 22 august 2023, pentru 28 de milioane de lire plus 7 milioane în bonusuri, iar transferul a devenit definitiv la 1 iulie 2024.",
             "A suferit o accidentare la picior în meciul cu Liverpool din februarie 2025, care l-a ținut departe de teren până la finalul sezonului.",
             "La 11 septembrie 2026 a semnat un nou contract pe cinci ani cu Newcastle United."
+          ],
+          "honours": [
+            "League Cup (England) (2024/2025)",
+            "Premier League Summer Series (2023)",
+            "FIFA Intercontinental Cup (2022)"
+          ],
+          "injuries": [
+            {
+              "type": "Foot Injury",
+              "start": "2025-02-27",
+              "end": "2025-07-29"
+            },
+            {
+              "type": "Thigh Injury",
+              "start": "2024-04-12",
+              "end": "2024-04-12"
+            },
+            {
+              "type": "Knock",
+              "start": "2023-08-25",
+              "end": "2023-09-01"
+            }
           ]
         },
         {
@@ -2197,6 +2374,33 @@
             "A fost transferat la Newcastle United pe 12 august 2025, pentru o sumă estimată la 30 de milioane de lire, și a ales numărul 12 pe tricou.",
             "Pe 29 noiembrie 2025 a marcat două goluri și a fost ales omul meciului într-o victorie cu 4-1 contra celor de la Everton.",
             "A debutat pentru naționala Germaniei pe 16 iunie 2023, într-o înfrângere cu 1-0 în fața Poloniei, și a fost selecționat în lotul de 26 de jucători al Germaniei pentru Campionatul Mondial 2026."
+          ],
+          "honours": [
+            "Trofeo Silvio Berlusconi ×2 (2024, 2023)",
+            "Super Cup (Italy) (2025)",
+            "2. Bundesliga (2021/2022)"
+          ],
+          "injuries": [
+            {
+              "type": "Hamstring",
+              "start": "2025-01-15",
+              "end": "2025-02-01"
+            },
+            {
+              "type": "Ankle Injury",
+              "start": "2024-08-25",
+              "end": "2024-09-21"
+            },
+            {
+              "type": "Heel Injury",
+              "start": "2024-03-31",
+              "end": "2024-04-10"
+            },
+            {
+              "type": "Hamstring",
+              "start": "2023-11-29",
+              "end": "2024-02-14"
+            }
           ]
         },
         {
@@ -2391,6 +2595,26 @@
             "Pe 16 decembrie 2023 a marcat primul său gol pentru Newcastle, într-o victorie cu 3-0 asupra lui Fulham, devenind cel mai tânăr jucător care a marcat pentru club în Premier League.",
             "Pe 10 decembrie 2025 a marcat primul său gol în UEFA Champions League, într-un 2-2 în deplasare cu Bayer Leverkusen, la 19 ani și 223 de zile, doborând recordul de cel mai tânăr marcator al lui Newcastle în competiție, stabilit de Hugo Viana în 2002.",
             "A câștigat primul trofeu al carierei pe 16 martie 2025, odată cu victoria lui Newcastle în finala EFL Cup, 2-1 cu Liverpool."
+          ],
+          "honours": [
+            "League Cup (England) (2024/2025)"
+          ],
+          "injuries": [
+            {
+              "type": "Foot Injury",
+              "start": "2024-07-02",
+              "end": "2024-10-17"
+            },
+            {
+              "type": "Back Injury",
+              "start": "2024-03-27",
+              "end": "2024-06-30"
+            },
+            {
+              "type": "Illness",
+              "start": "2023-10-20",
+              "end": "2023-11-03"
+            }
           ]
         },
         {
@@ -2520,6 +2744,36 @@
             "Pe 23 aprilie 2023 a marcat două goluri în primele zece minute ale unei victorii cu 6-1 asupra lui Tottenham Hotspur.",
             "Pe 16 martie 2025 a fost titular în finala EFL Cup, oferind pasa pentru al doilea gol într-o victorie cu 2-1, primul trofeu major intern al lui Newcastle din ultimii 70 de ani; marcase deja în semifinala cu Arsenal.",
             "Pe 11 mai 2025, cu o pasă decisivă în meciul cu Chelsea, a ajuns pentru prima dată în cariera sa la 20 de goluri și pase decisive într-un sezon de Premier League (8 goluri, 12 pase)."
+          ],
+          "honours": [
+            "League Cup (England) (2024/2025)"
+          ],
+          "injuries": [
+            {
+              "type": "Calf Injury",
+              "start": "2025-01-08",
+              "end": "2025-01-14"
+            },
+            {
+              "type": "Hamstring",
+              "start": "2024-10-30",
+              "end": "2024-11-08"
+            },
+            {
+              "type": "Calf Injury",
+              "start": "2024-02-11",
+              "end": "2024-02-16"
+            },
+            {
+              "type": "Shoulder Injury",
+              "start": "2023-11-05",
+              "end": "2024-01-26"
+            },
+            {
+              "type": "Shoulder Injury",
+              "start": "2023-10-27",
+              "end": "2023-11-03"
+            }
           ]
         },
         {
@@ -2585,6 +2839,27 @@
             "A fost transferat la Manchester City pe 3 februarie 2025, în ultima oră a ferestrei de iarnă, pentru o sumă raportată de 50 de milioane de lire.",
             "Pe 25 aprilie 2026 a marcat golul victoriei în meciul cu Southampton, 2-1, calificând echipa în a patra finală de FA Cup consecutivă.",
             "S-a transferat la Newcastle United pe 26 august 2026, pentru o sumă raportată de 52 de milioane de lire."
+          ],
+          "honours": [
+            "Super Cup (Portugal) (2024)",
+            "Taça de Portugal (2023/2024)"
+          ],
+          "injuries": [
+            {
+              "type": "Ankle/Foot Injury",
+              "start": "2023-04-10",
+              "end": "2023-04-22"
+            },
+            {
+              "type": "Broken Foot",
+              "start": "2023-01-01",
+              "end": "2023-03-09"
+            },
+            {
+              "type": "Toe Injury",
+              "start": "2022-04-29",
+              "end": "2022-06-16"
+            }
           ]
         },
         {
@@ -2946,6 +3221,38 @@
             "Pe 19 mai 2021 a marcat în al șaselea meci de campionat consecutiv, devenind, la 21 de ani și 272 de zile, cel mai tânăr jucător din istoria Premier League care a reușit această serie.",
             "Transferul său definitiv la Newcastle s-a oficializat pe 13 august 2021, printr-un contract pe șase ani, pentru o sumă de 25 de milioane de lire.",
             "Pe 16 martie 2025 a fost parte din echipa lui Newcastle care a câștigat finala EFL Cup, primul trofeu major intern al clubului din ultimii 70 de ani, după ce marcase golul decisiv contra lui Nottingham Forest în turul doi al competiției."
+          ],
+          "honours": [
+            "Community Shield ×2 (2020, 2017)",
+            "League Cup (England) (2024/2025)",
+            "FA Cup (2019/2020)"
+          ],
+          "injuries": [
+            {
+              "type": "Calf Injury",
+              "start": "2025-07-31",
+              "end": "2025-08-19"
+            },
+            {
+              "type": "Knee Injury",
+              "start": "2025-05-11",
+              "end": "2025-05-17"
+            },
+            {
+              "type": "Concussion",
+              "start": "2025-04-06",
+              "end": "2025-04-15"
+            },
+            {
+              "type": "Hip Injury",
+              "start": "2025-01-11",
+              "end": "2025-01-14"
+            },
+            {
+              "type": "Hamstring",
+              "start": "2024-12-07",
+              "end": "2024-12-13"
+            }
           ]
         },
         {
@@ -3011,6 +3318,38 @@
             "S-a transferat la Newcastle United pe 23 iulie 2023, printr-un contract pe cinci ani, pentru o sumă estimată la 38 de milioane de lire, și a marcat chiar la debut, pe 12 august, contra lui Aston Villa.",
             "Pe 7 ianuarie 2026 a marcat cel mai târziu gol al victoriei din istoria Premier League (minutul 101:48), într-o victorie cu 4-3 asupra lui Leeds United.",
             "Rămâne eligibil pentru naționala Scoției, prin bunicii materni, dar a exclus explicit o schimbare de naționalitate în februarie 2026."
+          ],
+          "honours": [
+            "League Cup (England) (2024/2025)",
+            "Community Shield (2021)",
+            "FA Cup (2020/2021)"
+          ],
+          "injuries": [
+            {
+              "type": "Thigh Injury",
+              "start": "2025-01-13",
+              "end": "2025-02-14"
+            },
+            {
+              "type": "Hamstring",
+              "start": "2024-03-10",
+              "end": "2024-03-30"
+            },
+            {
+              "type": "Knock",
+              "start": "2023-09-25",
+              "end": "2024-02-02"
+            },
+            {
+              "type": "Hamstring",
+              "start": "2023-04-09",
+              "end": "2023-04-24"
+            },
+            {
+              "type": "Ankle/Foot Injury",
+              "start": "2023-03-05",
+              "end": "2023-03-10"
+            }
           ]
         },
         {
@@ -3163,7 +3502,7 @@
           "birthCountry": null,
           "birthDate": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Newcastle (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -3291,7 +3630,7 @@
           "birthCountry": "Georgia",
           "birthDate": "2007-08-30",
           "pronunciation": null,
-          "career": null,
+          "career": "Dinamo Tbilisi (2023–2025) · Newcastle (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -3355,7 +3694,7 @@
           "birthCountry": "England",
           "birthDate": "2007-04-25",
           "pronunciation": null,
-          "career": null,
+          "career": "Birmingham (2022)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -3391,7 +3730,7 @@
           "birthCountry": null,
           "birthDate": null,
           "pronunciation": "o-SU-la",
-          "career": null,
+          "career": "Newcastle (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -3501,6 +3840,36 @@
             "S-a transferat la Newcastle United pe 1 septembrie 2025, pentru 50 de milioane de lire plus bonusuri, iar la debutul din 6 decembrie, contra lui Burnley, a devenit al 1000-lea jucător din istoria clubului în campionat.",
             "Pe 17 iunie 2026 a marcat primul gol din istorie al R.D. Congo la un Campionat Mondial, într-un 1-1 cu Portugalia.",
             "Pe 27 iunie 2026 a marcat o dublă și a fost ales omul meciului în victoria cu 3-1 asupra Uzbekistanului, prima victorie din istorie a R.D. Congo la un Campionat Mondial."
+          ],
+          "honours": [
+            "Ligue 2 (2019/2020)"
+          ],
+          "injuries": [
+            {
+              "type": "Knee Injury",
+              "start": "2025-09-10",
+              "end": null
+            },
+            {
+              "type": "Knock",
+              "start": "2024-11-13",
+              "end": "2024-11-22"
+            },
+            {
+              "type": "Ankle Injury",
+              "start": "2024-09-15",
+              "end": "2024-10-18"
+            },
+            {
+              "type": "Virus",
+              "start": "2022-01-23",
+              "end": "2022-02-08"
+            },
+            {
+              "type": "Broken Ankle",
+              "start": "2021-10-17",
+              "end": "2021-11-27"
+            }
           ]
         },
         {
@@ -3656,7 +4025,1550 @@
           "drawsAway": 0,
           "losesHome": 1,
           "losesAway": 2
-        }
+        },
+        "recent": [
+          {
+            "date": "2026-10-29",
+            "opp": "Everton",
+            "homeAway": "A",
+            "comp": "League Cup",
+            "score": "1-3",
+            "result": "L",
+            "referee": "F. Hallam",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "L. Horníček",
+                  "number": 21,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Dedić",
+                  "number": 37,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Schär",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Burn",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Hall",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Ramsey",
+                  "number": 41,
+                  "pos": "M"
+                },
+                {
+                  "name": "Nico González",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Murphy",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Willock",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "H. Barnes",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "W. Osula",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Pickford",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Röhl",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Tarkowski",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. O'Brien",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Mykolenko",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Hackney",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Garner",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Dibling",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Dewsbury-Hall",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Tyrique George",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Barry",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 34,
+                "side": "opp",
+                "type": "goal",
+                "player": "James Garner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "goal",
+                "player": "Hayden Hackney",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "William Osula",
+                "playerIn": "Yoane Wissa"
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Harvey Barnes",
+                "playerIn": "Anthony Elanga"
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jacob Ramsey",
+                "playerIn": "Joelinton"
+              },
+              {
+                "minute": 60,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Hayden Hackney",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Hayden Hackney",
+                "playerIn": "Harrison Armstrong"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jacob Murphy",
+                "playerIn": "Bazoumana Touré"
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "goal",
+                "player": "Thierno Barry",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Kiernan Dewsbury-Hall",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Tyler Dibling",
+                "playerIn": "Brennan Johnson"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Tyrique George",
+                "playerIn": "Charly Alcaraz"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "yellow",
+                "player": "Fabian Schär",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Vitaliy Mykolenko",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Nico González",
+                "playerIn": "Sean Steur"
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vitaliy Mykolenko",
+                "playerIn": "Ainsley Maitland-Niles"
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Kiernan Dewsbury-Hall",
+                "playerIn": "Christian Nørgaard"
+              },
+              {
+                "minute": 88,
+                "side": "us",
+                "type": "goal",
+                "player": "Dan Burn",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "yellow",
+                "player": "James Tarkowski",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "yellow",
+                "player": "Joelinton",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "yellow",
+                "player": "Dan Burn",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Jordan Pickford",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-25",
+            "opp": "Crystal Palace",
+            "homeAway": "A",
+            "comp": "Premier League",
+            "score": "2-0",
+            "result": "W",
+            "referee": "Paul Tierney",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "3-4-2-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "L. Horníček",
+                  "number": 21,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Dedić",
+                  "number": 37,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Schär",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Burn",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Hall",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Nico González",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "Joelinton",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Murphy",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Willock",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "H. Barnes",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "W. Osula",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "W. Benítez",
+                  "number": 44,
+                  "pos": "G"
+                },
+                {
+                  "name": "C. Richards",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Disasi",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Canvot",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Khalaili",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Wharton",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Kamada",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Mitchell",
+                  "number": 3,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. McNeil",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "Yeremy Pino",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Mateta",
+                  "number": 14,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": []
+          },
+          {
+            "date": "2026-10-17",
+            "opp": "Aston Villa",
+            "homeAway": "H",
+            "comp": "Premier League",
+            "score": "0-1",
+            "result": "L",
+            "referee": "Jarred Gillett",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "L. Horníček",
+                  "number": 21,
+                  "pos": "G"
+                },
+                {
+                  "name": "L. Miley",
+                  "number": 67,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Thiaw",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Botman",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Hall",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Nico González",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "Joelinton",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Fernandez-Pardo",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Willock",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "H. Barnes",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Wissa",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Z. Suzuki",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Cash",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Lindelöf",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Mings",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Wan-Bissaka",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Kamara",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "João Gomes",
+                  "number": 35,
+                  "pos": "M"
+                },
+                {
+                  "name": "Alysson Edward",
+                  "number": 47,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Manzambi",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Buendía",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Jackson",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 18,
+                "side": "us",
+                "type": "yellow",
+                "player": "Joelinton",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 18,
+                "side": "us",
+                "type": "yellow",
+                "player": "Sven Botman",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 25,
+                "side": "opp",
+                "type": "yellow",
+                "player": "João Gomes",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 28,
+                "side": "opp",
+                "type": "yellow",
+                "player": " Alysson Edward Franco da Rocha",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 36,
+                "side": "opp",
+                "type": "goal",
+                "player": "Johan Manzambi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": " Alysson Edward Franco da Rocha",
+                "playerIn": "John McGinn"
+              },
+              {
+                "minute": 53,
+                "side": "us",
+                "type": "yellow",
+                "player": "Nico González",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "us",
+                "type": "yellow",
+                "player": "Yoane Wissa",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 56,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Matias Fernandez-Pardo",
+                "playerIn": "Bazoumana Touré"
+              },
+              {
+                "minute": 56,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Joe Willock",
+                "playerIn": "William Osula"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Emiliano Buendía",
+                "playerIn": "Leon Goretzka"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "João Gomes",
+                "playerIn": "Ross Barkley"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Johan Manzambi",
+                "playerIn": "Ibrahim Mbaye"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Aaron Wan-Bissaka",
+                "playerIn": "Pau Torres"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "yellow",
+                "player": "William Osula",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "yellow",
+                "player": "Malick Thiaw",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Joelinton",
+                "playerIn": "Dan Burn"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-12",
+            "opp": "Coventry",
+            "homeAway": "A",
+            "comp": "Premier League",
+            "score": "1-4",
+            "result": "L",
+            "referee": "John Brooks, England",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "L. Horníček",
+                  "number": 21,
+                  "pos": "G"
+                },
+                {
+                  "name": "L. Miley",
+                  "number": 67,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Thiaw",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Botman",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Hall",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Nico González",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Willock",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Murphy",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Wissa",
+                  "number": 9,
+                  "pos": "M"
+                },
+                {
+                  "name": "H. Barnes",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Fernandez-Pardo",
+                  "number": 20,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "C. Rushworth",
+                  "number": 19,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. van Ewijk",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Pinnock",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Thomas",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Dasilva",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Caleb Marfo Yirenkyi",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Grimes",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Thomas-Asante",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Rudoni",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Mason-Clark",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Cherif",
+                  "number": 49,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 6,
+                "side": "opp",
+                "type": "goal",
+                "player": "Jack Rudoni",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 48,
+                "side": "opp",
+                "type": "goal",
+                "player": "Sidiki Cherif",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Lewis Miley",
+                "playerIn": "Amar Dedić"
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jacob Murphy",
+                "playerIn": "Bazoumana Touré"
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Joe Willock",
+                "playerIn": "Joelinton"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ephron Mason-Clark",
+                "playerIn": "Tatsuhiro Sakamoto"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Milan van Ewijk",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 70,
+                "side": "us",
+                "type": "goal",
+                "player": "Sven Botman",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Caleb Yirenkyi",
+                "playerIn": "Frank Onyeka"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sidiki Cherif",
+                "playerIn": "Ellis Simms"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Yoane Wissa",
+                "playerIn": "William Osula"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "goal",
+                "player": "Ellis Simms",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "yellow",
+                "player": "Joelinton",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jack Rudoni",
+                "playerIn": "Victor Torp"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Matt Grimes",
+                "playerIn": "Stephen Mfuni"
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "goal",
+                "player": "Stephen Mfuni",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Bazoumana Touré",
+                "playerIn": "Dan Burn"
+              }
+            ]
+          },
+          {
+            "date": "2026-09-19",
+            "opp": "Hull City",
+            "homeAway": "H",
+            "comp": "Premier League",
+            "score": "2-1",
+            "result": "W",
+            "referee": "Tony Harrington, England",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "5-4-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "L. Hornicek",
+                  "number": 21,
+                  "pos": "G"
+                },
+                {
+                  "name": "L. Miley",
+                  "number": 67,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Thiaw",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Botman",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Hall",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Steur",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Willock",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Murphy",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Wissa",
+                  "number": 9,
+                  "pos": "M"
+                },
+                {
+                  "name": "H. Barnes",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Fernandez-Pardo",
+                  "number": 20,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "K. Tzolakis",
+                  "number": 19,
+                  "pos": "G"
+                },
+                {
+                  "name": "L. Coyle",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Ajayi",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Egan",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Herrington",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Giles",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Belloumi",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Crooks",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Slater",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Thomas",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. McBurnie",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 3,
+                "side": "us",
+                "type": "goal",
+                "player": "J. Willock",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 7,
+                "side": "us",
+                "type": "goal",
+                "player": "L. Hall",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 29,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Matt Crooks",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 39,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Mohamed Belloumi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "goal",
+                "player": "Yoane Wissa",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "yellow",
+                "player": "Jacob Murphy",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Konstantinos Tzolakis",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Crooks",
+                "playerIn": "T. Iroegbunam"
+              },
+              {
+                "minute": 49,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Ryan Giles",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Thomas",
+                "playerIn": "M. Cho"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Steur",
+                "playerIn": "F. Schar"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "goal",
+                "player": "M. Cho",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Fernandez-Pardo",
+                "playerIn": "B. Toure"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Slater",
+                "playerIn": "L. Gourna-Douath"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Egan",
+                "playerIn": "R. Vaz"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Belloumi",
+                "playerIn": "J. Gelhardt"
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Willock",
+                "playerIn": "A. Bamba"
+              }
+            ]
+          },
+          {
+            "date": "2026-09-14",
+            "opp": "Leeds",
+            "homeAway": "A",
+            "comp": "Premier League",
+            "score": "1-4",
+            "result": "L",
+            "referee": "Michael Salisbury, England",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "3-5-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "L. Hornicek",
+                  "number": 21,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Dedic",
+                  "number": 37,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Thiaw",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Botman",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Hall",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Miley",
+                  "number": 67,
+                  "pos": "M"
+                },
+                {
+                  "name": "Nico",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Murphy",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Fernandez-Pardo",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "H. Barnes",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Wissa",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Trafford",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Justin",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Elvedi",
+                  "number": 30,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Muharemovic",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Bogle",
+                  "number": 2,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Stach",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Ampadu",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Tanaka",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Gudmundsson",
+                  "number": 3,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Calvert-Lewin",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "N. Okafor",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 19,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Nico González",
+                "playerIn": "Sean Steur"
+              },
+              {
+                "minute": 32,
+                "side": "opp",
+                "type": "owngoal",
+                "player": "Lewis Miley",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 34,
+                "side": "opp",
+                "type": "goal",
+                "player": "Dominic Calvert-Lewin",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 44,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Dominic Calvert-Lewin",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "goal",
+                "player": "Dominic Calvert-Lewin",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 54,
+                "side": "us",
+                "type": "yellow",
+                "player": "Jacob Murphy",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 57,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jacob Murphy",
+                "playerIn": "Bazoumana Touré"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Matias Fernandez-Pardo",
+                "playerIn": "Joe Willock"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Amar Dedić",
+                "playerIn": "Valentino Livramento"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "goal",
+                "player": "Noah Okafor",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Noah Okafor",
+                "playerIn": "Harry Wilson"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ao Tanaka",
+                "playerIn": "Brenden Aaronson"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gabriel Gudmundsson",
+                "playerIn": "Melvin Bard"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Dominic Calvert-Lewin",
+                "playerIn": "Lukas Nmecha"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Lewis Miley",
+                "playerIn": "Aladji Bamba"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jayden Bogle",
+                "playerIn": "Daniel James"
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Anton Stach",
+                "playerIn": "Sean Longstaff"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "goal",
+                "player": "Bazoumana Touré",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Valentino Livramento",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          }
+        ],
+        "next": [
+          {
+            "date": "2026-11-02",
+            "opp": "Everton",
+            "homeAway": "H",
+            "comp": "Premier League"
+          },
+          {
+            "date": "2026-11-07",
+            "opp": "Fulham",
+            "homeAway": "A",
+            "comp": "Premier League"
+          },
+          {
+            "date": "2026-11-21",
+            "opp": "Arsenal",
+            "homeAway": "H",
+            "comp": "Premier League"
+          }
+        ]
       },
       "absences": [],
       "mercatoIn": [
@@ -3876,6 +5788,56 @@
         "Newcastle United are o rivalitate istorică cu Sunderland, cunoscută drept derby-ul Tyne–Wear.",
         "Porecla clubului este „The Magpies” (Coțofenele), iar suporterii sunt cunoscuți drept „Toon Army”.",
         "Victoria cu 4–3 obținută pe terenul lui Liverpool, în aprilie 1996, este considerată una dintre cele mai memorabile partide din istoria Premier League."
+      ],
+      "newsCandidates": [
+        {
+          "title": "Looking at the Premier League table, is this really disaster for Newcastle United?",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQTFk1QnVQN0tBTDZlaWliYlRpbU1vRzliTGM0T1NYSWtuWlp6aTRkX2hpeVJnUlRvOVZ4UzJycUNmRExZMEJlNVZ6RGhqanFYTWV5dVU0dEIxdVFoUGNXTGo4MTVTc0EzczVxb0sxdHluX3I0bUVWeE43dllaNFRiWG96NFpDcDYzUmprUQ?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Match Report. Newcastle United Under-21s 2 Peterborough United Under-21s 0",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNS2xiR0VFTXAxeGc2cTlzMExLM3ZYV0V4dV9XbXBjMWcxUE10ajlJQmFxSXdCMWd6Z09lTEpEZUFPeTdOV3hIcWFTWWdZRThNTjZMLThIWEd2NjlMRGJIT3JFQlRFQ21xMlVyakdJbllTbXE4ajdwSTY5R1ZmWFBRXzFZU29aaEUwWHhGd3dKc3JVMGdNWjhkTjFidUtQcEdkMXc?oc=5",
+          "source": "Newcastle United",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Shearer discusses scoring record, MOTD & a brush with Cardiff",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE40VlJTb3BGN0R1Sno5NnlUd3M1SmIxV2JzR1kwQkJsYzkwWWJ3Uzd1OEJTUGRKVFJpQkZYdTZ0NUdBUmJ0REFVRWVEb1JzOU14QldkcktuQjEwOWpiSFY2ZGdudUE2UlpF?oc=5",
+          "source": "BBC",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "The three Newcastle United transfers that have made this season a struggle",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNb0tJQXhZUUNEUjhpdmh0aFdZZlBsM2pEbVk2TDdNek9KVGJUbG9fWkVmWlc2c3VHVldGcnoyVE43bjNmbDlLT1U4WDhmMVUxNkVWem05SmVLcDlCT3d6YWhDcElEdDVJeHNmVENjUHNGR0FpbmR6TXJRYXE5aVBkWlJXTXlGbkhfS3d3U0ZVU29ISVRpc091T0l5RjE0dW1ySzZyUjFJaldBRUtS?oc=5",
+          "source": "The Mag",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Beşiktaş Reignite Interest in Newcastle United Midfielder Joe Willock",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOU3NWV3VPQXlBc3d0TnNibXh0V2IzVzhoNVNFaXFQNDBWNkNZdU5SNWc1Q0I2VWs2anY1blNEQnV5WUdFbHRZWkdDbVpDYzJUMmZFaGE1SDk4amppa3BQa0JHcW9MOWkxSVptOW9rbmVod1lldUZ2NDN4NndScEJ4MTk3QmlLOWVfeWhoMUdJamxvNGZrODU0UWJ4TGcwM1FT?oc=5",
+          "source": "turkish football",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "'For me it's much better' - Shearer on his love for co-comms",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE0wV0szTXdJVjJ2NGpfT2tfSi0yak5uaEwxR21DT1BOSWZlSF9QOFJpQ0JpUFJtWkpPY3ZBdlQyS1I1RDBIWTk2enVXcEQtWDl5TWJqTDZjY1AxZU9ONzlsbUc2bVNrdw?oc=5",
+          "source": "BBC",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Newcastle United to be owned by a local solicitor from Whickham…",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNWGE3X24xdk5HVUJKMDU0a3JfY04zM1dnZ1VGaHI1QnJfckZJUk9hS29nUWV2OExJamZHbkU4dEdkZ1hTd3RRRy1qVnBCY3pxSkdMOG9PbkYyY2Z2WGhUTnFtWUZvci1KX2xUOTRfVzN1VUpwX2JaTFhHZ0duT255V0h3LVlYcHg4UG5YZkJUbzdOc1pXZ3FWZ2VNLUFxRjVOMVNQaVAwWlhFWFVmaGFZSnlB?oc=5",
+          "source": "The Mag",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "The Harvey Barnes decision that might surprise Newcastle United fans amid Everton aftermath",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQQTJXdm40ZGctYlRKMGdJUVpUdHQ0OHB2TDRZSG9YM0V6VXMtVndRLVFSSmtiSmt0bldvREJSMkE5NW1pOWlFV0V6Q3hyVlVWZkhqRGVrTmt1aF9vaUlFUGJudkJaYjdWbmxIVUtYc185MHd5MDBsZDdQd1NPWHM5NGZaaTRDRm5YNkJ4cjl3?oc=5",
+          "source": "Yahoo",
+          "published": "2026-10-31"
+        }
       ]
     },
     "away": {
@@ -3883,7 +5845,10 @@
       "shortName": "EVE",
       "nickname": "Toffees",
       "logo": "https://media.api-sports.io/football/teams/45.png",
-      "colors": { "primary": "#003399", "secondary": "#FFFFFF" },
+      "colors": {
+        "primary": "#003399",
+        "secondary": "#FFFFFF"
+      },
       "coach": {
         "apiId": null,
         "name": "David Moyes",
@@ -3970,17 +5935,72 @@
       },
       "formation": "4-2-3-1",
       "predictedXI": [
-        { "apiId": 2932, "number": 1, "name": "Jordan Pickford", "pos": "GK" },
-        { "apiId": 202854, "number": 34, "name": "Merlin Röhl", "pos": "RB" },
-        { "apiId": 2936, "number": 6, "name": "James Tarkowski", "pos": "RCB" },
-        { "apiId": 17661, "number": 4, "name": "Jarrad Branthwaite", "pos": "LCB" },
-        { "apiId": 2165, "number": 16, "name": "Vitalii Mykolenko", "pos": "LB" },
-        { "apiId": 895, "number": 37, "name": "James Garner", "pos": "DM" },
-        { "apiId": 148099, "number": 8, "name": "Kiernan Dewsbury-Hall", "pos": "CM" },
-        { "apiId": 129711, "number": 22, "name": "Brennan Johnson", "pos": "LW" },
-        { "apiId": 334037, "number": 19, "name": "Tyrique George", "pos": "CAM" },
-        { "apiId": 405360, "number": 45, "name": "Harrison Armstrong", "pos": "RW" },
-        { "apiId": 343684, "number": 11, "name": "Thierno Barry", "pos": "ST" }
+        {
+          "apiId": 2932,
+          "number": 1,
+          "name": "Jordan Pickford",
+          "pos": "GK"
+        },
+        {
+          "apiId": 202854,
+          "number": 34,
+          "name": "Merlin Röhl",
+          "pos": "RB"
+        },
+        {
+          "apiId": 2936,
+          "number": 6,
+          "name": "James Tarkowski",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 17661,
+          "number": 4,
+          "name": "Jarrad Branthwaite",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 2165,
+          "number": 16,
+          "name": "Vitalii Mykolenko",
+          "pos": "LB"
+        },
+        {
+          "apiId": 895,
+          "number": 37,
+          "name": "James Garner",
+          "pos": "DM"
+        },
+        {
+          "apiId": 148099,
+          "number": 8,
+          "name": "Kiernan Dewsbury-Hall",
+          "pos": "CM"
+        },
+        {
+          "apiId": 129711,
+          "number": 22,
+          "name": "Brennan Johnson",
+          "pos": "LW"
+        },
+        {
+          "apiId": 334037,
+          "number": 19,
+          "name": "Tyrique George",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 405360,
+          "number": 45,
+          "name": "Harrison Armstrong",
+          "pos": "RW"
+        },
+        {
+          "apiId": 343684,
+          "number": 11,
+          "name": "Thierno Barry",
+          "pos": "ST"
+        }
       ],
       "confirmedXI": null,
       "substitutes": null,
@@ -4113,6 +6133,34 @@
             "La EURO 2020 a devenit primul portar din istorie cu poartă neatinsă în primele cinci meciuri ale unui Campionat European și a stabilit, pe 7 iulie 2021, recordul Angliei pentru cele mai multe minute consecutive fără gol primit de un portar (721 de minute).",
             "A fost numit jucătorul sezonului la Everton de patru ori: 2017/18, 2021/22, 2022/23 și 2023/24.",
             "Pe 12 septembrie 2026 a bifat a 100-a sa poartă neatinsă în Premier League, într-un 0-0 cu Tottenham, devenind al cincilea portar englez care atinge acest prag."
+          ],
+          "honours": [],
+          "injuries": [
+            {
+              "type": "Knock",
+              "start": "2023-12-08",
+              "end": "2023-12-10"
+            },
+            {
+              "type": "Thigh Injury",
+              "start": "2022-09-04",
+              "end": "2022-09-30"
+            },
+            {
+              "type": "Shoulder Injury",
+              "start": "2021-09-26",
+              "end": "2021-10-01"
+            },
+            {
+              "type": "Abdominal Strain",
+              "start": "2021-03-14",
+              "end": "2021-04-15"
+            },
+            {
+              "type": "Chest Injury",
+              "start": "2021-01-31",
+              "end": "2021-02-16"
+            }
           ]
         },
         {
@@ -4243,6 +6291,37 @@
             "A câștigat Campionatul European Under-21 cu Anglia, în 2023.",
             "Și-a făcut debutul pentru naționala mare a Angliei pe 3 iunie 2024, ca rezervă, într-o victorie cu 3-0 asupra Bosniei și Herțegovinei, dar a fost lăsat în afara lotului final pentru EURO 2024.",
             "A semnat o prelungire de contract cu Everton până în 2030, pe 2 iulie 2025."
+          ],
+          "honours": [
+            "KNVB Beker (2022/2023)",
+            "Super Cup (Netherlands) (2022)"
+          ],
+          "injuries": [
+            {
+              "type": "Hamstring",
+              "start": "2025-08-14",
+              "end": null
+            },
+            {
+              "type": "Hamstring",
+              "start": "2025-05-19",
+              "end": "2025-08-08"
+            },
+            {
+              "type": "Groin Injury",
+              "start": "2024-11-10",
+              "end": "2024-11-21"
+            },
+            {
+              "type": "Thigh Injury",
+              "start": "2024-10-03",
+              "end": "2024-10-24"
+            },
+            {
+              "type": "Groin Injury",
+              "start": "2024-07-27",
+              "end": "2024-09-19"
+            }
           ]
         },
         {
@@ -4273,28 +6352,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 1,
+            "minutes": 180,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 5.2,
+            "rating": 5.97,
             "conceded": 0,
-            "saves": null,
-            "shotsTotal": 1,
-            "shotsOn": null,
-            "passesTotal": 32,
-            "passesKey": null,
-            "passesAccuracy": 75,
-            "tacklesTotal": 3,
-            "tacklesBlocks": null,
-            "tacklesInterceptions": 2,
-            "duelsTotal": 12,
-            "duelsWon": 6,
-            "dribblesAttempts": 5,
+            "saves": 0,
+            "shotsTotal": 2,
+            "shotsOn": 1,
+            "passesTotal": 68,
+            "passesKey": 2,
+            "passesAccuracy": 77,
+            "tacklesTotal": 5,
+            "tacklesBlocks": 0,
+            "tacklesInterceptions": 4,
+            "duelsTotal": 20,
+            "duelsWon": 10,
+            "dribblesAttempts": 7,
             "dribblesSuccess": 2,
             "dribblesPast": null,
-            "foulsDrawn": 1,
-            "foulsCommitted": 1,
+            "foulsDrawn": 3,
+            "foulsCommitted": 3,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -4494,6 +6573,37 @@
             "Pe 8 mai 2022 a marcat primul gol pentru Everton, o volee de la 25 de metri, în victoria cu 2-1 la Leicester City.",
             "A debutat pentru naționala Ucrainei pe 20 noiembrie 2018, la 19 ani, într-un amical terminat 0-0 cu Turcia.",
             "La data de 8 iunie 2026 s-a anunțat că Mykolenko a semnat un nou contract cu Everton, valabil până în iunie 2029."
+          ],
+          "honours": [
+            "Cup (Ukraine) ×2 (2020/2021, 2019/2020)",
+            "Premier League (2020/2021)"
+          ],
+          "injuries": [
+            {
+              "type": "Knock",
+              "start": "2025-09-04",
+              "end": "2025-09-19"
+            },
+            {
+              "type": "Muscle Injury",
+              "start": "2025-08-10",
+              "end": "2025-08-26"
+            },
+            {
+              "type": "Knock",
+              "start": "2025-04-05",
+              "end": "2025-04-10"
+            },
+            {
+              "type": "Thigh Injury",
+              "start": "2025-03-24",
+              "end": "2025-04-01"
+            },
+            {
+              "type": "Calf Injury",
+              "start": "2024-09-29",
+              "end": "2024-10-17"
+            }
           ]
         },
         {
@@ -4586,25 +6696,25 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 1,
+            "minutes": 104,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 5.2,
+            "rating": 5.79,
             "conceded": 0,
-            "saves": null,
-            "shotsTotal": null,
-            "shotsOn": null,
-            "passesTotal": 46,
-            "passesKey": null,
+            "saves": 0,
+            "shotsTotal": 0,
+            "shotsOn": 0,
+            "passesTotal": 57,
+            "passesKey": 0,
             "passesAccuracy": 89,
-            "tacklesTotal": null,
+            "tacklesTotal": 1,
             "tacklesBlocks": 3,
-            "tacklesInterceptions": 3,
-            "duelsTotal": 6,
-            "duelsWon": 3,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "tacklesInterceptions": 4,
+            "duelsTotal": 7,
+            "duelsWon": 4,
+            "dribblesAttempts": 0,
+            "dribblesSuccess": 0,
             "dribblesPast": null,
             "foulsDrawn": 1,
             "foulsCommitted": 1,
@@ -4686,6 +6796,36 @@
             "În 2023/24 a avut cele mai multe dueluri aeriene din Premier League (144) și a devenit primul jucător din istoria campionatului cu peste 50 de blocări în trei sezoane consecutive.",
             "A fost numit căpitanul Evertonului în 2026, succedându-l pe Séamus Coleman.",
             "Și-a făcut debutul pentru naționala mare a Angliei pe 27 martie 2018, într-un 1-1 cu Italia, la Wembley."
+          ],
+          "honours": [
+            "Championship (2015/2016)"
+          ],
+          "injuries": [
+            {
+              "type": "Hamstring",
+              "start": "2025-04-20",
+              "end": "2025-07-25"
+            },
+            {
+              "type": "Back Injury",
+              "start": "2024-09-15",
+              "end": "2024-09-19"
+            },
+            {
+              "type": "Head Injury",
+              "start": "2023-09-03",
+              "end": "2023-09-16"
+            },
+            {
+              "type": "Knock",
+              "start": "2023-08-05",
+              "end": "2023-08-11"
+            },
+            {
+              "type": "Thigh Injury",
+              "start": "2022-05-08",
+              "end": "2022-05-18"
+            }
           ]
         },
         {
@@ -4816,6 +6956,14 @@
             "A fost din nou împrumutat, la Preston North End, din septembrie 2025 până la rechemarea sa de către Everton, pe 1 ianuarie 2026.",
             "A fost desemnat tânărul jucător al sezonului la Everton în 2025/26.",
             "Este fratele mai mic al fundașului Finlay Armstrong, care joacă la Waterford."
+          ],
+          "honours": [],
+          "injuries": [
+            {
+              "type": "Thigh Injury",
+              "start": "2025-08-09",
+              "end": "2025-08-17"
+            }
           ]
         },
         {
@@ -4881,6 +7029,34 @@
             "A ajuns la Everton pe 6 august 2025, pentru o sumă raportată de circa 29 de milioane de lire.",
             "Este eligibil să joace pentru Irlanda prin descendență, dar a declarat constant că preferă să reprezinte Anglia, naționala mare pentru care nu are încă nicio selecție.",
             "Ca și copil l-a avut ca idol pe Paul Scholes și a fost pasionat de snooker."
+          ],
+          "honours": [
+            "FIFA Club World Cup (2025)",
+            "UEFA Conference League (2024/2025)",
+            "Championship (2023/2024)",
+            "Community Shield (2021)"
+          ],
+          "injuries": [
+            {
+              "type": "Illness",
+              "start": "2024-12-25",
+              "end": "2025-01-19"
+            },
+            {
+              "type": "Illness",
+              "start": "2024-09-16",
+              "end": "2024-09-20"
+            },
+            {
+              "type": "Ankle/Foot Injury",
+              "start": "2023-05-18",
+              "end": "2023-05-27"
+            },
+            {
+              "type": "Knock",
+              "start": "2023-01-11",
+              "end": "2023-01-20"
+            }
           ]
         },
         {
@@ -5006,6 +7182,34 @@
             "A câștigat Campionatul European Under-21 cu Anglia, în 2023, fiind inclus în echipa turneului.",
             "A fost desemnat jucătorul sezonului și al coechipierilor la Everton în 2025/26.",
             "Și-a făcut debutul pentru naționala mare a Angliei pe 27 martie 2026, într-un 1-1 cu Uruguay, fiind numit omul meciului."
+          ],
+          "honours": [],
+          "injuries": [
+            {
+              "type": "Back Injury",
+              "start": "2024-10-15",
+              "end": "2025-01-23"
+            },
+            {
+              "type": "Illness",
+              "start": "2024-09-15",
+              "end": "2024-09-20"
+            },
+            {
+              "type": "Calf Injury",
+              "start": "2024-07-30",
+              "end": "2024-08-26"
+            },
+            {
+              "type": "Knock",
+              "start": "2024-04-11",
+              "end": "2024-04-14"
+            },
+            {
+              "type": "Illness",
+              "start": "2023-12-03",
+              "end": "2023-12-10"
+            }
           ]
         },
         {
@@ -5298,6 +7502,34 @@
             "A ajuns la Everton sub formă de împrumut pe un sezon la 1 septembrie 2025, ultima zi a ferestrei de transferuri de vară, cu o clauză de transfer obligatoriu dacă Everton evita retrogradarea.",
             "A marcat primul gol pentru Everton pe 17 mai 2026, într-o înfrângere cu 3-1 cu Sunderland.",
             "S-a transferat definitiv la Everton pe 1 iulie 2026, după activarea clauzei de transfer obligatoriu."
+          ],
+          "honours": [],
+          "injuries": [
+            {
+              "type": "Heel Injury",
+              "start": "2025-03-19",
+              "end": "2025-04-10"
+            },
+            {
+              "type": "Heel Injury",
+              "start": "2025-03-08",
+              "end": "2025-03-19"
+            },
+            {
+              "type": "Ankle Injury",
+              "start": "2024-09-15",
+              "end": "2024-11-18"
+            },
+            {
+              "type": "Hamstring",
+              "start": "2024-04-22",
+              "end": "2024-08-23"
+            },
+            {
+              "type": "Muscle Injury",
+              "start": "2024-04-08",
+              "end": "2024-04-13"
+            }
           ]
         },
         {
@@ -5363,6 +7595,19 @@
             "A marcat primul său gol în Premier League pentru Everton pe 6 decembrie 2025, într-o victorie cu 3-0 contra lui Nottingham Forest.",
             "A marcat primul hattrick din carieră pe 26 august 2026, contra lui Preston, în turul doi al Cupei Ligii engleze.",
             "A fost convocat la naționala Franței Under-21 pentru Campionatul European Under-21 din 2025."
+          ],
+          "honours": [],
+          "injuries": [
+            {
+              "type": "Hamstring",
+              "start": "2025-05-09",
+              "end": "2025-05-17"
+            },
+            {
+              "type": "Shoulder Injury",
+              "start": "2024-11-10",
+              "end": "2024-11-19"
+            }
           ]
         },
         {
@@ -5494,7 +7739,12 @@
             "A câștigat UEFA Conference League (2024-25) și FIFA Club World Cup (2025) cu Chelsea, marcând în faza grupelor Cupei Mondiale a Cluburilor împotriva lui Espérance de Tunis.",
             "S-a transferat definitiv la Everton pe 6 iulie 2026, pentru o sumă de până la 24 de milioane de lire, semnând un contract pe patru ani.",
             "A fost poreclit „Evil Saka” de suporteri în perioada petrecută la Chelsea, din cauza asemănării cu jucătorul lui Arsenal, Bukayo Saka."
-          ]
+          ],
+          "honours": [
+            "FIFA Club World Cup (2025)",
+            "UEFA Conference League (2024/2025)"
+          ],
+          "injuries": []
         },
         {
           "apiId": 413034,
@@ -5624,6 +7874,37 @@
             "A fost transferat la Crystal Palace pe 2 ianuarie 2026, pentru un record de club de 35 de milioane de lire, apoi la Everton pe 11 august 2026, printr-un schimb direct cu Dwight McNeil.",
             "A jucat pentru selecțiile de tineret ale Angliei înainte de a opta pentru Țara Galilor, naționala mamei sale, în 2018, debutând la naționala mare a Țării Galilor pe 12 noiembrie 2020, într-un 0-0 cu Statele Unite.",
             "A fost convocat la Campionatul Mondial din 2022 cu Țara Galilor."
+          ],
+          "honours": [
+            "UEFA Europa League (2024/2025)",
+            "J.League World Challenge (2024)"
+          ],
+          "injuries": [
+            {
+              "type": "Calf Injury",
+              "start": "2025-01-17",
+              "end": "2025-02-13"
+            },
+            {
+              "type": "Knee Injury",
+              "start": "2024-04-03",
+              "end": "2024-04-05"
+            },
+            {
+              "type": "Head Injury",
+              "start": "2023-12-16",
+              "end": "2023-12-22"
+            },
+            {
+              "type": "Hamstring",
+              "start": "2023-09-25",
+              "end": "2023-10-22"
+            },
+            {
+              "type": "Knock",
+              "start": "2023-04-30",
+              "end": "2023-05-07"
+            }
           ]
         },
         {
@@ -5980,7 +8261,1607 @@
           "drawsAway": 3,
           "losesHome": 1,
           "losesAway": 1
-        }
+        },
+        "recent": [
+          {
+            "date": "2026-10-29",
+            "opp": "Newcastle",
+            "homeAway": "H",
+            "comp": "League Cup",
+            "score": "3-1",
+            "result": "W",
+            "referee": "F. Hallam",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Pickford",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Röhl",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Tarkowski",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. O'Brien",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Mykolenko",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Hackney",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Garner",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Dibling",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Dewsbury-Hall",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Tyrique George",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Barry",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "L. Horníček",
+                  "number": 21,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Dedić",
+                  "number": 37,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Schär",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Burn",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Hall",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Ramsey",
+                  "number": 41,
+                  "pos": "M"
+                },
+                {
+                  "name": "Nico González",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Murphy",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Willock",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "H. Barnes",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "W. Osula",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 34,
+                "side": "us",
+                "type": "goal",
+                "player": "James Garner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "goal",
+                "player": "Hayden Hackney",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "William Osula",
+                "playerIn": "Yoane Wissa"
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Harvey Barnes",
+                "playerIn": "Anthony Elanga"
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jacob Ramsey",
+                "playerIn": "Joelinton"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "yellow",
+                "player": "Hayden Hackney",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Hayden Hackney",
+                "playerIn": "Harrison Armstrong"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jacob Murphy",
+                "playerIn": "Bazoumana Touré"
+              },
+              {
+                "minute": 69,
+                "side": "us",
+                "type": "goal",
+                "player": "Thierno Barry",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "yellow",
+                "player": "Kiernan Dewsbury-Hall",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Tyler Dibling",
+                "playerIn": "Brennan Johnson"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Tyrique George",
+                "playerIn": "Charly Alcaraz"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Fabian Schär",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "yellow",
+                "player": "Vitaliy Mykolenko",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Nico González",
+                "playerIn": "Sean Steur"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vitaliy Mykolenko",
+                "playerIn": "Ainsley Maitland-Niles"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Kiernan Dewsbury-Hall",
+                "playerIn": "Christian Nørgaard"
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "goal",
+                "player": "Dan Burn",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "yellow",
+                "player": "James Tarkowski",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Joelinton",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Dan Burn",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "yellow",
+                "player": "Jordan Pickford",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-24",
+            "opp": "Arsenal",
+            "homeAway": "A",
+            "comp": "Premier League",
+            "score": "0-2",
+            "result": "L",
+            "referee": "Tony Harrington, England",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Pickford",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Röhl",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Tarkowski",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. O'Brien",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Mykolenko",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Armstrong",
+                  "number": 45,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Garner",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Johnson",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Dewsbury-Hall",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Tyrique George",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Barry",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "David Raya",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "B. White",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Konsa",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "Gabriel Magalhães",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Lewis-Skelly",
+                  "number": 49,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Rice",
+                  "number": 41,
+                  "pos": "M"
+                },
+                {
+                  "name": "Mikel Merino",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Madueke",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Ødegaard",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Eze",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Gyökeres",
+                  "number": 14,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 7,
+                "side": "opp",
+                "type": "goal",
+                "player": "Ezri Konsa ",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "yellow",
+                "player": "Vitaliy Mykolenko",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 58,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Myles Lewis-Skelly",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 64,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Mikel Arteta",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "yellow",
+                "player": "James Garner",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mikel Merino",
+                "playerIn": "Bruno Guimarães"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Viktor Gyökeres",
+                "playerIn": "Kai Havertz"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Myles Lewis-Skelly",
+                "playerIn": "Riccardo Calafiori"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "goal",
+                "player": "Gabriel dos Santos Magalhães",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Brennan Johnson",
+                "playerIn": "Tyler Dibling"
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vitaliy Mykolenko",
+                "playerIn": "Hayden Hackney"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "yellow",
+                "player": "James Tarkowski",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "yellow",
+                "player": "David William Moyes",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Declan Rice",
+                "playerIn": "Martín Zubimendi"
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Eberechi Eze",
+                "playerIn": "Max Dowman"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Kiernan Dewsbury-Hall",
+                "playerIn": "Charly Alcaraz"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-17",
+            "opp": "Chelsea",
+            "homeAway": "H",
+            "comp": "Premier League",
+            "score": "0-2",
+            "result": "L",
+            "referee": "Paul Tierney, England",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Pickford",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Maitland-Niles",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Tarkowski",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Branthwaite",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Mykolenko",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Armstrong",
+                  "number": 45,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Garner",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Röhl",
+                  "number": 34,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Dewsbury-Hall",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Grealish",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Barry",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "E. Martínez",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Joshua Kofi Acheampong",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Lacroix",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Colwill",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Hato",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Caicedo",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Henderson",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "Pedro Neto",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Palmer",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Rogers",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "João Pedro",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 23,
+                "side": "us",
+                "type": "yellow",
+                "player": "Harrison Armstrong",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 27,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Pedro Neto",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 32,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Josh Acheampong",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 34,
+                "side": "us",
+                "type": "yellow",
+                "player": "James Tarkowski",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 34,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Morgan Rogers",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "goal",
+                "player": "Pedro Neto",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ainsley Maitland-Niles",
+                "playerIn": "Tyrique George"
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Cole Palmer",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Emiliano Martínez",
+                "playerIn": "Mike Penders"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Harrison Armstrong",
+                "playerIn": "Christian Nørgaard"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jack Grealish",
+                "playerIn": "Brennan Johnson"
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "yellow",
+                "player": "Christian Nørgaard",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "goal",
+                "player": "Pedro Neto",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "João Pedro",
+                "playerIn": "Danny Welbeck"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jorrel Hato",
+                "playerIn": "Marco Palestra"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Moises Caicedo",
+                "playerIn": "Romeo Lavia"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Pedro Neto",
+                "playerIn": "Geovany Quenda"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-11",
+            "opp": "Hull City",
+            "homeAway": "A",
+            "comp": "Premier League",
+            "score": "2-2",
+            "result": "D",
+            "referee": "Michael Salisbury, England",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "5-4-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Pickford",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Maitland-Niles",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Tarkowski",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Keane",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Branthwaite",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Garner",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "H. Armstrong",
+                  "number": 45,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Johnson",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Dewsbury-Hall",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Grealish",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Barry",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "K. Tzolakis",
+                  "number": 19,
+                  "pos": "G"
+                },
+                {
+                  "name": "L. Coyle",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Ajayi",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Egan",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Mendy",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Giles",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Gelhardt",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Crooks",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Slater",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Thomas",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. McBurnie",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 13,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Matt Crooks",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 21,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Oliver McBurnie",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 48,
+                "side": "opp",
+                "type": "goal",
+                "player": "Joe Gelhardt",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "us",
+                "type": "goal",
+                "player": "Kiernan Dewsbury-Hall",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 64,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ryan Giles",
+                "playerIn": "Elliot Stroud"
+              },
+              {
+                "minute": 64,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Joe Gelhardt",
+                "playerIn": "Mohamed Belloumi"
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Matt Crooks",
+                "playerIn": "Tim Iroegbunam"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Brennan Johnson",
+                "playerIn": "Tyrique George"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "goal",
+                "player": "Thierno Barry",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "goal",
+                "player": "Mohamed Belloumi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Regan Slater",
+                "playerIn": "Hidemasa Morita"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Harrison Armstrong",
+                "playerIn": "Hayden Hackney"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ainsley Maitland-Niles",
+                "playerIn": "Jake O'Brien"
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sorba Thomas",
+                "playerIn": "Robinio Vaz"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jack Grealish",
+                "playerIn": "Tyler Dibling"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Thierno Barry",
+                "playerIn": "Charly Alcaraz"
+              }
+            ]
+          },
+          {
+            "date": "2026-09-19",
+            "opp": "Ipswich",
+            "homeAway": "H",
+            "comp": "Premier League",
+            "score": "1-0",
+            "result": "W",
+            "referee": "Stuart Attwell, England",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Pickford",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Maitland-Niles",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Tarkowski",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Branthwaite",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Mykolenko",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Armstrong",
+                  "number": 45,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Garner",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Johnson",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Dewsbury-Hall",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Grealish",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Barry",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "C. Walton",
+                  "number": 28,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Ouattara",
+                  "number": 42,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Diop",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. O'Shea",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Davis",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Lukic",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Palacios",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Fatawu",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Enciso",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Clarke",
+                  "number": 47,
+                  "pos": "M"
+                },
+                {
+                  "name": "Emersonn",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 11,
+                "side": "us",
+                "type": "goal",
+                "player": "T. Barry",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 35,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Abdul Fatawu Issahaku",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 42,
+                "side": "us",
+                "type": "yellow",
+                "player": "Vitaliy Mykolenko",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Johnson",
+                "playerIn": "T. Dibling"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Clarke",
+                "playerIn": "J. Philogene"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Abdul Fatawu Issahaku",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "red",
+                "player": "Abdul Fatawu Issahaku",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Lukic",
+                "playerIn": "Florentino"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Enciso",
+                "playerIn": "D. Maeda"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Grealish",
+                "playerIn": "T. George"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Emersonn",
+                "playerIn": "Z. Flemming"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Palacios",
+                "playerIn": "C. Akpom"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Harrison Armstrong",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Zian Flemming",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Maitland-Niles",
+                "playerIn": "J. O'Brien"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Dewsbury-Hall",
+                "playerIn": "H. Hackney"
+              }
+            ]
+          },
+          {
+            "date": "2026-09-16",
+            "opp": "Wolves",
+            "homeAway": "H",
+            "comp": "League Cup",
+            "score": "1-0",
+            "result": "W",
+            "referee": "T. Bramall",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Pickford",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Maitland-Niles",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. O'Brien",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Keane",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Mykolenko",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Hackney",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Garner",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Dibling",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Dewsbury-Hall",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Grealish",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Barry",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "João Virgínia",
+                  "number": 13,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Tchatchoua",
+                  "number": 38,
+                  "pos": "D"
+                },
+                {
+                  "name": "Toti Gomes",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Krejčí",
+                  "number": 37,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Konan",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Traoré",
+                  "number": 12,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. James",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Neave",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Doyle",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Chirewa",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Jiménez",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 10,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Jackson Tchatchoua",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 11,
+                "side": "us",
+                "type": "yellow",
+                "player": "Jack Grealish",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 38,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Raúl Jiménez",
+                "playerIn": "Adam Armstrong"
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ladislav Krejčí",
+                "playerIn": "Yacouba Nasser Djiga"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Thierno Barry",
+                "playerIn": "Brennan Johnson"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jordan James",
+                "playerIn": "Jean-Ricner Bellegarde"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jackson Tchatchoua",
+                "playerIn": "Kieran Trippier"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Tawanda Chirewa",
+                "playerIn": "Bertrand Traoré"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jack Grealish",
+                "playerIn": "Tyrique George"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Hayden Hackney",
+                "playerIn": "Charly Alcaraz"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "goal",
+                "player": "Charly Alcaraz",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Thomas Doyle",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          }
+        ],
+        "next": [
+          {
+            "date": "2026-11-02",
+            "opp": "Newcastle",
+            "homeAway": "A",
+            "comp": "Premier League"
+          },
+          {
+            "date": "2026-11-06",
+            "opp": "Coventry",
+            "homeAway": "H",
+            "comp": "Premier League"
+          },
+          {
+            "date": "2026-11-23",
+            "opp": "Brentford",
+            "homeAway": "A",
+            "comp": "Premier League"
+          }
+        ]
       },
       "absences": [],
       "mercatoIn": [
@@ -6151,6 +10032,56 @@
         "Everton joacă la Hill Dickinson Stadium începând cu sezonul 2026–27, după ce a avut sediul la Goodison Park din 1892, stadion la care s-a mutat după un conflict cu proprietarul terenului de la Anfield.",
         "Suporterii clubului sunt numiți „Evertonieni” sau „Toffees”, iar Everton are o rivalitate istorică cu vecinul Liverpool, cele două echipe disputând derby-ul din Merseyside.",
         "Pe 17 noiembrie 2023, Everton a primit o penalizare de zece puncte pentru nerespectarea regulilor de sustenabilitate financiară ale Premier League, cea mai mare din istoria competiției la acel moment."
+      ],
+      "newsCandidates": [
+        {
+          "title": "Garner On Everton Goal Threat & 'Real Chance' Cup Verdict",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNUjBaekpmanQySWJ6OVMxN3ExRk82X3BPRVluTUp6bWVJZXJ5ZGFfVVpVRDU5VE4xMDlDb3htcUVrSUpCbUIwRjRPZXRWSXEycU1IZWJIOGl0QkVmS3hQQXhuYVhFTVU5QTM0WmNtRXpPbmNkbzJZbC1OLXpmeTBIRlFUVnpIanBrRlkyMDc4SnJCeUxMa3Fmc0V1SkZ1WHc?oc=5",
+          "source": "Everton FC",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "~$!【LIVESTREAMs】 Man Utd W vs Everton W WSL football 𝐋𝐈𝐕𝐄 Ｆｒｅｅ Ｓｔｒｅａｍｓ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ 31 october 2026",
+          "url": "https://news.google.com/rss/articles/CBMijgNBVV95cUxNcXJ2Ykk3T3ROWTV0Yklmd3puMHQ5c1haYmhlcGZ1czZjQ2tiQzNZVnk1enZIaXpTZnRHTXZhSXF1RUNQSUdVcWl4LXhtdGR5SHFrS2xZZmU1TWNHRHdhaVVZWnphRlNGajBqVzRmczNid0ZxRm5BR1NzdVBXN2xLQlV5SE9KR1RkSWFDb1V3TnFQaXNGdGpnRm9taEpORTB0VHNMdjRkdU9udjdvQ1BWa1p3d3otbGJXeFRkd0Q0UGhvVW1WS1dqNjdGMzNjMlB5a05pYlFNQTFUSXNaVktSTERBWm1Oc05ZRWlYRTd2VlllZE5VM3htZFVvMzRmTUx1eTJUVzFFSUJOWkM0dEplUUt3cE1yaHZycXZtWUJCRE1UM3d1dlhKYkNkekZUOTlWcTd4Q1k2c1RlOUlCVHMtWktpcGpxZ0xWTVJPaEViUGpDRjZIRXhEOUNPMWVUTDdlRmZ0ckNTdV83YWp5R2p4MmxPMWZLZFFKcS13b0c0Q0pwQzJkLU5oUXRDd1ZQZw?oc=5",
+          "source": "Port of Rotterdam",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "[ＬＩＶＥＳＴＲＥＡＭs]𝐓𝐕!! Manchester United W v Everton W WSL football ＬｉｖｅＦｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ 31 october 2026",
+          "url": "https://news.google.com/rss/articles/CBMimgNBVV95cUxQd1B0YXdzVWJrZm54dmtRY1FVcUMwWnZNb1RybjFoanNwUlBlUkZXa3BSM2Nia2VITG94dkFHcWE2Y3l0M3pvS3NPemJ0bV9GV0F5dXdBRkttNmhoeVpSTHNqb2NhQ0tfLWhtUjNaREpEdEx6ZTNIZUdsczRvVWg4UkJtVFBOWHNjTlhCX0JkNEtiVzlaNV9pLVJsblVxOUFkY3NkOVVOUU5WbS1DeFdGZmRmUGZjb0xCaFFGX19iQVNXQnRvNG1IMW5pMHdKZXpaNVpRbjVhLURScHFEdTBZT1dWTUdHNmY0a21sOFNaeDU5QVR3U3NUU2NMbzk5ZlJCdkpUc2ZCLVFRaHRTZk5EQmVLMlVrT2RrSTQzSk1zVkxuNDB6WnJVOUNmZEtJVTlJVEd4X3hqTnN0ZjhwNmhOd2RaYU8yYUNObGJ3QzRhb3haZ0dqaUlJRC1zamxwLXJwcFNYbmlFR1RpX3pMenFpSW5nZUdBY1lzNTlaWFQzTFBMMlJCeFgxZGVDbmhQd09pWU5iSnpweTN3dw?oc=5",
+          "source": "Port of Rotterdam",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "%*[[[MATCH THREAD>]* Everton W v Man Utd W WSL football Ｌｉｖｅ Ｓｔｒｅａｍｉｎｇ Ｆｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ 31 october 2026",
+          "url": "https://news.google.com/rss/articles/CBMiiANBVV95cUxNRTBRRjRFMnBBUEVhUTRsQl93OVM3UVVCTkcxTU1rT0VyYVU1bEs0OF96bnFnOW5jX0pENE9qVU1BQVctOXUwdk5kakNETnZuT25ES3dnMGRwQmJQY1d4ZW5BdHA3MGRaVmRtYkFRRzRfYV9JUlFGdk80bFg0dG1JaFZnYVotb2g5aXAwU2lsZzRjMjZpNVNreENRY1U0T1IzNDNQaVBIMjViTy1WNmwtTkxkYkJvS2VwZjRZZHA4bFRld0hXYUYtN1ZjVUNTSVZMYnVRWlRzMmY0SDhJUHBIQmZtb1lzcmVoMFlDd09nV0ZSTGVhOGNuWmR3NUl5REdRdnpVMVU1eHMyUFJSVVRucXN2YWNWWTYtTmpTbEtSdjd1ZzdKeUhWS2loZG9QeG9fS085MWhMVkk0T2QzQkxFdUlDLWIzWEx3RmZuaHItbTNoRkw1WkJibTJVcjgyUDJwajhDRjFjYnNybU45WmIzOFBjeTFiRERrT2FWR1NiMmFvN2wxakRBaw?oc=5",
+          "source": "Port of Rotterdam",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "[WATCHLIVE]ＴＯＤＡＹ!] Everton W v Manchester United W WSL football Live free tv! 31 october 2026",
+          "url": "https://news.google.com/rss/articles/CBMilwNBVV95cUxQS3llODV2S2k0dTVNc2RjZDJVQ2d2dmc5Nlc3ZnNiRnYzeTUxRmVTdGJPQUdCX1NpX1pyX0pYT3R6dWdod3JveUhLMnY1Q3J3aEZKUFRURFdRdnNYTUNzSU10MkttZFFMcVFaZTNKVjd3a2JQemhncjIyYTg4ZWF2X2ZfOGt1dFFmWVhwR2FDNllUOWpQZ1dHVXQ3R1FidWQ5RGZTV1ZqNk1OMWJYWTdXWVpyR2tPNzRldGVneklacW1UV1g5NVBEV0NrU3pwbG5EN1dZZmpYUnNYMU5DeDR4VjZZZjc2aXBPQjlqQXNMNjVJb1puU1hTY2RXVS1uTEN4Y1EzVEZCOXE1RzdwZ0QwbEZnRElFcjFIRHVDN0xCZEg0QW8teUl2QS1FaEZFUm9tanY5bWFhb05aNWQ1a3V4cm5VNDNjdDNYbUxLN0VDTzJFVG9zeE0wVW1FREN3Rk5mNEs1eE4tdGpXb1FqcFV6RHFzdjgxWFlBc0tBSlp2MFRFbkVMeGViMnJmRDRVRnoxb195TXhmbw?oc=5",
+          "source": "Port of Rotterdam",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Thierno Barry breaks silence after being burgled during Everton win over Newcastle",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQVEtPVkZSZ2xkaklvUUthRUl5ajI5NTlwV1hIaGJORzFxZURMTzY5dzQ3SHRScVctZkJSRnMxVVRza0JVYzU4UGJEUmZvV3E0UldTNWctQ0w1VmRoQnVkamlDTVFiZjlCbDV4eWFwSVF6RDZSVDFVaG1xS2ozYkV6S0YwSm9WYmJTajM3dUU4aU81ZEFqRXfSAZsBQVVfeXFMTWVyYUtYRlZXTVktZFk5OTRObnhzc3pCOWhLOGkzLWFubTR3cHBhRDFzSE5weUllUkdQUmstNEoxWnZQZEVmZ29FR18zNVVwSzAzN3FaMFptbTk1b2hMcHlQX3I5cENOSmRtQU13QktqR1ZSZDRyZmt6Rmd5d3pPNGhPYnRHaWplMzlrZXB0OEI3dndhOTNGWXo1d3M?oc=5",
+          "source": "The Mirror",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "'Never looked like a David Moyes signing' - Everton duo Brennan Johnson and Tyler Dibling questioned",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOcGlIbHc5SU11Qk9Ic0lkclNpMF81U1NTOEtQbS1xcDkxRzZqc3NxWVQzb01ySTBkM0dyVXVhVXhNNy1LUEgzQ19vaGlIWDR0ODBlaFZMb2RFbnZnSXZ5RmdOTjVGNjhSMnVQNlNaRVd0dGc4VjYtMXA3SXlyMEFWSnZVR05TNndPM2FyeUx5dDN5VjNqTkxJVG5sYjhGUjRp0gGmAUFVX3lxTE5PNG9lMzdSeC0xeUl1Ukt5U2VUR3pabFRYOTJZaUoxN3Bzak9qMWw3dVdfR3Z2ZkRsUEV5QkZfQ2k0RHBVbm5rYXRwQ0dWZlJzQ3JFaUtySnNmNEdueEpqS1FTc1cwdDJRTjR5UzRsYlVtSmo2QmhVSjNPLUpJNnlVYkJuaVZoUTdNbUhBTjN5Q2RibWRILWo4WlhDYXpBS2s4OG5yLVE?oc=5",
+          "source": "Liverpool Echo",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Everton star reveals photo album capturing life behind the scenes",
+          "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBJMFMtY3NfRm5WY0FsLVp0MGtYUnpROS11TGdsRG9QY1FJMzd1M0dzSXJVLUY0RWp2WDY5dzI1RDMzWVVrU0wxQ01DbG1vczhudUxRVmVpLTVPcWdvc2c?oc=5",
+          "source": "BBC",
+          "published": "2026-10-31"
+        }
       ]
     }
   },

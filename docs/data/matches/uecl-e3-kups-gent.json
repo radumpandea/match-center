@@ -1,12 +1,12 @@
 {
   "slug": "uecl-e3-kups-gent",
-  "generatedAt": "2026-10-30T12:42:03.898Z",
+  "generatedAt": "2026-10-31T11:26:04.795Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-10-30"
+      "accessed": "2026-10-31"
     }
   ],
   "competition": {
@@ -19,8 +19,15 @@
   "venue": {
     "name": "Tammelan Stadion",
     "capacity": null,
-    "city": null,
-    "notes": null
+    "city": "Tampere",
+    "notes": null,
+    "weather": {
+      "tempC": 4,
+      "condition": "cer clar",
+      "windKph": 20,
+      "precipitationMm": 0,
+      "forecastAt": "2026-10-31T11:26:05.937Z"
+    }
   },
   "referee": {
     "name": "n/d",
@@ -36,13 +43,48 @@
     "summary": null
   },
   "storyOfTheMatch": [
-    "KuPS — locul 31 după 1 etape, 0 puncte, golaveraj 2-4.",
-    "KuPS a păstrat poarta intactă în 1 din 1 etape.",
-    "Gent — locul 13 după 1 etape, 3 puncte, golaveraj 1-0.",
-    "Gent a păstrat poarta intactă în 5 din 1 etape.",
+    "KuPS — locul 34 după 2 etape, 0 puncte, golaveraj 2-6.",
+    "KuPS a păstrat poarta intactă în 1 din 2 etape.",
+    "Gent — locul 17 după 2 etape, 3 puncte, golaveraj 1-2.",
+    "Gent a păstrat poarta intactă în 5 din 2 etape.",
     "Gent — 2 din 5 goluri marcate după minutul 75."
   ],
-  "predictions": null,
+  "predictions": {
+    "winnerName": "Gent",
+    "winOrDraw": true,
+    "advice": "Double chance : draw or Gent",
+    "percent": {
+      "home": 10,
+      "draw": 45,
+      "away": 45
+    },
+    "comparison": {
+      "form": {
+        "home": 33,
+        "away": 67
+      },
+      "attack": {
+        "home": 44,
+        "away": 56
+      },
+      "defense": {
+        "home": 42,
+        "away": 58
+      },
+      "poisson": {
+        "home": 37,
+        "away": 63
+      },
+      "h2h": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": {
+        "home": 0,
+        "away": 0
+      }
+    }
+  },
   "teams": {
     "home": {
       "name": "KuPS",
@@ -64,14 +106,6 @@
             "period": "2025–prezent",
             "note": null
           }
-        ],
-        "funfacts": [
-          "Fotbalist finlandez, a jucat doar în liga a patra (Kolmonen), pentru Tuusulan Palloseura, trecând spre antrenorat la doar 17 ani, din interes pentru analiza tactică.",
-          "Deține licența UEFA Pro și o diplomă în Sports Coaching and Management la Haaga-Helia University of Applied Sciences; din iunie 2022 lucrează și ca comentator pentru Yle Sport.",
-          "A fost numit antrenor principal la Klubi 04, echipa a doua a lui HJK Helsinki, pe 30 noiembrie 2021, promovând echipa în noul Ykkönen la finalul anului 2023.",
-          "A condus TPS în Ykkösliiga din septembrie 2023, dar a plecat după un sezon din cauza problemelor financiare ale clubului.",
-          "La HJK Helsinki a devenit antrenor interimar în mai 2025 și a câștigat Cupa Finlandei 2025, învingând KuPS cu 1-0 în finală.",
-          "Pe 19 decembrie 2025 a fost numit antrenorul lui KuPS, pe un contract de doi ani cu opțiune pentru al treilea sezon."
         ]
       },
       "formation": "n/d",
@@ -107,23 +141,23 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 3,
+            "minutes": 180,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.9,
-            "conceded": 4,
-            "saves": 4,
+            "rating": 7.8,
+            "conceded": 6,
+            "saves": 14,
             "shotsTotal": null,
             "shotsOn": null,
-            "passesTotal": 39,
+            "passesTotal": 74,
             "passesKey": null,
-            "passesAccuracy": 66,
-            "tacklesTotal": null,
+            "passesAccuracy": 72,
+            "tacklesTotal": 1,
             "tacklesBlocks": null,
-            "tacklesInterceptions": null,
-            "duelsTotal": null,
-            "duelsWon": null,
+            "tacklesInterceptions": 1,
+            "duelsTotal": 1,
+            "duelsWon": 1,
             "dribblesAttempts": null,
             "dribblesSuccess": null,
             "dribblesPast": null,
@@ -282,7 +316,7 @@
             "apps": 3,
             "yellow": 1,
             "red": null,
-            "rating": 6.3,
+            "rating": 6.9,
             "conceded": 0,
             "saves": null,
             "shotsTotal": null,
@@ -290,11 +324,11 @@
             "passesTotal": 39,
             "passesKey": null,
             "passesAccuracy": 89,
-            "tacklesTotal": 2,
+            "tacklesTotal": 3,
             "tacklesBlocks": 1,
             "tacklesInterceptions": 1,
-            "duelsTotal": 5,
-            "duelsWon": 5,
+            "duelsTotal": 6,
+            "duelsWon": 6,
             "dribblesAttempts": 2,
             "dribblesSuccess": 2,
             "dribblesPast": null,
@@ -476,28 +510,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 307,
-            "apps": 17,
-            "yellow": 1,
+            "minutes": 12,
+            "apps": 1,
+            "yellow": 0,
             "red": null,
-            "rating": 5.18,
+            "rating": 6.5,
             "conceded": 0,
-            "saves": 0,
-            "shotsTotal": 1,
-            "shotsOn": 0,
-            "passesTotal": 149,
-            "passesKey": 4,
-            "passesAccuracy": 76,
-            "tacklesTotal": 5,
-            "tacklesBlocks": 0,
-            "tacklesInterceptions": 5,
-            "duelsTotal": 52,
-            "duelsWon": 29,
-            "dribblesAttempts": 9,
-            "dribblesSuccess": 7,
+            "saves": null,
+            "shotsTotal": null,
+            "shotsOn": null,
+            "passesTotal": 8,
+            "passesKey": null,
+            "passesAccuracy": 62,
+            "tacklesTotal": null,
+            "tacklesBlocks": null,
+            "tacklesInterceptions": null,
+            "duelsTotal": 1,
+            "duelsWon": null,
+            "dribblesAttempts": null,
+            "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": 9,
-            "foulsCommitted": 1,
+            "foulsDrawn": null,
+            "foulsCommitted": null,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -533,21 +567,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
-            "apps": 0,
+            "minutes": 30,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": null,
+            "rating": 7,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": null,
+            "shotsTotal": 1,
             "shotsOn": null,
-            "passesTotal": null,
-            "passesKey": null,
-            "passesAccuracy": null,
+            "passesTotal": 21,
+            "passesKey": 1,
+            "passesAccuracy": 90,
             "tacklesTotal": null,
             "tacklesBlocks": null,
-            "tacklesInterceptions": null,
+            "tacklesInterceptions": 1,
             "duelsTotal": null,
             "duelsWon": null,
             "dribblesAttempts": null,
@@ -590,28 +624,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 1,
-            "yellow": 0,
+            "minutes": 180,
+            "apps": 2,
+            "yellow": 1,
             "red": null,
-            "rating": 7.3,
+            "rating": 7.1,
             "conceded": 0,
             "saves": null,
             "shotsTotal": null,
             "shotsOn": null,
-            "passesTotal": 53,
+            "passesTotal": 139,
             "passesKey": null,
-            "passesAccuracy": 90,
-            "tacklesTotal": 4,
-            "tacklesBlocks": 3,
+            "passesAccuracy": 92,
+            "tacklesTotal": 5,
+            "tacklesBlocks": 4,
             "tacklesInterceptions": null,
-            "duelsTotal": 7,
-            "duelsWon": 4,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "duelsTotal": 16,
+            "duelsWon": 8,
+            "dribblesAttempts": 1,
+            "dribblesSuccess": 1,
             "dribblesPast": null,
             "foulsDrawn": null,
-            "foulsCommitted": 1,
+            "foulsCommitted": 3,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -647,28 +681,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
-            "apps": 2,
+            "minutes": 90,
+            "apps": 3,
             "yellow": 1,
             "red": null,
-            "rating": null,
+            "rating": 7.3,
             "conceded": 0,
             "saves": null,
             "shotsTotal": null,
             "shotsOn": null,
-            "passesTotal": null,
+            "passesTotal": 39,
             "passesKey": null,
-            "passesAccuracy": null,
-            "tacklesTotal": null,
-            "tacklesBlocks": null,
-            "tacklesInterceptions": null,
-            "duelsTotal": null,
-            "duelsWon": null,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "passesAccuracy": 89,
+            "tacklesTotal": 3,
+            "tacklesBlocks": 2,
+            "tacklesInterceptions": 2,
+            "duelsTotal": 12,
+            "duelsWon": 8,
+            "dribblesAttempts": 2,
+            "dribblesSuccess": 2,
             "dribblesPast": null,
-            "foulsDrawn": null,
-            "foulsCommitted": null,
+            "foulsDrawn": 2,
+            "foulsCommitted": 1,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -704,27 +738,27 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 2,
+            "minutes": 168,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 5.6,
+            "rating": 6.25,
             "conceded": 0,
             "saves": null,
             "shotsTotal": null,
             "shotsOn": null,
-            "passesTotal": 24,
-            "passesKey": 1,
-            "passesAccuracy": 79,
-            "tacklesTotal": null,
+            "passesTotal": 46,
+            "passesKey": 3,
+            "passesAccuracy": 80,
+            "tacklesTotal": 3,
             "tacklesBlocks": null,
             "tacklesInterceptions": 1,
-            "duelsTotal": 3,
-            "duelsWon": null,
+            "duelsTotal": 7,
+            "duelsWon": 4,
             "dribblesAttempts": 1,
             "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": null,
+            "foulsDrawn": 1,
             "foulsCommitted": null,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -876,27 +910,27 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 1,
+            "minutes": 180,
+            "apps": 2,
             "yellow": 1,
             "red": null,
-            "rating": 6.2,
+            "rating": 7.05,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": null,
-            "shotsOn": null,
-            "passesTotal": 22,
+            "shotsTotal": 2,
+            "shotsOn": 2,
+            "passesTotal": 91,
             "passesKey": null,
-            "passesAccuracy": 81,
-            "tacklesTotal": 1,
+            "passesAccuracy": 89,
+            "tacklesTotal": 3,
             "tacklesBlocks": null,
-            "tacklesInterceptions": null,
-            "duelsTotal": 6,
-            "duelsWon": 3,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "tacklesInterceptions": 2,
+            "duelsTotal": 20,
+            "duelsWon": 13,
+            "dribblesAttempts": 3,
+            "dribblesSuccess": 2,
             "dribblesPast": null,
-            "foulsDrawn": 2,
+            "foulsDrawn": 8,
             "foulsCommitted": 1,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -994,7 +1028,7 @@
             "apps": 13,
             "yellow": 0,
             "red": null,
-            "rating": 3.73,
+            "rating": 3.27,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 0,
@@ -1047,28 +1081,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 26,
-            "apps": 3,
+            "minutes": 116,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 6.7,
+            "rating": 6.6,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": null,
+            "shotsTotal": 1,
             "shotsOn": null,
-            "passesTotal": 12,
+            "passesTotal": 60,
             "passesKey": 1,
-            "passesAccuracy": 83,
-            "tacklesTotal": 2,
+            "passesAccuracy": 91,
+            "tacklesTotal": 3,
             "tacklesBlocks": null,
-            "tacklesInterceptions": 1,
-            "duelsTotal": 8,
-            "duelsWon": 4,
-            "dribblesAttempts": 1,
+            "tacklesInterceptions": 4,
+            "duelsTotal": 18,
+            "duelsWon": 7,
+            "dribblesAttempts": 2,
             "dribblesSuccess": 1,
             "dribblesPast": null,
-            "foulsDrawn": 1,
-            "foulsCommitted": 1,
+            "foulsDrawn": 3,
+            "foulsCommitted": 2,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -1081,12 +1115,12 @@
           "number": 13,
           "name": "Niilo Kujasalo",
           "photo": "https://media.api-sports.io/football/players/358156.png",
-          "pos": "DEF",
+          "pos": "MID",
           "positions": [
-            "DEF",
-            "MID"
+            "MID",
+            "DEF"
           ],
-          "role": "DEF",
+          "role": "MID",
           "age": 22,
           "height": null,
           "weight": null,
@@ -1105,27 +1139,27 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 2,
+            "minutes": 150,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 5.6,
+            "rating": 6.05,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 1,
+            "shotsTotal": 2,
             "shotsOn": null,
-            "passesTotal": 33,
-            "passesKey": 1,
-            "passesAccuracy": 81,
-            "tacklesTotal": 1,
+            "passesTotal": 59,
+            "passesKey": 2,
+            "passesAccuracy": 86,
+            "tacklesTotal": 3,
             "tacklesBlocks": null,
             "tacklesInterceptions": 1,
-            "duelsTotal": 4,
-            "duelsWon": 2,
-            "dribblesAttempts": 1,
+            "duelsTotal": 11,
+            "duelsWon": 6,
+            "dribblesAttempts": 2,
             "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": 1,
+            "foulsDrawn": 2,
             "foulsCommitted": null,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -1219,27 +1253,27 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 64,
-            "apps": 3,
+            "minutes": 88,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 7.6,
+            "rating": 7.15,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 1,
+            "shotsTotal": 2,
             "shotsOn": 1,
-            "passesTotal": 34,
-            "passesKey": 1,
-            "passesAccuracy": 85,
+            "passesTotal": 50,
+            "passesKey": 2,
+            "passesAccuracy": 86,
             "tacklesTotal": 2,
             "tacklesBlocks": 1,
             "tacklesInterceptions": 1,
-            "duelsTotal": 8,
-            "duelsWon": 5,
+            "duelsTotal": 11,
+            "duelsWon": 6,
             "dribblesAttempts": null,
             "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": 3,
+            "foulsDrawn": 4,
             "foulsCommitted": 2,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -1360,28 +1394,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 16,
-            "apps": 3,
+            "minutes": 82,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 6.6,
+            "rating": 6.75,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 1,
             "shotsOn": null,
-            "passesTotal": 20,
-            "passesKey": null,
-            "passesAccuracy": 95,
-            "tacklesTotal": null,
+            "passesTotal": 79,
+            "passesKey": 1,
+            "passesAccuracy": 89,
+            "tacklesTotal": 2,
             "tacklesBlocks": null,
-            "tacklesInterceptions": 1,
-            "duelsTotal": 2,
-            "duelsWon": 1,
-            "dribblesAttempts": 1,
-            "dribblesSuccess": null,
+            "tacklesInterceptions": 2,
+            "duelsTotal": 11,
+            "duelsWon": 5,
+            "dribblesAttempts": 3,
+            "dribblesSuccess": 1,
             "dribblesPast": null,
-            "foulsDrawn": null,
-            "foulsCommitted": null,
+            "foulsDrawn": 1,
+            "foulsCommitted": 2,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -1418,28 +1452,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 27,
-            "apps": 1,
+            "minutes": 87,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 6.5,
+            "rating": 6.4,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": null,
-            "shotsOn": null,
-            "passesTotal": 2,
-            "passesKey": null,
-            "passesAccuracy": 100,
+            "shotsTotal": 2,
+            "shotsOn": 1,
+            "passesTotal": 16,
+            "passesKey": 1,
+            "passesAccuracy": 62,
             "tacklesTotal": 1,
             "tacklesBlocks": null,
-            "tacklesInterceptions": 1,
-            "duelsTotal": 4,
-            "duelsWon": 1,
-            "dribblesAttempts": 1,
-            "dribblesSuccess": null,
+            "tacklesInterceptions": 2,
+            "duelsTotal": 17,
+            "duelsWon": 4,
+            "dribblesAttempts": 5,
+            "dribblesSuccess": 2,
             "dribblesPast": null,
             "foulsDrawn": null,
-            "foulsCommitted": 1,
+            "foulsCommitted": 3,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -1476,28 +1510,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 63,
-            "apps": 3,
+            "minutes": 93,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.9,
+            "rating": 6.7,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 1,
             "shotsOn": 1,
-            "passesTotal": 15,
+            "passesTotal": 18,
             "passesKey": null,
-            "passesAccuracy": 66,
-            "tacklesTotal": 1,
+            "passesAccuracy": 72,
+            "tacklesTotal": 2,
             "tacklesBlocks": null,
             "tacklesInterceptions": 1,
-            "duelsTotal": 9,
-            "duelsWon": 4,
-            "dribblesAttempts": 3,
+            "duelsTotal": 16,
+            "duelsWon": 5,
+            "dribblesAttempts": 6,
             "dribblesSuccess": 1,
             "dribblesPast": null,
             "foulsDrawn": 1,
-            "foulsCommitted": null,
+            "foulsCommitted": 2,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -1534,27 +1568,27 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 27,
-            "apps": 3,
+            "minutes": 92,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 8,
+            "rating": 7.3,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 2,
             "shotsOn": 2,
-            "passesTotal": 9,
-            "passesKey": null,
-            "passesAccuracy": 88,
+            "passesTotal": 31,
+            "passesKey": 1,
+            "passesAccuracy": 83,
             "tacklesTotal": 2,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 4,
-            "duelsWon": 3,
-            "dribblesAttempts": 2,
-            "dribblesSuccess": 1,
+            "duelsTotal": 8,
+            "duelsWon": 5,
+            "dribblesAttempts": 4,
+            "dribblesSuccess": 2,
             "dribblesPast": null,
-            "foulsDrawn": null,
+            "foulsDrawn": 1,
             "foulsCommitted": null,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -1628,7 +1662,8 @@
           "photo": "https://media.api-sports.io/football/players/264134.png",
           "pos": "MID",
           "positions": [
-            "MID"
+            "MID",
+            "ATT"
           ],
           "role": "MID",
           "age": 23,
@@ -1706,24 +1741,24 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 16,
-            "apps": 3,
+            "minutes": 41,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.7,
+            "rating": 6.5,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 2,
             "shotsOn": 1,
-            "passesTotal": 5,
+            "passesTotal": 7,
             "passesKey": null,
-            "passesAccuracy": 100,
-            "tacklesTotal": null,
+            "passesAccuracy": 85,
+            "tacklesTotal": 1,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 6,
-            "duelsWon": 1,
-            "dribblesAttempts": 2,
+            "duelsTotal": 14,
+            "duelsWon": 4,
+            "dribblesAttempts": 3,
             "dribblesSuccess": 1,
             "dribblesPast": null,
             "foulsDrawn": null,
@@ -1763,27 +1798,27 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 74,
-            "apps": 3,
+            "minutes": 164,
+            "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 6.3,
+            "rating": 6.65,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 5,
             "shotsOn": 2,
-            "passesTotal": 8,
+            "passesTotal": 29,
             "passesKey": 1,
-            "passesAccuracy": 87,
+            "passesAccuracy": 68,
             "tacklesTotal": null,
             "tacklesBlocks": null,
             "tacklesInterceptions": 1,
-            "duelsTotal": 8,
-            "duelsWon": 3,
+            "duelsTotal": 18,
+            "duelsWon": 11,
             "dribblesAttempts": 1,
             "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": 2,
+            "foulsDrawn": 3,
             "foulsCommitted": 4,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -1910,21 +1945,1630 @@
       ],
       "form": {
         "last5": [
+          "L",
           "L"
         ],
         "ppg": 0,
-        "homeAway": "Acasă 0-0-1, deplasare 0-0-0",
-        "position": 31,
-        "note": "Clasament 2026/27: locul 31, 0p (2-4)",
+        "homeAway": "Acasă 0-0-1, deplasare 0-0-1",
+        "position": 34,
+        "note": "Clasament 2026/27: locul 34, 0p (2-6)",
         "table": {
-          "played": 1,
+          "played": 2,
           "win": 0,
           "draw": 0,
-          "loss": 1,
+          "loss": 2,
           "gf": 2,
-          "ga": 4,
+          "ga": 6,
           "points": 0
         },
+        "recent": [
+          {
+            "date": "2026-10-29",
+            "opp": "Gnistan",
+            "homeAway": "H",
+            "comp": "Veikkausliiga",
+            "score": "1-1",
+            "result": "D",
+            "referee": "Oliver Reitala",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "5-4-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Kreidl",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Savolainen",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Magassa",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Hämäläinen",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Antwi",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Gasc",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Pasanen",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Luyeye-Lutumba",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Engvall",
+                  "number": 9,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Armah",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Moreno",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "O. Virtanen",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "B. Milovanov",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Eremenko",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Obileye",
+                  "number": 67,
+                  "pos": "D"
+                },
+                {
+                  "name": "Ruxi",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Pérez",
+                  "number": 11,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Eremenko",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Jouhi",
+                  "number": 31,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Europaeus",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Latonen",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Atarah",
+                  "number": 7,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 15,
+                "side": "us",
+                "type": "goal",
+                "player": "Saku Savolainen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 27,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Danny Pérez",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 31,
+                "side": "us",
+                "type": "yellow",
+                "player": "Valentin Gasc",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 43,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jaime Moreno",
+                "playerIn": "Piotr Parzyszek"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gustav Engvall",
+                "playerIn": "Tommi Jyry"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Samuel Pasanen",
+                "playerIn": "Julius Eskesen"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Artur Atarah",
+                "playerIn": "Kosmo Launiala"
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "owngoal",
+                "player": "Brahima Magassa",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Clinton Antwi",
+                "playerIn": "Saku Heiskanen"
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Roman Eremenko",
+                "playerIn": "Otto Hannula"
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Kosmo Launiala",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "yellow",
+                "player": "Julius Eskesen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Joakim Latonen",
+                "playerIn": "Juhani Ojala"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-25",
+            "opp": "HJK Helsinki",
+            "homeAway": "A",
+            "comp": "Veikkausliiga",
+            "score": "2-2",
+            "result": "D",
+            "referee": "Dennis Antamo",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Kreidl",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Savolainen",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Hamalainen",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Lotjonen",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Antwi",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. R. Gasc",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Pasanen",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Luyeye-Lutumba",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Pennanen",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Armah",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. J. Moreno Ciorciari",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Samooja",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "N. Alho",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Bogicevic",
+                  "number": 31,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Tikkanen",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Montano",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Ring",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Mentu",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Moller",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Haarala",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Cicale",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Borchers",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 43,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Liam Möller",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 44,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Alexander Ring",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 53,
+                "side": "opp",
+                "type": "goal",
+                "player": "Liam Möller",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "us",
+                "type": "goal",
+                "player": "Petteri Pennanen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 56,
+                "side": "us",
+                "type": "goal",
+                "player": "Jaime Moreno",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Alfie Cicale",
+                "playerIn": "Lassi Lappalainen"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Joslyn Lutumba Luyeye",
+                "playerIn": "Tommi Jyry"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Samuel Pasanen",
+                "playerIn": "Julius Eskesen"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Alexander Ring",
+                "playerIn": "Joona Veteli"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Liam Möller",
+                "playerIn": "Teemu Pukki"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "goal",
+                "player": "Nikolai Alho",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "yellow",
+                "player": "Julius Eskesen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Nikolai Alho",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "yellow",
+                "player": "Petteri Pennanen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Bob Nii Armah",
+                "playerIn": "Gustav Engvall"
+              },
+              {
+                "minute": 83,
+                "side": "us",
+                "type": "yellow",
+                "player": "Arttu Lötjönen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jaime Moreno",
+                "playerIn": "Piotr Parzyszek"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-22",
+            "opp": "Borac Banja Luka",
+            "homeAway": "A",
+            "comp": "UEFA Europa Conference League",
+            "score": "0-2",
+            "result": "L",
+            "referee": "I. O. Kristjansson",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Kreidl",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Puukko",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Magassa",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Lotjonen",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Kujasalo",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Touray",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Eskesen",
+                  "number": 34,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Aiki",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Jyry",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Engvall",
+                  "number": 9,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Parzyszek",
+                  "number": 20,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Jurkas",
+                  "number": 72,
+                  "pos": "G"
+                },
+                {
+                  "name": "B. Cipetic",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Meijers",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Sanicanin",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Herrera",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Roguljic",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Jojic",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Hiros",
+                  "number": 12,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Savic",
+                  "number": 77,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Deket",
+                  "number": 89,
+                  "pos": "F"
+                },
+                {
+                  "name": "L. Juricic",
+                  "number": 7,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 18,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Luka Juričić",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 29,
+                "side": "opp",
+                "type": "goal",
+                "player": "S. Savic",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 50,
+                "side": "opp",
+                "type": "goal",
+                "player": "M. Deket",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Kujasalo",
+                "playerIn": "Jorginho"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Aiki",
+                "playerIn": "B. Armah"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Engvall",
+                "playerIn": "J. J. Moreno Ciorciari"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Touray",
+                "playerIn": "P. Pennanen"
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Roguljic",
+                "playerIn": "S. Ogrinec"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Sebastian Herrera",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Deket",
+                "playerIn": "N. Jaksic"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Savic",
+                "playerIn": "D. Vukovic"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Puukko",
+                "playerIn": "S. Heiskanen"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Arttu Lötjönen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Cipetic",
+                "playerIn": "V. Rogan"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Juricic",
+                "playerIn": "S. Vranjes"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-18",
+            "opp": "VPS",
+            "homeAway": "H",
+            "comp": "Veikkausliiga",
+            "score": "2-0",
+            "result": "W",
+            "referee": "Antti Munukka",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "3-4-1-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Kreidl",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Savolainen",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Hamalainen",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Lotjonen",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Antwi",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. R. Gasc",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Pasanen",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Luyeye-Lutumba",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Pennanen",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Armah",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. J. Moreno Ciorciari",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Jalloh",
+                  "number": 41,
+                  "pos": "G"
+                },
+                {
+                  "name": "L. Mane",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Okereke",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Niemi",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Kouassivi-Benissan",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Raisanen",
+                  "number": 34,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Lima",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Turfkruier",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Vahtera",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "X. Odhiambo",
+                  "number": 20,
+                  "pos": "F"
+                },
+                {
+                  "name": "C. Holmelund",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 3,
+                "side": "us",
+                "type": "yellow",
+                "player": "Arttu Lötjönen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 11,
+                "side": "us",
+                "type": "goal",
+                "player": "J. J. Moreno Ciorciari",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 24,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Casper Holmelund",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 34,
+                "side": "us",
+                "type": "goal",
+                "player": "B. Armah",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Holmelund",
+                "playerIn": "H. Salomaa"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "X. Odhiambo",
+                "playerIn": "W. Samake"
+              },
+              {
+                "minute": 49,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Jayden Turfkruier",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Pennanen",
+                "playerIn": "S. Touray"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Pasanen",
+                "playerIn": "G. Engvall"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Raisanen",
+                "playerIn": "O. Ogunniyi"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Vahtera",
+                "playerIn": "S. Lindholm"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Armah",
+                "playerIn": "J. Eskesen"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. J. Moreno Ciorciari",
+                "playerIn": "P. Parzyszek"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "yellow",
+                "player": "Valentin Gasc",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Kouassivi-Benissan",
+                "playerIn": "D. Terrnava"
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Savolainen",
+                "playerIn": "A. Puukko"
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Dren terrnava",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-15",
+            "opp": "Trabzonspor",
+            "homeAway": "H",
+            "comp": "UEFA Europa Conference League",
+            "score": "2-4",
+            "result": "L",
+            "referee": "I. Barbara",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Kreidl",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Puukko",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Adams",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Lotjonen",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Kujasalo",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Pasanen",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Pennanen",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Luyeye-Lutumba",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Eskesen",
+                  "number": 34,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Armah",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Parzyszek",
+                  "number": 20,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "A. Onana",
+                  "number": 24,
+                  "pos": "G"
+                },
+                {
+                  "name": "W. Pina",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Akaydin",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Ozkacar",
+                  "number": 39,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Kabasakal",
+                  "number": 57,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Bouchouari",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Mendy",
+                  "number": 3,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Tufan",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Salah",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "P. Onuachu",
+                  "number": 30,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Simsir",
+                  "number": 58,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 3,
+                "side": "opp",
+                "type": "goal",
+                "player": "P. Onuachu",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 10,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Onuachu",
+                "playerIn": "Franculino"
+              },
+              {
+                "minute": 21,
+                "side": "us",
+                "type": "yellow",
+                "player": "Julius Eskesen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 24,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Samet Akaydın",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 34,
+                "side": "us",
+                "type": "yellow",
+                "player": "Piotr Parzyszek",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 44,
+                "side": "opp",
+                "type": "goal",
+                "player": "M. Salah",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 47,
+                "side": "opp",
+                "type": "goal",
+                "player": "Franculino",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 51,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Batista Mendy",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 54,
+                "side": "us",
+                "type": "goal",
+                "player": "P. Pennanen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Mendy",
+                "playerIn": "Fabinho"
+              },
+              {
+                "minute": 55,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. Tufan",
+                "playerIn": "T. Jabol-Folcarelli"
+              },
+              {
+                "minute": 55,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Salah",
+                "playerIn": "N. Saviolo"
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "goal",
+                "player": "Piotr Parzyszek",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Pennanen",
+                "playerIn": "T. Jyry"
+              },
+              {
+                "minute": 63,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Armah",
+                "playerIn": "A. Aiki"
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Luyeye-Lutumba",
+                "playerIn": "G. Engvall"
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Pasanen",
+                "playerIn": "S. Touray"
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Parzyszek",
+                "playerIn": "J. J. Moreno Ciorciari"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Simsir",
+                "playerIn": "E. Muci"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "yellow",
+                "player": "Kasim Adams",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "goal",
+                "player": "Franculino",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "goal",
+                "player": "G. Engvall",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-11",
+            "opp": "Inter Turku",
+            "homeAway": "A",
+            "comp": "Veikkausliiga",
+            "score": "0-1",
+            "result": "L",
+            "referee": "Mohammad Al-Emara, Finland",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Kreidl",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Puukko",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Magassa",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Lotjonen",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Antwi",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. R. Gasc",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Pennanen",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Armah",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Jyry",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Touray",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. J. Moreno Ciorciari",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "E. Huuhtanen",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Granlund",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Kuittinen",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Ivanov",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Niska",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Tuominen",
+                  "number": 9,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Laine",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Kiiskila",
+                  "number": 35,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Laine",
+                  "number": 28,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Conteh",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "C. Jephta",
+                  "number": 16,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 5,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Luka Kuittinen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 12,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Eeli Kiiskilä",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 24,
+                "side": "us",
+                "type": "yellow",
+                "player": "Clinton Antwi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "yellow",
+                "player": "Valentin Gasc",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Armah",
+                "playerIn": "A. Aiki"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "red",
+                "player": "Brahima Magassa",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Jyry",
+                "playerIn": "T. Hamalainen"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Laine",
+                "playerIn": "H. Sjogrell"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Puukko",
+                "playerIn": "S. Savolainen"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Touray",
+                "playerIn": "J. Eskesen"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. J. Moreno Ciorciari",
+                "playerIn": "P. Parzyszek"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "goal",
+                "player": "C. Jephta",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Kiiskila",
+                "playerIn": "J. Yli-Kokko"
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "yellow",
+                "player": "Miika Nuutinen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Tuominen",
+                "playerIn": "I. Jarvinen"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Conteh",
+                "playerIn": "J. Botue"
+              }
+            ]
+          }
+        ],
+        "next": [
+          {
+            "date": "2026-11-01",
+            "opp": "AC Oulu",
+            "homeAway": "A",
+            "comp": "Veikkausliiga"
+          },
+          {
+            "date": "2026-11-05",
+            "opp": "Gent",
+            "homeAway": "H",
+            "comp": "UEFA Europa Conference League"
+          },
+          {
+            "date": "2026-11-08",
+            "opp": "Inter Turku",
+            "homeAway": "H",
+            "comp": "Veikkausliiga"
+          }
+        ],
         "stats": {
           "goalsForByInterval": {
             "46-60": 1,
@@ -1932,8 +3576,9 @@
           },
           "goalsAgainstByInterval": {
             "0-15": 1,
+            "16-30": 1,
             "31-45": 1,
-            "46-60": 2,
+            "46-60": 3,
             "61-75": 1,
             "76-90": 1
           },
@@ -1942,21 +3587,21 @@
             "31-45": 1,
             "61-75": 1,
             "76-90": 2,
-            "91-105": 1
+            "91-105": 2
           },
           "cardsRedByInterval": null,
-          "goalsForAvg": 1.3,
-          "goalsAgainstAvg": 1.7,
+          "goalsForAvg": 1,
+          "goalsAgainstAvg": 1.8,
           "goalsForAvgHome": 1.5,
-          "goalsForAvgAway": 1,
+          "goalsForAvgAway": 0.5,
           "goalsAgainstAvgHome": 2,
-          "goalsAgainstAvgAway": 1,
+          "goalsAgainstAvgAway": 1.5,
           "cleanSheets": 1,
           "cleanSheetsHome": 1,
           "cleanSheetsAway": 0,
-          "failedToScore": 0,
+          "failedToScore": 1,
           "failedToScoreHome": 0,
-          "failedToScoreAway": 0,
+          "failedToScoreAway": 1,
           "penaltyScored": 0,
           "penaltyScoredPct": 0,
           "penaltyMissed": 1,
@@ -1964,7 +3609,7 @@
           "formations": [
             {
               "formation": "4-2-3-1",
-              "played": 3
+              "played": 4
             }
           ],
           "biggestStreak": {
@@ -1975,17 +3620,17 @@
           "biggestWinHome": "1-0",
           "biggestWinAway": null,
           "biggestLossHome": "2-4",
-          "biggestLossAway": null,
+          "biggestLossAway": "2-0",
           "biggestGoalsForHome": 2,
           "biggestGoalsForAway": 1,
           "biggestGoalsAgainstHome": 4,
-          "biggestGoalsAgainstAway": 1,
+          "biggestGoalsAgainstAway": 2,
           "winsHome": 1,
           "winsAway": 0,
           "drawsHome": 0,
           "drawsAway": 1,
           "losesHome": 1,
-          "losesAway": 0
+          "losesAway": 1
         }
       },
       "absences": [],
@@ -2014,21 +3659,6 @@
           "name": "S. Touray",
           "from": "Bourg-en-bresse 01",
           "fee": null
-        },
-        {
-          "name": "P. Parzyszek",
-          "from": "Pakhtakor",
-          "fee": null
-        },
-        {
-          "name": "T. Jyry",
-          "from": "Petrolul Ploiesti",
-          "fee": null
-        },
-        {
-          "name": "T. Hämäläinen",
-          "from": "ADO Den Haag",
-          "fee": null
         }
       ],
       "mercatoOut": [
@@ -2036,21 +3666,29 @@
           "name": "K. Ward",
           "to": "Mariehamn (împrumut)",
           "fee": null
-        },
-        {
-          "name": "O. Ruoppi",
-          "to": "FSV Mainz 05 (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "T. Hämäläinen",
-          "to": "ADO Den Haag (împrumut)",
-          "fee": null
         }
       ],
       "preseason": [],
       "news": [],
       "newsCandidates": [
+        {
+          "title": "Oulu vs KuPS: Finnish Veikkausliiga stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9WMUNYMHR0Q19QNW5UTWl1cHlSV20zVURlaVJudWVEdWx0YlR0eGdONlJOckdfNVk3UHZQSWtuaU5GOGxXelpwcUVnbThkaDhlZ1MyTXVqM01NZE1Cbkx0R0ZiSQ?oc=5",
+          "source": "BBC",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Conference League league phase fixtures and results by team",
+          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPREZnWnpibklqTXZWckxBcGN1ZnBQZDlrUTQ5emx2TlRISzNtU3QtRXl4V0h3cHNkc2g4R0RvS2pSNGZRV0hXQl9iU3VuQW16VFp3TWxrNWUxbE1UYjAwRVNQTnlxTy1lRzdyRXpFeS1JM21ZUU9TZmxBNHBkUHAyVWRYVEhIbzMwdjVWNV9zYmNFWF9SN05BQ0ZEejRpWG1aLTU1bm84OVVpN01SZ2ZEV0tvN0tzX2NEb3I4X3h0MmJXR0JJSjJKdERJUEdZT2lZczFUM0xEcXNmQ0dL?oc=5",
+          "source": "UEFA.com",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "2026/27 Conference League: All the league phase fixtures and results",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQWWktU0MxdWtfYnVtNlg3RzRmRWJ4Ql96blVpOUhtLUptMHNjRnRPS2k5eER5SlJSck9sYjIzVFlFT2ZOR3EtaGw4RDZnWE5CYVV4VklxZEY2T05TZHU1bjdraWxsQlpSUU9aZGJIYjFmcG9yMmhMUHBwYTZKUmJHNDNpSnh5MmFDanFEYnljbDdvRDFjOHVXbEwxNk1NenRMVnF4M3c5bVRwYmxJak81QVNPTUhHbG1tLUljVFB1SWROcWs4b2U5SXJkX0dYZnNwWFgtclFsU0hzdw?oc=5",
+          "source": "UEFA.com",
+          "published": "2026-10-31"
+        },
         {
           "title": "Veikkausliiga - KuPS 1-1 Gnistan, European Leagues+",
           "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9TQTB2Zk0tQVBiNHZCc3RaMm5qZTQtOHNEb2NEb3J1Nk9MRE1JY0dUclZFd3NUR0ZqXzR4MGtuYmdWVzVPWG9vZW82bTl5YlJ5QThTWmlOclpraVRfdlJkMDBCSDBONDhRYl9ma1pOd2ZCYUpOQ0RRVzkwTQ?oc=5",
@@ -2064,40 +3702,22 @@
           "published": "2026-10-30"
         },
         {
-          "title": "Veikkausliiga - KuPS 1 - 1 Gnistan",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPeGY5NlhYYlNSSWNkSjJzZElCcDBQcHBialBvQUVtbFV1UmpscHFhUjJEWHgyZjBMM2U1akxoRjdWWnNCbDk0U1BkakZfbkRDdFB0bl8zM243Szk5QjRBQURRUzZjc2tMY1FQYllfamdaYmFKZC10OENWOGRiU1EwN2hVRTIxU3I4VEgxTmpjc3NpNFo5N3c?oc=5",
-          "source": "OneFootball",
-          "published": "2026-10-29"
+          "title": "KuPS Kuopio vs. KAA Gent Live Stream of UEFA Conference League",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5WdUJGbGVxbS0xbHZ5Z3djTEl4S21JSFcxM3JkdEJpaUZacU9MdDJ6bElxNFJ3aTFKaXlvQzlTZ0E5MW1WZjNxckdBWkZyc0IzOWtFSWVQV2trRWUxby1hTkZuYU91MTVvZ0VkR3pmN0lETnd0eWRj?oc=5",
+          "source": "CBS Sports",
+          "published": "2026-10-30"
         },
         {
-          "title": "Watch Borac Banja Luka vs KuPS",
-          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQazZGZENaZTNaWVpvNDZULTFlZW1wMGh0QURNZDdnc2JhbzIzUElaS0RQTFVuM2d0ZHBMaHZ6bnhabUNmdGZNTGYwazNIaWFYZ0l2WW9ERm1aVmZkZnRfOGdyME5KMlhwb1pkZGwwSmNPRkVaSEF1ZlNVMTFDZ09OOEdKaTNZcTVJS1VjNnFGRlZBUWtzNnNLWk5rSlFXUUtEYTRsZkZFdFlWQQ?oc=5",
-          "source": "TOD",
-          "published": "2026-10-29"
+          "title": "AGF Aarhus vs. Braga 5 November 2026 | H2H, Betting Tips & Odds",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNaTFkSDhucjF0TTBSeVBLT1hnem5meU83dmFxZ2V5S3pkRmNoNVI4UE4tRFJnak9BV0FubG4xMkRId0c1c2tNRjE5dHhsTDlXamJfT2tvV2tmTzJDWXNfY2d6bk9RX1hXZFRkaFFGTTVQcGlTbURYLUhNNE9hUmJxVw?oc=5",
+          "source": "online-bookmakers.com",
+          "published": "2026-10-30"
         },
         {
-          "title": "Watch KuPS vs Trabzonspor",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOTXhNeEJWYzRsWmZLOUtQVkxNNEhJdU8yUF9VR0RNanBlVUtsbWY0bjBqcTFYUTNQNkI0enJLMnZ5cTcwaWlkcVhhRERjSDVfdXJBa0QzWjRvOW1wWnQ4Z1djN3BrbWxWWnVpeEVRcERMdm9IYmhxMXNPSEhLTWpzSmtQS1FQbzRwbFBKQjJpX2p5ZDdScl9NUmZsa2lNWEZVLVRV?oc=5",
-          "source": "TOD",
-          "published": "2026-10-29"
-        },
-        {
-          "title": "Watch This Video If You LOVE FOOTBALL… ❤️⚽️",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPY0EzS0FqQ25nQkc5RGhGT3JJa0xFWkJtZWVXX2htRVhOUW5tTU9saUdjdnlfUlRuR2l4a3Nja0xuYXR6M0hzRDdraEUxSFhiSkRmQWFDVEZvRTFEWUVTRWkwbUw0RWstVEs2WmMtZWVhYW5QS05LeXR5WE1fSTRCNlZMTWE0QQ?oc=5",
-          "source": "OneFootball",
-          "published": "2026-10-29"
-        },
-        {
-          "title": "Xabi: \"Supone un revés caer en la Copa\"",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOeFF1eFNRcFdNLXVka2Zyd1VqOVpxcDVvY05jRzc3U3g2VUtiY1hZYVZOdkE4OTJSWmlzbGFzZUd4RlExeWc5clJLNnpGRjlvalhMdmtTNlFrUUx1eU9ST3dVUlFEckgyNVR6ZDVyTjBROXB5Qk1Jd3FFalVacGRQYUlqX0o3REVsT3IyQWo2dnhydnd4cTBJdXdEV0dTUQ?oc=5",
-          "source": "OneFootball",
-          "published": "2026-10-29"
-        },
-        {
-          "title": "Guess the Football teams (vowels AND spaces removed! )",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNNHdUTmlaMEUzejBNNTJHQ1JqSE13X0pqZDZ4T0xTS2dGMFlfQ3E4S0wxd09iaGxwRW5raFlTZVpNZThPTUZ5Qnpadmp4MlVuR2hJaVRUQUJucTM1T3pUREh2OFZpS0lINmFZMENfMHpRRl9RTmF3X21zS2d0WXM2eXBUQy1KQjVCbEJwWHVqZ29lVktFYXJ5RWtMc29qMW02M2hMWDFkNlZHRXhGczBQSQ?oc=5",
-          "source": "OneFootball",
-          "published": "2026-10-29"
+          "title": "Trabzonspor vs. SC Freiburg 5 November 2026 | H2H, Betting Tips & Odds",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOQlNPQ0tWSXBJMjVFdTZZajN3T3FXU2VnQ1Bwb0YyaUxrQ2ZJZ3BIczUxbGRhaWdJTXNWZ1VCb2dLTXY4TTF5NThxcXJSUDNDazd4UmNuQ0FDN0lkQkNjMDBkc3JNb29kYUJEVnY1QlZEd1drSWtkLV82X2dfYTA2NXFvdkx2NEI4SlE?oc=5",
+          "source": "online-bookmakers.com",
+          "published": "2026-10-30"
         }
       ],
       "stories": []
@@ -2248,14 +3868,6 @@
             "season": "2005/2006",
             "place": "Winner"
           }
-        ],
-        "funfacts": [
-          "Croat, născut la Split pe 7 februarie 1978, a jucat ca mijlocaș la Hajduk Split, Málaga, Club Brugge, Germinal Beerschot și Lokeren, totalizând 13 selecții pentru naționala Croației, inclusiv la Mondialul din 2006, fără minute jucate.",
-          "A debutat ca antrenor în 2014, la OH Leuven, după ce fusese secundul lui Igor Tudor la PAOK, în 2015-2016.",
-          "A câștigat Jupiler Pro League și Supercupa Belgiei cu Club Brugge în primul sezon ca principal, 2017-18, fiind numit Antrenorul Anului.",
-          "Cu Antwerp a cucerit Cupa Belgiei 2019-20, calificând clubul pentru prima dată în istorie în grupele UEFA Europa League.",
-          "A antrenat și în China, la Shanghai Port, a revenit la Hajduk Split (2022-23, câștigând Cupa Croației) și la Standard Liège (2024), apoi la Gent, din iunie 2025.",
-          "Pe 8 decembrie 2025 s-a întors la Club Brugge, cu care a câștigat din nou titlul în 2025-26."
         ]
       },
       "formation": "n/d",
@@ -2291,32 +3903,32 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 360,
-            "apps": 4,
+            "minutes": null,
+            "apps": 0,
             "yellow": 0,
             "red": null,
-            "rating": 6.88,
+            "rating": null,
             "conceded": 0,
-            "saves": 14,
-            "shotsTotal": 0,
-            "shotsOn": 0,
-            "passesTotal": 166,
-            "passesKey": 0,
-            "passesAccuracy": 74,
-            "tacklesTotal": 0,
-            "tacklesBlocks": 0,
-            "tacklesInterceptions": 0,
-            "duelsTotal": 0,
-            "duelsWon": 0,
-            "dribblesAttempts": 0,
-            "dribblesSuccess": 0,
+            "saves": null,
+            "shotsTotal": null,
+            "shotsOn": null,
+            "passesTotal": null,
+            "passesKey": null,
+            "passesAccuracy": null,
+            "tacklesTotal": null,
+            "tacklesBlocks": null,
+            "tacklesInterceptions": null,
+            "duelsTotal": null,
+            "duelsWon": null,
+            "dribblesAttempts": null,
+            "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": 0,
-            "foulsCommitted": 0,
+            "foulsDrawn": null,
+            "foulsCommitted": null,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
-            "penaltyMissed": null,
+            "penaltyMissed": 0,
             "penaltySaved": null
           }
         },
@@ -2405,18 +4017,18 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 180,
-            "apps": 7,
+            "minutes": 270,
+            "apps": 8,
             "yellow": 1,
             "red": null,
-            "rating": 6.75,
-            "conceded": 2,
-            "saves": 3,
+            "rating": 7.37,
+            "conceded": 4,
+            "saves": 10,
             "shotsTotal": null,
             "shotsOn": null,
-            "passesTotal": 47,
+            "passesTotal": 82,
             "passesKey": null,
-            "passesAccuracy": 78,
+            "passesAccuracy": 73,
             "tacklesTotal": null,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
@@ -2496,12 +4108,11 @@
           "number": 20,
           "name": "Tiago Araújo",
           "photo": "https://media.api-sports.io/football/players/161935.png",
-          "pos": "DEF",
+          "pos": "MID",
           "positions": [
-            "DEF",
             "MID"
           ],
-          "role": "DEF",
+          "role": "MID",
           "age": 25,
           "height": 184,
           "weight": 78,
@@ -2520,24 +4131,24 @@
           "stats": {
             "goals": 0,
             "assists": 2,
-            "minutes": 180,
-            "apps": 7,
+            "minutes": 270,
+            "apps": 8,
             "yellow": 1,
             "red": null,
-            "rating": 8.05,
+            "rating": 7.43,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 2,
             "shotsOn": 1,
-            "passesTotal": 102,
+            "passesTotal": 154,
             "passesKey": 3,
-            "passesAccuracy": 88,
+            "passesAccuracy": 86,
             "tacklesTotal": 3,
             "tacklesBlocks": null,
             "tacklesInterceptions": 2,
-            "duelsTotal": 15,
+            "duelsTotal": 18,
             "duelsWon": 9,
-            "dribblesAttempts": 4,
+            "dribblesAttempts": 5,
             "dribblesSuccess": 3,
             "dribblesPast": null,
             "foulsDrawn": 2,
@@ -2634,28 +4245,28 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 180,
-            "apps": 7,
+            "minutes": 270,
+            "apps": 8,
             "yellow": 2,
             "red": null,
-            "rating": 7.8,
+            "rating": 7.37,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 4,
+            "shotsTotal": 5,
             "shotsOn": 1,
-            "passesTotal": 144,
-            "passesKey": null,
-            "passesAccuracy": 92,
+            "passesTotal": 207,
+            "passesKey": 1,
+            "passesAccuracy": 91,
             "tacklesTotal": 1,
-            "tacklesBlocks": 1,
-            "tacklesInterceptions": 3,
-            "duelsTotal": 16,
-            "duelsWon": 11,
+            "tacklesBlocks": 3,
+            "tacklesInterceptions": 5,
+            "duelsTotal": 19,
+            "duelsWon": 12,
             "dribblesAttempts": null,
             "dribblesSuccess": null,
             "dribblesPast": null,
             "foulsDrawn": 2,
-            "foulsCommitted": 2,
+            "foulsCommitted": 3,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -2748,32 +4359,32 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 449,
-            "apps": 5,
+            "minutes": 8,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 6.82,
+            "rating": 6.6,
             "conceded": 0,
-            "saves": 0,
-            "shotsTotal": 4,
-            "shotsOn": 1,
-            "passesTotal": 240,
-            "passesKey": 4,
-            "passesAccuracy": 87,
-            "tacklesTotal": 10,
-            "tacklesBlocks": 2,
-            "tacklesInterceptions": 7,
-            "duelsTotal": 57,
-            "duelsWon": 33,
-            "dribblesAttempts": 10,
-            "dribblesSuccess": 6,
+            "saves": null,
+            "shotsTotal": null,
+            "shotsOn": null,
+            "passesTotal": 5,
+            "passesKey": null,
+            "passesAccuracy": 100,
+            "tacklesTotal": 1,
+            "tacklesBlocks": null,
+            "tacklesInterceptions": null,
+            "duelsTotal": 2,
+            "duelsWon": 1,
+            "dribblesAttempts": null,
+            "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": 9,
-            "foulsCommitted": 6,
+            "foulsDrawn": null,
+            "foulsCommitted": null,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
-            "penaltyMissed": null,
+            "penaltyMissed": 0,
             "penaltySaved": null
           }
         },
@@ -2919,28 +4530,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 3,
-            "yellow": 0,
+            "minutes": 172,
+            "apps": 4,
+            "yellow": 1,
             "red": null,
-            "rating": 6.9,
+            "rating": 6.6,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": null,
+            "shotsTotal": 2,
             "shotsOn": null,
-            "passesTotal": 84,
+            "passesTotal": 139,
             "passesKey": null,
-            "passesAccuracy": 85,
-            "tacklesTotal": null,
+            "passesAccuracy": 84,
+            "tacklesTotal": 4,
             "tacklesBlocks": null,
             "tacklesInterceptions": 1,
-            "duelsTotal": 3,
-            "duelsWon": 1,
+            "duelsTotal": 12,
+            "duelsWon": 8,
             "dribblesAttempts": null,
             "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": null,
-            "foulsCommitted": 1,
+            "foulsDrawn": 1,
+            "foulsCommitted": 2,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -2976,28 +4587,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 127,
-            "apps": 7,
+            "minutes": 217,
+            "apps": 8,
             "yellow": 1,
             "red": null,
-            "rating": 7.2,
+            "rating": 7.43,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 1,
+            "shotsTotal": 2,
             "shotsOn": null,
-            "passesTotal": 120,
-            "passesKey": 2,
+            "passesTotal": 178,
+            "passesKey": 3,
             "passesAccuracy": 95,
-            "tacklesTotal": null,
-            "tacklesBlocks": 1,
-            "tacklesInterceptions": 1,
-            "duelsTotal": 12,
-            "duelsWon": 9,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "tacklesTotal": 2,
+            "tacklesBlocks": 3,
+            "tacklesInterceptions": 4,
+            "duelsTotal": 19,
+            "duelsWon": 13,
+            "dribblesAttempts": 1,
+            "dribblesSuccess": 1,
             "dribblesPast": null,
-            "foulsDrawn": 2,
-            "foulsCommitted": null,
+            "foulsDrawn": 3,
+            "foulsCommitted": 1,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -3118,27 +4729,27 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 8,
-            "apps": 6,
+            "minutes": 57,
+            "apps": 7,
             "yellow": 0,
             "red": null,
-            "rating": 7.2,
+            "rating": 7.05,
             "conceded": 0,
             "saves": null,
             "shotsTotal": null,
             "shotsOn": null,
-            "passesTotal": 3,
-            "passesKey": 3,
-            "passesAccuracy": 100,
+            "passesTotal": 17,
+            "passesKey": 4,
+            "passesAccuracy": 82,
             "tacklesTotal": null,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 2,
-            "duelsWon": 1,
+            "duelsTotal": 5,
+            "duelsWon": 4,
             "dribblesAttempts": null,
             "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": 1,
+            "foulsDrawn": 3,
             "foulsCommitted": 1,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -3175,27 +4786,27 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 21,
-            "apps": 7,
+            "minutes": 48,
+            "apps": 8,
             "yellow": 0,
             "red": null,
-            "rating": 6.6,
+            "rating": 6.63,
             "conceded": 0,
             "saves": null,
             "shotsTotal": null,
             "shotsOn": null,
-            "passesTotal": 8,
+            "passesTotal": 31,
             "passesKey": null,
-            "passesAccuracy": 75,
-            "tacklesTotal": null,
+            "passesAccuracy": 77,
+            "tacklesTotal": 1,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 3,
-            "duelsWon": null,
+            "duelsTotal": 5,
+            "duelsWon": 2,
             "dribblesAttempts": 1,
             "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": null,
+            "foulsDrawn": 1,
             "foulsCommitted": null,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -3232,27 +4843,27 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 172,
-            "apps": 7,
+            "minutes": 262,
+            "apps": 8,
             "yellow": 3,
             "red": null,
-            "rating": 6.75,
+            "rating": 6.93,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 3,
             "shotsOn": null,
-            "passesTotal": 113,
-            "passesKey": 2,
-            "passesAccuracy": 92,
-            "tacklesTotal": 1,
-            "tacklesBlocks": 1,
-            "tacklesInterceptions": 3,
-            "duelsTotal": 18,
-            "duelsWon": 9,
-            "dribblesAttempts": 1,
+            "passesTotal": 158,
+            "passesKey": 3,
+            "passesAccuracy": 93,
+            "tacklesTotal": 4,
+            "tacklesBlocks": 2,
+            "tacklesInterceptions": 5,
+            "duelsTotal": 25,
+            "duelsWon": 15,
+            "dribblesAttempts": 2,
             "dribblesSuccess": 1,
             "dribblesPast": null,
-            "foulsDrawn": 6,
+            "foulsDrawn": 7,
             "foulsCommitted": 3,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -3289,28 +4900,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 167,
-            "apps": 7,
+            "minutes": 230,
+            "apps": 8,
             "yellow": 2,
             "red": null,
-            "rating": 8.2,
+            "rating": 7.77,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 1,
             "shotsOn": null,
-            "passesTotal": 130,
-            "passesKey": 5,
+            "passesTotal": 183,
+            "passesKey": 6,
             "passesAccuracy": 93,
-            "tacklesTotal": 4,
+            "tacklesTotal": 6,
             "tacklesBlocks": 1,
             "tacklesInterceptions": 1,
-            "duelsTotal": 14,
-            "duelsWon": 8,
-            "dribblesAttempts": null,
+            "duelsTotal": 17,
+            "duelsWon": 10,
+            "dribblesAttempts": 1,
             "dribblesSuccess": null,
             "dribblesPast": null,
             "foulsDrawn": 2,
-            "foulsCommitted": null,
+            "foulsCommitted": 1,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -3380,12 +4991,11 @@
           "number": 37,
           "name": "Abdelkahar Kadri",
           "photo": "https://media.api-sports.io/football/players/129867.png",
-          "pos": "MID",
+          "pos": "ATT",
           "positions": [
-            "MID",
             "ATT"
           ],
-          "role": "MID",
+          "role": "ATT",
           "age": 26,
           "height": 178,
           "weight": 69,
@@ -3579,12 +5189,12 @@
           "number": 7,
           "name": "Michel-Ange Balikwisha",
           "photo": "https://media.api-sports.io/football/players/267728.png",
-          "pos": "ATT",
+          "pos": "MID",
           "positions": [
-            "ATT",
-            "MID"
+            "MID",
+            "ATT"
           ],
-          "role": "ATT",
+          "role": "MID",
           "age": 25,
           "height": 178,
           "weight": 69,
@@ -3603,24 +5213,24 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 1,
+            "minutes": 131,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 7.6,
+            "rating": 7.15,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 2,
             "shotsOn": 1,
-            "passesTotal": 40,
+            "passesTotal": 60,
             "passesKey": 3,
-            "passesAccuracy": 85,
-            "tacklesTotal": 3,
+            "passesAccuracy": 86,
+            "tacklesTotal": 4,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 10,
-            "duelsWon": 7,
-            "dribblesAttempts": 3,
+            "duelsTotal": 14,
+            "duelsWon": 9,
+            "dribblesAttempts": 5,
             "dribblesSuccess": 2,
             "dribblesPast": null,
             "foulsDrawn": 2,
@@ -3660,28 +5270,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 98,
-            "apps": 5,
+            "minutes": 188,
+            "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 6.2,
+            "rating": 6,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 4,
+            "shotsTotal": 6,
             "shotsOn": null,
-            "passesTotal": 7,
-            "passesKey": null,
-            "passesAccuracy": 71,
+            "passesTotal": 21,
+            "passesKey": 1,
+            "passesAccuracy": 76,
             "tacklesTotal": 1,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 15,
-            "duelsWon": 3,
-            "dribblesAttempts": 4,
+            "duelsTotal": 31,
+            "duelsWon": 7,
+            "dribblesAttempts": 6,
             "dribblesSuccess": 1,
             "dribblesPast": null,
-            "foulsDrawn": 1,
-            "foulsCommitted": 4,
+            "foulsDrawn": 4,
+            "foulsCommitted": 7,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -3717,30 +5327,30 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 28,
-            "apps": 1,
+            "minutes": 37,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 7.7,
+            "rating": 7.1,
             "conceded": 0,
-            "saves": null,
+            "saves": 0,
             "shotsTotal": 2,
             "shotsOn": 2,
-            "passesTotal": 8,
+            "passesTotal": 11,
             "passesKey": 1,
-            "passesAccuracy": 75,
-            "tacklesTotal": null,
-            "tacklesBlocks": null,
-            "tacklesInterceptions": null,
+            "passesAccuracy": 72,
+            "tacklesTotal": 0,
+            "tacklesBlocks": 0,
+            "tacklesInterceptions": 0,
             "duelsTotal": 3,
             "duelsWon": 1,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "dribblesAttempts": 0,
+            "dribblesSuccess": 0,
             "dribblesPast": null,
-            "foulsDrawn": null,
-            "foulsCommitted": null,
-            "penaltyWon": null,
-            "penaltyCommitted": null,
+            "foulsDrawn": 0,
+            "foulsCommitted": 0,
+            "penaltyWon": 0,
+            "penaltyCommitted": 0,
             "penaltyScored": 0,
             "penaltyMissed": 0,
             "penaltySaved": null
@@ -3774,23 +5384,23 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 246,
-            "apps": 5,
+            "minutes": 269,
+            "apps": 6,
             "yellow": 1,
             "red": null,
-            "rating": 6.51,
+            "rating": 6.53,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 2,
             "shotsOn": 1,
-            "passesTotal": 51,
+            "passesTotal": 57,
             "passesKey": 1,
-            "passesAccuracy": 60,
-            "tacklesTotal": 0,
+            "passesAccuracy": 63,
+            "tacklesTotal": 1,
             "tacklesBlocks": 0,
             "tacklesInterceptions": 1,
-            "duelsTotal": 46,
-            "duelsWon": 24,
+            "duelsTotal": 49,
+            "duelsWon": 27,
             "dribblesAttempts": 5,
             "dribblesSuccess": 2,
             "dribblesPast": null,
@@ -3808,11 +5418,12 @@
           "number": 45,
           "name": "Bi Christ Hyllarion Goore",
           "photo": "https://media.api-sports.io/football/players/477549.png",
-          "pos": "ATT",
+          "pos": "MID",
           "positions": [
+            "MID",
             "ATT"
           ],
-          "role": "ATT",
+          "role": "MID",
           "age": 21,
           "height": null,
           "weight": null,
@@ -3831,28 +5442,28 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 24,
-            "apps": 5,
+            "minutes": 87,
+            "apps": 6,
             "yellow": 1,
             "red": null,
-            "rating": 7.6,
+            "rating": 7.25,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 1,
+            "shotsTotal": 2,
             "shotsOn": 1,
-            "passesTotal": 15,
+            "passesTotal": 45,
             "passesKey": null,
-            "passesAccuracy": 86,
+            "passesAccuracy": 71,
             "tacklesTotal": 1,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 1,
-            "duelsWon": 1,
+            "duelsTotal": 6,
+            "duelsWon": 4,
             "dribblesAttempts": null,
             "dribblesSuccess": null,
             "dribblesPast": null,
             "foulsDrawn": null,
-            "foulsCommitted": null,
+            "foulsCommitted": 2,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -3915,8 +5526,8 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 26,
-            "apps": 4,
+            "minutes": 53,
+            "apps": 5,
             "yellow": 0,
             "red": null,
             "rating": 6.7,
@@ -3924,16 +5535,16 @@
             "saves": null,
             "shotsTotal": null,
             "shotsOn": null,
-            "passesTotal": 5,
+            "passesTotal": 11,
             "passesKey": null,
-            "passesAccuracy": 60,
+            "passesAccuracy": 72,
             "tacklesTotal": null,
             "tacklesBlocks": null,
             "tacklesInterceptions": 1,
-            "duelsTotal": 1,
-            "duelsWon": 1,
-            "dribblesAttempts": 1,
-            "dribblesSuccess": 1,
+            "duelsTotal": 2,
+            "duelsWon": 2,
+            "dribblesAttempts": 2,
+            "dribblesSuccess": 2,
             "dribblesPast": null,
             "foulsDrawn": null,
             "foulsCommitted": null,
@@ -3972,27 +5583,27 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 154,
-            "apps": 6,
+            "minutes": 236,
+            "apps": 7,
             "yellow": 0,
             "red": null,
-            "rating": 6.4,
+            "rating": 6.77,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 2,
-            "shotsOn": 1,
-            "passesTotal": 45,
+            "shotsTotal": 3,
+            "shotsOn": 2,
+            "passesTotal": 66,
             "passesKey": 4,
-            "passesAccuracy": 82,
+            "passesAccuracy": 84,
             "tacklesTotal": 2,
             "tacklesBlocks": null,
-            "tacklesInterceptions": 1,
-            "duelsTotal": 11,
-            "duelsWon": 3,
-            "dribblesAttempts": 4,
-            "dribblesSuccess": null,
+            "tacklesInterceptions": 2,
+            "duelsTotal": 15,
+            "duelsWon": 5,
+            "dribblesAttempts": 6,
+            "dribblesSuccess": 1,
             "dribblesPast": null,
-            "foulsDrawn": 1,
+            "foulsDrawn": 2,
             "foulsCommitted": null,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -4086,22 +5697,22 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 27,
-            "apps": 2,
+            "minutes": 35,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.7,
+            "rating": 6.5,
             "conceded": 0,
             "saves": null,
             "shotsTotal": null,
             "shotsOn": null,
-            "passesTotal": 9,
-            "passesKey": null,
-            "passesAccuracy": 66,
+            "passesTotal": 13,
+            "passesKey": 1,
+            "passesAccuracy": 76,
             "tacklesTotal": 3,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 6,
+            "duelsTotal": 7,
             "duelsWon": 3,
             "dribblesAttempts": 2,
             "dribblesSuccess": null,
@@ -4118,21 +5729,1536 @@
       ],
       "form": {
         "last5": [
+          "L",
           "W"
         ],
-        "ppg": 3,
-        "homeAway": "Acasă 1-0-0, deplasare 0-0-0",
-        "position": 13,
-        "note": "Clasament 2026/27: locul 13, 3p (1-0)",
+        "ppg": 1.5,
+        "homeAway": "Acasă 1-0-0, deplasare 0-0-1",
+        "position": 17,
+        "note": "Clasament 2026/27: locul 17, 3p (1-2)",
         "table": {
-          "played": 1,
+          "played": 2,
           "win": 1,
           "draw": 0,
-          "loss": 0,
+          "loss": 1,
           "gf": 1,
-          "ga": 0,
+          "ga": 2,
           "points": 3
         },
+        "recent": [
+          {
+            "date": "2026-10-25",
+            "opp": "Anderlecht",
+            "homeAway": "H",
+            "comp": "Jupiler Pro League",
+            "score": "4-0",
+            "result": "W",
+            "referee": "Eric Lambrechts, Belgium",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "4-1-4-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "D. Roef",
+                  "number": 33,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Paskotsi",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Burgess",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Van Der Heyden",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Goore",
+                  "number": 45,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. De Vlieger",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Delorge",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Araujo",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Kadri",
+                  "number": 37,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Sonko",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "I. Cisse",
+                  "number": 75,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "C. Coosemans",
+                  "number": 26,
+                  "pos": "G"
+                },
+                {
+                  "name": "K. Barry",
+                  "number": 50,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Biancone",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Petrot",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "O. Reabciuk",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Stroeykens",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Winkler",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Llansana",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Aasgaard",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Degreef",
+                  "number": 83,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Cvetkovic",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 14,
+                "side": "us",
+                "type": "goal",
+                "player": "A. Kadri",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 19,
+                "side": "us",
+                "type": "yellow",
+                "player": "Maksim Paskotsi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 22,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Léo Pétrot",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 34,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Giulian Biancone",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Petrot",
+                "playerIn": "A. Maamar"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Degreef",
+                "playerIn": "J. Onia Seke"
+              },
+              {
+                "minute": 57,
+                "side": "us",
+                "type": "yellow",
+                "player": "Hyllarion Goore",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 64,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Jayden Onia Seke",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Llansana",
+                "playerIn": "D. Sikan"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Kadri",
+                "playerIn": "L. Lopes"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Mihajlo Cvetković",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "goal",
+                "player": "I. Cisse",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Cvetkovic",
+                "playerIn": "A. Bertaccini"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "H. Goore",
+                "playerIn": "M. Volckaert"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Sonko",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Volckaert",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Delorge",
+                "playerIn": "A. Omgba"
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Cisse",
+                "playerIn": "M. Dean"
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Sonko",
+                "playerIn": "E. H. Seck"
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Winkler",
+                "playerIn": "M. Kana"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-22",
+            "opp": "SC Braga",
+            "homeAway": "A",
+            "comp": "UEFA Europa Conference League",
+            "score": "0-2",
+            "result": "L",
+            "referee": "A. Treimanis",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "D. Roef",
+                  "number": 33,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Paskotsi",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Burgess",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Van Der Heyden",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Araujo",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Delorge",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. De Vlieger",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "H. Goore",
+                  "number": 45,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Balikwisha",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Sonko",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Cisse",
+                  "number": 75,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Bernardo",
+                  "number": 31,
+                  "pos": "G"
+                },
+                {
+                  "name": "V. Gomez",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Lagerbielke",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Barisic",
+                  "number": 37,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Arrey-Mbi",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Victor",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Moutinho",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Gorby",
+                  "number": 29,
+                  "pos": "M"
+                },
+                {
+                  "name": "Gabriel Silva",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Horta",
+                  "number": 21,
+                  "pos": "F"
+                },
+                {
+                  "name": "J. Milosevic",
+                  "number": 17,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": -5,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Tiago Sá",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 3,
+                "side": "opp",
+                "type": "goal",
+                "player": "V. Gomez",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 27,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Adrian Leon Barišić",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 32,
+                "side": "us",
+                "type": "yellow",
+                "player": "Maksim Paskotsi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 41,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Balikwisha",
+                "playerIn": "L. Benes"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Milosevic",
+                "playerIn": "M. Dorgeles"
+              },
+              {
+                "minute": 63,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Delorge",
+                "playerIn": "L. Lopes"
+              },
+              {
+                "minute": 63,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "H. Goore",
+                "playerIn": "E. H. Seck"
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gabriel Silva",
+                "playerIn": "G. Martinez"
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gorby",
+                "playerIn": "D. E. Tiknaz"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "goal",
+                "player": "G. Martinez",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Sonko",
+                "playerIn": "G. De Meyer"
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Paskotsi",
+                "playerIn": "K. Wilson"
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Barisic",
+                "playerIn": "Sergio Barcia"
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Horta",
+                "playerIn": "D. Huseinbasic"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-18",
+            "opp": "Rochefort",
+            "homeAway": "A",
+            "comp": "Cup",
+            "score": "3-3",
+            "result": "D",
+            "referee": null,
+            "formation": null,
+            "lineups": null,
+            "events": [
+              {
+                "minute": 19,
+                "side": "opp",
+                "type": "goal",
+                "player": "N. Azevedo-Janelas",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 38,
+                "side": "us",
+                "type": "goal",
+                "player": "E. H. Seck",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Benes",
+                "playerIn": "T. De Vlieger"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Kadri",
+                "playerIn": "M. Balikwisha"
+              },
+              {
+                "minute": 52,
+                "side": "us",
+                "type": "yellow",
+                "player": "T. De Vlieger",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "owngoal",
+                "player": "L. Hoedaert",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "goal",
+                "player": "E. H. Seck",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 64,
+                "side": "opp",
+                "type": "goal",
+                "player": "A. Lauwrensens",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Baudot",
+                "playerIn": "L. Ferrera"
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Cornet",
+                "playerIn": "S. Kibour"
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Lauwrensens",
+                "playerIn": "A. Sarr"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "yellow",
+                "player": "M. Volckaert",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 70,
+                "side": "us",
+                "type": "yellow",
+                "player": "C. Burgess",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "goal",
+                "player": "T. Vanhecke",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "yellow",
+                "player": "L. Hoedaert",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "yellow",
+                "player": "A. Dony",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "yellow",
+                "player": "H. Goore",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. H. Seck",
+                "playerIn": "M. Sonko"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Omgba",
+                "playerIn": "M. Delorge"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Dean",
+                "playerIn": "I. Cisse"
+              },
+              {
+                "minute": 98,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Azevedo-Janelas",
+                "playerIn": "N. Gosselain"
+              },
+              {
+                "minute": 106,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Lazitch",
+                "playerIn": "K. Essikal"
+              },
+              {
+                "minute": 117,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "H. Goore",
+                "playerIn": "M. Paskotsi"
+              },
+              {
+                "minute": 120,
+                "side": "us",
+                "type": "goal",
+                "player": "T. De Vlieger",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 120,
+                "side": "opp",
+                "type": "goal",
+                "player": "K. Essikal",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 120,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Delorge",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 120,
+                "side": "opp",
+                "type": "goal",
+                "player": "T. Vanhecke",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 120,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Diallo",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 120,
+                "side": "opp",
+                "type": "goal",
+                "player": "L. Hoedaert",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 120,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Sonko",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 120,
+                "side": "opp",
+                "type": "goal",
+                "player": "A. Sarr",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 120,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Balikwisha",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-15",
+            "opp": "Aarhus",
+            "homeAway": "H",
+            "comp": "UEFA Europa Conference League",
+            "score": "1-0",
+            "result": "W",
+            "referee": "B. Sariev",
+            "formation": {
+              "us": "3-1-4-2",
+              "opp": "3-5-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "D. Roef",
+                  "number": 33,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Paskotsi",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Burgess",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Van Der Heyden",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. De Vlieger",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Balikwisha",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Volckaert",
+                  "number": 57,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Delorge",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Araujo",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Cisse",
+                  "number": 75,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Sonko",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Hedenstad",
+                  "number": 21,
+                  "pos": "G"
+                },
+                {
+                  "name": "C. Rosler",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. L. Gretarsson",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Kahl",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Andersen",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. McCowatt",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Solbakken",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Arnstad",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Anderson",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Tchamche",
+                  "number": 27,
+                  "pos": "F"
+                },
+                {
+                  "name": "J. Bogere",
+                  "number": 28,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 21,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Anderson",
+                "playerIn": "F. Emmery"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Van Der Heyden",
+                "playerIn": "M. Diallo"
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. L. Gretarsson",
+                "playerIn": "T. Molgaard"
+              },
+              {
+                "minute": 58,
+                "side": "opp",
+                "type": "yellow",
+                "player": "James Bogere",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Arnstad",
+                "playerIn": "M. Knudsen"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Volckaert",
+                "playerIn": "H. Goore"
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "yellow",
+                "player": "Mathias Delorge",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Markus Solbakken",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Delorge",
+                "playerIn": "L. Lopes"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Kahl",
+                "playerIn": "F. Tingager"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Solbakken",
+                "playerIn": "J. Jonsson"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "yellow",
+                "player": "Tibe De Vlieger",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "goal",
+                "player": "H. Goore",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-10",
+            "opp": "Zulte Waregem",
+            "homeAway": "A",
+            "comp": "Jupiler Pro League",
+            "score": "2-0",
+            "result": "W",
+            "referee": "Nicolas Laforge, Belgium",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "D. Roef",
+                  "number": 33,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Paskotsi",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Burgess",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Van Der Heyden",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Goore",
+                  "number": 45,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Lopes",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Delorge",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Araujo",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Balikwisha",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Sonko",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "I. Cisse",
+                  "number": 75,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "B. Gabriel",
+                  "number": 13,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Diakite",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Lemoine",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Kiilerich",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "Y. Cappelle",
+                  "number": 55,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Claes",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Lofolomo",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Ake",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Mbaye",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Ementa",
+                  "number": 18,
+                  "pos": "F"
+                },
+                {
+                  "name": "T. Hedl",
+                  "number": 20,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 12,
+                "side": "us",
+                "type": "goal",
+                "player": "I. Cisse",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "H. Goore",
+                "playerIn": "M. Volckaert"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "I. Cisse",
+                "playerIn": "M. Dean"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Hedl",
+                "playerIn": "Z. Atrok"
+              },
+              {
+                "minute": 69,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Delorge",
+                "playerIn": "T. De Vlieger"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "red",
+                "player": "Malick Mbaye",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "E. Lofolomo",
+                "playerIn": "S. Ujka"
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Lopes",
+                "playerIn": "A. Omgba"
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Sonko",
+                "playerIn": "E. H. Seck"
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "yellow",
+                "player": "Aimé Omgba",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Balikwisha",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-09-18",
+            "opp": "Standard Liege",
+            "homeAway": "H",
+            "comp": "Jupiler Pro League",
+            "score": "2-1",
+            "result": "W",
+            "referee": "Lothar D'hondt, Belgium",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "D. Roef",
+                  "number": 33,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Ngom",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Burgess",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Van Der Heyden",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Volckaert",
+                  "number": 57,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. De Vlieger",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Delorge",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Araujo",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Balikwisha",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Sonko",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "J. Vergara",
+                  "number": 47,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Epolo",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Fossey",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Karamoko",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Hautekiet",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Lawrence",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Nielsen",
+                  "number": 94,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Trouillet",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Touzghar",
+                  "number": 84,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Drammeh",
+                  "number": 15,
+                  "pos": "F"
+                },
+                {
+                  "name": "D. Eckert",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Abid",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 27,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Ngom",
+                "playerIn": "M. Paskotsi"
+              },
+              {
+                "minute": 31,
+                "side": "us",
+                "type": "goal",
+                "player": "J. Vergara",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "goal",
+                "player": "C. Nielsen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Delorge",
+                "playerIn": "L. Lopes"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Volckaert",
+                "playerIn": "H. Goore"
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Eckert",
+                "playerIn": "B. Nsimba"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "yellow",
+                "player": "Siebe Van der Heyden",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 83,
+                "side": "us",
+                "type": "goal",
+                "player": "C. Burgess",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Fossey",
+                "playerIn": "T. Mohr"
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Trouillet",
+                "playerIn": "B. Nguene"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Sonko",
+                "playerIn": "A. Ayinde"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Vergara",
+                "playerIn": "I. Cisse"
+              }
+            ]
+          }
+        ],
+        "next": [
+          {
+            "date": "2026-11-01",
+            "opp": "Lommel United",
+            "homeAway": "A",
+            "comp": "Jupiler Pro League"
+          },
+          {
+            "date": "2026-11-05",
+            "opp": "KuPS",
+            "homeAway": "A",
+            "comp": "UEFA Europa Conference League"
+          },
+          {
+            "date": "2026-11-08",
+            "opp": "Kortrijk",
+            "homeAway": "H",
+            "comp": "Jupiler Pro League"
+          }
+        ],
         "stats": {
           "goalsForByInterval": {
             "16-30": 1,
@@ -4140,30 +7266,31 @@
             "76-90": 2
           },
           "goalsAgainstByInterval": {
+            "0-15": 1,
             "46-60": 1,
-            "76-90": 3
+            "76-90": 4
           },
           "cardsYellowByInterval": {
             "16-30": 1,
-            "31-45": 2,
+            "31-45": 3,
             "46-60": 2,
             "61-75": 2,
             "76-90": 4,
             "106-120": 1
           },
           "cardsRedByInterval": null,
-          "goalsForAvg": 1,
-          "goalsAgainstAvg": 0.4,
+          "goalsForAvg": 0.9,
+          "goalsAgainstAvg": 0.6,
           "goalsForAvgHome": 0.8,
-          "goalsForAvgAway": 1.3,
+          "goalsForAvgAway": 1,
           "goalsAgainstAvgHome": 0.3,
-          "goalsAgainstAvgAway": 0.7,
+          "goalsAgainstAvgAway": 1,
           "cleanSheets": 5,
           "cleanSheetsHome": 3,
           "cleanSheetsAway": 2,
-          "failedToScore": 2,
+          "failedToScore": 3,
           "failedToScoreHome": 1,
-          "failedToScoreAway": 1,
+          "failedToScoreAway": 2,
           "penaltyScored": 0,
           "penaltyScoredPct": 0,
           "penaltyMissed": 0,
@@ -4175,6 +7302,10 @@
             },
             {
               "formation": "3-4-2-1",
+              "played": 1
+            },
+            {
+              "formation": "4-2-3-1",
               "played": 1
             },
             {
@@ -4190,7 +7321,7 @@
           "biggestWinHome": "1-0",
           "biggestWinAway": "2-3",
           "biggestLossHome": null,
-          "biggestLossAway": null,
+          "biggestLossAway": "2-0",
           "biggestGoalsForHome": 1,
           "biggestGoalsForAway": 3,
           "biggestGoalsAgainstHome": 1,
@@ -4200,7 +7331,7 @@
           "drawsHome": 2,
           "drawsAway": 1,
           "losesHome": 0,
-          "losesAway": 0
+          "losesAway": 1
         }
       },
       "absences": [],
@@ -4229,56 +7360,6 @@
           "name": "M. Ngom",
           "from": "Grasshoppers",
           "fee": null
-        },
-        {
-          "name": "J. Y. Vergara Ortega",
-          "from": "Auda",
-          "fee": null
-        },
-        {
-          "name": "L. Cooman",
-          "from": "Knokke",
-          "fee": null
-        },
-        {
-          "name": "L. Bénes",
-          "from": "Union Berlin",
-          "fee": null
-        },
-        {
-          "name": "C. Burgess",
-          "from": "Union St. Gilloise",
-          "fee": null
-        },
-        {
-          "name": "Núrio Fortuna",
-          "from": "Volos NFC (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "D. Yokota",
-          "from": "Hannover 96 (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "H. Gambor",
-          "from": "Estac Troyes (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "P. Gerkens",
-          "from": "Cercle Brugge (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "D. Vanzeir",
-          "from": "Cercle Brugge (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "S. Kotto",
-          "from": "Reims (împrumut)",
-          "fee": null
         }
       ],
       "mercatoOut": [
@@ -4301,77 +7382,51 @@
           "name": "M. Skóraś",
           "to": "Lens",
           "fee": null
-        },
-        {
-          "name": "Núrio Fortuna",
-          "to": "Petro de Luanda",
-          "fee": null
-        },
-        {
-          "name": "D. Yokota",
-          "to": "Hannover 96",
-          "fee": null
-        },
-        {
-          "name": "H. Essaoubi",
-          "to": "Volos NFC (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "S. Kotto",
-          "to": "Reims",
-          "fee": null
-        },
-        {
-          "name": "Hong Hyun-Seok",
-          "to": "FSV Mainz 05 (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "R. Vanden Borre",
-          "to": "Zelzate",
-          "fee": null
-        },
-        {
-          "name": "J. Duverne",
-          "to": "Nantes (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "D. Hashioka",
-          "to": "Slavia Praha (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "Eric Simpore",
-          "to": "SOA (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "B. Van Hoorick",
-          "to": "Van Hoorick Briek",
-          "fee": null
         }
       ],
       "preseason": [],
       "news": [],
       "newsCandidates": [
         {
-          "title": "Daniel Niculae solicită urgent: „Dați lege să nu mai joace în Superliga!”",
-          "url": "https://www.gsp.ro/fotbal/liga-1/daniel-niculae-solicita-urgent-dati-lege-sa-nu-mai-joace-in-superliga-993958.html",
+          "title": "Lommel vs Gent: Belgian Pro League stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5RYUdTNXMwOTQteWhWaHJILTJrWHhJa2xqM1BIUVdDRGxfU3V6MWJvdHBWdWphbVJyS01PdGFOX0R4ODY5VWZkdTl5U0lRRVE3SEFXMzZCZmU4LWJWaHBOS21HRkRLZw?oc=5",
+          "source": "BBC",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Lommel vs Gent Prediction, Betting Tips, Lineups & Odds | 01 Nov 2026",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOY2pBcjlaeE96bzZ2VExReHhoSEc4S1NzdWJpYmZHdXdGbGxnOWYyaFlwNDhmM1FkaDg3OVFGVFoxVkhuX1NOY0VtMXNVZElnVjBtdXBGLXFGQW11WnYyTG1vTzRZZWZtOV9lSEItYkVnalNCLW1ZYUtHTEh5SHVnZ2FnM2tsa1U0bWdGSHFmdEZIXzRjNUo2ZDZlTV90NG9WUFRMQQ?oc=5",
+          "source": "Sportsgambler",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Conference League league phase fixtures and results by team",
+          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPREZnWnpibklqTXZWckxBcGN1ZnBQZDlrUTQ5emx2TlRISzNtU3QtRXl4V0h3cHNkc2g4R0RvS2pSNGZRV0hXQl9iU3VuQW16VFp3TWxrNWUxbE1UYjAwRVNQTnlxTy1lRzdyRXpFeS1JM21ZUU9TZmxBNHBkUHAyVWRYVEhIbzMwdjVWNV9zYmNFWF9SN05BQ0ZEejRpWG1aLTU1bm84OVVpN01SZ2ZEV0tvN0tzX2NEb3I4X3h0MmJXR0JJSjJKdERJUEdZT2lZczFUM0xEcXNmQ0dL?oc=5",
+          "source": "UEFA.com",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "2026/27 Conference League: All the league phase fixtures and results",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQWWktU0MxdWtfYnVtNlg3RzRmRWJ4Ql96blVpOUhtLUptMHNjRnRPS2k5eER5SlJSck9sYjIzVFlFT2ZOR3EtaGw4RDZnWE5CYVV4VklxZEY2T05TZHU1bjdraWxsQlpSUU9aZGJIYjFmcG9yMmhMUHBwYTZKUmJHNDNpSnh5MmFDanFEYnljbDdvRDFjOHVXbEwxNk1NenRMVnF4M3c5bVRwYmxJak81QVNPTUhHbG1tLUljVFB1SWROcWs4b2U5SXJkX0dYZnNwWFgtclFsU0hzdw?oc=5",
+          "source": "UEFA.com",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "„Va avea loc o ședință de urgență” » Federația Română de Hochei reacționează, după vestea reprimirii Rusiei la Mondial: „Nu am crezut”",
+          "url": "https://www.gsp.ro/sporturi/hochei/federatia-romana-de-hochei-reactioneaza-vestea-reprimirii-rusiei-hochei-994028.html",
           "source": "GSP",
           "published": "2026-10-30"
         },
         {
-          "title": "Nimeni nu vrea să preia conducerea Federației de fotbal! Adunarea a fost amânată din nou, iar UEFA vrea să intervină de urgență",
+          "title": "Nimeni nu vrea să preia conducerea Federației de fotbal! Adunarea a fost amânată din nou, iar UEFA se pregătește să intervină de urgență",
           "url": "https://www.gsp.ro/international/campionate/criza-alegeri-presedinte-federatie-fotbal-serbia-993940.html",
           "source": "GSP",
           "published": "2026-10-30"
         },
         {
-          "title": "FCSB a început căutările! 4 posturi pe care vor fi aduși urgent jucători",
-          "url": "https://www.gsp.ro/fotbal/liga-1/fcsb-transferuri-gigi-becali-lista-jucatori-posturi-993857.html",
-          "source": "GSP",
+          "title": "Watch Gent vs AGF",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNWUZYMkxMZktKcEt2UUlBTlpzWGlLMndnZ3dYNHFDUnVFbmpBNTNSYVRfNWRPU2NNUzhSUW1yLU1jd0NGUV9QdE13N0R1aHBoX3FCWUI2Skg3dFItd3NlcWd1WDBBZHJtcUdNcFBUWUppUUhoTVhOYkJQVGlhU3BTcjVKQ290UTdQSVhOTUZ2Mk04UTVwdnNPOQ?oc=5",
+          "source": "TOD",
           "published": "2026-10-30"
         },
         {
@@ -4379,30 +7434,6 @@
           "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQY094Tlpyb2Znc051S3h5c0xRdUtwMXJkd0RKeUhBVVBYTld4YkZRV0Z6TzNZcGxWNUp6Vm1DQkVaM1lWcHVPUDFFXzlaU1RvazhzVkE5RjVLWVZzSWU1RF9MRXR4TXVPbUU3TTBjeEk4eS0yUVIzdXhlRFVoRGUyaVFKYnE2Mjk0LUxrcVRjXzkyX3FYRWZTenFZSVBrbVNhRVdjVi1IYw?oc=5",
           "source": "TOD",
           "published": "2026-10-30"
-        },
-        {
-          "title": "Belgian Pro League Injuries & Suspensions",
-          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9uRGZoTnJpZ2tOOTcwM1NIekVXVVc3SDZsQkc4b3NubEVKWXNHVzY3OGx2Znl0TDliWXNBN01XYVBBLWI1c1otVko1R3FQdFdnb3RoQlNJYU1CUXVuM2lkbVhUM0pFQnZ4b2J6dVhUaE5rS3VCUnpGMXpQZHlFZw?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-10-30"
-        },
-        {
-          "title": "Watch Gent vs AGF",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNWUZYMkxMZktKcEt2UUlBTlpzWGlLMndnZ3dYNHFDUnVFbmpBNTNSYVRfNWRPU2NNUzhSUW1yLU1jd0NGUV9QdE13N0R1aHBoX3FCWUI2Skg3dFItd3NlcWd1WDBBZHJtcUdNcFBUWUppUUhoTVhOYkJQVGlhU3BTcjVKQ290UTdQSVhOTUZ2Mk04UTVwdnNPOQ?oc=5",
-          "source": "TOD",
-          "published": "2026-10-29"
-        },
-        {
-          "title": "KAA Gent fixtures 2026/27: next matches and kick-off times",
-          "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE0zSlpsZXFmX1Y3VTd5TTB2WE5aT2xNZkkycWtfYjJqTmdIWFFab3VFc3llYTlYejc0QjhrS2JvUHkya3Jwcl9GamZVNnNzZVVHOTA2MmU2UHBUUlhZ?oc=5",
-          "source": "VAVEL.com",
-          "published": "2026-10-29"
-        },
-        {
-          "title": "'Absolute gent' Jack Grealish lauded by Everton fans after donating £10,000 to father-of-three, 35, amid cancer battle",
-          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOOEh5MDViTk15Rmd5blNBbzNqeWZwNmJ3Ymhrc1VvdnRlRjJmWnVzN0N4REUwbVNYRjA5YXdnYjg0QjVYS0Y0cVJVUUVueFQ1aVhaSzB6eTlEeVlCTFhXV09NRV80RWpydWhrMHQ4LWd2bV81TnRPZ3AxY1B4UTQtLTNWTDZVRUs5TnhMbVZDSThDY1NtVlczQWJFUkpUQWlxR3U4alNBRVctcDBDZHdrOWJPTjQ1NDctVDdOLUFLVGhnYmd2UElVVEttbljSAdIBQVVfeXFMTnplUzhPU2Z5QjgwbDg4S1VaU0gwck4zYTF3bU9fM3ZKUzNlSUZOZmcyR0JveS1WQ2dDSlNRNWx4MmlMMmVBTkpWVFlLaUpIcUpZaWhCdWtyMEZsY0w5Sk5yUXhjdWpxZGhRTDJqY3FTVW5rc01CQWRGR0J0Vjl1XzZFMU5TN2pmczc4bVEydVFMVVprZVBJX1VYUU13NEh4VU1iZmttR1VfSWZ5cnhUQWV0a1gzZE5ySERJaUV1c0pIQnAzSEdHeUU1S2MtcGhoOFZB?oc=5",
-          "source": "Daily Mail",
-          "published": "2026-10-29"
         }
       ],
       "stories": []
@@ -4414,507 +7445,507 @@
     "rows": [
       {
         "rank": 1,
-        "teamId": 51,
-        "team": "Brighton",
-        "played": 1,
-        "win": 1,
+        "teamId": 617,
+        "team": "Panathinaikos",
+        "played": 2,
+        "win": 2,
         "draw": 0,
         "loss": 0,
-        "gf": 4,
-        "ga": 0,
-        "gd": 4,
-        "points": 3,
-        "form": "W"
+        "gf": 7,
+        "ga": 2,
+        "gd": 5,
+        "points": 6,
+        "form": "WW"
       },
       {
         "rank": 2,
-        "teamId": 400,
-        "team": "FC Copenhagen",
-        "played": 1,
-        "win": 1,
+        "teamId": 606,
+        "team": "FC Lugano",
+        "played": 2,
+        "win": 2,
+        "draw": 0,
+        "loss": 0,
+        "gf": 8,
+        "ga": 4,
+        "gd": 4,
+        "points": 6,
+        "form": "WW"
+      },
+      {
+        "rank": 3,
+        "teamId": 319,
+        "team": "Brann",
+        "played": 2,
+        "win": 2,
+        "draw": 0,
+        "loss": 0,
+        "gf": 6,
+        "ga": 2,
+        "gd": 4,
+        "points": 6,
+        "form": "WW"
+      },
+      {
+        "rank": 4,
+        "teamId": 998,
+        "team": "Trabzonspor",
+        "played": 2,
+        "win": 2,
+        "draw": 0,
+        "loss": 0,
+        "gf": 6,
+        "ga": 2,
+        "gd": 4,
+        "points": 6,
+        "form": "WW"
+      },
+      {
+        "rank": 5,
+        "teamId": 415,
+        "team": "Twente",
+        "played": 2,
+        "win": 2,
+        "draw": 0,
+        "loss": 0,
+        "gf": 5,
+        "ga": 1,
+        "gd": 4,
+        "points": 6,
+        "form": "WW"
+      },
+      {
+        "rank": 6,
+        "teamId": 91,
+        "team": "Monaco",
+        "played": 2,
+        "win": 2,
+        "draw": 0,
+        "loss": 0,
+        "gf": 5,
+        "ga": 1,
+        "gd": 4,
+        "points": 6,
+        "form": "WW"
+      },
+      {
+        "rank": 7,
+        "teamId": 735,
+        "team": "St. Truiden",
+        "played": 2,
+        "win": 2,
         "draw": 0,
         "loss": 0,
         "gf": 3,
         "ga": 0,
         "gd": 3,
-        "points": 3,
-        "form": "W"
+        "points": 6,
+        "form": "WW"
       },
       {
-        "rank": 3,
-        "teamId": 998,
-        "team": "Trabzonspor",
-        "played": 1,
-        "win": 1,
+        "rank": 8,
+        "teamId": 608,
+        "team": "HNK Hajduk Split",
+        "played": 2,
+        "win": 2,
         "draw": 0,
+        "loss": 0,
+        "gf": 3,
+        "ga": 1,
+        "gd": 2,
+        "points": 6,
+        "form": "WW"
+      },
+      {
+        "rank": 9,
+        "teamId": 51,
+        "team": "Brighton",
+        "played": 2,
+        "win": 1,
+        "draw": 1,
+        "loss": 0,
+        "gf": 4,
+        "ga": 0,
+        "gd": 4,
+        "points": 4,
+        "form": "DW"
+      },
+      {
+        "rank": 10,
+        "teamId": 400,
+        "team": "FC Copenhagen",
+        "played": 2,
+        "win": 1,
+        "draw": 1,
+        "loss": 0,
+        "gf": 5,
+        "ga": 2,
+        "gd": 3,
+        "points": 4,
+        "form": "DW"
+      },
+      {
+        "rank": 11,
+        "teamId": 632,
+        "team": "Universitatea Craiova",
+        "played": 2,
+        "win": 1,
+        "draw": 1,
         "loss": 0,
         "gf": 4,
         "ga": 2,
         "gd": 2,
-        "points": 3,
-        "form": "W"
-      },
-      {
-        "rank": 4,
-        "teamId": 499,
-        "team": "Atalanta",
-        "played": 1,
-        "win": 1,
-        "draw": 0,
-        "loss": 0,
-        "gf": 3,
-        "ga": 1,
-        "gd": 2,
-        "points": 3,
-        "form": "W"
-      },
-      {
-        "rank": 5,
-        "teamId": 2240,
-        "team": "Mjallby AIF",
-        "played": 1,
-        "win": 1,
-        "draw": 0,
-        "loss": 0,
-        "gf": 2,
-        "ga": 0,
-        "gd": 2,
-        "points": 3,
-        "form": "W"
-      },
-      {
-        "rank": 6,
-        "teamId": 735,
-        "team": "St. Truiden",
-        "played": 1,
-        "win": 1,
-        "draw": 0,
-        "loss": 0,
-        "gf": 2,
-        "ga": 0,
-        "gd": 2,
-        "points": 3,
-        "form": "W"
-      },
-      {
-        "rank": 7,
-        "teamId": 160,
-        "team": "SC Freiburg",
-        "played": 1,
-        "win": 1,
-        "draw": 0,
-        "loss": 0,
-        "gf": 3,
-        "ga": 2,
-        "gd": 1,
-        "points": 3,
-        "form": "W"
-      },
-      {
-        "rank": 8,
-        "teamId": 606,
-        "team": "FC Lugano",
-        "played": 1,
-        "win": 1,
-        "draw": 0,
-        "loss": 0,
-        "gf": 3,
-        "ga": 2,
-        "gd": 1,
-        "points": 3,
-        "form": "W"
-      },
-      {
-        "rank": 9,
-        "teamId": 91,
-        "team": "Monaco",
-        "played": 1,
-        "win": 1,
-        "draw": 0,
-        "loss": 0,
-        "gf": 2,
-        "ga": 1,
-        "gd": 1,
-        "points": 3,
-        "form": "W"
-      },
-      {
-        "rank": 10,
-        "teamId": 608,
-        "team": "HNK Hajduk Split",
-        "played": 1,
-        "win": 1,
-        "draw": 0,
-        "loss": 0,
-        "gf": 2,
-        "ga": 1,
-        "gd": 1,
-        "points": 3,
-        "form": "W"
-      },
-      {
-        "rank": 11,
-        "teamId": 617,
-        "team": "Panathinaikos",
-        "played": 1,
-        "win": 1,
-        "draw": 0,
-        "loss": 0,
-        "gf": 2,
-        "ga": 1,
-        "gd": 1,
-        "points": 3,
-        "form": "W"
+        "points": 4,
+        "form": "WD"
       },
       {
         "rank": 12,
-        "teamId": 319,
-        "team": "Brann",
-        "played": 1,
+        "teamId": 2240,
+        "team": "Mjallby AIF",
+        "played": 2,
         "win": 1,
-        "draw": 0,
+        "draw": 1,
         "loss": 0,
-        "gf": 2,
+        "gf": 3,
         "ga": 1,
-        "gd": 1,
-        "points": 3,
-        "form": "W"
+        "gd": 2,
+        "points": 4,
+        "form": "DW"
       },
       {
         "rank": 13,
-        "teamId": 631,
-        "team": "Gent",
-        "played": 1,
+        "teamId": 194,
+        "team": "Ajax",
+        "played": 2,
         "win": 1,
         "draw": 0,
-        "loss": 0,
-        "gf": 1,
-        "ga": 0,
+        "loss": 1,
+        "gf": 3,
+        "ga": 2,
         "gd": 1,
         "points": 3,
-        "form": "W"
+        "form": "WL"
       },
       {
         "rank": 14,
-        "teamId": 415,
-        "team": "Twente",
-        "played": 1,
+        "teamId": 3364,
+        "team": "Borac Banja Luka",
+        "played": 2,
         "win": 1,
         "draw": 0,
-        "loss": 0,
-        "gf": 1,
-        "ga": 0,
+        "loss": 1,
+        "gf": 3,
+        "ga": 2,
         "gd": 1,
         "points": 3,
-        "form": "W"
+        "form": "WL"
       },
       {
         "rank": 15,
-        "teamId": 546,
-        "team": "Getafe",
-        "played": 1,
-        "win": 0,
-        "draw": 1,
-        "loss": 0,
-        "gf": 1,
-        "ga": 1,
+        "teamId": 499,
+        "team": "Atalanta",
+        "played": 2,
+        "win": 1,
+        "draw": 0,
+        "loss": 1,
+        "gf": 3,
+        "ga": 3,
         "gd": 0,
-        "points": 1,
-        "form": "D"
+        "points": 3,
+        "form": "LW"
       },
       {
         "rank": 16,
-        "teamId": 397,
-        "team": "FC Midtjylland",
-        "played": 1,
-        "win": 0,
-        "draw": 1,
-        "loss": 0,
-        "gf": 1,
-        "ga": 1,
-        "gd": 0,
-        "points": 1,
-        "form": "D"
+        "teamId": 217,
+        "team": "SC Braga",
+        "played": 2,
+        "win": 1,
+        "draw": 0,
+        "loss": 1,
+        "gf": 2,
+        "ga": 3,
+        "gd": -1,
+        "points": 3,
+        "form": "WL"
       },
       {
         "rank": 17,
-        "teamId": 398,
-        "team": "FC Nordsjaelland",
-        "played": 1,
-        "win": 0,
-        "draw": 1,
-        "loss": 0,
+        "teamId": 631,
+        "team": "Gent",
+        "played": 2,
+        "win": 1,
+        "draw": 0,
+        "loss": 1,
         "gf": 1,
-        "ga": 1,
-        "gd": 0,
-        "points": 1,
-        "form": "D"
+        "ga": 2,
+        "gd": -1,
+        "points": 3,
+        "form": "LW"
       },
       {
         "rank": 18,
-        "teamId": 664,
-        "team": "Kairat Almaty",
-        "played": 1,
-        "win": 0,
-        "draw": 1,
-        "loss": 0,
-        "gf": 1,
-        "ga": 1,
-        "gd": 0,
-        "points": 1,
-        "form": "D"
+        "teamId": 160,
+        "team": "SC Freiburg",
+        "played": 2,
+        "win": 1,
+        "draw": 0,
+        "loss": 1,
+        "gf": 3,
+        "ga": 5,
+        "gd": -2,
+        "points": 3,
+        "form": "LW"
       },
       {
         "rank": 19,
-        "teamId": 254,
-        "team": "Heart Of Midlothian",
-        "played": 1,
+        "teamId": 398,
+        "team": "FC Nordsjaelland",
+        "played": 2,
         "win": 0,
-        "draw": 1,
+        "draw": 2,
         "loss": 0,
-        "gf": 1,
-        "ga": 1,
+        "gf": 3,
+        "ga": 3,
         "gd": 0,
-        "points": 1,
-        "form": "D"
+        "points": 2,
+        "form": "DD"
       },
       {
         "rank": 20,
         "teamId": 3327,
         "team": "Egnatia Rrogozhinë",
-        "played": 1,
+        "played": 2,
         "win": 0,
-        "draw": 1,
+        "draw": 2,
         "loss": 0,
-        "gf": 1,
-        "ga": 1,
+        "gf": 2,
+        "ga": 2,
         "gd": 0,
-        "points": 1,
-        "form": "D"
+        "points": 2,
+        "form": "DD"
       },
       {
         "rank": 21,
-        "teamId": 632,
-        "team": "Universitatea Craiova",
-        "played": 1,
+        "teamId": 10124,
+        "team": "Riga",
+        "played": 2,
         "win": 0,
-        "draw": 1,
+        "draw": 2,
         "loss": 0,
-        "gf": 1,
-        "ga": 1,
+        "gf": 2,
+        "ga": 2,
         "gd": 0,
-        "points": 1,
-        "form": "D"
+        "points": 2,
+        "form": "DD"
       },
       {
         "rank": 22,
-        "teamId": 10124,
-        "team": "Riga",
-        "played": 1,
+        "teamId": 598,
+        "team": "FK Crvena Zvezda",
+        "played": 2,
         "win": 0,
         "draw": 1,
-        "loss": 0,
-        "gf": 1,
-        "ga": 1,
-        "gd": 0,
+        "loss": 1,
+        "gf": 4,
+        "ga": 5,
+        "gd": -1,
         "points": 1,
-        "form": "D"
+        "form": "DL"
       },
       {
         "rank": 23,
-        "teamId": 1122,
-        "team": "FK Jablonec",
-        "played": 1,
+        "teamId": 853,
+        "team": "CSKA Sofia",
+        "played": 2,
         "win": 0,
-        "draw": 0,
+        "draw": 1,
         "loss": 1,
-        "gf": 2,
-        "ga": 3,
+        "gf": 3,
+        "ga": 4,
         "gd": -1,
-        "points": 0,
-        "form": "L"
+        "points": 1,
+        "form": "DL"
       },
       {
         "rank": 24,
-        "teamId": 598,
-        "team": "FK Crvena Zvezda",
-        "played": 1,
+        "teamId": 1122,
+        "team": "FK Jablonec",
+        "played": 2,
         "win": 0,
-        "draw": 0,
+        "draw": 1,
         "loss": 1,
         "gf": 2,
         "ga": 3,
         "gd": -1,
-        "points": 0,
-        "form": "L"
+        "points": 1,
+        "form": "DL"
       },
       {
         "rank": 25,
-        "teamId": 194,
-        "team": "Ajax",
-        "played": 1,
+        "teamId": 397,
+        "team": "FC Midtjylland",
+        "played": 2,
         "win": 0,
-        "draw": 0,
+        "draw": 1,
         "loss": 1,
         "gf": 1,
         "ga": 2,
         "gd": -1,
-        "points": 0,
-        "form": "L"
+        "points": 1,
+        "form": "LD"
       },
       {
         "rank": 26,
-        "teamId": 3364,
-        "team": "Borac Banja Luka",
-        "played": 1,
+        "teamId": 406,
+        "team": "Aarhus",
+        "played": 2,
         "win": 0,
-        "draw": 0,
+        "draw": 1,
         "loss": 1,
         "gf": 1,
         "ga": 2,
         "gd": -1,
-        "points": 0,
-        "form": "L"
+        "points": 1,
+        "form": "DL"
       },
       {
         "rank": 27,
-        "teamId": 667,
-        "team": "Lincoln Red Imps FC",
-        "played": 1,
+        "teamId": 3403,
+        "team": "Pafos",
+        "played": 2,
         "win": 0,
-        "draw": 0,
-        "loss": 1,
-        "gf": 1,
-        "ga": 2,
-        "gd": -1,
-        "points": 0,
-        "form": "L"
-      },
-      {
-        "rank": 28,
-        "teamId": 853,
-        "team": "CSKA Sofia",
-        "played": 1,
-        "win": 0,
-        "draw": 0,
-        "loss": 1,
-        "gf": 1,
-        "ga": 2,
-        "gd": -1,
-        "points": 0,
-        "form": "L"
-      },
-      {
-        "rank": 29,
-        "teamId": 406,
-        "team": "Aarhus",
-        "played": 1,
-        "win": 0,
-        "draw": 0,
-        "loss": 1,
-        "gf": 0,
-        "ga": 1,
-        "gd": -1,
-        "points": 0,
-        "form": "L"
-      },
-      {
-        "rank": 30,
-        "teamId": 1012,
-        "team": "FC Thun",
-        "played": 1,
-        "win": 0,
-        "draw": 0,
-        "loss": 1,
-        "gf": 0,
-        "ga": 1,
-        "gd": -1,
-        "points": 0,
-        "form": "L"
-      },
-      {
-        "rank": 31,
-        "teamId": 1165,
-        "team": "KuPS",
-        "played": 1,
-        "win": 0,
-        "draw": 0,
+        "draw": 1,
         "loss": 1,
         "gf": 2,
         "ga": 4,
         "gd": -2,
-        "points": 0,
-        "form": "L"
+        "points": 1,
+        "form": "DL"
       },
       {
-        "rank": 32,
-        "teamId": 3403,
-        "team": "Pafos",
-        "played": 1,
+        "rank": 28,
+        "teamId": 254,
+        "team": "Heart Of Midlothian",
+        "played": 2,
         "win": 0,
-        "draw": 0,
+        "draw": 1,
         "loss": 1,
         "gf": 1,
         "ga": 3,
         "gd": -2,
+        "points": 1,
+        "form": "LD"
+      },
+      {
+        "rank": 29,
+        "teamId": 3502,
+        "team": "FC Iberia 1999",
+        "played": 2,
+        "win": 0,
+        "draw": 1,
+        "loss": 1,
+        "gf": 1,
+        "ga": 3,
+        "gd": -2,
+        "points": 1,
+        "form": "DL"
+      },
+      {
+        "rank": 30,
+        "teamId": 546,
+        "team": "Getafe",
+        "played": 2,
+        "win": 0,
+        "draw": 1,
+        "loss": 1,
+        "gf": 3,
+        "ga": 6,
+        "gd": -3,
+        "points": 1,
+        "form": "LD"
+      },
+      {
+        "rank": 31,
+        "teamId": 664,
+        "team": "Kairat Almaty",
+        "played": 2,
+        "win": 0,
+        "draw": 1,
+        "loss": 1,
+        "gf": 2,
+        "ga": 6,
+        "gd": -4,
+        "points": 1,
+        "form": "LD"
+      },
+      {
+        "rank": 32,
+        "teamId": 1012,
+        "team": "FC Thun",
+        "played": 2,
+        "win": 0,
+        "draw": 0,
+        "loss": 2,
+        "gf": 0,
+        "ga": 2,
+        "gd": -2,
         "points": 0,
-        "form": "L"
+        "form": "LL"
       },
       {
         "rank": 33,
-        "teamId": 3342,
-        "team": "Inter Club d'Escaldes",
-        "played": 1,
+        "teamId": 667,
+        "team": "Lincoln Red Imps FC",
+        "played": 2,
         "win": 0,
         "draw": 0,
-        "loss": 1,
-        "gf": 0,
-        "ga": 2,
-        "gd": -2,
+        "loss": 2,
+        "gf": 2,
+        "ga": 6,
+        "gd": -4,
         "points": 0,
-        "form": "L"
+        "form": "LL"
       },
       {
         "rank": 34,
-        "teamId": 3502,
-        "team": "FC Iberia 1999",
-        "played": 1,
+        "teamId": 1165,
+        "team": "KuPS",
+        "played": 2,
         "win": 0,
         "draw": 0,
-        "loss": 1,
-        "gf": 0,
-        "ga": 2,
-        "gd": -2,
+        "loss": 2,
+        "gf": 2,
+        "ga": 6,
+        "gd": -4,
         "points": 0,
-        "form": "L"
+        "form": "LL"
       },
       {
         "rank": 35,
-        "teamId": 217,
-        "team": "SC Braga",
-        "played": 1,
+        "teamId": 3342,
+        "team": "Inter Club d'Escaldes",
+        "played": 2,
         "win": 0,
         "draw": 0,
-        "loss": 1,
-        "gf": 0,
-        "ga": 3,
-        "gd": -3,
+        "loss": 2,
+        "gf": 1,
+        "ga": 5,
+        "gd": -4,
         "points": 0,
-        "form": "L"
+        "form": "LL"
       },
       {
         "rank": 36,
         "teamId": 3872,
         "team": "Kauno Žalgiris",
-        "played": 1,
+        "played": 2,
         "win": 0,
         "draw": 0,
-        "loss": 1,
-        "gf": 0,
-        "ga": 4,
-        "gd": -4,
+        "loss": 2,
+        "gf": 1,
+        "ga": 8,
+        "gd": -7,
         "points": 0,
-        "form": "L"
+        "form": "LL"
       }
     ]
   }

@@ -1,12 +1,12 @@
 {
   "slug": "ucl-e4-borussia-dortmund-real-betis",
-  "generatedAt": "2026-10-30T12:40:37.422Z",
+  "generatedAt": "2026-10-31T11:21:37.150Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-10-30"
+      "accessed": "2026-10-31"
     }
   ],
   "competition": {
@@ -19,7 +19,7 @@
   "venue": {
     "name": "Signal Iduna Park",
     "capacity": null,
-    "city": null,
+    "city": "Dortmund",
     "notes": null
   },
   "referee": {
@@ -37,11 +37,48 @@
   },
   "storyOfTheMatch": [
     "Borussia Dortmund — locul 13 după 3 etape, 6 puncte, golaveraj 5-4.",
+    "Borussia Dortmund vine după 3 victorii la rând.",
+    "Borussia Dortmund — 3 din 5 goluri marcate după minutul 75.",
     "Felix Kalu Nmecha e cel mai bun marcator al echipei Borussia Dortmund în acest start de sezon (2 goluri).",
     "Real Betis — locul 5 după 3 etape, 9 puncte, golaveraj 7-4.",
     "Abdessamad Ezzalzouli e cel mai bun marcator al echipei Real Betis în acest start de sezon (3 goluri)."
   ],
-  "predictions": null,
+  "predictions": {
+    "winnerName": "Real Betis",
+    "winOrDraw": true,
+    "advice": "Combo Double chance : draw or Real Betis and +1.5 goals",
+    "percent": {
+      "home": 10,
+      "draw": 45,
+      "away": 45
+    },
+    "comparison": {
+      "form": {
+        "home": 40,
+        "away": 60
+      },
+      "attack": {
+        "home": 42,
+        "away": 58
+      },
+      "defense": {
+        "home": 50,
+        "away": 50
+      },
+      "poisson": {
+        "home": 39,
+        "away": 61
+      },
+      "h2h": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": {
+        "home": 0,
+        "away": 0
+      }
+    }
+  },
   "teams": {
     "home": {
       "name": "Borussia Dortmund",
@@ -161,13 +198,6 @@
             "season": "2006/2007",
             "place": "Winner"
           }
-        ],
-        "funfacts": [
-          "Niko Kovač (n. 15 octombrie 1971, Berlinul de Vest) a jucat ca mijlocaș defensiv la Hertha BSC, Bayer Leverkusen, Hamburger SV și Bayern München, fiind căpitanul Croației la Cupa Mondială 2006 și la Euro 2008.",
-          "După retragere, la Red Bull Salzburg a devenit antrenor al echipei a doua, apoi antrenor secund sub Ricardo Moniz.",
-          "A pregătit naționala Croației din octombrie 2013, ducând-o la Cupa Mondială 2014 din Brazilia.",
-          "La Eintracht Frankfurt a câștigat DFB-Pokal în 2018, iar la Bayern München a realizat dubla campionat-cupă în 2019, devenind primul care a câștigat această dublă atât ca jucător, cât și ca antrenor în fotbalul german.",
-          "A pregătit și Monaco, între 2020 și 2022, și Wolfsburg, între 2022 și 2024, iar din ianuarie 2025 este antrenorul lui Borussia Dortmund, contract prelungit până în 2029 în octombrie 2026."
         ]
       },
       "formation": "n/d",
@@ -203,28 +233,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
+            "minutes": 0,
             "apps": 0,
             "yellow": 0,
             "red": null,
             "rating": null,
             "conceded": 0,
-            "saves": null,
-            "shotsTotal": null,
-            "shotsOn": null,
-            "passesTotal": null,
-            "passesKey": null,
+            "saves": 0,
+            "shotsTotal": 0,
+            "shotsOn": 0,
+            "passesTotal": 0,
+            "passesKey": 0,
             "passesAccuracy": null,
-            "tacklesTotal": null,
-            "tacklesBlocks": null,
-            "tacklesInterceptions": null,
-            "duelsTotal": null,
-            "duelsWon": null,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "tacklesTotal": 0,
+            "tacklesBlocks": 0,
+            "tacklesInterceptions": 0,
+            "duelsTotal": 0,
+            "duelsWon": 0,
+            "dribblesAttempts": 0,
+            "dribblesSuccess": 0,
             "dribblesPast": null,
-            "foulsDrawn": null,
-            "foulsCommitted": null,
+            "foulsDrawn": 0,
+            "foulsCommitted": 0,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -486,33 +516,6 @@
             "penaltyMissed": 0,
             "penaltySaved": null
           }
-        },
-        {
-          "apiId": 676939,
-          "number": 44,
-          "name": "Enzo Dos Santos",
-          "photo": null,
-          "pos": "DEF",
-          "positions": [
-            "DEF"
-          ],
-          "role": "DEF",
-          "age": 22,
-          "height": null,
-          "weight": null,
-          "foot": null,
-          "nat": null,
-          "natTeam": null,
-          "birthCountry": null,
-          "birthDate": null,
-          "pronunciation": null,
-          "career": null,
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": null
         },
         {
           "apiId": 409215,
@@ -1080,8 +1083,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Ankle Injury",
           "stats": {
             "goals": 0,
             "assists": 1,
@@ -1138,8 +1141,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Knee Injury",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -1195,8 +1198,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Muscle Injury",
           "stats": {
             "goals": 1,
             "assists": 1,
@@ -1405,12 +1408,12 @@
           "number": 24,
           "name": "Daniel Svensson",
           "photo": "https://media.api-sports.io/football/players/198654.png",
-          "pos": "MID",
+          "pos": "DEF",
           "positions": [
-            "MID",
-            "DEF"
+            "DEF",
+            "MID"
           ],
-          "role": "MID",
+          "role": "DEF",
           "age": 24,
           "height": 183,
           "weight": 72,
@@ -1573,6 +1576,63 @@
           }
         },
         {
+          "apiId": 568155,
+          "number": 44,
+          "name": "E. de Pina Duarte dos Santos",
+          "photo": "https://media.api-sports.io/football/players/568155.png",
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
+          "role": "MID",
+          "age": 16,
+          "height": null,
+          "weight": null,
+          "foot": null,
+          "nat": null,
+          "natTeam": null,
+          "birthCountry": null,
+          "birthDate": null,
+          "pronunciation": null,
+          "career": "Borussia Dortmund (2026–prezent)",
+          "lastSeason": null,
+          "funfact": null,
+          "linkLine": null,
+          "status": "available",
+          "statusNote": null,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": 0,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": 0,
+            "shotsTotal": 0,
+            "shotsOn": 0,
+            "passesTotal": 0,
+            "passesKey": 0,
+            "passesAccuracy": null,
+            "tacklesTotal": 0,
+            "tacklesBlocks": 0,
+            "tacklesInterceptions": 0,
+            "duelsTotal": 0,
+            "duelsWon": 0,
+            "dribblesAttempts": 0,
+            "dribblesSuccess": 0,
+            "dribblesPast": null,
+            "foulsDrawn": 0,
+            "foulsCommitted": 0,
+            "penaltyWon": null,
+            "penaltyCommitted": null,
+            "penaltyScored": 0,
+            "penaltyMissed": null,
+            "penaltySaved": null
+          }
+        },
+        {
           "apiId": 486522,
           "number": 41,
           "name": "Mathis Albert",
@@ -1634,12 +1694,12 @@
           "number": 14,
           "name": "Maximilian Beier",
           "photo": "https://media.api-sports.io/football/players/158644.png",
-          "pos": "ATT",
+          "pos": "MID",
           "positions": [
-            "ATT",
-            "MID"
+            "MID",
+            "ATT"
           ],
-          "role": "ATT",
+          "role": "MID",
           "age": 24,
           "height": 183,
           "weight": 72,
@@ -1749,12 +1809,11 @@
           "number": 21,
           "name": "Fábio Silva",
           "photo": "https://media.api-sports.io/football/players/129791.png",
-          "pos": "MID",
+          "pos": "ATT",
           "positions": [
-            "MID",
             "ATT"
           ],
-          "role": "MID",
+          "role": "ATT",
           "age": 24,
           "height": 185,
           "weight": 75,
@@ -1822,11 +1881,1502 @@
           "ga": 4,
           "points": 6
         },
+        "recent": [
+          {
+            "date": "2026-10-27",
+            "opp": "Werder Bremen",
+            "homeAway": "H",
+            "comp": "DFB Pokal",
+            "score": "3-2",
+            "result": "W",
+            "referee": "Robert Schroder",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "G. Kobel",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Kouakou Joane Gadou",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "W. Anton",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Schlotterbeck",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Ryerson",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Veerman",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Nmecha",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Beier",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Bellingham",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Chukwuemeka",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Guirassy",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "K. Hein",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Arthur",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Pieper",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Friedl",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "Mick Schmetgens",
+                  "number": 33,
+                  "pos": "D"
+                },
+                {
+                  "name": "Dariusz Stalmach",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Regeer",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Dinkçi",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "Chuky San José",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Grüll",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Itten",
+                  "number": 26,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 6,
+                "side": "us",
+                "type": "goal",
+                "player": "Serhou Guirassy",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 17,
+                "side": "us",
+                "type": "goal",
+                "player": "Carney Chukwuemeka",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 24,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Amos Pieper",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 49,
+                "side": "us",
+                "type": "yellow",
+                "player": "Joey Veerman",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 57,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Arthur Augusto de Matos Soares",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Marco Grüll",
+                "playerIn": "Senne Lynen"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Eren Dinkci",
+                "playerIn": "Mitchell Weiser"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Cédric Itten",
+                "playerIn": "Niclas Füllkrug"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Dariusz Stalmach",
+                "playerIn": "Ludovit Reis"
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "yellow",
+                "player": "Julian Ryerson",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "goal",
+                "player": "Niclas Füllkrug",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "goal",
+                "player": "Niclas Füllkrug",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Joey Veerman",
+                "playerIn": "Marcel Sabitzer"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Carney Chukwuemeka",
+                "playerIn": "Ethan Nwaneri"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Julian Ryerson",
+                "playerIn": "Daniel Svensson"
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Serhou Guirassy",
+                "playerIn": "Fábio Silva"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "goal",
+                "player": "Marcel Sabitzer",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-24",
+            "opp": "Eintracht Frankfurt",
+            "homeAway": "H",
+            "comp": "Bundesliga",
+            "score": "1-0",
+            "result": "W",
+            "referee": "Sven Jablonski",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "G. Kobel",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "W. Anton",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Schlotterbeck",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Bensebaïni",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Ryerson",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Veerman",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Nmecha",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Svensson",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Sabitzer",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "Fábio Silva",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Guirassy",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "N. Atubolu",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "N. Collins",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Koch",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Brassier",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Elias Baum",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Dōan",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Aséko Nkili",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Onyedika",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Chaïbi",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Ebnoutalib",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "J. Burkardt",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 58,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Nnamdi Collins",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Farès Chaïbi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Daniel Svensson",
+                "playerIn": "Maximilian Beier"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Fábio Silva",
+                "playerIn": "Ethan Nwaneri"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Marcel Sabitzer",
+                "playerIn": "Carney Chukwuemeka"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Younes Ebnoutalib",
+                "playerIn": "Can Yilmaz Uzun"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jonathan Burkardt",
+                "playerIn": "Ansgar Knauff"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Felix Nmecha",
+                "playerIn": "Jobe Bellingham"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "goal",
+                "player": "Maximilian Beier",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Farès Chaïbi",
+                "playerIn": "Love Arrhov"
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Noel Aseko",
+                "playerIn": "Mario Götze"
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ritsu Doan",
+                "playerIn": "Ayoube Amaimouni-Echghouyab"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Julian Ryerson",
+                "playerIn": "Kouakou Joane Gadou"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-20",
+            "opp": "Sabah FA",
+            "homeAway": "A",
+            "comp": "UEFA Champions League",
+            "score": "2-1",
+            "result": "W",
+            "referee": "Javier Alberola Rojas",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "G. Kobel",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "W. Anton",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Schlotterbeck",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Bensebaïni",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Ryerson",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Nmecha",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Veerman",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Svensson",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Chukwuemeka",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "Fábio Silva",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Guirassy",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "S. Pokatilov",
+                  "number": 92,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Zedadka",
+                  "number": 80,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Solvet",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. McCarthy",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Puchacz",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "U. Rahmonaliyev",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Lepinjica",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Parris",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "Du Queiroz",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Simić",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Mickels",
+                  "number": 20,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 10,
+                "side": "us",
+                "type": "goal",
+                "player": "Serhou Guirassy",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 22,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Steve Solvet",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 39,
+                "side": "opp",
+                "type": "goal",
+                "player": "Aden McCarthy",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 49,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Ivan Lepinjica",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 53,
+                "side": "us",
+                "type": "goal",
+                "player": "Serhou Guirassy",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 57,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Aden McCarthy",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Du Queiroz",
+                "playerIn": "Aleksey Isaev"
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Kaheem Parris",
+                "playerIn": "Patrick Orphe Mbina"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Carney Chukwuemeka",
+                "playerIn": "Marcel Sabitzer"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Felix Nmecha",
+                "playerIn": "Jobe Bellingham"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ramy Bensebaini",
+                "playerIn": "Kouakou Joane Gadou"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Daniel Svensson",
+                "playerIn": "Maximilian Beier"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Umarali Rakhmonaliev",
+                "playerIn": "Abdulakh khaybulaev"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Joy Lance Mickels",
+                "playerIn": "Christian Nwachukwu"
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Akim Zedadka",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Fábio Silva",
+                "playerIn": "Ethan Nwaneri"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-17",
+            "opp": "Union Berlin",
+            "homeAway": "A",
+            "comp": "Bundesliga",
+            "score": "0-0",
+            "result": "D",
+            "referee": "Daniel Schlager, Germany",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "G. Kobel",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Kouakou Joane Gadou",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "W. Anton",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Schlotterbeck",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Ryerson",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Bellingham",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Nmecha",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Svensson",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Nwaneri",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Beier",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Guirassy",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "F. Rønnow",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Haberer",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "Z. Van Den Bosch",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Uduokhai",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Rothe",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Aebischer",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Schäfer",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Khedira",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Jeong Woo-Yeong",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "K. Imeri",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Skarke",
+                  "number": 21,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 1,
+                "side": "us",
+                "type": "yellow",
+                "player": "Ethan Nwaneri",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 7,
+                "side": "us",
+                "type": "yellow",
+                "player": "Waldemar Anton",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 14,
+                "side": "us",
+                "type": "yellow",
+                "player": "Serhou Guirassy",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 33,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Janik Haberer",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 35,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Tom Rothe",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Kastriot Imeri",
+                "playerIn": "Emmanuel Latte Lath"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Maximilian Beier",
+                "playerIn": "Konstantinos Karetsas"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ethan Nwaneri",
+                "playerIn": "Fábio Silva"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Tim Skarke",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Tim Skarke",
+                "playerIn": "Mekhi Gray"
+              },
+              {
+                "minute": 70,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Konstantinos Karetsas",
+                "playerIn": "Mathis Albert"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Janik Haberer",
+                "playerIn": "Christopher Trimmel"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "András Schäfer",
+                "playerIn": "Aljoscha Kemlein"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Woo-Yeong Jeong",
+                "playerIn": "Linus Güther"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-14",
+            "opp": "Bodo/Glimt",
+            "homeAway": "A",
+            "comp": "UEFA Champions League",
+            "score": "0-1",
+            "result": "L",
+            "referee": "Urs Schnyder",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "G. Kobel",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Kouakou Joane Gadou",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "W. Anton",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Bensebaïni",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Svensson",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Bellingham",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Veerman",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Beier",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Karetsas",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Inacio",
+                  "number": 40,
+                  "pos": "M"
+                },
+                {
+                  "name": "Fábio Silva",
+                  "number": 21,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "N. Haikin",
+                  "number": 12,
+                  "pos": "G"
+                },
+                {
+                  "name": "F. Sjøvold",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Gundersen",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Aleesami",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Bjørkan",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Auklend",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Berg",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Fet",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Hauge",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Didrik Blomberg",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Helmersen",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 13,
+                "side": "us",
+                "type": "yellow",
+                "player": "Kouakou Joane Gadou",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 25,
+                "side": "us",
+                "type": "yellow",
+                "player": "Fábio Silva",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 52,
+                "side": "opp",
+                "type": "goal",
+                "player": "Fredrik Sjovold",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Joey Veerman",
+                "playerIn": "Felix Nmecha"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Konstantinos Karetsas",
+                "playerIn": "Ethan Nwaneri"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Fábio Silva",
+                "playerIn": "Serhou Guirassy"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Samuele Inácio",
+                "playerIn": "Julian Ryerson"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Maximilian Beier",
+                "playerIn": "Carney Chukwuemeka"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jens Petter Hauge",
+                "playerIn": "Ola Brynhildsen"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-09",
+            "opp": "Werder Bremen",
+            "homeAway": "H",
+            "comp": "Bundesliga",
+            "score": "2-2",
+            "result": "D",
+            "referee": "Christian Dingert, Germany",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "G. Kobel",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Kouakou Joane Gadou",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "W. Anton",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Schlotterbeck",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Sabitzer",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Bellingham",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Nmecha",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Svensson",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Nwaneri",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Beier",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Guirassy",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "K. Hein",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Arthur",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Pieper",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Friedl",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "O. Deman",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Reis",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Regeer",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Dinkçi",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "Chuky San José",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Grüll",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Füllkrug",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 19,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Amos Pieper",
+                "playerIn": "Oskar Wójcik"
+              },
+              {
+                "minute": 63,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ethan Nwaneri",
+                "playerIn": "Fábio Silva"
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Arthur Augusto De Matos Soares",
+                "playerIn": "Mitchell Weiser"
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Youri Regeer",
+                "playerIn": "Dariusz Stalmach"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Marcel Sabitzer",
+                "playerIn": "Konstantinos Karetsas"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jobe Bellingham",
+                "playerIn": "Joey Veerman"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "goal",
+                "player": "Daniel Svensson",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Iván San José Cantalejo",
+                "playerIn": "Paul Erevbenagie"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Eren Dinkci",
+                "playerIn": "Mick Schmetgens"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "goal",
+                "player": "Nico Schlotterbeck",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "goal",
+                "player": "Ludovit Reis",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Dariusz Stalmach",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Joey Veerman",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "goal",
+                "player": "Niclas Füllkrug",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Felix Nmecha",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Daniel Thioune",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          }
+        ],
+        "next": [
+          {
+            "date": "2026-10-31",
+            "opp": "Bayern München",
+            "homeAway": "A",
+            "comp": "Bundesliga"
+          },
+          {
+            "date": "2026-11-04",
+            "opp": "Real Betis",
+            "homeAway": "H",
+            "comp": "UEFA Champions League"
+          },
+          {
+            "date": "2026-11-07",
+            "opp": "SV Elversberg",
+            "homeAway": "H",
+            "comp": "Bundesliga"
+          }
+        ],
         "stats": {
           "goalsForByInterval": {
+            "0-15": 1,
+            "46-60": 1,
             "76-90": 3
           },
           "goalsAgainstByInterval": {
+            "31-45": 1,
             "46-60": 2,
             "61-75": 1
           },
@@ -1836,10 +3386,10 @@
             "31-45": 1
           },
           "cardsRedByInterval": null,
-          "goalsForAvg": 1.5,
-          "goalsAgainstAvg": 1.5,
+          "goalsForAvg": 1.7,
+          "goalsAgainstAvg": 1.3,
           "goalsForAvgHome": 3,
-          "goalsForAvgAway": 0,
+          "goalsForAvgAway": 1,
           "goalsAgainstAvgHome": 2,
           "goalsAgainstAvgAway": 1,
           "cleanSheets": 0,
@@ -1855,31 +3405,56 @@
           "formations": [
             {
               "formation": "3-4-2-1",
-              "played": 2
+              "played": 3
             }
           ],
           "biggestStreak": {
             "wins": 1,
             "draws": 0,
-            "loses": 0
+            "loses": 1
           },
           "biggestWinHome": "3-2",
-          "biggestWinAway": null,
+          "biggestWinAway": "1-2",
           "biggestLossHome": null,
           "biggestLossAway": "1-0",
           "biggestGoalsForHome": 3,
-          "biggestGoalsForAway": 0,
+          "biggestGoalsForAway": 2,
           "biggestGoalsAgainstHome": 2,
           "biggestGoalsAgainstAway": 1,
           "winsHome": 1,
-          "winsAway": 0,
+          "winsAway": 1,
           "drawsHome": 0,
           "drawsAway": 0,
           "losesHome": 0,
           "losesAway": 1
         }
       },
-      "absences": [],
+      "absences": [
+        {
+          "name": "E. Can",
+          "reason": "injury",
+          "detail": "Knee Injury",
+          "since": "2026-10-31"
+        },
+        {
+          "name": "G. Konstantelias",
+          "reason": "injury",
+          "detail": "Knee Injury",
+          "since": "2026-10-31"
+        },
+        {
+          "name": "J. Lerma",
+          "reason": "injury",
+          "detail": "Muscle Injury",
+          "since": "2026-10-31"
+        },
+        {
+          "name": "K. Karetsas",
+          "reason": "injury",
+          "detail": "Ankle Injury",
+          "since": "2026-10-31"
+        }
+      ],
       "mercatoIn": [
         {
           "name": "E. Nwaneri",
@@ -2023,61 +3598,55 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Who was the Borussia Dortmund player you disliked the most?",
-          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPTnk2UV9YNHhiemg0T3hpdW16U2g1bmxiTVd1OHhVVHlOYTl2MEQ5THlobTNGRjFVQXEwcl9Bb0RDczdZcnBVS0dMelFLRVQzelBaeDFlX0hzQVRyZUxYY3QzQWJzbHB4M3M0Mk04ZnBIdHhvbHpyQkpBczN6NGhqVFFPVURmcVN6Nk9rTjBLdWhmOFdmVlBkb3dLbEpXdmppUUVMam91S01wRHpKSnNfNlNLRFpGYllFY2xHVlF2RWw?oc=5",
-          "source": "Bavarian Football Works",
-          "published": "2026-10-30"
+          "title": "Bayern Munchen - Borussia Dortmund, LIVE VIDEO, 19:30, Digi Sport 2. Der Klassiker a ajuns la episodul 141",
+          "url": "https://www.digisport.ro/fotbal/bundesliga/bayern-munchen-borussia-dortmund-live-video-1930-digi-sport-2-der-klassiker-a-ajuns-la-episodul-141-4576615",
+          "source": "Digi Sport",
+          "published": "2026-10-31"
         },
         {
-          "title": "How Michael Olise almost joined Borussia Dortmund",
-          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5NUEhxc1VScllQVmFrSDZDc3lzamlnYkZSU2pXM3hqSWp0aTVyV0didFR6ZUFCQWh3Y1N5Y2tIS01tTFM1dXY3ZzI0MWJ2VTVhNldsNmVIakNNdzU2OE5GdzYxeUd6M2JldXpSWkI1SHc?oc=5",
-          "source": "Bulinews",
-          "published": "2026-10-30"
+          "title": "Premieră: Bundesliga transmite Bayern - Borussia Dortmund și în variantă 3D! Azi, 19:30, LIVE pe digisport.ro",
+          "url": "https://www.digisport.ro/fotbal/bundesliga/premiera-bundesliga-transmite-bayern-borussia-dortmund-si-in-varianta-3d-sambata-1930-live-pe-digisport-ro-4575099",
+          "source": "Digi Sport",
+          "published": "2026-10-31"
         },
         {
-          "title": "Bayern Munich vs Borussia Dortmund, Bundesliga 2026-27: Where to watch Der Klassiker live streaming and telecast in India",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQNXpvdnlQeHNFX0dTazhFNmJ3a08zMVlkZWJ0aF93SWdWTHZBZTNMdzhCY0FoWlh4VkZuWG5YZ0lYLVpRV0QxZ0pZM1F2aDQ3cmEwRE1ZQjhZRXJ0VHFnOEJSbkNtWXQzVzNWcDJQM1ZvWlNJMHRUZ2pWWlVidUJjdC1qUUNZeXpOOWZNSWl3R3hHbVZNWXJlLUVlNEZhTnlhTVkxRFVSVVptcFhu?oc=5",
-          "source": "Olympics",
-          "published": "2026-10-30"
+          "title": "Bayern - Borussia Dortmund, Der Klassiker în etapa #8 din Bundesliga » Echipele probabile + cote",
+          "url": "https://www.gsp.ro/international/campionate/live-bayern-borussia-dortmund-der-klassiker-bundesliga-994243.html",
+          "source": "GSP",
+          "published": "2026-10-31"
         },
         {
-          "title": "Samuele Inacio: The Italian wonderkid fighting to become Borussia Dortmund's next teenage superstar",
-          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQZExKd2F0M1Y1dVdiSFhvZ2RualhpZXEtSVJxdnkxZmZNc2tUTG56UDBzU3dnbG1VUERWM3paTXprU19sSXJrc0dMNk5XMGo1Q2VCYk92UWdPV3dNcVdDb3VrV1Z6R2ZQeGFVRnMwN0FwZV9rWXNyVHdLMld5WTVCQjhWMlpzaUs3Y09PZ3Y5RExDRExjRU53dzNvenlFZGE3dERmYk1OY3NjSGQwOE9OdUhxZUhmTHE5azlEV1E1Z0loNW5KLVE?oc=5",
-          "source": "Goal.com",
-          "published": "2026-10-30"
+          "title": "How to watch Borussia Dortmund vs. Bayern Munich in the U.S.: TV channel and streaming options for October 31",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOSTYyZ1F2akVhWEtialQ2S1B0TzFHM1RoVjBHZmNoMGZwUGZjZlRwRVJaRTFYeWZLQWJVZ3pPNjNIUlJaVUZNY3FOUHRobUlvVXZpMk9CSTZYUFc4TC03NWdOQUVpa1UtT2ROX3liWE9ucEJEZ3B4ME9la0JlLVVpbDJMUDBrR0V6eElmcl8wY2pweWNuSzZwV0t0a3NmXzlyMU4tcXR2Ni1aQ3RzbmZpVjNiSGF6TVRrakNoZ1RnWnE4U2c?oc=5",
+          "source": "The New York Times",
+          "published": "2026-10-31"
         },
         {
-          "title": "Bayern Munich v Borussia Dortmund preview and team news for Matchday eight",
-          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNVElQTHN6ZHViZkw3RG45U3o4eTR6U245MXpTTDJPQ3hSaXpEZ0NJMFVOdWQ2S3lLTVFNV3hnSzlGQXM0WVlac09RRmtlVDlmY3dKcENNaFJwY1FhY2R5VmJTN1pfbFNINW1qRmktTW1sMTRRcDR2V01ZNm96eGZTRHZqRnVkQTlFT09iangxaEpsVTU2UU1aZXBJV1BMc3JLeDlDUUJpOUdONmRpeDVfQXRwUmJOQQ?oc=5",
-          "source": "OneFootball",
-          "published": "2026-10-30"
+          "title": "Borussia Dortmund XI vs Bayern Munich – Predicted lineup and team news",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPWHZFcGROTjFPQ3NOVENjVnktM0JVc09VOWFBUzdSTERhRm83YllGNkxYcnpkNmpIakJ4dENiV2RIT05hLVRrU0xyQ29tU2h6b1o0VUhaTnZISTJCdkVvY0QwZTl0Ql9VcDZya1J6M0RqeUdmNUpMMkpBY0doajAySExCUWxudw?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-10-31"
         },
         {
-          "title": "Bayern Munich vs Borussia Dortmund: Match Preview",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQQ282LXRBYzRaTjFyNmVWS1hqSnRhTE5Fb3Ryb2d5Um9fRHJqWVVQcENYalo2S3RneGZOUmk5ZjdGaldxbVNvb0wxYll2SGFDNkdsWTVTTFkzbUI0c3ZBZkg3bGhFN2JPd21uVEZ3RjZGOUZRSGlvdE9sbWlJczhoeHJXY0EzNVdpRGNNMTVTWVA?oc=5",
-          "source": "365Scores",
-          "published": "2026-10-30"
+          "title": "Line-ups: FC Bayern vs. Dortmund - Bundesliga 26/27",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPZkdEb2RiV3FaQkcwUnljMXpsT2VrakRRNURKd0lsNlVoZm9GMl9aVmJUeVF3UXJoLWtwTk5UZjJxNjF0MlZXMW80LTJRV3JraXU5ZHlROE5vemRhRk9sTjU2NHMweFVkaWowVXlwaEIzYjk4RlBJODU2S2l3R3JHNXV4dHdqb1JrLWl4b3llNVdlZ0ZLeENPVmVuX2daWnBpOG4xdEluV0k1UkhOWDd3RnRza3c?oc=5",
+          "source": "FC Bayern",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Bayern Munich vs Borussia Dortmund: German Bundesliga stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE56aHpXOEZmR0ZjcVZDcjlDa3l0VzBjRlZWY21pUzBXeXp2YlV4ZTRVaERzdDlhU3hiVVozNVZZeUxDZmE4ZmMwd05kNXJwSjhYYkVid2tKSm9lUU94bFNERTFPMA?oc=5",
+          "source": "BBC",
+          "published": "2026-10-31"
         },
         {
           "title": "Niko Kovač banking on Borussia Dortmund’s ambition vs. Bayern Munich",
           "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNc2gxSENpQldvN3BQWllGSmc1SmFhZVBTVmJ4OWVoWmlDMDdndUZBMFl0eWVLS21pX2xjU1ZXbjROTVd1Y2F2dUtWajdMRF9laUpaNmw3SElCZmpROXdWeU91QmF1WGhMTEVRX214RTVUZl9RZmQwc0U4bG5BYlRZR2s1enlINGpzcDBzNWxpM3RPZHRjOGFkV1VxZEk1TElVSDhVM1ZGT2FkWWYwR1ZIc19SdFVTUXVGYVdPY0xBWVpaY2lFOHZDdmhEY3UxNVFEd1E?oc=5",
           "source": "Bavarian Football Works",
-          "published": "2026-10-30"
-        },
-        {
-          "title": "Bayern Munich vs. Borussia Dortmund preview: A top of the table clash awaits",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPR3VJNEpWYlVDczdVLXlMeXdZUWQ5V2l4LWpaX2pabDlyN0w4MnlwSDhrN204OXFVZUZ6UmttMlRZNk80VGUwQmI4SGxHTFVqSGlGNmg1SnhrX0hKM2FtZTY3U19MV0VKR1ZyLXJLUlpENk9vYV9UcnY0T3NwYmNEcTJSU0FlaTM3VFoxbGxVQjA?oc=5",
-          "source": "Bulinews",
-          "published": "2026-10-30"
+          "published": "2026-10-31"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "Stadionul lui Borussia Dortmund, Westfalenstadion, a fost inaugurat în aprilie 1974, cu ocazia Campionatului Mondial, cu o capacitate inițială de circa 54.000 de locuri, dintre care aproximativ 37.000 în picioare.",
-        "În urma extinderilor ulterioare, stadionul a ajuns la o capacitate de 81.365 de locuri, fiind cel mai mare stadion din Germania.",
-        "Din motive de sponsorizare, arena este cunoscută și sub numele de Signal Iduna Park, contract valabil până în 2031.",
-        "Peluza sudică a stadionului, supranumită „Zidul Galben” (Yellow Wall), este considerată cea mai mare tribună cu locuri în picioare din Europa, cu o capacitate de circa 25.000 de spectatori."
-      ]
+      "stories": []
     },
     "away": {
       "name": "Real Betis",
@@ -2195,14 +3764,6 @@
             "season": "1994",
             "place": "2nd Place"
           }
-        ],
-        "funfacts": [
-          "Fundaș chilian (n. 16 septembrie 1953, Santiago), și-a petrecut întreaga carieră de jucător la Universidad de Chile, retrăgându-se în 1987, cu o selecție pentru Chile.",
-          "A început să antreneze tot la Universidad de Chile, în 1988, apoi a lucrat ca asistent al selecționerului Chile și a pregătit Palestino, O'Higgins și Universidad Católica, înainte de a pleca în Ecuador, la LDU Quito, unde a cucerit titlul național în 1999.",
-          "A debutat în Europa la Villarreal, în 2004, pe care l-a dus până în semifinalele Ligii Campionilor 2005–06 și pe locul doi în La Liga în 2007–08, un rezultat istoric pentru club.",
-          "A pregătit Real Madrid în 2009–10 (96 de puncte, record al clubului la acea vreme) și Málaga, cu care a ajuns în sferturile Ligii Campionilor 2012–13.",
-          "La Manchester City a câștigat Premier League și Cupa Ligii în primul sezon, 2013–14, devenind primul antrenor venit din afara Europei care cucerea titlul în Anglia, și a dus echipa în prima ei semifinală de Ligă a Campionilor, în 2015–16.",
-          "Din iulie 2020 este antrenorul lui Real Betis, după un mandat de 18 luni la West Ham United."
         ]
       },
       "formation": "n/d",
@@ -2602,8 +4163,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Groin Injury",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -2944,8 +4505,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "suspended",
+          "statusNote": "Red Card",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -3543,8 +5104,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Calf Injury",
           "stats": {
             "goals": 2,
             "assists": 2,
@@ -3600,8 +5161,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Coach's decision",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -3939,10 +5500,1463 @@
           "ga": 4,
           "points": 9
         },
+        "recent": [
+          {
+            "date": "2026-10-25",
+            "opp": "Celta Vigo",
+            "homeAway": "A",
+            "comp": "La Liga",
+            "score": "0-0",
+            "result": "D",
+            "referee": "Isidro Diaz de Mera Escuderos",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "3-4-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Álvaro Vallés",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Ángel Ortiz",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "Diego Llorente",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Natan",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Gómez",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "Marc Roca",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "Dani Ceballos",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "Antony",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "Isco",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Ezzalzouli",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Deossa",
+                  "number": 18,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "I. Radu",
+                  "number": 13,
+                  "pos": "G"
+                },
+                {
+                  "name": "Javi Rodríguez",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "Yoel Lago",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "Marcos Alonso",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Javi Rueda",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "Aleix Febas",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Moriba",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "Javi Galán",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "Hugo González",
+                  "number": 16,
+                  "pos": "F"
+                },
+                {
+                  "name": "Pablo Durán",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "Hugo Álvarez",
+                  "number": 23,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 30,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Ilaix Moriba",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 43,
+                "side": "us",
+                "type": "yellow",
+                "player": "Diego Llorente",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 57,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Hugo Alvarez Antunez",
+                "playerIn": "Ferran Jutglà"
+              },
+              {
+                "minute": 58,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Hugo González",
+                "playerIn": "Williot Swedberg"
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Nelson Deossa",
+                "playerIn": "Troy Parrott"
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Antony Matheus dos Santos",
+                "playerIn": "Pablo Fornals"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Javier Rueda García",
+                "playerIn": "Sergio Carreira Vilarino"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Pablo Durán Fernández",
+                "playerIn": "Iago Aspas"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Diego Llorente",
+                "playerIn": "Marc Bartra"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Isco",
+                "playerIn": "Giovani Lo Celso"
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Dani Ceballos",
+                "playerIn": "Álvaro Fidalgo"
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Sergio Carreira Vilarino",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Aleix Febas",
+                "playerIn": "Hugo Burcio"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-21",
+            "opp": "Feyenoord",
+            "homeAway": "H",
+            "comp": "UEFA Champions League",
+            "score": "1-0",
+            "result": "W",
+            "referee": "Simone Sozza",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Álvaro Vallés",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Héctor Bellerín",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "Marc Bartra",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "Natan",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Fran García",
+                  "number": 11,
+                  "pos": "D"
+                },
+                {
+                  "name": "Pablo Fornals",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Marc Roca",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "Antony",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "Isco",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Ezzalzouli",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Parrott",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "T. Ernst",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "G. Read",
+                  "number": 26,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. St. Juste",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "Mika Màrmol",
+                  "number": 35,
+                  "pos": "D"
+                },
+                {
+                  "name": "Javi López",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Zechiël",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Vanhoutte",
+                  "number": 34,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Targhalline",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Hadj-Moussa",
+                  "number": 23,
+                  "pos": "F"
+                },
+                {
+                  "name": "Nacho Ferri",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "L. Valente",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 14,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Mika Mármol",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 52,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Charles Vanhoutte",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "goal",
+                "player": "Isco",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Pablo Fornals",
+                "playerIn": "Dani Ceballos"
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Antony Matheus dos Santos",
+                "playerIn": "Rodrigo Riquelme"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jeremiah St. Juste",
+                "playerIn": "Tsuyoshi Watanabe"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Charles Vanhoutte",
+                "playerIn": "Gaoussou Kyassou Diarra"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Isco",
+                "playerIn": "Giovani Lo Celso"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Troy Parrott",
+                "playerIn": "Nelson Deossa"
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Héctor Bellerín",
+                "playerIn": "Ángel Ortiz"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Luciano Valente",
+                "playerIn": "Sem Steijn"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "yellow",
+                "player": "Rodrigo Riquelme",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Oussama Targhalline",
+                "playerIn": "Tobias van den Elshout"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-17",
+            "opp": "Barcelona",
+            "homeAway": "H",
+            "comp": "La Liga",
+            "score": "2-5",
+            "result": "L",
+            "referee": "Ricardo De Burgos Bengoetxea, Spain",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Álvaro Vallés",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Héctor Bellerín",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "Diego Llorente",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Gómez",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "Fran García",
+                  "number": 11,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Bernal",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "Dani Ceballos",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Lo Celso",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "Pablo Fornals",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Ezzalzouli",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Hernández",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Joan García",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Koundé",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "Pau Cubarsí Paredes",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "Gerard Martín",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "X. Espart",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "Rodri",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "Pedri",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Lamine Yamal",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Fermín",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Adeyemi",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "Gabriel Jesus",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 10,
+                "side": "opp",
+                "type": "goal",
+                "player": "Lamine Yamal",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 20,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Fermín López",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 22,
+                "side": "us",
+                "type": "yellow",
+                "player": "Héctor Bellerín",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 27,
+                "side": "us",
+                "type": "goal",
+                "player": "Diego Valentín Gómez",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 41,
+                "side": "opp",
+                "type": "goal",
+                "player": "Rodrigo Hernandez Cascante",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "yellow",
+                "player": "Manuel Luis Pellegrini Ripamonti",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gerard Martín",
+                "playerIn": "Eric García"
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Dani Ceballos",
+                "playerIn": "Nelson Deossa"
+              },
+              {
+                "minute": 51,
+                "side": "opp",
+                "type": "goal",
+                "player": "Gabriel Jesus",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 53,
+                "side": "us",
+                "type": "yellow",
+                "player": "Facundo Bernal",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 53,
+                "side": "us",
+                "type": "goal",
+                "player": "Abde Ezzalzouli",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 54,
+                "side": "us",
+                "type": "red",
+                "player": "Facundo Bernal",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Lamine Yamal",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "yellow",
+                "player": "Diego Llorente",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Fermín López",
+                "playerIn": "Daniel Olmo Carvajal"
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Karim Adeyemi",
+                "playerIn": "Anthony Gordon"
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "goal",
+                "player": "Eric García",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Cucho Hernández",
+                "playerIn": "Troy Parrott"
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Giovani Lo Celso",
+                "playerIn": "Rodrigo Riquelme"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Lamine Yamal",
+                "playerIn": "Raphael Dias Belloli"
+              },
+              {
+                "minute": 70,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Héctor Bellerín",
+                "playerIn": "Ángel Ortiz"
+              },
+              {
+                "minute": 70,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Pablo Fornals",
+                "playerIn": "Álvaro Fidalgo"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gabriel Jesus",
+                "playerIn": "Pablo Martín Páez Gavira"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "goal",
+                "player": "Daniel Olmo Carvajal",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-14",
+            "opp": "FC Porto",
+            "homeAway": "H",
+            "comp": "UEFA Champions League",
+            "score": "3-2",
+            "result": "W",
+            "referee": "Clement Turpin",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Álvaro Vallés",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Ángel Ortiz",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "Marc Bartra",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "Natan",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Fran García",
+                  "number": 11,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Deossa",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "Marc Roca",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "Antony",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "Isco",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Ezzalzouli",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Parrott",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Diogo Costa",
+                  "number": 99,
+                  "pos": "G"
+                },
+                {
+                  "name": "Martim Fernandes",
+                  "number": 52,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Rosario",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Kiwior",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Francisco Moura",
+                  "number": 74,
+                  "pos": "D"
+                },
+                {
+                  "name": "Victor Mow Froholdt",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Varela",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "Gabri Veiga",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Borja Sainz",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "André Silva",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "Pepê Aquino",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 42,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Francesco Farioli",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 47,
+                "side": "us",
+                "type": "goal",
+                "player": "Abde Ezzalzouli",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 54,
+                "side": "opp",
+                "type": "goal",
+                "player": "Gabri Veiga",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 56,
+                "side": "opp",
+                "type": "yellow",
+                "player": "André Silva",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 56,
+                "side": "us",
+                "type": "yellow",
+                "player": "Nelson Deossa",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 56,
+                "side": "us",
+                "type": "yellow",
+                "player": "Abde Ezzalzouli",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Borja Sainz",
+                "playerIn": "Oskar Pietuszewski"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "André Silva",
+                "playerIn": "Samuel Aghehowa"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Martim Fernandes",
+                "playerIn": "Alberto Costa"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "goal",
+                "player": "Samuel Aghehowa",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Nelson Deossa",
+                "playerIn": "Dani Ceballos"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Troy Parrott",
+                "playerIn": "Cucho Hernández"
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gabri Veiga",
+                "playerIn": "Hwang In-Beom"
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Alan Gonzalo Varela",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "goal",
+                "player": "Cucho Hernández",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "yellow",
+                "player": "Dani Ceballos",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "goal",
+                "player": "Isco",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 85,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Eduardo Gabriel Aquino Cossa",
+                "playerIn": "Santiago Giménez"
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Santiago Giménez",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Isco",
+                "playerIn": "Facundo Bernal"
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Marc Roca",
+                "playerIn": "Pablo Fornals"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Antony Matheus dos Santos",
+                "playerIn": "Rodrigo Riquelme"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Ángel Ortiz",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-11",
+            "opp": "Osasuna",
+            "homeAway": "H",
+            "comp": "La Liga",
+            "score": "5-2",
+            "result": "W",
+            "referee": "Carlos Muniz Munoz, Spain",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Álvaro Vallés",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Héctor Bellerín",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "Diego Llorente",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Natan",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Fran García",
+                  "number": 11,
+                  "pos": "D"
+                },
+                {
+                  "name": "Pablo Fornals",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Marc Roca",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "Rodrigo Riquelme",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "Isco",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Ezzalzouli",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Hernández",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Aitor Fernández",
+                  "number": 13,
+                  "pos": "G"
+                },
+                {
+                  "name": "Íñigo Arguibide",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "Catena",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "U. Santos",
+                  "number": 35,
+                  "pos": "D"
+                },
+                {
+                  "name": "Abel Bretones",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "Rubén García",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "Moncayola",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "Lucas Torró",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "Moi Gómez",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Budimir",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "Raúl García",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 10,
+                "side": "us",
+                "type": "goal",
+                "player": "Isco",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 31,
+                "side": "us",
+                "type": "goal",
+                "player": "Abde Ezzalzouli",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 41,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Jon Moncayola",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Unai Santos",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "yellow",
+                "player": "Cucho Hernández",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Unai Santos",
+                "playerIn": "Asier Osambela"
+              },
+              {
+                "minute": 48,
+                "side": "us",
+                "type": "owngoal",
+                "player": "Ante Budimir",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 51,
+                "side": "opp",
+                "type": "goal",
+                "player": "Ante Budimir",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 56,
+                "side": "opp",
+                "type": "goal",
+                "player": "Raul García",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Íñigo Arguibide",
+                "playerIn": "Valentin Rosier"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jon Moncayola",
+                "playerIn": "Mauro Echegoyen"
+              },
+              {
+                "minute": 64,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Lucas Torró",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "goal",
+                "player": "Isco",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Rodrigo Riquelme",
+                "playerIn": "Antony Matheus dos Santos"
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Isco",
+                "playerIn": "Dani Ceballos"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Rubén García",
+                "playerIn": "Jonathan Dubasin"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Raul García",
+                "playerIn": "Iker Muñoz Cameros"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "yellow",
+                "player": "Marc Roca",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Cucho Hernández",
+                "playerIn": "Troy Parrott"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Pablo Fornals",
+                "playerIn": "Nelson Deossa"
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Valentin Rosier",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Abde Ezzalzouli",
+                "playerIn": "José Antonio Morante Antúnez"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "goal",
+                "player": "José Antonio Morante Antúnez",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Alejandro Catena",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          }
+        ],
+        "next": [
+          {
+            "date": "2026-10-31",
+            "opp": "Malaga",
+            "homeAway": "H",
+            "comp": "La Liga"
+          },
+          {
+            "date": "2026-11-04",
+            "opp": "Borussia Dortmund",
+            "homeAway": "A",
+            "comp": "UEFA Champions League"
+          },
+          {
+            "date": "2026-11-08",
+            "opp": "Elche",
+            "homeAway": "A",
+            "comp": "La Liga"
+          }
+        ],
         "stats": {
           "goalsForByInterval": {
             "31-45": 1,
-            "46-60": 3,
+            "46-60": 4,
             "61-75": 1,
             "76-90": 1
           },
@@ -3955,34 +6969,34 @@
           "cardsYellowByInterval": {
             "46-60": 3,
             "61-75": 2,
-            "76-90": 1,
+            "76-90": 2,
             "91-105": 1
           },
           "cardsRedByInterval": null,
-          "goalsForAvg": 3,
-          "goalsAgainstAvg": 2,
-          "goalsForAvgHome": 3,
+          "goalsForAvg": 2.3,
+          "goalsAgainstAvg": 1.3,
+          "goalsForAvgHome": 2,
           "goalsForAvgAway": 3,
-          "goalsAgainstAvgHome": 2,
+          "goalsAgainstAvgHome": 1,
           "goalsAgainstAvgAway": 2,
-          "cleanSheets": 0,
-          "cleanSheetsHome": 0,
+          "cleanSheets": 1,
+          "cleanSheetsHome": 1,
           "cleanSheetsAway": 0,
           "failedToScore": 0,
           "failedToScoreHome": 0,
           "failedToScoreAway": 0,
-          "penaltyScored": 1,
+          "penaltyScored": 2,
           "penaltyScoredPct": 100,
           "penaltyMissed": 0,
           "penaltyMissedPct": 0,
           "formations": [
             {
               "formation": "4-2-3-1",
-              "played": 2
+              "played": 3
             }
           ],
           "biggestStreak": {
-            "wins": 2,
+            "wins": 3,
             "draws": 0,
             "loses": 0
           },
@@ -3994,7 +7008,7 @@
           "biggestGoalsForAway": 3,
           "biggestGoalsAgainstHome": 2,
           "biggestGoalsAgainstAway": 2,
-          "winsHome": 1,
+          "winsHome": 2,
           "winsAway": 1,
           "drawsHome": 0,
           "drawsAway": 0,
@@ -4002,7 +7016,32 @@
           "losesAway": 0
         }
       },
-      "absences": [],
+      "absences": [
+        {
+          "name": "F. Bernal",
+          "reason": "suspension",
+          "detail": "Red Card",
+          "since": "2026-10-31"
+        },
+        {
+          "name": "J. Firpo",
+          "reason": "injury",
+          "detail": "Groin Injury",
+          "since": "2026-10-31"
+        },
+        {
+          "name": "C. Hernandez",
+          "reason": "injury",
+          "detail": "Calf Injury",
+          "since": "2026-10-31"
+        },
+        {
+          "name": "I. Losada",
+          "reason": "injury",
+          "detail": "Coach's decision",
+          "since": "2026-10-31"
+        }
+      ],
       "mercatoIn": [
         {
           "name": "Dani Ceballos",
@@ -4181,65 +7220,55 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "A shocking decision regarding Ez Abde's transfer to Paris Saint-Germain",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNWThYOFNoTkdLeUh1clFOLTNKcWFpX3pQZlltNmhoXzZ5VWJYSGFnNmJBUnB3OTMwNnlldlgwN0pUMDFZVGRRUElzWmZhODBfMDlMc0xXV1JfTVhzd2Q4VWdQWTB1SGwxQ3lmSFpfU0QxWlNVOW5aRzRrSXY3bHBWbzZQalU5bUh6dnRKRmkwYzVRdlVmMS1EcXQyZzJ5MWlIWENFWG1tdXp0ZkxBeHVzNUh5NTNrVTZL?oc=5",
-          "source": "Goal.com",
-          "published": "2026-10-30"
-        },
-        {
-          "title": "Watch Slovan Bratislava vs Real Betis",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPMlZUS2taaUYydDNMRTYyUGNNYUpCNzdMQ1l0b0R2dzZYSm1HWFpZdlRzS3lJVEVFUXQ3SnppVG9uN2lYTkliYnl1QXljZEY4VFFBczcteW9hNGtoY3N0T0pWa0VWMUF3a05uSm4wUTdBeGJsamRxWVRIRlZCbEU1dkpwZDYxcnYxS3EwX2dRRVR2TWFVZkgtcmhhT1JwZG1lY3kwZmxOWDBKcThORUdDMEZR?oc=5",
-          "source": "TOD",
-          "published": "2026-10-30"
-        },
-        {
-          "title": "Real Betis Academy brings international football training camp to Johannesburg",
-          "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxQNzNkUG5xUVVvVVlfRVhhLW8wdmI1Xy1PVG45X0NZWUM3YXEteUpHTWdvTVRVQnY3S01qNTdHR05qS0s2WDlkZlpLT19pd1l4MFU5WVlXM3Z1Z3UtQkZ5anIxUXBobjU1VmQwZVIyczIwRFBUZ0xIcWdzSmhsWGpXM21kQWdfOHhnWVNJMmprc0ZlQkJZUUNnemhmSlZZRWdKU0lKRGNlZVVjSjVkZnJfVGFDV0w2eXlzZVlXRTBhbUNNZ2twbG8wRUhsMDUxRjhQaVU4cTJXRWRhT1VkTXYyNkRQOHVwVzdhVE1OLXJXVG94b3poR2h0aGhpUQ?oc=5",
-          "source": "The Citizen",
-          "published": "2026-10-30"
-        },
-        {
-          "title": "Real Betis vs Malaga Prediction: Sevillians will handle the league outsider",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOTWxDUnBsd2JDSFhNN2hrazZQd3BoWU1icGJhSUJjNkdJNExldWM0UTRNUGpiWl8zLXQ1Z1NkQVhLRDZTTDZ0QVFvWU1TYnlSOHFSQjVhV1JXeEYxVzMxakRrOC1JMkZhOHFkUnhFRXZlOC0xcXFTa0REVzVFMXA0eFlFTEltMWJGSmVyRWNUQzhieExZOWh0dXZzUEpjdmhzeFQ1bVlva3hjM0c0NUc4SnB1b25vcEs4ejlac1d6Vm9pU3M?oc=5",
-          "source": "Telecom Asia Sport",
-          "published": "2026-10-30"
+          "title": "How to watch Málaga CF vs. Real Betis in the U.S.: TV channel and streaming options for October 31",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQRExCeUxVaGdqY1BmMEhjR2NFRFRTSWUxUGtJY3RxMWR1ekFBaWhJNGY4dlVPSmlnOG9MYW4wTFA4b1B2NUdYREc4Y1lMQ0lMNEY2ZDFySDVYTzhaUTFMX1dWQ2UtSjhqRlZQY2hJSU1RWVZPelFRTVRveTczdkVQWkh6UmRtQ2pYblpWVFBlTzlpU281M3hjWEdELUJPLXdwQ2REcnZCUDJtZW90Vjdtcw?oc=5",
+          "source": "The New York Times",
+          "published": "2026-10-31"
         },
         {
           "title": "Real Betis vs Málaga Prediction, Betting Tips, Lineups & Odds | 31 Oct 2026",
           "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNNFBGVW1lT000M3NGUjBQQ1Y4WmVtMXEyZ1BCUDV0Z2pwSHFMV3ZqeDFYT3UxY2hlTXdDdEF0MlBraW9HTGhEMF9oUVRvdWN4eHNsQi1CVVJqRHJIWXJZbnA5Nmw3Q2ZqSzU3ZDdySW12cEs4a29tRjRzOHVLN1ZZT2otcFZyOTY5MHl5eW5zZXVZTnJQSnJURFNEMnBSUG1RUDBFTGNrQmM3Sm1l?oc=5",
           "source": "Sportsgambler",
-          "published": "2026-10-30"
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Dortmund - Betis",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOa3lhRUVXM0tlN1Y4c3RoQXRoQXVvTkU2UnJfS0s3Z05WMk9xM1pKdS1FVWxKREl4U1prZnpSSzdweTZZZXgxbEQ0bnU4aS1XM2JUS0FicERubnNKNFNhTzRIUjl6UnRZRURaUUl1SjlRamgwSmlPWjVyTUJCZjhkNQ?oc=5",
+          "source": "Flashscore.com",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "2026/27 Champions League: All the league phase fixtures and results",
+          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPYU1sR0picE9CWEtsaUZDekZKVk1yd2dwVjZwbUxZVUNSUHhaVVRsbzk4RmtzdW10VWx3T0JRSHNTLXkyQjd3SmhUWDl5ZmMxR0ZhQWJic0VsSE5UeUcyQldrLUpjM1pacnJhbnFnU3ZfQk5QNVN5aXJvSVNhdlQtamlkdlpMcC0yU3R3aUhYU2lEQW1FOXYybVkzUTVOM0phcElwVVFDOUs3aVRnOEZ4cGtIVkpwc2NTaXlub3lkZ2VidURrcktzeDNIWkFhalpwTGphNGYxRQ?oc=5",
+          "source": "UEFA.com",
+          "published": "2026-10-31"
         },
         {
           "title": "Meet the 2026/27 Champions League league phase teams",
           "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPV1didExTOEthY2xEanpCS3pqNmJhRS1vYU5CVDNlMUk0alY4T1ZXOWh4OHJ0SnlJVXlWcjZYZVdWa1BJLTZ5cWQyVGNXT3hjOU9na25TQVlOZGtRVDh3cUZvQWhlWjVVRDJjVUFIMVR5QUJNYWlYMnpkMU4tN00tRmRqQ2tCTEZsX1ItZ1RVd2VGZGNDTDVkU1VMeVZCYkF1M3E3cmtRSjdaYlpvdGVkeFdRU0VqNkdrSm91QXRHTmkxVU5JYWxmQVhYUEpuWlN5X3c?oc=5",
           "source": "UEFA.com",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "▶️ Watch Borussia Dortmund vs Real Betis Live Stream | Predictions & Tips - 4 Nov",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOWS14eTk1M1pPWldZSlFzQmhpM1RCTUljc3BfVkdIODQ1Z0JrenhEXzkwdXI4UVJ0bnZzYmVYcXF3dmRJaHN3bE5OZnk4QnZrTEdCdkNOWGc4VVJIci1tUzFzRS1nbXFqWmRUOFhBOXpJZlo0UmtpX25FUV9COGlhTUR6Mm5laGl1ZVFZTVZRTmQ?oc=5",
+          "source": "FootballPredictions.NET",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Athletic Bilbao - Betis",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQMm5SdlVvVmo4R3I4SzJBRTN6N2VBdGpkLWFxV2thS2NoajNYXzh0SUx0RUZwQzJmai1fRU12dUVqSlpsM3pWMF92b3lOUTBGbDlHUXFUZllIa3ZlS19JNzd1cUV1ZXdScHF2al9oOEVORU9MXzRseU9lSWhNMXNfZkRVVQ?oc=5",
+          "source": "Flashscore.com",
           "published": "2026-10-30"
         },
         {
-          "title": "Troy Parrott handed key chance after Real Betis injury update",
-          "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQeXh4M20xcUUtZjVuOUR2MFJfS2ViYU54X3A5bjc4TmNlTXhXM3JDMXpsd1VvUkJEU3NUamZwOGY0MEJ6dW9FVk9QQkNZR2I1cm04QmhqNGMtWmFjZ0xGejg5emxDZTB5Y2w4WHdzYjFqLVVIMWR0Tm40cDBRWXZvWWExc0h2MTFNc1hKdFludE5ROWdIcVFadlg2NUxDRmZaTzF6enNJTXFOSmw4TzA2NXBlWEMzTElyZE41UkoxSUZQRkIyUWV1YmhQVURHME9BcDFEQXJDTVVrNnNEcHZYd05GRmJPUQ?oc=5",
-          "source": "TribalFootball",
-          "published": "2026-10-29"
-        },
-        {
-          "title": "Barcelona v Real Betis results, H2H stats | Football",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWURVTlQzYVJvQnZVZFR3TWpZV1BYd0ExNG9EaEV3cW5DblRHMUprbE1iU3RmTFd3bkJwRVRUc2wxWEdYRTVyLUQ3S1dyMmZka0xieml6aUhQUm9DVkExb29JbXFyUXluUjFsZm9NLUt1ZS1hX0JqbHJOc3FvZnQ4T0gzN1U?oc=5",
-          "source": "Flash Scores",
-          "published": "2026-10-29"
+          "title": "Real Betis vs Málaga: Spanish La Liga stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBPdnlfcjdRX0Jlc1VTR0Q2cF8yUjFVMGJFRU1YTm5FOFh2cHRvemdfVldlM3ZLRXhlZUljTm5fZFlMRDV0SVVNSTZJaGllOEg0WXpQaUs1VDFoLVBXQjdnM3RSRQ?oc=5",
+          "source": "BBC",
+          "published": "2026-10-30"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "Real Betis s-a format în 1914, prin fuziunea dintre Betis Football Club și Sevilla Balompié (fondat în 1907), dată care a rămas anul oficial de înființare al clubului.",
-        "Numele „Real” a fost adăugat în 1914, după ce clubul a primit patronajul regelui Alfonso XIII.",
-        "Real Betis a câștigat titlul de campion al Spaniei o singură dată, în 1935, sub conducerea antrenorului irlandez Patrick O'Connell.",
-        "Clubul a cucerit Cupa Spaniei de trei ori: în 1977, după 21 de lovituri de departajare în finala cu Athletic Bilbao, în 2005 și în 2022.",
-        "Culorile verde cu alb ale echipei au fost alese de fondatorul și căpitanul Manuel Ramos Asensio, inspirate de clubul scoțian Celtic, legătură celebrată oficial în 2017 printr-un echipament special.",
-        "Din cauza istoriei zbuciumate, cu numeroase retrogradări, motto-ul clubului este „¡Viva el Betis manque pierda!” („Trăiască Betis, chiar dacă pierde!”).",
-        "Pe 15 iunie 2009, peste 65.000 de suporteri au participat la un marș de protest în Sevilla pentru a cere vânzarea acțiunilor deținute de președintele Manuel Ruiz de Lopera.",
-        "Real Betis a jucat tradițional pe Estadio Benito Villamarín, numit după președintele care a cumpărat terenul în 1961, iar din 2025 echipa joacă temporar pe Estadio La Cartuja, cu 70.000 de locuri, cât durează renovarea stadionului propriu."
-      ]
+      "stories": []
     }
   },
   "standings": {

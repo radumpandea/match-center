@@ -1,12 +1,12 @@
 {
   "slug": "ucl-e4-fc-porto-napoli",
-  "generatedAt": "2026-10-30T12:40:48.673Z",
+  "generatedAt": "2026-10-31T11:22:03.516Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-10-30"
+      "accessed": "2026-10-31"
     }
   ],
   "competition": {
@@ -39,9 +39,45 @@
     "FC Porto — locul 34 după 3 etape, 0 puncte, golaveraj 2-6.",
     "Gabri Veiga e cel mai bun marcator al echipei FC Porto în acest start de sezon (4 goluri).",
     "Napoli — locul 22 după 3 etape, 3 puncte, golaveraj 5-7.",
-    "Kevin De Bruyne e cel mai bun marcator al echipei Napoli în acest start de sezon (3 goluri)."
+    "Napoli — 3 meciuri fără înfrângere.",
+    "Kevin De Bruyne e cel mai bun marcator al echipei Napoli în acest start de sezon (4 goluri)."
   ],
-  "predictions": null,
+  "predictions": {
+    "winnerName": "Napoli",
+    "winOrDraw": true,
+    "advice": "Double chance : draw or Napoli",
+    "percent": {
+      "home": 10,
+      "draw": 45,
+      "away": 45
+    },
+    "comparison": {
+      "form": {
+        "home": 0,
+        "away": 100
+      },
+      "attack": {
+        "home": 29,
+        "away": 71
+      },
+      "defense": {
+        "home": 54,
+        "away": 46
+      },
+      "poisson": {
+        "home": 0,
+        "away": 100
+      },
+      "h2h": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": {
+        "home": 0,
+        "away": 0
+      }
+    }
+  },
   "teams": {
     "home": {
       "name": "FC Porto",
@@ -78,14 +114,6 @@
             "period": "2021–2023",
             "note": null
           }
-        ],
-        "funfacts": [
-          "Francesco Farioli a studiat filosofie și știința sportului la Universitatea din Florența și a început ca antrenor de portari la Margine Coperta (2009-2011), apoi la Fortis Juventus și Lucchese, în Serie C.",
-          "A lucrat ca antrenor de portari pentru naționala Qatarului under-16, la Aspire Academy, unde l-a cunoscut pe Roberto De Zerbi, pe care l-a urmat apoi la Benevento (2017-18) și Sassuolo (2018-2020).",
-          "Primul său post de antrenor principal a fost la Fatih Karagümrük, din martie 2021, unde a impus un joc bazat pe posesie, echipa sa conducând Süper Lig cu 61,3% posesie medie.",
-          "A pregătit și Alanyaspor, apoi pe Nice în Ligue 1 (2023-24, locul 5), înainte să devină, în mai 2024, primul antrenor italian din istoria lui Ajax și primul tehnician străin angajat de club de la Morten Olsen, în sezonul 1997-98.",
-          "La Ajax a condus echipa pe primul loc în Eredivisie în martie 2025, cu un avans de nouă puncte la cinci etape de final, dar a pierdut titlul în favoarea lui PSV chiar în ultima etapă.",
-          "Din iulie 2025 este antrenorul lui FC Porto, cu care a câștigat campionatul Portugaliei 2025-26 și Supertaça Cândido de Oliveira 2026, fiind desemnat antrenorul sezonului în Primeira Liga."
         ]
       },
       "formation": "n/d",
@@ -445,11 +473,11 @@
             "passesTotal": 224,
             "passesKey": 15,
             "passesAccuracy": 79,
-            "tacklesTotal": 11,
+            "tacklesTotal": 10,
             "tacklesBlocks": 3,
             "tacklesInterceptions": 5,
-            "duelsTotal": 71,
-            "duelsWon": 33,
+            "duelsTotal": 70,
+            "duelsWon": 32,
             "dribblesAttempts": 11,
             "dribblesSuccess": 4,
             "dribblesPast": null,
@@ -797,8 +825,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Off the roster",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -988,9 +1016,9 @@
             "tacklesTotal": 3,
             "tacklesBlocks": 0,
             "tacklesInterceptions": 2,
-            "duelsTotal": 26,
+            "duelsTotal": 27,
             "duelsWon": 17,
-            "dribblesAttempts": 5,
+            "dribblesAttempts": 6,
             "dribblesSuccess": 4,
             "dribblesPast": null,
             "foulsDrawn": 4,
@@ -1205,12 +1233,12 @@
           "number": 13,
           "name": "Pablo Paulino Rosario",
           "photo": "https://media.api-sports.io/football/players/240.png",
-          "pos": "DEF",
+          "pos": "MID",
           "positions": [
-            "DEF",
-            "MID"
+            "MID",
+            "DEF"
           ],
-          "role": "DEF",
+          "role": "MID",
           "age": 29,
           "height": 188,
           "weight": 73,
@@ -1260,7 +1288,7 @@
         },
         {
           "apiId": 550966,
-          "number": 6,
+          "number": 58,
           "name": "Tiago Silva",
           "photo": "https://media.api-sports.io/football/players/550966.png",
           "pos": "MID",
@@ -1468,7 +1496,7 @@
             "shotsOn": 7,
             "passesTotal": 218,
             "passesKey": 16,
-            "passesAccuracy": 80,
+            "passesAccuracy": 81,
             "tacklesTotal": 14,
             "tacklesBlocks": 1,
             "tacklesInterceptions": 4,
@@ -1515,7 +1543,7 @@
           "stats": {
             "goals": 3,
             "assists": 2,
-            "minutes": 612,
+            "minutes": 611,
             "apps": 9,
             "yellow": 0,
             "red": null,
@@ -1546,7 +1574,7 @@
         },
         {
           "apiId": 586008,
-          "number": 7,
+          "number": 57,
           "name": "Duarte Cunha",
           "photo": "https://media.api-sports.io/football/players/586008.png",
           "pos": "ATT",
@@ -1603,7 +1631,7 @@
         },
         {
           "apiId": 586009,
-          "number": 9,
+          "number": 53,
           "name": "Eduardo Ferreira",
           "photo": "https://media.api-sports.io/football/players/586009.png",
           "pos": "ATT",
@@ -1682,8 +1710,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Off the roster",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -2001,7 +2029,7 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 64,
+            "minutes": 65,
             "apps": 3,
             "yellow": 0,
             "red": null,
@@ -2280,13 +2308,1599 @@
           "ga": 6,
           "points": 0
         },
+        "recent": [
+          {
+            "date": "2026-10-28",
+            "opp": "Academico Viseu",
+            "homeAway": "H",
+            "comp": "Taça da Liga",
+            "score": "1-0",
+            "result": "W",
+            "referee": "S. Guelho",
+            "formation": null,
+            "lineups": {
+              "us": [
+                {
+                  "name": "Claudio Ramos",
+                  "number": 14,
+                  "pos": null
+                },
+                {
+                  "name": "N. Perez",
+                  "number": 18,
+                  "pos": null
+                },
+                {
+                  "name": "C. Smalling",
+                  "number": 6,
+                  "pos": null
+                },
+                {
+                  "name": "D. Prpic",
+                  "number": 21,
+                  "pos": null
+                },
+                {
+                  "name": "M. Fernandes",
+                  "number": 52,
+                  "pos": null
+                },
+                {
+                  "name": "Hwang In-Beom",
+                  "number": 16,
+                  "pos": null
+                },
+                {
+                  "name": "A. Varela",
+                  "number": 22,
+                  "pos": null
+                },
+                {
+                  "name": "Souza",
+                  "number": 33,
+                  "pos": null
+                },
+                {
+                  "name": "S. Fofana",
+                  "number": 42,
+                  "pos": null
+                },
+                {
+                  "name": "S. Gimenez",
+                  "number": 29,
+                  "pos": null
+                },
+                {
+                  "name": "Gabriel Mec",
+                  "number": 37,
+                  "pos": null
+                }
+              ],
+              "opp": [
+                {
+                  "name": "J. Soriano",
+                  "number": 12,
+                  "pos": null
+                },
+                {
+                  "name": "T. Domingos",
+                  "number": 21,
+                  "pos": null
+                },
+                {
+                  "name": "H. Gambor",
+                  "number": 82,
+                  "pos": null
+                },
+                {
+                  "name": "N. Michelis",
+                  "number": 2,
+                  "pos": null
+                },
+                {
+                  "name": "Gu Costa",
+                  "number": 57,
+                  "pos": null
+                },
+                {
+                  "name": "A. Ceitil",
+                  "number": 6,
+                  "pos": null
+                },
+                {
+                  "name": "C. Ferreira",
+                  "number": 18,
+                  "pos": null
+                },
+                {
+                  "name": "L. Gohi",
+                  "number": 47,
+                  "pos": null
+                },
+                {
+                  "name": "S. Messeguem",
+                  "number": 14,
+                  "pos": null
+                },
+                {
+                  "name": "Valery",
+                  "number": 17,
+                  "pos": null
+                },
+                {
+                  "name": "M. Bouldini",
+                  "number": 9,
+                  "pos": null
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 15,
+                "side": "us",
+                "type": "yellow",
+                "player": "C. Smalling",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 39,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Gu Costa",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "goal",
+                "player": "S. Gimenez",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 54,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Smalling",
+                "playerIn": "P. Rosario"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Valery",
+                "playerIn": "N. Mortimer"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Bouldini",
+                "playerIn": "Andre Clovis"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Gohi",
+                "playerIn": "Joao Guilherme"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "yellow",
+                "player": "S. Messeguem",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Messeguem",
+                "playerIn": "C. Kahraman"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Ferreira",
+                "playerIn": "A. Mestanza"
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Souza",
+                "playerIn": "Zaidu"
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gabriel Mec",
+                "playerIn": "Pepê"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Perez",
+                "playerIn": "J. Bednarek"
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Fofana",
+                "playerIn": "V. Froholdt"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Joao Guilherme",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-24",
+            "opp": "GIL Vicente",
+            "homeAway": "A",
+            "comp": "Primeira Liga",
+            "score": "1-0",
+            "result": "W",
+            "referee": "L. M. Branco Godinho",
+            "formation": {
+              "us": "4-3-3",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Diogo Costa",
+                  "number": 99,
+                  "pos": "G"
+                },
+                {
+                  "name": "Alberto Baio",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Bednarek",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Kiwior",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Z. Sanusi",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "Victor Mow Froholdt",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Rosario",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "Gabri Veiga",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Pepê Aquino",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "André Silva",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "Borja Sainz",
+                  "number": 17,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Lucão",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "Ricardo Esgaio",
+                  "number": 47,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Elimbi Gilbert",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Jonathan Buatu",
+                  "number": 39,
+                  "pos": "D"
+                },
+                {
+                  "name": "David Moreira",
+                  "number": 45,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Lausen",
+                  "number": 12,
+                  "pos": "M"
+                },
+                {
+                  "name": "Diogo Ferreira Prioste",
+                  "number": 86,
+                  "pos": "M"
+                },
+                {
+                  "name": "Murilo",
+                  "number": 77,
+                  "pos": "M"
+                },
+                {
+                  "name": "Santi García",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Joelson Fernandes",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "Walace",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gabri Veiga",
+                "playerIn": "Hwang In-Beom"
+              },
+              {
+                "minute": 56,
+                "side": "us",
+                "type": "yellow",
+                "player": "Pablo Rosario",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "André Silva",
+                "playerIn": "Samuel Aghehowa"
+              },
+              {
+                "minute": 60,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Andreas Lausen",
+                "playerIn": "Jose Carlos Natario Ferreira"
+              },
+              {
+                "minute": 60,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Walace França",
+                "playerIn": "Mohamed Kaba"
+              },
+              {
+                "minute": 60,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Joelson Fernandes",
+                "playerIn": "Gil Pinto Martins"
+              },
+              {
+                "minute": 63,
+                "side": "us",
+                "type": "goal",
+                "player": "Borja Sainz",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Pablo Rosario",
+                "playerIn": "Alan Gonzalo Varela"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Borja Sainz",
+                "playerIn": "Santiago Giménez"
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Diogo Prioste",
+                "playerIn": "Tidjany Chabrol Toure"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Santiago García González",
+                "playerIn": "Guilherme Gomes"
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "red",
+                "player": "Marvin Elimbi Gilbert",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-20",
+            "opp": "PSV Eindhoven",
+            "homeAway": "H",
+            "comp": "UEFA Champions League",
+            "score": "0-1",
+            "result": "L",
+            "referee": "Daniel Siebert",
+            "formation": {
+              "us": "4-3-3",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Diogo Costa",
+                  "number": 99,
+                  "pos": "G"
+                },
+                {
+                  "name": "Alberto Baio",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Bednarek",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Kiwior",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Z. Sanusi",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "Victor Mow Froholdt",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Rosario",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "Gabri Veiga",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Pepê Aquino",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "Samu",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "O. Pietuszewski",
+                  "number": 77,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Kovář",
+                  "number": 32,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Dest",
+                  "number": 8,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Geertruida",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "Yarek Gasiorowski",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Kostić",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Sano",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "Mauro Júnior",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Bajraktarevic",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Mijnans",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Perišić",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Til",
+                  "number": 20,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 39,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Lutsharel Geertruida",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 57,
+                "side": "opp",
+                "type": "goal",
+                "player": "Guus Til",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Samuel Aghehowa",
+                "playerIn": "André Silva"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Oskar Pietuszewski",
+                "playerIn": "Borja Sainz"
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gabri Veiga",
+                "playerIn": "Hwang In-Beom"
+              },
+              {
+                "minute": 69,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Zaidu Sanusi",
+                "playerIn": "João Victor de Souza Menezes"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Yarek Gasiorowski",
+                "playerIn": "Armando Obispo"
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Mauro Júnior",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Victor Froholdt",
+                "playerIn": "Seko Fofana"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mauro Júnior",
+                "playerIn": "Noah Fernandez"
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Esmir Bajraktarević",
+                "playerIn": "Dennis Man"
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ivan Perišić",
+                "playerIn": "Amir Bouhamdi"
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Filip Kostić",
+                "playerIn": "Ryan Flamingo"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-14",
+            "opp": "Real Betis",
+            "homeAway": "A",
+            "comp": "UEFA Champions League",
+            "score": "2-3",
+            "result": "L",
+            "referee": "Clement Turpin",
+            "formation": {
+              "us": "4-3-3",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Diogo Costa",
+                  "number": 99,
+                  "pos": "G"
+                },
+                {
+                  "name": "Martim Fernandes",
+                  "number": 52,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Rosario",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Kiwior",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Francisco Moura",
+                  "number": 74,
+                  "pos": "D"
+                },
+                {
+                  "name": "Victor Mow Froholdt",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Varela",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "Gabri Veiga",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Borja Sainz",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "André Silva",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "Pepê Aquino",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Álvaro Vallés",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Ángel Ortiz",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "Marc Bartra",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "Natan",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Fran García",
+                  "number": 11,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Deossa",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "Marc Roca",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "Antony",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "Isco",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Ezzalzouli",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Parrott",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 42,
+                "side": "us",
+                "type": "yellow",
+                "player": "Francesco Farioli",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 47,
+                "side": "opp",
+                "type": "goal",
+                "player": "Abde Ezzalzouli",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 54,
+                "side": "us",
+                "type": "goal",
+                "player": "Gabri Veiga",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 56,
+                "side": "us",
+                "type": "yellow",
+                "player": "André Silva",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 56,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Nelson Deossa",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 56,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Abde Ezzalzouli",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Borja Sainz",
+                "playerIn": "Oskar Pietuszewski"
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "André Silva",
+                "playerIn": "Samuel Aghehowa"
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Martim Fernandes",
+                "playerIn": "Alberto Costa"
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "goal",
+                "player": "Samuel Aghehowa",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Nelson Deossa",
+                "playerIn": "Dani Ceballos"
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Troy Parrott",
+                "playerIn": "Cucho Hernández"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gabri Veiga",
+                "playerIn": "Hwang In-Beom"
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "yellow",
+                "player": "Alan Gonzalo Varela",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "goal",
+                "player": "Cucho Hernández",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Dani Ceballos",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "goal",
+                "player": "Isco",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Eduardo Gabriel Aquino Cossa",
+                "playerIn": "Santiago Giménez"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "yellow",
+                "player": "Santiago Giménez",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Isco",
+                "playerIn": "Facundo Bernal"
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Marc Roca",
+                "playerIn": "Pablo Fornals"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Antony Matheus dos Santos",
+                "playerIn": "Rodrigo Riquelme"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Ángel Ortiz",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-10",
+            "opp": "Maritimo",
+            "homeAway": "A",
+            "comp": "Primeira Liga",
+            "score": "2-1",
+            "result": "W",
+            "referee": "J. Goncalves",
+            "formation": {
+              "us": "4-3-3",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "D. Costa",
+                  "number": 99,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Costa",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Bednarek",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Kiwior",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Moura",
+                  "number": 74,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Froholdt",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Varela",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "Hwang In-Beom",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "William Gomes",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "Andre Silva",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "Pepê",
+                  "number": 11,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "F. Vieites",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "Igor Juliao",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Correia",
+                  "number": 44,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Szalai",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Henrique",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "I. Alani",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "Raphael Guzzo",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Tavares",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Dominguez",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Tejon",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Butzke",
+                  "number": 17,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 16,
+                "side": "opp",
+                "type": "goal",
+                "player": "Gábor Szalai",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 36,
+                "side": "us",
+                "type": "yellow",
+                "player": "Alan Gonzalo Varela",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 42,
+                "side": "us",
+                "type": "goal",
+                "player": "Victor Froholdt",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Alan Gonzalo Varela",
+                "playerIn": "Pablo Rosario"
+              },
+              {
+                "minute": 54,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Hwang In-Beom",
+                "playerIn": "Gabri Veiga"
+              },
+              {
+                "minute": 55,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "William Gomes",
+                "playerIn": "Borja Sainz"
+              },
+              {
+                "minute": 57,
+                "side": "us",
+                "type": "yellow",
+                "player": "Eduardo Gabriel Aquino Cossa",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Tomas Tavares",
+                "playerIn": "Simo Bouzaidi"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Maxime Dominguez",
+                "playerIn": "Rodri Andrade"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "André Silva",
+                "playerIn": "Samuel Aghehowa"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Adrián Butzke",
+                "playerIn": "Mons Rogeani Bassouamina"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Martín Tejón",
+                "playerIn": "Maurice Boakye"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Eduardo Gabriel Aquino Cossa",
+                "playerIn": "Oskar Pietuszewski"
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "goal",
+                "player": "Oskar Pietuszewski",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Igor Julião",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ibrahim Akitunde Alani",
+                "playerIn": "Samuel Bamba"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-02",
+            "opp": "Deportivo La Coruna",
+            "homeAway": "A",
+            "comp": "Friendlies Clubs",
+            "score": "3-1",
+            "result": "W",
+            "referee": null,
+            "formation": null,
+            "lineups": {
+              "us": [
+                {
+                  "name": "Claudio Ramos",
+                  "number": 14,
+                  "pos": null
+                },
+                {
+                  "name": "A. Costa",
+                  "number": 20,
+                  "pos": null
+                },
+                {
+                  "name": "C. Smalling",
+                  "number": 6,
+                  "pos": null
+                },
+                {
+                  "name": "F. Moura",
+                  "number": 74,
+                  "pos": null
+                },
+                {
+                  "name": "Souza",
+                  "number": 33,
+                  "pos": null
+                },
+                {
+                  "name": "T. Silva",
+                  "number": 58,
+                  "pos": null
+                },
+                {
+                  "name": "A. Varela",
+                  "number": 22,
+                  "pos": null
+                },
+                {
+                  "name": "Pepê",
+                  "number": 11,
+                  "pos": null
+                },
+                {
+                  "name": "William Gomes",
+                  "number": 7,
+                  "pos": null
+                },
+                {
+                  "name": "B. Sainz",
+                  "number": 17,
+                  "pos": null
+                },
+                {
+                  "name": "Samu",
+                  "number": 9,
+                  "pos": null
+                }
+              ],
+              "opp": [
+                {
+                  "name": "L. Roman",
+                  "number": 13,
+                  "pos": null
+                },
+                {
+                  "name": "M. Loureiro",
+                  "number": 15,
+                  "pos": null
+                },
+                {
+                  "name": "A. Comas",
+                  "number": 3,
+                  "pos": null
+                },
+                {
+                  "name": "D. Barcia",
+                  "number": 5,
+                  "pos": null
+                },
+                {
+                  "name": "G. Quagliata",
+                  "number": 12,
+                  "pos": null
+                },
+                {
+                  "name": "D. Villares Yanez",
+                  "number": 8,
+                  "pos": null
+                },
+                {
+                  "name": "M. Soriano",
+                  "number": 21,
+                  "pos": null
+                },
+                {
+                  "name": "D. Mella",
+                  "number": 11,
+                  "pos": null
+                },
+                {
+                  "name": "Y. Hernandez",
+                  "number": 10,
+                  "pos": null
+                },
+                {
+                  "name": "J. Asp",
+                  "number": 18,
+                  "pos": null
+                },
+                {
+                  "name": "K. Sanchez",
+                  "number": 33,
+                  "pos": null
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 4,
+                "side": "opp",
+                "type": "goal",
+                "player": "J. Asp",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Roman",
+                "playerIn": "A. Fernandez"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "T. Silva",
+                "playerIn": "J. Teixeira"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "William Gomes",
+                "playerIn": "Gabriel Mec"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Samu",
+                "playerIn": "Andre Silva"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "goal",
+                "player": "B. Sainz",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Quagliata",
+                "playerIn": "Angelino"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Barcia",
+                "playerIn": "X. Navarro"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Mella",
+                "playerIn": "A. Traore"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Sanchez",
+                "playerIn": "N. Carrillo"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Smalling",
+                "playerIn": "L. Gomes"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Costa",
+                "playerIn": "Y. Pereira"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Pepê",
+                "playerIn": "Kaue"
+              },
+              {
+                "minute": 64,
+                "side": "us",
+                "type": "goal",
+                "player": "Andre Silva",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Souza",
+                "playerIn": "T. Ferreira"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "B. Sainz",
+                "playerIn": "Gabriel Veron"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Asp",
+                "playerIn": "A. Fraga Mesia"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Villares Yanez",
+                "playerIn": "I. Gil"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "goal",
+                "player": "Andre Silva",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          }
+        ],
+        "next": [
+          {
+            "date": "2026-10-31",
+            "opp": "Estoril",
+            "homeAway": "H",
+            "comp": "Primeira Liga"
+          },
+          {
+            "date": "2026-11-04",
+            "opp": "Napoli",
+            "homeAway": "H",
+            "comp": "UEFA Champions League"
+          },
+          {
+            "date": "2026-11-08",
+            "opp": "Vitória SC",
+            "homeAway": "A",
+            "comp": "Primeira Liga"
+          }
+        ],
         "stats": {
           "goalsForByInterval": {
             "46-60": 1,
             "61-75": 1
           },
           "goalsAgainstByInterval": {
-            "46-60": 2,
+            "46-60": 3,
             "61-75": 1,
             "76-90": 2
           },
@@ -2298,17 +3912,17 @@
             "91-105": 1
           },
           "cardsRedByInterval": null,
-          "goalsForAvg": 1,
-          "goalsAgainstAvg": 2.5,
+          "goalsForAvg": 0.7,
+          "goalsAgainstAvg": 2,
           "goalsForAvgHome": 0,
           "goalsForAvgAway": 2,
-          "goalsAgainstAvgHome": 2,
+          "goalsAgainstAvgHome": 1.5,
           "goalsAgainstAvgAway": 3,
           "cleanSheets": 0,
           "cleanSheetsHome": 0,
           "cleanSheetsAway": 0,
-          "failedToScore": 1,
-          "failedToScoreHome": 1,
+          "failedToScore": 2,
+          "failedToScoreHome": 2,
           "failedToScoreAway": 0,
           "penaltyScored": 0,
           "penaltyScoredPct": 0,
@@ -2317,13 +3931,13 @@
           "formations": [
             {
               "formation": "4-3-3",
-              "played": 2
+              "played": 3
             }
           ],
           "biggestStreak": {
             "wins": 0,
             "draws": 0,
-            "loses": 2
+            "loses": 3
           },
           "biggestWinHome": null,
           "biggestWinAway": null,
@@ -2337,11 +3951,36 @@
           "winsAway": 0,
           "drawsHome": 0,
           "drawsAway": 0,
-          "losesHome": 1,
+          "losesHome": 2,
           "losesAway": 1
         }
       },
-      "absences": [],
+      "absences": [
+        {
+          "name": "Gabriel Mec",
+          "reason": "injury",
+          "detail": "Off the roster",
+          "since": "2026-10-20"
+        },
+        {
+          "name": "D. Prpic",
+          "reason": "injury",
+          "detail": "Off the roster",
+          "since": "2026-10-20"
+        },
+        {
+          "name": "V. Sousa",
+          "reason": "injury",
+          "detail": "Leg Injury",
+          "since": "2026-10-20"
+        },
+        {
+          "name": "William Gomes",
+          "reason": "injury",
+          "detail": "Ankle Injury",
+          "since": "2026-10-20"
+        }
+      ],
       "mercatoIn": [
         {
           "name": "C. Smalling",
@@ -2490,65 +4129,55 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Primeira Liga Table: Football Scores, Results & Fixtures",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNWjVSTk04dFY5WTB1SDdXYTQ0bkFXQ3ZlZm5EVDB3Rld3NGNLTEY4YkFPeXEzalFfTzBlVjRGR2NFc0NYLV9WU21HUnZzN1NWaGZWS2JJbUJQSFRoLUx0VnE1Ukc0b0Rlb1RPSHhXRlpySjEzQ1JIZFZ1SXFXRXVUU2pESXBZWFY0R1pzNndRdjBuQlExcUZWcFRxUkxrUkJhUnlTZGxmam4wSEFkaVFGWHRR?oc=5",
-          "source": "TNT Sports",
+          "title": "FC Porto - Estoril, LIVE VIDEO, 22:30, Digi Sport 3. Programul complet al etapei a 10-a din Portugalia",
+          "url": "https://www.digisport.ro/fotbal/portugalia/fc-porto-estoril-live-video-2230-digi-sport-3-programul-complet-al-etapei-a-10-a-din-portugalia-4574559",
+          "source": "Digi Sport",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Estoril Praia vs. FC Porto - November 01, 2026",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOa2pxMkdqRTYtd0xOMlBwSGZSZ3VaNWI0UU5PNGJtMFhnUFV2NmJNZEpVY0lpMGhrb01ZV3prTXRWcWVEaDIxanpYZkt1Q21JY3d3WE1iZXVrcnpCbnZrTUxoUmVyN04tRmRUdEpNU0t1RHk4TDVkSkZLalJjeU92eGhR?oc=5",
+          "source": "Bleacher Report",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Unlucky Chris Smalling suffers bad injury on FC Porto debut",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOb1JIREpLT2YyVWNGcmZ1aUZVdEJ3emtibnNtSFBkemh4VEQ1dnEyQXJLV29aeHdGaU85cmVhSkpYMXBSNWhKTHAyRjFsZ2Z3cTh0R0xub2xsc0xuV1ZJYlF1MzRjbEU5ME13b0ZDcDhsUFRqOG5GbzRuTmtmWDhhaWVtUHFpbkFLTmNuSVFvRG9qdHdpZmhUSEFnYTR6UmRXSDZaajVpLWhYNVE?oc=5",
+          "source": "The Peoples Person",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Porto vs Estoril Prediction, Betting Tips, Lineups & Odds | 31 Oct 2026",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPR3hUMGVHYW5lZ3ZXZFZQa2lKdHUxQTZDaFQxUkxfb0ppb29KS0ltekhrbmVPcUVmS2dvcktvcUxYZ3NhOTVZTl8yU2NpdGI1T0NaSnpJOGJrckVONlZadV80dDdKZlpwbmhFQXpyR1E5NHJCNFJsVURPcHFnQUZycUVUaGxXRndkUTZyZFA1ZU5zY2RqLUFUUkhMdEFSZVFUR1Utdnd1RQ?oc=5",
+          "source": "Sportsgambler",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Who has qualified for the Champions League?",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQLURGVnJFa0FELXFCaXEyUjNDWnlqSUoxczVpWWIxTDl0LWVFY2NtZC1GeDNvcXl6RnRyTVJYeWxZVklOZjhuYUQ1M1pqSnY1UUV3NngxcWpiOFZycmE3TEUtQVhFdWNla05zd0Rua012MTZZQ0lMRXV6emdVUkhXTlZiRGFnYkJlQVVaSzlqZmhPczdRbE1ib2xtMFJsVDg?oc=5",
+          "source": "Manchester United",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "FC Porto shareholders approve 2025/26 integrated report and accounts",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPQnZBMWJ3T3pyZ2RzNHNvTHBvSnZGUTNMU0dZaFJJRTdkY21kYkN1SVY5MEVHdUp0SDdyeTd4Tl9GbzhsZ3BVWDMzam9HcXVsaVdvX0QyaXMxYTB6V2ZjTXlqcXNkY01MdG1jc2xnbFFqMmVSXzZ4b084OHI5SC1HeEg5bVJ0bVBwN2lEVlR3NnE5SlRVRlFIUXkwZjJhT1Zqek5FM2xvZnlmMy1B?oc=5",
+          "source": "OneFootball",
           "published": "2026-10-30"
         },
         {
-          "title": "FC Porto vs. Manchester City: UEFA Champions League Match Highlights (9/8) - Scoreline Stream of Soccer",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOZHRyMi1ZcEFtODRVQXlnc01xMXV4bGdxYWFkZElBMkc5NXpHOExHU2hnMDVONGpBQU5TQzNjaVhjblJjdFl1cmRwbVlKdXVSci0tRkI1NUdUcThpVVRMUl8xRnUtU3JUUXY0czc2cUcwV0xFYThja0Etc3hHNm1uaUh4emNUTnN3RE1Ya0Z4b2p1TnJneFFONlVFLWNQSG1Wckg4ODZLNVliX0ltWWZwZWpTTXN5SU5DZ2lPVEhXc256UQ?oc=5",
-          "source": "CBS Sports",
-          "published": "2026-10-29"
+          "title": "FC Porto vs Estoril Praia Prediction and Betting Tips | October 31st 2026",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQMEd4eWthS296dFN2UGY4MXJNRVBzWjB6cERjWjFtTFc3RElkQjF4a1ZGNFEzeWplYXBHSDhISnJjdHRZOEUzNC1NSXBLdDlndmdaSVpfYjJEaXRLd0lUb0JFZlFlN3kyWmdQMVNZSm53RFVNRi00bHNydURqYXFZeHpKUkd2TlZDenZrTHNESkV1MXB6V3FUYXd5bWpZcGxZRXJpMEcyQQ?oc=5",
+          "source": "Sportskeeda",
+          "published": "2026-10-30"
         },
         {
-          "title": "FC Porto and New Balance deal to run until 2029 amid Hummel rumours",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQTnU5WEdOdW1NLXhwdjRoV25VT0pid1NuYkFfdmVEajZ2cjhpYmljV20wc2FMczZCRG1QdVdQU2FQNlhXc0llcUJnQzZCVTg0WDV4RWFIa09zV1Zuemx3aFlyVlJvMk1nU3dFMzlQLXREU1FBV00xZ1hQMWNuU2RYRHZwclJFWnZGTDJSbUdROTZLM2ZjaE54eExuT1pIbW1DZkl4T1hSS0FfemFE?oc=5",
-          "source": "OneFootball",
-          "published": "2026-10-29"
-        },
-        {
-          "title": "João Afonso",
-          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9NWjlTZGF1UzFXTFlYRnBVTTRlS2FkWlNaTGtvZjc4OU9VaDJ4clBiNkV4NmxRY05VTGg3b0FveTFfTFROOEFfTEtxdmlxbHJSQ1B3R2V3WmczZXctNldYWDZ3b0t4bGxtWkg1M3dUeG1xdkt4cnc?oc=5",
-          "source": "FC Porto",
-          "published": "2026-10-29"
-        },
-        {
-          "title": "Hummel to Sign Lazio and FC Porto Kit Deals From 27-28 Season",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNcWQybVFYVjNYLWF6YUFjNkJMdUZPcjRLblp4eWpmWmtkQ3IxYm9ob2FEbWxVeFZmSlpjNFpnelM0S3E5UXBsOWlGaTJWV3o3OUtwS3luX3NqSkVJSElZOUdHM2JhQlBBV0ZOMEVvcW5XdGNOaWJadzUxQkRNcEVwbU5MZ0pNYmZWV1l1VHd1NXRqV0x1dFpwZEZwd2hqbUxhc3lma0ZsMHZITlNS?oc=5",
-          "source": "Footy Headlines",
-          "published": "2026-10-29"
-        },
-        {
-          "title": "Pepê",
-          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9LVHNXWURyVWRmVVNROXN2X0lzUUg4MVRwY0dBektHa1l5OUU2cTRqc3QzdGdpVUVjUWd1ZjlDUldDMjJuVjMxanZNNl9kSXM1UTd3dVF4U3psV0U0eUR1WmNjdGROeHNWdktTdw?oc=5",
-          "source": "FC Porto",
-          "published": "2026-10-29"
-        },
-        {
-          "title": "FC Porto to file complaint against assistant referee Hugo Ribeiro",
-          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPTFh6NG00RkltMGlpbUx6aFJweGs4eEhuYi10ZUtra0wzSm9OU0JscGdSQlM1Nl81UHM3a2s4SVA5MHJocWFQQzdHWnpWQ3dqOXMxRHhiN2VTT0xRNndwZGkwUWhyanR0Y21xU3lvLXdycFFZSXoxRGlQZXlzMVBqb09lLTFPd0k5N3cyYTU3MGZIQlRYNDBMNzJxQ3BMRGEtNXc5WkNNYjM4Zw?oc=5",
-          "source": "OneFootball",
-          "published": "2026-10-29"
-        },
-        {
-          "title": "Evanilson recalls FC Porto struggles and credits Pepe’s support",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPVldhb2xFdmExTTVpYnh3LV9HblAwMFJXTk5vTWZ5NVdZM01mcWQxU21FdFFqd2gzRGxmQ1laMDljNkdFVzMyV1lqMnZkSHktbXVPLXNlVzc5cnJzOExJY2NqNWNNRVY3cE9tWS13SW9DTlRDZzJxd0VOanI4WllMTkZqbGNNOUtkSndlOHZLNEcxTjhnQTE5MGVTdGhqMDdBUHpHeVBB?oc=5",
-          "source": "OneFootball",
-          "published": "2026-10-29"
+          "title": "FC Porto vs Estoril Prediction: The Dragons will answer their European setbacks",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNaHRkelRiS19vVktTT3EyM0JZUXdTRmtjUEZPNEtqWHlRdUZXM3BCN3Q4VUUyZTBpRlBQZDN4VTAwYnNsQlRhRDRrV3ZPdzV2QjV4U212c1pNUk5zS2xPTWxNcWJQN2xmT0Fua3Vhd3dWTlV0azMzbWRRc2YwR3VQd0MxWVZKNFpKQXRYV0RoSmhCdklzTnU1M2hJd2pTRDlEaUV3TUJVLTFsZEtmUkp2RlhRd3JGajFZNTE3STl0TThaRGkxMHcxREVvM1FTQQ?oc=5",
+          "source": "Telecom Asia Sport",
+          "published": "2026-10-30"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "Futebol Clube do Porto a fost fondat la 28 septembrie 1893 de António Nicolau de Almeida, un comerciant local de vin de Porto fascinat de fotbalul descoperit în călătoriile sale în Anglia.",
-        "Porto este una dintre cele „trei mari” echipe ale Portugaliei care nu au retrogradat niciodată din Primeira Liga, alături de Benfica și Sporting CP.",
-        "Cu 88 de trofee majore, Porto este cel mai titrat club din fotbalul portughez, cu 31 de titluri de campion, dintre care cinci consecutive între 1994–95 și 1998–99, record pentru Portugalia.",
-        "Pe plan internațional, Porto a câștigat de două ori Cupa Campionilor Europeni/Liga Campionilor, în 1987 și 2004, și de două ori Cupa UEFA/Europa League, în 2003 și 2011.",
-        "Finala Cupei Campionilor din 1987, câștigată 2–1 cu Bayern München, a fost decisă printr-un gol celebru marcat „cu calcanul” de Rabah Madjer, după ce Porto era condusă cu 1–0 până în minutul 79.",
-        "În ediția 1986–87 a Cupei Campionilor, Porto a obținut cea mai mare victorie din istoria sa în cupele europene, 9–0 cu malteza Rabat Ajax.",
-        "Fernando Gomes a devenit cel mai bun marcator din istoria clubului, cu 352 de goluri în 455 de meciuri, înainte de a se retrage în 1989.",
-        "Din 2003, echipa joacă pe Estádio do Dragão, care a înlocuit vechiul Estádio das Antas, folosit timp de 51 de ani; clubul este supranumit „dragões” și joacă în tricouri dungate albastru cu alb."
-      ]
+      "stories": []
     },
     "away": {
       "name": "Napoli",
@@ -2737,14 +4366,6 @@
             "season": "2014/2015",
             "place": "2nd Place"
           }
-        ],
-        "funfacts": [
-          "Ca jucător a evoluat la mijlocul terenului pentru Pisa, Pescara, Cagliari, Perugia și Napoli, iar la Livorno a primit porecla „Acciughina” (Anșoaua), folosită și azi de presa italiană.",
-          "A debutat ca antrenor în 2004, la Aglianese, clubul de Serie C2 unde își petrecuse ultimii doi ani ca jucător.",
-          "Cu AC Milan a câștigat Scudetto în 2010-11, primul titlu al clubului după 2004, și Supercoppa Italiana în 2011.",
-          "La Juventus (2014-2019) a cucerit cinci titluri de Serie A consecutive (2015-2019) și patru Cupe ale Italiei la rând (2015-2018), ajungând de două ori în finala Champions League, în 2015 și 2017.",
-          "Este singurul antrenor din istoria fotbalului italian cu cinci scudetti și patru Cupe ale Italiei câștigate consecutiv, fiind distins de patru ori cu Panchina d'Oro (2009, 2015, 2017, 2018).",
-          "S-a născut la 11 august 1967, la Livorno, Italia, și este actualul antrenor al echipei Napoli, din Serie A."
         ]
       },
       "formation": "n/d",
@@ -2841,7 +4462,7 @@
             "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 6.82,
+            "rating": 6.02,
             "conceded": 6,
             "saves": 16,
             "shotsTotal": 0,
@@ -2894,16 +4515,16 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 180,
-            "apps": 2,
+            "minutes": 270,
+            "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 3.63,
+            "rating": 5.49,
             "conceded": 1,
-            "saves": 5,
+            "saves": 9,
             "shotsTotal": 0,
             "shotsOn": 0,
-            "passesTotal": 77,
+            "passesTotal": 131,
             "passesKey": 0,
             "passesAccuracy": 79,
             "tacklesTotal": 0,
@@ -3012,7 +4633,7 @@
             "apps": 4,
             "yellow": 1,
             "red": null,
-            "rating": 6.82,
+            "rating": 6.78,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 1,
@@ -3021,7 +4642,7 @@
             "passesKey": 0,
             "passesAccuracy": 89,
             "tacklesTotal": 4,
-            "tacklesBlocks": 0,
+            "tacklesBlocks": 1,
             "tacklesInterceptions": 2,
             "duelsTotal": 16,
             "duelsWon": 11,
@@ -3069,7 +4690,7 @@
             "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 4.48,
+            "rating": 4.41,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 1,
@@ -3117,8 +4738,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Jumpers Knee",
           "stats": null
         },
         {
@@ -3148,28 +4769,28 @@
           "statusNote": null,
           "stats": {
             "goals": 0,
-            "assists": 1,
-            "minutes": 710,
-            "apps": 8,
+            "assists": 2,
+            "minutes": 800,
+            "apps": 9,
             "yellow": 1,
             "red": null,
-            "rating": 6.52,
+            "rating": 6.8,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 4,
             "shotsOn": 2,
-            "passesTotal": 383,
-            "passesKey": 7,
-            "passesAccuracy": 86,
+            "passesTotal": 443,
+            "passesKey": 8,
+            "passesAccuracy": 87,
             "tacklesTotal": 16,
             "tacklesBlocks": 2,
             "tacklesInterceptions": 8,
-            "duelsTotal": 65,
-            "duelsWon": 37,
+            "duelsTotal": 70,
+            "duelsWon": 41,
             "dribblesAttempts": 6,
             "dribblesSuccess": 2,
             "dribblesPast": null,
-            "foulsDrawn": 8,
+            "foulsDrawn": 10,
             "foulsCommitted": 4,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -3206,23 +4827,23 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 0,
-            "apps": 0,
+            "minutes": 45,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": null,
+            "rating": 3.39,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 0,
             "shotsOn": 0,
-            "passesTotal": 0,
-            "passesKey": 0,
-            "passesAccuracy": null,
-            "tacklesTotal": 0,
+            "passesTotal": 36,
+            "passesKey": 1,
+            "passesAccuracy": 88,
+            "tacklesTotal": 1,
             "tacklesBlocks": 0,
             "tacklesInterceptions": 0,
-            "duelsTotal": 0,
-            "duelsWon": 0,
+            "duelsTotal": 2,
+            "duelsWon": 1,
             "dribblesAttempts": 0,
             "dribblesSuccess": 0,
             "dribblesPast": null,
@@ -3261,30 +4882,30 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 0,
+            "goals": 1,
             "assists": 0,
-            "minutes": 621,
-            "apps": 7,
+            "minutes": 711,
+            "apps": 8,
             "yellow": 2,
             "red": null,
-            "rating": 6.86,
+            "rating": 6.93,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 2,
-            "shotsOn": 0,
-            "passesTotal": 345,
+            "shotsTotal": 3,
+            "shotsOn": 1,
+            "passesTotal": 424,
             "passesKey": 2,
             "passesAccuracy": 90,
-            "tacklesTotal": 15,
+            "tacklesTotal": 19,
             "tacklesBlocks": 4,
-            "tacklesInterceptions": 13,
-            "duelsTotal": 65,
-            "duelsWon": 29,
+            "tacklesInterceptions": 15,
+            "duelsTotal": 75,
+            "duelsWon": 35,
             "dribblesAttempts": 1,
             "dribblesSuccess": 1,
             "dribblesPast": null,
             "foulsDrawn": 6,
-            "foulsCommitted": 10,
+            "foulsCommitted": 11,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -3320,28 +4941,28 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 261,
-            "apps": 6,
+            "minutes": 351,
+            "apps": 7,
             "yellow": 0,
             "red": null,
-            "rating": 6.68,
+            "rating": 6.66,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 8,
+            "shotsTotal": 9,
             "shotsOn": 2,
-            "passesTotal": 131,
+            "passesTotal": 194,
             "passesKey": 6,
-            "passesAccuracy": 86,
-            "tacklesTotal": 8,
+            "passesAccuracy": 89,
+            "tacklesTotal": 11,
             "tacklesBlocks": 0,
             "tacklesInterceptions": 4,
-            "duelsTotal": 29,
-            "duelsWon": 12,
+            "duelsTotal": 36,
+            "duelsWon": 15,
             "dribblesAttempts": 2,
             "dribblesSuccess": 1,
             "dribblesPast": null,
             "foulsDrawn": 1,
-            "foulsCommitted": 6,
+            "foulsCommitted": 8,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -3377,28 +4998,28 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 630,
-            "apps": 7,
+            "minutes": 675,
+            "apps": 8,
             "yellow": 1,
             "red": null,
-            "rating": 7.24,
+            "rating": 7.05,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 5,
+            "shotsTotal": 4,
             "shotsOn": 0,
-            "passesTotal": 484,
+            "passesTotal": 520,
             "passesKey": 2,
             "passesAccuracy": 89,
-            "tacklesTotal": 12,
-            "tacklesBlocks": 5,
+            "tacklesTotal": 14,
+            "tacklesBlocks": 4,
             "tacklesInterceptions": 6,
-            "duelsTotal": 77,
-            "duelsWon": 52,
-            "dribblesAttempts": 0,
+            "duelsTotal": 84,
+            "duelsWon": 55,
+            "dribblesAttempts": 1,
             "dribblesSuccess": 0,
             "dribblesPast": null,
             "foulsDrawn": 5,
-            "foulsCommitted": 8,
+            "foulsCommitted": 9,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -3411,12 +5032,11 @@
           "number": 37,
           "name": "Leonardo Spinazzola",
           "photo": "https://media.api-sports.io/football/players/862.png",
-          "pos": "MID",
+          "pos": "DEF",
           "positions": [
-            "MID",
             "DEF"
           ],
-          "role": "MID",
+          "role": "DEF",
           "age": 33,
           "height": 186,
           "weight": 75,
@@ -3439,7 +5059,7 @@
             "apps": 7,
             "yellow": 0,
             "red": null,
-            "rating": 6.81,
+            "rating": 6.78,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 4,
@@ -3492,27 +5112,27 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 328,
-            "apps": 5,
+            "minutes": 391,
+            "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 6.74,
+            "rating": 6.68,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 4,
+            "shotsTotal": 5,
             "shotsOn": 2,
-            "passesTotal": 133,
+            "passesTotal": 155,
             "passesKey": 3,
-            "passesAccuracy": 85,
+            "passesAccuracy": 87,
             "tacklesTotal": 3,
-            "tacklesBlocks": 3,
+            "tacklesBlocks": 4,
             "tacklesInterceptions": 3,
-            "duelsTotal": 29,
-            "duelsWon": 14,
-            "dribblesAttempts": 5,
-            "dribblesSuccess": 2,
+            "duelsTotal": 37,
+            "duelsWon": 18,
+            "dribblesAttempts": 8,
+            "dribblesSuccess": 4,
             "dribblesPast": null,
-            "foulsDrawn": 4,
+            "foulsDrawn": 5,
             "foulsCommitted": 2,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -3523,7 +5143,7 @@
         },
         {
           "apiId": 579077,
-          "number": 10,
+          "number": 18,
           "name": "F. Barido",
           "photo": "https://media.api-sports.io/football/players/579077.png",
           "pos": "MID",
@@ -3574,29 +5194,29 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 3,
+            "goals": 4,
             "assists": 1,
-            "minutes": 468,
-            "apps": 8,
+            "minutes": 495,
+            "apps": 9,
             "yellow": 0,
             "red": null,
-            "rating": 7.23,
+            "rating": 7.36,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 7,
-            "shotsOn": 4,
-            "passesTotal": 300,
-            "passesKey": 19,
-            "passesAccuracy": 80,
-            "tacklesTotal": 7,
-            "tacklesBlocks": 0,
+            "shotsTotal": 8,
+            "shotsOn": 5,
+            "passesTotal": 348,
+            "passesKey": 20,
+            "passesAccuracy": 81,
+            "tacklesTotal": 8,
+            "tacklesBlocks": 1,
             "tacklesInterceptions": 5,
-            "duelsTotal": 33,
-            "duelsWon": 14,
+            "duelsTotal": 37,
+            "duelsWon": 16,
             "dribblesAttempts": 6,
             "dribblesSuccess": 3,
             "dribblesPast": null,
-            "foulsDrawn": 4,
+            "foulsDrawn": 5,
             "foulsCommitted": 5,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -3691,28 +5311,28 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 264,
-            "apps": 5,
+            "minutes": 337,
+            "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 5.88,
+            "rating": 5.95,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 2,
             "shotsOn": 1,
-            "passesTotal": 249,
+            "passesTotal": 325,
             "passesKey": 3,
             "passesAccuracy": 88,
-            "tacklesTotal": 2,
+            "tacklesTotal": 5,
             "tacklesBlocks": 0,
             "tacklesInterceptions": 1,
-            "duelsTotal": 18,
-            "duelsWon": 10,
-            "dribblesAttempts": 3,
+            "duelsTotal": 27,
+            "duelsWon": 14,
+            "dribblesAttempts": 4,
             "dribblesSuccess": 2,
             "dribblesPast": null,
-            "foulsDrawn": 3,
-            "foulsCommitted": 2,
+            "foulsDrawn": 4,
+            "foulsCommitted": 3,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -3748,27 +5368,27 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 610,
-            "apps": 8,
+            "minutes": 627,
+            "apps": 9,
             "yellow": 0,
             "red": null,
-            "rating": 6.97,
+            "rating": 6.86,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 4,
             "shotsOn": 3,
-            "passesTotal": 369,
+            "passesTotal": 376,
             "passesKey": 5,
             "passesAccuracy": 91,
             "tacklesTotal": 10,
             "tacklesBlocks": 2,
             "tacklesInterceptions": 4,
-            "duelsTotal": 45,
-            "duelsWon": 27,
+            "duelsTotal": 46,
+            "duelsWon": 28,
             "dribblesAttempts": 3,
             "dribblesSuccess": 2,
             "dribblesPast": null,
-            "foulsDrawn": 12,
+            "foulsDrawn": 13,
             "foulsCommitted": 3,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -3805,27 +5425,27 @@
           "stats": {
             "goals": 2,
             "assists": 0,
-            "minutes": 355,
-            "apps": 5,
+            "minutes": 445,
+            "apps": 6,
             "yellow": 0,
             "red": null,
-            "rating": 7.22,
+            "rating": 7.13,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 8,
-            "shotsOn": 6,
-            "passesTotal": 137,
-            "passesKey": 5,
+            "shotsTotal": 13,
+            "shotsOn": 7,
+            "passesTotal": 197,
+            "passesKey": 6,
             "passesAccuracy": 92,
             "tacklesTotal": 7,
-            "tacklesBlocks": 2,
-            "tacklesInterceptions": 2,
-            "duelsTotal": 38,
-            "duelsWon": 21,
+            "tacklesBlocks": 3,
+            "tacklesInterceptions": 3,
+            "duelsTotal": 44,
+            "duelsWon": 24,
             "dribblesAttempts": 6,
             "dribblesSuccess": 3,
             "dribblesPast": null,
-            "foulsDrawn": 3,
+            "foulsDrawn": 5,
             "foulsCommitted": 3,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -3862,28 +5482,28 @@
           "stats": {
             "goals": 1,
             "assists": 1,
-            "minutes": 141,
-            "apps": 4,
+            "minutes": 168,
+            "apps": 5,
             "yellow": 1,
             "red": null,
-            "rating": 6.65,
+            "rating": 6.57,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 1,
             "shotsOn": 1,
-            "passesTotal": 33,
+            "passesTotal": 41,
             "passesKey": 2,
-            "passesAccuracy": 84,
-            "tacklesTotal": 11,
+            "passesAccuracy": 78,
+            "tacklesTotal": 12,
             "tacklesBlocks": 1,
             "tacklesInterceptions": 2,
-            "duelsTotal": 33,
-            "duelsWon": 15,
-            "dribblesAttempts": 3,
-            "dribblesSuccess": 1,
+            "duelsTotal": 38,
+            "duelsWon": 17,
+            "dribblesAttempts": 4,
+            "dribblesSuccess": 2,
             "dribblesPast": null,
             "foulsDrawn": 2,
-            "foulsCommitted": 1,
+            "foulsCommitted": 2,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -3980,17 +5600,17 @@
             "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.65,
+            "rating": 6.58,
             "conceded": 0,
-            "saves": 0,
+            "saves": null,
             "shotsTotal": 4,
             "shotsOn": 1,
             "passesTotal": 52,
             "passesKey": 4,
             "passesAccuracy": 80,
-            "tacklesTotal": 0,
-            "tacklesBlocks": 0,
-            "tacklesInterceptions": 0,
+            "tacklesTotal": null,
+            "tacklesBlocks": null,
+            "tacklesInterceptions": null,
             "duelsTotal": 19,
             "duelsWon": 3,
             "dribblesAttempts": 7,
@@ -4037,7 +5657,7 @@
             "apps": 3,
             "yellow": 0,
             "red": null,
-            "rating": 6.66,
+            "rating": 5.13,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 1,
@@ -4088,31 +5708,31 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 2,
+            "goals": 3,
             "assists": 0,
-            "minutes": 550,
-            "apps": 8,
+            "minutes": 631,
+            "apps": 9,
             "yellow": 0,
             "red": null,
-            "rating": 6.65,
+            "rating": 6.86,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 13,
-            "shotsOn": 6,
-            "passesTotal": 80,
+            "shotsTotal": 16,
+            "shotsOn": 8,
+            "passesTotal": 91,
             "passesKey": 6,
             "passesAccuracy": 73,
             "tacklesTotal": 0,
-            "tacklesBlocks": 0,
+            "tacklesBlocks": 1,
             "tacklesInterceptions": 0,
-            "duelsTotal": 58,
-            "duelsWon": 21,
-            "dribblesAttempts": 13,
-            "dribblesSuccess": 4,
+            "duelsTotal": 68,
+            "duelsWon": 26,
+            "dribblesAttempts": 16,
+            "dribblesSuccess": 5,
             "dribblesPast": null,
-            "foulsDrawn": 9,
+            "foulsDrawn": 10,
             "foulsCommitted": 4,
-            "penaltyWon": 1,
+            "penaltyWon": 2,
             "penaltyCommitted": null,
             "penaltyScored": 0,
             "penaltyMissed": 0,
@@ -4124,12 +5744,12 @@
           "number": 70,
           "name": "Noa Noëll Lang",
           "photo": "https://media.api-sports.io/football/players/544.png",
-          "pos": "MID",
+          "pos": "ATT",
           "positions": [
-            "MID",
-            "ATT"
+            "ATT",
+            "MID"
           ],
-          "role": "MID",
+          "role": "ATT",
           "age": 27,
           "height": 173,
           "weight": 70,
@@ -4147,28 +5767,28 @@
           "statusNote": null,
           "stats": {
             "goals": 1,
-            "assists": 0,
-            "minutes": 334,
-            "apps": 6,
+            "assists": 1,
+            "minutes": 424,
+            "apps": 7,
             "yellow": 0,
             "red": null,
-            "rating": 6.89,
+            "rating": 7.01,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 11,
-            "shotsOn": 4,
-            "passesTotal": 115,
-            "passesKey": 4,
-            "passesAccuracy": 83,
-            "tacklesTotal": 6,
-            "tacklesBlocks": 2,
-            "tacklesInterceptions": 0,
-            "duelsTotal": 32,
-            "duelsWon": 13,
-            "dribblesAttempts": 9,
-            "dribblesSuccess": 2,
+            "shotsOn": 5,
+            "passesTotal": 166,
+            "passesKey": 8,
+            "passesAccuracy": 84,
+            "tacklesTotal": 7,
+            "tacklesBlocks": 1,
+            "tacklesInterceptions": 1,
+            "duelsTotal": 39,
+            "duelsWon": 18,
+            "dribblesAttempts": 11,
+            "dribblesSuccess": 4,
             "dribblesPast": null,
-            "foulsDrawn": 1,
+            "foulsDrawn": 2,
             "foulsCommitted": 1,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -4205,27 +5825,27 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 170,
-            "apps": 7,
+            "minutes": 179,
+            "apps": 8,
             "yellow": 0,
             "red": null,
-            "rating": 5.62,
+            "rating": 5.74,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 4,
+            "shotsTotal": 5,
             "shotsOn": 1,
-            "passesTotal": 48,
+            "passesTotal": 50,
             "passesKey": 3,
-            "passesAccuracy": 75,
+            "passesAccuracy": 76,
             "tacklesTotal": 3,
             "tacklesBlocks": 0,
             "tacklesInterceptions": 2,
-            "duelsTotal": 35,
-            "duelsWon": 14,
+            "duelsTotal": 38,
+            "duelsWon": 16,
             "dribblesAttempts": 4,
             "dribblesSuccess": 0,
             "dribblesPast": null,
-            "foulsDrawn": 0,
+            "foulsDrawn": 1,
             "foulsCommitted": 6,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -4296,12 +5916,11 @@
           "number": 21,
           "name": "Matteo Politano",
           "photo": "https://media.api-sports.io/football/players/219.png",
-          "pos": "MID",
+          "pos": "ATT",
           "positions": [
-            "MID",
             "ATT"
           ],
-          "role": "MID",
+          "role": "ATT",
           "age": 33,
           "height": 171,
           "weight": 67,
@@ -4318,29 +5937,29 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 1,
-            "assists": 2,
-            "minutes": 439,
-            "apps": 8,
+            "goals": 2,
+            "assists": 3,
+            "minutes": 502,
+            "apps": 9,
             "yellow": 1,
             "red": null,
-            "rating": 6.94,
+            "rating": 7.1,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 6,
-            "shotsOn": 5,
-            "passesTotal": 162,
-            "passesKey": 9,
-            "passesAccuracy": 83,
+            "shotsTotal": 8,
+            "shotsOn": 6,
+            "passesTotal": 180,
+            "passesKey": 12,
+            "passesAccuracy": 80,
             "tacklesTotal": 4,
-            "tacklesBlocks": 0,
+            "tacklesBlocks": 1,
             "tacklesInterceptions": 1,
-            "duelsTotal": 30,
-            "duelsWon": 13,
-            "dribblesAttempts": 6,
+            "duelsTotal": 33,
+            "duelsWon": 15,
+            "dribblesAttempts": 7,
             "dribblesSuccess": 4,
             "dribblesPast": null,
-            "foulsDrawn": 4,
+            "foulsDrawn": 6,
             "foulsCommitted": 4,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -4369,27 +5988,1702 @@
           "ga": 7,
           "points": 3
         },
+        "recent": [
+          {
+            "date": "2026-10-28",
+            "opp": "Monza",
+            "homeAway": "A",
+            "comp": "Serie A",
+            "score": "4-1",
+            "result": "W",
+            "referee": "Giovanni Ayroldi",
+            "formation": {
+              "us": "4-3-3",
+              "opp": "3-4-2-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "V. Milinković-Savić",
+                  "number": 32,
+                  "pos": "G"
+                },
+                {
+                  "name": "G. Di Lorenzo",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "Amir Rrahmani",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "Rafa Marín",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Olivera",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Zambo Anguissa",
+                  "number": 99,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Lobotka",
+                  "number": 68,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. McTominay",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Politano",
+                  "number": 21,
+                  "pos": "F"
+                },
+                {
+                  "name": "R. Højlund",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "N. Lang",
+                  "number": 70,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "N. Törnqvist",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Birindelli",
+                  "number": 19,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Goglichidze",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Lucchesi",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Bakoune",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Ondoa",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Colombo",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "Ricardo Mangas",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Ngonge",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "Jay Robinson",
+                  "number": 46,
+                  "pos": "M"
+                },
+                {
+                  "name": "Gustavo Varela",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 8,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Saba Goglichidze",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 10,
+                "side": "us",
+                "type": "goal",
+                "player": "Rasmus Hojlund",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 17,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Stanislav Lobotka",
+                "playerIn": "Billy Gilmour"
+              },
+              {
+                "minute": 25,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Ivan Juric",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 43,
+                "side": "opp",
+                "type": "goal",
+                "player": "Gustavo Varela",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Saba Goglichidze",
+                "playerIn": "Andrea Carboni"
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Amir Rrahmani",
+                "playerIn": "Luca Marianucci"
+              },
+              {
+                "minute": 48,
+                "side": "us",
+                "type": "goal",
+                "player": "Matteo Politano",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 52,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Foe Ondoa",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 60,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Cyril Ngonge",
+                "playerIn": "Andrea Colpani"
+              },
+              {
+                "minute": 60,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Foe Ondoa",
+                "playerIn": "Ebenezer Akinsanmiro"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "goal",
+                "player": "Rafael Marin Zamora",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Frank Anguissa",
+                "playerIn": "Kevin De Bruyne"
+              },
+              {
+                "minute": 63,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Matteo Politano",
+                "playerIn": "Antonio Vergara"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "goal",
+                "player": "Kevin De Bruyne",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jay Robinson",
+                "playerIn": "Exequiel Zeballos"
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Lorenzo Lucchesi",
+                "playerIn": "Valentin Antov"
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Rasmus Hojlund",
+                "playerIn": "Lorenzo Lucca"
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Leonardo Colombo",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-24",
+            "opp": "AS Roma",
+            "homeAway": "H",
+            "comp": "Serie A",
+            "score": "3-3",
+            "result": "D",
+            "referee": "Andrea Colombo, Italy",
+            "formation": {
+              "us": "4-3-3",
+              "opp": "3-5-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "A. Meret",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "G. Di Lorenzo",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "Rafa Marín",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Badiashile",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Olivera",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. De Bruyne",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Zambo Anguissa",
+                  "number": 99,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. McTominay",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Politano",
+                  "number": 21,
+                  "pos": "F"
+                },
+                {
+                  "name": "R. Højlund",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "N. Lang",
+                  "number": 70,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "P. Gollini",
+                  "number": 95,
+                  "pos": "G"
+                },
+                {
+                  "name": "G. Mancini",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Ndicka",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "Hermoso",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Rensch",
+                  "number": 2,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. de Roon",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Cristante",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Pisilli",
+                  "number": 61,
+                  "pos": "M"
+                },
+                {
+                  "name": "Wesley",
+                  "number": 43,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Soulé",
+                  "number": 18,
+                  "pos": "F"
+                },
+                {
+                  "name": "D. Malen",
+                  "number": 14,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 4,
+                "side": "us",
+                "type": "yellow",
+                "player": "Rafael Marin Zamora",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 28,
+                "side": "us",
+                "type": "goal",
+                "player": "Frank Anguissa",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 30,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Bryan Cristante",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Devyne Rensch",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 48,
+                "side": "us",
+                "type": "goal",
+                "player": "Scott McTominay",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 52,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Benoît Badiashile",
+                "playerIn": "Sam Beukema"
+              },
+              {
+                "minute": 58,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Devyne Rensch",
+                "playerIn": "Nahuel Molina"
+              },
+              {
+                "minute": 58,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mario Hermoso",
+                "playerIn": "Leonardo Balerdi"
+              },
+              {
+                "minute": 58,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Niccolò Pisilli",
+                "playerIn": "Santiago Thomas Castro"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Leonardo Balerdi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Matteo Politano",
+                "playerIn": "Giovane Santana Do Nascimento"
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "goal",
+                "player": "Matias Soule",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "opp",
+                "type": "goal",
+                "player": "Leonardo Balerdi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Kevin De Bruyne",
+                "playerIn": "Stanislav Lobotka"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Noa Lang",
+                "playerIn": "Antonio Vergara"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Giovanni Di Lorenzo",
+                "playerIn": "Leonardo Spinazzola"
+              },
+              {
+                "minute": 83,
+                "side": "us",
+                "type": "goal",
+                "player": "Scott McTominay",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Donyell Malen",
+                "playerIn": "Rodrigo Mora"
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gianluca Mancini",
+                "playerIn": "Daniele Ghilardi"
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Marten de Roon",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "goal",
+                "player": "Leonardo Balerdi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "red",
+                "player": "Massimiliano Allegri",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-20",
+            "opp": "Bodo/Glimt",
+            "homeAway": "H",
+            "comp": "UEFA Champions League",
+            "score": "4-3",
+            "result": "W",
+            "referee": "Jose Maria Sanchez Martinez",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "A. Meret",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "G. Di Lorenzo",
+                  "number": 22,
+                  "pos": "D"
+                },
+                {
+                  "name": "Amir Rrahmani",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "Rafa Marín",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Politano",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Zambo Anguissa",
+                  "number": 99,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. McTominay",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Spinazzola",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. De Bruyne",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Lang",
+                  "number": 70,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Højlund",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "N. Haikin",
+                  "number": 12,
+                  "pos": "G"
+                },
+                {
+                  "name": "F. Sjøvold",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Gundersen",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "O. Bjørtuft",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Bjørkan",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Auklend",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Berg",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Fet",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Hauge",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Didrik Blomberg",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Helmersen",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 1,
+                "side": "us",
+                "type": "goal",
+                "player": "Matteo Politano",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 27,
+                "side": "opp",
+                "type": "goal",
+                "player": "Jens Petter Hauge",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 41,
+                "side": "us",
+                "type": "goal",
+                "player": "Scott McTominay",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 48,
+                "side": "us",
+                "type": "yellow",
+                "player": "Frank Anguissa",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 58,
+                "side": "us",
+                "type": "yellow",
+                "player": "Noa Lang",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Frank Anguissa",
+                "playerIn": "Stanislav Lobotka"
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "goal",
+                "player": "Andreas Helmersen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "goal",
+                "player": "Scott McTominay",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Andreas Helmersen",
+                "playerIn": "Ola Brynhildsen"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Matteo Politano",
+                "playerIn": "Mathias Olivera"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Noa Lang",
+                "playerIn": "Giovane Santana Do Nascimento"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Leonardo Spinazzola",
+                "playerIn": "Sam Beukema"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sondre Auklend",
+                "playerIn": "Ulrik Saltnes"
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jostein Gundersen",
+                "playerIn": "Haitam Aleesami"
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ole Didrik Blomberg",
+                "playerIn": "Joel Mvuka"
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Fredrik Bjorkan",
+                "playerIn": "Isak Dybvik Maatta"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "yellow",
+                "player": "Giovanni Di Lorenzo",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 88,
+                "side": "us",
+                "type": "owngoal",
+                "player": "Odin Luras Bjortuft",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "goal",
+                "player": "Sondre Fet",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-17",
+            "opp": "Venezia",
+            "homeAway": "A",
+            "comp": "Serie A",
+            "score": "0-1",
+            "result": "L",
+            "referee": "Juan Luca Sacchi, Italy",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "3-5-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "A. Meret",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Beukema",
+                  "number": 31,
+                  "pos": "D"
+                },
+                {
+                  "name": "Amir Rrahmani",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Badiashile",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Di Lorenzo",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Gilmour",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Lobotka",
+                  "number": 68,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Spinazzola",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "Giovane",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. McTominay",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Lucca",
+                  "number": 20,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "F. Stanković",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "R. Halhal",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Moreno",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "Juan Jesus",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Hainaut",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "Kike Pérez",
+                  "number": 71,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Sohm",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Bašić",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Haps",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Yeboah",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Adams",
+                  "number": 45,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 49,
+                "side": "opp",
+                "type": "goal",
+                "player": "Akor Adams",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 54,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Lorenzo Lucca",
+                "playerIn": "Rasmus Hojlund"
+              },
+              {
+                "minute": 54,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Giovane Santana Do Nascimento",
+                "playerIn": "Alisson Santos"
+              },
+              {
+                "minute": 54,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Billy Gilmour",
+                "playerIn": "Kevin De Bruyne"
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Toma Bašić",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "John Yeboah",
+                "playerIn": "Albion Rrahmani"
+              },
+              {
+                "minute": 63,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sam Beukema",
+                "playerIn": "Matteo Politano"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "goal",
+                "player": "Kevin De Bruyne",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Toma Bašić",
+                "playerIn": "Thorir Johann Helgason"
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ridgeciano Haps",
+                "playerIn": "Pasquale Mazzocchi"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Matias Moreno",
+                "playerIn": "Joël Schingtienne"
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Enrique Pérez Muñoz",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Simon Sohm",
+                "playerIn": "Lamine Fanne"
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Leonardo Spinazzola",
+                "playerIn": "Mathias Olivera"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-13",
+            "opp": "Villarreal",
+            "homeAway": "A",
+            "comp": "UEFA Champions League",
+            "score": "1-3",
+            "result": "L",
+            "referee": "Daniel Siebert",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "V. Milinković-Savić",
+                  "number": 32,
+                  "pos": "G"
+                },
+                {
+                  "name": "Rafa Marín",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "Amir Rrahmani",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Badiashile",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Politano",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Gilmour",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. McTominay",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Di Lorenzo",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. De Bruyne",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "Giovane",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Højlund",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Luíz Júnior",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Mouriño",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "Pau Navarro",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "Renato Veiga",
+                  "number": 12,
+                  "pos": "D"
+                },
+                {
+                  "name": "Carlos Romero",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Saliba",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "Santi Comesaña",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Gueye",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "Alberto Moleiro",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "Gerard Moreno",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "G. Mikautadze",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 8,
+                "side": "us",
+                "type": "goal",
+                "player": "Amir Rrahmani",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 23,
+                "side": "opp",
+                "type": "goal",
+                "player": "Georges Mikautadze",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 26,
+                "side": "opp",
+                "type": "goal",
+                "player": "Álvaro Santiago Mouriño González",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 33,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Georges Mikautadze",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "us",
+                "type": "yellow",
+                "player": "Giovane Santana Do Nascimento",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Giovane Santana Do Nascimento",
+                "playerIn": "Noa Lang"
+              },
+              {
+                "minute": 60,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Scott McTominay",
+                "playerIn": "Leonardo Spinazzola"
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Matteo Politano",
+                "playerIn": "David Neres"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "yellow",
+                "player": "Kevin De Bruyne",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gerard Moreno",
+                "playerIn": "Tani Oluwaseyi"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Georges Mikautadze",
+                "playerIn": "Alex Freeman"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Nathan-Dylan Saliba",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Alberto Moleiro",
+                "playerIn": "Juan Foyth"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Billy Gilmour",
+                "playerIn": "Stanislav Lobotka"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Rafael Marin Zamora",
+                "playerIn": "Lorenzo Lucca"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Santi Comesaña",
+                "playerIn": "Ayoze Pérez"
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Pape Gueye",
+                "playerIn": "Sergi Cardona Bermúdez"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "yellow",
+                "player": "Giovanni Di Lorenzo",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "goal",
+                "player": "Tani Oluwaseyi",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-10",
+            "opp": "Frosinone",
+            "homeAway": "H",
+            "comp": "Serie A",
+            "score": "3-0",
+            "result": "W",
+            "referee": "Ermanno Feliciani, Italy",
+            "formation": {
+              "us": "3-4-2-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "A. Meret",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Rafa Marín",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "Amir Rrahmani",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Badiashile",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Di Lorenzo",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. De Bruyne",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Lobotka",
+                  "number": 68,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Spinazzola",
+                  "number": 37,
+                  "pos": "M"
+                },
+                {
+                  "name": "David Neres",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Lang",
+                  "number": 70,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Højlund",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "L. Palmisani",
+                  "number": 22,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Oyono",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Calvani",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Cittadini",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Bracaglia",
+                  "number": 79,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Masini",
+                  "number": 73,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Calò",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Ghedjemis",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Schmid",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Kvernadze",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Raimondo",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 29,
+                "side": "us",
+                "type": "goal",
+                "player": "Kevin De Bruyne",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 32,
+                "side": "us",
+                "type": "goal",
+                "player": "Noa Lang",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Patrizio Masini",
+                "playerIn": "Aleksa Terzić"
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "David Neres",
+                "playerIn": "Scott McTominay"
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Rasmus Hojlund",
+                "playerIn": "Lorenzo Lucca"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Farès Ghedjemis",
+                "playerIn": "Seydou Fini"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Antonio Raimondo",
+                "playerIn": "Tomas Bobcek"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Stanislav Lobotka",
+                "playerIn": "Billy Gilmour"
+              },
+              {
+                "minute": 72,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Noa Lang",
+                "playerIn": "Giovane Santana Do Nascimento"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gabriele Bracaglia",
+                "playerIn": "Matteo Cichella"
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "yellow",
+                "player": "Amir Rrahmani",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Leonardo Spinazzola",
+                "playerIn": "Matteo Politano"
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Romano Schmid",
+                "playerIn": "Alessio Zerbin"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "yellow",
+                "player": "Benoît Badiashile",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "goal",
+                "player": "Kevin De Bruyne",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          }
+        ],
+        "next": [
+          {
+            "date": "2026-11-01",
+            "opp": "Juventus",
+            "homeAway": "A",
+            "comp": "Serie A"
+          },
+          {
+            "date": "2026-11-04",
+            "opp": "FC Porto",
+            "homeAway": "A",
+            "comp": "UEFA Champions League"
+          },
+          {
+            "date": "2026-11-08",
+            "opp": "Lazio",
+            "homeAway": "H",
+            "comp": "Serie A"
+          }
+        ],
         "stats": {
           "goalsForByInterval": {
-            "0-15": 1
+            "0-15": 2,
+            "31-45": 1,
+            "61-75": 1
           },
           "goalsAgainstByInterval": {
-            "16-30": 2,
-            "61-75": 1,
-            "76-90": 1
+            "16-30": 3,
+            "61-75": 2,
+            "76-90": 2,
+            "91-105": 1
           },
           "cardsYellowByInterval": {
             "31-45": 1,
-            "46-60": 1,
+            "46-60": 3,
             "61-75": 1,
-            "76-90": 2
+            "76-90": 3
           },
           "cardsRedByInterval": null,
-          "goalsForAvg": 0.5,
-          "goalsAgainstAvg": 2,
-          "goalsForAvgHome": 0,
+          "goalsForAvg": 1.7,
+          "goalsAgainstAvg": 2.3,
+          "goalsForAvgHome": 2,
           "goalsForAvgAway": 1,
-          "goalsAgainstAvgHome": 1,
+          "goalsAgainstAvgHome": 2,
           "goalsAgainstAvgAway": 3,
           "cleanSheets": 0,
           "cleanSheetsHome": 0,
@@ -4403,11 +7697,11 @@
           "penaltyMissedPct": 0,
           "formations": [
             {
-              "formation": "4-3-3",
-              "played": 1
+              "formation": "3-4-2-1",
+              "played": 2
             },
             {
-              "formation": "3-4-2-1",
+              "formation": "4-3-3",
               "played": 1
             }
           ],
@@ -4416,15 +7710,15 @@
             "draws": 0,
             "loses": 2
           },
-          "biggestWinHome": null,
+          "biggestWinHome": "4-3",
           "biggestWinAway": null,
           "biggestLossHome": "0-1",
           "biggestLossAway": "3-1",
-          "biggestGoalsForHome": 0,
+          "biggestGoalsForHome": 4,
           "biggestGoalsForAway": 1,
-          "biggestGoalsAgainstHome": 1,
+          "biggestGoalsAgainstHome": 3,
           "biggestGoalsAgainstAway": 3,
-          "winsHome": 0,
+          "winsHome": 1,
           "winsAway": 0,
           "drawsHome": 0,
           "drawsAway": 0,
@@ -4432,7 +7726,14 @@
           "losesAway": 1
         }
       },
-      "absences": [],
+      "absences": [
+        {
+          "name": "A. Buongiorno",
+          "reason": "injury",
+          "detail": "Jumpers Knee",
+          "since": "2026-11-21"
+        }
+      ],
       "mercatoIn": [
         {
           "name": "Dinis Rodrigues",
@@ -4741,65 +8042,55 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Where to watch Juventus vs Napoli in Serie A",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQUUstVW03WUptWE1BbS1yNWpMLWlEd1FpY2pMWXBHWEZsdGN3XzhKQTk0UzBpRDZqVFFOYTFIendub3RjTkg5WDJySEpRdE44ODFhZHVOXzRLblFkWV9kRm9iLV81UTRNSFJHVXdoX2RKZzhwb2ZzRDFkYmV1MldxaFZydjVCdw?oc=5",
-          "source": "Yahoo Sports",
+          "title": "Juventus-Napoli, Cannavaro speaks: “Spalletti and Allegri are similar. Kolo Muani and Hojlund? Great workers, but less deadly in the penalty area. Bremer and Buongiorno are proper defenders, but unlucky with injuries”",
+          "url": "https://news.google.com/rss/articles/CBMi_gJBVV95cUxPcFo3OFpiQVg0SFdiNGN5MjMyazVXTEdma0JFM0RUVy1QcFRkWHdRUVEyOTZBOEZYU1FfTFpPUXc3bGh2ODhQSDlSTGxGQ093bjhMNVpzdjJMQ09peTFwYTVVRjVOYU5PMHNSSmZLaFZWMU12YVBVWGZKSlVlMjlPb0xEY0twdENWdWlCNW1ieHFiM1NvSzdrLXlramJzZU05Mkl4cEZZZmtfMGloWGpfOEdqeFN4MUFIVnd3OWRqTjd4TllnYldHWkZqVDl0eENtY2RjYWFialJZNS0xajlFWFF0U3cyM2VVVzlqVXhkMHpHZlRXeUpuczVaMV9GMFAyVjJTMjczTDdCeEF3cDBfM3ZlRlp2Q3J6anJKU2dwX3NoZXg2X01wQl82TThxT3hIdHd0ZXVVR0wySFExTEUwZjFDX2hfQkVZcGc1UTNPbjE0c1VwRFZ4RGdIbzRQWVpwX2JNWW1uQzA4ZzlKSXhlQk9kRnVUSzdXR1RiTmZn?oc=5",
+          "source": "LiveScore",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Juventus vs Napoli betting offers: The best free bets for Sunday night in Turin",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOSElIM0VTOEtDZGdtRjJZVG5pSXY1ZVBGZ2VTS2R3QUQ1eTBtb0Z0WGduTEV0cVBZRVk4NkUtQjVxYlhaaWVYUzZwMGdHZXhkUVEtbWxDMXpYVXBkcnp2dVVwTmRiam9GMlViZ3BMWXYxbU9xOUk0X3ctZ3NFemtIMER6OXNvd2JxTFkwejdTcWIxSHU2bGxlQThvaG14QQ?oc=5",
+          "source": "Squawka",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Aston Villa, Ipswich Town 'suffer blow' in pursuit of Ligue 1 goalkeeper wanted by Napoli",
+          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNNlFpdXBuSVJmdHJ0VTNXaHZ0RWlvRTJIcFJOZXQzWWpYMWM2dnFYSlFRMTBGR3pzangzTlBORHd6RVVIemZPekdvQnhuYkd2a2djLXpZUEFIeFJWdGRIRXg5UzBObTR2bHRlTThQT2E4UjkwX2RXbmc0a2ZGQ3lwUmYySFl0U1I4em5RN2k0UkRWRkxUbUdVZjkxaTF4QU5OX1JFOEExek1lWU9xQWJGYkFlTFRQT0d1WldoRkcta2V4b1FyZ2ZFX285MEQ4R3ktY2FucTE3SThualg5UWtHeA?oc=5",
+          "source": "Sports Mole",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Juventus vs Napoli Prediction, Betting Tips, Lineups & Odds | 01 Nov 2026",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQWE4wMWhLQjlaYnhHUUg1TDB5dy1kNTI4ZERabjF5MURveF9BVDRibzB4WGFyU2dyRG01MjdiLVJGXzEtVW5RS25iRWxXbjd5SWpadFcyeXUxTVEycnlLM1ducmlvSXcyMUdoWEhtdHdSWkpWUE1la2pxRmQ4ekdDWjNYMVg5WWNBWFBheWl6VnowU3FJNGllQTg3cWpLdk13VHpxMHkyeEhIdw?oc=5",
+          "source": "Sportsgambler",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Who has qualified for the Champions League?",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQLURGVnJFa0FELXFCaXEyUjNDWnlqSUoxczVpWWIxTDl0LWVFY2NtZC1GeDNvcXl6RnRyTVJYeWxZVklOZjhuYUQ1M1pqSnY1UUV3NngxcWpiOFZycmE3TEUtQVhFdWNla05zd0Rua012MTZZQ0lMRXV6emdVUkhXTlZiRGFnYkJlQVVaSzlqZmhPczdRbE1ib2xtMFJsVDg?oc=5",
+          "source": "Manchester United",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Dortmund - Betis",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOa3lhRUVXM0tlN1Y4c3RoQXRoQXVvTkU2UnJfS0s3Z05WMk9xM1pKdS1FVWxKREl4U1prZnpSSzdweTZZZXgxbEQ0bnU4aS1XM2JUS0FicERubnNKNFNhTzRIUjl6UnRZRURaUUl1SjlRamgwSmlPWjVyTUJCZjhkNQ?oc=5",
+          "source": "Flashscore.com",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "Porto face bottom club Estoril in Liga Portugal round 10",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNRjFjaTR5bmlfdW5jLTRLOURxVUpqNFQwODdXTkxpQmp2V0pZaDNpZU1HcFlLQkMtQTRyU082YWN3aVpuSW01Y21XRTdacEoxSTh0SXVzWkFydTBFa3hvY2FzRTZzU3FreEFOb0lvbzkyYnVHVDMzQnIxN2tSdldaRmVtaWJnelMzYTJSZGpHQ0VwbHV6ZzZCckJVTXNBTzE1V21lVFZETGFiWmxMSGRR?oc=5",
+          "source": "Footboom",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "AUR pentru România la CE de la Napoli: Laura Bogdan!",
+          "url": "https://www.digisport.ro/judo/aur-pentru-romania-la-ce-de-la-napoli-laura-bogdan-4575699",
+          "source": "Digi Sport",
           "published": "2026-10-30"
-        },
-        {
-          "title": "Juventus vs. Napoli preview: Team news, prediction, date, and how to watch Serie A on DAZN",
-          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNVWd2RTZINy1zUm5pT2R5d21FMW5hVS1ra1prVzE5bmhhVjFVRm5QRHdPdlM3aHVYVVFzWW5YVDVPVmRaakpLVmlQM3JVUTV0MnpiMUxiTElYOERjM05uVS1wWEtXZ0VCaG9La0xLVWx5MTZwRFJveXUwRG5iSk5EYXpEa29mN3VYMk1VTWZjVnFCNWp4WnZnVGZMUDNORkJGYUItNGIzR2p3SEY4VXJHbVZwbEs5dkRZUjBsZVFfejVXY3hvbFA0elNDaDNnRUd3?oc=5",
-          "source": "DAZN",
-          "published": "2026-10-30"
-        },
-        {
-          "title": "Juventus ‘to enter’ training camp after crisis talks before Napoli",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOY3YxTHVzYk9CTXhwbXVHSGJSQ3NyeE5IQmhrRWZXay1lYzhRZzdyb25DaXljQzkwYi11QkM2T2pEOWJLeVozV3drVnhNb1lpVTdIdXZ5N29tQTBnY1l5M0FYX24tN1R5QmE0cWRnLW41STRjenhWeTBRRlItckdialJOa3V0ZEJfUHV0ZDRfX2pmU2pXVUxlQkVyNjFnVXdyem93aUZxTUU?oc=5",
-          "source": "OneFootball",
-          "published": "2026-10-30"
-        },
-        {
-          "title": "Giovanni Manna admits Juventus changed his life as he builds Napoli",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNVGNOOTdzNU5oSHVWaVZvY2o4VFh6TGNCVmV1Z1NwU2JldEt5R2ZlSU1CMGh2TlpLNThGWkY0ZF90VEk3ZVFOS085dHZjVm5nU3pPU3dBbk5nRVNQc2FNZ1FtX1BRM1pDbF9iSXZCTG1pVWc5blNkamFLWGkxdVJfdm1PMmh6TGdPckxNUWhETkE?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-30"
-        },
-        {
-          "title": "Juventus FC - SSC Napoli prediction & tips 01.11.2026",
-          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOS2VFWjBxbFpCMFBWTmNfN2VnbzZlMVZZcUJWTUdrYnJPbHZsUzZ3NURoSzZQQnVIYmpaZmhZdnluOXNjalBjSmlrRzZhY1h5RzQxdVlyUEJ5SkN4MmxWZWJXNTY0WWtCVzNIa05XbEp4aUNLTHNUWVBPbXZnVUxNUDRPTWZnU3htUzRvdg?oc=5",
-          "source": "Transfermarkt",
-          "published": "2026-10-30"
-        },
-        {
-          "title": "Official: Napoli reveal extent of Lobotka’s injury",
-          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQV2VSQmIxRWlTVTBsbEkyWFAxZW5rOGlLOXNQcTE2QjlIZ1MxNGN1SzRPVWxzMVVCeGJZX2tJbTIwVHVXVExLNVpRT2RIcTBZTURZbFVGRmNrUHZBbGJtdEwtNjg1VlhEVUZTVVBKaHF1MXMyNzkyWkthVGJqOHVpdnVJc0gtTGhuVVlBTlVXTQ?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-29"
-        },
-        {
-          "title": "Manna: ‘Napoli fortunate we found a Lukaku buyer’ in Fenerbahce",
-          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOVlVfai1PNEl6NkRjZVFFb19rZDRaOUluNGN6Qkhyal8zSDNKdGdvbDgwRXdJMUFfaWdrOGRfeFBLcElrQjR0dlpVbVo4LVVvdEhFczZZSmszaWFpa3RURDNnU0M0V2phSWNCdDFJZUxfUy16VGpTaDVXeUNmT3hpQ1BIc2NWWWlSYzRzaQ?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-10-29"
-        },
-        {
-          "title": "How to get Napoli 2026/27 tickets: Upcoming fixtures, Serie A ticket prices, Stadio Diego Armando Maradona information and more",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPQ2ZiRWRVSDl6QmtqVC00ekN2MnBkNWdzU3k1QkxjVzdjYzRkTWZYZGZYV3c3LUxRSjBZT2JjR1lINWhmUWZ2Rm50VUhQTEtDU3dxLThYcEcwcHZiT3RtZXA4WVRIa1dOZmtCaFlqTFFSeXBfdzUwVWZ6VUw3U3dwX0ZoSHB4S3RmZktz?oc=5",
-          "source": "Goal.com",
-          "published": "2026-10-29"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "SSC Napoli a fost fondat în 1926, ca Associazione Calcio Napoli, prin fuziunea dintre US Internazionale Napoli și Naples Foot-Ball Club.",
-        "Clubul a cucerit patru titluri de campion al Italiei: 1986-87, 1989-90, 2022-23 și 2024-25.",
-        "Napoli a câștigat singurul său trofeu european, Cupa UEFA, în 1988-89, învingând VfB Stuttgart cu 5-4 la general în finală.",
-        "Pe 30 iunie 1984, Napoli l-a transferat pe Diego Maradona de la Barcelona, pentru o sumă record mondială la acea vreme, de 12 milioane de euro.",
-        "Sub conducerea lui Maradona, clubul a cucerit primele două titluri de campion, în 1987 și 1990, precum și Cupa Italiei, în 1987, și Supercupa Italiei, în 1990.",
-        "Echipa joacă din 1959 pe actualul stadion, redenumit Stadio Diego Armando Maradona în 2020, după moartea legendarului jucător argentinian.",
-        "Napoli întreține rivalități cu Juventus, AS Roma (Derby del Sole), Internazionale, AC Milan și Salernitana (Derby of Campania).",
-        "Clubul a câștigat Cupa Italiei de șase ori, printre care și în 1962, când Napoli a devenit prima echipă care a cucerit trofeul în timp ce juca în Serie B."
-      ]
+      "stories": []
     }
   },
   "standings": {
