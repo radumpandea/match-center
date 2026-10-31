@@ -96,6 +96,8 @@ function semanticWarnings(d) {
     if ((t.squad?.length ?? 0) < 16) {
       w.push(`teams.${side}.squad has only ${t.squad?.length ?? 0} players`);
     }
+    const noNum = (t.predictedXI || []).filter((x) => x && x.number == null && (t.squad || []).some((p) => p.number != null && (p.apiId === x.apiId && x.apiId != null || p.name === x.name))).length;
+    if (noNum) w.push(`teams.${side}.predictedXI: ${noNum} starter(s) without shirt number although the squad has it (the pitch would show the position instead)`);
     const gk = (t.squad || []).filter((p) => p.role === 'GK').length;
     if (gk < 2) w.push(`teams.${side}.squad lists ${gk} goalkeeper(s) — verify against the official list`);
   }

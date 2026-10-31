@@ -2073,7 +2073,8 @@
         var isEmpty = !has(slot.name);
         var full = isEmpty ? null : playerByNameOrNum(squad, slot);
         var pkey = slot.number != null ? String(slot.number) : slot.name;
-        var override = pkey && mine.lineup && mine.lineup[side] && mine.lineup[side][pkey];
+        // a slot written without a number was keyed by name: keep a position dragged under that key
+        var override = pkey && mine.lineup && mine.lineup[side] && (mine.lineup[side][pkey] || (slot.name && mine.lineup[side][slot.name]));
         var pos = place(override || pts[i] || { d: 0.03, w: 0.05 + i * 0.08 }, isNear);
         var stat = full && full.status;
         var usePhoto = !!(view.photos && !isEmpty && full && full.photo);
@@ -2109,7 +2110,7 @@
               }
               this.remove();
             } }) : null,
-            el('span', { class: usePhoto ? 'num-corner' : '', text: isEmpty ? '+' : (slot.number != null ? String(slot.number) : (slot.pos || '')) }),
+            el('span', { class: usePhoto ? 'num-corner' : '', text: isEmpty ? '+' : (slot.number != null ? String(slot.number) : (full && full.number != null ? String(full.number) : (slot.pos || ''))) }),
             cap ? el('span', { class: 'cap-mark', text: 'C' }) : null,
             (!isEmpty && stat && stat !== 'available') ? el('span', { class: 'status-mark ' + stat, title: statusLabel(stat), text: stat === 'doubt' ? '!' : stat === 'out' ? '✚' : '✕' }) : null
           ]),

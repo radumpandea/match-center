@@ -57,7 +57,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
 import { NEWS_SOURCES } from './news-sources.mjs';
-import { computeLinkLines, formatHonours, formatInjuries, xiPlayers, applyAges, decodeDeep, applyAbsenceStatus } from './lib/enrich-pack.mjs';
+import { computeLinkLines, formatHonours, formatInjuries, xiPlayers, applyAges, decodeDeep, applyAbsenceStatus, applyLineupNumbers } from './lib/enrich-pack.mjs';
 
 const HOST = 'https://v3.football.api-sports.io';
 const API_KEY = process.env.APIFOOTBALL_KEY;
@@ -2071,6 +2071,7 @@ async function main() {
     // after the bio fill above, so a birthDate that arrived in this very run is used straight away
     if (applyAges(doc)) touched = true;
     if (applyAbsenceStatus(doc)) touched = true;
+    if (applyLineupNumbers(doc)) touched = true;
     if (touched) { writeJSON(path, doc); console.log(`- ${f.slug}: topped up`); }
   }
 
@@ -2104,6 +2105,7 @@ async function main() {
       computeLinkLines(doc);
       applyAges(doc);
       applyAbsenceStatus(doc);
+      applyLineupNumbers(doc);
       await applyCoachTrophies(doc, cache);
     } catch (e) {
       console.error(`  enrich failed: ${e.message}`);

@@ -170,6 +170,24 @@ export function applyAges(doc) {
   return changed;
 }
 
+// A lineup slot (predictedXI / confirmedXI / substitutes) written without a shirt number -- the
+// deep build sometimes does -- shows its position label on the pitch disc instead of the number.
+// Takes the number from the squad entry with the same apiId (else the same name); true when changed.
+export function applyLineupNumbers(doc) {
+  let changed = false;
+  for (const side of ['home', 'away']) {
+    const t = doc.teams && doc.teams[side];
+    if (!t || !Array.isArray(t.squad)) continue;
+    for (const slot of [].concat(t.predictedXI || [], t.confirmedXI || [], t.substitutes || [])) {
+      if (!slot || slot.number != null) continue;
+      const p = (slot.apiId != null && t.squad.find((x) => x.apiId === slot.apiId)) ||
+        t.squad.find((x) => x.name && x.name === slot.name);
+      if (p && p.number != null) { slot.number = p.number; changed = true; }
+    }
+  }
+  return changed;
+}
+
 // Squad players of a pack in research priority: likely starters first (both teams), then the
 // matchday bench (when published), then everyone else by minutes played this season.
 // With wholeSquad = false only the starters are returned.
