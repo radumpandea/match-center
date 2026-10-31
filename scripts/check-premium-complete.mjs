@@ -38,7 +38,8 @@ export function missingOf(doc) {
   if (cards < MIN_RESEARCH) out.push('research');
   const v = doc.venue || {};
   const city = typeof v.city === 'string' && v.city.trim() && v.city.trim() !== 'n/d';
-  if (city && !(typeof v.cityInfo === 'string' && v.cityInfo.trim())) out.push('city');
+  // too long (> 700 chars) counts as missing too: the text is meant to be read on air in three short sentences
+  if (city && !(typeof v.cityInfo === 'string' && v.cityInfo.trim() && v.cityInfo.length <= 700)) out.push('city');
   return out;
 }
 

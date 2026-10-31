@@ -463,7 +463,12 @@ Angliei, situat pe malul estuarului Humber, cu o istorie strâns legată de come
 Mediu a devenit un important centru comercial, iar în secolele al XVIII-lea și al XIX-lea s-a dezvoltat puternic
 datorită industriei navale, comerțului cu lână și pescuitului oceanic. Orașul a jucat un rol important în cel
 de-Al Doilea Război Mondial, fiind puternic bombardat, iar astăzi este cunoscut pentru patrimoniul său maritim,
-muzeele sale și pentru echipa de fotbal Hull City." Nu copia textul pentru alt oraș. Lipsa câmpului e prinsă de
+muzeele sale și pentru echipa de fotbal Hull City." Nu copia textul pentru alt oraș. Limite stricte (un
+comentator îl poate citi pe post): cel mult 30 de cuvinte pe propoziție și 600 de caractere în total; doar fapte
+simple. FĂRĂ clasamente sau superlative („cel mai mare", „al doilea", „primul", „cel mai vechi") decât dacă primul
+paragraf al articolului spune exact asta; FĂRĂ număr de titluri, trofee, derby-uri sau cluburi; FĂRĂ fapte legate de
+un sezon sau de data de azi; ani doar pentru evenimente datate clar de sursă, altfel secolul; dacă nu ești sigur
+sau sursele diferă, lasă afirmația deoparte. Un text scurt și adevărat bate unul lung. Lipsa câmpului e prinsă de
 `scripts/check-premium-complete.mjs` (`city`) și completată după aceea.
 
 **Fire narative extinse.** Un pachet premium are OBLIGATORIU `teams.<side>.stories[]` (3–4 bare per echipă) și `commentatorResearch[]` (6–8 cărți `{topic, fact, source}`); lipsa lor e prinsă de `scripts/check-premium-complete.mjs` și completată după aceea. `storyOfTheMatch[]` = 10–14 propoziții, fiecare un unghi în sine.
