@@ -41,6 +41,14 @@ for (const f of files) {
     continue;
   }
   if (validate(data)) {
+    // venue.cityInfo is read on air: hard rules, so a draft that breaks them is fixed before it is committed
+    const cityErrs = cityInfoErrors(data);
+    if (cityErrs.length) {
+      ok = false;
+      console.error(`✗ ${f}: venue.cityInfo`);
+      cityErrs.forEach((e) => console.error(`  ${e}`));
+      continue;
+    }
     // Light semantic checks beyond the JSON Schema.
     const warnings = semanticWarnings(data);
     if (warnings.length) {
@@ -58,6 +66,23 @@ for (const f of files) {
       console.error(`  ${err.instancePath || '/'} ${err.message}${extra}`);
     }
   }
+}
+
+// venue.cityInfo: exactly 3 short sentences, at most 600 characters, no rankings / superlatives.
+// ("Primul Război Mondial" and "Al Doilea Război Mondial" are names, not rankings.)
+export function cityInfoErrors(d) {
+  const RANKING = /(?<![\p{L}])(cel mai|cea mai|cei mai|cele mai|al doilea(?! război)|al treilea|a doua ca|primul(?! război)|singur(?:ul|a)?|unic[ăa]?|record|numărul (?:unu|1))(?![\p{L}])/iu;
+  const t = d && d.venue && d.venue.cityInfo;
+  if (t == null || t === '') return [];
+  const e = [];
+  if (typeof t !== 'string') return ['must be a string'];
+  if (t.length > 600) e.push(`${t.length} characters, at most 600`);
+  const sentences = t.trim().split(/(?<=[.!?])\s+(?=[A-ZȘȚĂÂÎ„"«])/).filter(Boolean);
+  if (sentences.length !== 3) e.push(`${sentences.length} sentences, exactly 3 are needed`);
+  sentences.forEach((x, i) => { if (x.split(/\s+/).length > 30) e.push(`sentence ${i + 1} has ${x.split(/\s+/).length} words, at most 30`); });
+  const m = RANKING.exec(t);
+  if (m) e.push(`"${m[0]}": no rankings or superlatives unless the article's opening paragraph states it; rewrite without it`);
+  return e;
 }
 
 function semanticWarnings(d) {
