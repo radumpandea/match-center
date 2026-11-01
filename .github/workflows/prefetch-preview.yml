@@ -57,13 +57,26 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "Prefetch preview data ($(date -u +%Y-%m-%d))"
-            # Other workflows commit to the same packs while this one runs (it starts late, around the
-            # time the deep builds land): a plain `pull --rebase || true` followed by `push` left a
-            # half-finished rebase and failed the run. Retry; on a conflicting hunk the fresh API data wins.
+            # Other workflows (deep builds, completion, facts) commit to the same packs while this one
+            # runs -- it starts late, around the time they land. `pull --rebase -X theirs` merged such a
+            # pack line by line and left a file that was neither version (invalid JSON schema, which then
+            # failed every later run). So never merge a file: a pack that changed upstream while we ran
+            # keeps the upstream version (the prefetch is deterministic and refreshes it on the next run);
+            # every other file is taken whole from this run's commit.
+            PREFETCH=$(git rev-parse HEAD)
+            BASE=$(git rev-parse HEAD~1)
+            git diff --name-only --diff-filter=ACMR "$BASE" "$PREFETCH" | sort -u > "$RUNNER_TEMP/mine.txt"
             ok=0
             for i in 1 2 3 4; do
-              if git pull --rebase -X theirs --autostash origin main && git push; then ok=1; break; fi
-              git rebase --abort 2>/dev/null || true
+              git fetch origin main
+              git diff --name-only "$BASE" origin/main | sort -u > "$RUNNER_TEMP/theirs.txt"
+              git checkout -q -f -B publish origin/main
+              comm -23 "$RUNNER_TEMP/mine.txt" "$RUNNER_TEMP/theirs.txt" > "$RUNNER_TEMP/take.txt"
+              echo "taking $(wc -l < "$RUNNER_TEMP/take.txt") file(s) from this run; keeping upstream for $(comm -12 "$RUNNER_TEMP/mine.txt" "$RUNNER_TEMP/theirs.txt" | wc -l) changed meanwhile"
+              xargs -r -a "$RUNNER_TEMP/take.txt" git checkout "$PREFETCH" --
+              if git diff --cached --quiet; then echo "Nothing left to commit."; ok=1; break; fi
+              git commit -q -m "Prefetch preview data ($(date -u +%Y-%m-%d))"
+              if git push origin HEAD:main; then ok=1; break; fi
               sleep $((RANDOM % 10 + 8))
             done
             [ "$ok" = 1 ] || { echo "push failed after retries"; exit 1; }
