@@ -271,3 +271,71 @@ export function applyAbsenceStatus(doc) {
   }
   return changed;
 }
+
+// ---- squad[].career from transfers?player= ------------------------------------------------------
+// players/teams (the base career string, "Club (2016–2022) · Club2 (2023–prezent)") only lists clubs
+// where the API recorded appearances, so a loan or a short spell can be missing (Aouar at Roma) and the
+// years follow seasons, not dates. transfers?player= gives every move with its date and type
+// ("Loan", "Free", "€25M", "Back from loan", "N/A"). This rebuilds the string from that timeline and
+// keeps the base clubs the transfer record knows nothing about (B teams, academies).
+const keyOf = (n) => strip(n);
+const parseBaseCareer = (str) => String(str || '').split(' · ').map((part) => {
+  const m = /^(.*?)\s*\((\d{4})(?:[–-](\d{4}|prezent))?\)$/.exec(part.trim());
+  return m ? { name: m[1], min: +m[2], max: m[3] === 'prezent' ? 'prezent' : (m[3] ? +m[3] : +m[2]) } : null;
+}).filter(Boolean);
+
+// transfers: [{ d: "2023-06-11", ty: "Free", i: { id, name }, o: { id, name } }] (compact form of the API rows)
+export function careerFromTransfers(baseCareer, transfers, isNational = () => false, maxParts = 14) {
+  const base = parseBaseCareer(baseCareer);
+  const evs = (transfers || [])
+    .filter((t) => t && t.d && ((t.i && t.i.name) || (t.o && t.o.name)))
+    .map((t) => ({ y: +String(t.d).slice(0, 4), d: String(t.d).slice(0, 10), ty: String(t.ty || ''), i: t.i && t.i.name ? t.i.name : null, o: t.o && t.o.name ? t.o.name : null }))
+    .filter((t) => Number.isInteger(t.y) && t.y > 1950)
+    .sort((a, b) => a.d.localeCompare(b.d));
+  if (!evs.length) return baseCareer || null;
+
+  const spells = [];                 // { name, start, end, loan }
+  const open = new Map();            // team key -> its open spell
+  const opened = (name, start, loan) => { const s = { name, start, end: null, loan }; spells.push(s); open.set(keyOf(name), s); return s; };
+  const closed = (name, y) => { const s = open.get(keyOf(name)); if (s) { s.end = y; open.delete(keyOf(name)); } return s; };
+
+  for (const e of evs) {
+    const back = /back|return/i.test(e.ty);
+    const loan = !back && /loan/i.test(e.ty);
+    if (back) {
+      if (e.o) closed(e.o, e.y);
+      if (e.i && !open.has(keyOf(e.i))) opened(e.i, null, false);   // the parent club, start unknown here
+      continue;
+    }
+    if (e.o && !loan) {
+      if (!open.has(keyOf(e.o))) opened(e.o, null, false);
+      for (const [k, s] of [...open]) if (k === keyOf(e.o) || s.loan) { s.end = e.y; open.delete(k); }   // permanent move: leaves the old club, and any loan
+    } else if (e.o && loan && !open.has(keyOf(e.o))) {
+      opened(e.o, null, false);                                      // parent club of a loan, still the owner
+    }
+    if (e.i) opened(e.i, e.y, loan);
+  }
+  for (const s of open.values()) s.end = 'prezent';
+
+  // base clubs: fill unknown starts, keep the ones the transfer record never mentions
+  for (const s of spells) {
+    const b = base.find((x) => keyOf(x.name) === keyOf(s.name));
+    if (b && s.start == null) s.start = b.min;
+  }
+  for (const b of base) {
+    if (isNational(b.name)) continue;
+    if (!spells.some((s) => keyOf(s.name) === keyOf(b.name))) spells.push({ name: b.name, start: b.min, end: b.max, loan: false });
+  }
+
+  const clean = spells.filter((s) => s.name && !isNational(s.name));
+  const sortYear = (s) => (s.start != null ? s.start : (typeof s.end === 'number' ? s.end - 0.5 : 0));
+  clean.sort((a, b) => sortYear(a) - sortYear(b) || (a.loan ? 1 : 0) - (b.loan ? 1 : 0));
+
+  const parts = clean.map((s) => {
+    const loan = s.loan ? ', împrumut' : '';
+    if (s.start == null) return s.end === 'prezent' ? `${s.name} (prezent${loan})` : `${s.name} (până în ${s.end}${loan})`;
+    if (s.end === 'prezent') return `${s.name} (${s.start}–prezent${loan})`;
+    return s.start === s.end ? `${s.name} (${s.start}${loan})` : `${s.name} (${s.start}–${s.end}${loan})`;
+  });
+  return parts.length ? parts.slice(-maxParts).join(' · ') : (baseCareer || null);
+}

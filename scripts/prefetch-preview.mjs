@@ -16,6 +16,7 @@
 //     share, formations used, biggest streak) -> form.stats
 //   - head-to-head (last meetings + W-D-L summary) -> h2h
 //   - a short club-history career string per player -> squad[].career
+//     (players/teams, then rebuilt from transfers?player= so loans and short spells show up; capped per run)
 //   - the coach's trophy record (competition, season, place) -> coach.trophies[]
 //   - transfers in/out within the current window, with fee when disclosed ->
 //     teams.<side>.mercatoIn[] / mercatoOut[]
@@ -57,7 +58,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
 import { NEWS_SOURCES } from './news-sources.mjs';
-import { computeLinkLines, formatHonours, formatInjuries, xiPlayers, applyAges, decodeDeep, applyAbsenceStatus, applyLineupNumbers } from './lib/enrich-pack.mjs';
+import { computeLinkLines, formatHonours, formatInjuries, xiPlayers, applyAges, decodeDeep, applyAbsenceStatus, applyLineupNumbers, careerFromTransfers } from './lib/enrich-pack.mjs';
 
 const HOST = 'https://v3.football.api-sports.io';
 const API_KEY = process.env.APIFOOTBALL_KEY;
@@ -86,6 +87,9 @@ const AF_THROTTLE_MS = 250;    // ~240 req/min, under the 300/min Pro limit
 // includes formation/events going forward. Set BACKFILL_HISTORY=1 to run it
 // (see the "Backfill match history" step in prefetch-preview.yml).
 const BACKFILL_HISTORY = !!process.env.BACKFILL_HISTORY;
+// transfers?player= per player (full club history with loans, see applyTransferCareers). Each call is cached 30
+// days, so this is a one-time catch-up of the squads in upcoming packs, nearest kick-off and starters first.
+const TRANSFER_CAREER_BUDGET = Number(process.env.TRANSFER_CAREER_BUDGET) || 250;
 const CAREER_MAX_PLAYERS = 30; // per team, per match — cache careers for the full normal squad, not only the likely XI
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
@@ -1155,8 +1159,61 @@ async function getCareer(playerId, cache, needClub = false, needNat = false) {
     .map((r) => ({ name: r.team.name, max: Math.max(...r.seasons) }))
     .sort((a, b) => b.max - a.max)[0];
   const natTeam = seniorNat ? cc3(seniorNat.name) : null;
-  cache.careers[playerId] = { fetchedAt: todayISO(), career, club, natTeam };
+  cache.careers[playerId] = { fetchedAt: todayISO(), career, club, natTeam, ...(hit && hit.tfAt ? { tfAt: hit.tfAt, tfCareer: hit.tfCareer } : {}) };
   return career;
+}
+
+/* ---------- full career from transfers?player= (cached 30d, budget-capped per run) ----------
+   players/teams only knows clubs with recorded appearances, so loans and short spells go missing
+   (Aouar at Roma). The transfer record has every move; careerFromTransfers() rebuilds the string from it.
+   A career string an editor extended by hand (it equals neither the API base nor our earlier rebuild) is
+   never overwritten. */
+let _tfCalls = 0;
+const tfCandidates = (doc, side) => {
+  const t = doc.teams[side];
+  const xi = new Set([].concat(t.confirmedXI || [], t.predictedXI || [], t.substitutes || []).map((x) => x.apiId).filter((x) => x != null));
+  return (t.squad || []).filter((p) => p.apiId != null)
+    .sort((a, b) => (xi.has(b.apiId) - xi.has(a.apiId)) || (((b.stats && b.stats.minutes) || 0) - ((a.stats && a.stats.minutes) || 0)))
+    .slice(0, CAREER_MAX_PLAYERS);
+};
+function needsTransferCareer(doc, cache) {
+  if (_tfCalls >= TRANSFER_CAREER_BUDGET) return false;
+  return ['home', 'away'].some((side) => tfCandidates(doc, side).some((p) => {
+    const e = cache.careers && cache.careers[p.apiId];
+    return !e || !e.tfAt || daysBetween(todayISO(), e.tfAt) >= CAREER_TTL;
+  }));
+}
+async function applyTransferCareers(doc, cache) {
+  cache.careers = cache.careers || {};
+  let changed = false, fetched = 0, kept = 0;
+  for (const side of ['home', 'away']) {
+    for (const p of tfCandidates(doc, side)) {
+      let e = cache.careers[p.apiId];
+      if (!e) { await getCareer(p.apiId, cache); e = cache.careers[p.apiId]; }
+      if (!e) continue;
+      const stale = !e.tfAt || daysBetween(todayISO(), e.tfAt) >= CAREER_TTL;
+      const prevTf = e.tfCareer;
+      if (stale && _tfCalls < TRANSFER_CAREER_BUDGET) {
+        _tfCalls++;
+        const j = await af('transfers', { player: p.apiId });
+        if (!j) continue;                           // unknown, not "no transfers": try again next run
+        const rows = ((j.response || [])[0] || {}).transfers || [];
+        const compact = rows.map((r) => ({
+          d: r.date, ty: r.type,
+          i: r.teams && r.teams.in ? { id: r.teams.in.id, name: r.teams.in.name } : null,
+          o: r.teams && r.teams.out ? { id: r.teams.out.id, name: r.teams.out.name } : null,
+        }));
+        e.tfCareer = careerFromTransfers(e.career, compact, looksNational) || null;
+        e.tfAt = todayISO();
+        fetched++;
+      }
+      if (!e.tfCareer || p.career === e.tfCareer) continue;
+      if (!has(p.career) || p.career === e.career || p.career === prevTf) { p.career = e.tfCareer; changed = true; }
+      else kept++;
+    }
+  }
+  if (fetched || kept) console.log(`  transfer careers: ${fetched} fetched${kept ? `, ${kept} hand-edited kept` : ''} (${_tfCalls}/${TRANSFER_CAREER_BUDGET} calls this run)`);
+  return changed;
 }
 
 async function applyCareers(doc, cache) {
@@ -1902,8 +1959,9 @@ async function main() {
     const needFacts = applyPlayerFacts(doc, true);
     const needLinks = computeLinkLines(doc, true);
     const needExtras = needsPlayerExtras(doc);
+    const needTfCareer = needsTransferCareer(doc, cache);
     if (!needCareer && !needStandings && !needNext && !needVenue && !needPredictions && !needTrophies &&
-        !needMatchDay && !needNews && !needWeather && !needMercato && !needFacts && !needLinks && !needExtras) continue;
+        !needMatchDay && !needNews && !needWeather && !needMercato && !needFacts && !needLinks && !needExtras && !needTfCareer) continue;
     let touched = false;
 
     if (await applyClubs(doc, cache)) touched = true;
@@ -1912,6 +1970,7 @@ async function main() {
     if (computeLinkLines(doc)) touched = true;
     if (applyAges(doc)) touched = true;
     if (await applyPlayerExtras(doc, cache)) touched = true;
+    if (needTfCareer && await applyTransferCareers(doc, cache)) touched = true;
 
     if (needNews) {
       const [hn, an] = await Promise.all([teamNews(f.home, f.away, f.comp), teamNews(f.away, f.home, f.comp)]);
