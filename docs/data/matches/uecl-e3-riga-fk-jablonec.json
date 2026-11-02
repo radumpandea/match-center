@@ -1,12 +1,12 @@
 {
   "slug": "uecl-e3-riga-fk-jablonec",
-  "generatedAt": "2026-10-31T11:27:05.720Z",
+  "generatedAt": "2026-11-02T13:56:20.567Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-10-31"
+      "accessed": "2026-11-02"
     }
   ],
   "competition": {
@@ -19,8 +19,15 @@
   "venue": {
     "name": "Skonto stadions",
     "capacity": null,
-    "city": null,
-    "notes": null
+    "city": "Riga",
+    "notes": null,
+    "weather": {
+      "tempC": 8,
+      "condition": "parțial noros",
+      "windKph": 22,
+      "precipitationMm": 0,
+      "forecastAt": "2026-11-02T13:56:21.094Z"
+    }
   },
   "referee": {
     "name": "n/d",
@@ -37,12 +44,49 @@
   },
   "storyOfTheMatch": [
     "Riga — locul 21 după 2 etape, 2 puncte, golaveraj 2-2.",
+    "Riga — 6 meciuri fără înfrângere.",
     "Riga a păstrat poarta intactă în 2 din 2 etape.",
-    "Riga — 6 din 11 goluri marcate după minutul 75.",
+    "Riga — 6 din 12 goluri marcate după minutul 75.",
+    "Caio e cel mai bun marcator al echipei Riga în acest start de sezon (2 goluri).",
     "FK Jablonec — locul 24 după 2 etape, 1 puncte, golaveraj 2-3.",
-    "FK Jablonec a păstrat poarta intactă în 3 din 2 etape."
+    "FK Jablonec a păstrat poarta intactă în 4 din 2 etape."
   ],
-  "predictions": null,
+  "predictions": {
+    "winnerName": "Riga",
+    "winOrDraw": true,
+    "advice": "Double chance : Riga or draw",
+    "percent": {
+      "home": 45,
+      "draw": 45,
+      "away": 10
+    },
+    "comparison": {
+      "form": {
+        "home": 50,
+        "away": 50
+      },
+      "attack": {
+        "home": 45,
+        "away": 55
+      },
+      "defense": {
+        "home": 56,
+        "away": 44
+      },
+      "poisson": {
+        "home": 70,
+        "away": 30
+      },
+      "h2h": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": {
+        "home": 0,
+        "away": 0
+      }
+    }
+  },
   "teams": {
     "home": {
       "name": "Riga",
@@ -64,14 +108,6 @@
             "period": "2026–prezent",
             "note": null
           }
-        ],
-        "funfacts": [
-          "Adrián Guľa s-a născut la 29 iunie 1975 și este antrenor slovac, fost fotbalist profesionist.",
-          "A devenit antrenor principal la MŠK Žilina în vara anului 2013, înlocuindu-l pe interimarul Štefan Tarkovič.",
-          "Pe 7 mai 2018 a fost numit selecționer al naționalei U21 a Slovaciei, funcție pe care a ocupat-o până în 2019.",
-          "A pregătit Viktoria Plzeň din 1 ianuarie 2020, timp de 54 de meciuri, până în mai 2021, apoi a condus Wisła Kraków, de unde a fost demis pe 13 februarie 2022.",
-          "În iunie 2024 a semnat cu cipriotii de la Apollon Limassol, primul său angajament în afara Europei Centrale.",
-          "A cucerit titlul Slovak First Football League cu Žilina în 2016-17, fiind și numit Antrenorul Sezonului, iar cu Riga a câștigat titlul Virslīga în 2025."
         ]
       },
       "formation": "n/d",
@@ -248,27 +284,27 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 90,
-            "apps": 1,
+            "minutes": 180,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 7.6,
-            "conceded": 1,
-            "saves": 3,
+            "rating": 7.7,
+            "conceded": 2,
+            "saves": 6,
             "shotsTotal": null,
             "shotsOn": null,
-            "passesTotal": 14,
+            "passesTotal": 39,
             "passesKey": 1,
-            "passesAccuracy": 92,
+            "passesAccuracy": 84,
             "tacklesTotal": null,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": null,
-            "duelsWon": null,
+            "duelsTotal": 1,
+            "duelsWon": 1,
             "dribblesAttempts": null,
             "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": null,
+            "foulsDrawn": 1,
             "foulsCommitted": null,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -419,33 +455,6 @@
           }
         },
         {
-          "apiId": 72542,
-          "number": 27,
-          "name": "Emīls Birka",
-          "photo": "https://media.api-sports.io/football/players/72542.png",
-          "pos": "DEF",
-          "positions": [
-            "DEF"
-          ],
-          "role": "DEF",
-          "age": 26,
-          "height": 179,
-          "weight": 72,
-          "foot": null,
-          "nat": "LAT",
-          "natTeam": null,
-          "birthCountry": "Latvia",
-          "birthDate": "2000-04-25",
-          "pronunciation": null,
-          "career": "Metta / LU (2016–2021) · Latvia (2022–2024) · Valmiera / BSS (2022–2024) · Riga (2025)",
-          "lastSeason": null,
-          "funfact": null,
-          "linkLine": null,
-          "status": "available",
-          "statusNote": null,
-          "stats": null
-        },
-        {
           "apiId": 56030,
           "number": 34,
           "name": "Antonijs Černomordijs",
@@ -473,11 +482,11 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 13,
-            "apps": 3,
+            "minutes": 25,
+            "apps": 4,
             "yellow": 0,
             "red": null,
-            "rating": 6.3,
+            "rating": 6.6,
             "conceded": 0,
             "saves": null,
             "shotsTotal": null,
@@ -485,11 +494,11 @@
             "passesTotal": 6,
             "passesKey": null,
             "passesAccuracy": 83,
-            "tacklesTotal": null,
-            "tacklesBlocks": null,
+            "tacklesTotal": 1,
+            "tacklesBlocks": 1,
             "tacklesInterceptions": 1,
-            "duelsTotal": 1,
-            "duelsWon": null,
+            "duelsTotal": 3,
+            "duelsWon": 2,
             "dribblesAttempts": null,
             "dribblesSuccess": null,
             "dribblesPast": null,
@@ -530,28 +539,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 270,
-            "apps": 7,
+            "minutes": 360,
+            "apps": 8,
             "yellow": 1,
             "red": null,
-            "rating": 6.67,
+            "rating": 6.58,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 3,
+            "shotsTotal": 4,
             "shotsOn": null,
-            "passesTotal": 180,
-            "passesKey": 1,
-            "passesAccuracy": 87,
+            "passesTotal": 211,
+            "passesKey": 2,
+            "passesAccuracy": 86,
             "tacklesTotal": null,
             "tacklesBlocks": 1,
-            "tacklesInterceptions": 2,
-            "duelsTotal": 12,
-            "duelsWon": 7,
-            "dribblesAttempts": 3,
-            "dribblesSuccess": 1,
+            "tacklesInterceptions": 5,
+            "duelsTotal": 15,
+            "duelsWon": 8,
+            "dribblesAttempts": 5,
+            "dribblesSuccess": 2,
             "dribblesPast": null,
             "foulsDrawn": 5,
-            "foulsCommitted": 1,
+            "foulsCommitted": 2,
             "penaltyWon": null,
             "penaltyCommitted": 1,
             "penaltyScored": 0,
@@ -587,32 +596,32 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": null,
-            "apps": 0,
+            "minutes": 45,
+            "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": null,
+            "rating": 3.3,
             "conceded": 0,
-            "saves": null,
-            "shotsTotal": null,
-            "shotsOn": null,
-            "passesTotal": null,
-            "passesKey": null,
-            "passesAccuracy": null,
-            "tacklesTotal": null,
-            "tacklesBlocks": null,
-            "tacklesInterceptions": null,
-            "duelsTotal": null,
-            "duelsWon": null,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "saves": 0,
+            "shotsTotal": 0,
+            "shotsOn": 0,
+            "passesTotal": 40,
+            "passesKey": 0,
+            "passesAccuracy": 82,
+            "tacklesTotal": 2,
+            "tacklesBlocks": 0,
+            "tacklesInterceptions": 1,
+            "duelsTotal": 2,
+            "duelsWon": 2,
+            "dribblesAttempts": 0,
+            "dribblesSuccess": 0,
             "dribblesPast": null,
-            "foulsDrawn": null,
-            "foulsCommitted": null,
+            "foulsDrawn": 0,
+            "foulsCommitted": 0,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
-            "penaltyMissed": 0,
+            "penaltyMissed": null,
             "penaltySaved": null
           }
         },
@@ -644,28 +653,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 270,
-            "apps": 7,
+            "minutes": 360,
+            "apps": 8,
             "yellow": 2,
             "red": null,
-            "rating": 7.03,
+            "rating": 7,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 1,
+            "shotsTotal": 2,
             "shotsOn": null,
-            "passesTotal": 235,
+            "passesTotal": 281,
             "passesKey": null,
             "passesAccuracy": 89,
-            "tacklesTotal": 2,
+            "tacklesTotal": 5,
             "tacklesBlocks": 3,
             "tacklesInterceptions": 9,
-            "duelsTotal": 26,
-            "duelsWon": 16,
-            "dribblesAttempts": 1,
-            "dribblesSuccess": 1,
+            "duelsTotal": 33,
+            "duelsWon": 21,
+            "dribblesAttempts": 2,
+            "dribblesSuccess": 2,
             "dribblesPast": null,
             "foulsDrawn": 4,
-            "foulsCommitted": 4,
+            "foulsCommitted": 5,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -815,28 +824,28 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 92,
-            "apps": 4,
-            "yellow": 0,
+            "minutes": 182,
+            "apps": 5,
+            "yellow": 1,
             "red": null,
-            "rating": 7.3,
+            "rating": 6.9,
             "conceded": 0,
             "saves": null,
             "shotsTotal": null,
             "shotsOn": null,
-            "passesTotal": 43,
-            "passesKey": 1,
-            "passesAccuracy": 81,
-            "tacklesTotal": null,
-            "tacklesBlocks": null,
-            "tacklesInterceptions": 3,
-            "duelsTotal": 3,
-            "duelsWon": 3,
+            "passesTotal": 62,
+            "passesKey": 2,
+            "passesAccuracy": 79,
+            "tacklesTotal": 2,
+            "tacklesBlocks": 1,
+            "tacklesInterceptions": 7,
+            "duelsTotal": 10,
+            "duelsWon": 5,
             "dribblesAttempts": 1,
             "dribblesSuccess": 1,
             "dribblesPast": null,
             "foulsDrawn": 1,
-            "foulsCommitted": null,
+            "foulsCommitted": 4,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -899,28 +908,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 270,
-            "apps": 7,
+            "minutes": 360,
+            "apps": 8,
             "yellow": 3,
             "red": null,
-            "rating": 6.93,
+            "rating": 7,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 4,
             "shotsOn": null,
-            "passesTotal": 170,
+            "passesTotal": 211,
             "passesKey": 2,
-            "passesAccuracy": 87,
-            "tacklesTotal": 8,
+            "passesAccuracy": 88,
+            "tacklesTotal": 12,
             "tacklesBlocks": 1,
-            "tacklesInterceptions": 11,
-            "duelsTotal": 36,
-            "duelsWon": 21,
-            "dribblesAttempts": 2,
+            "tacklesInterceptions": 14,
+            "duelsTotal": 44,
+            "duelsWon": 26,
+            "dribblesAttempts": 3,
             "dribblesSuccess": 1,
             "dribblesPast": null,
-            "foulsDrawn": 5,
-            "foulsCommitted": 2,
+            "foulsDrawn": 6,
+            "foulsCommitted": 4,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -1013,27 +1022,27 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 268,
-            "apps": 7,
+            "minutes": 358,
+            "apps": 8,
             "yellow": 1,
             "red": null,
-            "rating": 7.5,
+            "rating": 7.45,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 4,
             "shotsOn": 2,
-            "passesTotal": 177,
-            "passesKey": 5,
+            "passesTotal": 235,
+            "passesKey": 7,
             "passesAccuracy": 87,
-            "tacklesTotal": 9,
-            "tacklesBlocks": null,
-            "tacklesInterceptions": 3,
-            "duelsTotal": 35,
-            "duelsWon": 21,
-            "dribblesAttempts": 8,
-            "dribblesSuccess": 7,
+            "tacklesTotal": 13,
+            "tacklesBlocks": 1,
+            "tacklesInterceptions": 4,
+            "duelsTotal": 54,
+            "duelsWon": 33,
+            "dribblesAttempts": 10,
+            "dribblesSuccess": 8,
             "dribblesPast": null,
-            "foulsDrawn": 5,
+            "foulsDrawn": 11,
             "foulsCommitted": 5,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -1104,11 +1113,12 @@
           "number": 29,
           "name": "E. Maurs-Boks",
           "photo": "https://media.api-sports.io/football/players/564916.png",
-          "pos": "DEF",
+          "pos": "MID",
           "positions": [
+            "MID",
             "DEF"
           ],
-          "role": "DEF",
+          "role": "MID",
           "age": 19,
           "height": null,
           "weight": null,
@@ -1118,7 +1128,7 @@
           "birthCountry": null,
           "birthDate": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Riga (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1183,29 +1193,29 @@
           "statusNote": null,
           "stats": {
             "goals": 1,
-            "assists": 0,
-            "minutes": 118,
-            "apps": 6,
+            "assists": 1,
+            "minutes": 206,
+            "apps": 7,
             "yellow": 1,
             "red": null,
-            "rating": 7.25,
+            "rating": 7.33,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 3,
-            "shotsOn": 3,
-            "passesTotal": 68,
-            "passesKey": 3,
-            "passesAccuracy": 82,
-            "tacklesTotal": 3,
+            "shotsTotal": 4,
+            "shotsOn": 4,
+            "passesTotal": 110,
+            "passesKey": 6,
+            "passesAccuracy": 85,
+            "tacklesTotal": 4,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 20,
-            "duelsWon": 10,
-            "dribblesAttempts": 6,
-            "dribblesSuccess": 3,
+            "duelsTotal": 34,
+            "duelsWon": 13,
+            "dribblesAttempts": 9,
+            "dribblesSuccess": 4,
             "dribblesPast": null,
             "foulsDrawn": 3,
-            "foulsCommitted": 5,
+            "foulsCommitted": 11,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -1295,8 +1305,8 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 8,
-            "apps": 1,
+            "minutes": 10,
+            "apps": 2,
             "yellow": 0,
             "red": null,
             "rating": 6.9,
@@ -1304,14 +1314,14 @@
             "saves": null,
             "shotsTotal": null,
             "shotsOn": null,
-            "passesTotal": 5,
-            "passesKey": null,
+            "passesTotal": 8,
+            "passesKey": 1,
             "passesAccuracy": 100,
-            "tacklesTotal": 1,
+            "tacklesTotal": 2,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 1,
-            "duelsWon": 1,
+            "duelsTotal": 3,
+            "duelsWon": 3,
             "dribblesAttempts": null,
             "dribblesSuccess": null,
             "dribblesPast": null,
@@ -1407,23 +1417,23 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 180,
-            "apps": 6,
+            "minutes": 270,
+            "apps": 7,
             "yellow": 0,
             "red": null,
-            "rating": 7.1,
+            "rating": 7.03,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 3,
             "shotsOn": 3,
-            "passesTotal": 174,
+            "passesTotal": 227,
             "passesKey": 2,
-            "passesAccuracy": 93,
+            "passesAccuracy": 92,
             "tacklesTotal": 1,
-            "tacklesBlocks": 1,
+            "tacklesBlocks": 2,
             "tacklesInterceptions": 2,
-            "duelsTotal": 12,
-            "duelsWon": 7,
+            "duelsTotal": 14,
+            "duelsWon": 8,
             "dribblesAttempts": 1,
             "dribblesSuccess": 1,
             "dribblesPast": null,
@@ -1441,11 +1451,12 @@
           "number": 7,
           "name": "Raki Aouani",
           "photo": "https://media.api-sports.io/football/players/367083.png",
-          "pos": "MID",
+          "pos": "ATT",
           "positions": [
+            "ATT",
             "MID"
           ],
-          "role": "MID",
+          "role": "ATT",
           "age": 22,
           "height": 179,
           "weight": 70,
@@ -1464,28 +1475,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 247,
-            "apps": 7,
+            "minutes": 325,
+            "apps": 8,
             "yellow": 3,
             "red": null,
-            "rating": 6.67,
+            "rating": 6.8,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 5,
+            "shotsTotal": 6,
             "shotsOn": 2,
-            "passesTotal": 112,
-            "passesKey": 8,
+            "passesTotal": 143,
+            "passesKey": 13,
             "passesAccuracy": 76,
-            "tacklesTotal": 2,
+            "tacklesTotal": 5,
             "tacklesBlocks": null,
             "tacklesInterceptions": 1,
-            "duelsTotal": 35,
-            "duelsWon": 11,
-            "dribblesAttempts": 19,
-            "dribblesSuccess": 6,
+            "duelsTotal": 43,
+            "duelsWon": 15,
+            "dribblesAttempts": 22,
+            "dribblesSuccess": 7,
             "dribblesPast": null,
             "foulsDrawn": 3,
-            "foulsCommitted": 6,
+            "foulsCommitted": 7,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -1521,25 +1532,25 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 103,
-            "apps": 6,
+            "minutes": 127,
+            "apps": 7,
             "yellow": 0,
             "red": null,
-            "rating": 6.7,
+            "rating": 6.6,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 3,
-            "shotsOn": 1,
-            "passesTotal": 16,
+            "shotsTotal": 5,
+            "shotsOn": 2,
+            "passesTotal": 23,
             "passesKey": 2,
-            "passesAccuracy": 81,
+            "passesAccuracy": 73,
             "tacklesTotal": null,
             "tacklesBlocks": null,
             "tacklesInterceptions": 2,
-            "duelsTotal": 11,
-            "duelsWon": 8,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "duelsTotal": 17,
+            "duelsWon": 12,
+            "dribblesAttempts": 1,
+            "dribblesSuccess": 1,
             "dribblesPast": null,
             "foulsDrawn": 2,
             "foulsCommitted": 2,
@@ -1579,7 +1590,7 @@
         },
         {
           "apiId": 465459,
-          "number": 99,
+          "number": 11,
           "name": "Caio",
           "photo": "https://media.api-sports.io/football/players/465459.png",
           "pos": "MID",
@@ -1604,27 +1615,27 @@
           "status": "available",
           "statusNote": null,
           "stats": {
-            "goals": 1,
+            "goals": 2,
             "assists": 0,
-            "minutes": 13,
-            "apps": 5,
+            "minutes": 37,
+            "apps": 6,
             "yellow": 1,
             "red": null,
-            "rating": 7.3,
+            "rating": 7.5,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 1,
-            "shotsOn": 1,
-            "passesTotal": 3,
+            "shotsTotal": 2,
+            "shotsOn": 2,
+            "passesTotal": 6,
             "passesKey": null,
-            "passesAccuracy": 100,
+            "passesAccuracy": 83,
             "tacklesTotal": 1,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 3,
-            "duelsWon": 2,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "duelsTotal": 7,
+            "duelsWon": 4,
+            "dribblesAttempts": 4,
+            "dribblesSuccess": 2,
             "dribblesPast": null,
             "foulsDrawn": 1,
             "foulsCommitted": null,
@@ -1640,11 +1651,12 @@
           "number": 22,
           "name": "Meïssa Diop",
           "photo": "https://media.api-sports.io/football/players/308634.png",
-          "pos": "MID",
+          "pos": "ATT",
           "positions": [
+            "ATT",
             "MID"
           ],
-          "role": "MID",
+          "role": "ATT",
           "age": 23,
           "height": null,
           "weight": null,
@@ -1663,25 +1675,25 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 227,
-            "apps": 6,
+            "minutes": 293,
+            "apps": 7,
             "yellow": 0,
             "red": null,
             "rating": 6.6,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 2,
+            "shotsTotal": 5,
             "shotsOn": 1,
-            "passesTotal": 69,
+            "passesTotal": 89,
             "passesKey": 8,
-            "passesAccuracy": 82,
+            "passesAccuracy": 84,
             "tacklesTotal": 5,
             "tacklesBlocks": null,
-            "tacklesInterceptions": 1,
-            "duelsTotal": 22,
-            "duelsWon": 12,
-            "dribblesAttempts": 5,
-            "dribblesSuccess": 4,
+            "tacklesInterceptions": 2,
+            "duelsTotal": 27,
+            "duelsWon": 15,
+            "dribblesAttempts": 8,
+            "dribblesSuccess": 6,
             "dribblesPast": null,
             "foulsDrawn": 3,
             "foulsCommitted": 2,
@@ -1747,28 +1759,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 167,
-            "apps": 7,
+            "minutes": 233,
+            "apps": 8,
             "yellow": 0,
             "red": null,
-            "rating": 6.63,
+            "rating": 6.78,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 8,
+            "shotsTotal": 10,
             "shotsOn": 4,
-            "passesTotal": 27,
-            "passesKey": 3,
-            "passesAccuracy": 77,
-            "tacklesTotal": 3,
+            "passesTotal": 37,
+            "passesKey": 4,
+            "passesAccuracy": 75,
+            "tacklesTotal": 5,
             "tacklesBlocks": null,
             "tacklesInterceptions": 1,
-            "duelsTotal": 15,
-            "duelsWon": 7,
-            "dribblesAttempts": 3,
-            "dribblesSuccess": 2,
+            "duelsTotal": 25,
+            "duelsWon": 14,
+            "dribblesAttempts": 5,
+            "dribblesSuccess": 4,
             "dribblesPast": null,
-            "foulsDrawn": 1,
-            "foulsCommitted": 2,
+            "foulsDrawn": 2,
+            "foulsCommitted": 3,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -1781,12 +1793,12 @@
           "number": 15,
           "name": "Samuel Pedro",
           "photo": "https://media.api-sports.io/football/players/129777.png",
-          "pos": "MID",
+          "pos": "ATT",
           "positions": [
-            "MID",
-            "ATT"
+            "ATT",
+            "MID"
           ],
-          "role": "MID",
+          "role": "ATT",
           "age": 25,
           "height": null,
           "weight": null,
@@ -1938,10 +1950,1675 @@
           "ga": 2,
           "points": 2
         },
+        "recent": [
+          {
+            "date": "2026-11-01",
+            "opp": "Ogre United",
+            "homeAway": "A",
+            "comp": "Virsliga",
+            "score": "0-0",
+            "result": "D",
+            "referee": null,
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "K. Pirić",
+                  "number": 12,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Toņiševs",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Černomordijs",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Musah",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Maviram",
+                  "number": 60,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Saco",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Ankrah",
+                  "number": 40,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Diop",
+                  "number": 22,
+                  "pos": "F"
+                },
+                {
+                  "name": "Iago Siqueira Augusto",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Aouani",
+                  "number": 7,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Badamosi",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "K. Biscuhis",
+                  "number": 20,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Grīnbergs",
+                  "number": 91,
+                  "pos": "D"
+                },
+                {
+                  "name": "Martins Lormanis",
+                  "number": 37,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Kudeļkins",
+                  "number": 55,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Molotkovs",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Ivulāns",
+                  "number": 21,
+                  "pos": "F"
+                },
+                {
+                  "name": "K. Čudars",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Doroshenko",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Ziemelis",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "Marks pechepko",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "E. Evelons",
+                  "number": 18,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 17,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Arsentiy Doroshenko",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 42,
+                "side": "us",
+                "type": "yellow",
+                "player": "Coli Saco",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Iago Siqueira",
+                "playerIn": "Abdulrahman Taiwo"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Marks pechepko",
+                "playerIn": "Ingars Pulis"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "yellow",
+                "player": "aleksejs kudelkins",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Nor Nor Emmanuel Maviram",
+                "playerIn": "Samuel Pedro"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "meissa diop",
+                "playerIn": "Raivis Jurkovskis"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Raki Aouani",
+                "playerIn": "Ferreira caio"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "emils evelons",
+                "playerIn": "markuss kalnins"
+              },
+              {
+                "minute": 69,
+                "side": "us",
+                "type": "yellow",
+                "player": "Ahmed Ankrah",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "yellow",
+                "player": "Abdulrahman Taiwo",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "yellow",
+                "player": "Antonijs Černomordijs",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 80,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ahmed Ankrah",
+                "playerIn": "ramires reginaldo"
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "red",
+                "player": "aleksejs kudelkins",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 88,
+                "side": "us",
+                "type": "goal",
+                "player": "Muhammed Badammosi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "markuss ivulans",
+                "playerIn": "artem marchuk"
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Arsentiy Doroshenko",
+                "playerIn": "Roberts Aditajs"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "yellow",
+                "player": "markuss kalnins",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-26",
+            "opp": "Grobiņa",
+            "homeAway": "A",
+            "comp": "Virsliga",
+            "score": "5-2",
+            "result": "W",
+            "referee": null,
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "F. Orols",
+                  "number": 91,
+                  "pos": "G"
+                },
+                {
+                  "name": "R. Jurkovskis",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Černomordijs",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Wassom",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Salazar",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Saco",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Ankrah",
+                  "number": 40,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Taiwo",
+                  "number": 25,
+                  "pos": "F"
+                },
+                {
+                  "name": "S. Oulad M'Hand",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "Samuel Pedro",
+                  "number": 15,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Badamosi",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "R. Ozols",
+                  "number": 21,
+                  "pos": "G"
+                },
+                {
+                  "name": "K. Rupeiks",
+                  "number": 2,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Jovanović",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Družiņins",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Baravykas",
+                  "number": 27,
+                  "pos": "D"
+                },
+                {
+                  "name": "Dodô",
+                  "number": 77,
+                  "pos": "F"
+                },
+                {
+                  "name": "O. Olatunde-Matthew",
+                  "number": 8,
+                  "pos": "D"
+                },
+                {
+                  "name": "martin jose",
+                  "number": 87,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Sidorovs",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "H. Yamada",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Corryn",
+                  "number": 6,
+                  "pos": "M"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 4,
+                "side": "us",
+                "type": "goal",
+                "player": "Samuel Pedro",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 12,
+                "side": "opp",
+                "type": "red",
+                "player": "Aleksa Jovanović",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 13,
+                "side": "us",
+                "type": "goal",
+                "player": "Muhammed Badammosi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 17,
+                "side": "us",
+                "type": "goal",
+                "player": "Coli Saco",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 18,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Oladotun Olatunde-Matthew",
+                "playerIn": "gustavs leitans"
+              },
+              {
+                "minute": 18,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "hirotaka yamada",
+                "playerIn": "Gļebs Kļuškins"
+              },
+              {
+                "minute": 22,
+                "side": "us",
+                "type": "yellow",
+                "player": "Andrés Salazar",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 27,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Gļebs Kļuškins",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 28,
+                "side": "us",
+                "type": "goal",
+                "player": "Muhammed Badammosi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 29,
+                "side": "us",
+                "type": "yellow",
+                "player": "Karl Gameni Wassom",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 30,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Krisjanis rupeiks",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 38,
+                "side": "us",
+                "type": "yellow",
+                "player": "Antonijs Černomordijs",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Milan·Corryn",
+                "playerIn": "Artjoms Puzirevskis"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Andrés Salazar",
+                "playerIn": "Nor Nor Emmanuel Maviram"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Karl Gameni Wassom",
+                "playerIn": "Abner Salles da Silva"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Dodo",
+                "playerIn": "Anton Baydal"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "martin jose",
+                "playerIn": "Ivan·Tyshchenko"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "goal",
+                "player": "Salah hand m",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Salah hand m",
+                "playerIn": "ramires reginaldo"
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Raivis Jurkovskis",
+                "playerIn": "meissa diop"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "goal",
+                "player": "Artjoms Puzirevskis",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ahmed Ankrah",
+                "playerIn": "Iago Siqueira"
+              },
+              {
+                "minute": 89,
+                "side": "opp",
+                "type": "goal",
+                "player": "Artjoms Puzirevskis",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-22",
+            "opp": "Pafos",
+            "homeAway": "A",
+            "comp": "UEFA Europa Conference League",
+            "score": "1-1",
+            "result": "D",
+            "referee": "M. Barbu",
+            "formation": {
+              "us": "4-3-1-2",
+              "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "K. Piric",
+                  "number": 12,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Tonisevs",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Musah",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Wassom",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Jurkovskis",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Diop",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Ankrah",
+                  "number": 40,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Aouani",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "Iago Siqueira",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Reginaldo Ramires",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "S. Oulad M'Hand",
+                  "number": 18,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "R. Majecki",
+                  "number": 99,
+                  "pos": "G"
+                },
+                {
+                  "name": "Bruno",
+                  "number": 7,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Mmaee",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "David Luiz",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Ioannou",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Dragomir",
+                  "number": 30,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Brito",
+                  "number": 50,
+                  "pos": "M"
+                },
+                {
+                  "name": "Guga",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Correia",
+                  "number": 77,
+                  "pos": "F"
+                },
+                {
+                  "name": "Anderson Silva",
+                  "number": 33,
+                  "pos": "F"
+                },
+                {
+                  "name": "Biel",
+                  "number": 20,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Brito",
+                "playerIn": "I. Sunjic"
+              },
+              {
+                "minute": 49,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Ivan Šunjić",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Correia",
+                "playerIn": "D. Quina"
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Anderson Silva",
+                "playerIn": "Lele"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Reginaldo Ramires",
+                "playerIn": "M. Badamosi"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Diop",
+                "playerIn": "Caio Ferreira"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "goal",
+                "player": "Caio Ferreira",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Guga",
+                "playerIn": "K. Sema"
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "goal",
+                "player": "Biel",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 78,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Aouani",
+                "playerIn": "A. Cernomordijs"
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Ken Sema",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 88,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Oulad M'Hand",
+                "playerIn": "C. Saco"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Maksims Tonisevs",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-18",
+            "opp": "Super Nova",
+            "homeAway": "H",
+            "comp": "Virsliga",
+            "score": "2-1",
+            "result": "W",
+            "referee": null,
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-4-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "Frenks Orols",
+                  "number": 91,
+                  "pos": "G"
+                },
+                {
+                  "name": "Maksims Tonisevs",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "Antonijs Černomordijs",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "Abner",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Andrés Salazar",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "Coli Saco",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "Karl Gameni Wassom",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "Raki Aouani",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "Iago Siqueira Augusto",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Samuel Pedro",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "Reginaldo Ramires",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Davis Veisbuks",
+                  "number": 90,
+                  "pos": "G"
+                },
+                {
+                  "name": "Jegors Cirulis",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "Mārcis Ošs",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "Kristaps Romanovs",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "Rikuto Iida",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "Raivis Kirss",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "Ivans Patrikejevs",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Ralfs Šitjakovs",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "Samate Amadou",
+                  "number": 9,
+                  "pos": "M"
+                },
+                {
+                  "name": "Valerijs Lizunovs",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "Eduards Emsis",
+                  "number": 6,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 22,
+                "side": "opp",
+                "type": "goal",
+                "player": "Raivis Kirss",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Samuel Pedro",
+                "playerIn": "Meïssa Diop"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Abner",
+                "playerIn": "Abdulrahman Taiwo"
+              },
+              {
+                "minute": 48,
+                "side": "us",
+                "type": "yellow",
+                "player": "Raki Aouani",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 49,
+                "side": "us",
+                "type": "yellow",
+                "player": "Reginaldo Ramires",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 53,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Raivis Kirss",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 55,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Valerijs Lizunovs",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Maksims Tonisevs",
+                "playerIn": "Raivis Jurkovskis"
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Reginaldo Ramires",
+                "playerIn": "Muhammed Badamosi"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Samate Amadou",
+                "playerIn": "Ibrahima Diop"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Raivis Kirss",
+                "playerIn": "Agris Glaudans"
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Ivans Patrikejevs",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "goal",
+                "player": "Iago Siqueira Augusto",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Ibrahima Diop",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "us",
+                "type": "goal",
+                "player": "Muhammed Badamosi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 81,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Kristaps Romanovs",
+                "playerIn": "Milans Tihonovics"
+              },
+              {
+                "minute": 82,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Eduards Emsis",
+                "playerIn": "Ndiaye Pathé"
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Jegors Cirulis",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Mārcis Ošs",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ivans Patrikejevs",
+                "playerIn": "Kristers Skadmanis"
+              },
+              {
+                "minute": 89,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Coli Saco",
+                "playerIn": "Baba Musah"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-15",
+            "opp": "Kairat Almaty",
+            "homeAway": "H",
+            "comp": "UEFA Europa Conference League",
+            "score": "1-1",
+            "result": "D",
+            "referee": "F. Lata",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "K. Piric",
+                  "number": 12,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Tonisevs",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "B. Musah",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Wassom",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Jurkovskis",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Ankrah",
+                  "number": 40,
+                  "pos": "M"
+                },
+                {
+                  "name": "Iago Siqueira",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Diop",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Oulad M'Hand",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Aouani",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Badamosi",
+                  "number": 19,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "T. Anarbekov",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "E. Tapalov",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Martynovich",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Shirobokov",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Mata",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "G. Mendonsa",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Oksanen",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Mrynskiy",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Gual",
+                  "number": 28,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Jukkola",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "Edmilson",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 5,
+                "side": "opp",
+                "type": "goal",
+                "player": "M. Gual",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 12,
+                "side": "us",
+                "type": "goal",
+                "player": "S. Oulad M'Hand",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 23,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Jaakko Oksanen",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 28,
+                "side": "us",
+                "type": "goal",
+                "player": "Muhammed Badamosi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 56,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Erkin Tapalov",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 61,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Badamosi",
+                "playerIn": "Reginaldo Ramires"
+              },
+              {
+                "minute": 73,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Edmilson",
+                "playerIn": "I. Bekbolat"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Mendonsa",
+                "playerIn": "D. Kasabulat"
+              },
+              {
+                "minute": 79,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Mrynskiy",
+                "playerIn": "A. Tuyakbaev"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Diop",
+                "playerIn": "C. Saco"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Aouani",
+                "playerIn": "S. L. Robalo Pedro"
+              },
+              {
+                "minute": 90,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Aleksandr Martynovich",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-10",
+            "opp": "Tukums",
+            "homeAway": "A",
+            "comp": "Virsliga",
+            "score": "2-0",
+            "result": "W",
+            "referee": "A. Anufrijevs",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "3-5-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "K. Piric",
+                  "number": 12,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Tonisevs",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Cernomordijs",
+                  "number": 34,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Wassom",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Salazar",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Ankrah",
+                  "number": 40,
+                  "pos": "M"
+                },
+                {
+                  "name": "Iago Siqueira",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "Caio Ferreira",
+                  "number": 99,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Oulad M'Hand",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Diop",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "Reginaldo Ramires",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "A. Kuprins",
+                  "number": 12,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Stals",
+                  "number": 88,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Volkovs",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Reingolcs",
+                  "number": 8,
+                  "pos": "D"
+                },
+                {
+                  "name": "K. Klavins",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Samoilovs",
+                  "number": 10,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Toba",
+                  "number": 5,
+                  "pos": "M"
+                },
+                {
+                  "name": "Anmanis Kaspars",
+                  "number": 4,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Valmiers",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Derkach",
+                  "number": 17,
+                  "pos": "F"
+                },
+                {
+                  "name": "R. Deruzinskis",
+                  "number": 27,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 5,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Kristers Volkovs",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 9,
+                "side": "us",
+                "type": "goal",
+                "player": "Reginaldo Ramires",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 9,
+                "side": "us",
+                "type": "goal",
+                "player": "Reginaldo Ramires",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 11,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Davis Valmiers",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 29,
+                "side": "us",
+                "type": "yellow",
+                "player": "Ahmed Ankrah",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "yellow",
+                "player": "Andrés Salazar",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Valmiers",
+                "playerIn": "R. Melkis"
+              },
+              {
+                "minute": 46,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Caio Ferreira",
+                "playerIn": "R. Aouani"
+              },
+              {
+                "minute": 54,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Ruslans Deružinskis",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Reginaldo Ramires",
+                "playerIn": "M. Badamosi"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "goal",
+                "player": "M. Badamosi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Toba",
+                "playerIn": "H. Joksts"
+              },
+              {
+                "minute": 67,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Stals",
+                "playerIn": "K. Shigema"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Tonisevs",
+                "playerIn": "R. Jurkovskis"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Ankrah",
+                "playerIn": "C. Saco"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "K. Klavins",
+                "playerIn": "E. Sprukts"
+              },
+              {
+                "minute": 79,
+                "side": "us",
+                "type": "yellow",
+                "player": "Salah Oulad M'Hand",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Oulad M'Hand",
+                "playerIn": "A. Taiwo"
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Derkach",
+                "playerIn": "D. Kaira"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "yellow",
+                "player": "Iago Siqueira Augusto",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          }
+        ],
+        "next": [
+          {
+            "date": "2026-11-05",
+            "opp": "FK Jablonec",
+            "homeAway": "H",
+            "comp": "UEFA Europa Conference League"
+          },
+          {
+            "date": "2026-11-08",
+            "opp": "Rīgas FS",
+            "homeAway": "H",
+            "comp": "Virsliga"
+          },
+          {
+            "date": "2026-11-20",
+            "opp": "Auda",
+            "homeAway": "A",
+            "comp": "Cup"
+          }
+        ],
         "stats": {
           "goalsForByInterval": {
             "0-15": 1,
             "31-45": 2,
+            "61-75": 1,
             "76-90": 4,
             "91-105": 2,
             "106-120": 2
@@ -1950,21 +3627,22 @@
             "0-15": 2,
             "16-30": 3,
             "46-60": 1,
-            "61-75": 3
+            "61-75": 3,
+            "76-90": 1
           },
           "cardsYellowByInterval": {
             "16-30": 3,
             "31-45": 1,
             "46-60": 4,
             "61-75": 2,
-            "76-90": 1,
+            "76-90": 2,
             "91-105": 2,
             "106-120": 1
           },
           "cardsRedByInterval": {
             "61-75": 1
           },
-          "goalsForAvg": 1.9,
+          "goalsForAvg": 1.8,
           "goalsAgainstAvg": 1,
           "goalsForAvgHome": 2.3,
           "goalsForAvgAway": 1.3,
@@ -1996,6 +3674,10 @@
             {
               "formation": "4-3-3",
               "played": 1
+            },
+            {
+              "formation": "4-3-1-2",
+              "played": 1
             }
           ],
           "biggestStreak": {
@@ -2014,7 +3696,7 @@
           "winsHome": 3,
           "winsAway": 1,
           "drawsHome": 1,
-          "drawsAway": 2,
+          "drawsAway": 3,
           "losesHome": 0,
           "losesAway": 0
         }
@@ -2045,16 +3727,6 @@
           "name": "C. Saco",
           "from": "Napoli",
           "fee": null
-        },
-        {
-          "name": "T. Papadoudis",
-          "from": "Pafos",
-          "fee": null
-        },
-        {
-          "name": "A. Taiwo",
-          "from": "Spartak Trnava (împrumut)",
-          "fee": null
         }
       ],
       "mercatoOut": [
@@ -2078,65 +3750,55 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Riga Heating Tariff Set to Rise 19% From 1 December 2026",
-          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5hSmV3TTRjb2NoSHBuNXZxV2RPQVQtMnJTVnNXRzRBdEtCcVV6MGk5R0ZNZDktaVF3cTJsZ1hnQUJzT2lyektYUHM1SjZaOWU0eF9kSUpuQmd5dk81SXFVbUFjZ2ZtQldLQ2V3aXNSRFQ?oc=5",
-          "source": "Riga Talk",
-          "published": "2026-10-31"
-        },
-        {
-          "title": "Russia is back in the ice hockey world championships after sports court ruling",
-          "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxQX0dQdFpSM0Zja1hvQTFvVGpRMHBsbWVBdjM4QVdjLUkwTmJsZEwtUGdaS21SNHFJSENBN21rZjctcDhsUk5VOUdSTUU0YnBpeTg4M0haTGp0SUdheUhSMUI5Tl84YTBDbEtiVEM0ZHVlMUN1bFFFYUdGZ3VjRGNIMUVrNVc1bFZkRHJwcnJFS3FrQmNMZnBJYm9pVl9sMkw5TF9vS0kzWmMyOWM3VVNJY1NEZzZPZWR1UDdxTmhkWXE2YVhuM3N6TjdUeVhuMjFOampoeXhpRnhYaHUxTWhnUFdqanRLR2NaSWZuakRWQk9TZmY3R1dlaA?oc=5",
-          "source": "Spectrum News",
-          "published": "2026-10-30"
-        },
-        {
-          "title": "Copenhagen vs. FC Iberia Tbilisi Live Stream of UEFA Conference League",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1GNUNYcDRKTlc4ajlmbTVYbWFJaHNfNnhJSzR4ZEN4c2EwcmpSNmtxZERGOE9LZ2JXU2JwVENaeEpsV2k2VFhpVENfMWUzbUVzc1NvM3Y0THJZdlZDUllNb0xBTVBSWElNcVdNQUlKMzBpdlpvMThv?oc=5",
+          "title": "Riga FC vs. Jablonec Live Stream of UEFA Conference League",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1UeEhxSnNrNU9UZVo4RUVxYkx3SjdXNlFGc3psXzZaQW1jeGRRRTQyc3BCN2xwelFIbmI0WHo0RHVfbVFVUXZkUW1aaEt2Mjk1cDNyZjFPOUZ3YmpEN0owT0FCQ0RfUk9xRmllVnpnOTN6NDY0bnJn?oc=5",
           "source": "CBS Sports",
-          "published": "2026-10-30"
+          "published": "2026-11-02"
         },
         {
-          "title": "Watch Pafos vs Riga",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOazJpT0g4Nkw0RjBnLXpXVEhva3FmSjBwSWJEUTZtV2c3dWZLZVIzOUV2MXdPUThranFQSjFodWs4LTlHb3MyN1JSYzltX0JHNjdHR0VmUWRGWENreVB0OU0tOU93b0U1THR5b3Y4RHRUUllJRVlQbkVraDRHeVFQSEtGLW5WNGVHU3EzMEVSVzVHMjFib2FZblpqcw?oc=5",
-          "source": "TOD",
-          "published": "2026-10-30"
+          "title": "Tonybet Virsliga - FK Ogre United 0-0 Riga FC, European Leagues+",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNczVjRTZSMkVFeGIzd1NTNEJ2X01BcDFjM0JkRC1oZkNmejVwWEFZYWZBbDJwT3kzTkNyOGVsZmxxOTFCRHB0WDh5QW56VkRiQ3NkamZiQUJnR3I2d1ZLQjBuZkVLdy1NTkhLUjR2cHpueE51b0pycjJRVkFQVkJxN1QyLUtWNERtLTc0RQ?oc=5",
+          "source": "Forza Football",
+          "published": "2026-11-02"
         },
         {
-          "title": "Riga Tap Water Chlorination 2–5 Nov: Boil Before You Drink",
-          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE8zeHlZdFdFbTFRdGpJX2M0UUVwV2ZpS1BGZ0F1UnNEYkJEbnpfeWxlTm1FMDViOVpGZjlnNGhoc240LThNaHR5Um9aNjlsNGZxZ2dHcDFZU09wcVp5OXlaNXVhMTI3a0JrWEVVQmFybHhnM2g0?oc=5",
-          "source": "Riga Talk",
-          "published": "2026-10-30"
+          "title": "RFS wins a fourth Latvian football league title / Article",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQdWdCOXJxNGFaaXd3Vi1NcGRhVEZackd3SDFndHo1VEpKWGcweklBRm9KUnR2QXNSNHlqLWxYLU1ZX0pIbkV6V29hRWUzTkxmeW0xaVZSaHBmWlB3b2hGWDdVaWxMSzg3UENIc0ttc1dZM1NtV195bUtudnJjeWotMEFoYnFkX2h1VlpCc29kTmJQSmNWaGpQanFIV0xQeUl6bjBYWThKN0tfelBF?oc=5",
+          "source": "LSM",
+          "published": "2026-11-02"
         },
         {
-          "title": "Riga FC vs. FK Jablonec 5 November 2026 | H2H, Betting Tips & Odds",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQcXpwdDExQlNBV2FhQ3RwWXlXUGZURm1OdnpOcUVWa2ZONGxvNzFKakJydEM5OEs5Vm9ZYTVRWkduYlZRTTVJNk04Qy1aWDZrZVRfdTBiYjUxZUhHaHJiLXRKTkp1eGFhd3dKQzM4Z0JwUzJhbmE4cWtCUTRKbjF5TG1SYko?oc=5",
-          "source": "online-bookmakers.com",
-          "published": "2026-10-30"
+          "title": "Conference League TV schedule 2026/27: TV fixtures and where to watch",
+          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBhZEJnUmJLMHlQNE8wd3daUGFYZVduQm1kWUd5UzRtZUNpU3JNdHNrMG5QZFhWbEhHQks3MlpETVQ2WlF0dC1FcHZxWlV6dDFwcDZKZXdBMDZxZDFkdmVLVmhhYUFuOXFic2lfMGFaVG9HaDRIbzVkTS1kMA?oc=5",
+          "source": "Radio Times",
+          "published": "2026-11-02"
         },
         {
-          "title": "Lincoln Red Imps FC vs. Hajduk Split 5 November 2026 | H2H, Betting Tips & Odds",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPbXZqTnhQSkFHMEtfRWZfSDlIclJORm5TMzZkN0gxUjJaTW5EcE1LVFVWUFBweEFCU3psNHNDZXpBNUU3dW9DajBBUEgtM3ZocVBoV2lnM3lJRHRieGVhQTRpOWVwaHlGM0JvbHVOT0N1OXBpVzJEMW1FTU80YkVPRkZYR2RNODJjVnRDc2JiRFN1N21MT1E?oc=5",
-          "source": "online-bookmakers.com",
-          "published": "2026-10-30"
+          "title": "▶️ Watch Riga FC vs Baumit Jablonec Live Stream | Predictions & Tips - 5 Nov",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOZS1wWTUyb0pvdmhkRklRNFowcDQ4clFBYTE4UU10bF9WelhoY05lbHNGNkV1b3VyeXU4OGd0M3hiam1EX2tnOUNZMWU2UWdVb1l6QmpydnF1dmZDTWR1dVhiQXhFeUptUFJlVm9RbF9KOW9SSlB3dmJLTUlwSnowaA?oc=5",
+          "source": "FootballPredictions.NET",
+          "published": "2026-11-02"
         },
         {
-          "title": "AGF Aarhus vs. Braga 5 November 2026 | H2H, Betting Tips & Odds",
-          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNaTFkSDhucjF0TTBSeVBLT1hnem5meU83dmFxZ2V5S3pkRmNoNVI4UE4tRFJnak9BV0FubG4xMkRId0c1c2tNRjE5dHhsTDlXamJfT2tvV2tmTzJDWXNfY2d6bk9RX1hXZFRkaFFGTTVQcGlTbURYLUhNNE9hUmJxVw?oc=5",
-          "source": "online-bookmakers.com",
-          "published": "2026-10-30"
+          "title": "STANDINGS",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1QSWhnZHg2MG93M1gzYWU5SHhWSzFDZ1lXS1pPUGk2UHlQSWVMM3ZwRU5YU0dQYU0wSEhnbi1GOWRZQ2E4cXNnOWRhbEZxbDlhVjVpajNrSlR4Nlh4ZFVicDRyaEpkSUFSSU9DdE0yOU90TzhLMmc2TU1OVHg4QQ?oc=5",
+          "source": "qarabagh.com",
+          "published": "2026-11-02"
+        },
+        {
+          "title": "Ogre United v Riga FC 01/11/2026 | Football",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNZ1kyWERPTC1EYnI4VXdRNUh2TDV4TmZETmdKU2d5MkRoRzlmd1lFOGpFaDliclYwRk5zUXlHWEpwZmVQRjAzeTBLVWlGQUZGMmxYanlheXBob3NnTDRjQ1lnc20zbm9UMS1qaGJzVkZqRlV6ajdISktSYjVpdzViUXJWQTQwb09nZFE?oc=5",
+          "source": "Flash Scores",
+          "published": "2026-11-01"
+        },
+        {
+          "title": "Tonybet Virsliga - Ogre United 0 - 0 Riga FC",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNeW15MmpTSi1Sal8zb1dObGsyUkJ1YUVmbDhrOFlFb2JnWVk0UUJ3dXE4VlJjYXdlOXM3eFZpRmtnYmRMQnVhaVBURi1XbDhRaGFiMVFCRGhDUjF2dW1sMTd3VFVmTVJyOW9kYW1WX2FuS1JnclZTZkJhRV9OVnV0RUY2U2NiQ3E2dWc?oc=5",
+          "source": "OneFootball",
+          "published": "2026-11-01"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "Riga FC a fost înregistrată oficial în aprilie 2014, echipa fiind formată înaintea sezonului 2015 prin fuziunea cluburilor FC Caramba și Dinamo Rīga, ambele din Riga.",
-        "În 2015, sub numele FC Caramba/Dinamo, clubul a câștigat Latvian First League și a promovat în prima ligă, schimbându-și apoi numele în Riga FC.",
-        "Clubul joacă pe Skonto Stadium, din Riga.",
-        "În 2017, Riga FC a achiziționat Academia de Fotbal Šitiks (fondată în 1999 de Genādijs Šitiks) și a transformat-o în una dintre academiile sale de tineret, Riga FC Academy.",
-        "Ucraineanul Viktor Skrypnyk, numit antrenor în 2018, a dus clubul la titlurile din Latvian Higher League din 2018 și 2019, precum și la Cupa Letoniei din 2018.",
-        "Riga FC a câștigat titlul de campion al Letoniei (Latvian Higher League) de patru ori: 2018, 2019, 2020 și 2025.",
-        "Clubul a cucerit Cupa Letoniei de două ori, în 2018 și 2023.",
-        "Secția feminină a clubului, Riga FC Women, înființată în 2024, a câștigat titlul în Liga Feminină a Letoniei în fiecare din primii doi ani de existență."
-      ]
+      "stories": []
     },
     "away": {
       "name": "FK Jablonec",
@@ -2158,14 +3820,6 @@
             "period": "2025–prezent",
             "note": null
           }
-        ],
-        "funfacts": [
-          "Luboš Kozel s-a născut la 16 martie 1971 și a jucat majoritatea carierei la Slavia Praga, timp de nouă sezoane în Czech First League.",
-          "A mai jucat pentru Bohemians Praga, Viktoria Plzeň și ungurii de la Újpest, adunând 160 de meciuri în prima ligă cehă, și a fost component al naționalei Cehiei în nouă meciuri, cu un gol marcat.",
-          "A reprezentat Cehia la Cupa Confederațiilor FIFA din 1997.",
-          "În 2004 a început activitatea de antrenor ca secund la echipa a doua a lui Slavia Praga, pe care a condus-o apoi ca principal.",
-          "A pregătit Dukla Praga din decembrie 2009, ducând echipa la titlul Czech 2. Liga în 2010-11 și la promovarea în prima ligă, unde a terminat de două ori pe locul 6.",
-          "Din 2016 este selecționerul naționalei U19 a Cehiei, iar în prezent se află la conducerea lui Jablonec."
         ]
       },
       "formation": "n/d",
@@ -2201,23 +3855,23 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 300,
-            "apps": 7,
+            "minutes": 390,
+            "apps": 8,
             "yellow": 0,
             "red": null,
-            "rating": 7.3,
+            "rating": 7.23,
             "conceded": 4,
-            "saves": 11,
+            "saves": 15,
             "shotsTotal": null,
             "shotsOn": null,
-            "passesTotal": 86,
+            "passesTotal": 130,
             "passesKey": null,
-            "passesAccuracy": 73,
+            "passesAccuracy": 64,
             "tacklesTotal": null,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 1,
-            "duelsWon": 1,
+            "duelsTotal": 2,
+            "duelsWon": 2,
             "dribblesAttempts": null,
             "dribblesSuccess": null,
             "dribblesPast": null,
@@ -2232,7 +3886,7 @@
         },
         {
           "apiId": 154928,
-          "number": 33,
+          "number": 35,
           "name": "Michal Kukučka",
           "photo": "https://media.api-sports.io/football/players/154928.png",
           "pos": "GK",
@@ -2372,28 +4026,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 300,
-            "apps": 7,
-            "yellow": 1,
+            "minutes": 390,
+            "apps": 8,
+            "yellow": 2,
             "red": null,
-            "rating": 7.33,
+            "rating": 7.53,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 2,
+            "shotsTotal": 3,
             "shotsOn": 2,
-            "passesTotal": 133,
-            "passesKey": 2,
-            "passesAccuracy": 84,
-            "tacklesTotal": 3,
-            "tacklesBlocks": 6,
+            "passesTotal": 155,
+            "passesKey": 3,
+            "passesAccuracy": 82,
+            "tacklesTotal": 6,
+            "tacklesBlocks": 8,
             "tacklesInterceptions": 1,
-            "duelsTotal": 25,
-            "duelsWon": 15,
+            "duelsTotal": 40,
+            "duelsWon": 26,
             "dribblesAttempts": 2,
             "dribblesSuccess": 1,
             "dribblesPast": null,
-            "foulsDrawn": 4,
-            "foulsCommitted": 1,
+            "foulsDrawn": 5,
+            "foulsCommitted": 2,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -2421,6 +4075,63 @@
           "birthDate": "2002-02-19",
           "pronunciation": null,
           "career": "Lille II (2020–2021) · Valenciennes II (2022) · FK Košice (2023–2024) · FK Jablonec (2025–prezent)",
+          "lastSeason": null,
+          "funfact": null,
+          "linkLine": null,
+          "status": "available",
+          "statusNote": null,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null,
+            "shotsTotal": null,
+            "shotsOn": null,
+            "passesTotal": null,
+            "passesKey": null,
+            "passesAccuracy": null,
+            "tacklesTotal": null,
+            "tacklesBlocks": null,
+            "tacklesInterceptions": null,
+            "duelsTotal": null,
+            "duelsWon": null,
+            "dribblesAttempts": null,
+            "dribblesSuccess": null,
+            "dribblesPast": null,
+            "foulsDrawn": null,
+            "foulsCommitted": null,
+            "penaltyWon": null,
+            "penaltyCommitted": null,
+            "penaltyScored": 0,
+            "penaltyMissed": 0,
+            "penaltySaved": null
+          }
+        },
+        {
+          "apiId": 552106,
+          "number": 31,
+          "name": "E. Maly",
+          "photo": "https://media.api-sports.io/football/players/552106.png",
+          "pos": "DEF",
+          "positions": [
+            "DEF"
+          ],
+          "role": "DEF",
+          "age": 22,
+          "height": null,
+          "weight": null,
+          "foot": null,
+          "nat": null,
+          "natTeam": null,
+          "birthCountry": null,
+          "birthDate": null,
+          "pronunciation": null,
+          "career": "FK Jablonec (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2600,27 +4311,27 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 300,
-            "apps": 6,
-            "yellow": 0,
+            "minutes": 390,
+            "apps": 7,
+            "yellow": 1,
             "red": null,
-            "rating": 6.77,
+            "rating": 6.73,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 1,
             "shotsOn": null,
-            "passesTotal": 203,
+            "passesTotal": 225,
             "passesKey": null,
-            "passesAccuracy": 91,
-            "tacklesTotal": 2,
+            "passesAccuracy": 88,
+            "tacklesTotal": 3,
             "tacklesBlocks": 1,
             "tacklesInterceptions": 2,
-            "duelsTotal": 18,
-            "duelsWon": 12,
+            "duelsTotal": 21,
+            "duelsWon": 14,
             "dribblesAttempts": null,
             "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": 3,
+            "foulsDrawn": 4,
             "foulsCommitted": 3,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -2657,28 +4368,28 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 250,
-            "apps": 7,
+            "minutes": 340,
+            "apps": 8,
             "yellow": 0,
             "red": null,
-            "rating": 6.9,
+            "rating": 7.18,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": null,
-            "shotsOn": null,
-            "passesTotal": 136,
-            "passesKey": 4,
-            "passesAccuracy": 68,
-            "tacklesTotal": 4,
+            "shotsTotal": 1,
+            "shotsOn": 1,
+            "passesTotal": 155,
+            "passesKey": 8,
+            "passesAccuracy": 67,
+            "tacklesTotal": 7,
             "tacklesBlocks": 1,
             "tacklesInterceptions": 1,
-            "duelsTotal": 19,
-            "duelsWon": 9,
-            "dribblesAttempts": 4,
-            "dribblesSuccess": 1,
+            "duelsTotal": 33,
+            "duelsWon": 15,
+            "dribblesAttempts": 6,
+            "dribblesSuccess": 2,
             "dribblesPast": null,
-            "foulsDrawn": 3,
-            "foulsCommitted": 2,
+            "foulsDrawn": 4,
+            "foulsCommitted": 3,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -2771,8 +4482,8 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 14,
-            "apps": 4,
+            "minutes": 15,
+            "apps": 5,
             "yellow": 0,
             "red": null,
             "rating": 6.9,
@@ -2828,27 +4539,27 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 266,
-            "apps": 7,
+            "minutes": 356,
+            "apps": 8,
             "yellow": 1,
             "red": null,
-            "rating": 6.9,
+            "rating": 7.33,
             "conceded": 0,
             "saves": null,
             "shotsTotal": null,
             "shotsOn": null,
-            "passesTotal": 142,
+            "passesTotal": 164,
             "passesKey": null,
-            "passesAccuracy": 89,
-            "tacklesTotal": 4,
-            "tacklesBlocks": 2,
+            "passesAccuracy": 87,
+            "tacklesTotal": 7,
+            "tacklesBlocks": 4,
             "tacklesInterceptions": 1,
-            "duelsTotal": 25,
-            "duelsWon": 15,
-            "dribblesAttempts": 1,
-            "dribblesSuccess": 1,
+            "duelsTotal": 34,
+            "duelsWon": 23,
+            "dribblesAttempts": 2,
+            "dribblesSuccess": 2,
             "dribblesPast": null,
-            "foulsDrawn": 4,
+            "foulsDrawn": 6,
             "foulsCommitted": 4,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -2969,27 +4680,27 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 300,
-            "apps": 7,
+            "minutes": 390,
+            "apps": 8,
             "yellow": 1,
             "red": null,
-            "rating": 7.37,
+            "rating": 7.35,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 3,
-            "shotsOn": 1,
-            "passesTotal": 119,
+            "shotsTotal": 4,
+            "shotsOn": 2,
+            "passesTotal": 135,
             "passesKey": 3,
-            "passesAccuracy": 81,
-            "tacklesTotal": 3,
+            "passesAccuracy": 80,
+            "tacklesTotal": 5,
             "tacklesBlocks": null,
-            "tacklesInterceptions": 1,
-            "duelsTotal": 22,
-            "duelsWon": 14,
-            "dribblesAttempts": 4,
-            "dribblesSuccess": 3,
+            "tacklesInterceptions": 2,
+            "duelsTotal": 32,
+            "duelsWon": 21,
+            "dribblesAttempts": 6,
+            "dribblesSuccess": 4,
             "dribblesPast": null,
-            "foulsDrawn": 6,
+            "foulsDrawn": 9,
             "foulsCommitted": null,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -3026,23 +4737,23 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 14,
-            "apps": 1,
+            "minutes": 30,
+            "apps": 2,
             "yellow": 1,
             "red": null,
-            "rating": 6.5,
+            "rating": 6.6,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 1,
+            "shotsTotal": 2,
             "shotsOn": null,
-            "passesTotal": 6,
-            "passesKey": null,
+            "passesTotal": 8,
+            "passesKey": 1,
             "passesAccuracy": 100,
-            "tacklesTotal": null,
+            "tacklesTotal": 1,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 2,
-            "duelsWon": null,
+            "duelsTotal": 7,
+            "duelsWon": 3,
             "dribblesAttempts": null,
             "dribblesSuccess": null,
             "dribblesPast": null,
@@ -3087,7 +4798,7 @@
             "apps": 1,
             "yellow": 0,
             "red": null,
-            "rating": 3.3,
+            "rating": 2.2,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 0,
@@ -3140,28 +4851,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 215,
-            "apps": 7,
-            "yellow": 0,
+            "minutes": 243,
+            "apps": 8,
+            "yellow": 1,
             "red": null,
-            "rating": 6.77,
+            "rating": 6.73,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 1,
+            "shotsTotal": 2,
             "shotsOn": null,
-            "passesTotal": 61,
+            "passesTotal": 64,
             "passesKey": 2,
-            "passesAccuracy": 88,
+            "passesAccuracy": 84,
             "tacklesTotal": 3,
             "tacklesBlocks": 1,
             "tacklesInterceptions": 3,
-            "duelsTotal": 16,
+            "duelsTotal": 18,
             "duelsWon": 6,
             "dribblesAttempts": 3,
             "dribblesSuccess": null,
             "dribblesPast": null,
             "foulsDrawn": 1,
-            "foulsCommitted": 5,
+            "foulsCommitted": 6,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -3197,28 +4908,28 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 100,
-            "apps": 6,
+            "minutes": 189,
+            "apps": 7,
             "yellow": 1,
             "red": null,
-            "rating": 6.9,
+            "rating": 7,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 2,
             "shotsOn": null,
-            "passesTotal": 47,
-            "passesKey": 1,
-            "passesAccuracy": 89,
-            "tacklesTotal": 4,
+            "passesTotal": 62,
+            "passesKey": 2,
+            "passesAccuracy": 85,
+            "tacklesTotal": 8,
             "tacklesBlocks": 1,
-            "tacklesInterceptions": null,
-            "duelsTotal": 15,
-            "duelsWon": 8,
+            "tacklesInterceptions": 2,
+            "duelsTotal": 25,
+            "duelsWon": 14,
             "dribblesAttempts": 1,
             "dribblesSuccess": 1,
             "dribblesPast": null,
-            "foulsDrawn": 3,
-            "foulsCommitted": 6,
+            "foulsDrawn": 5,
+            "foulsCommitted": 9,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -3254,24 +4965,24 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 210,
-            "apps": 6,
+            "minutes": 272,
+            "apps": 7,
             "yellow": 0,
             "red": null,
-            "rating": 6.57,
+            "rating": 6.65,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 1,
-            "shotsOn": 1,
-            "passesTotal": 59,
+            "shotsTotal": 2,
+            "shotsOn": 2,
+            "passesTotal": 75,
             "passesKey": 1,
             "passesAccuracy": 72,
-            "tacklesTotal": 1,
+            "tacklesTotal": 2,
             "tacklesBlocks": 1,
             "tacklesInterceptions": 1,
-            "duelsTotal": 16,
-            "duelsWon": 6,
-            "dribblesAttempts": 2,
+            "duelsTotal": 28,
+            "duelsWon": 10,
+            "dribblesAttempts": 3,
             "dribblesSuccess": null,
             "dribblesPast": null,
             "foulsDrawn": 1,
@@ -3311,21 +5022,21 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 286,
-            "apps": 7,
+            "minutes": 375,
+            "apps": 8,
             "yellow": 2,
             "red": null,
-            "rating": 7.07,
+            "rating": 7.03,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 2,
+            "shotsTotal": 3,
             "shotsOn": null,
-            "passesTotal": 179,
+            "passesTotal": 207,
             "passesKey": 4,
-            "passesAccuracy": 86,
+            "passesAccuracy": 84,
             "tacklesTotal": 4,
-            "tacklesBlocks": 2,
-            "tacklesInterceptions": 1,
+            "tacklesBlocks": 3,
+            "tacklesInterceptions": 3,
             "duelsTotal": 22,
             "duelsWon": 8,
             "dribblesAttempts": 3,
@@ -3483,25 +5194,25 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 66,
-            "apps": 1,
+            "minutes": 128,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 5.9,
+            "rating": 6.05,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 1,
             "shotsOn": null,
-            "passesTotal": 16,
+            "passesTotal": 22,
             "passesKey": null,
-            "passesAccuracy": 62,
+            "passesAccuracy": 54,
             "tacklesTotal": null,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 10,
-            "duelsWon": 3,
-            "dribblesAttempts": null,
-            "dribblesSuccess": null,
+            "duelsTotal": 17,
+            "duelsWon": 5,
+            "dribblesAttempts": 1,
+            "dribblesSuccess": 1,
             "dribblesPast": null,
             "foulsDrawn": 3,
             "foulsCommitted": 1,
@@ -3540,8 +5251,8 @@
           "stats": {
             "goals": 0,
             "assists": 0,
-            "minutes": 77,
-            "apps": 5,
+            "minutes": 78,
+            "apps": 6,
             "yellow": 0,
             "red": null,
             "rating": 6.53,
@@ -3627,6 +5338,63 @@
           }
         },
         {
+          "apiId": 552217,
+          "number": 34,
+          "name": "A. Kubat",
+          "photo": "https://media.api-sports.io/football/players/552217.png",
+          "pos": "MID",
+          "positions": [
+            "MID"
+          ],
+          "role": "MID",
+          "age": 21,
+          "height": null,
+          "weight": null,
+          "foot": null,
+          "nat": null,
+          "natTeam": null,
+          "birthCountry": null,
+          "birthDate": null,
+          "pronunciation": null,
+          "career": "FK Jablonec (2026–prezent)",
+          "lastSeason": null,
+          "funfact": null,
+          "linkLine": null,
+          "status": "available",
+          "statusNote": null,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "minutes": null,
+            "apps": 0,
+            "yellow": 0,
+            "red": null,
+            "rating": null,
+            "conceded": 0,
+            "saves": null,
+            "shotsTotal": null,
+            "shotsOn": null,
+            "passesTotal": null,
+            "passesKey": null,
+            "passesAccuracy": null,
+            "tacklesTotal": null,
+            "tacklesBlocks": null,
+            "tacklesInterceptions": null,
+            "duelsTotal": null,
+            "duelsWon": null,
+            "dribblesAttempts": null,
+            "dribblesSuccess": null,
+            "dribblesPast": null,
+            "foulsDrawn": null,
+            "foulsCommitted": null,
+            "penaltyWon": null,
+            "penaltyCommitted": null,
+            "penaltyScored": 0,
+            "penaltyMissed": 0,
+            "penaltySaved": null
+          }
+        },
+        {
           "apiId": 349987,
           "number": 36,
           "name": "Garang Mawien Kuol",
@@ -3654,27 +5422,27 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 24,
-            "apps": 1,
+            "minutes": 52,
+            "apps": 2,
             "yellow": 0,
             "red": null,
-            "rating": 7.2,
+            "rating": 6.95,
             "conceded": 0,
             "saves": null,
             "shotsTotal": 1,
             "shotsOn": 1,
-            "passesTotal": 3,
+            "passesTotal": 6,
             "passesKey": 1,
-            "passesAccuracy": 66,
+            "passesAccuracy": 50,
             "tacklesTotal": null,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 7,
-            "duelsWon": 2,
-            "dribblesAttempts": 1,
-            "dribblesSuccess": 1,
+            "duelsTotal": 11,
+            "duelsWon": 4,
+            "dribblesAttempts": 3,
+            "dribblesSuccess": 2,
             "dribblesPast": null,
-            "foulsDrawn": 1,
+            "foulsDrawn": 2,
             "foulsCommitted": 1,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -3702,7 +5470,7 @@
           "birthCountry": "Cameroon",
           "birthDate": "2003-12-25",
           "pronunciation": null,
-          "career": "KAA Gent II (2022) · Grazer AK (2023) · Dukla Praha (2024) · Sparta Praha (2025)",
+          "career": null,
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -3738,27 +5506,27 @@
           "stats": {
             "goals": 1,
             "assists": 0,
-            "minutes": 141,
-            "apps": 7,
-            "yellow": 2,
+            "minutes": 215,
+            "apps": 8,
+            "yellow": 3,
             "red": null,
             "rating": 6.9,
             "conceded": 0,
             "saves": null,
-            "shotsTotal": 3,
-            "shotsOn": 2,
-            "passesTotal": 33,
+            "shotsTotal": 5,
+            "shotsOn": 3,
+            "passesTotal": 41,
             "passesKey": null,
-            "passesAccuracy": 81,
+            "passesAccuracy": 80,
             "tacklesTotal": 2,
             "tacklesBlocks": null,
             "tacklesInterceptions": null,
-            "duelsTotal": 13,
-            "duelsWon": 7,
-            "dribblesAttempts": 1,
+            "duelsTotal": 23,
+            "duelsWon": 12,
+            "dribblesAttempts": 2,
             "dribblesSuccess": null,
             "dribblesPast": null,
-            "foulsDrawn": 2,
+            "foulsDrawn": 4,
             "foulsCommitted": 1,
             "penaltyWon": null,
             "penaltyCommitted": null,
@@ -3769,7 +5537,7 @@
         },
         {
           "apiId": 72075,
-          "number": 27,
+          "number": 20,
           "name": "Filip Vecheta",
           "photo": "https://media.api-sports.io/football/players/72075.png",
           "pos": "ATT",
@@ -3786,7 +5554,7 @@
           "birthCountry": "Czechia",
           "birthDate": "2003-02-15",
           "pronunciation": null,
-          "career": "Slovácko (2018–2023) · Karviná (2024–2025) · FK Jablonec (2026–prezent)",
+          "career": null,
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -3843,6 +5611,1606 @@
           "ga": 3,
           "points": 1
         },
+        "recent": [
+          {
+            "date": "2026-10-31",
+            "opp": "Slavia Praha",
+            "homeAway": "H",
+            "comp": "Czech Liga",
+            "score": "0-5",
+            "result": "L",
+            "referee": "Jakub Wulkan",
+            "formation": {
+              "us": "3-4-3",
+              "opp": "3-4-2-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Hanuš",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Cedidla",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Novák",
+                  "number": 57,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Pavlović",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Tchanturishvili",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Sedláček",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Okeke",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Sláma",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Kuol",
+                  "number": 36,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Růsek",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "M. Polidar",
+                  "number": 21,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "N. Domchak",
+                  "number": 29,
+                  "pos": "G"
+                },
+                {
+                  "name": "T. Holeš",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Zima",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. N'Guessan",
+                  "number": 6,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Vlček",
+                  "number": 27,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Moses",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Sadílek",
+                  "number": 23,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Kubiak",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "E. Ayaosi",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. E. Suleiman",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "W. Nowak",
+                  "number": 30,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 15,
+                "side": "opp",
+                "type": "yellow",
+                "player": "David Moses",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 41,
+                "side": "opp",
+                "type": "goal",
+                "player": "Mubarak Suleiman",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Matej Polidar",
+                "playerIn": "Saidou Alioum Moubarak"
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Antonín Růsek",
+                "playerIn": "Dominik Holly"
+              },
+              {
+                "minute": 51,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Jan Hanus",
+                "playerIn": "Klemen Mihelak"
+              },
+              {
+                "minute": 57,
+                "side": "opp",
+                "type": "goal",
+                "player": "Emmanuel Ayaosi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "goal",
+                "player": "Ange N'Guessan",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Nelson Okeke",
+                "playerIn": "Sebastian Nebyla"
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ange N'Guessan",
+                "playerIn": "Stepan Chaloupek"
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "David Zima",
+                "playerIn": "Mikulas Konecny"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "David Moses",
+                "playerIn": "Mojmír Chytil"
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "yellow",
+                "player": "Saidou Alioum Moubarak",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "goal",
+                "player": "Mubarak Suleiman",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Emmanuel Ayaosi",
+                "playerIn": "Danijel Sturm"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Garang Mawien Kuol",
+                "playerIn": "Hugo Ahl"
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "goal",
+                "player": "Danijel Sturm",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 83,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mubarak Suleiman",
+                "playerIn": "Pavel Kacor"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-25",
+            "opp": "Hradec Králové",
+            "homeAway": "A",
+            "comp": "Czech Liga",
+            "score": "2-1",
+            "result": "W",
+            "referee": "Dominik Stary",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "3-4-2-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "K. Mihelak",
+                  "number": 99,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Cedidla",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Tekijaški",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Novák",
+                  "number": 57,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Sláma",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Sedláček",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Nebyla",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Tchanturishvili",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Zorvan",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Kuol",
+                  "number": 36,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Růsek",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "A. Zadražil",
+                  "number": 12,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Uhrinčať",
+                  "number": 7,
+                  "pos": "D"
+                },
+                {
+                  "name": "T. Petrášek",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Čech",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Ludvíček",
+                  "number": 2,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Darida",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Dancák",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Horák",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Čvančara",
+                  "number": 70,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Slončík",
+                  "number": 19,
+                  "pos": "M"
+                },
+                {
+                  "name": "O. Mihálik",
+                  "number": 17,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 34,
+                "side": "us",
+                "type": "goal",
+                "player": "Sebastian·Nebyla",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "David Ludvíček",
+                "playerIn": "Juraj Chvátal"
+              },
+              {
+                "minute": 49,
+                "side": "us",
+                "type": "goal",
+                "player": "Sebastian·Nebyla",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 54,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Ondřej Mihálik",
+                "playerIn": "Mick Van Buren"
+              },
+              {
+                "minute": 54,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Tom Sloncik",
+                "playerIn": "Abdullahi Umar"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Tomáš Čvančara",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 63,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "František Čech",
+                "playerIn": "Matej Valenta"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Filip Zorvan",
+                "playerIn": "Dominik Holly"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Garang Mawien Kuol",
+                "playerIn": "Saidou Alioum Moubarak"
+              },
+              {
+                "minute": 67,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Martin Cedidla",
+                "playerIn": "Dusan Pavlovic"
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "goal",
+                "player": "Tomáš Čvančara",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Antonín Růsek",
+                "playerIn": "Nelson Okeke"
+              },
+              {
+                "minute": 80,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vladimír Darida",
+                "playerIn": "Daniel Trubač"
+              },
+              {
+                "minute": 86,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sebastian·Nebyla",
+                "playerIn": "Matej Polidar"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-22",
+            "opp": "Brighton",
+            "homeAway": "H",
+            "comp": "UEFA Europa Conference League",
+            "score": "0-0",
+            "result": "D",
+            "referee": "S. Kringstad",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Hanus",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Cedidla",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Tekijaski",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Pavlovic",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Slama",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "R. Sedlacek",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Okeke",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Chanturishvili",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Alioum",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Polidar",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Rusek",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "B. Verbruggen",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "Costinha",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Svoboda",
+                  "number": 30,
+                  "pos": "D"
+                },
+                {
+                  "name": "O. Boscagli",
+                  "number": 21,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Hadjam",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Gross",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Yalcouye",
+                  "number": 35,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. O'Riley",
+                  "number": 33,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Hinshelwood",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "I. Osman",
+                  "number": 15,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Rutter",
+                  "number": 10,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Polidar",
+                "playerIn": "S. Nebyla"
+              },
+              {
+                "minute": 62,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Alioum",
+                "playerIn": "G. Kuol"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "yellow",
+                "player": "Sebastian Nebyla",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "O. Boscagli",
+                "playerIn": "L. Vuskovic"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. O'Riley",
+                "playerIn": "Y. Ayari"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Gross",
+                "playerIn": "C. Andres"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Hinshelwood",
+                "playerIn": "P. David"
+              },
+              {
+                "minute": 69,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Costinha",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 73,
+                "side": "us",
+                "type": "yellow",
+                "player": "Antonín Růsek",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 74,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Rusek",
+                "playerIn": "D. Holly"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "yellow",
+                "player": "Dušan Pavlović",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "yellow",
+                "player": "Martin Cedidla",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 86,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Hadjam",
+                "playerIn": "F. Kadioglu"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Sedlacek",
+                "playerIn": "D. Soucek"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Okeke",
+                "playerIn": "J. Chramosta"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-18",
+            "opp": "Plzen",
+            "homeAway": "H",
+            "comp": "Czech Liga",
+            "score": "2-3",
+            "result": "L",
+            "referee": "Jan Machalek",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Hanuš",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Cedidla",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Tekijaški",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Pavlović",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Sobol",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Nebyla",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Sedláček",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Kuol",
+                  "number": 36,
+                  "pos": "M"
+                },
+                {
+                  "name": "F. Zorvan",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Tchanturishvili",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Růsek",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "F. Wiegele",
+                  "number": 44,
+                  "pos": "G"
+                },
+                {
+                  "name": "A. Gabriel",
+                  "number": 29,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Dweh",
+                  "number": 40,
+                  "pos": "D"
+                },
+                {
+                  "name": "F. Prebsl",
+                  "number": 98,
+                  "pos": "D"
+                },
+                {
+                  "name": "Merchas Doski",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "P. Hrošovský",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Červ",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Memić",
+                  "number": 99,
+                  "pos": "M"
+                },
+                {
+                  "name": "T. Ladra",
+                  "number": 18,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Višinský",
+                  "number": 9,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Kabongo",
+                  "number": 25,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 14,
+                "side": "us",
+                "type": "yellow",
+                "player": "Eduard Sobol",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 15,
+                "side": "opp",
+                "type": "goal",
+                "player": "Sampson Dweh",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 25,
+                "side": "opp",
+                "type": "goal",
+                "player": "Christopher Kabongo",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 34,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Merchas  Doski",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 35,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Filip Prebsl",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Eduard Sobol",
+                "playerIn": "Saidou Alioum Moubarak"
+              },
+              {
+                "minute": 53,
+                "side": "opp",
+                "type": "goal",
+                "player": "Amar Memić",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 57,
+                "side": "us",
+                "type": "goal",
+                "player": "Dusan Pavlovic",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Adam Gabriel",
+                "playerIn": "Cheick Souare"
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Merchas  Doski",
+                "playerIn": "tobias paliscak"
+              },
+              {
+                "minute": 65,
+                "side": "us",
+                "type": "yellow",
+                "player": "Saidou Alioum Moubarak",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Amar Memić",
+                "playerIn": "Salim Fago Lawal"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Christopher Kabongo",
+                "playerIn": "Baboucarr Faal"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Vakhtang TChanturishvili",
+                "playerIn": "Dominik Holly"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Richard Sedláček",
+                "playerIn": "Nelson Okeke"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Antonín Růsek",
+                "playerIn": "Jan Chramosta"
+              },
+              {
+                "minute": 75,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Denis Višinský",
+                "playerIn": "Stefan Pirgic"
+              },
+              {
+                "minute": 77,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Baboucarr Faal",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 83,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Garang Mawien Kuol",
+                "playerIn": "Hugo Ahl"
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "owngoal",
+                "player": "Baboucarr Faal",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-15",
+            "opp": "SC Freiburg",
+            "homeAway": "A",
+            "comp": "UEFA Europa Conference League",
+            "score": "2-3",
+            "result": "L",
+            "referee": "E. Malcevs",
+            "formation": {
+              "us": "4-2-3-1",
+              "opp": "4-2-3-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Hanus",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Cedidla",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Tekijaski",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Pavlovic",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Slama",
+                  "number": 20,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Okeke",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Sedlacek",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Chanturishvili",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Alioum",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Polidar",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Rusek",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "M. Backhaus",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "L. Kubler",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Ginter",
+                  "number": 28,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Rosenfelder",
+                  "number": 37,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Gunter",
+                  "number": 30,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Eggestein",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Osterhage",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "C. Irie",
+                  "number": 22,
+                  "pos": "M"
+                },
+                {
+                  "name": "Y. Suzuki",
+                  "number": 14,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Grifo",
+                  "number": 32,
+                  "pos": "M"
+                },
+                {
+                  "name": "L. Holer",
+                  "number": 9,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 14,
+                "side": "us",
+                "type": "yellow",
+                "player": "Nemanja Tekijaški",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 15,
+                "side": "opp",
+                "type": "goal",
+                "player": "V. Grifo",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 28,
+                "side": "us",
+                "type": "goal",
+                "player": "A. Rusek",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 53,
+                "side": "opp",
+                "type": "owngoal",
+                "player": "D. Pavlovic",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Gunter",
+                "playerIn": "J. Makengo"
+              },
+              {
+                "minute": 59,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Holer",
+                "playerIn": "I. Matanovic"
+              },
+              {
+                "minute": 63,
+                "side": "us",
+                "type": "yellow",
+                "player": "Nelson Okeke",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "goal",
+                "player": "M. Eggestein",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "N. Okeke",
+                "playerIn": "S. Nebyla"
+              },
+              {
+                "minute": 66,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Alioum",
+                "playerIn": "G. Kuol"
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Rosenfelder",
+                "playerIn": "P. Lienhart"
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "C. Irie",
+                "playerIn": "K. Goto"
+              },
+              {
+                "minute": 72,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Patrick Osterhage",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "R. Sedlacek",
+                "playerIn": "D. Soucek"
+              },
+              {
+                "minute": 76,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Rusek",
+                "playerIn": "D. Holly"
+              },
+              {
+                "minute": 77,
+                "side": "us",
+                "type": "yellow",
+                "player": "Dominik Hollý",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 84,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Kubler",
+                "playerIn": "P. Treu"
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "M. Polidar",
+                "playerIn": "J. Chramosta"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "goal",
+                "player": "G. Kuol",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
+          {
+            "date": "2026-10-10",
+            "opp": "Zbrojovka Brno",
+            "homeAway": "A",
+            "comp": "Czech Liga",
+            "score": "1-0",
+            "result": "W",
+            "referee": "D. Vokoun",
+            "formation": {
+              "us": "4-4-1-1",
+              "opp": "3-4-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "J. Hanus",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "M. Cedidla",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Tekijaski",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Pavlovic",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "E. Sobol",
+                  "number": 23,
+                  "pos": "D"
+                },
+                {
+                  "name": "V. Chanturishvili",
+                  "number": 7,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Sedlacek",
+                  "number": 13,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. Nebyla",
+                  "number": 25,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Kuol",
+                  "number": 36,
+                  "pos": "M"
+                },
+                {
+                  "name": "D. Holly",
+                  "number": 24,
+                  "pos": "F"
+                },
+                {
+                  "name": "L. Jawo",
+                  "number": 44,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "A. Hrdina",
+                  "number": 1,
+                  "pos": "G"
+                },
+                {
+                  "name": "J. Klima",
+                  "number": 39,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Pokorny",
+                  "number": 38,
+                  "pos": "D"
+                },
+                {
+                  "name": "Kaka",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "L. Penxa",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "P. Cavos",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Zmrhal",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Dante",
+                  "number": 44,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Vanicek",
+                  "number": 10,
+                  "pos": "F"
+                },
+                {
+                  "name": "D. Vasulin",
+                  "number": 15,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Soliu",
+                  "number": 79,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 43,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Amadou Dante",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 46,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Soliu",
+                "playerIn": "L. Ezeh"
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "P. Cavos",
+                "playerIn": "S. Langer"
+              },
+              {
+                "minute": 65,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Vasulin",
+                "playerIn": "T. Vachousek"
+              },
+              {
+                "minute": 68,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Štěpán Langer",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 68,
+                "side": "us",
+                "type": "yellow",
+                "player": "Dominik Hollý",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 70,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "D. Holly",
+                "playerIn": "A. Rusek"
+              },
+              {
+                "minute": 70,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "G. Kuol",
+                "playerIn": "S. Alioum"
+              },
+              {
+                "minute": 78,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "A. Vanicek",
+                "playerIn": "M. Rymarenko"
+              },
+              {
+                "minute": 84,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "S. Nebyla",
+                "playerIn": "N. Okeke"
+              },
+              {
+                "minute": 85,
+                "side": "us",
+                "type": "goal",
+                "player": "A. Rusek",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 87,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "J. Zmrhal",
+                "playerIn": "F. Vedral"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "L. Jawo",
+                "playerIn": "F. Novak"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "V. Chanturishvili",
+                "playerIn": "D. Soucek"
+              }
+            ]
+          }
+        ],
+        "next": [
+          {
+            "date": "2026-11-05",
+            "opp": "Riga",
+            "homeAway": "A",
+            "comp": "UEFA Europa Conference League"
+          },
+          {
+            "date": "2026-11-08",
+            "opp": "Mlada Boleslav",
+            "homeAway": "H",
+            "comp": "Czech Liga"
+          },
+          {
+            "date": "2026-11-11",
+            "opp": "Artis",
+            "homeAway": "A",
+            "comp": "Cup"
+          }
+        ],
         "stats": {
           "goalsForByInterval": {
             "0-15": 1,
@@ -3862,22 +7230,22 @@
           "cardsYellowByInterval": {
             "0-15": 1,
             "16-30": 1,
-            "61-75": 2,
-            "76-90": 5,
+            "61-75": 4,
+            "76-90": 7,
             "91-105": 2
           },
           "cardsRedByInterval": null,
-          "goalsForAvg": 1.7,
-          "goalsAgainstAvg": 1.1,
-          "goalsForAvgHome": 2,
+          "goalsForAvg": 1.5,
+          "goalsAgainstAvg": 1,
+          "goalsForAvgHome": 1.5,
           "goalsForAvgAway": 1.5,
           "goalsAgainstAvgHome": 0,
           "goalsAgainstAvgAway": 2,
-          "cleanSheets": 3,
-          "cleanSheetsHome": 3,
+          "cleanSheets": 4,
+          "cleanSheetsHome": 4,
           "cleanSheetsAway": 0,
-          "failedToScore": 1,
-          "failedToScoreHome": 0,
+          "failedToScore": 2,
+          "failedToScoreHome": 1,
           "failedToScoreAway": 1,
           "penaltyScored": 1,
           "penaltyScoredPct": 100,
@@ -3886,7 +7254,7 @@
           "formations": [
             {
               "formation": "4-2-3-1",
-              "played": 4
+              "played": 5
             },
             {
               "formation": "3-4-3",
@@ -3916,7 +7284,7 @@
           "biggestGoalsAgainstAway": 3,
           "winsHome": 3,
           "winsAway": 1,
-          "drawsHome": 0,
+          "drawsHome": 1,
           "drawsAway": 0,
           "losesHome": 0,
           "losesAway": 3
@@ -3953,41 +7321,6 @@
           "name": "M. Kukučka",
           "from": "1. FC Nürnberg (împrumut)",
           "fee": null
-        },
-        {
-          "name": "K. Milla",
-          "from": "Sparta Praha (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "S. Obinaya",
-          "from": "FC Kharkiv",
-          "fee": null
-        },
-        {
-          "name": "Roman Horák",
-          "from": "Sparta Praha",
-          "fee": null
-        },
-        {
-          "name": "H. Ahl",
-          "from": "Zemplín Michalovce",
-          "fee": null
-        },
-        {
-          "name": "J. Sláma",
-          "from": "Sigma Olomouc",
-          "fee": null
-        },
-        {
-          "name": "J. Suchan",
-          "from": "Slovácko (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "Krystov Karban",
-          "from": "Příbram (împrumut)",
-          "fee": null
         }
       ],
       "mercatoOut": [
@@ -4015,57 +7348,51 @@
           "name": "A. Alégué",
           "to": "Artis",
           "fee": null
-        },
-        {
-          "name": "R. Pantalon",
-          "to": "CFR 1907 Cluj",
-          "fee": null
-        },
-        {
-          "name": "D. Puškáč",
-          "to": "Slovácko",
-          "fee": null
-        },
-        {
-          "name": "D. Štěpánek",
-          "to": "Slovácko",
-          "fee": null
-        },
-        {
-          "name": "E. Singhateh",
-          "to": "Sparta Praha",
-          "fee": null
-        },
-        {
-          "name": "D. Hollý",
-          "to": "Sparta Praha (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "B. Makouana",
-          "to": "Polessya (împrumut)",
-          "fee": null
         }
       ],
       "preseason": [],
       "news": [],
       "newsCandidates": [
         {
-          "title": "Riga FC vs. FK Jablonec 5 November 2026 | H2H, Betting Tips & Odds",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQcXpwdDExQlNBV2FhQ3RwWXlXUGZURm1OdnpOcUVWa2ZONGxvNzFKakJydEM5OEs5Vm9ZYTVRWkduYlZRTTVJNk04Qy1aWDZrZVRfdTBiYjUxZUhHaHJiLXRKTkp1eGFhd3dKQzM4Z0JwUzJhbmE4cWtCUTRKbjF5TG1SYko?oc=5",
-          "source": "online-bookmakers.com",
-          "published": "2026-10-30"
+          "title": "Conference League TV schedule 2026/27: TV fixtures and where to watch",
+          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBhZEJnUmJLMHlQNE8wd3daUGFYZVduQm1kWUd5UzRtZUNpU3JNdHNrMG5QZFhWbEhHQks3MlpETVQ2WlF0dC1FcHZxWlV6dDFwcDZKZXdBMDZxZDFkdmVLVmhhYUFuOXFic2lfMGFaVG9HaDRIbzVkTS1kMA?oc=5",
+          "source": "Radio Times",
+          "published": "2026-11-02"
         },
         {
-          "title": "CS U Craiova vs. FK Egnatia 5 November 2026 | H2H, Betting Tips & Odds",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNMlpmWm4wUlY4MGk3bVZscGRfMTBUWHc2cnA3blhkQ1JuNE9Bc0diRUh1VHBET3FwQi1obC1BcmJxcEg1QWcxbVRXVXdORU9PQjliUERMa0I0aFZfTEtVUUpVVThuTUZIbnJUVzlMZkxlRkRuRG9rX01idnMtWWhKOEdONTBCSDBTV0E?oc=5",
-          "source": "online-bookmakers.com",
-          "published": "2026-10-30"
+          "title": "Slavia Prague vs Arsenal UEFA Champions League preview: Červenobílí brave Gunners juggernaut",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOM1J4NUdISVJvaTZBTmdtZWs0ZlBJUGxWU2d0TUJSMTNpWkZQZWtPOERsUVVJTE52STg2QXIzU01EM0pUUkNrWTBRMWdzNHJXNVFxemU5UXJmWmhzbng3al9Uc1BpTWptQlZCM0s2b0xCS0Q2OXZKSlVwMm1YRmhQcUs0N3VoYTBjU05FUzkxdDZ4R29DYVhLck40YkJqMTN2MkE?oc=5",
+          "source": "Goal.com",
+          "published": "2026-11-02"
         },
         {
-          "title": "Lugano vs. FK Kauno Zalgiris 5 November 2026 | H2H, Betting Tips & Odds",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQLUJHRW9XUG5xVFBjMjNjb2ZaU0xEVVVHbEFsWnJpaW1Fd3VWd1Vaalcxb1NLMVp0UXJjcy1MWTQ5a05LWTNzaG9VU1p1TEZXYjNmamFPb21EeXNuUE9YdVFrRVM1MzdTTzZIeXExeFM3Y3BRdDIxTFVvTmQ4R1ViM0c1MXh2b0V2bThv?oc=5",
-          "source": "online-bookmakers.com",
+          "title": "STANDINGS",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1QSWhnZHg2MG93M1gzYWU5SHhWSzFDZ1lXS1pPUGk2UHlQSWVMM3ZwRU5YU0dQYU0wSEhnbi1GOWRZQ2E4cXNnOWRhbEZxbDlhVjVpajNrSlR4Nlh4ZFVicDRyaEpkSUFSSU9DdE0yOU90TzhLMmc2TU1OVHg4QQ?oc=5",
+          "source": "qarabagh.com",
+          "published": "2026-11-02"
+        },
+        {
+          "title": "FC Thun Berner Oberland - Heart of Midlothian FC betting tip & best odds | 05.11.2026",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNVFBrak51WkhNRmZWMDY0ak51cGdyNlA1UFhaNWE2eWx0M05iTlVsck9SczRBdUtsendBQjBUOEVEdHF1WjdNVW9ySVBVWnVMTTEtVnRaLTlVbEpINzgtbmVHZkZ5MjhuRXJFNUMzNDhCNjdDbWRjNkFGZ3VlMjBITEx2bV94RUh3amdoZVlCTGprd1NNeVlReUZmamdDcFlLVU1GQ0NFaWREUXNScXd1UWRjbmZraDg?oc=5",
+          "source": "Futbol24",
+          "published": "2026-11-02"
+        },
+        {
+          "title": "FK Jablonec vs Mlada Boleslav prediction – Odds & stats – 8 November 2026",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOaUw5RllGaDAyVGdFTURSZkdqU0ZWU0NSb2JIZXp0N0tYQzR1ZkhMei04d0hDb2hKVTZWTG13ZUVmV3gzbmFqRTdzN2hQM3VLQ2llNk9YSVdTVE44VmhsUFQtSVZtcHBmZDE2V2RSNHY5dlNvbkFIVVV5RTlZNWF3bC04R2NkZjBa?oc=5",
+          "source": "Wincomparator",
+          "published": "2026-11-01"
+        },
+        {
+          "title": "Jablonec vs Slavia Prague match lineup | Chance Liga · 31 Oct 2026",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE03N3RDNWpxeDRDRWRIalRxeThYZDk2Wms4N3hzMkpJTm13Qlg1VHY1YjF5Nk5GeUVXZ2lhd0pVdUt1VU1KUTZYb1kyYlZyMU11b1RJMXB2YXg0MnF4cUNCOTE5X0thOUJoTThldGE5QjFXdDJ1TFdsaVFCYmg0NEE?oc=5",
+          "source": "YSscores",
+          "published": "2026-10-31"
+        },
+        {
+          "title": "FK Pardubice - Slovan Liberec betting tip & best odds | 31.10.2026",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPZV9tQmV5RjJQTVo5cUZQVmVnV2EtaC1PZUp4b3VNUXRBZ3ZBWS00ZE9UdkpmQWMyb0xlMEwycXgxVDJzVHpWeE1DNXRzSndOdG5ObkdxLTM5enZmU00zRUU0Ykp5UEF4cmpXMHprbnBOMnByNWxsUGJjMnN5UVd4T3NSNUw0ejVINUZzOEl4N3VWQU0wX1NOM3M3VzNiZw?oc=5",
+          "source": "Futbol24",
           "published": "2026-10-30"
         },
         {
@@ -4073,43 +7400,9 @@
           "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5DQy1SeEY5MThUR2tBa0pqalBYN1pZVkg2dnMyWUh6enNYYkxPaTNsMEFMN2dEc0tDZTJKSG9VYWlXbzgxb1BzY0lOMi1CM3FqTzZXdnZfNlIxeXJuMmxWZ1BiQ1o1LWhVanlfSkNaOUl6OHNtLUR1LXVmdUVLSG8?oc=5",
           "source": "online-bookmakers.com",
           "published": "2026-10-30"
-        },
-        {
-          "title": "AGF Aarhus vs. Braga 5 November 2026 | H2H, Betting Tips & Odds",
-          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNaTFkSDhucjF0TTBSeVBLT1hnem5meU83dmFxZ2V5S3pkRmNoNVI4UE4tRFJnak9BV0FubG4xMkRId0c1c2tNRjE5dHhsTDlXamJfT2tvV2tmTzJDWXNfY2d6bk9RX1hXZFRkaFFGTTVQcGlTbURYLUhNNE9hUmJxVw?oc=5",
-          "source": "online-bookmakers.com",
-          "published": "2026-10-30"
-        },
-        {
-          "title": "Midtjylland vs. Ajax 5 November 2026 | H2H, Betting Tips & Odds",
-          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPYnR6aW9sbjlncE1URGdjQUFpRnJ3Tm5HaU9hejd0TGN6WS1STzh2RjF6bUhjOUdRZm0zZE9tME1Qa3I5STZ5ZlpFN3JVZHV5VkFqUWZudUdCb3NRWnlSRXNqVTlObVFxaWRsVEVjOUloQ2NjTXpCazZTM1JqNDlOZg?oc=5",
-          "source": "online-bookmakers.com",
-          "published": "2026-10-30"
-        },
-        {
-          "title": "Trabzonspor vs. SC Freiburg 5 November 2026 | H2H, Betting Tips & Odds",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOQlNPQ0tWSXBJMjVFdTZZajN3T3FXU2VnQ1Bwb0YyaUxrQ2ZJZ3BIczUxbGRhaWdJTXNWZ1VCb2dLTXY4TTF5NThxcXJSUDNDazd4UmNuQ0FDN0lkQkNjMDBkc3JNb29kYUJEVnY1QlZEd1drSWtkLV82X2dfYTA2NXFvdkx2NEI4SlE?oc=5",
-          "source": "online-bookmakers.com",
-          "published": "2026-10-30"
-        },
-        {
-          "title": "FC Thun vs. Hearts 5 November 2026 | H2H, Betting Tips & Odds",
-          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1WdUxzNl82bl9pVklfNGt1TjJPRGZoc3VlLXZuT0NtSWx0bHVLNW8wR2duVUFQclRqSEpycDIxRjBUQm5QNWlGYzlLdUVzLXFMdnBaTFp2Z1pfQVdzWjk0ZnJLYnZEYmN2U0VzcmVIeEtvejIwRDZOSGNuNE5tQQ?oc=5",
-          "source": "online-bookmakers.com",
-          "published": "2026-10-30"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "FK Jablonec a fost fondat în 1945, sub numele ČSK Jablonec nad Nisou, clubul schimbându-și numele de mai multe ori de-a lungul istoriei, ultima dată în 2015, când a adoptat denumirea actuală.",
-        "Jablonec a debutat în primul eșalon ceh în sezonul 1974-75 și a retrogradat în 1976; după ce a câștigat ediția 1993-94 a ligii secunde (Czech 2. Liga), a promovat din nou în primul eșalon, în 1994.",
-        "Clubul a cucerit Cupa Cehiei de două ori, în 1997-98 și 2012-13, și Supercupa Cehiei în 2013.",
-        "Cea mai bună clasare a clubului în campionat a fost locul doi, în sezonul 2009-10, la un punct în urma campioanei Sparta Praga.",
-        "Cele mai mari victorii din istoria clubului sunt 8-0, acasă, cu České Budějovice, în sezonul 1997-98, și 6-0, în deplasare, la Příbram, în 2018-19.",
-        "David Lafata este golgheterul all-time al clubului în campionat, cu 88 de goluri, incluzând un record de club de 25 de goluri într-un singur sezon, în 2011-12.",
-        "Tomáš Hübschman este jucătorul cu cele mai multe apariții în campionat pentru Jablonec, 285 de meciuri.",
-        "Clubul joacă pe Stadionul Střelnice, cu o capacitate de 5.690 de locuri."
-      ]
+      "stories": []
     }
   },
   "standings": {
