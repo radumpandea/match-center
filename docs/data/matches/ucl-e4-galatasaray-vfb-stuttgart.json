@@ -1,12 +1,12 @@
 {
   "slug": "ucl-e4-galatasaray-vfb-stuttgart",
-  "generatedAt": "2026-11-02T13:45:28.608Z",
+  "generatedAt": "2026-11-03T12:56:13.305Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-11-02"
+      "accessed": "2026-11-03"
     }
   ],
   "competition": {
@@ -20,7 +20,14 @@
     "name": "Rams Park",
     "capacity": 53798,
     "city": "Istanbul",
-    "notes": null
+    "notes": null,
+    "weather": {
+      "tempC": 16,
+      "condition": "ploaie ușoară",
+      "windKph": 10,
+      "precipitationMm": 0,
+      "forecastAt": "2026-11-03T12:56:13.581Z"
+    }
   },
   "referee": {
     "name": "Chris Kavanagh",
@@ -29,15 +36,7 @@
     "apps": null,
     "ycPerMatch": null,
     "rcPerMatch": null,
-    "history": null,
-    "funfacts": [
-      "S-a născut pe 4 septembrie 1985, la Ashton-under-Lyne, Greater Manchester, Anglia.",
-      "A început să arbitreze la 13 ani și a fost promovat în National League în 2012, apoi în Football League din 2014.",
-      "A condus primul meci din Premier League în aprilie 2017, fiind promovat în același an în Select Group.",
-      "A fost inclus pe lista internațională FIFA în 2019.",
-      "A fost arbitrul desemnat pentru finala play-off-ului Championship 2021, dintre Brentford și Swansea City, pe Wembley, și a fost VAR la finala FA Cup 2021 (Chelsea – Leicester City).",
-      "A arbitrat finala EFL Cup din 25 februarie 2024 (Chelsea – Liverpool), iar în decembrie 2025 a fost promovat pe lista de elită a arbitrilor UEFA."
-    ]
+    "history": null
   },
   "h2h": {
     "recent": [],
@@ -269,14 +268,6 @@
             "season": "1999/2000",
             "place": "Winner"
           }
-        ],
-        "funfacts": [
-          "Ca jucător, a câștigat șase titluri de campion cu Galatasaray și a fost esențial în cucerirea Cupei UEFA 1999–2000, primul trofeu european câștigat de o echipă turcă.",
-          "A adunat 56 de selecții pentru Turcia, a jucat la Euro 2000 și a fost în lotul care a obținut bronzul la Campionatul Mondial din 2002.",
-          "A debutat ca antrenor principal la Elazığspor, în octombrie 2013.",
-          "L-a dus pe İstanbul Başakşehir la primul titlu de campion din istoria clubului, în sezonul 2019–20, devenind doar al doilea antrenor care a câștigat liga turcă fără o echipă din „Big 4”.",
-          "La Galatasaray a câștigat patru titluri consecutive, din sezonul 2022–23 până în 2025–26, iar în primul sezon a stabilit un record al clubului cu 14 victorii consecutive în campionat.",
-          "Este cunoscut pentru stilul de joc cu presing intens și ritm ridicat."
         ]
       },
       "formation": "n/d",
@@ -1811,8 +1802,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Off the roster",
           "stats": null
         },
         {
@@ -1820,12 +1811,12 @@
           "number": 27,
           "name": "Rafael Leão",
           "photo": "https://media.api-sports.io/football/players/22236.png",
-          "pos": "ATT",
+          "pos": "MID",
           "positions": [
-            "ATT",
-            "MID"
+            "MID",
+            "ATT"
           ],
-          "role": "ATT",
+          "role": "MID",
           "age": 27,
           "height": 188,
           "weight": 81,
@@ -2050,12 +2041,13 @@
           "number": 53,
           "name": "Barış Alper Yılmaz",
           "photo": "https://media.api-sports.io/football/players/63274.png",
-          "pos": "MID",
+          "pos": "ATT",
           "positions": [
-            "MID",
-            "DEF"
+            "ATT",
+            "DEF",
+            "MID"
           ],
-          "role": "MID",
+          "role": "ATT",
           "age": 26,
           "height": 186,
           "weight": 80,
@@ -2188,7 +2180,7 @@
             "comp": "Süper Lig",
             "score": "4-0",
             "result": "W",
-            "referee": "C. Aydin",
+            "referee": "Cihan Aydin, Türkiye",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-2-3-1"
@@ -3085,7 +3077,7 @@
             "comp": "Süper Lig",
             "score": "1-0",
             "result": "W",
-            "referee": "R. Coskunses",
+            "referee": "Resat Onur Coskunses, Türkiye",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-2-3-1"
@@ -3962,7 +3954,7 @@
           "since": "2026-11-03"
         },
         {
-          "name": "A. Guner",
+          "name": "C. Guner",
           "reason": "injury",
           "detail": "Off the roster",
           "since": "2026-11-03"
@@ -4094,65 +4086,55 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Galatasaray seek 5th straight win as Stuttgart come knocking in UCL | Daily Sabah",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOSU5mbzFmOWJsMDAtZHIzbF9xRFh5LXdReV9iSXd4LTBUSDB1NlFtTTZBVURCVFZYSnhCNXV1b09zakhZMUlLQ1B6a2h2NzJzRDJtT2pfekJxVnBXcThMY3VURktjQmU2NW92X0g1NzV2YjRSbE1ISDU0UXdwc21uUzFMQkNNbTNfTWFFWks5UWFEeGFUeDVXNEljUllYNmw1RHZpS1lSc3JGNWhaeThsc3dFc3PSAbQBQVVfeXFMTklOZm8xZjlibDAwLWRyM2xfcURYeS13UXlfYkl3eC0wVEgwdTZRbU02QVVEQlRWWEp4QjV1dW9Pc2pIWTFJS0NQemtodjcyc0QybU9qX3pCcVZwV3E4TGN1VEZLY0JlNjVvdl9INTc1dmI0UmxNSEg1NFF3cHNtblMxTEJDTW0zX01hRVpLOVFhRHhhVHg1VzRJY1JZWDZsNUR2aUtZUnNyRjVoWnk4bHN3RXNz?oc=5",
+          "title": "Galatasaray vs Stuttgart: UEFA Champions League stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE52SjNBU1JDQ29pV0NWZ0NmUlFjM3FlVFRkajdqYm9lUWVEdWR5VWJ2Mi1BR2FJWWM2aDh3VHg0LUVhMGxvSW1fcGRzYlIwbk05VXBIaFFnTzZPYlgtaDBtT2t4RQ?oc=5",
+          "source": "BBC",
+          "published": "2026-11-03"
+        },
+        {
+          "title": "Türkiye's Big 4 to bring youth teams to TRNC for friendship tourney | Daily Sabah",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNeURhdE12ODFHa2VyQ24xOV9fU1UxVFY1b1kxUHZyZk9GNmtXR3FrUVZiOGd3ZTl0ZjA3N0xtVUszWVFSaTJSX042eXBJTVBQUzQ0T1hmUWFYUGR0Zm55Ml95cExBemVxblhycmU1Zmt4VVFXQUl4bm82cTZiMlJsdzlCTE81OVJBN3dBSTFMYXhKaTNPSkFLTnFHX2pldkFscmVWMnhrUUpnUldodmhYb3BoUdIBswFBVV95cUxNeURhdE12ODFHa2VyQ24xOV9fU1UxVFY1b1kxUHZyZk9GNmtXR3FrUVZiOGd3ZTl0ZjA3N0xtVUszWVFSaTJSX042eXBJTVBQUzQ0T1hmUWFYUGR0Zm55Ml95cExBemVxblhycmU1Zmt4VVFXQUl4bm82cTZiMlJsdzlCTE81OVJBN3dBSTFMYXhKaTNPSkFLTnFHX2pldkFscmVWMnhrUUpnUldodmhYb3BoUQ?oc=5",
           "source": "Daily Sabah",
-          "published": "2026-11-02"
+          "published": "2026-11-03"
+        },
+        {
+          "title": "VfB Stuttgart vs. Galatasaray Istanbul - November 03, 2026",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQa0pfekk5al9LMXJSWWs5cmFvOWxYS1g3cDlLeGVLdFNvMmluOEJtWWhsa0QyS096OGNtdE1jMUhLejZ5LUE3bGMxVnl5R0pvZ0pEdWlyVEJYT2JvNWIxS2ctYktGV1JaUGlHQU81WDJmdVY3OE91aFZVUFBLdHh3QmZn?oc=5",
+          "source": "Bleacher Report",
+          "published": "2026-11-03"
         },
         {
           "title": "Galatasaray - Stuttgart",
           "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxONTJ0anp1NWxxYXgxTWFtZmtjY3JNVWZfdzZHUEo2aXNnTkRmTGtVeGpMWEk4YkJZWWtYNk9QQkRQaXhTN3UzUl9OT1JhZ1dEU3JmcEk0SnlIbzZUa19wQ0htQmk3MVlKd241NldWa1IwQ3RUSlpNUFBucWxZYkFqYUFNY3djZm1penlVWTgtRQ?oc=5",
           "source": "Flashscore.com",
-          "published": "2026-11-02"
+          "published": "2026-11-03"
         },
         {
-          "title": "Galatasaray ‘to reject’ January bids for Victor Osimhen after Manchester United enquiry",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPQ0lEa1NXaGtmcnFnVUFULWZIOWI2TlZNMlNQa1pDLUNfSlhpRHZBcEhMMHZ0WEgzbE1RcWJzUW9ZZFFWTkNJWnhhOF81QVJFcTRVeldzc3JCSFZIeks3WjdoekF3U3lhM0M1aHdyNnZNakR0dTRCd3I5M3lsOV9vSjI0bHlFZk5PSkxUNE9jYkJYVDFzazN3ZHFpZFB1dEliY1paZlQ1TjZzY1lfY0tiZGptR2dCRzJNMm1iblFjVkdhR0d1?oc=5",
-          "source": "OneFootball",
-          "published": "2026-11-02"
+          "title": "Galatasaray VS Stuttgart: Live Scores, Lineups, H2H & Odds",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPaUFUeWtaTlZBeHQ4NDVNa1dzU1hzNFdiRGZDa0VOVG9ldzE5TGhwUEptaVBSWldZRWJzMTA4bEFxYjZXTlhsVWRTRmhDOG1BVnd0eGs4a2ZaVEtnbjEtcFdfcmgzSjFHM0xYM3QwRmpmeG1XS1l5WUIxXzRvQmEweFZBT0pwNTdLckxMUjVTNE9HLXY5MGduLWJMVW1hYUhZZ3c?oc=5",
+          "source": "365Scores",
+          "published": "2026-11-03"
         },
         {
-          "title": "Victor Osimhen Closes In on Mauro Icardi’s All-Time Foreign Goalscoring Record at Galatasaray",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNMV9RTzYtbUVVaGc5QUxoaUQxSW5nMC1oeV8zVEZhMVNES21CUHBCeVNiLW8zWXhyOWRTZzJFZUNBVTg0WHJvQUd2bEo5ZWhxMm4xaFdHYlZLSHgzYV9POW1tR3dvSWVpZkRtUW1Ta0Fua0p5ZFRPbGdiWWx4M2hxX0ljejhmTk4xVk5xTWtVNi1nb3d4WUlabUhrSzNlT2hPWG1fdDE4NVZxc2E1Y044eHpZSGlONmpfbmNrRWxMYw?oc=5",
+          "title": "Okan Buruk Finalizes Lineup as Galatasaray Target Fifth Straight Win Against VfB Stuttgart",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPem8yazVESEdqNmpBS1cxQU9mbFp5djgxbkNkYUFEMGQ1SW5kMUdYbllDaDVEVExZYXhzMGFvbElETUhRaWdNLWJOdGlJZ2VuRHNFTERZWWtpWW00ejk5SFBLT0RKeU52bmlUWjRkTmV5djdBMm5VUGswS291Ykh4UmZqT2E0SERITUZZUGZxWmx4QXpWc09xVkkxbnlQWThmbHN6YmxaU3dpajVRcXFCSzNYbjhWcTFoVzdhTw?oc=5",
           "source": "turkish football",
-          "published": "2026-11-02"
+          "published": "2026-11-03"
         },
         {
-          "title": "Genclerbirligi 0-1 Galatasaray: highlights, match video",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPZFlIempieUtKUGprNm9KTldMMXJDUmEyd3JUYUhFeG9QMTZrNUtuaGpFZ2R5MlZVZlVPdHhKTUtnb3Rmejc0dld5dkVvaEZFV2ZyRHVpR1hMdFdHUlZGcTRYbGJMUEFVbW5Jd1JGWjhoandHVnFrTzVUX1lOR1Y2bkc1d0N0SmRQaUxncmtXOXRya0hIOHhfMUlJaFI?oc=5",
-          "source": "Hispanatolia",
-          "published": "2026-11-02"
+          "title": "Team A vs Team B Football Playing XI | Confirmed Team Line-ups & Substitutes",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOR1hpSUZfVk84N1Z0ekdydi1DUk1iM3Y0ZmliYkFqNjR4QUM3eEtzNEdBeURqTEVIbjRfMjl1R3JQSzI1V2xzVWNadkhnQXI2Z2ppekYxN3ZTTHhQdFFWOXNXU05oNHhEc2NPODVGZjg4WGdYbkdkS1ZoZDJPczV1clcwcjN2ZTBO?oc=5",
+          "source": "Firstpost",
+          "published": "2026-11-03"
         },
         {
-          "title": "▶️ Watch Galatasaray vs Stuttgart Live Stream | Predictions & Tips - 3 Nov",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNakNiMl96REUzbTM2VUF0bGkwTHdTWmJGTG5NRlE0SE5VNmpUd3NYUHRfX0lLOVpTUXBXNkZqUDBhbV9hQ0RiRDNSaWtMN2tXZE1tZUMtMm45cTQ3V1RmZnJ5QUZIRWNWYkdPazVKMXR2c0dVbkI5TDNPUGNqV1JZV1RnTVg1VTQ?oc=5",
-          "source": "FootballPredictions.NET",
-          "published": "2026-11-02"
-        },
-        {
-          "title": "Galatasaray vs Stuttgart Prediction, Betting Tips, Lineups & Odds | 03 Nov 2026",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPT25GdWRTby11N1Y4b002ZlVLa3h5aVliSEtRcHJOVkFmQ1lUUTlLNENLY0NPVUZ6WUIwaHhPTTNpd0U4MjJiZDlpMUdqV0p2NC1YYlpEZkxFcjV3OU1QQnVmWGZtXzZmdzFweWlpd2VmVWxJSDBkY0pFRzRWdjNucVc5NnMxVkk2ZnEweG0zcHJVM0x0M2dRWTJzYlV1TTJkSDJYWVVEdlV2UVBMOXlnSDln?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-11-02"
-        },
-        {
-          "title": "Galatasaray vs Stuttgart UEFA Champions League preview: Cimbom and Die Schwaben bring domestic firepower to RAMS Park crucible",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPblJiQjVSY0xBNnV2RkNzSDhTN2dXemNSczR0cHlHUnZ2Y0toLWlOOGhwYU1GT1d1MkY2aU5fbmNHWDFHWHNiUzVIM2NzTmR6RkpVSkppeWN0aUFjb1prdjBFRGwtXzUxdERDbFFUZWVjanp1SjkxekMtNDZXWUFaNEdQSFQ3NU5TWVRtRVlnd2ZVdTVxT19lODlMdUZsa0pTNnc?oc=5",
-          "source": "Goal.com",
-          "published": "2026-11-02"
+          "title": "Galatasaray vice-president Metin Ozturk resigns",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNeGhLZmZOZlNSVVNhNURyQVE4WDJ4QWNPZkNkZEY2N0pvbnR6YUs2RS1RUVhXMGc2QWZ6THQyc20zNHZNZjRMUS1wTGxMX0hKeVNwbWY5OTFMS1VDU3h4dmhKXy0tTFBWLURDU2VzeUtQNzhucDZ1SEVxdVRSZ21TQkI4M1g0U3JhVy1B?oc=5",
+          "source": "Operativ Məlumat Mərkəzi",
+          "published": "2026-11-03"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "Galatasaray a fost înființat în 1905 de Ali Sami Yen, pe partea europeană a Istanbulului, și este, conform Wikipedia, cel mai de succes club turc din competițiile UEFA.",
-        "Galatasaray a debutat în cupele europene în sezonul 1956–57, în Cupa Campionilor Europeni, după ce câștigase campionatul regional al Istanbulului, dar a fost eliminat în turul preliminar de românii de la Dinamo București, 3–4 la general.",
-        "În sezonul 1988–89 al Cupei Campionilor Europeni, sub Mustafa Denizli, Galatasaray a ajuns pentru prima dată în semifinală, unde a fost eliminată de Steaua București, echipa lui Gheorghe Hagi.",
-        "În turul doi al aceleiași ediții, Galatasaray a pierdut 0–3 în deplasare la Neuchâtel Xamax, dar a revenit pe Ali Sami Yen, în fața a 35.000 de spectatori, câștigând cu 5–0 și calificându-se în sferturi, 5–3 la general.",
-        "În sferturile Cupei Campionilor Europeni 1991–92, Galatasaray a condus la general cu Werder Bremen, dar a pierdut 1–2, iar returul de pe Ali Sami Yen, jucat în ninsoare, s-a terminat 0–0; nemții au câștigat trofeul în acel sezon.",
-        "Galatasaray a cucerit Cupa UEFA 1999–2000, primul trofeu european al unui club turc, învingând Arsenal la loviturile de departajare, după ce Gheorghe Hagi a fost eliminat cu roșu direct în prelungiri, iar Gheorghe Popescu a marcat penaltiul decisiv.",
-        "În același sezon, 1999–2000, Galatasaray a realizat tripla: Süper Lig, Cupa Turciei și Cupa UEFA.",
-        "Pe 25 august 2000, Galatasaray a câștigat Supercupa UEFA, învingând Real Madrid cu 2–1 după prelungiri la Stade Louis II din Monaco, cu golul de aur marcat de Mário Jardel în minutul 103, fiind primul și singurul club turc cu acest trofeu."
-      ]
+      "stories": []
     },
     "away": {
       "name": "VfB Stuttgart",
@@ -4209,13 +4191,6 @@
             "season": "2019/2020",
             "place": "Winner"
           }
-        ],
-        "funfacts": [
-          "S-a născut la 12 mai 1982, la München; fost mijlocaș offensiv, a trecut prin academiile lui VfB Stuttgart și Hertha BSC, jucând mai ales la Hertha BSC II și, pentru o perioadă scurtă, la TSG Hoffenheim.",
-          "A început cariera de antrenor la echipa a doua a lui Bayern München (2019–2020), câștigând titlul de 3. Liga în sezonul 2019–2020.",
-          "A pregătit TSG Hoffenheim între 2020 și 2022.",
-          "Din aprilie 2023 este antrenorul lui VfB Stuttgart, clubul la care și-a început cariera de jucător.",
-          "În primul sezon complet la Stuttgart (2023–2024), echipa a terminat pe locul doi, la diferența de goluri față de Bayern München, calificându-se în Liga Campionilor; Serhou Guirassy a stabilit un record de club cu 28 de goluri."
         ]
       },
       "formation": "n/d",
@@ -6496,7 +6471,7 @@
             "comp": "DFB Pokal",
             "score": "1-0",
             "result": "W",
-            "referee": "Florian Badstubner",
+            "referee": "F. Badstubner",
             "formation": {
               "us": "4-2-3-1",
               "opp": "3-4-2-1"
@@ -7991,65 +7966,55 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Galatasaray v VfB Stuttgart: Champions League stakes high in Istanbul",
-          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaEkzUUZ0VzFEZTZqMWpFWjdQQWlEQjlPN2VYaE9uRDJ1Y2RncENNbGw4ZVQzLVh3LV9nZEQ2U2V1b2dOdG5GemZGME5oREhDY3ZMc2tlZHppdUZLNDZJUlVWWmtNVmM3bFdncDNHNFFPa2RjVXlNMmZGRUpMMlRLR2FicnBLT0V3X3F0ZkdxQmU0SlhoVWJnUDNXTmQ2WjNjSnUyQXp2b2RFQ3FxSUE?oc=5",
-          "source": "OneFootball",
-          "published": "2026-11-02"
+          "title": "VfB Stuttgart vs. Galatasaray Istanbul - November 03, 2026",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQa0pfekk5al9LMXJSWWs5cmFvOWxYS1g3cDlLeGVLdFNvMmluOEJtWWhsa0QyS096OGNtdE1jMUhLejZ5LUE3bGMxVnl5R0pvZ0pEdWlyVEJYT2JvNWIxS2ctYktGV1JaUGlHQU81WDJmdVY3OE91aFZVUFBLdHh3QmZn?oc=5",
+          "source": "Bleacher Report",
+          "published": "2026-11-03"
         },
         {
-          "title": "Galatasaray vs Stuttgart UEFA Champions League preview: Cimbom and Die Schwaben bring domestic firepower to RAMS Park crucible",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPblJiQjVSY0xBNnV2RkNzSDhTN2dXemNSczR0cHlHUnZ2Y0toLWlOOGhwYU1GT1d1MkY2aU5fbmNHWDFHWHNiUzVIM2NzTmR6RkpVSkppeWN0aUFjb1prdjBFRGwtXzUxdERDbFFUZWVjanp1SjkxekMtNDZXWUFaNEdQSFQ3NU5TWVRtRVlnd2ZVdTVxT19lODlMdUZsa0pTNnc?oc=5",
+          "title": "VfB Stuttgart vs Dynamo Dresden - DFB-Pokal",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE96ZFIxc1ZyZ3hPMTFIb1diYWstTjk5Z3BZemU3djNYWTZNVHNmQUdVVHF2UnEwLXYyWk13M0I5RXFxVFROd1RKcHhmc1c5bUttelE?oc=5",
+          "source": "OneFootball",
+          "published": "2026-11-03"
+        },
+        {
+          "title": "Okan Buruk Finalizes Lineup as Galatasaray Target Fifth Straight Win Against VfB Stuttgart",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPem8yazVESEdqNmpBS1cxQU9mbFp5djgxbkNkYUFEMGQ1SW5kMUdYbllDaDVEVExZYXhzMGFvbElETUhRaWdNLWJOdGlJZ2VuRHNFTERZWWtpWW00ejk5SFBLT0RKeU52bmlUWjRkTmV5djdBMm5VUGswS291Ykh4UmZqT2E0SERITUZZUGZxWmx4QXpWc09xVkkxbnlQWThmbHN6YmxaU3dpajVRcXFCSzNYbjhWcTFoVzdhTw?oc=5",
+          "source": "turkish football",
+          "published": "2026-11-03"
+        },
+        {
+          "title": "Storm of criticism ahead of Champions League clash: VfB Stuttgart apologise to Galatasaray fans",
+          "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQUHlLQS1TUkFiSjJLaDdiU01mYzBwRmhDRThfSDF0QjVXQ1YyNmM1UWtycER3TXloTlViUzc1OE85LXZTWTFlcklNOTUycHJjSTYzQjZwRnRBWWwtdS1mX3padm1FdXlvWlJYbm5vYjFteXQ3WU1iQlR0TWl1WUNQZFoyQ2VpV3FvdTNZbVA1MXEyRzctWXdtX1FUczJjSzNzUmRPcUdjVVVjbHViQ0c3WTBwM1pwWElKaTd5TWUxOUVGVXJNSE5LVnBtOFh6V3NlRlpCaTNLVUx4X0tCUGFtZkhiN3NSTzBTT1E?oc=5",
+          "source": "LiveScore",
+          "published": "2026-11-03"
+        },
+        {
+          "title": "Galatasaray vs Stuttgart Head to Head: Overall Stats, Records & Results",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQSW1oZVg4akVReldMVGpLbjhnc3RZcDdmcjR0czhnd1M1OEkzYjRVdjNfMVFzbEV3alk5ZGdHUDBEUTY3cGJpeGY4RmotZWhIVmNOSmFDTmdlVnJkQ21TN25yRGJraGZUc1RaaUxSZkZoRmNNOWJfZU1iMTB6ajExQTZXRUw3WW1ZSzJGX3JLbjhvV3M1cEpxa3hwZk1jWUs5dnI4WlJRWQ?oc=5",
+          "source": "Sportsdunia",
+          "published": "2026-11-03"
+        },
+        {
+          "title": "Galatasaray vs VfB Stuttgart live today: Who is showing the match on TV and via live stream?",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNLTg1RUVJWGY5RU9JZ3pTbkxEeExzcjJmVHN1QVc1b3FiR1VkSjVtaW81NG5LREhZMnFFQmJGMFh1MlNpWFZkbGg2Y2pjOTBzU29SNThwWVFUR05Kd09xYVJOMjF2b3Z5UnBQUmJWSTdBWFhGZnNUSjA4RjJlaG5DUGJmdWRJbmJYMDY3VHhxNGNDZUNIWGxMOWpCWDVmRmlOOHRscnluTFBNVkNBU3R4QWVBcm1tenFfRXJSUkVJU1dKbTBrcmQzSm1TY2FGQWFVOVJQNnk4NnNCQQ?oc=5",
           "source": "Goal.com",
-          "published": "2026-11-02"
+          "published": "2026-11-03"
         },
         {
           "title": "Galatasaray - Stuttgart",
           "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxONTJ0anp1NWxxYXgxTWFtZmtjY3JNVWZfdzZHUEo2aXNnTkRmTGtVeGpMWEk4YkJZWWtYNk9QQkRQaXhTN3UzUl9OT1JhZ1dEU3JmcEk0SnlIbzZUa19wQ0htQmk3MVlKd241NldWa1IwQ3RUSlpNUFBucWxZYkFqYUFNY3djZm1penlVWTgtRQ?oc=5",
           "source": "Flashscore.com",
-          "published": "2026-11-02"
+          "published": "2026-11-03"
         },
         {
-          "title": "Vfb Stuttgart To Finish In The Top 6 Of The German Bundesliga Odds Now 8/11",
-          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOWEJGbGJzNGtYMnhaRi1HWVdEZVdJMXZ5OXFGVXBfZ0J4NVZJRWNtNDVXcDc5SGVTU3dkeWZKS0RaSXM0T1hSYksxUXhBVnhObG44eS04cG9CNUVIXzA1Z1lUaWlqbUk2U1FXOHk1R2FlUmNRU0NXcGIzU1dGUjh2dlhmQ2ZmcUhZZ2xLeUQwWUR0eEdXazVSd0c1UGpfcUNVNHVCVDhMUUdxVFpuVENIYi03VUdIU2JaX0FObTFCVjY2ODBSM2FmWEdYN2lKVmZPcVE?oc=5",
-          "source": "Oddschecker",
-          "published": "2026-11-02"
-        },
-        {
-          "title": "SunExpress will operate a special flight for VfB Stuttgart to their Champions League match in Istanbul",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQSEZ2NXU0S045MlJUdl9lbDRMSDg4YzlHX0VWTE5odnUzZlk0Qmc2cEwwcTRuUVU1djk1dFdUaXp5OG1TVndVVnRsSk0zemJhODdIdmNDbWp5LS1tS3RZUmVDR1pGaU4xajJlYklOaWZ0ZlZnUjJwZjc3Q25QWDFKQWs1aHVDR0w5M0FVdGdTQ01aMUZRNG9YQXlKZ0Y0NHk2U05kS0JpX0Y1YnM3Umlidnl0bG1DTlE?oc=5",
-          "source": "Aviation.Direct",
-          "published": "2026-11-02"
-        },
-        {
-          "title": "How to get Schalke 04 vs VfB Stuttgart tickets: Bundesliga prices, fixture information, last-minute sales & more",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPXzZ3dmZ2aFVUMHppdHllbHkzV3Fjcmd3YXh4bWhSWXBmYkhWTldaZ2VfQkxTczBYcjlfel8zdGZBNE9yZ1hvS0VvaEZkSlRPZHhSclRQdTlKWk10dWZiR290TUMxaUh6N18tYkd4S1JMV2VjUmFuLVhDWmJmRkNMRzdRRGt6M2kzc2FzNENYOUF5WUhYcWtSVk8wRjhMUlZwam1uWg?oc=5",
-          "source": "Goal.com",
-          "published": "2026-11-02"
-        },
-        {
-          "title": "3. Liga - MSV Duisburg 3 - 3 VfB Stuttgart II",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNdkhhT0JVVU9ocEQwLU5RLWxpQ3hIdWVMSm5KQzYxQWx1bWtKQTZVamZsVEFWaVdOanlIcExLM3JXMTRYb1IwN29RZld4cFZiY1FiTzhTVTBoUnNUMWRubThVX0VXSi14MldNbWN0NVV4eTRLbVR2NE1mMXlLZVVkWXJwYmtweHlr?oc=5",
-          "source": "OneFootball",
-          "published": "2026-11-02"
-        },
-        {
-          "title": "VfB Stuttgart vs Dynamo Dresden Prediction, Lineups, Stats & Standings (01 December 2026)",
-          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBlSU90NHY2WExvbkVUNXFiNS1JZjROOUg0QTdCZVM3TXhIb3FRZmttcjZaVTNMYVVEel8wQzYyYWF6TWhZcThIbmU4eDJlZEo2UW5YYllOYXlqbDR4SkVQSVNaV2lwbWJtaTMtb21yRTRWcnd4UFc0TWxn?oc=5",
-          "source": "Dailysports",
-          "published": "2026-11-02"
+          "title": "Galatasaray VS Stuttgart: Live Scores, Lineups, H2H & Odds",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPaUFUeWtaTlZBeHQ4NDVNa1dzU1hzNFdiRGZDa0VOVG9ldzE5TGhwUEptaVBSWldZRWJzMTA4bEFxYjZXTlhsVWRTRmhDOG1BVnd0eGs4a2ZaVEtnbjEtcFdfcmgzSjFHM0xYM3QwRmpmeG1XS1l5WUIxXzRvQmEweFZBT0pwNTdLckxMUjVTNE9HLXY5MGduLWJMVW1hYUhZZ3c?oc=5",
+          "source": "365Scores",
+          "published": "2026-11-03"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "VfB Stuttgart a luat naștere la 2 aprilie 1912, prin fuziunea dintre Stuttgarter FV (înființat pe 9 septembrie 1893) și FC Krone Cannstatt.",
-        "Clubul a câștigat campionatul Germaniei de cinci ori, ultima dată în 2006-07, și Cupa Germaniei (DFB-Pokal) de patru ori.",
-        "În sezonul 1977-78, VfB a atras o medie de peste 53.000 de spectatori pe meci, record al ligii care a rezistat până în anii 1990.",
-        "În 1991-92, Stuttgart a cucerit al patrulea titlu național, într-una dintre cele mai strânse curse din istoria Bundesligii, terminând înaintea Borussiei Dortmund la golaveraj.",
-        "În penultima etapă a sezonului 2006-07, Stuttgart a învins-o pe VfL Bochum cu 3-2 în deplasare, preluând primul loc, iar în ultima etapă a revenit de la 0-1 pentru a bate Energie Cottbus cu 2-1 și a cuceri primul titlu de campion după 15 ani.",
-        "În finala Cupei UEFA din 1989, cu Jürgen Klinsmann în echipă, Stuttgart a pierdut în fața lui Napoli, echipă la care juca Diego Maradona (1-2, 3-3 la general).",
-        "Echipele de juniori ale clubului au câștigat campionatele naționale U19 de un record de zece ori și pe cele U17 de șapte ori.",
-        "VfB joacă pe MHPArena, situată în cartierul Neckarpark, lângă Cannstatter Wasen, locul unde se desfășoară festivalul berii din Stuttgart."
-      ]
+      "stories": []
     }
   },
   "standings": {
