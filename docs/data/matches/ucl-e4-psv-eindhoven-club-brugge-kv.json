@@ -1,12 +1,12 @@
 {
   "slug": "ucl-e4-psv-eindhoven-club-brugge-kv",
-  "generatedAt": "2026-11-03T12:58:51.319Z",
+  "generatedAt": "2026-11-04T13:10:40.061Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-11-03"
+      "accessed": "2026-11-04"
     }
   ],
   "competition": {
@@ -20,7 +20,14 @@
     "name": "Philips Stadion",
     "capacity": 36500,
     "city": "Eindhoven",
-    "notes": null
+    "notes": null,
+    "weather": {
+      "tempC": 6,
+      "condition": "cer clar",
+      "windKph": 15,
+      "precipitationMm": 0,
+      "forecastAt": "2026-11-04T13:10:40.287Z"
+    }
   },
   "referee": {
     "name": "Irfan Peljto",
@@ -29,14 +36,7 @@
     "apps": null,
     "ycPerMatch": null,
     "rcPerMatch": null,
-    "history": null,
-    "funfacts": [
-      "Este un arbitru bosniac, activ mai ales în Premier League a Bosniei și Herțegovinei, pe lista FIFA din 2015 și clasificat ca arbitru de elită UEFA.",
-      "Este singurul arbitru bosniac care a condus un meci din faza grupelor sau eliminatorie a UEFA Champions League și singurul care a arbitrat o finală de cupă europeană intercluburi.",
-      "Debutul în Premier League a Bosniei a fost pe 27 iulie 2013, la meciul Rudar Prijedor–Radnik Bijeljina, iar primul meci internațional de seniori l-a arbitrat pe 8 iunie 2019, între Belgia și Kazahstan.",
-      "Pe 24 noiembrie 2021 a condus prima sa partidă din faza grupelor Champions League, Beșiktaș–Ajax, iar pe 13 februarie 2024 a arbitrat primul său meci din faza eliminatorie, RB Leipzig–Real Madrid.",
-      "Pe 28 mai 2025 a arbitrat la Stadionul Wrocław finala Conference League dintre Real Betis și Chelsea, devenind primul arbitru bosniac care a condus o finală de cupă europeană intercluburi."
-    ]
+    "history": null
   },
   "h2h": {
     "recent": [
@@ -721,18 +721,18 @@
     "summary": "Cap la cap (2 meciuri): PSV Eindhoven 0 - 1 - 1 Club Brugge KV."
   },
   "storyOfTheMatch": [
-    "PSV Eindhoven — locul 18 după 3 etape, 4 puncte, golaveraj 2-2.",
+    "PSV Eindhoven — locul 21 după 3 etape, 4 puncte, golaveraj 2-2.",
     "PSV Eindhoven — 3 meciuri fără înfrângere.",
     "Austyn Monet Jones e cel mai bun marcator al echipei PSV Eindhoven în acest start de sezon (4 goluri).",
-    "Club Brugge KV — locul 11 după 3 etape, 6 puncte, golaveraj 9-6.",
+    "Club Brugge KV — locul 13 după 3 etape, 6 puncte, golaveraj 9-6.",
     "Club Brugge KV vine după 6 victorii la rând.",
     "Nicolò Tresoldi e cel mai bun marcator al echipei Club Brugge KV în acest start de sezon (4 goluri).",
     "Cap la cap (2 meciuri): PSV Eindhoven 0 - 1 - 1 Club Brugge KV."
   ],
   "predictions": {
     "winnerName": "Club Brugge KV",
-    "winOrDraw": false,
-    "advice": "Winner : Club Brugge KV",
+    "winOrDraw": true,
+    "advice": "Double chance : draw or Club Brugge KV",
     "percent": {
       "home": 10,
       "draw": 45,
@@ -752,8 +752,8 @@
         "away": 25
       },
       "poisson": {
-        "home": 32,
-        "away": 68
+        "home": 33,
+        "away": 67
       },
       "h2h": {
         "home": 20,
@@ -910,14 +910,6 @@
             "season": "2004/2005",
             "place": "Winner"
           }
-        ],
-        "funfacts": [
-          "Ca jucător, Bosz a evoluat ca mijlocaș la Vitesse, RKC Waalwijk, Toulon, Feyenoord, JEF United Ichihara, Hansa Rostock și NAC Breda, retrăgându-se în 1999.",
-          "A jucat 8 meciuri pentru naționala Olandei, debutând în decembrie 1991, și a fost parte a lotului la Euro 1992.",
-          "A început cariera de antrenor la echipa amatoare AGOVV în 2000, câștigând titlul de amator în 2002, apoi a promovat cu Heracles Almelo în Eredivisie în 2004-05.",
-          "A ajuns în finala UEFA Europa League din 2017 cu Ajax, pierdută în fața lui Manchester United.",
-          "A antrenat și la Borussia Dortmund, Bayer Leverkusen și Lyon, înainte de a prelua PSV Eindhoven în iunie 2023.",
-          "Cu PSV a câștigat titlul din Eredivisie în 2023-24, 2024-25 și 2025-26, devenind la 61 de ani cel mai vârstnic antrenor campion din istoria competiției."
         ]
       },
       "formation": "n/d",
@@ -2850,8 +2842,8 @@
         ],
         "ppg": 1.33,
         "homeAway": "Acasă 0-1-0, deplasare 1-0-1",
-        "position": 18,
-        "note": "Clasament 2026/27: locul 18, 4p (2-2)",
+        "position": 21,
+        "note": "Clasament 2026/27: locul 21, 4p (2-2)",
         "table": {
           "played": 3,
           "win": 1,
@@ -4477,6 +4469,12 @@
       },
       "absences": [
         {
+          "name": "S. Lammers",
+          "reason": "injury",
+          "detail": "Lacking Match Fitness",
+          "since": "2026-11-04"
+        },
+        {
           "name": "A. Nagalo",
           "reason": "injury",
           "detail": "Injury",
@@ -4498,12 +4496,6 @@
           "name": "J. Schouten",
           "reason": "injury",
           "detail": "Knee Injury",
-          "since": "2026-11-04"
-        },
-        {
-          "name": "S. Lammers",
-          "reason": "injury",
-          "detail": "Lacking Match Fitness",
           "since": "2026-11-04"
         },
         {
@@ -4611,64 +4603,55 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "PSV player has a message for Peter Bosz: ‘I haven’t had the chance to show it’",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPZ0hMRXMxUGZOY3UwYk02NUVjN3VHM2lINC1VQ1czLV8yeWFXTXZVcjZMODQ5RHY5Z0dibnBraXZTbHNwUW41RkRYaVVHcWpEM1RrMlF6ckFkdDBkUGwtMnhwOTFTYnJDUDVEM3FZTDc0T0FRekFlX2UxUi1zRFZ5clUxRUFsX3JFSDE3WjA3QzNNYkhobVJLQlBwUThEUjlsTU1tbmxBVUpGV1h4YmJhUXZmTldONEVPVnpVbTM1SVZQQQ?oc=5",
+          "title": "Club Brugge vs. PSV Eindhoven - November 04, 2026",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPVnVfNUtPLVZ3S3dITXhjYXlJd3c5RkVkRmRoVWJLaFVVV3Zra2FHeEdvMVV0eGRkV3haUkljU2FmR3VaeGpSYlBOb2dQdWdqaWktTHdTM1Q0dUpDRUc3b3dlS3FkQ29Oa1h0UVdHZThUb01rbDBabEs0c2VONi1wOEpB?oc=5",
+          "source": "Bleacher Report",
+          "published": "2026-11-04"
+        },
+        {
+          "title": "How to get Real Madrid vs PSV Eindhoven tickets: Champions League prices, fixture information, last-minute sales & more",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPRV9Kb1dtSFlkdUMxQjJZUjV2NEJWNFd1eWhkdlMxNUM3ZzdXZ0lVcEtKTVgwU3d2aV9ySXJRNDZKMU5JNFcwLXd4Ukh6UURveGJtbGllMFRQb2FGaF9uQmpvVHVIdnpOLTd5aTJ2MXoxajgyT0pLYTJ6dGZVdVd1UEdOMkhqTUlyd2NOVjRMV19sMzN1Yy1ONVBvak8zc2QtVE9leGRB?oc=5",
           "source": "Goal.com",
-          "published": "2026-11-03"
+          "published": "2026-11-04"
         },
         {
-          "title": "Team A vs Team B Football Playing XI | Confirmed Team Line-ups & Substitutes",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQVVhFaEM1R1ROZEpNX1lreXpxajRuQ0hHbHlBa1hBTU1TSWxhTXQ0NUdLR0dkNzM5LTNwc1hQcFlUbzJpWFFEc2MxeE9JMENSbldjZmp6WjdEVzVmckJvWXdXV2hQbmlzcFFfd2l0blJ0eWV2Qk9MSHZZRzNWLTE5V3p2bTBKS2s?oc=5",
-          "source": "Firstpost",
-          "published": "2026-11-03"
+          "title": "PSV Eindhoven vs Shakhtar Donetsk - UEFA Champions League Regularseason, 2026",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQUUR5VktZUlhMMVlMVHpiNjJRLVlmbTViVTlDanN1OTltb1YxdjF0Z04tYVJGUjhVS1hqTGh1OWdlakMxeUEzXzI1OHkwWkItdHNnMHd5NEV1UjhWV3pTenpRczBLZzNQWEV2dHpZREZ5OVJXbWtQR1hCSUFIV0k3X3NNY19UX0RIVnc?oc=5",
+          "source": "Fox Sports",
+          "published": "2026-11-04"
         },
         {
-          "title": "“The Chances Are 50/50”: PSV Icon Issues Warning Ahead of Club Brugge Clash",
-          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQaHNTQmZDOVg4eTM4dmpLTFlIREhQZ0NwT01MelpzV2tINVpJejFzb0N2a3RmT2h0UFBMT1lOYzNiZ0IxTzlzUXBPaHVVMlhFaWJ3d1poMlI4cEF1YXdPUXBaaDRUWHRmVDB0YmpvVzdpLXlGVFA2SWNlUGM4VGFLTDRmZFpWT1JPME1IU3JyOGVQcjQzNnlxSklUdkpSYjRaV0NPWlNMbDZPN01aemxHUGpFUE91bEFFUEpJOEhjT1daNnJJcTdwOUFPYkFOcGlmc3pURg?oc=5",
-          "source": "roundtable.io",
-          "published": "2026-11-03"
+          "title": "PSV vs Club Brugge live today: Who is showing the match on TV and via live stream?",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPb2JBOGZET0p6a1dZd04tVVVpS2pZTi1WeFBvVWhydlozQ2J3QTUxWkpUMDNLQVY1TW5hZlJPQ3dlSkhZd2NkelFHUFJ4N3FyZVJFcy12Z3NMd0VKSkpKMVVXb0FwbW5ZNXlXZmpHUURfWFE1SjhObWJKb1k3SENGWXUwUUtidGxaNC1yNlJBVWFiTUFfRnlySm1GUFJKRTRZWGRqN2VWMm9MWVhaWVdHRTVraGRLNjJJVVEtSUFOLXpiTV9FMGk0WWJLYUI?oc=5",
+          "source": "Goal.com",
+          "published": "2026-11-04"
+        },
+        {
+          "title": "PSV Eindhoven - FC Bruges betting tip & best odds | 04.11.2026",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZ2Y2NEE5b3hKbXBLcXNtWmZDcWpiaUs0WHUxUEQyVVJpNkpvUENzSWVmU01BRzFsS1lBa1AzUFNzMTRzM2F5SUFOX2NveWc0aGJsMnFMV3FqbGI3Z1JlQTBHS195d3hfYUpRV0RobFlObFBHRGU5b25Lb0c4LUdDN01KMUFMSG5Hd1pNWnJPUjVuUko0ZXUxTw?oc=5",
+          "source": "Futbol24",
+          "published": "2026-11-04"
+        },
+        {
+          "title": "PSV Eindhoven vs Club Brugge Preview, H2H & Form – 4th November 2026",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNVHkwWTl2RG53TGxidW5PMHk2b1ZSd0I5MHppUVdLUXl4REprZmpEbkZwc3Bjcl82bE9CQVg0cFhLZFYtS3BEa3BhOG1iM3U3dDNHUzJmWHl5X3NoTVQtcFZqS2VWa0pURWFFUzFpbThmQVB4X3hpS1Z6VjhLYWVONUxoREtuaEo3UDRlNDZva0pSNTBNd1dBRm9GcmQ4Zw?oc=5",
+          "source": "Betfred Insights",
+          "published": "2026-11-04"
         },
         {
           "title": "2026/27 Champions League: All the league phase fixtures and results",
           "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPYU1sR0picE9CWEtsaUZDekZKVk1yd2dwVjZwbUxZVUNSUHhaVVRsbzk4RmtzdW10VWx3T0JRSHNTLXkyQjd3SmhUWDl5ZmMxR0ZhQWJic0VsSE5UeUcyQldrLUpjM1pacnJhbnFnU3ZfQk5QNVN5aXJvSVNhdlQtamlkdlpMcC0yU3R3aUhYU2lEQW1FOXYybVkzUTVOM0phcElwVVFDOUs3aVRnOEZ4cGtIVkpwc2NTaXlub3lkZ2VidURrcktzeDNIWkFhalpwTGphNGYxRQ?oc=5",
           "source": "UEFA.com",
-          "published": "2026-11-03"
+          "published": "2026-11-04"
         },
         {
-          "title": "Football Live Scores: FC Porto vs Napoli, UEFA Champions League, 2026-27 | Nine Wide World of Sports",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNWFBoc0t4aThVTk1McjAxdHhwd2x0cnZYNnpBTUJuTmtzckdKaVhrOUVfRXljVEpNSGFfdF9GelNORzMxbTJjMkk0d3gzRjNvbXhlQjBubHhSNUsycjRoTzc5dWxMek5Qb2NTTE9nR21heVc2OFp6ZFQ2bmZLRXdWQ2p5Q0EyTXM?oc=5",
-          "source": "Nine.com.au",
-          "published": "2026-11-03"
-        },
-        {
-          "title": "Football Live Scores: Borussia Dortmund vs Real Betis, UEFA Champions League, 2026-27 | Nine Wide World of Sports",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPa0R5UXpJUGRwd1JJRG1Obmp0eDhYNGxVRDBNRDNDUG9kVHFzdDdBVlZqM0NBSk4xSllxbGJMUzdNVEItTGxIT1RKZnNFbHd4VzRqM0czTlpUOE9nSkZVcmxJRFJPbENDeVdEd2NxWUlKX3VIWHlmS3Jyd3NNdE1JNF9fU3JDV0RGOWpIakVvVFo0ZC1MaE94Qw?oc=5",
-          "source": "Nine.com.au",
-          "published": "2026-11-03"
-        },
-        {
-          "title": "Football Live Scores: Getafe CF vs Sevilla FC, LaLiga, 2026/27 | Nine Wide World of Sports",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNQ25sVWxPMjgwZ0RiaWVKXzVleVlQY3dGeWlwQmctNENkYUxWbjRCUlZSZlU4MHdZclZYelBzTngwNmo5Q0twckViOVdlZ2NWQ1VROC1zLXJQTjlNSVp5U3JWdF8zbUo3c3BpclVsSEYwaVprZUg5bFZqNWl0YjJSN2ZhdTVSdHdDSXRjTmtR?oc=5",
-          "source": "Nine.com.au",
-          "published": "2026-11-03"
-        },
-        {
-          "title": "Football Live Scores: Manchester United vs Roma, UEFA Champions League, 2026-27 | Nine Wide World of Sports",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxORFMwWWRFTWZHbmpKMU9aZHcwc0NWMXJkSElVUU5oTTMtMUFFNklqQWRqQnZZV1JHYVhUR1ZrU3dIVE1MM3pRS1hWOWNMYmgzQUFoVXlqOW5UTnNNcEpqWEpnYWl1SnBrZy01dTh3Nlp6SmVsVGo0Mm9XWHI2ZXNVamFSMzhOZUk4VHo2RE9Nemc?oc=5",
-          "source": "Nine.com.au",
-          "published": "2026-11-03"
+          "title": "PSV vs Club Brugge Prediction, Betting Tips, Team News - 4 November 2026",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNM1kyYTRqbTdhbkhBM2l1SjlXV3RMQmRWZy1fb2dOdEtDT2FmRHNaNWs1bzN3MWF2UmplMXZ0eGpKV2xOekY1eDZncHFXaUhvSk54RUVJd0RoTC1LZmtSTzFuRzUwRGhlMkFVZ2xWUDFYd1MxcVEzd2FBQkx6X1VmT2szQjBBdURCWXNsbFRuUVZKajEtbUtUT2RXZHpua1ZtbUdScWtkdGtERmpSNnJSajJFUS1WajdjaUJiaWlpbFJBUQ?oc=5",
+          "source": "Betfred Insights",
+          "published": "2026-11-04"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "PSV Eindhoven (Philips Sport Vereniging) a fost înființat în 1913, la Eindhoven.",
-        "În 1955, PSV a fost primul club neerlandez care a jucat în Cupa Campionilor Europeni, dar a fost eliminat chiar din primul tur de Rapid Wien.",
-        "În sezonul 1963-64, PSV a ajuns în sferturile de finală ale Cupei Campionilor Europeni, fiind eliminată de FC Zürich.",
-        "Echipa legendară a anilor 1970, cu Jan van Beveren, Willy van der Kuijlen și frații René și Willy van de Kerkhof, a dus PSV la primul ei trofeu european, Cupa UEFA din 1977-78, câștigată în finala cu Bastia.",
-        "În 1987-88, sub conducerea lui Guus Hiddink, PSV a cucerit Cupa Campionilor Europeni, singurul ei trofeu de acest fel până acum, învingând Benfica la loviturile de departajare în finala de la Stuttgart, portarul Hans van Breukelen apărând penalty-ul lui António Veloso.",
-        "În 1992-93, odată cu transformarea Cupei Campionilor în UEFA Champions League, PSV a fost din nou primul club neerlandez prezent în noua competiție, dar a încheiat grupa cu un singur punct din șase meciuri.",
-        "Sezonul 2004-05 a fost cel mai bun al PSV în Champions League: echipa, cu Mark van Bommel și Philip Cocu, a ajuns în semifinala competiției, fiind eliminată de Milan după ce a condus cu 2-0 în returul de la Eindhoven."
-      ]
+      "stories": []
     },
     "away": {
       "name": "Club Brugge KV",
@@ -4690,14 +4673,6 @@
             "period": "2025–prezent",
             "note": null
           }
-        ],
-        "funfacts": [
-          "Fotbalist croat (n. 7 februarie 1978), a jucat la Hajduk Split, Málaga și Club Brugge, retrăgându-se la Lokeren.",
-          "A adunat 13 selecții pentru Croația și a fost în lotul pentru Campionatul Mondial din 2006, fără să joace la turneu.",
-          "A debutat ca antrenor în 2014, la OH Leuven, apoi a fost antrenor secund la PAOK, sub Igor Tudor, din 2015.",
-          "La primul lui mandat la Club Brugge, 2017–19, a câștigat campionatul Belgiei și Supercupa Belgiei în 2018, fiind numit și Antrenorul anului în Pro League.",
-          "A mai pregătit Al Ain, Royal Antwerp (cu care a câștigat Cupa Belgiei 2019–20), Shanghai Port, Hajduk Split, Standard Liège și KAA Gent.",
-          "Din 8 decembrie 2025 este din nou antrenorul lui Club Brugge, club cu care a mai cucerit campionatul Belgiei în 2025–26."
         ]
       },
       "formation": "n/d",
@@ -6541,8 +6516,8 @@
         ],
         "ppg": 2,
         "homeAway": "Acasă 1-0-1, deplasare 1-0-0",
-        "position": 11,
-        "note": "Clasament 2026/27: locul 11, 6p (9-6)",
+        "position": 13,
+        "note": "Clasament 2026/27: locul 13, 6p (9-6)",
         "table": {
           "played": 3,
           "win": 2,
@@ -6560,7 +6535,7 @@
             "comp": "Jupiler Pro League",
             "score": "4-2",
             "result": "W",
-            "referee": "Lawrence Visser, Belgium",
+            "referee": "L. Visser",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-3-2-1"
@@ -6859,7 +6834,7 @@
             "comp": "Jupiler Pro League",
             "score": "3-2",
             "result": "W",
-            "referee": "Nathan Verboomen, Belgium",
+            "referee": "N. Verboomen",
             "formation": {
               "us": "4-2-3-1",
               "opp": null
@@ -8290,65 +8265,55 @@
       "news": [],
       "newsCandidates": [
         {
+          "title": "PSV Eindhoven vs Club Brugge Prediction and Betting Tips | November 4th 2026",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNaTFJR0I3V1hrRzdFdWZSS2puU1dfVGNWWjIwQV9ScUdjNFZuUlhnY2hIRVIyaE90ZXV3WVZsOWlyNl90ckdsaUllNEhCMEh3cHZwWUgyaks3b0poTkdkUklQa1I2WTJxRlJSOVFQM0d4RDZ2V1RxMENlLXMzSjU0Ql9IeVIxSGJwRVZFS0RuY1FXVjg5aVJORlEzUG51X1JoVEduYnpVVWV0N1E?oc=5",
+          "source": "Sportskeeda",
+          "published": "2026-11-04"
+        },
+        {
+          "title": "PSV Eindhoven vs Club Brugge KV Prediction: Goals at Both Ends, Club Brugge KV Edge It",
+          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNM2pNQTFvM0Itajc2NXQwWGZwdEhCc29xUFZaV2dET2NiUHVJMHNIVk1IaWJSN2NMUXRMQ19salVTeTVfcGF6YlloN0I3ejJKSmswdWdJWm9Sd01nOGV6TWliVzhaOV95MmNWa2VtbVhVTngtdDZyeU1BREpuYk8wWDlob3J1VldEYnN1WXRrS25vSW95UjBjMWg5UWt3dTJzUG5QTUFObHBqem1XUC1XZW81djI1SlI3UEwyMXJOZHVubjVyN0hpeFh4VXhvZ2NtekhWMFhzRHV0OTJR?oc=5",
+          "source": "Telecom Asia Sport",
+          "published": "2026-11-04"
+        },
+        {
+          "title": "PSV vs Club Brugge Prediction, Betting Tips, Lineups & Odds | 04 Nov 2026",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQTEFMaWNOUDdNM2pTd3RmV1RGZjZOZ3JVa0d0OFF0bFo2MVhDZGg1ajlpQTdxcXFvSlItX1VTa1FEOGo3d0lSX0FpVTR2MEZ4YmFLalBlR0IyMXN1Qmc1T3lIeVo0RE96ZHRDbHFpdnlHcnAtWDl2NUd5NFpQMmtxSXJjNTlQZ0JnQVlFT1MzTnJNMUc4M1BHMGRIbXJBMnlQMzJURGdrbTVmdw?oc=5",
+          "source": "Sportsgambler",
+          "published": "2026-11-04"
+        },
+        {
+          "title": "PSV Eindhoven UEFA U19 - Club Brugge UEFA U19, 04/11/2026 - UEFA Youth League - Match sheet",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBXTGkxSHNTZTFSc0p6Q29hdGpyY3Z2eVVqRGM2Y29Vb0ZrcWJNNDN0NE5pVHRObEh2UHFOaDFPZFR6WTBmZXBXRkZSZEVCNHZMbU13a0QycWtBbng4TGF6ZFQ1NG5WQnRXNTRKSXU0UmwyMkdsSGk3OA?oc=5",
+          "source": "Transfermarkt",
+          "published": "2026-11-04"
+        },
+        {
+          "title": "Picks from the Europa League Games: Accumulator Tips for November 5th, 2026",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPcHZYeDJLZ3l5X0FvVWZtXzJFZWpSQm40ZU5uTVpxRmdIWmxjVzhmUVBQOU9NcGRXNHZZZmVILVFNZWp0SVlKbEgwS0tKUmRuU0JNdXBmY3BQLVJLdldCTGpQeFVPOTRaMGM5alZDTWJQM0plR284MDlheUdkRzNsb0VBcThzVmtwSlVrM3NhQTI3dS1Zek1vaWNncDM2QQ?oc=5",
+          "source": "Telecom Asia Sport",
+          "published": "2026-11-04"
+        },
+        {
+          "title": "Antwerp - Club Brugge KV",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNYk1URkN5LTZRQmM4WTZiWHZtbXI5dThsLXNiUlR4M2s3RlZZQjYxakVUMXhPMnVNUGdiTUdsSG53WWlXdERvZFNyS3dwbGVNdlBEaURuTTJNN2t2VVk4d1pKT3dPMEVwbmxIS3BURXprMmFrOUhCbmIxTmNyV3FpdGREWmZRNW8?oc=5",
+          "source": "Flashscore.com",
+          "published": "2026-11-03"
+        },
+        {
           "title": "PSV - Club Brugge KV",
           "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQbkE4eWJObGNWNXgyaGhvdzl2Unl5UXN0YzB6ZTVtbjBaR2FhU0d3T2NORE5vT29TTzJGQTJEaGI0S2NtMG43M1NiaFBiRFpZRnA1T3drMy1JLVpMdWdTODhObFRwOHBvTTBiVUFUTVV6ak5EVlk5N3BIZnY4V1NtTFJJckVBTE1wMk1PS29lemtkZ0wzdlNrNFFkTng2MGtSNjR3NHZrT2o?oc=5",
           "source": "Flashscore.com",
           "published": "2026-11-03"
         },
         {
-          "title": "PSV v Club Brugge KV LIVE 04/11/2026 | Football",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOay14QUhqVXNnN1J5ZUFwUDk1WEdNRlhhUm9vOHBMbF9jU19hMEVrcXJGUEw5QnoxSjJXMDZMbkN3azlfQlRoUHMzUDFxU2IxLXNnYnBmVzAxTEJDbXVSb1otQXdaVDRvUDc3N0hQNlc5TTVjXy1EV0NNXzBxTGdmOXFkelNXUWt6aUFZb1FOS3dTY0Rsc2tLMy1ja1NVV1JwZDVSNFNOOHlqaTNEcjRleW1pbGdoeXVq?oc=5",
+          "title": "PSV v Club Brugge KV (04/11/2026)",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQVjh6Y0NRZERnVzB5ZWlobnM4TUtXbEhUaG54TUFiaUxpQ2c1MjVkWlk5Ylg0dFZnYTFqcVFUQW8zbE8zU09sZDRMSnAyS21XVldqSjRwT1UwUllZYV9jR0pPZGVGZTdEQ3Bhb0RaaDNzRExpWlJfX0hjMi1ubHVxVjM1TUhRdWFyRkxQaDBybHRDUkxlSDN6SVY1V2k0bjA?oc=5",
           "source": "Flashscore.com",
           "published": "2026-11-03"
-        },
-        {
-          "title": "Team A vs Team B Football Playing XI | Confirmed Team Line-ups & Substitutes",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOV3RVT0QtTElFWFF2YTY0cWJ5RTI2QnY4TW1rSWl1ZmFULXpJampONEt1YUo4RWRDbjVUZl9xRk41bFVfTkNMNHBaOVFfTWUxRm1Bd2ZOZjZGZXR6ZFFvXzJuYVdUc1Jtdk5hcHdHcVhPX3VrbXpZbDd6Wi01NEhaYk1FTVFLdw?oc=5",
-          "source": "Firstpost",
-          "published": "2026-11-03"
-        },
-        {
-          "title": "PSV vs Club Brugge Prediction, Betting Tips, Lineups & Odds | 04 Nov 2026",
-          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQTEFMaWNOUDdNM2pTd3RmV1RGZjZOZ3JVa0d0OFF0bFo2MVhDZGg1ajlpQTdxcXFvSlItX1VTa1FEOGo3d0lSX0FpVTR2MEZ4YmFLalBlR0IyMXN1Qmc1T3lIeVo0RE96ZHRDbHFpdnlHcnAtWDl2NUd5NFpQMmtxSXJjNTlQZ0JnQVlFT1MzTnJNMUc4M1BHMGRIbXJBMnlQMzJURGdrbTVmdw?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-11-03"
-        },
-        {
-          "title": "PSV Eindhoven vs Club Brugge Prediction and Betting Tips | November 4th 2026",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNaTFJR0I3V1hrRzdFdWZSS2puU1dfVGNWWjIwQV9ScUdjNFZuUlhnY2hIRVIyaE90ZXV3WVZsOWlyNl90ckdsaUllNEhCMEh3cHZwWUgyaks3b0poTkdkUklQa1I2WTJxRlJSOVFQM0d4RDZ2V1RxMENlLXMzSjU0Ql9IeVIxSGJwRVZFS0RuY1FXVjg5aVJORlEzUG51X1JoVEduYnpVVWV0N1E?oc=5",
-          "source": "Sportskeeda",
-          "published": "2026-11-02"
-        },
-        {
-          "title": "Battle of the BeNe League: PSV and Club Brugge set for rare Champions League clash",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxONWRfdWNONWtkXzhHQXRVU2tUblh4cXNKZmdzaVZHQzlUZnpZQTZQNzNBQkp4Ujl6bW9OcFk1UDRDeThBaUhnbE03UG1HZXhtQkw0UkhRa3YyT1ZKWHNheFhDaUxzTmxoUkRxcFdReFhHOU1QYlBneVR4Smh6dkJYYWpfTjZEVkdBTUNxQ19QdDY2aldXRUJBckFhWWIxV3ZFUXVkQTFfcy01MnNWV1Nhbk41VmE?oc=5",
-          "source": "Get Belgian & Dutch Football News",
-          "published": "2026-11-02"
-        },
-        {
-          "title": "UEFA Champions League Matchday 4 Predictions: Best Bets, Total Goals & Handicap Picks",
-          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPalNZZmRJc2JLaWYzUXhkQ1B0RzVoZE9lbDl4d0dmbzNmblloTzBicll6aXFzTUdfTDg0M0RjVVIxRlBEczdpMUNqNXBUcUJhZUQ5cWxsdGJDX1VGbWJtVW05eFh2ajItNHhrbWtjYU1Wd1F3eG0tT1dPSTk5TE9iMXlfOThBdzRDck5nb0s2eE5tM0tNbGFaWUM1bFF4cnB2eEt4Z2dhbFpLT3FwUGMwa2h1RXVjbVhLdzRmQUhSWTgzYjctYmc?oc=5",
-          "source": "VegasOdds.com",
-          "published": "2026-11-01"
-        },
-        {
-          "title": "Roma scouting Club Brugge’s Carlos Forbs but Real Madrid’s Endrick is priority",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOSE9lUmhpNFh2MGx2aGFMTXRWTlQyU0JaS1RnWEs1cXZkMjd5WmpCLXlMSE9rYzdVbnlKcjdRN0p2bTdCcmV0U0t6V1VhZjBLWURCVDJKa01qM1NNZUFhVVNMNW1IOVlSeERPdjV0U2RYcXFpZ0t2SUk0dWVWQmtJR3hUd240QXc5WkptLTFiWmwxVnZnRzk3MFZsWE5YdkZFUTFza1hkM2FHNERPS3QzMjFudWZuLVVmdjdJ?oc=5",
-          "source": "Get Italian Football News",
-          "published": "2026-10-31"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "Club Brugge a fost înființat oficial la 13 noiembrie 1891, sub numele Brugsche FC, provenit din fuziunea unor elevi de la două școli din Bruges.",
-        "Club Brugge este al doilea cel mai titrat club din Belgia, cu 20 de titluri de campion, record de 12 Cupe ale Belgiei și record de 18 Supercupe ale Belgiei.",
-        "Club Brugge este singurul club belgian care a jucat o finală de Cupă a Campionilor Europeni, pierdută în 1978 cu Liverpool, după ce în 1976 pierduse și finala Cupei UEFA tot cu Liverpool.",
-        "Sub austriacul Ernst Happel, Club Brugge a cucerit trei titluri consecutive de campion, între 1976 și 1978, și a ajuns în cele două finale europene.",
-        "Stadionul Jan Breydel este folosit de club din 1975 și a fost redenumit în 1998 în onoarea revoluționarului Jan Breydel; arena este împărțită cu rivalul local Cercle Brugge.",
-        "Club Brugge are rivalități puternice cu Anderlecht, meci numit „jocul urii”, cu Cercle Brugge în derby-ul orașului Bruges și cu Antwerp, rivalitate care datează din 1908.",
-        "Mascota oficială a clubului este un urs, simbol al orașului Bruges, legat de o legendă despre primul conte al Flandrei, Baldwin I.",
-        "Club Brugge deține recordul european pentru cele mai multe participări consecutive în UEFA Europa League, 20 la rând."
-      ]
+      "stories": []
     }
   },
   "standings": {
@@ -8359,32 +8324,46 @@
         "rank": 1,
         "teamId": 85,
         "team": "Paris Saint Germain",
-        "played": 3,
-        "win": 3,
+        "played": 4,
+        "win": 4,
         "draw": 0,
         "loss": 0,
-        "gf": 14,
+        "gf": 20,
         "ga": 5,
-        "gd": 9,
-        "points": 9,
-        "form": "WWW"
+        "gd": 15,
+        "points": 12,
+        "form": "WWWW"
       },
       {
         "rank": 2,
-        "teamId": 66,
-        "team": "Aston Villa",
-        "played": 3,
+        "teamId": 529,
+        "team": "Barcelona",
+        "played": 4,
         "win": 3,
         "draw": 0,
-        "loss": 0,
-        "gf": 12,
-        "ga": 3,
-        "gd": 9,
+        "loss": 1,
+        "gf": 14,
+        "ga": 6,
+        "gd": 8,
         "points": 9,
-        "form": "WWW"
+        "form": "WLWW"
       },
       {
         "rank": 3,
+        "teamId": 66,
+        "team": "Aston Villa",
+        "played": 4,
+        "win": 3,
+        "draw": 0,
+        "loss": 1,
+        "gf": 12,
+        "ga": 6,
+        "gd": 6,
+        "points": 9,
+        "form": "LWWW"
+      },
+      {
+        "rank": 4,
         "teamId": 40,
         "team": "Liverpool",
         "played": 3,
@@ -8398,7 +8377,7 @@
         "form": "WWW"
       },
       {
-        "rank": 4,
+        "rank": 5,
         "teamId": 541,
         "team": "Real Madrid",
         "played": 3,
@@ -8412,7 +8391,21 @@
         "form": "WWW"
       },
       {
-        "rank": 5,
+        "rank": 6,
+        "teamId": 228,
+        "team": "Sporting CP",
+        "played": 4,
+        "win": 3,
+        "draw": 0,
+        "loss": 1,
+        "gf": 8,
+        "ga": 4,
+        "gd": 4,
+        "points": 9,
+        "form": "WLWW"
+      },
+      {
+        "rank": 7,
         "teamId": 543,
         "team": "Real Betis",
         "played": 3,
@@ -8426,21 +8419,21 @@
         "form": "WWW"
       },
       {
-        "rank": 6,
-        "teamId": 172,
-        "team": "VfB Stuttgart",
-        "played": 3,
+        "rank": 8,
+        "teamId": 157,
+        "team": "Bayern München",
+        "played": 4,
         "win": 2,
-        "draw": 1,
+        "draw": 2,
         "loss": 0,
-        "gf": 7,
-        "ga": 2,
-        "gd": 5,
-        "points": 7,
-        "form": "DWW"
+        "gf": 12,
+        "ga": 5,
+        "gd": 7,
+        "points": 8,
+        "form": "WDDW"
       },
       {
-        "rank": 7,
+        "rank": 9,
         "teamId": 42,
         "team": "Arsenal",
         "played": 3,
@@ -8454,21 +8447,21 @@
         "form": "DWW"
       },
       {
-        "rank": 8,
-        "teamId": 529,
-        "team": "Barcelona",
-        "played": 3,
+        "rank": 10,
+        "teamId": 172,
+        "team": "VfB Stuttgart",
+        "played": 4,
         "win": 2,
-        "draw": 0,
+        "draw": 1,
         "loss": 1,
-        "gf": 11,
-        "ga": 6,
-        "gd": 5,
-        "points": 6,
-        "form": "LWW"
+        "gf": 7,
+        "ga": 4,
+        "gd": 3,
+        "points": 7,
+        "form": "LDWW"
       },
       {
-        "rank": 9,
+        "rank": 11,
         "teamId": 895,
         "team": "Como",
         "played": 3,
@@ -8482,7 +8475,7 @@
         "form": "WLW"
       },
       {
-        "rank": 10,
+        "rank": 12,
         "teamId": 50,
         "team": "Manchester City",
         "played": 3,
@@ -8496,7 +8489,7 @@
         "form": "WLW"
       },
       {
-        "rank": 11,
+        "rank": 13,
         "teamId": 569,
         "team": "Club Brugge KV",
         "played": 3,
@@ -8510,21 +8503,35 @@
         "form": "WWL"
       },
       {
-        "rank": 12,
-        "teamId": 228,
-        "team": "Sporting CP",
-        "played": 3,
+        "rank": 14,
+        "teamId": 505,
+        "team": "Inter",
+        "played": 4,
         "win": 2,
         "draw": 0,
-        "loss": 1,
-        "gf": 7,
-        "ga": 4,
-        "gd": 3,
+        "loss": 2,
+        "gf": 8,
+        "ga": 6,
+        "gd": 2,
         "points": 6,
-        "form": "LWW"
+        "form": "WWLL"
       },
       {
-        "rank": 13,
+        "rank": 15,
+        "teamId": 1026,
+        "team": "Lask Linz",
+        "played": 4,
+        "win": 2,
+        "draw": 0,
+        "loss": 2,
+        "gf": 10,
+        "ga": 9,
+        "gd": 1,
+        "points": 6,
+        "form": "WWLL"
+      },
+      {
+        "rank": 16,
         "teamId": 165,
         "team": "Borussia Dortmund",
         "played": 3,
@@ -8538,63 +8545,63 @@
         "form": "WLW"
       },
       {
-        "rank": 14,
-        "teamId": 157,
-        "team": "Bayern München",
-        "played": 3,
-        "win": 1,
-        "draw": 2,
-        "loss": 0,
-        "gf": 10,
-        "ga": 5,
-        "gd": 5,
-        "points": 5,
-        "form": "DDW"
-      },
-      {
-        "rank": 15,
-        "teamId": 497,
-        "team": "AS Roma",
-        "played": 3,
-        "win": 1,
-        "draw": 1,
-        "loss": 1,
-        "gf": 8,
-        "ga": 5,
-        "gd": 3,
-        "points": 4,
-        "form": "WLD"
-      },
-      {
-        "rank": 16,
-        "teamId": 530,
-        "team": "Atletico Madrid",
-        "played": 3,
-        "win": 1,
-        "draw": 1,
-        "loss": 1,
-        "gf": 4,
-        "ga": 3,
-        "gd": 1,
-        "points": 4,
-        "form": "DWL"
-      },
-      {
         "rank": 17,
-        "teamId": 550,
-        "team": "Shakhtar Donetsk",
-        "played": 3,
-        "win": 1,
-        "draw": 1,
-        "loss": 1,
-        "gf": 4,
-        "ga": 3,
-        "gd": 1,
-        "points": 4,
-        "form": "LWD"
+        "teamId": 33,
+        "team": "Manchester United",
+        "played": 4,
+        "win": 2,
+        "draw": 0,
+        "loss": 2,
+        "gf": 8,
+        "ga": 8,
+        "gd": 0,
+        "points": 6,
+        "form": "WLLW"
       },
       {
         "rank": 18,
+        "teamId": 645,
+        "team": "Galatasaray",
+        "played": 4,
+        "win": 2,
+        "draw": 0,
+        "loss": 2,
+        "gf": 8,
+        "ga": 9,
+        "gd": -1,
+        "points": 6,
+        "form": "WWLL"
+      },
+      {
+        "rank": 19,
+        "teamId": 497,
+        "team": "AS Roma",
+        "played": 4,
+        "win": 1,
+        "draw": 1,
+        "loss": 2,
+        "gf": 10,
+        "ga": 8,
+        "gd": 2,
+        "points": 4,
+        "form": "LWLD"
+      },
+      {
+        "rank": 20,
+        "teamId": 550,
+        "team": "Shakhtar Donetsk",
+        "played": 4,
+        "win": 1,
+        "draw": 1,
+        "loss": 2,
+        "gf": 4,
+        "ga": 4,
+        "gd": 0,
+        "points": 4,
+        "form": "LLWD"
+      },
+      {
+        "rank": 21,
         "teamId": 197,
         "team": "PSV Eindhoven",
         "played": 3,
@@ -8608,49 +8615,35 @@
         "form": "WLD"
       },
       {
-        "rank": 19,
-        "teamId": 533,
-        "team": "Villarreal",
-        "played": 3,
-        "win": 1,
-        "draw": 0,
-        "loss": 2,
-        "gf": 8,
-        "ga": 8,
-        "gd": 0,
-        "points": 3,
-        "form": "LWL"
-      },
-      {
-        "rank": 20,
-        "teamId": 505,
-        "team": "Inter",
-        "played": 3,
-        "win": 1,
-        "draw": 0,
-        "loss": 2,
-        "gf": 5,
-        "ga": 6,
-        "gd": -1,
-        "points": 3,
-        "form": "WLL"
-      },
-      {
-        "rank": 21,
-        "teamId": 33,
-        "team": "Manchester United",
-        "played": 3,
-        "win": 1,
-        "draw": 0,
-        "loss": 2,
-        "gf": 5,
-        "ga": 6,
-        "gd": -1,
-        "points": 3,
-        "form": "LLW"
-      },
-      {
         "rank": 22,
+        "teamId": 530,
+        "team": "Atletico Madrid",
+        "played": 4,
+        "win": 1,
+        "draw": 1,
+        "loss": 2,
+        "gf": 4,
+        "ga": 5,
+        "gd": -1,
+        "points": 4,
+        "form": "LDWL"
+      },
+      {
+        "rank": 23,
+        "teamId": 327,
+        "team": "Bodo/Glimt",
+        "played": 4,
+        "win": 1,
+        "draw": 1,
+        "loss": 2,
+        "gf": 4,
+        "ga": 9,
+        "gd": -5,
+        "points": 4,
+        "form": "DLWL"
+      },
+      {
+        "rank": 24,
         "teamId": 492,
         "team": "Napoli",
         "played": 3,
@@ -8664,34 +8657,6 @@
         "form": "WLL"
       },
       {
-        "rank": 23,
-        "teamId": 645,
-        "team": "Galatasaray",
-        "played": 3,
-        "win": 1,
-        "draw": 0,
-        "loss": 2,
-        "gf": 6,
-        "ga": 9,
-        "gd": -3,
-        "points": 3,
-        "form": "WLL"
-      },
-      {
-        "rank": 24,
-        "teamId": 1026,
-        "team": "Lask Linz",
-        "played": 3,
-        "win": 1,
-        "draw": 0,
-        "loss": 2,
-        "gf": 6,
-        "ga": 9,
-        "gd": -3,
-        "points": 3,
-        "form": "WLLWL"
-      },
-      {
         "rank": 25,
         "teamId": 13976,
         "team": "Sabah FA",
@@ -8703,24 +8668,10 @@
         "ga": 6,
         "gd": -3,
         "points": 3,
-        "form": "LWLWL"
-      },
-      {
-        "rank": 26,
-        "teamId": 209,
-        "team": "Feyenoord",
-        "played": 3,
-        "win": 1,
-        "draw": 0,
-        "loss": 2,
-        "gf": 4,
-        "ga": 8,
-        "gd": -4,
-        "points": 3,
         "form": "LWL"
       },
       {
-        "rank": 27,
+        "rank": 26,
         "teamId": 116,
         "team": "Lens",
         "played": 3,
@@ -8734,21 +8685,7 @@
         "form": "LLW"
       },
       {
-        "rank": 28,
-        "teamId": 327,
-        "team": "Bodo/Glimt",
-        "played": 3,
-        "win": 1,
-        "draw": 0,
-        "loss": 2,
-        "gf": 4,
-        "ga": 9,
-        "gd": -5,
-        "points": 3,
-        "form": "LWLWW"
-      },
-      {
-        "rank": 29,
+        "rank": 27,
         "teamId": 575,
         "team": "AEK Athens FC",
         "played": 3,
@@ -8759,10 +8696,10 @@
         "ga": 8,
         "gd": -5,
         "points": 3,
-        "form": "LLWWD"
+        "form": "LLW"
       },
       {
-        "rank": 30,
+        "rank": 28,
         "teamId": 173,
         "team": "RB Leipzig",
         "played": 3,
@@ -8776,6 +8713,34 @@
         "form": "LWL"
       },
       {
+        "rank": 29,
+        "teamId": 533,
+        "team": "Villarreal",
+        "played": 4,
+        "win": 1,
+        "draw": 0,
+        "loss": 3,
+        "gf": 8,
+        "ga": 14,
+        "gd": -6,
+        "points": 3,
+        "form": "LLWL"
+      },
+      {
+        "rank": 30,
+        "teamId": 209,
+        "team": "Feyenoord",
+        "played": 4,
+        "win": 1,
+        "draw": 0,
+        "loss": 3,
+        "gf": 4,
+        "ga": 11,
+        "gd": -7,
+        "points": 3,
+        "form": "LLWL"
+      },
+      {
         "rank": 31,
         "teamId": 611,
         "team": "Fenerbahçe",
@@ -8787,7 +8752,7 @@
         "ga": 9,
         "gd": -6,
         "points": 2,
-        "form": "DLDWD"
+        "form": "DLD"
       },
       {
         "rank": 32,
@@ -8815,10 +8780,24 @@
         "ga": 9,
         "gd": -4,
         "points": 1,
-        "form": "LDLWD"
+        "form": "LDL"
       },
       {
         "rank": 34,
+        "teamId": 79,
+        "team": "Lille",
+        "played": 4,
+        "win": 0,
+        "draw": 1,
+        "loss": 3,
+        "gf": 4,
+        "ga": 10,
+        "gd": -6,
+        "points": 1,
+        "form": "DLLL"
+      },
+      {
+        "rank": 35,
         "teamId": 212,
         "team": "FC Porto",
         "played": 3,
@@ -8832,32 +8811,18 @@
         "form": "LLL"
       },
       {
-        "rank": 35,
-        "teamId": 79,
-        "team": "Lille",
-        "played": 3,
-        "win": 0,
-        "draw": 0,
-        "loss": 3,
-        "gf": 4,
-        "ga": 10,
-        "gd": -6,
-        "points": 0,
-        "form": "LLL"
-      },
-      {
         "rank": 36,
         "teamId": 656,
         "team": "Slovan Bratislava",
-        "played": 3,
+        "played": 4,
         "win": 0,
         "draw": 0,
-        "loss": 3,
+        "loss": 4,
         "gf": 1,
-        "ga": 13,
-        "gd": -12,
+        "ga": 17,
+        "gd": -16,
         "points": 0,
-        "form": "LLLWD"
+        "form": "LLLL"
       }
     ]
   }
