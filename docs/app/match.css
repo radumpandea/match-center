@@ -412,6 +412,8 @@ table.mc.playerstats td,table.mc.playerstats th{padding:2px 5px;white-space:nowr
 table.mc.playerstats .pst-name{max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 table.mc.playerstats td:not(.pst-name){text-align:center;font-variant-numeric:tabular-nums}
 table.mc.playerstats th:not(:first-child){text-align:center}
+table.mc.playerstats th.pst-sort{cursor:pointer;user-select:none}
+table.mc.playerstats th.pst-sort:hover,table.mc.playerstats th.pst-sort.on{color:var(--color-text,inherit)}
 table.mc.standings{font-size:11px;min-width:340px}
 table.mc.standings td,table.mc.standings th{padding:2px 5px;white-space:nowrap}
 table.mc.standings .st-team{max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

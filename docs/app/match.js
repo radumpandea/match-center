@@ -17,6 +17,7 @@
   // match has been translated yet) and just means every language shows the
   // Romanian original, same as before this existed.
   var i18nDoc = null;
+  var psSort = {};   // player-stats table sort per side: { home|away: { col, dir } }
   var curFixture = null;   // this match's fixtures.json row (eventId / homeId / awayId for the API lineup button)
 
   // The API sometimes sends names with HTML entities ("L. O&apos;Nien"). Packs are cleaned when written, but a
@@ -2946,29 +2947,64 @@
             .sort(function (a, b) { return ((b.stats && b.stats.minutes) || 0) - ((a.stats && a.stats.minutes) || 0); });
           if (!rows.length) return;
           wrap.appendChild(el('h4', { text: (tm.shortName || tm.name) + ' — ' + t('stats.playerTable') }));
-          var head = el('tr', {}, ['', t('th.apps'), t('th.min'), t('th.goals'), t('th.assists'), t('th.rating'),
-            t('th.shots'), t('th.keyPasses'), t('th.tackles'), t('th.duelsWon'), t('th.dribbles'), t('th.fouls'), t('th.cards')
-          ].map(function (h) { return el('th', { text: h }); }));
-          var tb = el('table', { class: 'mc playerstats' }, [head]);
-          rows.forEach(function (p) {
-            var s = p.stats || {};
-            tb.appendChild(el('tr', {}, [
-              el('td', { class: 'pst-name', text: p.name }),
-              el('td', { text: has(s.apps) ? s.apps : '' }),
-              el('td', { text: has(s.minutes) ? s.minutes : '' }),
-              el('td', { text: has(s.goals) ? s.goals : '' }),
-              el('td', { text: has(s.assists) ? s.assists : '' }),
-              el('td', { text: has(s.rating) ? s.rating : '' }),
-              el('td', { text: has(s.shotsTotal) ? (has(s.shotsOn) ? s.shotsOn + '/' : '') + s.shotsTotal : '' }),
-              el('td', { text: has(s.passesKey) ? s.passesKey : '' }),
-              el('td', { text: has(s.tacklesTotal) ? s.tacklesTotal : '' }),
-              el('td', { text: has(s.duelsTotal) ? (has(s.duelsWon) ? s.duelsWon + '/' : '') + s.duelsTotal : '' }),
-              el('td', { text: has(s.dribblesAttempts) ? (has(s.dribblesSuccess) ? s.dribblesSuccess + '/' : '') + s.dribblesAttempts : '' }),
-              el('td', { text: has(s.foulsCommitted) ? s.foulsCommitted : '' }),
-              el('td', { text: [has(s.yellow) && ('🟨' + s.yellow), has(s.red) && ('🟥' + s.red)].filter(Boolean).join(' ') })
-            ]));
-          });
-          wrap.appendChild(el('div', { class: 'standings-wrap' }, [tb]));
+          // Each column: header, sort key (null = empty) and the cell text. Click a header to sort by it
+          // (numbers: biggest first, again = smallest first; name: A-Z, again = Z-A). The choice survives
+          // re-renders (psSort) so a note or a toggle elsewhere does not reset the table.
+          var num = function (v) { return has(v) ? Number(v) : null; };
+          var ratio = function (a, b) { return has(b) ? (has(a) ? a + '/' : '') + b : ''; };
+          var cols = [
+            { h: '', name: true, key: function (s, p) { return p.name || ''; }, txt: function (s, p) { return p.name; } },
+            { h: t('th.apps'), key: function (s) { return num(s.apps); }, txt: function (s) { return has(s.apps) ? s.apps : ''; } },
+            { h: t('th.min'), key: function (s) { return num(s.minutes); }, txt: function (s) { return has(s.minutes) ? s.minutes : ''; } },
+            { h: t('th.goals'), key: function (s) { return num(s.goals); }, txt: function (s) { return has(s.goals) ? s.goals : ''; } },
+            { h: t('th.assists'), key: function (s) { return num(s.assists); }, txt: function (s) { return has(s.assists) ? s.assists : ''; } },
+            { h: t('th.rating'), key: function (s) { return num(s.rating); }, txt: function (s) { return has(s.rating) ? s.rating : ''; } },
+            { h: t('th.shots'), key: function (s) { return num(s.shotsTotal); }, txt: function (s) { return ratio(s.shotsOn, s.shotsTotal); } },
+            { h: t('th.keyPasses'), key: function (s) { return num(s.passesKey); }, txt: function (s) { return has(s.passesKey) ? s.passesKey : ''; } },
+            { h: t('th.tackles'), key: function (s) { return num(s.tacklesTotal); }, txt: function (s) { return has(s.tacklesTotal) ? s.tacklesTotal : ''; } },
+            { h: t('th.duelsWon'), key: function (s) { return num(s.duelsWon); }, txt: function (s) { return ratio(s.duelsWon, s.duelsTotal); } },
+            { h: t('th.dribbles'), key: function (s) { return num(s.dribblesSuccess); }, txt: function (s) { return ratio(s.dribblesSuccess, s.dribblesAttempts); } },
+            { h: t('th.fouls'), key: function (s) { return num(s.foulsCommitted); }, txt: function (s) { return has(s.foulsCommitted) ? s.foulsCommitted : ''; } },
+            { h: t('th.cards'), key: function (s) { return (has(s.yellow) || has(s.red)) ? (Number(s.red) || 0) * 100 + (Number(s.yellow) || 0) : null; },
+              txt: function (s) { return [has(s.yellow) && ('🟨' + s.yellow), has(s.red) && ('🟥' + s.red)].filter(Boolean).join(' '); } }
+          ];
+          var tbWrap = el('div', { class: 'standings-wrap' });
+          var drawTable = function () {
+            var st = psSort[side] || { col: 2, dir: -1 };   // default: minutes played, most first
+            var c = cols[st.col];
+            var sorted = rows.slice().sort(function (a, b) {
+              var ka = c.key(a.stats || {}, a), kb = c.key(b.stats || {}, b);
+              if (ka == null && kb == null) kb = ka = 0;
+              else if (ka == null) return 1;           // empty values always go last, whichever the direction
+              else if (kb == null) return -1;
+              var r = c.name ? String(ka).localeCompare(String(kb), undefined, { sensitivity: 'base' }) : ka - kb;
+              if (r) return r * st.dir;
+              return ((b.stats && b.stats.minutes) || 0) - ((a.stats && a.stats.minutes) || 0);
+            });
+            var head = el('tr', {}, cols.map(function (cc, i) {
+              var on = i === st.col;
+              return el('th', {
+                class: 'pst-sort' + (on ? ' on' : ''), title: t('stats.sortBy'),
+                'aria-sort': on ? (st.dir > 0 ? 'ascending' : 'descending') : 'none',
+                text: (cc.h || t('stats.player')) + (on ? (st.dir > 0 ? ' ▲' : ' ▼') : ''),
+                onclick: function () {
+                  psSort[side] = { col: i, dir: on ? -st.dir : (cc.name ? 1 : -1) };
+                  drawTable();
+                }
+              });
+            }));
+            var tb = el('table', { class: 'mc playerstats' }, [head]);
+            sorted.forEach(function (p) {
+              var s = p.stats || {};
+              tb.appendChild(el('tr', {}, cols.map(function (cc, i) {
+                return el('td', i === 0 ? { class: 'pst-name', text: p.name } : { text: cc.txt(s, p) });
+              })));
+            });
+            tbWrap.innerHTML = '';
+            tbWrap.appendChild(tb);
+          };
+          drawTable();
+          wrap.appendChild(tbWrap);
         });
       }
       add('advancedStats', panel(t('panel.advancedStats'), wrap));
