@@ -680,8 +680,15 @@
   // skeleton/prep/live data has — applied fresh on every render() call.
   function applyManualOverlay(d) {
     var man = store.manual;
+    // The referee from the data is kept aside so removing a manual one brings it back.
+    if (man && man.referee) {
+      if (d._ref0 === undefined) d._ref0 = d.referee || null;
+      d.referee = man.referee;
+    } else if (d._ref0 !== undefined) {
+      d.referee = d._ref0;
+      delete d._ref0;
+    }
     if (!man) return;
-    if (man.referee) d.referee = man.referee;
     if (man.venue) d.venue = man.venue;
     ['home', 'away'].forEach(function (side) {
       if (man.coach && man.coach[side]) d.teams[side].coach = man.coach[side];
@@ -3875,6 +3882,19 @@
         if (has(r.rcPerMatch)) kv.appendChild(el('span', { html: '<b>' + t('referee.rcPerMatch') + '</b>' + esc(r.rcPerMatch) }));
         var wrap = el('div', {}, [kv]);
         if (has(r.history)) wrap.appendChild(el('p', { text: r.history }));
+        if (store.manual && store.manual.referee) {
+          wrap.appendChild(el('div', { class: 'notes-row' }, [el('button', {
+            class: 'pick', text: t('referee.removeManual'),
+            onclick: function (e) {
+              delete store.manual.referee;
+              if (!Object.keys(store.manual).length) delete store.manual;
+              save();
+              var back = e.target.closest('.modal-back');
+              if (back) back.remove();
+              render(d);
+            }
+          })]));
+        }
         return wrap;
       },
       [t('referee.tabFunfact')]: function () {
