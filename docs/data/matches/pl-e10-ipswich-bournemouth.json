@@ -36,16 +36,17 @@
       "windKph": 5,
       "precipitationMm": 0,
       "forecastAt": "2026-11-07T11:06:15.088Z"
-    }
+    },
+    "cityInfo": "Ipswich este un oraș-port din comitatul Suffolk, în estul Angliei, situat pe malurile râului Orwell, la aproximativ 105 kilometri nord-est de Londra. Orașul are rădăcini anglo-saxone, a fost bază comercială a Ligii Hanseatice și punct de plecare pentru puritanii emigrați spre Noua Anglie. Astăzi economia orașului se bazează pe asigurări și pe activitatea portuară, iar Ipswich e cunoscut pentru muzeele sale și pentru clubul Ipswich Town, fondat în 1878."
   },
   "referee": {
     "name": "Simon Hooper",
-    "country": null,
+    "country": "England",
     "age": null,
-    "apps": null,
-    "ycPerMatch": null,
-    "rcPerMatch": null,
-    "history": null,
+    "apps": 335,
+    "ycPerMatch": 4.07,
+    "rcPerMatch": 0.13,
+    "history": "A condus AFC Bournemouth în 29 de meciuri din toate competițiile, acordând Cherries-ilor 9 penalty-uri și doar 2 împotrivă; nu există date confirmate despre un istoric specific cu Ipswich Town.",
     "funfacts": [
       "Hooper este un arbitru englez care activează în principal în Premier League, având drept comitet local Wiltshire Football Association.",
       "A fost promovat în Select Group, eșalonul arbitrilor de elită din Anglia, în 2018.",
@@ -1167,7 +1168,10 @@
     "Marcus Tavernier a fost destructiv: 5 goluri în doar 9 etape, rata de gol de 0.56 pe meci.",
     "Ipswich are o problemă de cronometru: 40% din golurile marcate după minutul 75 — eficiență în fuziune doar în repriza a doua.",
     "Cap la cap: doar 1 victorie pentru gazde în 6 meciuri directe — Bournemouth e dominant în duel.",
-    "Diferența de formă: Ipswich pe locul 14, Bournemouth pe 8 — o prăpastie de 9 puncte."
+    "Diferența de formă: Ipswich pe locul 14, Bournemouth pe 8 — o prăpastie de 9 puncte.",
+    "Asimetrie la 11 metri: Ipswich 100% penalty-uri transformate, Bournemouth 0% — un detaliu care poate decide un meci strâns.",
+    "Simon Hooper, arbitrul meciului, l-a condus pe Bournemouth de 29 de ori în carieră — cu 9 penalty-uri acordate lor și doar 2 împotrivă.",
+    "Gary O'Neil, antrenorul lui Ipswich, revine în fața lui Bournemouth — clubul pe care l-a pregătit între 2022 și 2023, înainte de a fi demis."
   ],
   "predictions": {
     "winnerName": "Bournemouth",
@@ -1219,11 +1223,16 @@
         "country": "England",
         "age": 43,
         "birthDate": "1983-05-18",
-        "tenureFrom": "2026-09",
+        "tenureFrom": "2026-06",
         "career": [
           {
             "club": "Ipswich",
             "period": "2026–prezent",
+            "note": null
+          },
+          {
+            "club": "RC Strasbourg",
+            "period": "2026 (ian.–iun.)",
             "note": null
           },
           {
@@ -1254,8 +1263,75 @@
           "Englez, O'Neil s-a născut pe 18 mai 1983."
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
+      "formation": "4-2-3-1",
+      "predictedXI": [
+        {
+          "apiId": 19541,
+          "number": 28,
+          "name": "Christian Walton",
+          "pos": "GK"
+        },
+        {
+          "apiId": 358166,
+          "number": 42,
+          "name": "Abdoul Ouattara",
+          "pos": "RB"
+        },
+        {
+          "apiId": 17597,
+          "number": 26,
+          "name": "D. O'Shea",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 18814,
+          "number": 6,
+          "name": "Issa Diop",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 19119,
+          "number": 3,
+          "name": "Leif Davis",
+          "pos": "LB"
+        },
+        {
+          "apiId": 575,
+          "number": 12,
+          "name": "Florentino",
+          "pos": "DM"
+        },
+        {
+          "apiId": 6002,
+          "number": 25,
+          "name": "Exequiel Palacios",
+          "pos": "CM"
+        },
+        {
+          "apiId": 303467,
+          "number": 7,
+          "name": "Abdul Fatawu",
+          "pos": "RW"
+        },
+        {
+          "apiId": 70747,
+          "number": 10,
+          "name": "Julio Enciso",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 138931,
+          "number": 11,
+          "name": "Jaden Philogene",
+          "pos": "LW"
+        },
+        {
+          "apiId": 321648,
+          "number": 19,
+          "name": "Emersonn",
+          "pos": "ST"
+        }
+      ],
       "confirmedXI": null,
       "substitutes": null,
       "squad": [
@@ -5005,7 +5081,7 @@
         {
           "name": "E. Palacios",
           "from": "Bayer Leverkusen",
-          "fee": null
+          "fee": "~30M EUR (cu bonusuri)"
         },
         {
           "name": "J. Enciso",
@@ -5169,11 +5245,33 @@
       ],
       "stories": [
         {
-          "title": "Ipswich în lupta pentru supraviețuire",
+          "title": "Ipswich, în lupta pentru supraviețuire",
           "bullets": [
-            "Locul 14 cu doar 11 puncte după 9 etape — presiune pe ca fi salveze sezonul.",
-            "Leif Davis singur marcator notabil (2 goluri) — atac prea dependent pe o singură sursă.",
-            "Eficiență ciudată: jumătate din goluri vin după 75 minute — lipsa controlului timpului."
+            "Locul 14, cu doar 11 puncte după 9 etape — presiune mare pe Gary O'Neil să stabilizeze echipa.",
+            "Leif Davis e singurul jucător cu mai mult de un gol (2) — atacul depinde prea mult de o singură sursă.",
+            "Jumătate dintre golurile marcate vin după minutul 75 — fie curaj pe final de meci, fie lipsă de control pe tot parcursul lui."
+          ]
+        },
+        {
+          "title": "Un lot reconstruit aproape integral în vară",
+          "bullets": [
+            "O'Neil a adus circa 15 jucători noi, inclusiv transferul-record al clubului: Exequiel Palacios de la Bayer Leverkusen (~30 milioane de euro cu bonusuri).",
+            "Clubul a cheltuit și pe Julio Enciso și Abdoul Ouattara (ambii de la Strasbourg), plus Issa Diop și Saša Lukić, veniți din Premier League.",
+            "O echipă aproape complet schimbată față de sezonul promovării din Championship, cu o perioadă de adaptare încă vizibilă în rezultate."
+          ]
+        },
+        {
+          "title": "O'Neil, față în față cu trecutul",
+          "bullets": [
+            "Gary O'Neil a fost antrenorul lui Bournemouth din august 2022 până în iunie 2023, păstrând echipa în Premier League înainte de a fi demis.",
+            "Revine la Portman Road după un sezon la Strasbourg (ianuarie–iunie 2026), de unde a plecat direct la Ipswich, proaspăt promovat."
+          ]
+        },
+        {
+          "title": "Disciplina și fazele fixe",
+          "bullets": [
+            "Ipswich a transformat 100% din penalty-urile acordate în acest sezon.",
+            "Cele mai multe cartonașe galbene ale echipei vin în intervalul 31-45 — semn de nervozitate spre pauză."
           ]
         }
       ],
@@ -5201,7 +5299,7 @@
         "country": "Germany",
         "age": 50,
         "birthDate": "1976-09-11",
-        "tenureFrom": "2026-09",
+        "tenureFrom": "2026-06",
         "career": [
           {
             "club": "Bournemouth",
@@ -5327,8 +5425,75 @@
           "Rose este german și a fost numit antrenor principal la Bournemouth (Premier League) în aprilie 2026, preluând echipa de la 1 iunie 2026."
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
+      "formation": "4-2-3-1",
+      "predictedXI": [
+        {
+          "apiId": 118307,
+          "number": 1,
+          "name": "Đorđe Petrović",
+          "pos": "GK"
+        },
+        {
+          "apiId": 18869,
+          "number": 15,
+          "name": "Adam Smith",
+          "pos": "RB"
+        },
+        {
+          "apiId": 20093,
+          "number": 5,
+          "name": "James Hill",
+          "pos": "RCB"
+        },
+        {
+          "apiId": 331832,
+          "number": 14,
+          "name": "António Silva",
+          "pos": "LCB"
+        },
+        {
+          "apiId": 162267,
+          "number": 3,
+          "name": "Adrien Truffert",
+          "pos": "LB"
+        },
+        {
+          "apiId": 1150,
+          "number": 12,
+          "name": "Tyler Adams",
+          "pos": "DM"
+        },
+        {
+          "apiId": 18872,
+          "number": 4,
+          "name": "Lewis Cook",
+          "pos": "CM"
+        },
+        {
+          "apiId": 407806,
+          "number": 37,
+          "name": "Rayan",
+          "pos": "RW"
+        },
+        {
+          "apiId": 19245,
+          "number": 16,
+          "name": "Marcus Tavernier",
+          "pos": "CAM"
+        },
+        {
+          "apiId": 792,
+          "number": 19,
+          "name": "Justin Kluivert",
+          "pos": "LW"
+        },
+        {
+          "apiId": 152856,
+          "number": 9,
+          "name": "Evanilson",
+          "pos": "ST"
+        }
+      ],
       "confirmedXI": null,
       "substitutes": null,
       "squad": [
@@ -8836,7 +9001,7 @@
         {
           "name": "António Silva",
           "from": "Benfica",
-          "fee": null
+          "fee": "~25M EUR (+5M EUR bonusuri)"
         },
         {
           "name": "Á. Rodríguez",
@@ -8917,9 +9082,30 @@
         {
           "title": "Bournemouth — seria de aur a sezonului",
           "bullets": [
-            "6 victorii consecutive — ascensiune spectaculoasă de la start de sezon dezamăgitor.",
-            "Tavernier în forma vieții: 5 goluri în 9 meciuri, fundamental al atacului.",
-            "Defensă solidă: doar 13 goluri primite în 9 meciuri — principiul defensiv muncește."
+            "6 victorii consecutive, în toate competițiile — de la un start de sezon dezamăgitor la una dintre cele mai bune forme din Premier League.",
+            "Marcus Tavernier, în forma vieții: 5 goluri în 9 meciuri de campionat, motorul atacului lui Rose.",
+            "Doar 13 goluri primite în 9 meciuri de Premier League — fundația succesului e defensivă."
+          ]
+        },
+        {
+          "title": "Marco Rose, primul job în Premier League",
+          "bullets": [
+            "Fost tehnician la RB Leipzig, Borussia Dortmund și Salzburg, Rose a fost numit succesorul lui Andoni Iraola pentru sezonul 2026/27.",
+            "E prima lui bancă tehnică în fotbalul englez — pariul lui Bournemouth e pe experiența central-europeană, acumulată la cluburi cunoscute pentru dezvoltarea jucătorilor tineri."
+          ]
+        },
+        {
+          "title": "Premiera europeană a clubului",
+          "bullets": [
+            "Bournemouth joacă pentru prima dată în istorie într-o competiție europeană, calificat în Europa League după locul din Premier League 2025/26.",
+            "O parte din seria de 6 victorii vine chiar din acest parcurs: succese cu Sparta Praga și AC Milan în faza ligii."
+          ]
+        },
+        {
+          "title": "Un lot întărit cu nume mari",
+          "bullets": [
+            "António Silva, fundaș central portughez, a ajuns de la Benfica pentru circa 25 de milioane de euro plus bonusuri.",
+            "Rayan, atacant brazilian de 19 de ani adus de la Vasco da Gama, s-a impus rapid ca opțiune pe partea dreaptă a atacului."
           ]
         }
       ],
@@ -9221,5 +9407,47 @@
       }
     ]
   },
-  "researchDepth": "standard"
+  "researchDepth": "deep",
+  "commentatorResearch": [
+    {
+      "topic": "Serie istorică întreruptă",
+      "fact": "Victoria lui Bournemouth la Portman Road din decembrie 2024 (2-1) a fost prima a Cherries-ilor cu Ipswich din 1990.",
+      "source": "TWTD / Reuters"
+    },
+    {
+      "topic": "Cap la cap recent",
+      "fact": "Ipswich a câștigat o singură dată din ultimele 6 confruntări directe cu Bournemouth.",
+      "source": "date API-Football (h2h)"
+    },
+    {
+      "topic": "Transfer-record",
+      "fact": "Exequiel Palacios a ajuns la Ipswich pentru circa 30 de milioane de euro cu bonusuri, de la Bayer Leverkusen — cea mai mare achiziție din istoria clubului.",
+      "source": "Sky Sport Germany / getfootballnewsgermany.com"
+    },
+    {
+      "topic": "Legătura O'Neil – Bournemouth",
+      "fact": "Gary O'Neil a fost antrenorul lui Bournemouth din august 2022 până în iunie 2023, salvând echipa de la retrogradare înainte de a fi demis.",
+      "source": "beIN Sports"
+    },
+    {
+      "topic": "Premiera europeană",
+      "fact": "Bournemouth participă pentru prima dată în istoria clubului într-o competiție europeană, în faza ligii Europa League 2026/27.",
+      "source": "Vavel / 101greatgoals.com"
+    },
+    {
+      "topic": "Asimetrie la 11 metri",
+      "fact": "Ipswich a transformat toate penalty-urile acordate în acest sezon (100%), în timp ce Bournemouth nu a marcat niciun penalty (0%).",
+      "source": "date agregate API-Football (form.stats)"
+    },
+    {
+      "topic": "Start timid sub xG",
+      "fact": "După primele 5 etape, Ipswich avea un xG de doar 7,8 (al 19-lea din Premier League), dar un xG din fază statică de 7,32 — al 4-lea cel mai bun din ligă.",
+      "source": "Fantasy Football Scout, 6 octombrie 2026"
+    },
+    {
+      "topic": "Arbitrul și Bournemouth",
+      "fact": "Simon Hooper a condus Bournemouth în 29 de meciuri din toate competițiile, acordând Cherries-ilor 9 penalty-uri și doar 2 împotrivă.",
+      "source": "Squawka"
+    }
+  ]
 }
