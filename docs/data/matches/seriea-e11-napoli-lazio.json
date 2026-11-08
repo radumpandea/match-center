@@ -24,7 +24,14 @@
     "name": "Maradona Stadium",
     "capacity": 60240,
     "city": "Naples",
-    "notes": null
+    "notes": null,
+    "weather": {
+      "tempC": 17,
+      "condition": "parțial noros",
+      "windKph": 2,
+      "precipitationMm": 0,
+      "forecastAt": "2026-11-08T12:03:53.103Z"
+    }
   },
   "referee": {
     "name": "Luca J. Pairetto",
@@ -1599,10 +1606,144 @@
           "S-a născut la 11 august 1967, la Livorno, Italia, și este actualul antrenor al echipei Napoli, din Serie A."
         ]
       },
-      "formation": "n/d",
+      "formation": "3-5-2",
       "predictedXI": [],
-      "confirmedXI": null,
-      "substitutes": null,
+      "confirmedXI": [
+        {
+          "apiId": 31156,
+          "number": 32,
+          "name": "V. Milinković-Savić",
+          "pos": "G"
+        },
+        {
+          "apiId": 37604,
+          "number": 31,
+          "name": "S. Beukema",
+          "pos": "D"
+        },
+        {
+          "apiId": 1314,
+          "number": 13,
+          "name": "Amir Rrahmani",
+          "pos": "D"
+        },
+        {
+          "apiId": 237066,
+          "number": 16,
+          "name": "Rafa Marín",
+          "pos": "D"
+        },
+        {
+          "apiId": 347395,
+          "number": 26,
+          "name": "A. Vergara",
+          "pos": "M"
+        },
+        {
+          "apiId": 629,
+          "number": 11,
+          "name": "K. De Bruyne",
+          "pos": "M"
+        },
+        {
+          "apiId": 130423,
+          "number": 6,
+          "name": "B. Gilmour",
+          "pos": "M"
+        },
+        {
+          "apiId": 903,
+          "number": 8,
+          "name": "S. McTominay",
+          "pos": "M"
+        },
+        {
+          "apiId": 47254,
+          "number": 17,
+          "name": "M. Olivera",
+          "pos": "M"
+        },
+        {
+          "apiId": 288006,
+          "number": 19,
+          "name": "R. Højlund",
+          "pos": "F"
+        },
+        {
+          "apiId": 544,
+          "number": 70,
+          "name": "N. Lang",
+          "pos": "F"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 219,
+          "number": 21,
+          "name": "M. Politano",
+          "pos": "F"
+        },
+        {
+          "apiId": 312,
+          "number": 1,
+          "name": "A. Meret",
+          "pos": "G"
+        },
+        {
+          "apiId": null,
+          "number": 39,
+          "name": "Nikita Melnyk",
+          "pos": "M"
+        },
+        {
+          "apiId": 199089,
+          "number": 20,
+          "name": "L. Lucca",
+          "pos": "F"
+        },
+        {
+          "apiId": null,
+          "number": 40,
+          "name": "Claudio Lieto",
+          "pos": "D"
+        },
+        {
+          "apiId": 312615,
+          "number": 23,
+          "name": "Giovane",
+          "pos": "F"
+        },
+        {
+          "apiId": 32172,
+          "number": 14,
+          "name": "N. Contini",
+          "pos": "G"
+        },
+        {
+          "apiId": 3406,
+          "number": 99,
+          "name": "A. Zambo Anguissa",
+          "pos": "M"
+        },
+        {
+          "apiId": null,
+          "number": 36,
+          "name": "Milton Agustín Pereyra",
+          "pos": "F"
+        },
+        {
+          "apiId": 579077,
+          "number": 18,
+          "name": "F. Barido",
+          "pos": "M"
+        },
+        {
+          "apiId": 610910,
+          "number": 38,
+          "name": "A. Chiummariello",
+          "pos": "M"
+        }
+      ],
       "squad": [
         {
           "apiId": 32172,
@@ -1623,7 +1764,7 @@
           "birthCountry": "Ukraine",
           "birthDate": "1996-05-21",
           "pronunciation": null,
-          "career": "Napoli (2013–prezent) · Spal (2015) · Taranto (2016) · Pontedera (2017) · Virtus Entella (2019) · Sampdoria (2022)",
+          "career": "Spal (2015–2018, împrumut) · Taranto (2016) · Pontedera (2017–2018) · Napoli (2018–null) · Robur Siena (2018–2020, împrumut) · Virtus Entella (2019–2020, împrumut) · Napoli (2020–null) · Crotone (2021–2022, împrumut) · Napoli (2022–null) · Vicenza Virtus (2022, împrumut) · Sampdoria (2022–2023, împrumut) · Napoli (2023–null) · Napoli (2023–prezent) · Reggina (2023, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1680,7 +1821,7 @@
           "birthCountry": "Italy",
           "birthDate": "1997-03-22",
           "pronunciation": null,
-          "career": "Udinese (2014–2015) · Spal (2016–2017) · Napoli (2018–prezent)",
+          "career": "Udinese (2014–null) · Spal (2016–2017, împrumut) · Udinese (2017–2018) · Spal (2017–2018, împrumut) · Napoli (2018–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1737,7 +1878,7 @@
           "birthCountry": "Spain",
           "birthDate": "1997-02-20",
           "pronunciation": null,
-          "career": "Vojvodina (2014) · Lechia Gdansk (2015–2016) · Torino (2017–2024) · Spal (2018) · Standard Liege (2019) · Napoli (2025–prezent)",
+          "career": "Manchester United (până în null) · Vojvodina (2014–2015, împrumut) · Manchester United (2015–prezent) · Lechia Gdansk (2015–2017) · Torino (2017–null) · Spal (2018–2019, împrumut) · Torino (2019–null) · Ascoli (2019, împrumut) · Standard Liege (2019–2020, împrumut) · Torino (2020–2026) · Napoli (2025–2026, împrumut) · Napoli (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1908,7 +2049,7 @@
           "birthCountry": "France",
           "birthDate": "2001-03-26",
           "pronunciation": null,
-          "career": "Monaco II (2017) · Monaco (2018–2021) · Chelsea (2022–2025) · Napoli (2026–prezent)",
+          "career": "Monaco II (2017) · Monaco (2018–2023) · Chelsea (2023–prezent) · Napoli (2026–prezent, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -1965,7 +2106,7 @@
           "birthCountry": "Netherlands",
           "birthDate": "1998-11-17",
           "pronunciation": null,
-          "career": "GO Ahead Eagles (2017–2020) · AZ Alkmaar (2021–2022) · Bologna (2023) · Napoli (2024–prezent)",
+          "career": "GO Ahead Eagles (2017–2021) · AZ Alkmaar (2021–2023) · Bologna (2023–2025) · Napoli (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2022,7 +2163,7 @@
           "birthCountry": "Italy",
           "birthDate": "1999-06-06",
           "pronunciation": null,
-          "career": "Torino (2016–2023) · Carpi (2018) · Napoli (2024–2025)",
+          "career": "Torino (2016–null) · Carpi (2018–2019, împrumut) · Torino (2019–null) · Torino (2020–2024) · Trapani (2020, împrumut) · Napoli (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2049,7 +2190,7 @@
           "birthCountry": "Italy",
           "birthDate": "1993-08-04",
           "pronunciation": null,
-          "career": "Reggina (2010–2014) · Cuneo (2012) · Matera (2015–2016) · Empoli (2017–2018) · Napoli (2019–prezent)",
+          "career": "Reggina (2010–null) · Cuneo (2012–2013, împrumut) · Reggina (2013–2015) · Matera (2015–2017) · Empoli (2017–2019) · Napoli (2019–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2106,7 +2247,7 @@
           "birthCountry": "Italy",
           "birthDate": "2004-04-26",
           "pronunciation": null,
-          "career": "Fiorentina (2022) · Bari (2023) · Catanzaro (2024–2025) · Napoli (2026–prezent)",
+          "career": "Ternana (până în 2024) · Fiorentina (2024–2025) · Bari (2024–2025, împrumut) · Catanzaro (2025–prezent) · Napoli (2026–prezent, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2163,7 +2304,7 @@
           "birthCountry": "Italy",
           "birthDate": "2004-07-23",
           "pronunciation": null,
-          "career": "Empoli (2023) · Napoli (2024–prezent)",
+          "career": "Empoli (2023–null) · Pro Sesto (2023–2024, împrumut) · Empoli (2024–2025) · Napoli (2025–prezent) · Torino (2026, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2220,7 +2361,7 @@
           "birthCountry": "Spain",
           "birthDate": "2002-05-19",
           "pronunciation": null,
-          "career": "Real Madrid II (2020) · Real Madrid (2021–2022) · Alaves (2023) · Napoli (2024–prezent) · Villarreal (2025)",
+          "career": "Real Madrid II (2020) · Real Madrid (2021–2024) · Alaves (2023–2024, împrumut) · Real Madrid (2024) · Napoli (2024–prezent) · Villarreal (2025–2026, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2277,7 +2418,7 @@
           "birthCountry": "Uruguay",
           "birthDate": "1997-10-31",
           "pronunciation": null,
-          "career": "Club Nacional (2014–2016) · Getafe (2017–2021) · Napoli (2022–prezent)",
+          "career": "Club Nacional (2014–2017) · Atenas (2017) · Getafe (2017–null) · Albacete (2018–2019, împrumut) · Getafe (2019–2022) · Napoli (2022–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2334,7 +2475,7 @@
           "birthCountry": "Kosovo",
           "birthDate": "1994-02-24",
           "pronunciation": null,
-          "career": "Partizani (2013–2014) · RNK Split (2015) · NK Lokomotiva Zagreb (2016) · Dinamo Zagreb (2017–2018) · Hellas Verona (2019) · Napoli (2020–prezent)",
+          "career": "Partizani (2013–2015) · RNK Split (2015–2016) · NK Lokomotiva Zagreb (2016–prezent) · Dinamo Zagreb (2017–2019) · Verona (2019–2020) · Hellas Verona (2019) · Napoli (2020–null) · Napoli (2020–prezent) · Verona (2020, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": "În ultimele 5 dueluri directe cu Lazio: 1 gol — 04.01.2026 (min. 32).",
@@ -2391,7 +2532,7 @@
           "birthCountry": "Italy",
           "birthDate": "1993-03-25",
           "pronunciation": null,
-          "career": "Juventus (2010–2018) · Empoli (2012) · Robur Siena (2013) · Perugia (2015) · Atalanta (2016–2017) · AS Roma (2019–2023) · Napoli (2022–prezent)",
+          "career": "Juventus (2010–2013) · Empoli (2012–2013, împrumut) · Robur Siena (2013–2014) · Juventus (2014–null) · Atalanta (2014–null, împrumut) · Vicenza Virtus (2015–2018, împrumut) · Perugia (2015–2018, împrumut) · Atalanta (2016–2018, împrumut) · Juventus (2018–2019) · AS Roma (2019–2024) · Napoli (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": "În ultimele 5 dueluri directe cu Lazio: 1 gol — 04.01.2026 (min. 13).",
@@ -2448,7 +2589,7 @@
           "birthCountry": "Cameroon",
           "birthDate": "1995-11-16",
           "pronunciation": null,
-          "career": "Reims (2014) · Marseille (2015–2017) · Fulham (2018–2020) · Villarreal (2019) · Napoli (2021–prezent)",
+          "career": "Reims (2014–2015) · Marseille (2015–2018) · Fulham (2018–null) · Villarreal (2019–2020, împrumut) · Fulham (2020–2022) · Napoli (2021–2022, împrumut) · Napoli (2022–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2563,7 +2704,7 @@
           "birthCountry": "Belgium",
           "birthDate": "1991-06-28",
           "pronunciation": null,
-          "career": "Genk (2008–2011) · Chelsea (2012) · VfL Wolfsburg (2013–2014) · Manchester City (2015–2024) · Napoli (2025–prezent)",
+          "career": "Chelsea (2012–null) · Chelsea (2012–2014) · Genk (2012, împrumut) · Werder Bremen (2012–2014, împrumut) · VfL Wolfsburg (2014–2015) · Manchester City (2015–2025) · Napoli (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2620,7 +2761,7 @@
           "birthCountry": "Scotland",
           "birthDate": "2001-06-11",
           "pronunciation": null,
-          "career": "Chelsea (2019–2020) · Norwich (2021) · Brighton (2022–2023) · Napoli (2024–prezent)",
+          "career": "Chelsea (2019–null) · Norwich (2021–2022, împrumut) · Chelsea (2022) · Brighton (2022–2024) · Napoli (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2677,7 +2818,7 @@
           "birthCountry": "Slovakia",
           "birthDate": "1994-11-25",
           "pronunciation": null,
-          "career": "AS Trencin (2011–2014) · Ajax (2013) · FC Nordsjaelland (2015–2016) · Celta Vigo (2017–2018) · Napoli (2019–prezent)",
+          "career": "AS Trencin (2011–null) · Ajax (2013–2014, împrumut) · AS Trencin (2014–2015) · FC Nordsjaelland (2015–2017) · Celta Vigo (2017–2020) · Napoli (2020–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2734,7 +2875,7 @@
           "birthCountry": "England",
           "birthDate": "1996-12-08",
           "pronunciation": null,
-          "career": "Manchester United (2016–2023) · Napoli (2024–prezent)",
+          "career": "Manchester United (2016–2024) · Napoli (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2791,7 +2932,7 @@
           "birthCountry": "Italy",
           "birthDate": "2003-01-16",
           "pronunciation": null,
-          "career": "Napoli (2021–prezent) · PRO Vercelli (2022) · Reggiana (2024)",
+          "career": "Napoli (2021–prezent) · PRO Vercelli (2022–prezent, împrumut) · Reggiana (2023–2025, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2848,7 +2989,7 @@
           "birthCountry": "Brazil",
           "birthDate": "2002-09-27",
           "pronunciation": null,
-          "career": "Vitoria (2021–2023) · Sporting CP (2024) · Napoli (2025–prezent)",
+          "career": "Vitoria (2021–2025) · Vitoria (2021–2025) · Nautico Recife (2023–2025, împrumut) · Sporting CP (2024–2026) · Figueirense (2024–2025, împrumut) · União de Leiria (2024–2025, împrumut) · Sporting CP (2025–null) · Sporting CP (2025–2026) · Napoli (2026–null) · Napoli (2026–prezent) · Napoli (2026, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2905,7 +3046,7 @@
           "birthCountry": "Brazil",
           "birthDate": "1997-03-03",
           "pronunciation": null,
-          "career": "Ajax (2016–2020) · Shakhtar Donetsk (2021) · Benfica (2022–2023) · Napoli (2024–prezent)",
+          "career": "Sao Paulo (până în 2017) · Ajax (2017–2022) · Shakhtar Donetsk (2022) · Benfica (2022–2024) · Napoli (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -2962,7 +3103,7 @@
           "birthCountry": "Brazil",
           "birthDate": "2003-11-24",
           "pronunciation": null,
-          "career": "Capivariano (2021) · Corinthians (2022–2024) · Napoli (2025–prezent)",
+          "career": "Capivariano (2021–2022) · Corinthians (2022–2025) · Corinthians (2022–2025) · Verona (2025–null) · Verona (2025–prezent) · Hellas Verona (până în 2026) · Napoli (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -3019,7 +3160,7 @@
           "birthCountry": "Denmark",
           "birthDate": "2003-02-04",
           "pronunciation": null,
-          "career": "FC Copenhagen (2020) · Sturm Graz (2021) · Atalanta (2022) · Manchester United (2023–2024) · Napoli (2025–prezent)",
+          "career": "FC Copenhagen (2020) · Sturm Graz (2021–2022) · Atalanta (2022–2023) · Manchester United (2023–2026) · Napoli (2025–2026, împrumut) · Napoli (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -3076,7 +3217,7 @@
           "birthCountry": "Netherlands",
           "birthDate": "1999-06-17",
           "pronunciation": null,
-          "career": "Jong Ajax (2016) · Ajax (2017–2019) · Club Brugge KV (2020–2021) · Napoli (2022–prezent) · PSV Eindhoven (2023–2024)",
+          "career": "Jong Ajax (2016) · Ajax (2017–null) · Ajax (2020–2021) · Twente (2020, împrumut) · Club Brugge KV (2020–2021, împrumut) · Club Brugge KV (2021–2023) · PSV Eindhoven (2023–2025) · PSV Eindhoven (2023–2025) · Napoli (2025–null) · Napoli (2025–prezent) · Galatasaray (2026, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -3133,7 +3274,7 @@
           "birthCountry": "Italy",
           "birthDate": "2000-09-10",
           "pronunciation": null,
-          "career": "Vicenza Virtus (2017) · Palermo (2020) · Pisa (2021) · Ajax (2022) · Udinese (2023–2024) · Napoli (2025–prezent)",
+          "career": "Vicenza Virtus (2017) · Palermo (2020–2021) · Pisa (2021–2024) · Ajax (2022–2024, împrumut) · Udinese (2023–2024, împrumut) · Udinese (2024–2026) · Napoli (2025–2026, împrumut) · Napoli (2026–prezent) · Nottingham Forest (2026, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -3190,7 +3331,7 @@
           "birthCountry": null,
           "birthDate": null,
           "pronunciation": null,
-          "career": "Napoli (2026–prezent)",
+          "career": "Boca Juniors (până în 2026) · Napoli (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -3248,7 +3389,7 @@
           "birthCountry": "Italy",
           "birthDate": "1993-08-03",
           "pronunciation": null,
-          "career": "Perugia (2012) · Pescara (2013–2014) · Sassuolo (2015–2017) · Inter (2018) · Napoli (2019–prezent)",
+          "career": "AS Roma (până în null) · Perugia (2012–2013, împrumut) · AS Roma (2013) · Pescara (2013–2015) · AS Roma (2015–2016) · Sassuolo (2015–2016, împrumut) · Sassuolo (2016–null) · Inter (2018–2019, împrumut) · Sassuolo (2019) · Inter (2019–2021) · Napoli (2020–2021, împrumut) · Napoli (2021–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -3285,6 +3426,34 @@
             "penaltyMissed": 0,
             "penaltySaved": null
           }
+        },
+        {
+          "apiId": 579077,
+          "number": 18,
+          "name": "F. Barido",
+          "photo": "https://media.api-sports.io/football/players/579077.png",
+          "pos": "M",
+          "positions": [
+            "M",
+            "MID"
+          ],
+          "role": "MID",
+          "age": 17,
+          "height": null,
+          "weight": null,
+          "foot": null,
+          "nat": null,
+          "natTeam": null,
+          "birthCountry": null,
+          "birthDate": null,
+          "pronunciation": null,
+          "career": null,
+          "lastSeason": null,
+          "funfact": null,
+          "linkLine": null,
+          "status": "available",
+          "statusNote": null,
+          "stats": null
         }
       ],
       "form": {
@@ -3297,8 +3466,8 @@
         ],
         "ppg": 1.4,
         "homeAway": "Acasă 2-1-1, deplasare 2-1-3",
-        "position": 8,
-        "note": "Clasament 2026/27: locul 8, 14p (17-13)",
+        "position": 10,
+        "note": "Clasament 2026/27: locul 10, 14p (17-13)",
         "table": {
           "played": 10,
           "win": 4,
@@ -3309,6 +3478,145 @@
           "points": 14
         },
         "recent": [
+          {
+            "date": "2026-11-08",
+            "opp": "Lazio",
+            "homeAway": "H",
+            "comp": "Serie A",
+            "score": "0-1",
+            "result": "L",
+            "referee": "Luca J. Pairetto",
+            "formation": {
+              "us": "3-5-2",
+              "opp": "4-3-3"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "V. Milinković-Savić",
+                  "number": 32,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Beukema",
+                  "number": 31,
+                  "pos": "D"
+                },
+                {
+                  "name": "Amir Rrahmani",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "Rafa Marín",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Vergara",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. De Bruyne",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Gilmour",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. McTominay",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Olivera",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Højlund",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "N. Lang",
+                  "number": 70,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "C. Mandas",
+                  "number": 35,
+                  "pos": "G"
+                },
+                {
+                  "name": "R. Floriani Mussolini",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Šutalo",
+                  "number": 37,
+                  "pos": "D"
+                },
+                {
+                  "name": "O. Provstgaard",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "Nuno Tavares",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Frattesi",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Belahyane",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Taylor",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Isaksen",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Pinamonti",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "T. Noslin",
+                  "number": 14,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 28,
+                "side": "opp",
+                "type": "goal",
+                "player": "Davide Frattesi",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
           {
             "date": "2026-11-04",
             "opp": "FC Porto",
@@ -4739,258 +5047,9 @@
                 "playerIn": null
               }
             ]
-          },
-          {
-            "date": "2026-10-17",
-            "opp": "Venezia",
-            "homeAway": "A",
-            "comp": "Serie A",
-            "score": "0-1",
-            "result": "L",
-            "referee": "Juan Luca Sacchi, Italy",
-            "formation": {
-              "us": "3-4-2-1",
-              "opp": "3-5-2"
-            },
-            "lineups": {
-              "us": [
-                {
-                  "name": "A. Meret",
-                  "number": 1,
-                  "pos": "G"
-                },
-                {
-                  "name": "S. Beukema",
-                  "number": 31,
-                  "pos": "D"
-                },
-                {
-                  "name": "Amir Rrahmani",
-                  "number": 13,
-                  "pos": "D"
-                },
-                {
-                  "name": "B. Badiashile",
-                  "number": 5,
-                  "pos": "D"
-                },
-                {
-                  "name": "G. Di Lorenzo",
-                  "number": 22,
-                  "pos": "M"
-                },
-                {
-                  "name": "B. Gilmour",
-                  "number": 6,
-                  "pos": "M"
-                },
-                {
-                  "name": "S. Lobotka",
-                  "number": 68,
-                  "pos": "M"
-                },
-                {
-                  "name": "L. Spinazzola",
-                  "number": 37,
-                  "pos": "M"
-                },
-                {
-                  "name": "Giovane",
-                  "number": 23,
-                  "pos": "M"
-                },
-                {
-                  "name": "S. McTominay",
-                  "number": 8,
-                  "pos": "M"
-                },
-                {
-                  "name": "L. Lucca",
-                  "number": 20,
-                  "pos": "F"
-                }
-              ],
-              "opp": [
-                {
-                  "name": "F. Stanković",
-                  "number": 1,
-                  "pos": "G"
-                },
-                {
-                  "name": "R. Halhal",
-                  "number": 25,
-                  "pos": "D"
-                },
-                {
-                  "name": "M. Moreno",
-                  "number": 2,
-                  "pos": "D"
-                },
-                {
-                  "name": "Juan Jesus",
-                  "number": 15,
-                  "pos": "D"
-                },
-                {
-                  "name": "A. Hainaut",
-                  "number": 18,
-                  "pos": "M"
-                },
-                {
-                  "name": "Kike Pérez",
-                  "number": 71,
-                  "pos": "M"
-                },
-                {
-                  "name": "S. Sohm",
-                  "number": 19,
-                  "pos": "M"
-                },
-                {
-                  "name": "T. Bašić",
-                  "number": 26,
-                  "pos": "M"
-                },
-                {
-                  "name": "R. Haps",
-                  "number": 5,
-                  "pos": "M"
-                },
-                {
-                  "name": "J. Yeboah",
-                  "number": 10,
-                  "pos": "F"
-                },
-                {
-                  "name": "A. Adams",
-                  "number": 45,
-                  "pos": "F"
-                }
-              ]
-            },
-            "events": [
-              {
-                "minute": 49,
-                "side": "opp",
-                "type": "goal",
-                "player": "Akor Adams",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 54,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Lorenzo Lucca",
-                "playerIn": "Rasmus Hojlund"
-              },
-              {
-                "minute": 54,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Giovane Santana Do Nascimento",
-                "playerIn": "Alisson Santos"
-              },
-              {
-                "minute": 54,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Billy Gilmour",
-                "playerIn": "Kevin De Bruyne"
-              },
-              {
-                "minute": 61,
-                "side": "opp",
-                "type": "yellow",
-                "player": "Toma Bašić",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 63,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "John Yeboah",
-                "playerIn": "Albion Rrahmani"
-              },
-              {
-                "minute": 63,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Sam Beukema",
-                "playerIn": "Matteo Politano"
-              },
-              {
-                "minute": 68,
-                "side": "us",
-                "type": "goal",
-                "player": "Kevin De Bruyne",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 71,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Toma Bašić",
-                "playerIn": "Thorir Johann Helgason"
-              },
-              {
-                "minute": 71,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Ridgeciano Haps",
-                "playerIn": "Pasquale Mazzocchi"
-              },
-              {
-                "minute": 72,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Matias Moreno",
-                "playerIn": "Joël Schingtienne"
-              },
-              {
-                "minute": 80,
-                "side": "opp",
-                "type": "yellow",
-                "player": "Enrique Pérez Muñoz",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 82,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Simon Sohm",
-                "playerIn": "Lamine Fanne"
-              },
-              {
-                "minute": 82,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Leonardo Spinazzola",
-                "playerIn": "Mathias Olivera"
-              }
-            ]
           }
         ],
         "next": [
-          {
-            "date": "2026-11-08",
-            "opp": "Lazio",
-            "homeAway": "H",
-            "comp": "Serie A"
-          },
           {
             "date": "2026-11-21",
             "opp": "Torino",
@@ -5002,6 +5061,12 @@
             "opp": "Manchester City",
             "homeAway": "A",
             "comp": "UEFA Champions League"
+          },
+          {
+            "date": "2026-11-29",
+            "opp": "Sassuolo",
+            "homeAway": "A",
+            "comp": "Serie A"
           }
         ],
         "stats": {
@@ -5284,6 +5349,56 @@
         "Echipa joacă din 1959 pe actualul stadion, redenumit Stadio Diego Armando Maradona în 2020, după moartea legendarului jucător argentinian.",
         "Napoli întreține rivalități cu Juventus, AS Roma (Derby del Sole), Internazionale, AC Milan și Salernitana (Derby of Campania).",
         "Clubul a câștigat Cupa Italiei de șase ori, printre care și în 1962, când Napoli a devenit prima echipă care a cucerit trofeul în timp ce juca în Serie B."
+      ],
+      "newsCandidates": [
+        {
+          "title": "Serie A Liveblog: Napoli-Lazio, Inter-Como, Genoa-Milan, Fiorentina-Juventus and more",
+          "url": "https://football-italia.net/serie-a-napoli-lazio-inter-como-milan-fio-juve/",
+          "source": "Football Italia",
+          "published": "2026-11-08"
+        },
+        {
+          "title": "Serie A official line-ups: Napoli vs. Lazio",
+          "url": "https://football-italia.net/serie-a-official-line-ups-napoli-vs-lazio-2/",
+          "source": "Football Italia",
+          "published": "2026-11-08"
+        },
+        {
+          "title": "Napoli vs. Lazio: Where to watch",
+          "url": "https://football-italia.net/napoli-vs-lazio-where-to-watch/",
+          "source": "Football Italia",
+          "published": "2026-11-08"
+        },
+        {
+          "title": "Serie A: in campo Napoli-Lazio 0-0 DIRETTA",
+          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/11/08/serie-a-in-campo-alle-12.30-napoli-lazio-diretta-_ae79ac8e-1941-4fe3-8d95-d74ca4e44feb.html",
+          "source": "ANSA",
+          "published": "2026-11-08"
+        },
+        {
+          "title": "Napoli-Lazio, l’affetto di Gattuso che bacia Allegri e gli accarezza la testa",
+          "url": "https://www.ilnapolista.it/2026/11/napoli-lazio-laffetto-di-gattuso-che-bacia-allegri-e-gli-accarezza-la-testa/",
+          "source": "Il Napolista",
+          "published": "2026-11-08"
+        },
+        {
+          "title": "Napoli-Lazio, De Bruyne non scambia una parola con i compagni nel riscaldamento",
+          "url": "https://www.ilnapolista.it/2026/11/napoli-lazio-de-bruyne-non-scambia-una-parola-con-i-compagni-nel-riscaldamento/",
+          "source": "Il Napolista",
+          "published": "2026-11-08"
+        },
+        {
+          "title": "Napoli-Lazio, formazioni ufficiali: Politano e Anguissa in panchina, in porta Milinkovic Savic",
+          "url": "https://www.ilnapolista.it/2026/11/napoli-lazio-formazioni-ufficiali-politano-e-anguissa-in-panchina-in-porta-milinkovic-savic/",
+          "source": "Il Napolista",
+          "published": "2026-11-08"
+        },
+        {
+          "title": "Giordano: “Solo Allegri può far ripartire il Napoli, i giocatori devono fare molto di più”",
+          "url": "https://www.ilnapolista.it/2026/11/giordano-solo-allegri-puo-far-ripartire-il-napoli-i-giocatori-devono-fare-molto-di-piu/",
+          "source": "Il Napolista",
+          "published": "2026-11-08"
+        }
       ]
     },
     "away": {
@@ -5493,10 +5608,168 @@
           "La data de 27 octombrie 2026, este antrenorul principal al lui Lazio."
         ]
       },
-      "formation": "n/d",
+      "formation": "4-3-3",
       "predictedXI": [],
-      "confirmedXI": null,
-      "substitutes": null,
+      "confirmedXI": [
+        {
+          "apiId": 26644,
+          "number": 35,
+          "name": "C. Mandas",
+          "pos": "G"
+        },
+        {
+          "apiId": 342651,
+          "number": 15,
+          "name": "R. Floriani Mussolini",
+          "pos": "D"
+        },
+        {
+          "apiId": 14701,
+          "number": 37,
+          "name": "J. Šutalo",
+          "pos": "D"
+        },
+        {
+          "apiId": 350857,
+          "number": 25,
+          "name": "O. Provstgaard",
+          "pos": "D"
+        },
+        {
+          "apiId": 41577,
+          "number": 17,
+          "name": "Nuno Tavares",
+          "pos": "D"
+        },
+        {
+          "apiId": 31173,
+          "number": 16,
+          "name": "D. Frattesi",
+          "pos": "M"
+        },
+        {
+          "apiId": 333116,
+          "number": 21,
+          "name": "R. Belahyane",
+          "pos": "M"
+        },
+        {
+          "apiId": 38749,
+          "number": 24,
+          "name": "K. Taylor",
+          "pos": "M"
+        },
+        {
+          "apiId": 135519,
+          "number": 11,
+          "name": "G. Isaksen",
+          "pos": "F"
+        },
+        {
+          "apiId": 31094,
+          "number": 9,
+          "name": "A. Pinamonti",
+          "pos": "F"
+        },
+        {
+          "apiId": 133729,
+          "number": 14,
+          "name": "T. Noslin",
+          "pos": "F"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 376,
+          "number": 2,
+          "name": "Diogo Leite",
+          "pos": "D"
+        },
+        {
+          "apiId": 286474,
+          "number": 22,
+          "name": "M. Cancellieri",
+          "pos": "F"
+        },
+        {
+          "apiId": 1852,
+          "number": 32,
+          "name": "D. Cataldi",
+          "pos": "M"
+        },
+        {
+          "apiId": 144740,
+          "number": 7,
+          "name": "F. Dele-Bashiru",
+          "pos": "M"
+        },
+        {
+          "apiId": 37117,
+          "number": 5,
+          "name": "D. Doekhi",
+          "pos": "D"
+        },
+        {
+          "apiId": 483662,
+          "number": 71,
+          "name": "V. Farcomeni",
+          "pos": "M"
+        },
+        {
+          "apiId": 30866,
+          "number": 29,
+          "name": "M. Lazzari",
+          "pos": "M"
+        },
+        {
+          "apiId": 1844,
+          "number": 77,
+          "name": "A. Marušić",
+          "pos": "D"
+        },
+        {
+          "apiId": 431413,
+          "number": 40,
+          "name": "E. Motta",
+          "pos": "G"
+        },
+        {
+          "apiId": 1702,
+          "number": 23,
+          "name": "Pedraza",
+          "pos": "D"
+        },
+        {
+          "apiId": 30554,
+          "number": 3,
+          "name": "L. Pellegrini",
+          "pos": "D"
+        },
+        {
+          "apiId": 405241,
+          "number": 28,
+          "name": "A. Przyborek",
+          "pos": "M"
+        },
+        {
+          "apiId": 408625,
+          "number": 47,
+          "name": "D. Renzetti",
+          "pos": "G"
+        },
+        {
+          "apiId": 30784,
+          "number": 6,
+          "name": "N. Rovella",
+          "pos": "M"
+        },
+        {
+          "apiId": 436244,
+          "number": 63,
+          "name": "F. Serra",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "apiId": 63934,
@@ -5517,7 +5790,7 @@
           "birthCountry": "Italy",
           "birthDate": "2002-02-07",
           "pronunciation": "fur-la-NET-to",
-          "career": "Lazio (2018–2025)",
+          "career": "Lazio (2018–null) · Renate (2022–2023, împrumut) · Lazio (2023–null) · Fermana (2023–2024, împrumut) · Lazio (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -5552,7 +5825,7 @@
           "birthCountry": "Greece",
           "birthDate": "2001-09-17",
           "pronunciation": null,
-          "career": "Atromitos (2017–2020) · OFI (2021–2022) · Lazio (2023–prezent)",
+          "career": "Atromitos (2017–2022) · OFI (2022–2023) · Lazio (2023–prezent) · Bournemouth (2026, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -5616,7 +5889,7 @@
           "birthCountry": "Italy",
           "birthDate": "2005-01-13",
           "pronunciation": null,
-          "career": "Reggiana (2023–2024) · Lazio (2025–prezent)",
+          "career": "Reggiana (2023–2026) · Lazio (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -5673,7 +5946,7 @@
           "birthCountry": "Italy",
           "birthDate": "2006-06-09",
           "pronunciation": null,
-          "career": "Lazio (2022–prezent)",
+          "career": "Lazio (2022–prezent) · Bra (2025–2026, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -5730,7 +6003,7 @@
           "birthCountry": "Brazil",
           "birthDate": "2005-06-24",
           "pronunciation": null,
-          "career": "Lazio (2024) · Sudtirol (2025)",
+          "career": "Ferroviária (până în 2024) · Lazio (2024–prezent) · Sudtirol (2025–2026, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -5787,7 +6060,7 @@
           "birthCountry": null,
           "birthDate": null,
           "pronunciation": null,
-          "career": "Lazio (2026–prezent)",
+          "career": "Cruzeiro (până în 2024) · Bordon Ricardo (2026–prezent) · Lazio (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -5844,7 +6117,7 @@
           "birthCountry": "Netherlands",
           "birthDate": "1998-06-30",
           "pronunciation": null,
-          "career": "Excelsior (2015) · Jong Ajax (2016–2017) · Vitesse (2018–2021) · Union Berlin (2022–2025) · Lazio (2026–prezent)",
+          "career": "Excelsior (2015–2016) · Ajax (2016–2018) · Jong Ajax (2016–2017) · Vitesse (2018–2022) · Union Berlin (2022–2026) · Union Berlin (2022–2026) · Union Berlin (2022–2026) · Doekhi Danilho (2026–prezent) · Lazio (2026–null) · Lazio (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -5909,7 +6182,7 @@
           "birthCountry": "Italy",
           "birthDate": "2003-01-27",
           "pronunciation": "flo-ri-A-ni mu-so-LI-ni",
-          "career": "Lazio (2021–prezent) · Juve Stabia (2024) · Cremonese (2025)",
+          "career": "Lazio (2021–null) · Pescara (2023–2024, împrumut) · Lazio (2024–prezent) · Juve Stabia (2024–2025, împrumut) · Cremonese (2025–2026, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -5974,7 +6247,7 @@
           "birthCountry": "Italy",
           "birthDate": "1993-11-29",
           "pronunciation": null,
-          "career": "Spal (2013–2018) · Lazio (2019–prezent)",
+          "career": "Spal (2013–2019) · Lazio (2019–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6031,7 +6304,7 @@
           "birthCountry": "Portugal",
           "birthDate": "1999-01-23",
           "pronunciation": null,
-          "career": "FC Porto B (2017) · FC Porto (2018–2021) · Union Berlin (2022–2025) · Lazio (2026–prezent)",
+          "career": "FC Porto B (2017) · FC Porto (2018–null) · SC Braga (2021–2022, împrumut) · FC Porto (2022–2023) · Union Berlin (2022–2026) · Union Berlin (2022–2026) · Union Berlin (2022–2023, împrumut) · Union Berlin (2023–2026) · Leite Diogo (2026–prezent) · Lazio (2026–null) · Lazio (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6088,7 +6361,7 @@
           "birthCountry": "Serbia",
           "birthDate": "1992-10-17",
           "pronunciation": null,
-          "career": "FK Vozdovac (2012–2013) · Kortrijk (2014–2015) · Oostende (2016) · Lazio (2017–prezent)",
+          "career": "FK Vozdovac (2012–2014) · Kortrijk (2014–2016) · Oostende (2016–2017) · Lazio (2017–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": "În ultimele 5 dueluri directe cu Napoli: cartonaș roșu — 04.01.2026 (min. 87).",
@@ -6172,7 +6445,7 @@
           "birthCountry": "Spain",
           "birthDate": "1996-04-09",
           "pronunciation": null,
-          "career": "Villarreal (2014–2025) · Alaves (2017) · Real Betis (2019) · Lazio (2026–prezent)",
+          "career": "Villarreal (2014–null) · Lugo (2016–2018, împrumut) · Alaves (2017–2018) · Leeds (2017–2018, împrumut) · Villarreal (2018–null) · Real Betis (2019–2020, împrumut) · Villarreal (2020–2026) · Lazio (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6229,7 +6502,7 @@
           "birthCountry": "Italy",
           "birthDate": "1999-03-07",
           "pronunciation": null,
-          "career": "AS Roma (2016–2017) · Cagliari (2018) · Juventus (2019–2021) · Lazio (2022–prezent)",
+          "career": "AS Roma (2016–prezent) · Juventus (2019–null) · Cagliari (2019–null, împrumut) · Cagliari (2019–2020, împrumut) · Juventus (2020–null) · Genoa (2020–2021, împrumut) · Juventus (2021–null) · Eintracht Frankfurt (2022–2023, împrumut) · Juventus (2023–null) · Lazio (2023, împrumut) · Lazio (2023–2025, împrumut) · Juventus (2025) · Lazio (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6286,7 +6559,7 @@
           "birthCountry": "Denmark",
           "birthDate": "2003-06-04",
           "pronunciation": null,
-          "career": "Vejle (2021–2023) · Lazio (2024–prezent)",
+          "career": "Vejle (2021–2025) · Lazio (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6351,7 +6624,7 @@
           "birthCountry": "Croatia",
           "birthDate": "2000-02-28",
           "pronunciation": "YO-sip SHU-ta-lo",
-          "career": "Dinamo Zagreb II (2018) · Dinamo Zagreb (2019–2022) · Ajax (2023–2025) · Lazio (2026–prezent)",
+          "career": "Dinamo Zagreb II (2018) · Dinamo Zagreb (2019–null) · Dinamo Zagreb (2021–2023) · Istra 1961 (2021, împrumut) · Ajax (2023–prezent) · Lazio (2026–prezent, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6416,7 +6689,7 @@
           "birthCountry": "Portugal",
           "birthDate": "2000-01-26",
           "pronunciation": "NU-nu ta-VA-reș",
-          "career": "Benfica (2019–2020) · Arsenal (2021–2022) · Nottingham Forest (2023) · Lazio (2024–prezent)",
+          "career": "Benfica (2019–2021) · Arsenal (2021–null) · Marseille (2022–2023, împrumut) · Arsenal (2023–null) · Nottingham Forest (2023–2024, împrumut) · Arsenal (2024–null) · Lazio (2024–2025) · Lazio (2024–2025, împrumut) · Arsenal (2025) · Lazio (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6481,7 +6754,7 @@
           "birthCountry": "France",
           "birthDate": "2004-06-01",
           "pronunciation": null,
-          "career": "Nice II (2021) · Nice (2022) · Hellas Verona (2023) · Lazio (2024–prezent)",
+          "career": "Nice II (2021) · Nice (2022–2024) · Hellas Verona (2023) · Verona (2024–2025) · Lazio (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6546,7 +6819,7 @@
           "birthCountry": "Italy",
           "birthDate": "1994-08-06",
           "pronunciation": null,
-          "career": "Lazio (2012–prezent) · Crotone (2013) · Benevento (2017)",
+          "career": "Lazio (2012–null) · Crotone (2013–2014, împrumut) · Lazio (2014–null) · Lazio (2017–null) · Genoa (2017, împrumut) · Benevento (2017–2018, împrumut) · Lazio (2018–prezent) · Fiorentina (2024–2025, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6603,7 +6876,7 @@
           "birthCountry": "England",
           "birthDate": "2001-02-06",
           "pronunciation": null,
-          "career": "Sheffield Wednesday (2020–2021) · Hatayspor (2022–2023) · Lazio (2024–prezent)",
+          "career": "Sheffield Wednesday (2020–2023) · Hatayspor (2023–2025) · Lazio (2024–2025, împrumut) · Lazio (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6660,7 +6933,7 @@
           "birthCountry": "Italy",
           "birthDate": "2006-01-18",
           "pronunciation": null,
-          "career": null,
+          "career": "Lazio (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6717,7 +6990,7 @@
           "birthCountry": "Italy",
           "birthDate": "1999-09-22",
           "pronunciation": null,
-          "career": "AS Roma (2016) · Sassuolo (2017–2022) · Ascoli (2018) · Empoli (2019) · Monza (2020) · Inter (2023–2025) · Lazio (2026–prezent)",
+          "career": "AS Roma (2016–2017) · Sassuolo (2017–null) · Ascoli (2018–2019, împrumut) · Sassuolo (2019–null) · Empoli (2019–2021, împrumut) · Monza (2020–2021, împrumut) · Sassuolo (2021–2024) · Inter (2023–2024, împrumut) · Inter (2024–prezent) · Lazio (2026–prezent, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6782,7 +7055,7 @@
           "birthCountry": null,
           "birthDate": null,
           "pronunciation": null,
-          "career": null,
+          "career": "Lazio (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6839,7 +7112,7 @@
           "birthCountry": "Poland",
           "birthDate": "2007-01-01",
           "pronunciation": null,
-          "career": null,
+          "career": "Pogon Szczecin (2022–2024) · Lazio (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6896,7 +7169,7 @@
           "birthCountry": "Italy",
           "birthDate": "2001-12-04",
           "pronunciation": null,
-          "career": "Genoa (2018–2020) · Juventus (2021–2022) · Lazio (2023–prezent)",
+          "career": "Genoa (2018–2021) · Juventus (2021–null) · Genoa (2021–2022, împrumut) · Juventus (2022–null) · Monza (2022–2023, împrumut) · Juventus (2023–null) · Lazio (2023–2025, împrumut) · Juventus (2025) · Lazio (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -6953,7 +7226,7 @@
           "birthCountry": "Netherlands",
           "birthDate": "2002-05-16",
           "pronunciation": null,
-          "career": "Jong Ajax (2018) · Ajax (2019–2024) · Lazio (2025–prezent)",
+          "career": "Jong Ajax (2018–2023) · Ajax (2019–2026) · Taylor Kenneth (2024–prezent) · Lazio (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -7018,7 +7291,7 @@
           "birthCountry": "Italy",
           "birthDate": "2002-02-12",
           "pronunciation": null,
-          "career": "Hellas Verona (2020–2021) · Lazio (2022–prezent)",
+          "career": "AS Roma (până în 2020) · Verona (2020–2023) · Hellas Verona (2020–2021) · Lazio (2022–2023, împrumut) · Lazio (2023–null) · Empoli (2023–2024, împrumut) · Lazio (2024–prezent) · Parma (2024–2025, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": "În ultimele 5 dueluri directe cu Napoli: 1 gol — 18.04.2026 (min. 6).",
@@ -7075,7 +7348,7 @@
           "birthCountry": "Iceland",
           "birthDate": "1997-06-15",
           "pronunciation": null,
-          "career": "PSV Eindhoven (2016–2017) · AZ Alkmaar (2018–2020) · Genoa (2021–2023) · Fiorentina (2024–2025) · Lazio (2026–prezent)",
+          "career": "PSV Eindhoven (2016–2018) · AZ Alkmaar (2018–2022) · Genoa (2022–null) · Fiorentina (2024–2025, împrumut) · Genoa (2025) · Fiorentina (2025–prezent) · Lazio (2026–prezent, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -7132,7 +7405,7 @@
           "birthCountry": "Denmark",
           "birthDate": "2001-04-19",
           "pronunciation": "GUS-tau EE-sak-sen",
-          "career": "FC Midtjylland (2019–2022) · Lazio (2023–prezent)",
+          "career": "FC Midtjylland (2019–2023) · Lazio (2023–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": "În ultimele 5 dueluri directe cu Napoli: 2 goluri — 15.02.2025 (min. 6); 08.12.2024 (min. 79).",
@@ -7197,7 +7470,7 @@
           "birthCountry": "Netherlands",
           "birthDate": "1999-07-07",
           "pronunciation": "ti-JA-ni",
-          "career": "Hercules (2019) · Fortuna Sittard (2021–2022) · Hellas Verona (2023) · Lazio (2024–prezent)",
+          "career": "Hercules (2019) · FC OSS (până în 2021) · Fortuna Sittard (2021–2024) · Hellas Verona (2023) · Verona (2024) · Lazio (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": "În ultimele 5 dueluri directe cu Napoli: 3 goluri — 05.12.2024 (min. 32, 41, 50); cartonaș roșu — 04.01.2026 (min. 81).",
@@ -7262,7 +7535,7 @@
           "birthCountry": "Italy",
           "birthDate": "1999-05-19",
           "pronunciation": null,
-          "career": "Inter (2016–2017) · Frosinone (2018) · Genoa (2019–2020) · Empoli (2021) · Sassuolo (2022–2025) · Lazio (2026–prezent)",
+          "career": "Inter (2016–2020) · Frosinone (2018–2020, împrumut) · Genoa (2020) · Inter (2020–null) · Empoli (2021–2022, împrumut) · Inter (2022–2023) · Sassuolo (2022–2026) · Sassuolo (2022–2023, împrumut) · Sassuolo (2023–2026) · Genoa (2024–2025, împrumut) · Lazio (2026–null) · Lazio (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -7319,7 +7592,7 @@
           "birthCountry": "Italy",
           "birthDate": "2006-01-03",
           "pronunciation": null,
-          "career": null,
+          "career": "Lazio (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
@@ -7376,7 +7649,7 @@
           "birthCountry": "Italy",
           "birthDate": "1995-06-16",
           "pronunciation": "mat-TI-a dzak-KA-nyi",
-          "career": "Hellas Verona (2013–2020) · Venezia (2014) · Lazio (2021–prezent)",
+          "career": "Verona (2013–null) · Hellas Verona (2013–2020) · Venezia (2014–2015, împrumut) · Verona (2015–null) · Verona (2016–2022) · Cittadella (2016, împrumut) · Lazio (2021–2022, împrumut) · Lazio (2022–prezent)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": "În ultimele 5 dueluri directe cu Napoli: 1 gol — 05.12.2024 (min. 21).",
@@ -7441,7 +7714,7 @@
           "birthCountry": "France",
           "birthDate": "1996-11-16",
           "pronunciation": "bu-LAI",
-          "career": "Jura Sud Foot (2017) · Reims (2018–2020) · Villarreal (2021) · Salernitana (2022–2023) · Lazio (2024–prezent)",
+          "career": "Jura Sud Foot (2017–2018) · Reims II (2018–prezent) · Reims (2018–2020) · Villarreal (2021–2023) · Salernitana (2022–2023, împrumut) · Salernitana (2023–2026) · Lazio (2024–2026, împrumut) · Lazio (2026–prezent) · Rennes (2026–prezent, împrumut)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": "În ultimele 5 dueluri directe cu Napoli: 1 gol — 15.02.2025 (min. 87).",
@@ -7510,6 +7783,145 @@
           "points": 28
         },
         "recent": [
+          {
+            "date": "2026-11-08",
+            "opp": "Napoli",
+            "homeAway": "A",
+            "comp": "Serie A",
+            "score": "1-0",
+            "result": "W",
+            "referee": "Luca J. Pairetto",
+            "formation": {
+              "us": "4-3-3",
+              "opp": "3-5-2"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "C. Mandas",
+                  "number": 35,
+                  "pos": "G"
+                },
+                {
+                  "name": "R. Floriani Mussolini",
+                  "number": 15,
+                  "pos": "D"
+                },
+                {
+                  "name": "J. Šutalo",
+                  "number": 37,
+                  "pos": "D"
+                },
+                {
+                  "name": "O. Provstgaard",
+                  "number": 25,
+                  "pos": "D"
+                },
+                {
+                  "name": "Nuno Tavares",
+                  "number": 17,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Frattesi",
+                  "number": 16,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Belahyane",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Taylor",
+                  "number": 24,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Isaksen",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "A. Pinamonti",
+                  "number": 9,
+                  "pos": "F"
+                },
+                {
+                  "name": "T. Noslin",
+                  "number": 14,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "V. Milinković-Savić",
+                  "number": 32,
+                  "pos": "G"
+                },
+                {
+                  "name": "S. Beukema",
+                  "number": 31,
+                  "pos": "D"
+                },
+                {
+                  "name": "Amir Rrahmani",
+                  "number": 13,
+                  "pos": "D"
+                },
+                {
+                  "name": "Rafa Marín",
+                  "number": 16,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Vergara",
+                  "number": 26,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. De Bruyne",
+                  "number": 11,
+                  "pos": "M"
+                },
+                {
+                  "name": "B. Gilmour",
+                  "number": 6,
+                  "pos": "M"
+                },
+                {
+                  "name": "S. McTominay",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Olivera",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "R. Højlund",
+                  "number": 19,
+                  "pos": "F"
+                },
+                {
+                  "name": "N. Lang",
+                  "number": 70,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 28,
+                "side": "us",
+                "type": "goal",
+                "player": "Davide Frattesi",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
           {
             "date": "2026-11-01",
             "opp": "Cagliari",
@@ -8868,142 +9280,9 @@
                 "playerIn": null
               }
             ]
-          },
-          {
-            "date": "2026-10-03",
-            "opp": "Juve Stabia",
-            "homeAway": "H",
-            "comp": "Friendlies Clubs",
-            "score": "3-3",
-            "result": "D",
-            "referee": null,
-            "formation": null,
-            "lineups": {
-              "us": [
-                {
-                  "name": "E. Motta",
-                  "number": 40,
-                  "pos": null
-                },
-                {
-                  "name": "R. Floriani",
-                  "number": 15,
-                  "pos": null
-                },
-                {
-                  "name": "D. Doekhi",
-                  "number": 5,
-                  "pos": null
-                },
-                {
-                  "name": "D. Leite",
-                  "number": 2,
-                  "pos": null
-                },
-                {
-                  "name": "A. Pedraza",
-                  "number": 23,
-                  "pos": null
-                },
-                {
-                  "name": "V. Farcomeni",
-                  "number": 71,
-                  "pos": null
-                },
-                {
-                  "name": "R. Belahyane",
-                  "number": 21,
-                  "pos": null
-                },
-                {
-                  "name": "F. Serra",
-                  "number": 63,
-                  "pos": null
-                },
-                {
-                  "name": "T. Noslin",
-                  "number": 14,
-                  "pos": null
-                },
-                {
-                  "name": "M. Zaccagni",
-                  "number": 10,
-                  "pos": null
-                },
-                {
-                  "name": "A. Pinamonti",
-                  "number": 9,
-                  "pos": null
-                }
-              ],
-              "opp": [
-                {
-                  "name": "P. Vismara",
-                  "number": 95,
-                  "pos": null
-                },
-                {
-                  "name": "T. Maggioni",
-                  "number": 96,
-                  "pos": null
-                },
-                {
-                  "name": "D. Bettella",
-                  "number": 87,
-                  "pos": null
-                },
-                {
-                  "name": "M. Bellich",
-                  "number": 6,
-                  "pos": null
-                },
-                {
-                  "name": "T. Douglas",
-                  "number": 25,
-                  "pos": null
-                },
-                {
-                  "name": "J. Kumi",
-                  "number": 24,
-                  "pos": null
-                },
-                {
-                  "name": "D. Buglio",
-                  "number": 8,
-                  "pos": null
-                },
-                {
-                  "name": "C. Pierobon",
-                  "number": 10,
-                  "pos": null
-                },
-                {
-                  "name": "F. Maistro",
-                  "number": 37,
-                  "pos": null
-                },
-                {
-                  "name": "A. Di Nardo",
-                  "number": 9,
-                  "pos": null
-                },
-                {
-                  "name": "G. Sibilli",
-                  "number": 33,
-                  "pos": null
-                }
-              ]
-            },
-            "events": []
           }
         ],
         "next": [
-          {
-            "date": "2026-11-08",
-            "opp": "Napoli",
-            "homeAway": "A",
-            "comp": "Serie A"
-          },
           {
             "date": "2026-11-21",
             "opp": "Lecce",
@@ -9014,6 +9293,12 @@
             "date": "2026-11-29",
             "opp": "Torino",
             "homeAway": "A",
+            "comp": "Serie A"
+          },
+          {
+            "date": "2026-12-06",
+            "opp": "Atalanta",
+            "homeAway": "H",
             "comp": "Serie A"
           }
         ],
@@ -9238,6 +9523,56 @@
         "Pe 19 decembrie 1982, meciul Lazio–Milan din Serie B a adunat 65.850 de spectatori plătitori, record absolut pentru un meci de eșalon secund în Italia.",
         "Clubul a scos din circulație, în sezonul 2002–03, tricoul cu numărul 12, dedicat definitiv suporterilor din Curva Nord.",
         "Gruparea Irriducibili, formată în 1987 și care a dominat Curva Nord peste trei decenii, s-a dizolvat la 27 februarie 2020."
+      ],
+      "newsCandidates": [
+        {
+          "title": "Serie A Liveblog: Napoli-Lazio, Inter-Como, Genoa-Milan, Fiorentina-Juventus and more",
+          "url": "https://football-italia.net/serie-a-napoli-lazio-inter-como-milan-fio-juve/",
+          "source": "Football Italia",
+          "published": "2026-11-08"
+        },
+        {
+          "title": "Serie A official line-ups: Napoli vs. Lazio",
+          "url": "https://football-italia.net/serie-a-official-line-ups-napoli-vs-lazio-2/",
+          "source": "Football Italia",
+          "published": "2026-11-08"
+        },
+        {
+          "title": "Napoli vs. Lazio: Where to watch",
+          "url": "https://football-italia.net/napoli-vs-lazio-where-to-watch/",
+          "source": "Football Italia",
+          "published": "2026-11-08"
+        },
+        {
+          "title": "Serie A: in campo Napoli-Lazio 0-0 DIRETTA",
+          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/11/08/serie-a-in-campo-alle-12.30-napoli-lazio-diretta-_ae79ac8e-1941-4fe3-8d95-d74ca4e44feb.html",
+          "source": "ANSA",
+          "published": "2026-11-08"
+        },
+        {
+          "title": "Napoli-Lazio, l’affetto di Gattuso che bacia Allegri e gli accarezza la testa",
+          "url": "https://www.ilnapolista.it/2026/11/napoli-lazio-laffetto-di-gattuso-che-bacia-allegri-e-gli-accarezza-la-testa/",
+          "source": "Il Napolista",
+          "published": "2026-11-08"
+        },
+        {
+          "title": "Napoli-Lazio, De Bruyne non scambia una parola con i compagni nel riscaldamento",
+          "url": "https://www.ilnapolista.it/2026/11/napoli-lazio-de-bruyne-non-scambia-una-parola-con-i-compagni-nel-riscaldamento/",
+          "source": "Il Napolista",
+          "published": "2026-11-08"
+        },
+        {
+          "title": "Napoli-Lazio, formazioni ufficiali: Politano e Anguissa in panchina, in porta Milinkovic Savic",
+          "url": "https://www.ilnapolista.it/2026/11/napoli-lazio-formazioni-ufficiali-politano-e-anguissa-in-panchina-in-porta-milinkovic-savic/",
+          "source": "Il Napolista",
+          "published": "2026-11-08"
+        },
+        {
+          "title": "Napoli vs Lazio: Italian Serie A stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE02X0lKVjlPNFNEV3I4NEdpdklWRG4wN3dweG1wRXp0OTF1S2dMR1p0dU9iT2NpeS01QUtMbnM1YXJaRmZxQ05iMzNhZ1BmeFU0V0ZyOWloU0lxZFJyTGJQb2lCYw?oc=5",
+          "source": "BBC",
+          "published": "2026-11-08"
+        }
       ]
     }
   },
@@ -9261,6 +9596,20 @@
       },
       {
         "rank": 2,
+        "teamId": 497,
+        "team": "AS Roma",
+        "played": 11,
+        "win": 8,
+        "draw": 3,
+        "loss": 0,
+        "gf": 31,
+        "ga": 10,
+        "gd": 21,
+        "points": 27,
+        "form": "WWWDW"
+      },
+      {
+        "rank": 3,
         "teamId": 505,
         "team": "Inter",
         "played": 10,
@@ -9272,20 +9621,6 @@
         "gd": 13,
         "points": 25,
         "form": "LWWWW"
-      },
-      {
-        "rank": 3,
-        "teamId": 497,
-        "team": "AS Roma",
-        "played": 10,
-        "win": 7,
-        "draw": 3,
-        "loss": 0,
-        "gf": 28,
-        "ga": 10,
-        "gd": 18,
-        "points": 24,
-        "form": "WWDWD"
       },
       {
         "rank": 4,
@@ -9319,15 +9654,15 @@
         "rank": 6,
         "teamId": 512,
         "team": "Frosinone",
-        "played": 10,
+        "played": 11,
         "win": 6,
         "draw": 2,
-        "loss": 2,
+        "loss": 3,
         "gf": 24,
-        "ga": 14,
-        "gd": 10,
+        "ga": 15,
+        "gd": 9,
         "points": 20,
-        "form": "WWDWL"
+        "form": "LWWDW"
       },
       {
         "rank": 7,
@@ -9345,6 +9680,34 @@
       },
       {
         "rank": 8,
+        "teamId": 500,
+        "team": "Bologna",
+        "played": 11,
+        "win": 5,
+        "draw": 2,
+        "loss": 4,
+        "gf": 16,
+        "ga": 14,
+        "gd": 2,
+        "points": 17,
+        "form": "WWWWL"
+      },
+      {
+        "rank": 9,
+        "teamId": 490,
+        "team": "Cagliari",
+        "played": 11,
+        "win": 5,
+        "draw": 1,
+        "loss": 5,
+        "gf": 10,
+        "ga": 15,
+        "gd": -5,
+        "points": 16,
+        "form": "WLLLL"
+      },
+      {
+        "rank": 10,
         "teamId": 492,
         "team": "Napoli",
         "played": 10,
@@ -9358,35 +9721,21 @@
         "form": "LWDLW"
       },
       {
-        "rank": 9,
-        "teamId": 500,
-        "team": "Bologna",
-        "played": 10,
-        "win": 4,
-        "draw": 2,
-        "loss": 4,
-        "gf": 14,
-        "ga": 13,
-        "gd": 1,
-        "points": 14,
-        "form": "WWWLW"
-      },
-      {
-        "rank": 10,
+        "rank": 11,
         "teamId": 503,
         "team": "Torino",
-        "played": 10,
+        "played": 11,
         "win": 4,
-        "draw": 1,
+        "draw": 2,
         "loss": 5,
-        "gf": 14,
-        "ga": 16,
+        "gf": 15,
+        "ga": 17,
         "gd": -2,
-        "points": 13,
-        "form": "LLWWW"
+        "points": 14,
+        "form": "DLLWW"
       },
       {
-        "rank": 11,
+        "rank": 12,
         "teamId": 495,
         "team": "Genoa",
         "played": 10,
@@ -9398,20 +9747,6 @@
         "gd": -4,
         "points": 13,
         "form": "WWWLW"
-      },
-      {
-        "rank": 12,
-        "teamId": 490,
-        "team": "Cagliari",
-        "played": 10,
-        "win": 4,
-        "draw": 1,
-        "loss": 5,
-        "gf": 9,
-        "ga": 15,
-        "gd": -6,
-        "points": 13,
-        "form": "LLLLD"
       },
       {
         "rank": 13,
@@ -9431,32 +9766,18 @@
         "rank": 14,
         "teamId": 867,
         "team": "Lecce",
-        "played": 10,
+        "played": 11,
         "win": 3,
-        "draw": 0,
+        "draw": 1,
         "loss": 7,
-        "gf": 11,
-        "ga": 21,
+        "gf": 12,
+        "ga": 22,
         "gd": -10,
-        "points": 9,
-        "form": "LLLWL"
+        "points": 10,
+        "form": "DLLLW"
       },
       {
         "rank": 15,
-        "teamId": 523,
-        "team": "Parma",
-        "played": 10,
-        "win": 2,
-        "draw": 2,
-        "loss": 6,
-        "gf": 8,
-        "ga": 15,
-        "gd": -7,
-        "points": 8,
-        "form": "WDLLL"
-      },
-      {
-        "rank": 16,
         "teamId": 502,
         "team": "Fiorentina",
         "played": 10,
@@ -9470,18 +9791,32 @@
         "form": "WDLLL"
       },
       {
+        "rank": 16,
+        "teamId": 523,
+        "team": "Parma",
+        "played": 11,
+        "win": 2,
+        "draw": 2,
+        "loss": 7,
+        "gf": 9,
+        "ga": 17,
+        "gd": -8,
+        "points": 8,
+        "form": "LWDLL"
+      },
+      {
         "rank": 17,
         "teamId": 488,
         "team": "Sassuolo",
-        "played": 10,
+        "played": 11,
         "win": 2,
         "draw": 2,
-        "loss": 6,
+        "loss": 7,
         "gf": 16,
-        "ga": 26,
-        "gd": -10,
+        "ga": 29,
+        "gd": -13,
         "points": 8,
-        "form": "LLLLD"
+        "form": "LLLLL"
       },
       {
         "rank": 18,
@@ -9499,31 +9834,31 @@
       },
       {
         "rank": 19,
-        "teamId": 494,
-        "team": "Udinese",
-        "played": 10,
-        "win": 1,
-        "draw": 2,
-        "loss": 7,
-        "gf": 11,
-        "ga": 23,
-        "gd": -12,
-        "points": 5,
-        "form": "LDLLL"
+        "teamId": 517,
+        "team": "Venezia",
+        "played": 11,
+        "win": 2,
+        "draw": 0,
+        "loss": 9,
+        "gf": 8,
+        "ga": 21,
+        "gd": -13,
+        "points": 6,
+        "form": "WLLLW"
       },
       {
         "rank": 20,
-        "teamId": 517,
-        "team": "Venezia",
-        "played": 10,
+        "teamId": 494,
+        "team": "Udinese",
+        "played": 11,
         "win": 1,
-        "draw": 0,
-        "loss": 9,
-        "gf": 6,
-        "ga": 20,
-        "gd": -14,
-        "points": 3,
-        "form": "LLLWL"
+        "draw": 2,
+        "loss": 8,
+        "gf": 12,
+        "ga": 25,
+        "gd": -13,
+        "points": 5,
+        "form": "LLDLL"
       }
     ]
   },
