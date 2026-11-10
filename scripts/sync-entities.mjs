@@ -185,6 +185,24 @@ async function main() {
     }
   }
 
+  // One upsert may not carry the same (kind, entity_key) twice: Postgres refuses with "ON CONFLICT DO
+  // UPDATE command cannot affect row a second time" (HTTP 500). API-Football can list the same coach as
+  // current for two teams (Leontin Grozavu: 2581 and 2586, 10 Nov 2026), so keep one row per coach, the one
+  // whose current spell started most recently.
+  const dedupe = (list) => {
+    const by = new Map();
+    for (const r of list) {
+      const k = r.kind + '|' + r.entity_key;
+      const prev = by.get(k);
+      if (!prev) { by.set(k, r); continue; }
+      console.log('  duplicate ' + k + ' (' + (r.base && r.base.name || '') + ') -- keeping the most recent tenure');
+      if (String((r.base && r.base.tenureFrom) || '') > String((prev.base && prev.base.tenureFrom) || '')) by.set(k, r);
+    }
+    return [...by.values()];
+  };
+  rows.splice(0, rows.length, ...dedupe(rows));
+  teamRows.splice(0, teamRows.length, ...dedupe(teamRows));
+
   // Batch upserts, Supabase/PostgREST-friendly chunk size.
   const CHUNK = 50;
   for (let i = 0; i < rows.length; i += CHUNK) await upsertEntities(rows.slice(i, i + CHUNK));
