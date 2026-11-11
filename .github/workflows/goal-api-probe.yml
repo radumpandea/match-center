@@ -9,6 +9,9 @@ on:
       paths:
         description: "Extra GET paths, one per line (e.g. /fixtures/123)"
         default: ""
+      country:
+        description: "Only probe the leagues of this country (regex on countryName, e.g. Romania)"
+        default: ""
       max_calls:
         description: "Call cap for this run"
         default: "40"
@@ -25,3 +28,5 @@ jobs:
           GOAL_API: ${{ secrets.GOAL_API }}
           PATHS: ${{ inputs.paths }}
           MAX_CALLS: ${{ inputs.max_calls }}
+          COUNTRY: ${{ inputs.country }}
+          SKIP_PLAYERS: ${{ inputs.country != '' && '1' || '' }}

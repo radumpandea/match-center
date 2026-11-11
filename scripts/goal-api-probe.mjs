@@ -25,11 +25,12 @@ async function main() {
   // 1. leagues: find the ones we care about
   const want = /super ?liga|liga 1|liga 2|ligue 1|premier league|fa cup|league one|saudi|champions league|scottish|eredivisie/i;
   const found = [];
+  const all = [];
   for (let off = 0; off < 1500; off += 100) {
     const j = await get(`/leagues?limit=100&offset=${off}`, off === 0 ? 600 : 0);
     const r = rows(j);
     if (!r.length) break;
-    r.forEach((l) => { const nm = [l.name, l.leagueName, l.title].find(Boolean) || ''; if (want.test(nm)) found.push(l); });
+    r.forEach((l) => { all.push(l); const nm = [l.name, l.leagueName, l.title].find(Boolean) || ''; if (want.test(nm)) found.push(l); });
     if (r.length < 100) break;
   }
   console.log('\n=== matching leagues ===');
@@ -37,7 +38,10 @@ async function main() {
 
   // 2. fixtures per interesting league: look for referee / lineups fields
   const pick = (re, ctry) => found.filter((l) => re.test(l.name || '') && (!ctry || new RegExp(ctry, 'i').test(JSON.stringify(l))));
-  const targets = [...pick(/super ?liga|liga 1/i, 'rom'), ...pick(/liga 2|liga ii/i, 'rom'), ...pick(/^ligue 1/i, 'fran'), ...pick(/^premier league/i, 'engl')].slice(0, 4);
+  const ctry = process.env.COUNTRY ? new RegExp(process.env.COUNTRY, 'i') : null;
+  if (ctry) { console.log('=== leagues in ' + process.env.COUNTRY + ' ==='); all.filter((l) => ctry.test(l.countryName || '')).forEach((l) => console.log(l.id, '|', l.name, '|', l.season, '|', JSON.stringify(l._count || {}))); }
+  const targets = ctry ? all.filter((l) => ctry.test(l.countryName || '') && !/women|feminin|u\d\d|youth/i.test(l.name || '')).slice(0, 4) : [...pick(/super ?liga|liga 1/i, 'rom'), ...pick(/liga 2|liga ii/i, 'rom'), ...pick(/^ligue 1/i, 'fran'), ...pick(/^premier league/i, 'engl')].slice(0, 4);
+  if (process.env.SKIP_PLAYERS) { /* handled below */ }
   for (const l of targets) {
     const id = l.id ?? l.leagueId;
     console.log(`\n=== league ${id} ${l.name} ===`);
@@ -57,6 +61,8 @@ async function main() {
     }
   }
 
+  if (process.env.SKIP_PLAYERS) { console.log(`
+${calls} call(s) used.`); return; }
   // 3. player statistics: is it per season / competition?
   const ps = await get('/players/search?q=Salah', 500);
   const p = rows(ps)[0];
