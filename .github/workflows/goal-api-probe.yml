@@ -1,0 +1,27 @@
+name: GOAL API probe
+
+# Manual one-off: what does GOAL API return for the leagues we cover? (referee on fixtures, lineups,
+# per-season player stats). Prints to the log, writes nothing, never prints the key.
+
+on:
+  workflow_dispatch:
+    inputs:
+      paths:
+        description: "Extra GET paths, one per line (e.g. /fixtures/123)"
+        default: ""
+      max_calls:
+        description: "Call cap for this run"
+        default: "40"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/goal-api-probe.mjs
+        env:
+          GOAL_API: ${{ secrets.GOAL_API }}
+          PATHS: ${{ inputs.paths }}
+          MAX_CALLS: ${{ inputs.max_calls }}
