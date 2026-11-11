@@ -17,6 +17,12 @@ async function get(path, show = 1200) {
   let json = null; try { json = JSON.parse(text); } catch {}
   console.log(`\n### GET ${path} -> ${res.status} ${hdr ? '[' + hdr + ']' : ''}`);
   if (show) console.log((json ? JSON.stringify(json) : text).slice(0, show));
+  const list = json && Array.isArray(json.data) ? json.data : null;
+  if (list && list.length && list[0] && 'matchReferee' in list[0]) {
+    const withRef = list.filter((f) => f.matchStatus === 'FINISHED' && f.matchReferee);
+    const fin = list.filter((f) => f.matchStatus === 'FINISHED');
+    console.log(`REFEREE: finished ${fin.length}, with referee ${withRef.length}; ` + list.map((f) => `${f.matchDate} ${f.homeTeamName}-${f.awayTeamName} ${f.matchStatus} ref=${f.matchReferee}`).join(' | '));
+  }
   return json;
 }
 const rows = (j) => (j && (Array.isArray(j) ? j : Array.isArray(j.data) ? j.data : Array.isArray(j.results) ? j.results : Array.isArray(j.items) ? j.items : [])) || [];
@@ -61,8 +67,11 @@ async function main() {
     }
   }
 
-  if (process.env.SKIP_PLAYERS) { console.log(`
-${calls} call(s) used.`); return; }
+  if (process.env.SKIP_PLAYERS) {
+    for (const line of String(process.env.PATHS || '').split('\n').map((s) => s.trim()).filter(Boolean)) await get(line, 0);
+    console.log(`${calls} call(s) used.`);
+    return;
+  }
   // 3. player statistics: is it per season / competition?
   const ps = await get('/players/search?q=Salah', 500);
   const p = rows(ps)[0];
