@@ -25,12 +25,12 @@ async function main() {
   // 1. leagues: find the ones we care about
   const want = /super ?liga|liga 1|liga 2|ligue 1|premier league|fa cup|league one|saudi|champions league|scottish|eredivisie/i;
   const found = [];
-  for (let off = 0; off < 1200; off += 200) {
-    const j = await get(`/leagues?limit=200&offset=${off}`, off === 0 ? 600 : 0);
+  for (let off = 0; off < 1500; off += 100) {
+    const j = await get(`/leagues?limit=100&offset=${off}`, off === 0 ? 600 : 0);
     const r = rows(j);
     if (!r.length) break;
     r.forEach((l) => { const nm = [l.name, l.leagueName, l.title].find(Boolean) || ''; if (want.test(nm)) found.push(l); });
-    if (r.length < 200) break;
+    if (r.length < 100) break;
   }
   console.log('\n=== matching leagues ===');
   found.forEach((l) => console.log(JSON.stringify(l).slice(0, 220)));
