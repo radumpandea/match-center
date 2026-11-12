@@ -23,6 +23,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { teamNews, classifyReason } from './prefetch-preview.mjs';
 import { nameMatches, applyAbsenceStatus, decodeDeep } from './lib/enrich-pack.mjs';
 import { computeWatch } from './lib/watch.mjs';
+import { refereeSeasonStats, applyRefereeSeason } from './lib/referee-stats.mjs';
 
 const API_KEY = process.env.APIFOOTBALL_KEY;
 const HOST = 'https://v3.football.api-sports.io';
@@ -40,6 +41,7 @@ const strip = (s) => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').to
 const norm = (s) => strip(s).replace(/[^a-z0-9]+/g, '');
 
 let remaining = null;
+const refBudget = { left: 40 };   // fixtures/events calls for referee statistics this run
 async function af(path, params) {
   const res = await fetch(`${HOST}/${path}?${new URLSearchParams(params)}`, { headers: { 'x-apisports-key': API_KEY } });
   const r = Number(res.headers.get('x-ratelimit-requests-remaining'));
@@ -134,6 +136,17 @@ async function main() {
     const fr = fx && fx.response && fx.response[0];
     if (fr && fr.fixture && fr.fixture.status && !['NS', 'TBD', 'PST'].includes(fr.fixture.status.short)) { console.log(`  status ${fr.fixture.status.short}, match already started, skipped.`); continue; }
     if (fr) { const c = refereeChange(doc, fr.fixture && fr.fixture.referee); if (c) changes.push(c); }
+    if (fr && has(doc.referee && doc.referee.name) && f.leagueId) {
+      try {
+        const season = (fr.league && fr.league.season) || null;
+        if (season) {
+          const rs = await refereeSeasonStats({ af, doc, fixture: f, season, budget: refBudget });
+          if (applyRefereeSeason(doc, f.comp, rs)) {
+            changes.push({ kind: 'referee-stats', text: `Statistici arbitru (${doc.referee.name}, ${f.comp}, acest sezon): ${rs.matches} meciuri, ${(rs.yellow / rs.matches).toFixed(1)} galbene/meci, ${rs.red} roșii, ${rs.penalties} penalty-uri` });
+          }
+        }
+      } catch (e) { console.log(`  referee stats failed: ${e.message}`); }
+    }
 
     const kickDate = String(doc.kickoff || f.kickoff || '').slice(0, 10) || null;
     const inj = await af('injuries', { fixture: f.eventId });

@@ -42,7 +42,7 @@
             "required": ["kind", "text"],
             "properties": {
               "at": { "type": "string" },
-              "kind": { "type": "string", "enum": ["referee", "absence", "absence-cleared", "news"] },
+              "kind": { "type": "string", "enum": ["referee", "referee-stats", "absence", "absence-cleared", "news"] },
               "side": { "type": ["string", "null"], "enum": ["home", "away", null] },
               "text": { "type": "string" },
               "url": { "type": ["string", "null"] },
@@ -120,6 +120,30 @@
         "ycPerMatch": { "type": ["number", "null"] },
         "rcPerMatch": { "type": ["number", "null"] },
         "history": { "type": ["string", "null"], "description": "record with these two teams, if known" },
+        "season": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "computed by scripts/lib/referee-stats.mjs from API-Football: this referee's matches in this competition's current season",
+          "properties": {
+            "comp": { "type": "string" },
+            "matches": { "type": "integer" },
+            "yellow": { "type": "integer" },
+            "red": { "type": "integer" },
+            "penalties": { "type": "integer", "description": "penalties awarded and taken (scored or missed)" },
+            "withTeams": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "team": { "type": "string" },
+                  "matches": { "type": "integer" },
+                  "w": { "type": "integer" }, "d": { "type": "integer" }, "l": { "type": "integer" }
+                }
+              }
+            }
+          }
+        },
         "funfacts": { "type": ["array", "null"], "items": { "type": "string" }, "maxItems": 10, "description": "3-6 verified facts about the referee, Romanian; stored per referee in docs/data/referees/<name-key>.json" }
       }
     },

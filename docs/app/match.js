@@ -1837,7 +1837,7 @@
     list.forEach(function (c) {
       var side = c.side && d.teams[c.side] ? (d.teams[c.side].shortName || d.teams[c.side].name) + ': ' : '';
       var tag = c.kind === 'news' ? ' (' + t('refresh.news') + (c.source ? ', ' + c.source : '') + (c.published ? ', ' + c.published : '') + ')' : '';
-      var icon = c.kind === 'referee' ? '🧑‍⚖️ ' : c.kind === 'news' ? '📰 ' : '🩹 ';
+      var icon = (c.kind === 'referee' || c.kind === 'referee-stats') ? '🧑‍⚖️ ' : c.kind === 'news' ? '📰 ' : '🩹 ';
       var li = el('li', {}, [document.createTextNode(icon + side)]);
       li.appendChild(c.url ? el('a', { href: c.url, target: '_blank', rel: 'noopener', text: c.text }) : document.createTextNode(c.text));
       li.appendChild(document.createTextNode(tag));
@@ -4096,6 +4096,15 @@
         if (has(r.rcPerMatch)) kv.appendChild(el('span', { html: '<b>' + t('referee.rcPerMatch') + '</b>' + esc(r.rcPerMatch) }));
         var wrap = el('div', {}, [kv]);
         if (has(r.history)) wrap.appendChild(el('p', { text: r.history }));
+        if (r.season && r.season.matches) {
+          var rs = r.season;
+          var avg = function (n) { return (n / rs.matches).toFixed(2); };
+          wrap.appendChild(el('p', { text: t('referee.seasonLine', { comp: rs.comp, n: rs.matches, y: rs.yellow, ya: avg(rs.yellow), r: rs.red, p: rs.penalties }) }));
+          (rs.withTeams || []).forEach(function (x) {
+            wrap.appendChild(el('p', { text: t('referee.seasonTeam', { team: x.team, n: x.matches, w: x.w, d: x.d, l: x.l }) }));
+          });
+          wrap.appendChild(el('p', { class: 'season-note', text: t('referee.seasonNote') }));
+        }
         if (store.manual && store.manual.referee) {
           wrap.appendChild(el('div', { class: 'notes-row' }, [el('button', {
             class: 'pick', text: t('referee.removeManual'),
