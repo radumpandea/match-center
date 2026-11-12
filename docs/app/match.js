@@ -1921,6 +1921,72 @@
     });
   }
 
+// The player's part in his team's last matches, read from the form guide already in the pack
+  // (teams.<side>.form.recent[]: starting XI and goals / cards / substitutions of each match, API-Football).
+  // Started / came on / not used, minutes (a substitution or a red card ends them; 90 otherwise, extra time not
+  // counted, so "~"), goals and cards. A match whose lineup is missing is left out. Names are matched on
+  // surname + first initial, and a name that fits two players of the squad is skipped, not guessed.
+  function recentForm(d, side, p) {
+    var tm = d.teams[side], guide = (tm.form && tm.form.recent) || [];
+    if (!guide.length || !has(p.name)) return null;
+    function toks(n) { return qsNorm(n).replace(/[^a-z\s-]/g, ' ').split(/\s+/).filter(Boolean); }
+    var mine = toks(p.name);
+    function same(n) {
+      if (!has(n)) return false;
+      var x = toks(n);
+      if (!x.length || !mine.length) return false;
+      return x[x.length - 1] === mine[mine.length - 1] && x[0][0] === mine[0][0];
+    }
+    var twin = (tm.squad || []).some(function (q) { return q !== p && has(q.name) && toks(q.name).length && toks(q.name)[toks(q.name).length - 1] === mine[mine.length - 1] && toks(q.name)[0][0] === mine[0][0]; });
+    if (twin) return null;
+    var rows = [];
+    guide.forEach(function (r) {
+      var xi = r.lineups && r.lineups.us;
+      if (!xi || !xi.length) return;
+      var started = xi.some(function (x) { return same(x.name); });
+      var on = null, off = null, red = null, goals = 0, yellow = 0;
+      (r.events || []).forEach(function (e) {
+        if (e.side !== 'us') return;
+        if (e.type === 'sub') { if (same(e.playerIn)) on = e.minute; if (same(e.playerOut)) off = e.minute; }
+        else if (same(e.player)) {
+          if (e.type === 'goal') goals++;
+          else if (e.type === 'yellow') yellow++;
+          else if (e.type === 'red') red = e.minute;
+        }
+      });
+      var played = started || on != null;
+      var mins = 0;
+      if (played) {
+        var from = started ? 0 : (Number(on) || 0), to = 90;
+        if (off != null) to = Math.min(to, Number(off) || 90);
+        if (red != null) to = Math.min(to, Number(red) || 90);
+        mins = Math.max(0, to - from);
+      }
+      rows.push({ r: r, role: started ? 'T' : (on != null ? 'R' : '—'), mins: mins, goals: goals, yellow: yellow, red: red != null });
+    });
+    if (!rows.length || !rows.some(function (x) { return x.role !== '—'; })) return null;
+    var tb = el('table', { class: 'mc playerstats' }, [el('tr', {}, [t('rf.date'), t('rf.opp'), t('rf.res'), t('rf.role'), t('th.min'), t('th.goals'), '🟨', '🟥'].map(function (h) { return el('th', { text: h }); }))]);
+    rows.forEach(function (x) {
+      tb.appendChild(el('tr', {}, [
+        el('td', { text: String(x.r.date || '').slice(5) }),
+        el('td', { class: 'pst-name', text: (x.r.homeAway === 'A' ? '@ ' : '') + (x.r.opp || '') }),
+        el('td', { text: (x.r.score || '') + (x.r.result ? ' ' + x.r.result : '') }),
+        el('td', { text: x.role }),
+        el('td', { text: x.mins ? '~' + x.mins : '' }),
+        el('td', { text: x.goals ? String(x.goals) : '' }),
+        el('td', { text: x.yellow ? String(x.yellow) : '' }),
+        el('td', { text: x.red ? '1' : '' })
+      ]));
+    });
+    var tot = rows.reduce(function (a, x) { return { m: a.m + x.mins, g: a.g + x.goals, st: a.st + (x.role === 'T' ? 1 : 0), pl: a.pl + (x.role !== '—' ? 1 : 0) }; }, { m: 0, g: 0, st: 0, pl: 0 });
+    return el('div', { class: 'recent-form' }, [
+      el('h4', { text: t('rf.title', { n: rows.length }) }),
+      el('p', { class: 'season-note', text: t('rf.summary', { pl: tot.pl, n: rows.length, st: tot.st, m: tot.m, g: tot.g }) }),
+      el('div', { class: 'standings-wrap' }, [tb]),
+      el('p', { class: 'season-note', text: t('rf.note') })
+    ]);
+  }
+
 // Ctrl+K / "/" : jump to a player, coach, referee, panel or another match by typing a few letters.
   var _qsData = null, _qsBound = false;
   function qsNorm(x) { return String(x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
@@ -3952,6 +4018,8 @@
           if (has(p.lastSeason)) body.appendChild(el('p', { html: '<b style="color:var(--color-neutral-500)">' + t('player.lastSeason') + '</b> ' + esc(p.lastSeason) }));
         }
         fill();
+        var rf = recentForm(d, side, p);
+        if (rf) wrap.appendChild(rf);
         return wrap;
       },
       [t('player.tabCareer')]: function () {
