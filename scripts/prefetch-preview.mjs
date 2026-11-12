@@ -2251,7 +2251,7 @@ async function backfillHistory(fixtures, season, cache) {
 
 // teamNews() and classifyReason() are reused by scripts/prematch-refresh.mjs, which imports this file: only run
 // the daily pass when this file is the entry point.
-export { teamNews, classifyReason };
+export { teamNews, classifyReason, fetchRss };
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   main().catch((e) => { console.error(e); process.exit(1); });
 }

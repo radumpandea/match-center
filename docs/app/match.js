@@ -2113,8 +2113,8 @@
     var ul = el('ul');
     list.forEach(function (c) {
       var side = c.side && d.teams[c.side] ? (d.teams[c.side].shortName || d.teams[c.side].name) + ': ' : '';
-      var tag = c.kind === 'news' ? ' (' + t('refresh.news') + (c.source ? ', ' + c.source : '') + (c.published ? ', ' + c.published : '') + ')' : '';
-      var icon = (c.kind === 'referee' || c.kind === 'referee-stats') ? '🧑‍⚖️ ' : c.kind === 'news' ? '📰 ' : '🩹 ';
+      var tag = (c.kind === 'news' || c.kind === 'referee-hint') ? ' (' + t('refresh.news') + (c.source ? ', ' + c.source : '') + (c.published ? ', ' + c.published : '') + ')' : '';
+      var icon = (c.kind === 'referee' || c.kind === 'referee-stats' || c.kind === 'referee-hint') ? '🧑‍⚖️ ' : c.kind === 'news' ? '📰 ' : '🩹 ';
       var li = el('li', {}, [document.createTextNode(icon + side)]);
       li.appendChild(c.url ? el('a', { href: c.url, target: '_blank', rel: 'noopener', text: c.text }) : document.createTextNode(c.text));
       li.appendChild(document.createTextNode(tag));

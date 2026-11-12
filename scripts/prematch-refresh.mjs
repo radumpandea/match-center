@@ -20,7 +20,7 @@
 // remove an absence, or touch lineups. Requires Node 18+.
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { teamNews, classifyReason } from './prefetch-preview.mjs';
+import { teamNews, classifyReason, fetchRss } from './prefetch-preview.mjs';
 import { nameMatches, applyAbsenceStatus, decodeDeep } from './lib/enrich-pack.mjs';
 import { computeWatch } from './lib/watch.mjs';
 import { refereeSeasonStats, applyRefereeSeason } from './lib/referee-stats.mjs';
@@ -51,6 +51,29 @@ async function af(path, params) {
   const errs = j && j.errors;
   if (errs && (Array.isArray(errs) ? errs.length : Object.keys(errs).length)) { console.log(`  API errors on ${path}: ${JSON.stringify(errs)}`); return null; }
   return j;
+}
+
+// API-Football almost never carries the referee of Romanian matches; the delegation is published by the FRF/LPF a
+// few days ahead and repeated by the press. Headlines found for the fixture are reported as unverified hints
+// (the referee itself is never written from a headline).
+const RO_COMPS = new Set(['Superliga', 'Liga 2', 'Cupa României']);
+async function refereeHints(f, doc) {
+  const key = (s) => norm(s);
+  const hk = key(f.home), ak = key(f.away);
+  const queries = [`arbitri delegați "${f.home}" "${f.away}" when:7d`, `"${f.home}" "${f.away}" arbitru when:7d`];
+  const seen = new Set(((doc.refresh && doc.refresh.changes) || []).filter((c) => c.kind === 'referee-hint').map((c) => key(c.text)));
+  const out = [];
+  for (const q of queries) {
+    for (const it of await fetchRss(q)) {
+      const k = key(it.title);
+      if (!k || seen.has(k)) continue;
+      if (!/arbitr|delegat|brigad/i.test(it.title)) continue;
+      if (!(k.includes(hk) || k.includes(ak))) continue;
+      seen.add(k);
+      out.push({ kind: 'referee-hint', text: it.title, url: it.url || null, source: it.source || null, published: it.published || null });
+    }
+  }
+  return out.slice(0, 3);
 }
 
 const REASON_RO = { injury: 'accidentat', suspension: 'suspendat', doubt: 'incert', other: 'indisponibil' };
@@ -136,6 +159,9 @@ async function main() {
     const fr = fx && fx.response && fx.response[0];
     if (fr && fr.fixture && fr.fixture.status && !process.env.ALLOW_STARTED && !['NS', 'TBD', 'PST'].includes(fr.fixture.status.short)) { console.log(`  status ${fr.fixture.status.short}, match already started, skipped.`); continue; }
     if (fr) { const c = refereeChange(doc, fr.fixture && fr.fixture.referee); if (c) changes.push(c); }
+    if (!has(doc.referee && doc.referee.name) && RO_COMPS.has(f.comp)) {
+      try { changes.push(...(await refereeHints(f, doc))); } catch (e) { console.log(`  referee hints failed: ${e.message}`); }
+    }
     if (fr && has(doc.referee && doc.referee.name) && f.leagueId) {
       try {
         const season = (fr.league && fr.league.season) || null;

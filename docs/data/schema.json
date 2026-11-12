@@ -42,7 +42,7 @@
             "required": ["kind", "text"],
             "properties": {
               "at": { "type": "string" },
-              "kind": { "type": "string", "enum": ["referee", "referee-stats", "absence", "absence-cleared", "news"] },
+              "kind": { "type": "string", "enum": ["referee", "referee-hint", "referee-stats", "absence", "absence-cleared", "news"] },
               "side": { "type": ["string", "null"], "enum": ["home", "away", null] },
               "text": { "type": "string" },
               "url": { "type": ["string", "null"] },
