@@ -389,6 +389,7 @@ Reguli de mapare:
   obligatorii (`venue.name`, `formation` etc.). **Niciodată inventate.**
 - `slug` = slug-ul din fixtures. `generatedAt` = timestamp ISO acum.
 - `sources[]` = fiecare sursă folosită, cu `name`, `url`, `accessed` (data). Minim câteva.
+- **Sursă pe afirmație.** La finalul fiecărui punct din `storyOfTheMatch[]`, din `teams.<side>.stories[].bullets[]`, din `clubFacts[]` și din `venue.stories[]` care conține o cifră, o dată, un nume propriu sau o relație (rudenie, transfer, numire), pune între paranteze drepte numărul sursei din `sources[]` (1 = prima): `... a semnat în iunie 2025. [3]`. Mai multe surse: `[2][5]`. Ecranul le arată ca trimiteri clicabile spre sursă, iar comentatorul poate verifica o afirmație în 2 secunde. Un număr care nu există în `sources[]` e o greșeală (validatorul avertizează). Faptele pe care nu le poți lega de o sursă din listă nu intră în pachet.
 - `kickoff` = ISO 8601 cu offset (ex. `2026-09-03T21:45:00+03:00`).
 - `predictedXI` = 11 intrări, ordonate GK → apărare → mijloc → atac. `pos` = etichetă de
   poziție din lista din schemă (GK, LB, LCB, CB, RCB, RB, LWB, RWB, DM, LCM, CM, RCM, LM, RM,

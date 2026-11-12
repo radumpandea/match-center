@@ -2640,11 +2640,29 @@
     [].forEach.call(ds, function (x) { x.open = anyClosed; });
   }
 
+  // "[3]" at the end of a point is a pointer to sources[2] (1-based; see the match-data-json skill): shown as a small
+  // clickable superscript. A number that is not in sources[] stays as plain text.
+  function citeFragment(text) {
+    var frag = document.createDocumentFragment();
+    var src = (_qsData && _qsData.sources) || [];
+    var re = /\[(\d{1,2})\]/g, last = 0, m;
+    while ((m = re.exec(text))) {
+      var s0 = src[Number(m[1]) - 1];
+      if (!s0 || !s0.url) continue;
+      if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+      frag.appendChild(el('sup', { class: 'cite' }, [el('a', { href: s0.url, target: '_blank', rel: 'noopener', title: s0.name + (s0.accessed ? ' · ' + s0.accessed : ''), text: '[' + m[1] + ']' })]));
+      last = m.index + m[0].length;
+    }
+    if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+    return frag;
+  }
   function ul(items, opts) {
     var talk = !!(opts && opts.talk);
     return el('ul', {}, (items || []).filter(has).map(function (text) {
-      if (!talk) return el('li', { text: text });
-      return el('li', { class: talkState(text) === 2 ? 'said' : null, 'data-talk': talkKey(text) }, [talkMark(text), document.createTextNode(text)]);
+      if (!talk) { var li0 = el('li'); li0.appendChild(citeFragment(text)); return li0; }
+      var li = el('li', { class: talkState(text) === 2 ? 'said' : null, 'data-talk': talkKey(text) }, [talkMark(text)]);
+      li.appendChild(citeFragment(text));
+      return li;
     }));
   }
 

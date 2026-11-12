@@ -10,6 +10,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
+import { consistencyWarnings } from './lib/consistency.mjs';
 
 const SCHEMA_PATH = fileURLToPath(new URL('../docs/data/schema.json', import.meta.url));
 
@@ -105,7 +106,7 @@ function semanticWarnings(d) {
     w.push(`storyOfTheMatch has only ${d.storyOfTheMatch?.length ?? 0} bullets (aim for 6-10)`);
   }
   if (!d.sources?.length) w.push('sources[] is empty');
-  return w;
+  return w.concat(consistencyWarnings(d));
 }
 
 process.exit(ok ? 0 : 1);
