@@ -1989,7 +1989,11 @@
 
 // Ctrl+K / "/" : jump to a player, coach, referee, panel or another match by typing a few letters.
   var _qsData = null, _qsBound = false;
-  function qsNorm(x) { return String(x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+  // accent-insensitive, and also folds the letters that have no decomposition (Turkish dotless \u0131, \u0142, \u00f8, \u0111, \u00df ...)
+  var QS_FOLD = { '\u0131': 'i', '\u0142': 'l', '\u00f8': 'o', '\u0111': 'd', '\u00f0': 'd', '\u00df': 'ss', '\u00e6': 'ae', '\u0153': 'oe', '\u00fe': 'th' };
+  function qsNorm(x) {
+    return String(x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[\u0131\u0142\u00f8\u0111\u00f0\u00df\u00e6\u0153\u00fe]/g, function (c) { return QS_FOLD[c]; });
+  }
   function bindQuickSearch() {
     if (_qsBound) return;
     _qsBound = true;
@@ -2030,7 +2034,7 @@
     var shown = [], sel = 0;
     function close() { back.remove(); }
     function draw() {
-      var q = qsNorm(input.value).trim().split(/\s+/).filter(Boolean);
+      var q = qsNorm(input.value).replace(/\./g, ' ').trim().split(/\s+/).filter(Boolean);
       shown = items.filter(function (it) { return q.every(function (w) { return it.key.indexOf(w) >= 0; }); });
       shown.sort(function (a, b) {
         var sa = q.length && a.key.indexOf(q[0]) === 0 ? 0 : 1, sb = q.length && b.key.indexOf(q[0]) === 0 ? 0 : 1;
