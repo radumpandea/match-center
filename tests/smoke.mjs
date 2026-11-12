@@ -86,6 +86,8 @@ try {
       await mark.click(); await mark.click();   // ✓ then back to ☆
     }
 
+    await page.evaluate(() => document.querySelectorAll('details.panel').forEach((d) => { d.open = true; }));
+
     // sortable stats table
     const th = page.locator('table.playerstats th.pst-sort').nth(3);
     if (await th.count()) {
