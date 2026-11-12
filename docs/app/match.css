@@ -667,3 +667,14 @@ li.said{opacity:.55;text-decoration:line-through}
 .season-table table.seasons{min-width:560px}
 .season-table tr.season-total td{font-weight:600;border-top:2px solid var(--color-divider)}
 .season-note{font-size:11px;color:var(--color-neutral-500);margin:6px 0 0}
+
+/* quick search (Ctrl+K) and booth mode */
+.qs-back{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;display:flex;align-items:flex-start;justify-content:center;padding-top:12vh}
+.qs-box{width:min(560px,92vw);background:var(--color-surface,#1b1d22);color:inherit;border:1px solid var(--color-divider);border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,.45);overflow:hidden}
+.qs-input{width:100%;box-sizing:border-box;padding:12px 14px;font-size:15px;border:0;border-bottom:1px solid var(--color-divider);background:transparent;color:inherit;outline:none}
+.qs-list{list-style:none;margin:0;padding:4px 0;max-height:55vh;overflow:auto}
+.qs-list li{display:flex;align-items:baseline;gap:8px;padding:7px 14px;cursor:pointer}
+.qs-list li.sel,.qs-list li:hover{background:rgba(127,127,127,.18)}
+.qs-list small{margin-left:auto;color:var(--color-neutral-500);font-size:11px}
+.qs-none{color:var(--color-neutral-500);cursor:default!important}
+body.booth #root{zoom:1.18}

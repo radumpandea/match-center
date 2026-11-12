@@ -1791,6 +1791,8 @@
         photosBtn,
         fontBtn,
         favBtn,
+        iconOnly(el('button', { text: '🔎 ' + t('qs.button'), title: 'Ctrl+K', onclick: function () { openQuickSearch(data); } })),
+        iconOnly(el('button', { text: (mine.booth ? '☑ ' : '☐ ') + t('booth.button'), title: t('booth.title'), onclick: function () { mine.booth = !mine.booth; if (!mine.booth) delete mine.booth; saveMine(); render(data); } })),
         collabBtn,
         iconOnly(resetPosBtn),
         iconOnly(resetOrderBtn),
@@ -1803,6 +1805,9 @@
         } }))
       ])
     ]);
+    document.body.classList.toggle('booth', !!mine.booth);
+    _qsData = data;
+    bindQuickSearch();
     root.appendChild(head);
     var rb = refreshBanner(data);
     if (rb) root.appendChild(rb);
@@ -1816,6 +1821,79 @@
     root.appendChild(panelsEl);
 
     setupStickyMiniPitch(data);
+  }
+
+// Ctrl+K / "/" : jump to a player, coach, referee, panel or another match by typing a few letters.
+  var _qsData = null, _qsBound = false;
+  function qsNorm(x) { return String(x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+  function bindQuickSearch() {
+    if (_qsBound) return;
+    _qsBound = true;
+    document.addEventListener('keydown', function (e) {
+      var tag = (e.target && e.target.tagName) || '';
+      var typing = /^(INPUT|TEXTAREA|SELECT)$/.test(tag) || (e.target && e.target.isContentEditable);
+      if (((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') || (!typing && !e.ctrlKey && !e.metaKey && !e.altKey && e.key === '/')) {
+        if (!_qsData || document.querySelector('.qs-back')) return;
+        e.preventDefault();
+        openQuickSearch(_qsData);
+      }
+    });
+  }
+  function openQuickSearch(d) {
+    if (document.querySelector('.qs-back')) return;
+    var items = [];
+    ['home', 'away'].forEach(function (side) {
+      var tm = d.teams[side];
+      (tm.squad || []).forEach(function (p) {
+        if (!has(p.name)) return;
+        items.push({ kind: 'player', label: (p.number != null ? p.number + '. ' : '') + p.name, sub: (tm.shortName || tm.name) + (has(p.pos) ? ' · ' + p.pos : ''), key: qsNorm(p.name), go: function () { openPlayer(d, side, p); } });
+      });
+      if (tm.coach && has(tm.coach.name)) items.push({ kind: 'coach', label: tm.coach.name, sub: t('pitch.coach') + ' · ' + (tm.shortName || tm.name), key: qsNorm(tm.coach.name), go: function () { openCoach(d, side); } });
+    });
+    if (d.referee && has(d.referee.name)) items.push({ kind: 'referee', label: d.referee.name, sub: t('pitch.referee'), key: qsNorm(d.referee.name), go: function () { openRef(d); } });
+    [].forEach.call(document.querySelectorAll('details.panel > summary'), function (sm) {
+      var title = sm.textContent.replace(/[⠿⤢⤡]/g, '').trim();
+      if (title) items.push({ kind: 'panel', label: title, sub: t('qs.panel'), key: qsNorm(title), go: function () { var dt = sm.parentElement; dt.open = true; dt.scrollIntoView({ block: 'start', behavior: 'smooth' }); } });
+    });
+    (allFixtures || []).forEach(function (f) {
+      if (!f.slug || f.slug === slug) return;
+      items.push({ kind: 'match', label: f.home + ' – ' + f.away, sub: (f.comp || '') + ' · ' + (f.date || ''), key: qsNorm(f.home + ' ' + f.away + ' ' + f.comp), go: function () { location.href = 'match.html?m=' + encodeURIComponent(f.slug); } });
+    });
+    var ICON = { player: '👤', coach: '🧢', referee: '🧑‍⚖️', panel: '▤', match: '⚽' };
+    var input = el('input', { type: 'search', class: 'qs-input', placeholder: t('qs.placeholder'), autocomplete: 'off', spellcheck: 'false' });
+    var list = el('ul', { class: 'qs-list' });
+    var back = el('div', { class: 'qs-back', onclick: function (e) { if (e.target === back) close(); } }, [el('div', { class: 'qs-box' }, [input, list])]);
+    var shown = [], sel = 0;
+    function close() { back.remove(); }
+    function draw() {
+      var q = qsNorm(input.value).trim().split(/\s+/).filter(Boolean);
+      shown = items.filter(function (it) { return q.every(function (w) { return it.key.indexOf(w) >= 0; }); });
+      shown.sort(function (a, b) {
+        var sa = q.length && a.key.indexOf(q[0]) === 0 ? 0 : 1, sb = q.length && b.key.indexOf(q[0]) === 0 ? 0 : 1;
+        return sa - sb;
+      });
+      if (!q.length) shown = items.filter(function (it) { return it.kind !== 'match'; });
+      shown = shown.slice(0, 12);
+      sel = Math.min(sel, Math.max(0, shown.length - 1));
+      list.innerHTML = '';
+      if (!shown.length) list.appendChild(el('li', { class: 'qs-none', text: t('qs.none') }));
+      shown.forEach(function (it, i) {
+        list.appendChild(el('li', { class: i === sel ? 'sel' : null, onclick: function () { pick(it); } }, [
+          el('span', { class: 'qs-ico', text: ICON[it.kind] || '' }), el('span', { class: 'qs-lab', text: it.label }), el('small', { text: it.sub })
+        ]));
+      });
+    }
+    function pick(it) { close(); it.go(); }
+    input.addEventListener('input', function () { sel = 0; draw(); });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { close(); }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); sel = Math.min(sel + 1, shown.length - 1); draw(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(sel - 1, 0); draw(); }
+      else if (e.key === 'Enter' && shown[sel]) { e.preventDefault(); pick(shown[sel]); }
+    });
+    document.body.appendChild(back);
+    draw();
+    input.focus();
   }
 
   // "Updated 15:40 - 3 changes": what scripts/prematch-refresh.mjs found on its last pre-kick-off check
@@ -3388,6 +3466,11 @@
     });
 
     var box = el('div', { class: 'panels' });
+    if (mine.booth) {
+      // booth mode: only what is read on air stays open
+      var keep = { talk: 1, story: 1, absences: 1, events: 1, notes: 1, context: 1 };
+      defs.forEach(function (def) { if (def.node && def.node.tagName === 'DETAILS') def.node.open = !!keep[def.key]; });
+    }
     defs.forEach(function (def) {
       makePanelDraggable(def.node, def.key, d, defs);
       addPanelWiden(def.node, def.key, d);
