@@ -2526,8 +2526,79 @@
     [].forEach.call(ds, function (x) { x.open = anyClosed; });
   }
 
-  function ul(items) {
-    return el('ul', {}, (items || []).filter(has).map(function (t) { return el('li', { text: t }); }));
+  function ul(items, opts) {
+    var talk = !!(opts && opts.talk);
+    return el('ul', {}, (items || []).filter(has).map(function (text) {
+      if (!talk) return el('li', { text: text });
+      return el('li', { class: talkState(text) === 2 ? 'said' : null, 'data-talk': talkKey(text) }, [talkMark(text), document.createTextNode(text)]);
+    }));
+  }
+
+  // "De spus": the commentator's own checklist of points to say. Each bullet of the story / team info / club
+  // facts / venue lists carries a mark that cycles  ☆ (nothing)  ->  ★ (to say)  ->  ✓ (said)  ->  ☆. Marked
+  // points are copied, with their text, into the "De spus" panel (mine.talk, per device, not shared), so they
+  // survive a regenerated pack, and said ones are struck through everywhere the same text appears.
+  var TALK_ICON = ['☆', '★', '✓'];
+  function talkKey(text) {
+    var h = 5381;
+    for (var i = 0; i < text.length; i++) h = ((h << 5) + h + text.charCodeAt(i)) | 0;
+    return (h >>> 0).toString(36);
+  }
+  function talkState(text) {
+    var e = mine.talk && mine.talk[talkKey(text)];
+    return e ? e.s : 0;
+  }
+  function talkMark(text) {
+    var b = el('button', { class: 'talk-mark s' + talkState(text), type: 'button', 'data-talk': talkKey(text), title: t('talk.mark'), text: TALK_ICON[talkState(text)] });
+    b.addEventListener('click', function (e) {
+      e.preventDefault(); e.stopPropagation();
+      var next = (talkState(text) + 1) % 3;
+      mine.talk = mine.talk || {};
+      if (next) mine.talk[talkKey(text)] = { t: text, s: next }; else delete mine.talk[talkKey(text)];
+      if (!Object.keys(mine.talk).length) delete mine.talk;
+      saveMine();
+      talkSync();
+    });
+    return b;
+  }
+  // bring every mark on the page, and the "De spus" list, in line with mine.talk
+  function talkSync() {
+    [].forEach.call(document.querySelectorAll('button.talk-mark'), function (b) {
+      var e = mine.talk && mine.talk[b.getAttribute('data-talk')];
+      var s = e ? e.s : 0;
+      b.className = 'talk-mark s' + s;
+      b.textContent = TALK_ICON[s];
+    });
+    [].forEach.call(document.querySelectorAll('li[data-talk]'), function (li) {
+      var e = mine.talk && mine.talk[li.getAttribute('data-talk')];
+      li.classList.toggle('said', !!(e && e.s === 2));
+    });
+    var box = document.getElementById('talk-list');
+    if (box) talkFill(box);
+  }
+  function talkFill(box) {
+    box.innerHTML = '';
+    var all = Object.keys(mine.talk || {}).map(function (k) { return { k: k, t: mine.talk[k].t, s: mine.talk[k].s }; });
+    if (!all.length) { box.appendChild(el('p', { class: 'talk-empty', text: t('talk.empty') })); return; }
+    var list = el('ul', { class: 'talk-list' });
+    all.sort(function (a, b) { return a.s - b.s; }).forEach(function (x) {
+      var li = el('li', { class: x.s === 2 ? 'said' : null }, [talkMark(x.t), document.createTextNode(x.t)]);
+      list.appendChild(li);
+    });
+    box.appendChild(list);
+    if (all.some(function (x) { return x.s === 2; })) {
+      box.appendChild(el('button', { class: 'pick', type: 'button', text: t('talk.clearSaid'), onclick: function () {
+        Object.keys(mine.talk || {}).forEach(function (k) { if (mine.talk[k].s === 2) delete mine.talk[k]; });
+        if (!Object.keys(mine.talk).length) delete mine.talk;
+        saveMine();
+        talkSync();
+      } }));
+    }
+  }
+  function talkPanelBody() {
+    var box = el('div', { id: 'talk-list' });
+    talkFill(box);
+    return box;
   }
 
   // Per-team "Informații echipă" — the old FIRE bars, moved to a column on that
@@ -2538,7 +2609,7 @@
       el('div', { class: 'team-aside-title', text: t('aside.teamInfo', { team: tm.shortName || tm.name }) })
     ]);
     (tm.stories || []).forEach(function (s) {
-      box.appendChild(el('div', { class: 'story-bar' }, [el('h4', { text: s.title }), ul(s.bullets)]));
+      box.appendChild(el('div', { class: 'story-bar' }, [el('h4', { text: s.title }), ul(s.bullets, { talk: true })]));
     });
     box.appendChild(el('div', { class: 'ta-add-h', text: t('aside.yourNotes') }));
     box.appendChild(extrasBox('teaminfo:' + side, t('aside.addInfo', { team: tm.name })));
@@ -2744,8 +2815,10 @@
     var defs = [];
     function add(key, node) { if (node) defs.push({ key: key, node: node }); }
 
+    add('talk', panel(t('panel.talk'), talkPanelBody(), { lead: true, open: true }));
+
     if (d.storyOfTheMatch && d.storyOfTheMatch.length) {
-      add('story', panel(t('panel.story'), ul(d.storyOfTheMatch), { lead: true, open: true }));
+      add('story', panel(t('panel.story'), ul(d.storyOfTheMatch, { talk: true }), { lead: true, open: true }));
     }
 
     // API-Football's own algorithmic model (predictions?fixture=) — computed
@@ -2803,7 +2876,7 @@
 
     // Evergreen club stories (docs/data/clubs/<teamId>.json, researched once per club)
     if (['home', 'away'].some(function (sd) { return (d.teams[sd].clubFacts || []).length; })) {
-      add('clubFacts', panel(t('panel.clubFacts'), twoCol(d, function (tm) { return ul(tm.clubFacts || []); }), { open: true }));
+      add('clubFacts', panel(t('panel.clubFacts'), twoCol(d, function (tm) { return ul(tm.clubFacts || [], { talk: true }); }), { open: true }));
     }
 
     // H2H
@@ -3123,7 +3196,7 @@
       add('news', panel(t('panel.news'), twoCol(d, function (tm) {
         var parts = [];
         if ((tm.news || []).length) {
-          parts.push(ul(tm.news.map(function (n) { return (has(n.date) ? '[' + n.date + '] ' : '') + n.text; })));
+          parts.push(ul(tm.news.map(function (n) { return (has(n.date) ? '[' + n.date + '] ' : '') + n.text; }), { talk: true }));
         }
         var cands = tm.newsCandidates || [];
         if (cands.length) {
@@ -3188,7 +3261,7 @@
       }
       if (d.venue.stories && d.venue.stories.length) {
         vb.appendChild(el('h4', { class: 'stat-h', text: t('panel.curiosities') }));
-        vb.appendChild(ul(d.venue.stories));
+        vb.appendChild(ul(d.venue.stories, { talk: true }));
       }
       add('venue', panel(t('panel.venue'), vb));
     }
