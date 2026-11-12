@@ -1760,6 +1760,7 @@
     if (!has(data.venue && data.venue.name)) {
       metaWrap.appendChild(el('button', { class: 'meta-add', text: t('toolbar.addVenue'), onclick: function () { openEditVenue(data); } }));
     }
+    metaWrap.appendChild(freshnessLine(data));
     var head = el('div', { class: 'mc-head' }, [
       el('div', { class: 'mc-head-top' }, [
         el('a', { class: 'mc-back', href: 'index.html', text: t('toolbar.backToList') }),
@@ -1894,6 +1895,41 @@
     document.body.appendChild(back);
     draw();
     input.focus();
+  }
+
+// How old each kind of data is, as small coloured chips under the match line: when the pack was written, when
+  // the daily API pass (squads, form, standings) last ran well (data/health.json), and the pre-kick-off check.
+  // Green under 24 h, amber under 72 h, red older. The pack's own age is shown plain: an editorial pack built
+  // days ahead is normal.
+  function agoText(iso) {
+    var ms = Date.now() - new Date(iso).getTime();
+    if (isNaN(ms)) return null;
+    var m = Math.max(0, Math.round(ms / 60000));
+    if (m < 90) return t('fresh.min', { n: Math.max(1, m) });
+    var h = Math.round(m / 60);
+    if (h < 36) return t('fresh.h', { n: h });
+    return t('fresh.d', { n: Math.round(h / 24) });
+  }
+  function freshChip(label, iso, colour) {
+    var txt = iso ? agoText(iso) : null;
+    if (!txt) return null;
+    var h = (Date.now() - new Date(iso).getTime()) / 3600000;
+    var cls = colour ? (h < 24 ? 'ok' : h < 72 ? 'warn' : 'old') : '';
+    return el('span', { class: 'fresh-chip ' + cls, title: new Date(iso).toLocaleString(), text: label + ' ' + txt });
+  }
+  function freshnessLine(d) {
+    var box = el('div', { class: 'mc-fresh' });
+    var gen = freshChip(t('fresh.pack'), d.generatedAt, false);
+    if (gen) box.appendChild(gen);
+    var chk = d.refresh && d.refresh.at ? freshChip(t('fresh.check'), d.refresh.at, true) : null;
+    if (chk) box.appendChild(chk);
+    fetch('data/health.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (h) {
+      if (!h) return;
+      var w = (h.workflows || []).filter(function (x) { return x.name === 'Prefetch Preview Data'; })[0];
+      var c = w && freshChip(t('fresh.api'), w.lastSuccessAt, true);
+      if (c) box.insertBefore(c, chk || null);
+    }).catch(function () {});
+    return box;
   }
 
   // "Updated 15:40 - 3 changes": what scripts/prematch-refresh.mjs found on its last pre-kick-off check

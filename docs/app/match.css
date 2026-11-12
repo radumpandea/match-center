@@ -678,3 +678,10 @@ li.said{opacity:.55;text-decoration:line-through}
 .qs-list small{margin-left:auto;color:var(--color-neutral-500);font-size:11px}
 .qs-none{color:var(--color-neutral-500);cursor:default!important}
 body.booth #root{zoom:1.18}
+
+/* data freshness chips under the match line */
+.mc-fresh{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.fresh-chip{font-size:11px;padding:1px 8px;border-radius:999px;border:1px solid var(--color-divider);color:var(--color-neutral-500)}
+.fresh-chip.ok{border-color:#3fa66b;color:#3fa66b}
+.fresh-chip.warn{border-color:#c9a227;color:#c9a227}
+.fresh-chip.old{border-color:#e5534b;color:#e5534b}
