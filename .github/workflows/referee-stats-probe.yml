@@ -1,0 +1,36 @@
+name: Referee stats probe
+
+# Manual test of scripts/lib/referee-stats.mjs for one referee and league; writes docs/data/referees/<key>.json.
+
+on:
+  workflow_dispatch:
+    inputs:
+      league: { description: "API-Football league id", default: "61" }
+      season: { description: "Season (start year)", default: "2026" }
+      referee: { description: "Referee name", default: "Geoffrey Kubler" }
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/referee-stats-probe.mjs
+        env:
+          APIFOOTBALL_KEY: ${{ secrets.APIFOOTBALL_KEY }}
+          LEAGUE: ${{ inputs.league }}
+          SEASON: ${{ inputs.season }}
+          REFEREE: ${{ inputs.referee }}
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/referees
+          if git diff --cached --quiet; then echo "No changes."; exit 0; fi
+          git commit -m "Referee season statistics (probe)"
+          git pull --rebase --autostash origin main || true
+          git push
