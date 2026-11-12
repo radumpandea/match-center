@@ -1804,6 +1804,8 @@
       ])
     ]);
     root.appendChild(head);
+    var rb = refreshBanner(data);
+    if (rb) root.appendChild(rb);
 
     pitchEl = pitch(data);
     var asideH = teamAside(data, 'home');
@@ -1814,6 +1816,35 @@
     root.appendChild(panelsEl);
 
     setupStickyMiniPitch(data);
+  }
+
+  // "Updated 15:40 - 3 changes": what scripts/prematch-refresh.mjs found on its last pre-kick-off check
+  // (referee announced, new injuries, new headlines). Headlines are raw feed titles, flagged as unverified.
+  function refreshBanner(d) {
+    var r = d.refresh;
+    if (!r || !r.at) return null;
+    var when = new Date(r.at);
+    if (isNaN(when)) return null;
+    function clock(dt) {
+      var hm = dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      return new Date().toDateString() === dt.toDateString() ? hm : dt.toLocaleDateString([], { day: 'numeric', month: 'short' }) + ' ' + hm;
+    }
+    var list = (r.changes || []).slice().reverse();
+    var summary = t('refresh.updated', { time: clock(when) }) + ' · ' + (list.length ? t('refresh.changes', { n: list.length }) : t('refresh.none'));
+    var box = el('details', { class: 'refresh-banner' + (list.length ? ' has-changes' : '') }, [el('summary', { text: summary })]);
+    if (!list.length) return box;
+    var ul = el('ul');
+    list.forEach(function (c) {
+      var side = c.side && d.teams[c.side] ? (d.teams[c.side].shortName || d.teams[c.side].name) + ': ' : '';
+      var tag = c.kind === 'news' ? ' (' + t('refresh.news') + (c.source ? ', ' + c.source : '') + (c.published ? ', ' + c.published : '') + ')' : '';
+      var icon = c.kind === 'referee' ? '🧑‍⚖️ ' : c.kind === 'news' ? '📰 ' : '🩹 ';
+      var li = el('li', {}, [document.createTextNode(icon + side)]);
+      li.appendChild(c.url ? el('a', { href: c.url, target: '_blank', rel: 'noopener', text: c.text }) : document.createTextNode(c.text));
+      li.appendChild(document.createTextNode(tag));
+      ul.appendChild(li);
+    });
+    box.appendChild(ul);
+    return box;
   }
 
   // A miniature, read-only tactical layout (just coloured dots + short

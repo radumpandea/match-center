@@ -56,7 +56,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname } from 'node:path';
+import { dirname, resolve } from 'node:path';
 import { NEWS_SOURCES } from './news-sources.mjs';
 import { computeLinkLines, formatHonours, formatInjuries, xiPlayers, applyAges, decodeDeep, applyAbsenceStatus, applyLineupNumbers, careerFromTransfers } from './lib/enrich-pack.mjs';
 
@@ -2245,4 +2245,9 @@ async function backfillHistory(fixtures, season, cache) {
   console.log(`Backfill: ${updated}/${slugs.length} match file(s) updated.`);
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+// teamNews() and classifyReason() are reused by scripts/prematch-refresh.mjs, which imports this file: only run
+// the daily pass when this file is the entry point.
+export { teamNews, classifyReason };
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((e) => { console.error(e); process.exit(1); });
+}

@@ -1,0 +1,70 @@
+name: Pre-match Refresh
+
+# Re-checks built packs shortly before kick-off (24 h and 3 h windows, see scripts/prematch-refresh.mjs):
+# referee announced, new injuries/suspensions, new headlines. Records what changed on the pack (doc.refresh),
+# which the match page shows as "Updated 15:40 - 3 changes". Hourly tick; most ticks find nothing in a window
+# and do nothing. A few API-Football calls per match, never below the day's reserve.
+
+on:
+  schedule:
+    - cron: "12 * * * *"
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: "Refresh these packs now, whatever their window (comma separated slugs). Empty = normal windows."
+        default: ""
+      reserve:
+        description: "Stop when the day's remaining API-Football allowance is at or below this"
+        default: "1200"
+
+concurrency:
+  group: prematch-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Refresh packs inside a window
+        env:
+          APIFOOTBALL_KEY: ${{ secrets.APIFOOTBALL_KEY }}
+          INOREADER_APP_ID: ${{ secrets.INOREADER_APP_ID }}
+          INOREADER_APP_KEY: ${{ secrets.INOREADER_APP_KEY }}
+          INOREADER_REFRESH_TOKEN: ${{ secrets.INOREADER_REFRESH_TOKEN }}
+          ONLY_SLUGS: ${{ inputs.slugs }}
+          RESERVE: ${{ inputs.reserve }}
+        run: node scripts/prematch-refresh.mjs
+
+      - name: Validate changed match files
+        run: |
+          mapfile -t files < <(git diff --name-only --diff-filter=M HEAD -- docs/data/matches | grep '\.json$' | grep -v '\.i18n\.json$' || true)
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "No changed match files to validate."
+            exit 0
+          fi
+          npm install --no-audit --no-fund
+          node scripts/validate-match.mjs "${files[@]}"
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/matches
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Pre-match refresh (referee, absences, headlines)"
+          git pull --rebase --autostash origin main || true
+          git push

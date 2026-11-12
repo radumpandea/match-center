@@ -26,6 +26,33 @@
       "enum": ["standard", "deep", null],
       "description": "which editorial budget produced this pack — \"standard\" (~12 lookups, Haiku) or \"deep\" (~50 lookups, Sonnet, full commentator dossier — set for matches favourited by a user, and available on request via workflow_dispatch). null/absent predates this marker or is still partial."
     },
+    "refresh": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "written by scripts/prematch-refresh.mjs: when the pack was last re-checked before kick-off and what changed (new referee, injuries, headlines). Shown on the match page.",
+      "properties": {
+        "at": { "type": "string", "description": "ISO timestamp of the last refresh" },
+        "window": { "type": "string", "description": "24h | 3h | manual" },
+        "done": { "type": "array", "items": { "type": "string" }, "description": "windows already refreshed" },
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["kind", "text"],
+            "properties": {
+              "at": { "type": "string" },
+              "kind": { "type": "string", "enum": ["referee", "absence", "absence-cleared", "news"] },
+              "side": { "type": ["string", "null"], "enum": ["home", "away", null] },
+              "text": { "type": "string" },
+              "url": { "type": ["string", "null"] },
+              "source": { "type": ["string", "null"] },
+              "published": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    },
     "sources": {
       "type": "array",
       "items": {
