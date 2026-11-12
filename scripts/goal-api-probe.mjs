@@ -68,7 +68,7 @@ async function main() {
   }
 
   if (process.env.SKIP_PLAYERS) {
-    for (const line of String(process.env.PATHS || '').split('\n').map((s) => s.trim()).filter(Boolean)) await get(line, 0);
+    for (const line of String(process.env.PATHS || '').split('\n').map((s) => s.trim()).filter(Boolean)) await get(line, 7000);
     console.log(`${calls} call(s) used.`);
     return;
   }
