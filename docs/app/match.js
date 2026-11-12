@@ -2811,6 +2811,63 @@
     return out;
   }
 
+// Season-by-season record from docs/data/seasons/<apiId>.json (scripts/import-player-seasons.mjs, API-Football):
+  // one row per club and competition, newest season first, with a total row. Loaded when the Career tab is
+  // opened. Players the import has not reached yet simply get a one-line note.
+  var _seasonsCache = {};
+  function seasonTable(p) {
+    var holder = el('div', { class: 'season-table' });
+    function draw(j) {
+      holder.innerHTML = '';
+      var years = Object.keys((j && j.seasons) || {}).filter(function (y) { return j.seasons[y] && j.seasons[y].length; }).sort().reverse();
+      if (!years.length) { holder.appendChild(el('p', { class: 'season-note', text: t('seasons.none') })); return; }
+      var cols = [t('seasons.season'), t('seasons.team'), t('seasons.comp'), t('th.apps'), t('seasons.starts'), t('th.min'), t('th.goals'), t('th.assists'), '🟨', '🟥', t('th.rating')];
+      var tb = el('table', { class: 'mc playerstats seasons' }, [el('tr', {}, cols.map(function (h) { return el('th', { text: h }); }))]);
+      var tot = { apps: 0, lineups: 0, minutes: 0, goals: 0, assists: 0, yellow: 0, red: 0 };
+      var cell = function (v) { return el('td', { text: has(v) ? v : '' }); };
+      // The source sometimes carries identical numbers (same club, apps, minutes, goals, cards, rating) under
+      // two competitions or two seasons -- seen: a league row repeated as the cup. Such rows are marked and
+      // only one copy goes into the total; none is hidden, since there is no telling which one is the real one.
+      var sigOf = function (r) { return Number(r.minutes) > 0 ? [r.teamId, r.apps, r.lineups, r.minutes, r.goals, r.assists, r.yellow, r.red, r.rating].join('|') : null; };
+      var count = {};
+      years.forEach(function (y) { j.seasons[y].forEach(function (r) { var g = sigOf(r); if (g) count[g] = (count[g] || 0) + 1; }); });
+      var counted = {}, dupes = 0;
+      years.forEach(function (y) {
+        var rows = j.seasons[y];
+        rows.forEach(function (r, i) {
+          var g = sigOf(r), repeated = !!(g && count[g] > 1);
+          if (repeated) dupes++;
+          if (!(repeated && counted[g])) {
+            ['apps', 'lineups', 'minutes', 'goals', 'assists', 'yellow', 'red'].forEach(function (k) { tot[k] += Number(r[k]) || 0; });
+          }
+          if (g) counted[g] = true;
+          tb.appendChild(el('tr', {}, [
+            el('td', { text: i === 0 ? y : '' }),
+            el('td', { class: 'pst-name', text: r.team || '' }),
+            el('td', { class: 'pst-name', text: (r.league || '') + (repeated ? ' ⚠' : ''), title: repeated ? t('seasons.dupes', { n: 1 }) : null }),
+            cell(r.apps), cell(r.lineups), cell(r.minutes), cell(r.goals), cell(r.assists), cell(r.yellow), cell(r.red), cell(r.rating)
+          ]));
+        });
+      });
+      void 0;
+      tb.appendChild(el('tr', { class: 'season-total' }, [
+        el('td', { text: t('seasons.total') }), el('td', { text: '' }), el('td', { text: '' }),
+        cell(tot.apps), cell(tot.lineups), cell(tot.minutes), cell(tot.goals), cell(tot.assists), cell(tot.yellow), cell(tot.red), el('td', { text: '' })
+      ]));
+      holder.appendChild(el('div', { class: 'standings-wrap' }, [tb]));
+      var when = j.updatedAt ? String(j.updatedAt).slice(0, 10) : null;
+      holder.appendChild(el('p', { class: 'season-note', text: t('seasons.note') + (when ? ' ' + t('seasons.imported', { date: when }) : '') + (j.complete === false ? ' ' + t('seasons.partial') : '') + (dupes ? ' ' + t('seasons.dupes', { n: dupes }) : '') }));
+    }
+    var hit = _seasonsCache[p.apiId];
+    if (hit !== undefined) { draw(hit); return holder; }
+    holder.appendChild(el('p', { class: 'season-note', text: t('seasons.loading') }));
+    fetch('data/seasons/' + encodeURIComponent(p.apiId) + '.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .catch(function () { return null; })
+      .then(function (j) { _seasonsCache[p.apiId] = j; draw(j); });
+    return holder;
+  }
+
   function panels(d) {
     var defs = [];
     function add(key, node) { if (node) defs.push({ key: key, node: node }); }
@@ -3664,7 +3721,9 @@
         return wrap;
       },
       [t('player.tabCareer')]: function () {
-        return el('div', {}, [el('p', { text: has(p.career) ? p.career : t('player.careerUnavailable') })]);
+        var wrap = el('div', {}, [el('p', { text: has(p.career) ? p.career : t('player.careerUnavailable') })]);
+        if (p.apiId != null) wrap.appendChild(seasonTable(p));
+        return wrap;
       },
       [t('player.tabFunfact')]: function () {
         var wrap = el('div');
