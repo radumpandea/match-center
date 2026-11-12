@@ -689,3 +689,24 @@ body.booth #root{zoom:1.18}
 sup.cite{font-size:.72em;margin-left:2px}
 sup.cite a{color:var(--color-accent-300,inherit);text-decoration:none}
 sup.cite a:hover{text-decoration:underline}
+
+/* player comparison */
+.cmp-head{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+.cmp-sel{flex:1;min-width:140px;padding:5px 8px;background:var(--color-surface);color:inherit;border:1px solid var(--color-divider);border-radius:6px}
+.cmp-vs{color:var(--color-neutral-500);font-size:12px}
+table.cmp td{text-align:center;padding:5px 8px;font-variant-numeric:tabular-nums}
+table.cmp td.cmp-k{color:var(--color-neutral-500);font-size:11px;letter-spacing:.04em}
+table.cmp td.win{color:#3fa66b;font-weight:700}
+
+/* print / save as PDF */
+@media print{
+  html,body{background:#fff!important;color:#000!important}
+  body.booth #root{zoom:1}
+  .mc-toolbar,.mc-head-controls,.mc-back,.mp-box,.mc-mini-pitch,.refresh-banner,.talk-mark,.pgrip,.pwiden,.panel-extra,.qs-back,.modal-back,.ta-add-h,.meta-add,.watch-note{display:none!important}
+  .panels{display:block!important;columns:1!important}
+  details.panel{break-inside:avoid;border:1px solid #bbb!important;background:#fff!important;margin:0 0 8px!important}
+  details.panel>summary{color:#000!important;font-weight:700}
+  .pitch-row{break-inside:avoid;zoom:.8}
+  a{color:#000!important;text-decoration:none!important}
+  li.said{text-decoration:none!important;opacity:1!important}
+}

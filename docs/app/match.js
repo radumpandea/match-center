@@ -1792,6 +1792,8 @@
         photosBtn,
         fontBtn,
         favBtn,
+        iconOnly(el('button', { text: '🖨 ' + t('print.button'), title: t('print.title'), onclick: function () { window.print(); } })),
+        iconOnly(el('button', { text: '⚖ ' + t('cmp.button'), title: t('cmp.title'), onclick: function () { openCompare(data); } })),
         iconOnly(el('button', { text: '🔎 ' + t('qs.button'), title: 'Ctrl+K', onclick: function () { openQuickSearch(data); } })),
         iconOnly(el('button', { text: (mine.booth ? '☑ ' : '☐ ') + t('booth.button'), title: t('booth.title'), onclick: function () { mine.booth = !mine.booth; if (!mine.booth) delete mine.booth; saveMine(); render(data); } })),
         collabBtn,
@@ -1806,6 +1808,7 @@
         } }))
       ])
     ]);
+    bindPrint();
     document.body.classList.toggle('booth', !!mine.booth);
     _qsData = data;
     bindQuickSearch();
@@ -1822,6 +1825,100 @@
     root.appendChild(panelsEl);
 
     setupStickyMiniPitch(data);
+  }
+
+// Two players side by side: season stats from squad[].stats (API-Football, the league of this match), the better
+  // value of each row highlighted. "Per 90" rows only from 270 minutes up. Nothing is invented: a missing value stays empty.
+  function openCompare(d) {
+    var all = [];
+    ['home', 'away'].forEach(function (side) {
+      (d.teams[side].squad || []).forEach(function (p) {
+        if (has(p.name)) all.push({ side: side, p: p, label: p.name + ' · ' + (d.teams[side].shortName || d.teams[side].name) });
+      });
+    });
+    if (all.length < 2) return;
+    function top(side) {
+      var xs = all.filter(function (x) { return x.side === side; });
+      xs.sort(function (a, b) { return ((b.p.stats && b.p.stats.minutes) || 0) - ((a.p.stats && a.p.stats.minutes) || 0); });
+      return xs[0] || all[0];
+    }
+    var pickA = top('home'), pickB = top('away');
+    if (pickA === pickB) pickB = all[1];
+    var num = function (v) { return has(v) && isFinite(Number(v)) ? Number(v) : null; };
+    var p90 = function (s, k) { var m = num(s.minutes), v = num(s[k]); return m != null && m >= 270 && v != null ? Math.round(v / m * 90 * 100) / 100 : null; };
+    var ratio = function (a, b) { return num(b) != null ? (num(a) != null ? num(a) + '/' : '') + num(b) : null; };
+    // [label key, value fn, numeric sort value fn, higher is better]
+    var rows = [
+      ['th.apps', function (x) { return num(x.s.apps); }, 1],
+      ['th.min', function (x) { return num(x.s.minutes); }, 1],
+      ['th.goals', function (x) { return num(x.s.goals); }, 1],
+      ['cmp.goals90', function (x) { return p90(x.s, 'goals'); }, 1],
+      ['th.assists', function (x) { return num(x.s.assists); }, 1],
+      ['cmp.assists90', function (x) { return p90(x.s, 'assists'); }, 1],
+      ['th.rating', function (x) { return num(x.s.rating); }, 1],
+      ['th.shots', function (x) { return num(x.s.shotsTotal); }, 1, function (x) { return ratio(x.s.shotsOn, x.s.shotsTotal); }],
+      ['th.keyPasses', function (x) { return num(x.s.passesKey); }, 1],
+      ['th.tackles', function (x) { return num(x.s.tacklesTotal); }, 1],
+      ['th.duelsWon', function (x) { return num(x.s.duelsWon); }, 1, function (x) { return ratio(x.s.duelsWon, x.s.duelsTotal); }],
+      ['th.dribbles', function (x) { return num(x.s.dribblesSuccess); }, 1, function (x) { return ratio(x.s.dribblesSuccess, x.s.dribblesAttempts); }],
+      ['th.fouls', function (x) { return num(x.s.foulsCommitted); }, 0],
+      ['cmp.yellow', function (x) { return num(x.s.yellow); }, 0],
+      ['cmp.red', function (x) { return num(x.s.red); }, 0],
+      ['cmp.age', function (x) { return num(x.p.age); }, null],
+      ['cmp.height', function (x) { return num(x.p.height); }, null]
+    ];
+    var holder = el('div');
+    function selectFor(cur, onchange) {
+      var sel = el('select', { class: 'cmp-sel' });
+      all.forEach(function (x, i) { var o = el('option', { value: String(i), text: x.label }); if (x === cur) o.selected = true; sel.appendChild(o); });
+      sel.addEventListener('change', function () { onchange(all[Number(sel.value)]); draw(); });
+      return sel;
+    }
+    function draw() {
+      holder.innerHTML = '';
+      var head = el('div', { class: 'cmp-head' }, [
+        selectFor(pickA, function (x) { pickA = x; }),
+        el('span', { class: 'cmp-vs', text: t('common.vs') }),
+        selectFor(pickB, function (x) { pickB = x; })
+      ]);
+      var tb = el('table', { class: 'mc cmp' });
+      [pickA, pickB].forEach(function () {});
+      var A = { p: pickA.p, s: pickA.p.stats || {} }, B = { p: pickB.p, s: pickB.p.stats || {} };
+      rows.forEach(function (r) {
+        var va = r[1](A), vb = r[1](B);
+        if (va == null && vb == null) return;
+        var ta = r[3] ? r[3](A) : va, tbv = r[3] ? r[3](B) : vb;
+        var better = (r[2] == null || va == null || vb == null || va === vb) ? 0 : ((va > vb) === (r[2] === 1) ? 1 : 2);
+        tb.appendChild(el('tr', {}, [
+          el('td', { class: 'cmp-a' + (better === 1 ? ' win' : ''), text: ta == null ? '' : String(ta) }),
+          el('td', { class: 'cmp-k', text: t(r[0]) }),
+          el('td', { class: 'cmp-b' + (better === 2 ? ' win' : ''), text: tbv == null ? '' : String(tbv) })
+        ]));
+      });
+      if (!tb.children.length) tb.appendChild(el('tr', {}, [el('td', { colspan: 3, text: t('cmp.nodata') })]));
+      holder.appendChild(head);
+      holder.appendChild(el('div', { class: 'standings-wrap' }, [tb]));
+      holder.appendChild(el('p', { class: 'season-note', text: t('cmp.note') }));
+    }
+    modal(function (close) {
+      return el('div', { class: 'modal-head' }, [el('div', {}, [el('h3', { text: t('cmp.title') })]), el('button', { class: 'modal-close', text: '✕', onclick: close })]);
+    }, (function () { var o = {}; o[t('cmp.button')] = function () { draw(); return holder; }; return o; })());
+  }
+
+// Printing / "save as PDF": a closed <details> prints as just its title, so every panel is opened for the
+  // print and put back afterwards; the print stylesheet in match.css hides the controls.
+  var _printBound = false, _openBefore = null;
+  function bindPrint() {
+    if (_printBound) return;
+    _printBound = true;
+    window.addEventListener('beforeprint', function () {
+      _openBefore = [].map.call(document.querySelectorAll('details.panel'), function (x) { var was = x.open; x.open = true; return was; });
+    });
+    window.addEventListener('afterprint', function () {
+      var ds = document.querySelectorAll('details.panel');
+      if (_openBefore) [].forEach.call(ds, function (x, i) { x.open = !!_openBefore[i]; });
+      _openBefore = null;
+    });
   }
 
 // Ctrl+K / "/" : jump to a player, coach, referee, panel or another match by typing a few letters.
