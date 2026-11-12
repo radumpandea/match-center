@@ -102,7 +102,7 @@ try {
       await page.keyboard.press('Control+k');
       const box = page.locator('.qs-input');
       if (await box.count()) {
-        await box.fill(s.players.split(' ').pop());
+        await box.fill(s.players);
         await page.keyboard.press('Enter');
         try { await page.waitForSelector('.modal-back', { timeout: 3000 }); ok(where, 'quick search opened a player card'); await page.keyboard.press('Escape'); }
         catch { fail(where, 'quick search did not open a card'); }
