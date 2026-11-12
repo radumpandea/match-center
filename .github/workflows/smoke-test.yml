@@ -1,0 +1,50 @@
+name: Smoke test
+
+# Opens the home page and a few match packs in a real browser (tests/smoke.mjs) after every change to the front
+# end, and once a day, so a broken script or a data shape the page cannot read is seen here and not on air.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/app/**"
+      - "docs/*.html"
+      - "docs/sw.js"
+      - "docs/data/schema.json"
+      - "tests/**"
+  pull_request:
+    paths:
+      - "docs/app/**"
+      - "docs/*.html"
+      - "tests/**"
+  schedule:
+    - cron: "20 7 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Playwright
+        run: |
+          npm i --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+      - name: Run the smoke test
+        run: node tests/smoke.mjs
+      - name: Keep screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-screenshots
+          path: tests/out
+          retention-days: 7
+          if-no-files-found: ignore
