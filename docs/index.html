@@ -127,6 +127,7 @@
 
 <div class="page">
   <div class="wrap">
+    <a id="healthBanner" href="status.html" hidden style="display:none;padding:8px 12px;border:1px solid #e5534b;border-radius:8px;color:#e5534b;text-decoration:none;font-size:13.5px"></a>
 
     <div style="display:flex;flex-direction:column;gap:var(--space-4)">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap">
@@ -485,6 +486,16 @@
     render();
   }).catch(function(){ render(); });
   window.addEventListener('mc-collab', function(){ renderAccount(); render(); });
+})();
+</script>
+<script>
+(function () {
+  fetch("data/health.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (h) {
+    var b = document.getElementById("healthBanner");
+    if (!h || !b || !h.failing || !h.failing.length) return;
+    b.textContent = "⚠ " + h.failing.length + (h.failing.length === 1 ? " job automat a eșuat" : " joburi automate au eșuat") + ": " + h.failing.slice(0, 3).join(", ") + (h.failing.length > 3 ? "…" : "");
+    b.hidden = false; b.style.display = "block";
+  }).catch(function () {});
 })();
 </script>
 <script>if ("serviceWorker" in navigator) { window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); }); }</script>

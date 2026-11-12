@@ -1,0 +1,59 @@
+name: Health report
+
+# Keeps docs/data/health.json (read by docs/status.html and the banner on the home page) up to date: which
+# automatic jobs failed last time, how often this week. Runs every 6 hours and straight after a failure of one
+# of the jobs that matter.
+
+on:
+  schedule:
+    - cron: "40 */6 * * *"
+  workflow_dispatch: {}
+  workflow_run:
+    workflows:
+      - Refresh Fixtures
+      - Prefetch Preview Data
+      - Sync Entities
+      - Sync Packs to Supabase
+      - Fetch Confirmed Lineups
+      - Pre-match Refresh
+      - Import Player Seasons
+      - Build Match Data
+      - Build Player Facts
+      - Translate Match Data
+    types: [completed]
+
+concurrency:
+  group: health
+  cancel-in-progress: false
+
+jobs:
+  health:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/build-health.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+      - name: Commit if changed
+        run: |
+          git config user.name "health-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/data/health.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Health report"
+            git pull --rebase --autostash origin main || true
+            git push
+          fi
