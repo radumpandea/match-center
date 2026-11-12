@@ -22,6 +22,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { teamNews, classifyReason } from './prefetch-preview.mjs';
 import { nameMatches, applyAbsenceStatus, decodeDeep } from './lib/enrich-pack.mjs';
+import { computeWatch } from './lib/watch.mjs';
 
 const API_KEY = process.env.APIFOOTBALL_KEY;
 const HOST = 'https://v3.football.api-sports.io';
@@ -149,6 +150,7 @@ async function main() {
       } catch (e) { console.log(`  news (${side}) failed: ${e.message}`); }
     }
 
+    computeWatch(doc);   // a new suspension / injury can change who is one card from a ban
     const at = new Date().toISOString();
     const prev = doc.refresh || {};
     doc.refresh = {

@@ -58,6 +58,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { NEWS_SOURCES } from './news-sources.mjs';
+import { computeWatch } from './lib/watch.mjs';
 import { computeLinkLines, formatHonours, formatInjuries, xiPlayers, applyAges, decodeDeep, applyAbsenceStatus, applyLineupNumbers, careerFromTransfers } from './lib/enrich-pack.mjs';
 
 const HOST = 'https://v3.football.api-sports.io';
@@ -1958,16 +1959,18 @@ async function main() {
     });
     const needFacts = applyPlayerFacts(doc, true);
     const needLinks = computeLinkLines(doc, true);
+    const needWatch = computeWatch(structuredClone(doc));
     const needExtras = needsPlayerExtras(doc);
     const needTfCareer = needsTransferCareer(doc, cache);
     if (!needCareer && !needStandings && !needNext && !needVenue && !needPredictions && !needTrophies &&
-        !needMatchDay && !needNews && !needWeather && !needMercato && !needFacts && !needLinks && !needExtras && !needTfCareer) continue;
+        !needMatchDay && !needNews && !needWeather && !needMercato && !needFacts && !needLinks && !needWatch && !needExtras && !needTfCareer) continue;
     let touched = false;
 
     if (await applyClubs(doc, cache)) touched = true;
     if (await applyNatTeams(doc, cache)) touched = true;
     if (applyPlayerFacts(doc)) touched = true;
     if (computeLinkLines(doc)) touched = true;
+    if (computeWatch(doc)) touched = true;
     if (applyAges(doc)) touched = true;
     if (await applyPlayerExtras(doc, cache)) touched = true;
     if (needTfCareer && await applyTransferCareers(doc, cache)) touched = true;
@@ -2162,6 +2165,7 @@ async function main() {
       await applyNatTeams(doc, cache);
       applyPlayerFacts(doc);
       computeLinkLines(doc);
+      computeWatch(doc);
       applyAges(doc);
       applyAbsenceStatus(doc);
       applyLineupNumbers(doc);

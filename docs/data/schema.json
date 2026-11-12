@@ -542,6 +542,25 @@
             }
           }
         },
+        "watch": {
+          "type": "array",
+          "description": "computed by scripts/lib/watch.mjs from squad[].stats: players one yellow card from an automatic suspension (only competitions with a verified rule) and players with 3+ league yellows",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["kind", "name", "yellows"],
+            "properties": {
+              "kind": { "type": "string", "enum": ["suspension", "cards"] },
+              "name": { "type": "string" },
+              "apiId": { "type": ["integer", "null"] },
+              "yellows": { "type": "integer" },
+              "apps": { "type": ["integer", "null"] },
+              "threshold": { "type": ["integer", "null"], "description": "the yellow count that triggers the ban" },
+              "ban": { "type": ["integer", "null"], "description": "matches banned" },
+              "byRound": { "type": ["integer", "null"], "description": "the ban only applies if the card comes up to this league match (Premier League 19 / 32)" }
+            }
+          }
+        },
         "callUps": {
           "type": "array",
           "description": "squad members called up by their national team for the next international window (not past-caps history, which stays in squad[].funfact)",

@@ -3058,6 +3058,21 @@
           return a.name + ' — ' + a.reason + (has(a.detail) ? ' (' + a.detail + ')' : '');
         })));
       } else { wrap.appendChild(el('div', { text: t('panel.noneReported') })); }
+      // Computed by scripts/lib/watch.mjs: players one yellow from a suspension (verified rules only) and the
+      // league's yellow-card leaders in this squad.
+      if (tm.watch && tm.watch.length) {
+        wrap.appendChild(el('h4', { text: t('panel.watch') }));
+        wrap.appendChild(ul(tm.watch.map(function (w) {
+          if (w.kind === 'suspension') {
+            return t('watch.suspension', {
+              name: w.name, y: w.yellows, threshold: w.threshold, ban: w.ban,
+              by: w.byRound ? ' ' + t('watch.by', { r: w.byRound }) : ''
+            });
+          }
+          return t('watch.cards', { name: w.name, y: w.yellows, apps: has(w.apps) ? w.apps : '?' });
+        })));
+        wrap.appendChild(el('small', { class: 'watch-note', text: t('watch.note') }));
+      }
       wrap.appendChild(el('h4', { text: t('panel.startingXI', { formation: effFormation(d, side) }) + (tm.confirmedXI ? ' · ' + t('pitch.apiConfirmedTag') : '') }));
       wrap.appendChild(ul(baseXI(d, side).map(function (p) {
         return (p.number != null ? p.number + '. ' : '') + p.name + (has(p.pos) ? '  ' + p.pos : '');
