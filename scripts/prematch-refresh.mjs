@@ -134,13 +134,14 @@ async function main() {
     const changes = [];
     const fx = await af('fixtures', { id: f.eventId });
     const fr = fx && fx.response && fx.response[0];
-    if (fr && fr.fixture && fr.fixture.status && !['NS', 'TBD', 'PST'].includes(fr.fixture.status.short)) { console.log(`  status ${fr.fixture.status.short}, match already started, skipped.`); continue; }
+    if (fr && fr.fixture && fr.fixture.status && !process.env.ALLOW_STARTED && !['NS', 'TBD', 'PST'].includes(fr.fixture.status.short)) { console.log(`  status ${fr.fixture.status.short}, match already started, skipped.`); continue; }
     if (fr) { const c = refereeChange(doc, fr.fixture && fr.fixture.referee); if (c) changes.push(c); }
     if (fr && has(doc.referee && doc.referee.name) && f.leagueId) {
       try {
         const season = (fr.league && fr.league.season) || null;
         if (season) {
           const rs = await refereeSeasonStats({ af, doc, fixture: f, season, budget: refBudget });
+          console.log(`  referee stats (${doc.referee.name}, league ${f.leagueId}, season ${season}): ${rs ? `${rs.matches} match(es), ${rs.fetched} event call(s)` : 'none found'}`);
           if (applyRefereeSeason(doc, f.comp, rs)) {
             changes.push({ kind: 'referee-stats', text: `Statistici arbitru (${doc.referee.name}, ${f.comp}, acest sezon): ${rs.matches} meciuri, ${(rs.yellow / rs.matches).toFixed(1)} galbene/meci, ${rs.red} roșii, ${rs.penalties} penalty-uri` });
           }

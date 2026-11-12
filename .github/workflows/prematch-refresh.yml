@@ -13,6 +13,10 @@ on:
       slugs:
         description: "Refresh these packs now, whatever their window (comma separated slugs). Empty = normal windows."
         default: ""
+      allow_started:
+        description: "Also refresh packs whose match has already started (testing, e.g. referee statistics on a played match)"
+        type: boolean
+        default: false
       reserve:
         description: "Stop when the day's remaining API-Football allowance is at or below this"
         default: "1200"
@@ -44,6 +48,7 @@ jobs:
           INOREADER_REFRESH_TOKEN: ${{ secrets.INOREADER_REFRESH_TOKEN }}
           ONLY_SLUGS: ${{ inputs.slugs }}
           RESERVE: ${{ inputs.reserve }}
+          ALLOW_STARTED: ${{ inputs.allow_started && '1' || '' }}
         run: node scripts/prematch-refresh.mjs
 
       - name: Validate changed match files
