@@ -24,7 +24,10 @@
 //     one match are a red and both yellows are cancelled (art. 41 pct. 2): the API may still count them, so
 //     the panel carries an extra note for these lines. This is the 2017 text: if the FRF changed the
 //     thresholds since, update here.
-// NOT verified, deliberately absent: Liga 2 (play-off format not checked), LaLiga, Serie A, Bundesliga,
+//   Liga 2 (13 Nov 2026): the same FRF text, art. 40 pct. 3 and art. 41 pct. 2.1 name "Liga I" and "Liga a 2-a" together, so the
+//     same rule and the same guards (Jul-Feb matches, round <= 30) are used; the structure of Liga 2's play-off
+//     was not checked, which can only hide lines late in the season, never add a wrong one.
+// NOT verified, deliberately absent: LaLiga, Serie A, Bundesliga,
 // Primeira Liga, UEFA competitions. Add an entry here only from an official text.
 
 const RULES = {
@@ -36,14 +39,16 @@ const RULES = {
   },
   'Ligue 1': (y) => (y === 4 ? { threshold: 5, ban: 1, byRound: null } : null),
   // the card about to come is warning y + 1: a ban at 4, 7, 9 and at every one from the 10th
-  'Superliga': (y, round, doc) => {
-    const month = new Date((doc && doc.kickoff) || NaN).getMonth() + 1;
-    if (!Number.isFinite(month) || (month >= 3 && month <= 6)) return null;   // play-off / play-out window
-    if (round == null || round > 30) return null;
-    const next = y + 1;
-    return next === 4 || next === 7 || next === 9 || next >= 10 ? { threshold: next, ban: 1, byRound: null, rule: 'frf' } : null;
-  },
+  'Superliga': frfRule,
+  'Liga 2': frfRule,
 };
+function frfRule(y, round, doc) {
+  const month = new Date((doc && doc.kickoff) || NaN).getMonth() + 1;
+  if (!Number.isFinite(month) || (month >= 3 && month <= 6)) return null;   // play-off / play-out window
+  if (round == null || round > 30) return null;
+  const next = y + 1;
+  return next === 4 || next === 7 || next === 9 || next >= 10 ? { threshold: next, ban: 1, byRound: null, rule: 'frf' } : null;
+}
 
 function roundNumber(doc) {
   const m = String((doc.competition && doc.competition.round) || '').match(/(\d+)\s*$/);
