@@ -4,7 +4,7 @@ name: Live data probe
 # committed; the report is in the log and in the "live-probe" artifact.
 #   mode live: whatever is being played right now (optionally only some league ids)
 #   mode auto: the matches of docs/data/fixtures.json, while they are played
-# The schedule entry below is a one-off for the Nations League evening of 13 Nov 2026 and can be deleted afterwards.
+# Started by hand (the one-off cron for 13 Nov 2026 never fired, so it was removed).
 
 on:
   workflow_dispatch:
@@ -13,8 +13,6 @@ on:
       minutes: { description: "How long to poll", default: "10" }
       interval: { description: "Seconds between calls", default: "30" }
       leagues: { description: "live mode: league ids, comma separated (empty = all)", default: "" }
-  schedule:
-    - cron: "50 16 13 11 *"
 
 jobs:
   probe:
