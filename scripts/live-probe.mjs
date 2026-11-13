@@ -43,7 +43,12 @@ const fixturesFile = JSON.parse(readFileSync(new URL('../docs/data/fixtures.json
 const ours = new Map(fixturesFile.filter((f) => f.eventId).map((f) => [f.eventId, f]));
 const track = new Map();   // fixture id -> { meta, events: Map(key -> info), gone: [], statuses: [], last }
 
-const evKey = (e) => [e.time.elapsed + '+' + (e.time.extra || 0), e.team && e.team.id, e.type, e.detail, e.player && (e.player.id || e.player.name), e.assist && (e.assist.id || e.assist.name)].join('|');
+// An event is identified by type + team + its ordinal among the same (type, team): the API first publishes many events
+// without the player's name and corrects the name / the minute some minutes later, so those cannot be part of the identity.
+function keyed(evs) {
+  const n = {};
+  return (evs || []).map((e) => { const g = e.type + '|' + (e.team && e.team.id); n[g] = (n[g] || 0) + 1; return [g + '|' + n[g], e]; });
+}
 function happenedAt(fx, e) {
   const p = fx.fixture.periods || {};
   const m = e.time.elapsed + (e.time.extra || 0);
@@ -56,32 +61,45 @@ function ingest(fx, now) {
   const id = fx.fixture.id;
   let t = track.get(id);
   if (!t) {
-    t = { id, name: fx.teams.home.name + ' - ' + fx.teams.away.name, league: fx.league.name, events: new Map(), gone: [], statuses: [], first: now, ticks: 0 };
+    t = { id, name: fx.teams.home.name + ' - ' + fx.teams.away.name, league: fx.league.name, events: new Map(), gone: [], statuses: [], first: now, ticks: 0, seenEmpty: false };
     track.set(id, t);
   }
   t.ticks++;
   const st = fx.fixture.status.short;
   if (!t.statuses.length || t.statuses[t.statuses.length - 1].s !== st) t.statuses.push({ s: st, at: new Date(now).toISOString(), elapsed: fx.fixture.status.elapsed });
   t.goals = fx.goals; t.score = fx.score; t.lastStatus = st; t.elapsed = fx.fixture.status.elapsed;
-  const evs = fx.events || [];
+  const hhmm = new Date(now).toISOString().slice(11, 19);
   const seen = new Set();
-  for (const e of evs) {
-    const k = evKey(e);
+  for (const [k, e] of keyed(fx.events)) {
     seen.add(k);
-    if (!t.events.has(k)) {
+    const minute = e.time.elapsed + (e.time.extra ? '+' + e.time.extra : '');
+    const player = (e.player && e.player.name) || null, assist = (e.assist && e.assist.name) || null;
+    const x = t.events.get(k);
+    if (!x) {
       const at = happenedAt(fx, e);
-      t.events.set(k, {
-        key: k, type: e.type, detail: e.detail, minute: e.time.elapsed + (e.time.extra ? '+' + e.time.extra : ''), team: e.team && e.team.name,
-        player: e.player && e.player.name, assist: e.assist && e.assist.name, firstSeen: new Date(now).toISOString(),
-        apiClockMinutes: fx.fixture.status.elapsed, lagSec: at ? Math.round((now - at) / 1000) : null, present: true
-      });
-      const x = t.events.get(k);
-      console.log(`[${new Date(now).toISOString().slice(11, 19)}] ${t.name}  ${x.minute}'  ${x.type}/${x.detail}  ${x.player || '?'}${x.assist ? ' (' + x.assist + ')' : ''}  lag≈${x.lagSec == null ? 'n/a' : x.lagSec + 's'}`);
+      const n = {
+        key: k, type: e.type, detail: e.detail, minute, team: e.team && e.team.name, player, assist, firstSeen: new Date(now).toISOString(),
+        firstTick: t.ticks === 1, apiClockMinutes: fx.fixture.status.elapsed, lagSec: at ? Math.round((now - at) / 1000) : null,
+        clockLag: fx.fixture.status.elapsed != null ? fx.fixture.status.elapsed - e.time.elapsed : null, present: true, changes: [], playerMissingAtFirst: !player
+      };
+      t.events.set(k, n);
+      if (!n.firstTick) console.log(`[${hhmm}] NEW  ${t.name}  ${minute}'  ${e.type}/${e.detail}  ${player || '(no player yet)'}${assist ? ' (' + assist + ')' : ''}  lag≈${n.lagSec == null ? 'n/a' : n.lagSec + 's'}`);
+      continue;
+    }
+    if (!x.present) { x.present = true; delete x.removedAt; }
+    const upd = [];
+    if (x.minute !== minute) upd.push(['minute', x.minute, minute]);
+    if (x.detail !== e.detail) upd.push(['detail', x.detail, e.detail]);
+    if (x.player !== player) upd.push(['player', x.player, player]);
+    if (x.assist !== assist) upd.push(['assist', x.assist, assist]);
+    for (const [what, from, to] of upd) {
+      x.changes.push({ at: new Date(now).toISOString(), what, from, to, afterSec: Math.round((now - new Date(x.firstSeen).getTime()) / 1000) });
+      x[what] = to;
+      console.log(`[${hhmm}] EDIT ${t.name}  ${x.type}  ${what}: ${from || '-'} -> ${to || '-'}  (${Math.round((now - new Date(x.firstSeen).getTime()) / 1000)}s after first seen)`);
     }
   }
   for (const [k, x] of t.events) {
-    if (x.present && !seen.has(k)) { x.present = false; x.removedAt = new Date(now).toISOString(); t.gone.push(x); console.log(`  !! RETRACTED  ${t.name}  ${x.minute}'  ${x.type}/${x.detail}  ${x.player || ''}`); }
-    if (!x.present && seen.has(k)) { x.present = true; delete x.removedAt; }
+    if (x.present && !seen.has(k)) { x.present = false; x.removedAt = new Date(now).toISOString(); t.gone.push(x); console.log(`[${hhmm}] !! GONE ${t.name}  ${x.minute}'  ${x.type}/${x.detail}  ${x.player || ''}`); }
   }
 }
 
@@ -112,28 +130,44 @@ while (Date.now() - start < MAX_MS) {
 // ---- report ----
 const pct = (a, p) => a.length ? a.slice().sort((x, y) => x - y)[Math.min(a.length - 1, Math.floor(p * a.length))] : null;
 const report = { mode: MODE, minutes: Math.round((Date.now() - start) / 60000), requests, remainingAtEnd: remaining, apiResponseMs: { median: pct(perCall, 0.5), p90: pct(perCall, 0.9) }, fixtures: [], lagByType: {} };
-const lagBy = {};
+const lagBy = {}, fillDelays = [], clockLagBy = {};
+let minuteEdits = 0, detailEdits = 0, playerMissingFirst = 0, playerFilled = 0, nEvents = 0, goneTotal = 0;
 for (const t of track.values()) {
   const evs = [...t.events.values()];
-  const goalEvs = evs.filter((e) => e.type === 'Goal' && e.detail !== 'Missed Penalty');
+  const live = evs.filter((e) => e.present);
+  const goalEvs = live.filter((e) => e.type === 'Goal' && e.detail !== 'Missed Penalty');
   const gTotal = (t.goals && t.goals.home != null) ? t.goals.home + t.goals.away : null;
-  const pen = t.score && t.score.penalty && t.score.penalty.home != null ? t.score.penalty.home + t.score.penalty.away : 0;
   const byType = {};
-  for (const e of evs) { const k = e.type + '/' + e.detail; byType[k] = (byType[k] || 0) + 1; if (e.lagSec != null && e.present) (lagBy[e.type + (e.detail && /Card/.test(e.detail) ? ' ' + e.detail : '')] ||= []).push(e.lagSec); }
+  for (const e of live) byType[e.type + '/' + e.detail] = (byType[e.type + '/' + e.detail] || 0) + 1;
+  for (const e of evs) {
+    nEvents++;
+    if (e.playerMissingAtFirst) { playerMissingFirst++; const c = e.changes.find((x) => x.what === 'player' && x.to); if (c) { playerFilled++; fillDelays.push(c.afterSec); } }
+    for (const c of e.changes) { if (c.what === 'minute') minuteEdits++; if (c.what === 'detail') detailEdits++; }
+    if (!e.firstTick && e.present) {
+      const k = e.type + (e.detail && /Card/.test(e.detail) ? ' ' + e.detail : '');
+      if (e.lagSec != null) (lagBy[k] ||= []).push(e.lagSec);
+      if (e.clockLag != null) (clockLagBy[k] ||= []).push(e.clockLag);
+    }
+  }
+  goneTotal += t.gone.length;
   report.fixtures.push({
     name: t.name, league: t.league, statuses: t.statuses, score: t.goals, goalEvents: goalEvs.length, scoreMatchesGoalEvents: gTotal == null ? null : gTotal === goalEvs.length,
-    eventsByType: byType, retracted: t.gone.map((e) => `${e.minute}' ${e.type}/${e.detail} ${e.player || ''}`),
-    noPlayerName: evs.filter((e) => !e.player).length, substWithoutPlayerIn: evs.filter((e) => e.type === 'subst' && !e.assist).length, events: evs, penaltyShootoutGoals: pen
+    eventsByType: byType, gone: t.gone.map((e) => `${e.minute}' ${e.type}/${e.detail} ${e.player || ''}`),
+    noPlayerNow: live.filter((e) => !e.player).length, substWithoutPlayerIn: live.filter((e) => e.type === 'subst' && !e.assist).length, events: evs
   });
 }
+report.editing = { events: nEvents, playerMissingWhenFirstSeen: playerMissingFirst, playerLaterFilled: playerFilled, fillDelaySec: { median: pct(fillDelays, 0.5), p90: pct(fillDelays, 0.9), max: fillDelays.length ? Math.max(...fillDelays) : null }, minuteCorrections: minuteEdits, detailCorrections: detailEdits, disappeared: goneTotal };
+report.apiClockLagMinutes = Object.fromEntries(Object.entries(clockLagBy).map(([k, a]) => [k, { n: a.length, median: pct(a, 0.5), max: Math.max(...a) }]));
 for (const [k, a] of Object.entries(lagBy)) report.lagByType[k] = { n: a.length, medianSec: pct(a, 0.5), p90Sec: pct(a, 0.9), maxSec: Math.max(...a) };
 mkdirSync('tests/out', { recursive: true });
 writeFileSync('tests/out/live-probe.json', JSON.stringify(report, null, 1));
 console.log('\n===== SUMMARY =====');
 console.log(`requests: ${requests}, API response time median ${report.apiResponseMs.median} ms (p90 ${report.apiResponseMs.p90}), requests remaining today: ${remaining}`);
 console.log('lag by event type (first seen after it happened):'); console.table(report.lagByType);
+console.log('how events get edited after first being published:'); console.log(JSON.stringify(report.editing));
+console.log('API clock minus event minute when first seen (events first seen after the first poll only):'); console.table(report.apiClockLagMinutes);
 for (const f of report.fixtures) {
-  console.log(`- ${f.name} [${f.league}] ${f.statuses.map((s) => s.s).join('>')}  score ${f.score && f.score.home}-${f.score && f.score.away}  goal events ${f.goalEvents}  consistent: ${f.scoreMatchesGoalEvents}  retracted: ${f.retracted.length}  no player: ${f.noPlayerName}  subst w/o "in" player: ${f.substWithoutPlayerIn}`);
+  console.log(`- ${f.name} [${f.league}] ${f.statuses.map((s) => s.s).join('>')}  score ${f.score && f.score.home}-${f.score && f.score.away}  goal events ${f.goalEvents}  consistent: ${f.scoreMatchesGoalEvents}  disappeared: ${f.gone.length}  no player now: ${f.noPlayerNow}  subst w/o "in" player: ${f.substWithoutPlayerIn}`);
   console.log('  ' + JSON.stringify(f.eventsByType));
-  if (f.retracted.length) console.log('  retracted: ' + f.retracted.join(' | '));
+  if (f.gone.length) console.log('  disappeared: ' + f.gone.join(' | '));
 }
