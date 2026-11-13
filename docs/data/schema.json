@@ -120,6 +120,21 @@
         "ycPerMatch": { "type": ["number", "null"] },
         "rcPerMatch": { "type": ["number", "null"] },
         "history": { "type": ["string", "null"], "description": "record with these two teams, if known" },
+        "crew": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "the rest of the officials, from the FRF CCA delegation (scripts/fetch-delegations.mjs), names as published (surname first)",
+          "properties": {
+            "refereeCounty": { "type": ["string", "null"] },
+            "assistant1": { "type": ["string", "null"] },
+            "assistant2": { "type": ["string", "null"] },
+            "reserve": { "type": ["string", "null"] },
+            "observer": { "type": ["string", "null"] },
+            "var": { "type": ["string", "null"] },
+            "avar": { "type": ["string", "null"] },
+            "delegate": { "type": ["string", "null"] }
+          }
+        },
         "season": {
           "type": "object",
           "additionalProperties": false,

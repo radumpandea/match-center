@@ -4403,6 +4403,17 @@
         if (has(r.rcPerMatch)) kv.appendChild(el('span', { html: '<b>' + t('referee.rcPerMatch') + '</b>' + esc(r.rcPerMatch) }));
         var wrap = el('div', {}, [kv]);
         if (has(r.history)) wrap.appendChild(el('p', { text: r.history }));
+        if (r.crew) {
+          var cr = r.crew, parts = [];
+          [['assistant1', 'crew.assistant'], ['assistant2', 'crew.assistant'], ['reserve', 'crew.reserve'], ['var', 'crew.var'], ['avar', 'crew.avar'], ['observer', 'crew.observer'], ['delegate', 'crew.delegate']].forEach(function (k) {
+            if (has(cr[k[0]])) parts.push(t(k[1]) + ': ' + cr[k[0]]);
+          });
+          if (parts.length) {
+            wrap.appendChild(el('h4', { text: t('crew.title') }));
+            wrap.appendChild(ul(parts));
+            wrap.appendChild(el('p', { class: 'season-note', text: t('crew.note') }));
+          }
+        }
         if (r.season && r.season.matches) {
           var rs = r.season;
           var avg = function (n) { return (n / rs.matches).toFixed(2); };

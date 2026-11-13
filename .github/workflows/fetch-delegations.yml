@@ -1,0 +1,65 @@
+name: Fetch Referee Delegations
+
+# Romanian Superliga and Liga 2: the referee and the rest of the crew, from the FRF Central Referees Committee's
+# public delegations page (scripts/fetch-delegations.mjs). API-Football almost never has them. Every 6 hours; a
+# first step works out whether any round with a match in the next days still needs fetching, and only then is a
+# browser installed. Politeness (10 s between pages, a few pages per run) is in the script.
+
+on:
+  schedule:
+    - cron: "25 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      force_rounds:
+        description: "Fetch exactly these rounds (testing), e.g. Superliga:15,Liga 2:13. Empty = what the plan says."
+        default: ""
+
+concurrency:
+  group: fetch-delegations
+  cancel-in-progress: false
+
+jobs:
+  delegations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Which rounds need fetching?
+        id: plan
+        env:
+          FORCE_ROUNDS: ${{ inputs.force_rounds }}
+        run: node scripts/fetch-delegations.mjs --plan
+      - name: Install Playwright
+        if: steps.plan.outputs.needed == 'true'
+        run: |
+          npm i --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+      - name: Fetch the delegations
+        if: steps.plan.outputs.needed == 'true'
+        env:
+          FORCE_ROUNDS: ${{ inputs.force_rounds }}
+        run: node scripts/fetch-delegations.mjs
+      - name: Validate changed packs
+        if: steps.plan.outputs.needed == 'true'
+        run: |
+          mapfile -t files < <(git diff --name-only --diff-filter=M HEAD -- docs/data/matches | grep '\.json$' | grep -v '\.i18n\.json$' || true)
+          if [ "${#files[@]}" -eq 0 ]; then echo "No changed packs."; exit 0; fi
+          npm install --no-audit --no-fund
+          node scripts/validate-match.mjs "${files[@]}"
+      - name: Commit and push
+        if: steps.plan.outputs.needed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/delegari.json docs/data/matches
+          if git diff --cached --quiet; then echo "No changes."; exit 0; fi
+          git commit -m "Referee delegations (FRF CCA)"
+          git pull --rebase --autostash origin main || true
+          git push
