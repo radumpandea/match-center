@@ -7,3 +7,7 @@ project_id = "match-center"
 # Callers must present a valid JWT; the function itself additionally requires a
 # signed-in user (not just the public anon key).
 verify_jwt = true
+
+[functions.live-poll]
+# Called by pg_cron from the database (no user). It protects the API quota itself (mc_live_claim in supabase/live.sql).
+verify_jwt = false

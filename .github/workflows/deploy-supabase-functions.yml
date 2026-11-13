@@ -1,7 +1,7 @@
 name: Deploy Supabase Functions
 
-# Deploys supabase/functions/* (today: api-lineups, the on-demand lineup lookup
-# behind the "Aliniere din API" button) and keeps its APIFOOTBALL_KEY secret in
+# Deploys supabase/functions/* (api-lineups, the on-demand lineup lookup
+# behind the "Aliniere din API" button; live-poll, the live score/events poller, see supabase/live.sql) and keeps its APIFOOTBALL_KEY secret in
 # step with the GitHub secret of the same name. Needs one extra repository
 # secret, SUPABASE_ACCESS_TOKEN (a personal access token from
 # https://supabase.com/dashboard/account/tokens); without it the job only says
@@ -44,9 +44,10 @@ jobs:
         with:
           version: latest
 
-      - name: Deploy api-lineups and set its secret
+      - name: Deploy the functions and set the secret
         if: steps.pre.outputs.ready == 'true'
         run: |
           REF=$(echo "$SUPABASE_URL" | sed -E 's#https?://([^.]+)\..*#\1#')
           supabase secrets set APIFOOTBALL_KEY="$APIFOOTBALL_KEY" --project-ref "$REF"
           supabase functions deploy api-lineups --project-ref "$REF"
+          supabase functions deploy live-poll --no-verify-jwt --project-ref "$REF"

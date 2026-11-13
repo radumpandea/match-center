@@ -12,6 +12,7 @@ on:
       - "docs/sw.js"
       - "docs/data/schema.json"
       - "tests/**"
+      - "supabase/functions/_shared/**"
   pull_request:
     paths:
       - "docs/app/**"
@@ -34,6 +35,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Live event reconciliation tests
+        run: node tests/live-reconcile.test.mjs
       - name: Install Playwright
         run: |
           npm i --no-save playwright@1.49.1
