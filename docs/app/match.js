@@ -490,9 +490,9 @@
 
   /* ---------- pitch view (orientation + which team is nearest the viewer) ---------- */
   var view = (mine.view && typeof mine.view === 'object')
-    ? { orientation: mine.view.orientation === 'v' ? 'v' : 'h', swapped: !!mine.view.swapped, fullNames: !!mine.view.fullNames, photos: !!mine.view.photos, labelSize: [0, 1, 2].indexOf(mine.view.labelSize) >= 0 ? mine.view.labelSize : 0 }
-    : { orientation: 'h', swapped: false, fullNames: false, photos: false, labelSize: 0 };
-  function saveView() { mine.view = { orientation: view.orientation, swapped: view.swapped, fullNames: view.fullNames, photos: view.photos, labelSize: view.labelSize }; saveMine(); }
+    ? { orientation: mine.view.orientation === 'v' ? 'v' : 'h', swapped: !!mine.view.swapped, fullNames: !!mine.view.fullNames, photos: !!mine.view.photos, labelSize: [0, 1, 2].indexOf(mine.view.labelSize) >= 0 ? mine.view.labelSize : 0, tabs: mine.view.tabs !== false }
+    : { orientation: 'h', swapped: false, fullNames: false, photos: false, labelSize: 0, tabs: true };
+  function saveView() { mine.view = { orientation: view.orientation, swapped: view.swapped, fullNames: view.fullNames, photos: view.photos, labelSize: view.labelSize, tabs: view.tabs }; saveMine(); }
 
   /* ---------- disc (player node) colours per team ----------
      user override (mine.discColors) wins; then the pack's colors.primary;
@@ -1794,6 +1794,7 @@
         favBtn,
         iconOnly(el('button', { text: '🖨 ' + t('print.button'), title: t('print.title'), onclick: function () { window.print(); } })),
         iconOnly(el('button', { text: '⚖ ' + t('cmp.button'), title: t('cmp.title'), onclick: function () { openCompare(data); } })),
+        iconOnly(el('button', { text: (view.tabs ? t('tabs.toList') : t('tabs.toTabs')), title: t('tabs.title'), onclick: function () { view.tabs = !view.tabs; saveView(); render(data); } })),
         delegationBtn(data),
         iconOnly(el('button', { text: '🔎 ' + t('qs.button'), title: 'Ctrl+K', onclick: function () { openQuickSearch(data); } })),
         iconOnly(el('button', { text: (mine.booth ? '☑ ' : '☐ ') + t('booth.button'), title: t('booth.title'), onclick: function () { mine.booth = !mine.booth; if (!mine.booth) delete mine.booth; saveMine(); render(data); } })),
@@ -1811,6 +1812,7 @@
     ]);
     bindPrint();
     document.body.classList.toggle('booth', !!mine.booth);
+    document.body.classList.toggle('tabs-on', !!view.tabs);
     _qsData = data;
     bindQuickSearch();
     root.appendChild(head);
@@ -1824,6 +1826,8 @@
 
     panelsEl = panels(data);
     root.appendChild(panelsEl);
+    if (view.tabs) root.insertBefore(tabBar(), root.querySelector('.pitch-row'));
+    applyTabs();
 
     setupStickyMiniPitch(data);
   }
@@ -2063,7 +2067,7 @@
     if (d.referee && has(d.referee.name)) items.push({ kind: 'referee', label: d.referee.name, sub: t('pitch.referee'), key: qsNorm(d.referee.name), go: function () { openRef(d); } });
     [].forEach.call(document.querySelectorAll('details.panel > summary'), function (sm) {
       var title = sm.textContent.replace(/[⠿⤢⤡]/g, '').trim();
-      if (title) items.push({ kind: 'panel', label: title, sub: t('qs.panel'), key: qsNorm(title), go: function () { var dt = sm.parentElement; dt.open = true; dt.scrollIntoView({ block: 'start', behavior: 'smooth' }); } });
+      if (title) items.push({ kind: 'panel', label: title, sub: t('qs.panel'), key: qsNorm(title), go: function () { var dt = sm.parentElement; if (view.tabs && dt.getAttribute('data-key')) { activeTab = tabOf(dt.getAttribute('data-key')); applyTabs(); } dt.open = true; dt.scrollIntoView({ block: 'start', behavior: 'smooth' }); } });
     });
     (allFixtures || []).forEach(function (f) {
       if (!f.slug || f.slug === slug) return;
@@ -2305,6 +2309,7 @@
     var shell = buildMiniPitch(d);
     shell.title = t('pitch.scrollToTop');
     shell.addEventListener('click', function () {
+      if (view.tabs) { activeTab = 'pitch'; applyTabs(); }
       pitchRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
     var resizeHandle = el('div', { class: 'mp-resize', title: t('pitch.miniPitchResize') });
@@ -3209,6 +3214,36 @@
     return holder;
   }
 
+  /* ---------- tabs layout: one group of panels on screen at a time ---------- */
+  var TAB_OF = { talk: 'talk', story: 'talk', context: 'talk', predictions: 'talk', research: 'talk', clubFacts: 'talk',
+    absences: 'absences', h2h: 'form', form: 'form', standings: 'form', advancedStats: 'form',
+    mercato: 'news', preseason: 'news', news: 'news', pressQuotes: 'news', venue: 'venue',
+    events: 'notes', notes: 'notes', sources: 'notes' };
+  var TAB_ORDER = ['pitch', 'talk', 'absences', 'form', 'news', 'venue', 'notes'];
+  var activeTab = 'pitch';
+  function tabOf(key) { return TAB_OF[key] || 'notes'; }
+  function applyTabs() {
+    var on = !!view.tabs;
+    var row = document.querySelector('.pitch-row');
+    if (row) row.classList.toggle('tab-off', on && activeTab !== 'pitch');
+    if (panelsEl) [].forEach.call(panelsEl.children, function (n) { n.classList.toggle('tab-off', on && tabOf(n.getAttribute('data-key')) !== activeTab); });
+    [].forEach.call(document.querySelectorAll('.mc-tab'), function (b) { b.setAttribute('aria-selected', b.getAttribute('data-tab') === activeTab ? 'true' : 'false'); });
+  }
+  function setTab(tab) {
+    activeTab = tab;
+    applyTabs();
+    var bar = document.querySelector('.mc-tabs');
+    if (bar) { var r = bar.getBoundingClientRect(); if (r.top < 0) window.scrollTo(0, window.scrollY + r.top); }
+  }
+  function tabBar() {
+    var present = { pitch: true };
+    if (panelsEl) [].forEach.call(panelsEl.children, function (n) { present[tabOf(n.getAttribute('data-key'))] = true; });
+    if (!present[activeTab]) activeTab = 'pitch';
+    return el('div', { class: 'mc-tabs', role: 'tablist' }, TAB_ORDER.filter(function (k) { return present[k]; }).map(function (k) {
+      return el('button', { class: 'mc-tab', role: 'tab', 'data-tab': k, text: t('tabs.' + k), onclick: function () { setTab(k); } });
+    }));
+  }
+
   function panels(d) {
     var defs = [];
     function add(key, node) { if (node) defs.push({ key: key, node: node }); }
@@ -3736,6 +3771,7 @@
       defs.forEach(function (def) { if (def.node && def.node.tagName === 'DETAILS') def.node.open = !!keep[def.key]; });
     }
     defs.forEach(function (def) {
+      def.node.setAttribute('data-key', def.key);
       makePanelDraggable(def.node, def.key, d, defs);
       addPanelWiden(def.node, def.key, d);
       addPanelExtras(def.node, def.key, d);
@@ -3828,6 +3864,7 @@
     var next = panels(d);
     if (panelsEl) panelsEl.replaceWith(next);
     panelsEl = next;
+    applyTabs();
   }
   function makePanelDraggable(node, key, d, defs) {
     var grip = el('span', { class: 'pgrip', text: '⠿', title: 'Trage pentru a reordona' });
