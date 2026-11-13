@@ -9,7 +9,7 @@
 //
 // Windows (minutes to kick-off): "24h" = 22-26 h before, "3h" = 2-4 h before. Hourly cron; a window already
 // recorded in doc.refresh.done is skipped, so each match is refreshed at most once per window. Only packs
-// with researchDepth "deep" (the matches that are really commented) unless ONLY_SLUGS names others.
+// with researchDepth "deep" (the matches that are really commented) in both windows, every other built pack in the 3 h one only; ONLY_SLUGS names any.
 // ~2 API-Football calls per match per window (fixtures?id=, injuries?fixture=) plus the news feeds.
 //
 //   APIFOOTBALL_KEY=... [ONLY_SLUGS=slug1,slug2] [RESERVE=1200] node scripts/prematch-refresh.mjs
@@ -149,7 +149,9 @@ async function main() {
   for (const { f, p, win } of work) {
     const doc = readJSON(p);
     if (doc.partial || !doc.teams) continue;
-    if (win !== 'manual' && doc.researchDepth !== 'deep') continue;
+    // deep packs get both windows; the other built packs only the 3 h one (half the calls, the news and
+    // absences that matter most are the last ones)
+    if (win !== 'manual' && doc.researchDepth !== 'deep' && win !== '3h') continue;
     if (win !== 'manual' && doc.refresh && Array.isArray(doc.refresh.done) && doc.refresh.done.includes(win)) continue;
     if (remaining != null && remaining <= RESERVE) { console.log(`Allowance down to ${remaining} (reserve ${RESERVE}), stopping.`); break; }
     console.log(`Refreshing ${f.slug} (${win})...`);
