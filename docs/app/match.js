@@ -3501,6 +3501,7 @@
           return t('watch.cards', { name: w.name, y: w.yellows, apps: has(w.apps) ? w.apps : '?' });
         })));
         wrap.appendChild(el('small', { class: 'watch-note', text: t('watch.note') }));
+        if (tm.watch.some(function (w) { return w.rule === 'frf'; })) wrap.appendChild(el('small', { class: 'watch-note', text: t('watch.noteFrf') }));
       }
       wrap.appendChild(el('h4', { text: t('panel.startingXI', { formation: effFormation(d, side) }) + (tm.confirmedXI ? ' · ' + t('pitch.apiConfirmedTag') : '') }));
       wrap.appendChild(ul(baseXI(d, side).map(function (p) {

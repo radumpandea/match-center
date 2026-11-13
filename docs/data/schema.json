@@ -581,7 +581,8 @@
               "apps": { "type": ["integer", "null"] },
               "threshold": { "type": ["integer", "null"], "description": "the yellow count that triggers the ban" },
               "ban": { "type": ["integer", "null"], "description": "matches banned" },
-              "byRound": { "type": ["integer", "null"], "description": "the ban only applies if the card comes up to this league match (Premier League 19 / 32)" }
+              "byRound": { "type": ["integer", "null"], "description": "the ban only applies if the card comes up to this league match (Premier League 19 / 32)" },
+              "rule": { "type": "string", "description": "frf = Romanian FRF rule (two yellows in one match are cancelled; the API count may include them)" }
             }
           }
         },
