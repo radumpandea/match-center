@@ -1,0 +1,39 @@
+name: Live data probe
+
+# Measures how late and how complete API-Football's live events are (see scripts/live-probe.mjs). Read-only: nothing is
+# committed; the report is in the log and in the "live-probe" artifact.
+#   mode live: whatever is being played right now (optionally only some league ids)
+#   mode auto: the matches of docs/data/fixtures.json, while they are played
+# The schedule entry below is a one-off for the Nations League evening of 13 Nov 2026 and can be deleted afterwards.
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode: { description: "live | auto", default: "live" }
+      minutes: { description: "How long to poll", default: "10" }
+      interval: { description: "Seconds between calls", default: "30" }
+      leagues: { description: "live mode: league ids, comma separated (empty = all)", default: "" }
+  schedule:
+    - cron: "50 16 13 11 *"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 345
+    steps:
+      - uses: actions/checkout@v6
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/live-probe.mjs
+        env:
+          APIFOOTBALL_KEY: ${{ secrets.APIFOOTBALL_KEY }}
+          MODE: ${{ inputs.mode || 'auto' }}
+          MAX_MINUTES: ${{ inputs.minutes || '330' }}
+          INTERVAL_S: ${{ inputs.interval || '30' }}
+          LEAGUES: ${{ inputs.leagues }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-probe
+          path: tests/out/live-probe.json
