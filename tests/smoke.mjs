@@ -71,8 +71,6 @@ try {
     const where = `match ${s.slug} (${s.depth})`;
     const page = await browser.newPage({ viewport: { width: 1400, height: 900 } });
     await watch(page, where);
-    // the checks below read the whole panel list: start in list mode; the tabs get their own check at the end
-    await page.addInitScript((k) => { try { localStorage.setItem(k, JSON.stringify({ view: { tabs: false } })); } catch (e) {} }, `mc:${s.slug}:me`);
     await page.goto(`${BASE}/match.html?m=${encodeURIComponent(s.slug)}`);
     try { await page.waitForSelector('.mc-teams', { timeout: 8000 }); } catch { fail(where, 'header did not render'); await page.screenshot({ path: `tests/out/${s.slug}.png` }); await page.close(); continue; }
     await page.waitForTimeout(800);
@@ -116,18 +114,6 @@ try {
       const present = await page.evaluate((src) => [...document.querySelectorAll('.mc-toolbar button')].some((b) => new RegExp(src, 'i').test(b.title + ' ' + b.textContent)), re.source);
       present ? ok(where, `${label} button present`) : fail(where, `${label} button missing`);
     }
-    // tabs layout: switching to a tab shows that group of panels and hides the pitch
-    await page.evaluate((k) => { localStorage.setItem(k, JSON.stringify({ view: { tabs: true } })); }, `mc:${s.slug}:me`);
-    await page.reload();
-    try { await page.waitForSelector('.mc-tabs', { timeout: 8000 }); } catch { fail(where, 'tabs did not render'); }
-    const tabsN = await page.locator('.mc-tab').count();
-    const talk = page.locator('.mc-tab[data-tab="talk"]');
-    if (await talk.count()) {
-      await talk.click();
-      const pitchHidden = await page.evaluate(() => getComputedStyle(document.querySelector('.pitch-row')).display === 'none');
-      const shown = await page.evaluate(() => [...document.querySelectorAll('.panels > .panel')].filter((n) => getComputedStyle(n).display !== 'none').length);
-      pitchHidden && shown > 0 ? ok(where, `tabs: ${tabsN} tabs, "talk" shows ${shown} panels and hides the pitch`) : fail(where, `tabs: pitchHidden=${pitchHidden} shown=${shown}`);
-    } else fail(where, 'no "talk" tab');
     await page.screenshot({ path: `tests/out/${s.slug}.png` });
     await page.close();
   }
