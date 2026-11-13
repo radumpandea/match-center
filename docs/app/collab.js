@@ -442,5 +442,17 @@
     } catch (e) { return { ok: false, reason: 'error' }; }
   }
 
-  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes, getEntity: getEntity, getEntities: getEntities, setEntityOverride: setEntityOverride, fetchApiLineups: fetchApiLineups };
+  // Asks the database to start the delegation job for this match (supabase/delegations.sql). { ok, reason }
+  async function requestDelegations(slug) {
+    if (!enabled) return { ok: false, reason: 'not_configured' };
+    if (!user) await ensureUser();
+    if (!user) return { ok: false, reason: 'not_signed_in' };
+    try {
+      var res = await client.rpc('mc_request_delegations', { p_slug: slug });
+      if (res.error) return { ok: false, reason: res.error.code === 'PGRST202' ? 'not_deployed' : 'error' };
+      return res.data && typeof res.data === 'object' ? res.data : { ok: false, reason: 'error' };
+    } catch (e) { return { ok: false, reason: 'error' }; }
+  }
+
+  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes, getEntity: getEntity, getEntities: getEntities, setEntityOverride: setEntityOverride, fetchApiLineups: fetchApiLineups, requestDelegations: requestDelegations };
 })();

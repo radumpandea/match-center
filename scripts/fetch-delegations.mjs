@@ -133,7 +133,16 @@ async function main() {
   if (args[0] === '--fill-only') { fillPacks(known.matches, fixtures); return; }
   // FORCE_ROUNDS="Superliga:15,Liga 2:13" fetches exactly those rounds (testing a round that has been played)
   const forced = String(process.env.FORCE_ROUNDS || '').split(',').map((x) => x.trim()).filter(Boolean).map((x) => { const [comp, r] = x.split(':'); return { comp: comp.trim(), round: Number(r) }; }).filter((x) => SOURCES.competitions[x.comp] && x.round > 0);
-  const todo = (forced.length ? forced : plan(fixtures, known)).slice(0, MAX_PAGES);
+  // SLUG=<fixture slug> (the "refresh the delegation" button on the match page): that match's round, now, whether or not
+  // it is already known
+  const bySlug = [];
+  if (process.env.SLUG) {
+    const f = fixtures.find((x) => x.slug === process.env.SLUG);
+    const r = f ? roundOf(f) : null;
+    if (f && r != null && SOURCES.competitions[f.comp]) bySlug.push({ comp: f.comp, round: r });
+    else console.log('SLUG ' + process.env.SLUG + ' is not a Superliga / Liga 2 fixture in fixtures.json: nothing to do.');
+  }
+  const todo = (forced.length ? forced : bySlug.length ? bySlug : process.env.SLUG ? [] : plan(fixtures, known)).slice(0, MAX_PAGES);
   if (args[0] === '--plan') {
     console.log(todo.length ? `Would fetch: ${todo.map((x) => `${x.comp} round ${x.round}`).join(', ')}` : 'Nothing to fetch.');
     setOutput('needed', todo.length ? 'true' : 'false');

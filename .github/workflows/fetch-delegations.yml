@@ -10,6 +10,9 @@ on:
     - cron: "25 */6 * * *"
   workflow_dispatch:
     inputs:
+      slug:
+        description: "Only this match's round, now (set by the refresh button on the match page)"
+        default: ""
       force_rounds:
         description: "Fetch exactly these rounds (testing), e.g. Superliga:15,Liga 2:13. Empty = what the plan says."
         default: ""
@@ -35,6 +38,7 @@ jobs:
         id: plan
         env:
           FORCE_ROUNDS: ${{ inputs.force_rounds }}
+          SLUG: ${{ inputs.slug }}
         run: node scripts/fetch-delegations.mjs --plan
       - name: Install Playwright
         if: steps.plan.outputs.needed == 'true'
@@ -45,6 +49,7 @@ jobs:
         if: steps.plan.outputs.needed == 'true'
         env:
           FORCE_ROUNDS: ${{ inputs.force_rounds }}
+          SLUG: ${{ inputs.slug }}
         run: node scripts/fetch-delegations.mjs
       - name: Validate changed packs
         if: steps.plan.outputs.needed == 'true'

@@ -1794,6 +1794,7 @@
         favBtn,
         iconOnly(el('button', { text: '🖨 ' + t('print.button'), title: t('print.title'), onclick: function () { window.print(); } })),
         iconOnly(el('button', { text: '⚖ ' + t('cmp.button'), title: t('cmp.title'), onclick: function () { openCompare(data); } })),
+        delegationBtn(data),
         iconOnly(el('button', { text: '🔎 ' + t('qs.button'), title: 'Ctrl+K', onclick: function () { openQuickSearch(data); } })),
         iconOnly(el('button', { text: (mine.booth ? '☑ ' : '☐ ') + t('booth.button'), title: t('booth.title'), onclick: function () { mine.booth = !mine.booth; if (!mine.booth) delete mine.booth; saveMine(); render(data); } })),
         collabBtn,
@@ -1985,6 +1986,47 @@
       el('div', { class: 'standings-wrap' }, [tb]),
       el('p', { class: 'season-note', text: t('rf.note') })
     ]);
+  }
+
+// "Refresh the delegation": Superliga / Liga 2 only. Asks the database to start the delegations job for this match
+  // (supabase/delegations.sql -> .github/workflows/fetch-delegations.yml), then looks at the published pack every 20 s
+  // for up to 6 minutes and shows the referee and crew as soon as they arrive.
+  var RO_DELEGATION_COMPS = { 'Superliga': 1, 'Liga 2': 1 };
+  function delegationBtn(d) {
+    if (!d.competition || !RO_DELEGATION_COMPS[d.competition.name] || !window.MC_COLLAB || !window.MC_COLLAB.requestDelegations) return null;
+    var ko = d.kickoff ? new Date(d.kickoff).getTime() : NaN;
+    if (!isNaN(ko) && ko < Date.now() - 3 * 3600000) return null;   // played already
+    var status = el('span', { class: 'deleg-status' });
+    var btn = el('button', { text: '↻ ' + t('deleg.button'), title: t('deleg.title') });
+    var running = false;
+    function say(key, extra) { status.textContent = t(key, extra || {}); }
+    btn.addEventListener('click', function () {
+      if (running) return;
+      running = true; btn.disabled = true; say('deleg.asking');
+      window.MC_COLLAB.requestDelegations(slug).then(function (r) {
+        if (!r || !r.ok) { running = false; btn.disabled = false; say('deleg.err.' + ((r && r.reason) || 'error')); return; }
+        say('deleg.waiting');
+        var tries = 0, before = JSON.stringify([d.referee && d.referee.name, d.referee && d.referee.crew]);
+        var timer = setInterval(function () {
+          tries++;
+          fetch('data/matches/' + encodeURIComponent(slug) + '.json?_=' + Date.now(), { cache: 'no-store' })
+            .then(function (x) { return x.ok ? x.json() : null; })
+            .then(function (doc) {
+              if (!doc || !doc.referee) return;
+              if (JSON.stringify([doc.referee.name, doc.referee.crew]) !== before) {
+                clearInterval(timer);
+                decodeEntitiesDeep(doc);
+                d.referee = doc.referee;
+                if (doc.sources) d.sources = doc.sources;
+                running = false;
+                render(d);
+              }
+            }).catch(function () {});
+          if (tries >= 18) { clearInterval(timer); running = false; btn.disabled = false; say('deleg.none'); }
+        }, 20000);
+      });
+    });
+    return el('span', { class: 'deleg' }, [iconOnly(btn), status]);
   }
 
 // Ctrl+K / "/" : jump to a player, coach, referee, panel or another match by typing a few letters.
