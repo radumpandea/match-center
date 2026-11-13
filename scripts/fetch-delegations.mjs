@@ -147,9 +147,12 @@ async function main() {
       try {
         await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 });
         await page.waitForSelector('main', { timeout: 15000 });
-        await page.waitForTimeout(2500);   // the cards are drawn after the data arrives
+        // the cards are drawn after the app has fetched its data: wait for the first match card
+        await page.waitForFunction(() => [...document.querySelectorAll('main')].some((m) => m.innerText.split('\n').some((l) => l.trim().toLowerCase() === 'vs')), null, { timeout: 25000 }).catch(() => {});
+        await page.waitForTimeout(1500);
         const text = (await page.locator('main').allInnerTexts()).join('\n');
         const rows = parseDelegations(text);
+        if (!rows.length) console.log(`  page text (${text.length} chars) starts: ${JSON.stringify(text.slice(0, 400))}`);
         console.log(`${comp} round ${round}: ${rows.length} match(es), ${rows.filter((r) => r.available).length} with a delegation`);
         rows.forEach((r) => fetched.push({ ...r, comp, round, url }));
       } catch (e) {
