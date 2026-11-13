@@ -72,7 +72,7 @@ try {
     const page = await browser.newPage({ viewport: { width: 1400, height: 900 } });
     await watch(page, where);
     // the checks below read the whole panel list: start in list mode; the tabs get their own check at the end
-    await page.addInitScript((k) => { try { localStorage.setItem(k, JSON.stringify({ view: { tabs: false } })); } catch (e) {} }, `mc:${s.slug}:me`);
+    await page.addInitScript((k) => { try { if (localStorage.getItem(k) === null) localStorage.setItem(k, JSON.stringify({ view: { tabs: false } })); } catch (e) {} }, `mc:${s.slug}:me`);
     await page.goto(`${BASE}/match.html?m=${encodeURIComponent(s.slug)}`);
     try { await page.waitForSelector('.mc-teams', { timeout: 8000 }); } catch { fail(where, 'header did not render'); await page.screenshot({ path: `tests/out/${s.slug}.png` }); await page.close(); continue; }
     await page.waitForTimeout(800);
