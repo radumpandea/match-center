@@ -48,6 +48,6 @@ jobs:
         if: steps.pre.outputs.ready == 'true'
         run: |
           REF=$(echo "$SUPABASE_URL" | sed -E 's#https?://([^.]+)\..*#\1#')
-          supabase secrets set APIFOOTBALL_KEY="$APIFOOTBALL_KEY" --project-ref "$REF"
-          supabase functions deploy api-lineups --project-ref "$REF"
-          supabase functions deploy live-poll --no-verify-jwt --project-ref "$REF"
+          supabase secrets set APIFOOTBALL_KEY="$APIFOOTBALL_KEY" --project-ref "$REF" --yes
+          supabase functions deploy api-lineups --project-ref "$REF" --yes
+          supabase functions deploy live-poll --no-verify-jwt --project-ref "$REF" --yes
