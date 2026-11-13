@@ -42,32 +42,38 @@ const LABELS = {
   'arbitru var': 'var', 'arbitru avar': 'avar', 'match delegate': 'delegate', 'delegat': 'delegate',
 };
 
+// Two layouts of the same page text: Playwright's innerText gives  home / date / away / stadium / venue (county)  and a
+// text dump that keeps the "vs" gives  home / vs / away / date / stadium / venue. The date line anchors each card.
+const DT = /^(\d{2})\/(\d{2})\/(\d{4}),\s*(\d{1,2}):(\d{2})\s*([AP])M$/i;
 export function parseDelegations(text) {
   const lines = String(text || '').split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
-  const vs = [];
-  lines.forEach((l, i) => { if (l.toLowerCase() === 'vs') vs.push(i); });
+  const roundLine = lines.find((l) => /^round\s+\d+$/i.test(l));
+  const dts = [];
+  lines.forEach((l, i) => { if (DT.test(l)) dts.push(i); });
+  const cards = dts.map((idx) => {
+    const old = (lines[idx - 2] || '').toLowerCase() === 'vs';
+    return { idx, old, home: old ? lines[idx - 3] : lines[idx - 1], away: old ? lines[idx - 1] : lines[idx + 1], start: old ? idx - 3 : idx - 1, body: old ? idx + 1 : idx + 2 };
+  });
   const out = [];
-  vs.forEach((idx, n) => {
-    const home = lines[idx - 1], away = lines[idx + 1];
-    const end = n + 1 < vs.length ? vs[n + 1] - 1 : lines.length;
-    const card = lines.slice(idx + 2, end);
-    const dt = card.find((l) => /^\d{2}\/\d{2}\/\d{4},\s*\d{1,2}:\d{2}\s*[AP]M$/i.test(l));
-    if (!dt) return;
-    const m = dt.match(/^(\d{2})\/(\d{2})\/(\d{4}),\s*(\d{1,2}):(\d{2})\s*([AP])M$/i);
+  cards.forEach((c, n) => {
+    const end = n + 1 < cards.length ? cards[n + 1].start : lines.length;
+    const body = lines.slice(c.body, end);
+    const m = lines[c.idx].match(DT);
     let h = Number(m[4]) % 12; if (m[6].toUpperCase() === 'P') h += 12;
     const m1 = {
-      home, away,
-      date: `${m[3]}-${m[1]}-${m[2]}`,
-      ko: `${String(h).padStart(2, '0')}:${m[5]}`,
-      available: !card.some((l) => /currently unavailable|indisponibil/i.test(l)),
+      home: c.home, away: c.away,
+      date: m[3] + '-' + m[1] + '-' + m[2],
+      ko: String(h).padStart(2, '0') + ':' + m[5],
+      available: !body.some((l) => /currently unavailable|indisponibil/i.test(l)),
     };
-    const si = card.findIndex((l) => l.toLowerCase() === 'stadium');
-    if (si >= 0 && card[si + 1]) m1.venue = card[si + 1];
-    for (let i = 0; i < card.length; i++) {
-      const key = LABELS[card[i].toLowerCase()];
-      if (!key || !card[i + 1]) continue;
-      m1[key] = card[i + 1];
-      if (key === 'referee' && /^\(.+\)$/.test(card[i + 2] || '')) m1.refereeCounty = card[i + 2].slice(1, -1);
+    if (roundLine) m1.shownRound = Number(roundLine.match(/\d+/)[0]);
+    const si = body.findIndex((l) => l.toLowerCase() === 'stadium');
+    if (si >= 0 && body[si + 1]) m1.venue = body[si + 1];
+    for (let i = 0; i < body.length; i++) {
+      const key = LABELS[body[i].toLowerCase()];
+      if (!key || !body[i + 1]) continue;
+      m1[key] = body[i + 1];
+      if (key === 'referee' && /^\(.+\)$/.test(body[i + 2] || '')) m1.refereeCounty = body[i + 2].slice(1, -1);
       i++;
     }
     out.push(m1);
@@ -148,10 +154,23 @@ async function main() {
         await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 });
         await page.waitForSelector('main', { timeout: 15000 });
         // the cards are drawn after the app has fetched its data: wait for the first match card
-        await page.waitForFunction(() => [...document.querySelectorAll('main')].some((m) => m.innerText.split('\n').some((l) => l.trim().toLowerCase() === 'vs')), null, { timeout: 25000 }).catch(() => {});
+        const readText = async () => (await page.locator('main').allInnerTexts()).join('\n');
+        const hasCards = () => page.waitForFunction(() => [...document.querySelectorAll('main')].some((m) => m.innerText.split('\n').some((l) => /^\d{2}\/\d{2}\/\d{4},/.test(l.trim()))), null, { timeout: 25000 }).catch(() => {});
+        await hasCards();
         await page.waitForTimeout(1500);
-        const text = (await page.locator('main').allInnerTexts()).join('\n');
-        const rows = parseDelegations(text);
+        let text = await readText();
+        let rows = parseDelegations(text);
+        // the app opens on the current round whatever the URL says; if another one is wanted, pick it as a visitor would
+        if (rows.length && rows[0].shownRound && rows[0].shownRound !== round) {
+          try {
+            await page.getByRole('button', { name: 'Select round' }).click();
+            await page.getByRole('button', { name: `Round ${round}`, exact: true }).click();
+            await page.waitForTimeout(3000);
+            await hasCards();
+            text = await readText();
+            rows = parseDelegations(text);
+          } catch (e) { console.log(`  could not switch to round ${round}: ${e.message.split('\n')[0]}`); }
+        }
         if (!rows.length) console.log(`  page text (${text.length} chars) starts: ${JSON.stringify(text.slice(0, 400))}`);
         console.log(`${comp} round ${round}: ${rows.length} match(es), ${rows.filter((r) => r.available).length} with a delegation`);
         rows.forEach((r) => fetched.push({ ...r, comp, round, url }));
