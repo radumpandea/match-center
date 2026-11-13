@@ -1,0 +1,129 @@
+/* Match Center — optional visual styles ("skins"), chosen with the style switcher in the page header.
+   app/theme.js sets data-skin="studio" | "paper" on <html> (stored in localStorage `mc:skin`); without the attribute
+   nothing here applies and the standard look stays. Each skin brings its own colours, so the light/dark toggle is
+   hidden while one is active. Loaded by match.html and index.html after their own styles.
+   The `[data-theme]` in the token selectors only raises their specificity above :root[data-theme="light"]. */
+
+:root[data-skin="studio"] .mc-theme-toggle,
+:root[data-skin="paper"] .mc-theme-toggle{display:none}
+.mc-skin{
+  font:500 12px/1 "Inter",system-ui,sans-serif;height:26px;padding:0 6px;border-radius:13px;cursor:pointer;
+  background:transparent;color:var(--color-neutral-400);border:1px solid var(--color-divider)
+}
+.mc-skin:hover{border-color:var(--color-accent)}
+.mc-skin option{background:var(--color-surface);color:var(--color-text)}
+
+/* ================= B · Studio TV: broadcast graphics, navy + lime, condensed capitals ================= */
+:root[data-skin="studio"][data-theme]{
+  color-scheme:dark;
+  --color-bg:#0a0f1e;--color-surface:#111a33;--color-surface-2:#192446;--color-text:#f2f5ff;
+  --color-accent:#c6ff3d;--color-divider:rgba(150,170,230,.24);
+  --color-neutral-400:#b4bfdf;--color-neutral-500:#8f9cc4;--color-neutral-600:#6f7ca4;
+  --color-accent-200:#e4ffa0;--color-accent-300:#c6ff3d;--color-warn-ink:#ffd27a;
+  --color-accent-700:#4b5e10;--color-accent-900:#1d2a0a;
+  --pitch-green:#0f5132;--pitch-green-2:#0c4529;
+  --radius-sm:2px;--radius-md:2px;--radius-lg:3px;
+  --font-display:"Barlow Condensed","Inter",system-ui,sans-serif;
+}
+:root[data-skin="studio"] body{background:var(--color-bg)}
+:root[data-skin="studio"] h1,
+:root[data-skin="studio"] h2{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.03em;font-weight:700}
+:root[data-skin="studio"] .mc-head{border-bottom:2px solid var(--color-accent);padding-bottom:14px}
+:root[data-skin="studio"] .mc-head::before{
+  content:"LIVE PREP";align-self:flex-start;height:auto;margin:0 0 6px;padding:3px 11px;border-radius:0;background:var(--color-accent);
+  color:#0a0f1e;font:700 12px/1.2 var(--font-display);letter-spacing:.16em
+}
+:root[data-skin="studio"] .mc-teams{font-family:var(--font-display);font-weight:700;font-size:40px;line-height:1;letter-spacing:.02em;text-transform:uppercase}
+:root[data-skin="studio"] .mc-teams .nickname{font-family:"Inter",sans-serif;font-weight:400;font-size:12px;letter-spacing:0;text-transform:none}
+:root[data-skin="studio"] .mc-teams .vs{
+  background:var(--color-accent);color:#0a0f1e;font:700 18px/1 var(--font-display);padding:6px 12px;letter-spacing:.08em
+}
+:root[data-skin="studio"] .mc-meta{text-transform:uppercase;letter-spacing:.06em;font-size:11.5px}
+:root[data-skin="studio"] .mc-toolbar button{border-radius:0}
+:root[data-skin="studio"] .mc-tabs{border-bottom:2px solid var(--color-accent)}
+:root[data-skin="studio"] .mc-tab{
+  border-radius:0;border:none;background:var(--color-surface);color:var(--color-neutral-400);
+  font:700 15px/1 var(--font-display);letter-spacing:.1em;text-transform:uppercase;padding:9px 18px
+}
+:root[data-skin="studio"] .mc-tab[aria-selected="true"]{background:var(--color-accent);color:#0a0f1e}
+:root[data-skin="studio"] .panel,
+:root[data-skin="studio"] .team-aside{border:none;border-left:3px solid var(--color-accent);background:var(--color-surface)}
+:root[data-skin="studio"] .panel > summary{font:700 16px/1.1 var(--font-display);letter-spacing:.1em;color:var(--color-accent)}
+:root[data-skin="studio"] .team-aside-title{font:700 14px/1.2 var(--font-display);letter-spacing:.12em;color:var(--color-accent)}
+:root[data-skin="studio"] .panel .body{color:#d3dbf3;font-size:13px}
+:root[data-skin="studio"] .team-aside{color:#d3dbf3}
+:root[data-skin="studio"] .pitch-shell{border-radius:0;border:2px solid var(--color-accent)}
+:root[data-skin="studio"] .pitch-lines::before{background:rgba(198,255,61,.55)}
+:root[data-skin="studio"] .pitch-lines::after,
+:root[data-skin="studio"] .pitch-box,
+:root[data-skin="studio"] .pitch-shell.vertical .pitch-box.a,
+:root[data-skin="studio"] .pitch-shell.vertical .pitch-box.b{border-color:rgba(198,255,61,.5)}
+:root[data-skin="studio"] .match-graphic{border-radius:0;border-left:3px solid var(--color-accent)}
+:root[data-skin="studio"] .mgs-result{font-family:var(--font-display);font-size:30px;color:var(--color-accent)}
+:root[data-skin="studio"] .modal,
+:root[data-skin="studio"] .modal-back > div{border-radius:2px}
+
+/* ================= C · Newspaper edition: warm paper, serif, ink rules ================= */
+:root[data-skin="paper"][data-theme]{
+  color-scheme:light;
+  --color-bg:#f4efe3;--color-surface:#fbf8f0;--color-surface-2:#efe7d3;--color-text:#2a2620;
+  --color-accent:#9b2226;--color-divider:rgba(42,38,32,.3);
+  --color-neutral-400:#4a443a;--color-neutral-500:#6a6256;--color-neutral-600:#8a8070;
+  --color-accent-200:#7a171b;--color-accent-300:#8a1d21;--color-warn-ink:#8a5c12;
+  --color-accent-700:#e5c9c5;--color-accent-900:#f3e3e0;
+  --pitch-green:#ebe3ce;--pitch-green-2:#e4dbc4;
+  --radius-sm:0;--radius-md:0;--radius-lg:2px;
+  --font-serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+}
+:root[data-skin="paper"] body{font-family:var(--font-serif);font-size:15px;line-height:1.6}
+:root[data-skin="paper"] button,
+:root[data-skin="paper"] input,
+:root[data-skin="paper"] select,
+:root[data-skin="paper"] textarea,
+:root[data-skin="paper"] .mc-tab,
+:root[data-skin="paper"] .pitch-shell,
+:root[data-skin="paper"] .mini-card,
+:root[data-skin="paper"] .mc-mini-pitch{font-family:"Inter",system-ui,sans-serif}
+:root[data-skin="paper"] h1,
+:root[data-skin="paper"] h2,
+:root[data-skin="paper"] h3{font-family:var(--font-serif);font-weight:600}
+:root[data-skin="paper"] .mc-head{border-bottom:3px double var(--color-text);padding-bottom:12px}
+:root[data-skin="paper"] .mc-head::before{height:0;border-top:4px solid var(--color-text);border-bottom:1px solid var(--color-text);padding-bottom:2px;background:none;margin-bottom:var(--space-4);border-radius:0}
+:root[data-skin="paper"] .mc-teams{font-family:var(--font-serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.02em}
+:root[data-skin="paper"] .mc-teams .vs{font-style:italic;font-weight:400;font-size:20px;color:var(--color-neutral-500)}
+:root[data-skin="paper"] .mc-teams .nickname{font-family:var(--font-serif);font-style:italic;font-size:14px}
+:root[data-skin="paper"] .mc-meta{font-style:italic;font-size:13.5px}
+:root[data-skin="paper"] .mc-toolbar button{border-radius:0}
+:root[data-skin="paper"] .mc-tabs{border-bottom:1px solid var(--color-text);gap:2px}
+:root[data-skin="paper"] .mc-tab{
+  border:none;border-bottom:3px solid transparent;border-radius:0;background:none;color:var(--color-neutral-500);
+  font:600 13px/1 var(--font-serif);letter-spacing:.04em;font-variant:small-caps;font-size:15px;padding:9px 14px
+}
+:root[data-skin="paper"] .mc-tab:hover{border-color:transparent;border-bottom-color:var(--color-neutral-600);color:var(--color-text)}
+:root[data-skin="paper"] .mc-tab[aria-selected="true"]{background:none;color:var(--color-text);border-bottom-color:var(--color-accent)}
+:root[data-skin="paper"] .panel,
+:root[data-skin="paper"] .team-aside{background:transparent;border:none;border-top:2px solid var(--color-text);padding-top:2px}
+:root[data-skin="paper"] .panel > summary{font:700 17px/1.2 var(--font-serif);letter-spacing:0;text-transform:none;color:var(--color-text)}
+:root[data-skin="paper"] .team-aside-title{font:700 16px/1.2 var(--font-serif);letter-spacing:0;text-transform:none;color:var(--color-text)}
+:root[data-skin="paper"] .panel .body{font-size:14.5px;line-height:1.6;color:#352f27}
+:root[data-skin="paper"] .team-aside{font-size:13.5px;line-height:1.55;color:#352f27}
+:root[data-skin="paper"] .panel .body ul{gap:6px}
+:root[data-skin="paper"] .pitch-shell{
+  border-radius:0;border:1px solid var(--color-text);
+  background:repeating-linear-gradient(90deg,var(--pitch-green) 0 8%,var(--pitch-green-2) 8% 16%)
+}
+:root[data-skin="paper"] .pitch-shell.vertical{background:repeating-linear-gradient(0deg,var(--pitch-green) 0 8%,var(--pitch-green-2) 8% 16%)}
+:root[data-skin="paper"] .pitch-lines::before{background:rgba(42,38,32,.5)}
+:root[data-skin="paper"] .pitch-lines::after,
+:root[data-skin="paper"] .pitch-box,
+:root[data-skin="paper"] .pitch-shell.vertical .pitch-box.a,
+:root[data-skin="paper"] .pitch-shell.vertical .pitch-box.b{border-color:rgba(42,38,32,.5)}
+:root[data-skin="paper"] .node .lbl{color:#2a2620;text-shadow:none;font-weight:600}
+:root[data-skin="paper"] .node .lbl-sub{color:#4a443a;text-shadow:none}
+:root[data-skin="paper"] .node .lbl-stat{color:#9b2226;text-shadow:none}
+:root[data-skin="paper"] .node .disc{border-color:#2a2620;box-shadow:none}
+:root[data-skin="paper"] .match-graphic{border-radius:0;border:none;border-top:2px solid var(--color-text);background:transparent}
+:root[data-skin="paper"] .mgs-result{font-family:var(--font-serif);color:var(--color-text)}
+:root[data-skin="paper"] a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+
+@media print{.mc-skin{display:none}}

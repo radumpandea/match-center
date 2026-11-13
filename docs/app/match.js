@@ -1764,7 +1764,7 @@
     var head = el('div', { class: 'mc-head' }, [
       el('div', { class: 'mc-head-top' }, [
         el('a', { class: 'mc-back', href: 'index.html', text: t('toolbar.backToList') }),
-        el('div', { class: 'mc-head-controls' }, [themeToggle, langSwitch])
+        el('div', { class: 'mc-head-controls' }, [window.MC_THEME.skinEl(), themeToggle, langSwitch])
       ]),
       el('div', { class: 'mc-teams' }, [
         el('span', {}, [

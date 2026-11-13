@@ -53,5 +53,34 @@
     return btn;
   }
 
-  window.MC_THEME = { THEMES: THEMES.slice(), getTheme: getTheme, setTheme: setTheme, toggleEl: toggleEl };
+  // Visual style ("skin"): default | studio | paper (app/skins.css). Stored in localStorage `mc:skin`.
+  var SKINS = ['default', 'studio', 'paper'];
+  var skin = 'default';
+  try { var sv = localStorage.getItem('mc:skin'); if (SKINS.indexOf(sv) >= 0) skin = sv; } catch (e) {}
+  function applySkin() {
+    if (skin === 'default') document.documentElement.removeAttribute('data-skin');
+    else document.documentElement.setAttribute('data-skin', skin);
+  }
+  applySkin();
+  function skinEl() {
+    var t = (window.MC_I18N && window.MC_I18N.t) || function (k) { return k; };
+    var sel = document.createElement('select');
+    sel.className = 'mc-skin';
+    sel.title = t('skin.title');
+    sel.setAttribute('aria-label', t('skin.title'));
+    SKINS.forEach(function (k) {
+      var o = document.createElement('option');
+      o.value = k; o.textContent = t('skin.' + k);
+      if (k === skin) o.selected = true;
+      sel.appendChild(o);
+    });
+    sel.onchange = function () {
+      skin = sel.value;
+      try { localStorage.setItem('mc:skin', skin); } catch (e) {}
+      applySkin();
+    };
+    return sel;
+  }
+
+  window.MC_THEME = { THEMES: THEMES.slice(), getTheme: getTheme, setTheme: setTheme, toggleEl: toggleEl, skinEl: skinEl };
 })();

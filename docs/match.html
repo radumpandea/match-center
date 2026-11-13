@@ -9,22 +9,24 @@
 
 <!-- Apply the stored/detected background theme before first paint, so there
      is no dark->light (or vice versa) flash once app/theme.js loads. -->
-<script>(function(){try{var v=localStorage.getItem('mc:theme');if(v!=='light'&&v!=='dark'){v=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',v);}catch(e){}})();</script>
+<script>(function(){try{var v=localStorage.getItem('mc:theme');if(v!=='light'&&v!=='dark'){v=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',v);var k=localStorage.getItem('mc:skin');if(k==='studio'||k==='paper')document.documentElement.setAttribute('data-skin',k);}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap">
 <link rel="stylesheet" href="app/match.css?v=26f5a22bfc">
+<link rel="stylesheet" href="app/skins.css?v=5619346c16">
 </head>
 <body>
 <div class="wrap">
   <div id="root"><div class="loading">Se încarcă ecranul de meci…</div></div>
 </div>
-<script src="app/i18n.js?v=900961342d"></script>
-<script src="app/theme.js?v=2ace0aad3e"></script>
+<script src="app/i18n.js?v=49a7994a83"></script>
+<script src="app/theme.js?v=f26a3cc69a"></script>
 <script src="app/config.js?v=7e020fe7dc"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app/collab.js?v=3d149def36"></script>
-<script src="app/match.js?v=5f4ac99430"></script>
+<script src="app/match.js?v=5a434ebcaa"></script>
 <script>if ("serviceWorker" in navigator) { window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); }); }</script>
 </body>
 </html>

@@ -6,10 +6,11 @@
 <title>Match Center — ecrane de meci pentru comentariu</title>
 <!-- Apply the stored/detected background theme before first paint, so there
      is no dark->light (or vice versa) flash once app/theme.js loads. -->
-<script>(function(){try{var v=localStorage.getItem('mc:theme');if(v!=='light'&&v!=='dark'){v=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',v);}catch(e){}})();</script>
+<script>(function(){try{var v=localStorage.getItem('mc:theme');if(v!=='light'&&v!=='dark'){v=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',v);var k=localStorage.getItem('mc:skin');if(k==='studio'||k==='paper')document.documentElement.setAttribute('data-skin',k);}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap">
 <style>
   :root{
     --color-bg:#161826;
@@ -122,6 +123,7 @@
   .lang-ask-pills button:hover{border-color:var(--color-accent);color:var(--color-accent-200)}
   .lang-ask-skip{align-self:center;background:none;border:none;color:var(--color-neutral-600);font-size:12px;cursor:pointer;text-decoration:underline}
 </style>
+<link rel="stylesheet" href="app/skins.css?v=5619346c16">
 </head>
 <body>
 
@@ -160,8 +162,8 @@
   </div>
 </div>
 
-<script src="app/i18n.js?v=900961342d"></script>
-<script src="app/theme.js?v=2ace0aad3e"></script>
+<script src="app/i18n.js?v=49a7994a83"></script>
+<script src="app/theme.js?v=f26a3cc69a"></script>
 <script src="app/config.js?v=7e020fe7dc"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app/collab.js?v=3d149def36"></script>
@@ -180,6 +182,7 @@
   }
   applyStaticText();
   document.getElementById('langSwitchHost').appendChild(window.MC_I18N.switcherEl(function () { applyStaticText(); renderAccount(); render(); }));
+  document.getElementById('themeSwitchHost').appendChild(window.MC_THEME.skinEl());
   document.getElementById('themeSwitchHost').appendChild(window.MC_THEME.toggleEl());
 
   // ---- matches added by hand in this browser (not in fixtures.json) ----
