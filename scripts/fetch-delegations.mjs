@@ -148,7 +148,7 @@ async function main() {
         await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 });
         await page.waitForSelector('main', { timeout: 15000 });
         await page.waitForTimeout(2500);   // the cards are drawn after the data arrives
-        const text = await page.locator('main').innerText();
+        const text = (await page.locator('main').allInnerTexts()).join('\n');
         const rows = parseDelegations(text);
         console.log(`${comp} round ${round}: ${rows.length} match(es), ${rows.filter((r) => r.available).length} with a delegation`);
         rows.forEach((r) => fetched.push({ ...r, comp, round, url }));
