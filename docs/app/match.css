@@ -714,15 +714,3 @@ table.cmp td.win{color:#3fa66b;font-weight:700}
 /* delegation refresh button */
 .deleg{display:inline-flex;align-items:center;gap:6px}
 .deleg-status{font-size:11px;color:var(--color-neutral-500)}
-
-/* ---- tabs layout ---- */
-.mc-head::before{content:"";display:block;height:4px;border-radius:2px;margin-bottom:var(--space-3);background:linear-gradient(90deg,var(--home) 0 50%,var(--away) 50% 100%)}
-.mc-tabs{position:sticky;top:0;z-index:30;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:8px 0;margin:0 0 var(--space-4);background:var(--color-bg);border-bottom:1px solid var(--color-divider)}
-.mc-tabs::-webkit-scrollbar{display:none}
-.mc-tab{flex:none;font:500 12.5px/1 "Inter",system-ui,sans-serif;padding:8px 15px;border-radius:999px;border:1px solid var(--color-divider);background:var(--color-surface);color:var(--color-neutral-400);cursor:pointer;white-space:nowrap}
-.mc-tab:hover{color:var(--color-text);border-color:var(--color-accent)}
-.mc-tab[aria-selected="true"]{background:var(--color-accent);border-color:var(--color-accent);color:var(--color-bg)}
-.tab-off{display:none !important}
-.mc-tabs ~ .panels{margin-top:0}
-@media print{.mc-tabs{display:none}.panel.tab-off{display:block !important}.pitch-row.tab-off{display:flex !important}}
-.tabs-on .mc-mini-pitch{top:60px}
