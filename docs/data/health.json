@@ -1,30 +1,56 @@
 {
- "generatedAt": "2026-11-13T08:20:46.060Z",
+ "generatedAt": "2026-11-13T19:59:27.038Z",
  "failing": [],
  "workflows": [
+  {
+   "name": "Deploy Supabase Functions",
+   "file": "deploy-supabase-functions.yml",
+   "manual": true,
+   "last": {
+    "at": "2026-11-13T08:57:30Z",
+    "conclusion": "failure",
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43397316394"
+   },
+   "lastSuccessAt": "2026-10-30T17:49:42Z",
+   "failures7d": 1,
+   "runs7d": 1
+  },
   {
    "name": "Smoke test",
    "file": "smoke-test.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-12T17:55:09Z",
+    "at": "2026-11-13T15:27:08Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43274428538"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43452737297"
    },
-   "lastSuccessAt": "2026-11-12T17:55:09Z",
-   "failures7d": 3,
-   "runs7d": 4
+   "lastSuccessAt": "2026-11-13T15:27:08Z",
+   "failures7d": 5,
+   "runs7d": 13
+  },
+  {
+   "name": "Fetch Referee Delegations",
+   "file": "fetch-delegations.yml",
+   "manual": false,
+   "last": {
+    "at": "2026-11-13T19:54:32Z",
+    "conclusion": "success",
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43496583140"
+   },
+   "lastSuccessAt": "2026-11-13T19:54:32Z",
+   "failures7d": 1,
+   "runs7d": 6
   },
   {
    "name": "Sync Entities",
    "file": "sync-entities.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-12T15:08:15Z",
+    "at": "2026-11-13T14:31:03Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43244519440"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43443448774"
    },
-   "lastSuccessAt": "2026-11-12T15:08:15Z",
+   "lastSuccessAt": "2026-11-13T14:31:03Z",
    "failures7d": 1,
    "runs7d": 7
   },
@@ -46,11 +72,11 @@
    "file": "build-match-data.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-12T14:06:52Z",
+    "at": "2026-11-13T13:31:28Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43233846534"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43434381730"
    },
-   "lastSuccessAt": "2026-11-12T14:06:52Z",
+   "lastSuccessAt": "2026-11-13T13:31:28Z",
    "failures7d": 0,
    "runs7d": 8
   },
@@ -59,11 +85,11 @@
    "file": "build-match-data-favourites.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-13T08:01:34Z",
+    "at": "2026-11-13T16:27:43Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43389995648"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43462931049"
    },
-   "lastSuccessAt": "2026-11-13T08:01:34Z",
+   "lastSuccessAt": "2026-11-13T16:27:43Z",
    "failures7d": 0,
    "runs7d": 20
   },
@@ -72,11 +98,11 @@
    "file": "build-match-data-weekly-premium.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-12T23:52:26Z",
+    "at": "2026-11-13T16:43:08Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43332460226"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43465520447"
    },
-   "lastSuccessAt": "2026-11-12T23:52:26Z",
+   "lastSuccessAt": "2026-11-13T16:43:08Z",
    "failures7d": 0,
    "runs7d": 10
   },
@@ -85,11 +111,11 @@
    "file": "build-player-facts.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-13T00:42:33Z",
+    "at": "2026-11-13T17:24:14Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43339200912"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43472454039"
    },
-   "lastSuccessAt": "2026-11-13T00:42:33Z",
+   "lastSuccessAt": "2026-11-13T17:24:14Z",
    "failures7d": 0,
    "runs7d": 13
   },
@@ -98,37 +124,24 @@
    "file": "complete-premium-packs.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-13T01:57:31Z",
+    "at": "2026-11-13T17:53:17Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43348667380"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43477216965"
    },
-   "lastSuccessAt": "2026-11-13T01:57:31Z",
+   "lastSuccessAt": "2026-11-13T17:53:17Z",
    "failures7d": 0,
    "runs7d": 20
-  },
-  {
-   "name": "Deploy Supabase Functions",
-   "file": "deploy-supabase-functions.yml",
-   "manual": true,
-   "last": {
-    "at": "2026-10-30T17:49:42Z",
-    "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/41101792066"
-   },
-   "lastSuccessAt": "2026-10-30T17:49:42Z",
-   "failures7d": 0,
-   "runs7d": 0
   },
   {
    "name": "Fetch Confirmed Lineups",
    "file": "fetch-confirmed-lineups.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-13T07:14:54Z",
+    "at": "2026-11-13T15:29:03Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43384364672"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43453048084"
    },
-   "lastSuccessAt": "2026-11-13T07:14:54Z",
+   "lastSuccessAt": "2026-11-13T15:29:03Z",
    "failures7d": 0,
    "runs7d": 20
   },
@@ -172,19 +185,6 @@
    "runs7d": 5
   },
   {
-   "name": "Health report",
-   "file": "health.yml",
-   "manual": false,
-   "last": {
-    "at": "2026-11-13T07:10:58Z",
-    "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43383890078"
-   },
-   "lastSuccessAt": "2026-11-13T07:10:58Z",
-   "failures7d": 0,
-   "runs7d": 2
-  },
-  {
    "name": "Import Player Seasons",
    "file": "import-player-seasons.yml",
    "manual": false,
@@ -198,41 +198,54 @@
    "runs7d": 7
   },
   {
+   "name": "Live data probe",
+   "file": "live-probe.yml",
+   "manual": true,
+   "last": {
+    "at": "2026-11-13T13:00:48Z",
+    "conclusion": "success",
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43429969749"
+   },
+   "lastSuccessAt": "2026-11-13T13:00:48Z",
+   "failures7d": 0,
+   "runs7d": 2
+  },
+  {
    "name": "pages-build-deployment",
    "file": "pages-build-deployment",
    "manual": false,
    "last": {
-    "at": "2026-11-13T06:46:19Z",
+    "at": "2026-11-13T17:28:31Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43381017695"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43473142520"
    },
-   "lastSuccessAt": "2026-11-13T06:46:19Z",
+   "lastSuccessAt": "2026-11-13T17:28:31Z",
    "failures7d": 0,
-   "runs7d": 11
+   "runs7d": 17
   },
   {
    "name": "Pre-match Refresh",
    "file": "prematch-refresh.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-13T03:23:26Z",
+    "at": "2026-11-13T19:35:58Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43358634769"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43493733484"
    },
-   "lastSuccessAt": "2026-11-13T03:23:26Z",
+   "lastSuccessAt": "2026-11-13T19:35:58Z",
    "failures7d": 0,
-   "runs7d": 5
+   "runs7d": 7
   },
   {
    "name": "Prefetch Preview Data",
    "file": "prefetch-preview.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-12T13:53:33Z",
+    "at": "2026-11-13T13:17:13Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43231645432"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43432360151"
    },
-   "lastSuccessAt": "2026-11-12T13:53:33Z",
+   "lastSuccessAt": "2026-11-13T13:17:13Z",
    "failures7d": 0,
    "runs7d": 8
   },
@@ -254,11 +267,11 @@
    "file": "refresh-fixtures.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-12T13:42:18Z",
+    "at": "2026-11-13T13:00:08Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43229829734"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43429870668"
    },
-   "lastSuccessAt": "2026-11-12T13:42:18Z",
+   "lastSuccessAt": "2026-11-13T13:00:08Z",
    "failures7d": 0,
    "runs7d": 7
   },
@@ -267,37 +280,37 @@
    "file": "stamp-assets.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-12T17:55:09Z",
+    "at": "2026-11-13T11:31:59Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43274428444"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43417816581"
    },
-   "lastSuccessAt": "2026-11-12T17:55:09Z",
+   "lastSuccessAt": "2026-11-13T11:31:59Z",
    "failures7d": 0,
-   "runs7d": 15
+   "runs7d": 20
   },
   {
    "name": "Supabase SQL",
    "file": "supabase-sql.yml",
    "manual": true,
    "last": {
-    "at": "2026-10-19T15:23:21Z",
+    "at": "2026-11-13T08:59:37Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/39277491598"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43397588008"
    },
-   "lastSuccessAt": "2026-10-19T15:23:21Z",
+   "lastSuccessAt": "2026-11-13T08:59:37Z",
    "failures7d": 0,
-   "runs7d": 0
+   "runs7d": 2
   },
   {
    "name": "Sync Packs to Supabase",
    "file": "sync-packs.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-13T08:02:05Z",
+    "at": "2026-11-13T19:55:05Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43390059658"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43496670425"
    },
-   "lastSuccessAt": "2026-11-13T08:02:05Z",
+   "lastSuccessAt": "2026-11-13T19:55:05Z",
    "failures7d": 0,
    "runs7d": 20
   },
@@ -306,11 +319,11 @@
    "file": "translate-match-data.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-12T15:55:03Z",
+    "at": "2026-11-13T15:17:52Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43252953559"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43451175873"
    },
-   "lastSuccessAt": "2026-11-12T15:55:03Z",
+   "lastSuccessAt": "2026-11-13T15:17:52Z",
    "failures7d": 0,
    "runs7d": 7
   }
