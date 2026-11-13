@@ -30,7 +30,7 @@
 :root[data-skin="studio"] h2{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.03em;font-weight:700}
 :root[data-skin="studio"] .mc-head{border-bottom:2px solid var(--color-accent);padding-bottom:14px}
 :root[data-skin="studio"] .mc-head::before{
-  content:"LIVE PREP";align-self:flex-start;height:auto;margin:0 0 6px;padding:3px 11px;border-radius:0;background:var(--color-accent);
+  content:"LIVE PREP";display:block;align-self:flex-start;height:auto;margin:0 0 6px;padding:3px 11px;border-radius:0;background:var(--color-accent);
   color:#0a0f1e;font:700 12px/1.2 var(--font-display);letter-spacing:.16em
 }
 :root[data-skin="studio"] .mc-teams{font-family:var(--font-display);font-weight:700;font-size:40px;line-height:1;letter-spacing:.02em;text-transform:uppercase}
@@ -40,12 +40,6 @@
 }
 :root[data-skin="studio"] .mc-meta{text-transform:uppercase;letter-spacing:.06em;font-size:11.5px}
 :root[data-skin="studio"] .mc-toolbar button{border-radius:0}
-:root[data-skin="studio"] .mc-tabs{border-bottom:2px solid var(--color-accent)}
-:root[data-skin="studio"] .mc-tab{
-  border-radius:0;border:none;background:var(--color-surface);color:var(--color-neutral-400);
-  font:700 15px/1 var(--font-display);letter-spacing:.1em;text-transform:uppercase;padding:9px 18px
-}
-:root[data-skin="studio"] .mc-tab[aria-selected="true"]{background:var(--color-accent);color:#0a0f1e}
 :root[data-skin="studio"] .panel,
 :root[data-skin="studio"] .team-aside{border:none;border-left:3px solid var(--color-accent);background:var(--color-surface)}
 :root[data-skin="studio"] .panel > summary{font:700 16px/1.1 var(--font-display);letter-spacing:.1em;color:var(--color-accent)}
@@ -80,7 +74,6 @@
 :root[data-skin="paper"] input,
 :root[data-skin="paper"] select,
 :root[data-skin="paper"] textarea,
-:root[data-skin="paper"] .mc-tab,
 :root[data-skin="paper"] .pitch-shell,
 :root[data-skin="paper"] .mini-card,
 :root[data-skin="paper"] .mc-mini-pitch{font-family:"Inter",system-ui,sans-serif}
@@ -88,19 +81,12 @@
 :root[data-skin="paper"] h2,
 :root[data-skin="paper"] h3{font-family:var(--font-serif);font-weight:600}
 :root[data-skin="paper"] .mc-head{border-bottom:3px double var(--color-text);padding-bottom:12px}
-:root[data-skin="paper"] .mc-head::before{height:0;border-top:4px solid var(--color-text);border-bottom:1px solid var(--color-text);padding-bottom:2px;background:none;margin-bottom:var(--space-4);border-radius:0}
+:root[data-skin="paper"] .mc-head::before{content:"";display:block;height:0;border-top:4px solid var(--color-text);border-bottom:1px solid var(--color-text);padding-bottom:2px;background:none;margin-bottom:var(--space-4);border-radius:0}
 :root[data-skin="paper"] .mc-teams{font-family:var(--font-serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.02em}
 :root[data-skin="paper"] .mc-teams .vs{font-style:italic;font-weight:400;font-size:20px;color:var(--color-neutral-500)}
 :root[data-skin="paper"] .mc-teams .nickname{font-family:var(--font-serif);font-style:italic;font-size:14px}
 :root[data-skin="paper"] .mc-meta{font-style:italic;font-size:13.5px}
 :root[data-skin="paper"] .mc-toolbar button{border-radius:0}
-:root[data-skin="paper"] .mc-tabs{border-bottom:1px solid var(--color-text);gap:2px}
-:root[data-skin="paper"] .mc-tab{
-  border:none;border-bottom:3px solid transparent;border-radius:0;background:none;color:var(--color-neutral-500);
-  font:600 13px/1 var(--font-serif);letter-spacing:.04em;font-variant:small-caps;font-size:15px;padding:9px 14px
-}
-:root[data-skin="paper"] .mc-tab:hover{border-color:transparent;border-bottom-color:var(--color-neutral-600);color:var(--color-text)}
-:root[data-skin="paper"] .mc-tab[aria-selected="true"]{background:none;color:var(--color-text);border-bottom-color:var(--color-accent)}
 :root[data-skin="paper"] .panel,
 :root[data-skin="paper"] .team-aside{background:transparent;border:none;border-top:2px solid var(--color-text);padding-top:2px}
 :root[data-skin="paper"] .panel > summary{font:700 17px/1.2 var(--font-serif);letter-spacing:0;text-transform:none;color:var(--color-text)}
