@@ -237,7 +237,8 @@ jobs:
             --allowedTools "Read,Write,Edit,Bash,Glob,Grep,WebSearch,WebFetch"
 
       - name: Redirect failed Claude build to configured fallback API
-        if: steps.claude-build.outcome == 'failure' && inputs.fallback
+        # fallback lane switched off on 13 Nov 2026 (see build-match-data-fallback.yml)
+        if: false && steps.claude-build.outcome == 'failure' && inputs.fallback
         env:
           GH_TOKEN: ${{ github.token }}
           MATCH: ${{ inputs.match }}

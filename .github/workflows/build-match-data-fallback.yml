@@ -1,8 +1,11 @@
 name: Build Match Data (Fallback)
 
+# Switched off on 13 Nov 2026 (not needed for now, and it failed daily: OpenRouter credits ran out, HTTP 402).
+# To bring it back: restore the schedule below, top up OpenRouter, re-enable the workflow in the Actions tab and
+# remove the "false &&" in the redirect step of build-match-data-run.yml.
 on:
-  schedule:
-    - cron: "30 6 * * *"
+  # schedule:
+  #   - cron: "30 6 * * *"
   workflow_dispatch:
     inputs:
       match:
