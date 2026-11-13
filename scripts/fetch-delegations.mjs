@@ -130,6 +130,7 @@ async function main() {
   if (args[0] === '--parse') { console.log(JSON.stringify(parseDelegations(readFileSync(args[1], 'utf8')), null, 1)); return; }
   const fixtures = JSON.parse(readFileSync(FIXTURES, 'utf8'));
   const known = existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')) : { fetchedAt: null, matches: [] };
+  if (args[0] === '--fill-only') { fillPacks(known.matches, fixtures); return; }
   // FORCE_ROUNDS="Superliga:15,Liga 2:13" fetches exactly those rounds (testing a round that has been played)
   const forced = String(process.env.FORCE_ROUNDS || '').split(',').map((x) => x.trim()).filter(Boolean).map((x) => { const [comp, r] = x.split(':'); return { comp: comp.trim(), round: Number(r) }; }).filter((x) => SOURCES.competitions[x.comp] && x.round > 0);
   const todo = (forced.length ? forced : plan(fixtures, known)).slice(0, MAX_PAGES);
@@ -163,8 +164,8 @@ async function main() {
         // the app opens on the current round whatever the URL says; if another one is wanted, pick it as a visitor would
         if (rows.length && rows[0].shownRound && rows[0].shownRound !== round) {
           try {
-            await page.getByRole('button', { name: 'Select round' }).click();
-            await page.getByRole('button', { name: `Round ${round}`, exact: true }).click();
+            await page.getByRole('button', { name: 'Select round' }).click({ timeout: 8000 });
+            await page.getByRole('button', { name: `Round ${round}`, exact: true }).click({ timeout: 8000 });
             await page.waitForTimeout(3000);
             await hasCards();
             text = await readText();
@@ -190,7 +191,13 @@ async function main() {
   const matches = [...merged.values()].filter((m) => m.date >= cutoff).sort((a, b) => (a.date + a.ko).localeCompare(b.date + b.ko));
   writeFileSync(OUT, JSON.stringify({ fetchedAt: at, source: 'FRF CCA - delegari (frf-cca.ro, hailafotbal.ro/arbitri/delegari)', matches }, null, 1) + '\n');
 
-  // fill the packs
+  fillPacks(matches, fixtures, at);
+}
+
+// Put the referee and the crew of every delegated match on the pack of its fixture. A full name already in the pack
+// that differs from the list is left alone and reported; an abbreviated one ("G. Catalin", API-Football's style) is
+// replaced by the official name.
+export function fillPacks(matches, fixtures, at = new Date().toISOString()) {
   let filled = 0;
   for (const m of matches.filter((x) => x.available && x.referee)) {
     const f = matchFixture(fixtures, m);
@@ -201,7 +208,8 @@ async function main() {
     if (!doc.referee) continue;
     const name = givenFirst(m.referee);
     const cur = doc.referee.name;
-    if (has(cur) && strip(cur).split(/\s+/).pop() !== strip(name).split(/\s+/).pop()) {
+    const abbreviated = has(cur) && /^[A-ZÀ-Ý]\.\s/.test(cur);
+    if (has(cur) && !abbreviated && strip(cur).split(/\s+/).pop() !== strip(name).split(/\s+/).pop()) {
       console.log(`  ${f.slug}: the pack has "${cur}", the CCA list says "${name}": left as is, check it`);
       continue;
     }
@@ -210,18 +218,19 @@ async function main() {
       reserve: m.reserve || null, observer: m.observer || null, var: m.var || null, avar: m.avar || null, delegate: m.delegate || null,
     };
     let changed = false;
-    if (!has(cur)) { doc.referee.name = name; if (!has(doc.referee.country)) doc.referee.country = 'România'; changed = true; }
+    if (!has(cur) || abbreviated) { doc.referee.name = name; if (!has(doc.referee.country)) doc.referee.country = 'România'; changed = true; }
     if (JSON.stringify(doc.referee.crew || null) !== JSON.stringify(crew)) { doc.referee.crew = crew; changed = true; }
     if (changed) {
-      if (!(doc.sources || []).some((s) => /hailafotbal|frf-cca/.test(s.url || ''))) {
+      if (!(doc.sources || []).some((x) => /hailafotbal|frf-cca/.test(x.url || ''))) {
         (doc.sources = doc.sources || []).push({ name: 'FRF CCA — delegări arbitri', url: 'https://hailafotbal.ro/arbitri/delegari', accessed: at.slice(0, 10) });
       }
       writeFileSync(p, JSON.stringify(doc, null, 2) + '\n');
       filled++;
-      console.log(`  ${f.slug}: referee ${has(cur) ? 'crew updated' : 'set'} (${name})`);
+      console.log(`  ${f.slug}: referee ${has(cur) && !abbreviated ? 'crew updated' : 'set'} (${name})`);
     }
   }
   console.log(`${filled} pack(s) updated.`);
+  return filled;
 }
 
 if (process.argv[1] && process.argv[1].replace(/\\/g, '/').endsWith('scripts/fetch-delegations.mjs')) {
