@@ -442,6 +442,21 @@
     } catch (e) { return { ok: false, reason: 'error' }; }
   }
 
+  // Live score + events of one API-Football fixture, written every ~30 s by the live-poll function (supabase/live.sql).
+  // Public data: read with the anon key, no sign-in needed. Resolves { ok, fixture, events } (fixture null = nothing
+  // recorded for it) or { ok: false, reason } and never throws.
+  async function fetchLive(fixtureId) {
+    if (!enabled) return { ok: false, reason: 'not_configured' };
+    try {
+      var fx = await client.from('mc_live_fixtures').select('*').eq('fixture_id', fixtureId).maybeSingle();
+      if (fx.error) return { ok: false, reason: 'error' };
+      if (!fx.data) return { ok: true, fixture: null, events: [] };
+      var ev = await client.from('mc_live_events').select('*').eq('fixture_id', fixtureId).order('minute', { ascending: true, nullsFirst: false }).order('extra', { ascending: true, nullsFirst: true }).order('id', { ascending: true });
+      if (ev.error) return { ok: false, reason: 'error' };
+      return { ok: true, fixture: fx.data, events: ev.data || [] };
+    } catch (e) { return { ok: false, reason: 'error' }; }
+  }
+
   // Asks the database to start the delegation job for this match (supabase/delegations.sql). { ok, reason }
   async function requestDelegations(slug) {
     if (!enabled) return { ok: false, reason: 'not_configured' };
@@ -454,5 +469,5 @@
     } catch (e) { return { ok: false, reason: 'error' }; }
   }
 
-  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes, getEntity: getEntity, getEntities: getEntities, setEntityOverride: setEntityOverride, fetchApiLineups: fetchApiLineups, requestDelegations: requestDelegations };
+  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes, getEntity: getEntity, getEntities: getEntities, setEntityOverride: setEntityOverride, fetchApiLineups: fetchApiLineups, requestDelegations: requestDelegations, fetchLive: fetchLive };
 })();

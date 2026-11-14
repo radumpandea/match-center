@@ -714,3 +714,30 @@ table.cmp td.win{color:#3fa66b;font-weight:700}
 /* delegation refresh button */
 .deleg{display:inline-flex;align-items:center;gap:6px}
 .deleg-status{font-size:11px;color:var(--color-neutral-500)}
+
+/* ---------- live score + events from the API (panel "Live (API)" and the chip under the score) ---------- */
+.mgs-api{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;justify-content:center;margin:6px 0 2px;font-size:12px;color:var(--color-neutral-500);font-variant-numeric:tabular-nums}
+.mgs-api[hidden]{display:none}
+.mgs-api-tag{font-size:10px;font-weight:700;letter-spacing:.08em;padding:1px 6px;border-radius:3px;border:1px solid var(--color-divider)}
+.mgs-api.differs .mgs-api-diff{color:var(--color-warn-ink);font-weight:600}
+.live-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-bottom:6px}
+.live-score{font-size:26px;line-height:1;font-variant-numeric:tabular-nums;color:var(--color-accent-200)}
+.live-clock{font-size:13px;font-weight:600}
+.live-age{font-size:11.5px;color:var(--color-neutral-500)}
+.live-age.stale,.live-diff{color:var(--color-warn-ink);font-weight:600}
+.live-diff{margin:2px 0 6px;font-size:12px}
+.live-empty,.live-note{font-size:12px;color:var(--color-neutral-500);margin:6px 0 0;line-height:1.5}
+.live-row{display:grid;grid-template-columns:44px 22px minmax(0,1fr) auto auto auto;gap:6px 8px;align-items:center;margin-top:4px;padding:5px 8px;font-size:13px;background:var(--color-surface-2);border:1px solid var(--color-divider);border-radius:var(--radius-sm)}
+.live-row.unconfirmed{border-color:var(--color-warn-ink)}
+.live-row.removed{opacity:.6}
+.live-row.removed .live-what{text-decoration:line-through}
+.live-min{font-variant-numeric:tabular-nums;font-weight:600;color:var(--color-neutral-400)}
+.live-team{font-size:11.5px;color:var(--color-neutral-500);white-space:nowrap}
+.live-tags{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.live-tag{font-size:10.5px;padding:1px 6px;border-radius:9px;border:1px solid var(--color-divider);color:var(--color-neutral-500);white-space:nowrap}
+.live-tag.unconfirmed,.live-tag.cancelled{border-color:var(--color-warn-ink);color:var(--color-warn-ink);font-weight:600}
+.live-tolog{background:none;border:1px solid var(--color-divider);border-radius:var(--radius-sm);color:var(--color-neutral-400);cursor:pointer;font-size:11px;padding:2px 7px;white-space:nowrap}
+.live-tolog:hover{border-color:var(--color-accent);color:var(--color-text)}
+.live-inlog{font-size:11px;color:var(--color-neutral-500);white-space:nowrap}
+@media(max-width:700px){.live-row{grid-template-columns:40px 20px minmax(0,1fr)}.live-team,.live-tags,.live-tolog,.live-inlog{grid-column:3}.live-tags{justify-content:flex-start}}
+@media print{.live-tolog{display:none}}

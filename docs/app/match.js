@@ -82,6 +82,7 @@
     render(data);
     connectCollaboration(data);
     connectEntities(data, fixture);
+    liveStart(data);
   });
 
   function fail(html) { root.innerHTML = '<div class="errbox">' + html + '</div>'; }
@@ -1559,6 +1560,175 @@
     return rows;
   }
 
+  /* ---------- live score + events from API-Football ----------
+     The supabase/live.sql tables are filled every ~30 s by the live-poll function. The page only reads them (anon key,
+     every 15 s while the match is on) and shows them in their own panel, apart from the user's own log (store.events):
+     nothing the API says is written into the log unless the user presses "→ în jurnal", and the match graphic keeps
+     showing the user's score. Events from the API are not final when they appear (scorer or minute may change, VAR may
+     remove them), so they are marked as such. Substitutions are stored but not shown yet. */
+  var live = { fx: null, events: [], timer: null, wired: false };
+  var liveBodyEl = null, liveChipEl = null;
+
+  function liveFixtureId() { return curFixture && curFixture.eventId != null ? curFixture.eventId : null; }
+  function liveCanRead() { return liveFixtureId() != null && window.MC_COLLAB && window.MC_COLLAB.fetchLive; }
+  function liveInWindow() {
+    var ko = curFixture && curFixture.kickoff ? Date.parse(curFixture.kickoff) : NaN;
+    if (isNaN(ko)) return false;
+    var now = Date.now();
+    return now > ko - 30 * 60000 && now < ko + 4 * 3600000;
+  }
+  function liveShown() { return !!(live.fx || (liveCanRead() && liveInWindow())); }
+  function liveAgeSec() { return live.fx && live.fx.fetched_at ? Math.max(0, Math.round((Date.now() - Date.parse(live.fx.fetched_at)) / 1000)) : null; }
+  function liveSeconds(iso) { return iso ? (Date.now() - Date.parse(iso)) / 1000 : Infinity; }
+
+  function liveClock() {
+    var fx = live.fx;
+    if (!fx) return '';
+    var label = t('live.status.' + fx.status);
+    if (label === 'live.status.' + fx.status) label = fx.status || '';
+    var playing = fx.status === '1H' || fx.status === '2H' || fx.status === 'ET';
+    return label + (playing && fx.elapsed != null ? ' ' + fx.elapsed + (fx.extra ? '+' + fx.extra : '') + "'" : '');
+  }
+  function liveManualScore(d) {
+    var any = false;
+    Object.keys(store.events || {}).forEach(function (k) { if ((store.events[k] || []).some(function (e) { return e.type === 'goal' || e.type === 'owngoal'; })) any = true; });
+    return any ? { h: scoreFor(d, 'home'), a: scoreFor(d, 'away') } : null;
+  }
+  function liveChipFill(d) {
+    if (!liveChipEl) return;
+    liveChipEl.innerHTML = '';
+    var fx = live.fx;
+    liveChipEl.hidden = !fx;
+    if (!fx) return;
+    var man = liveManualScore(d);
+    var differs = man && (man.h !== fx.home_goals || man.a !== fx.away_goals);
+    liveChipEl.className = 'mgs-api' + (differs ? ' differs' : '');
+    liveChipEl.appendChild(el('span', { class: 'mgs-api-tag', text: 'API' }));
+    liveChipEl.appendChild(el('span', { text: liveClock() + '  ·  ' + (fx.home_goals == null ? '–' : fx.home_goals) + ' – ' + (fx.away_goals == null ? '–' : fx.away_goals) }));
+    if (differs) liveChipEl.appendChild(el('span', { class: 'mgs-api-diff', text: t('live.manualScore', { h: man.h, a: man.a }) }));
+  }
+
+  function liveSide(e) {
+    if (!curFixture) return null;
+    if (e.team_id != null && e.team_id === curFixture.homeId) return 'home';
+    if (e.team_id != null && e.team_id === curFixture.awayId) return 'away';
+    return null;
+  }
+  function liveNormName(s) { return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+  // The squad player an event belongs to: apiId first, then the exact same name.
+  function liveFindPlayer(d, e) {
+    var hit = null;
+    ['home', 'away'].forEach(function (side) {
+      if (hit) return;
+      effSquad(d, side).forEach(function (p) {
+        if (hit) return;
+        if (e.player_id != null && p.apiId === e.player_id) hit = { side: side, p: p };
+        else if (e.player_id == null && e.player_name && liveNormName(p.name) === liveNormName(e.player_name)) hit = { side: side, p: p };
+      });
+    });
+    return hit;
+  }
+  function liveLogType(e) {
+    if (e.type === 'Goal') return e.detail === 'Own Goal' ? 'owngoal' : e.detail === 'Missed Penalty' ? null : 'goal';
+    if (e.type === 'Card') return /red|second yellow/i.test(e.detail || '') ? 'red' : 'yellow';
+    return null;
+  }
+  function liveRow(d, e) {
+    var removed = e.present === false;
+    var logType = liveLogType(e);
+    var icon = e.type === 'Var' ? '📺' : e.detail === 'Missed Penalty' ? '❌' : logType ? EV_ICON[logType] : '•';
+    var what;
+    if (e.type === 'Var') what = t('live.var') + (e.detail ? ': ' + e.detail : '');
+    else if (e.detail === 'Missed Penalty') what = t('live.missedPen');
+    else if (logType === 'goal') what = t('events.goal') + (e.detail === 'Penalty' ? ' (pen.)' : '');
+    else if (logType) what = t('events.' + logType);
+    else what = e.detail || e.type;
+    var side = liveSide(e);
+    // for an own goal the API gives the team that benefits; the player belongs to the other one
+    if (side && e.detail === 'Own Goal') side = side === 'home' ? 'away' : 'home';
+    var who = e.player_name || '';
+    var tags = [];
+    var needsPlayer = !who && (e.type === 'Goal' || e.type === 'Card') && e.detail !== 'Missed Penalty';
+    if (removed) tags.push(el('span', { class: 'live-tag cancelled', text: t('live.cancelled') }));
+    else if (needsPlayer) tags.push(el('span', { class: 'live-tag unconfirmed', text: t('live.noPlayer') }));
+    else if (liveSeconds(e.first_seen_at) < 120 && (e.type === 'Goal' || logType === 'red')) tags.push(el('span', { class: 'live-tag fresh', text: t('live.fresh') }));
+    if (!removed && e.edited_at && liveSeconds(e.edited_at) < 180) tags.push(el('span', { class: 'live-tag edited', text: t('live.edited') }));
+
+    var kids = [
+      el('span', { class: 'live-min', text: e.minute == null ? '—' : e.minute + (e.extra ? '+' + e.extra : '') + "'" }),
+      el('span', { class: 'live-icon', text: icon }),
+      el('span', { class: 'live-what', text: what + (who ? '  ' + who : '') + (e.assist_name && e.type === 'Goal' ? '  (' + t('live.assist') + ' ' + e.assist_name + ')' : '') }),
+      el('span', { class: 'live-team', text: side ? d.teams[side].name : '' }),
+      el('span', { class: 'live-tags' }, tags)
+    ];
+    // the bridge to the user's own log: only for a goal or card whose player is known and found in the squad
+    if (!removed && logType && who) {
+      var hit = liveFindPlayer(d, e);
+      if (hit) {
+        var logSide = hit.side;
+        var already = eventsFor(logSide, hit.p).some(function (x) { return x.type === logType && x.minute === e.minute; });
+        kids.push(already
+          ? el('span', { class: 'live-inlog', text: t('live.inLog') })
+          : el('button', { class: 'live-tolog', text: t('live.toLog'), onclick: function () { addEvent(logSide, hit.p, logType, e.minute); rerenderPitch(d); rerenderPanels(d); } }));
+      }
+    }
+    return el('div', { class: 'live-row' + (removed ? ' removed' : '') + (needsPlayer && !removed ? ' unconfirmed' : '') }, kids);
+  }
+  function liveFill(d) {
+    if (!liveBodyEl) return;
+    liveBodyEl.innerHTML = '';
+    var fx = live.fx;
+    if (!fx) {
+      liveBodyEl.appendChild(el('p', { class: 'live-empty', text: t('live.waiting') }));
+      return;
+    }
+    var age = liveAgeSec();
+    var head = el('div', { class: 'live-head' }, [
+      el('strong', { class: 'live-score', text: (fx.home_goals == null ? '–' : fx.home_goals) + ' – ' + (fx.away_goals == null ? '–' : fx.away_goals) }),
+      el('span', { class: 'live-clock', text: liveClock() })
+    ]);
+    var stale = !fx.finished && age != null && age > 120;
+    if (!fx.finished) head.appendChild(el('span', { class: 'live-age' + (stale ? ' stale' : ''), text: stale ? t('live.stale', { min: Math.round(age / 60) }) : t('live.updated', { s: age == null ? '?' : age }) }));
+    liveBodyEl.appendChild(head);
+    var man = liveManualScore(d);
+    if (man && (man.h !== fx.home_goals || man.a !== fx.away_goals)) {
+      liveBodyEl.appendChild(el('p', { class: 'live-diff', text: t('live.manualScore', { h: man.h, a: man.a }) }));
+    }
+    var rows = live.events.filter(function (e) { return e.type === 'Goal' || e.type === 'Card' || e.type === 'Var'; });
+    if (!rows.length) liveBodyEl.appendChild(el('p', { class: 'live-empty', text: t('live.empty') }));
+    rows.forEach(function (e) { liveBodyEl.appendChild(liveRow(d, e)); });
+    liveBodyEl.appendChild(el('p', { class: 'live-note', text: t('live.note') }));
+  }
+  function livePanel(d) {
+    if (!liveShown()) { liveBodyEl = null; return null; }
+    liveBodyEl = el('div', { class: 'live-body' });
+    liveFill(d);
+    return panel(t('panel.live'), liveBodyEl, { lead: true, open: true });
+  }
+  function liveRefresh(d) {
+    if (!liveCanRead()) return;
+    window.MC_COLLAB.fetchLive(liveFixtureId()).then(function (r) {
+      var shownBefore = !!liveBodyEl;
+      if (r && r.ok) { live.fx = r.fixture; live.events = r.events || []; }
+      if (liveShown() !== shownBefore) rerenderPanels(d); else liveFill(d);
+      liveChipFill(d);
+    }).catch(function () { /* keep what is on screen */ }).then(function () { liveSchedule(d); });
+  }
+  function liveSchedule(d) {
+    clearTimeout(live.timer);
+    var following = live.fx && !live.fx.finished && liveSeconds(live.fx.fetched_at) < 900;
+    if (!(liveInWindow() || following)) return;
+    live.timer = setTimeout(function () { if (document.hidden) liveSchedule(d); else liveRefresh(d); }, 15000);
+  }
+  function liveStart(d) {
+    if (!liveCanRead()) return;
+    if (!live.wired) {
+      live.wired = true;
+      document.addEventListener('visibilitychange', function () { if (!document.hidden && (liveInWindow() || (live.fx && !live.fx.finished))) liveRefresh(d); });
+    }
+    liveRefresh(d);
+  }
+
   // Drag-to-reposition. The trailing native `click` is handled separately by the
   // caller; after a real drag we set node._dragged so that click is swallowed.
   function makeDraggable(node, shell, onDrop) {
@@ -2583,7 +2753,9 @@
       });
       corners.appendChild(row);
     });
-    return el('div', { class: 'match-graphic' }, [score, cornersHeading, corners]);
+    liveChipEl = el('div', { class: 'mgs-api', hidden: '' });
+    liveChipFill(d);
+    return el('div', { class: 'match-graphic' }, [score, liveChipEl, cornersHeading, corners]);
   }
 
   // The substitutes' bench, drawn on the touchline below the pitch — one row per
@@ -3213,6 +3385,7 @@
     var defs = [];
     function add(key, node) { if (node) defs.push({ key: key, node: node }); }
 
+    add('live', livePanel(d));
     add('talk', panel(t('panel.talk'), talkPanelBody(), { lead: true, open: true }));
 
     if (d.storyOfTheMatch && d.storyOfTheMatch.length) {
@@ -3728,11 +3901,13 @@
       if (ia < 0) ia = 1e6; if (ib < 0) ib = 1e6;
       return ia - ib;
     });
+    // the live panel is always first: while a match is on it is what is read on air
+    defs.sort(function (a, b) { return (a.key === 'live' ? 0 : 1) - (b.key === 'live' ? 0 : 1); });
 
     var box = el('div', { class: 'panels' });
     if (mine.booth) {
       // booth mode: only what is read on air stays open
-      var keep = { talk: 1, story: 1, absences: 1, events: 1, notes: 1, context: 1 };
+      var keep = { live: 1, talk: 1, story: 1, absences: 1, events: 1, notes: 1, context: 1 };
       defs.forEach(function (def) { if (def.node && def.node.tagName === 'DETAILS') def.node.open = !!keep[def.key]; });
     }
     defs.forEach(function (def) {
