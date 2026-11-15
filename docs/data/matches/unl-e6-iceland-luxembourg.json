@@ -1,12 +1,12 @@
 {
   "slug": "unl-e6-iceland-luxembourg",
-  "generatedAt": "2026-11-14T12:26:14.263Z",
+  "generatedAt": "2026-11-15T12:54:15.856Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-11-14"
+      "accessed": "2026-11-15"
     }
   ],
   "competition": {
@@ -20,10 +20,17 @@
     "name": "Ice Rink Laugardalur",
     "capacity": null,
     "city": "Reykjavik",
-    "notes": null
+    "notes": null,
+    "weather": {
+      "tempC": -3,
+      "condition": "parțial noros",
+      "windKph": 18,
+      "precipitationMm": 0,
+      "forecastAt": "2026-11-15T12:54:15.965Z"
+    }
   },
   "referee": {
-    "name": "n/d",
+    "name": "Marian Barbu",
     "country": null,
     "age": null,
     "apps": null,
@@ -863,7 +870,7 @@
   "storyOfTheMatch": [
     "Iceland — locul 1 după 5 etape, 11 puncte, golaveraj 12-1.",
     "Iceland — 5 meciuri fără înfrângere.",
-    "Iceland a păstrat poarta intactă în 3 din 5 etape.",
+    "Iceland a păstrat poarta intactă în 4 din 5 etape.",
     "Orri Steinn Óskarsson e cel mai bun marcator al echipei Iceland în acest start de sezon (3 goluri).",
     "Luxembourg — locul 4 după 5 etape, 3 puncte, golaveraj 2-8.",
     "Luxembourg vine după 4 înfrângeri la rând.",
@@ -1041,14 +1048,6 @@
             "season": "2007",
             "place": "Winner"
           }
-        ],
-        "funfacts": [
-          "Arnar Bergmann Gunnlaugsson (n. 6 martie 1973) este antrenor islandez și actualul selecționer al Islandei.",
-          "Ca jucător a evoluat la Leicester City, Stoke City, Bolton Wanderers, IA Akranes, 1. FC Nürnberg, Feyenoord și Dundee United.",
-          "A avut un rol important în câștigarea Cupei Ligii engleze 1999-2000 cu Leicester, marcând din penalty în două meciuri eliminatorii ca rezervă introdus pe teren.",
-          "A fost împrumutat la Stoke City chiar după finala Cupei Ligii și a câștigat cu acea echipă finala Trofeului Ligii engleze din 2000.",
-          "A strâns 32 de selecții și 3 goluri pentru Islanda, între 1993 și 2003.",
-          "Ca antrenor a dus Víkingur Reykjavík la două titluri de campion (2021, 2023) și patru Cupe ale Islandei, înainte de a deveni selecționer."
         ]
       },
       "formation": "n/d",
@@ -1131,7 +1130,7 @@
           "natTeam": null,
           "birthCountry": "Iceland",
           "birthDate": "2001-10-13",
-          "pronunciation": "HAU-kon VAL-di-mars-son",
+          "pronunciation": null,
           "career": "Grotta (2017–2020) · IF Elfsborg (2021–2022) · Brentford (2023–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -1873,7 +1872,7 @@
           "natTeam": null,
           "birthCountry": "Iceland",
           "birthDate": "2003-04-10",
-          "pronunciation": "HA-rald-son",
+          "pronunciation": null,
           "career": "IA Akranes (2019) · FC Copenhagen (2020–2022) · Lille (2023–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -5541,43 +5540,46 @@
         "stats": {
           "goalsForByInterval": {
             "0-15": 1,
+            "16-30": 2,
             "31-45": 3,
             "46-60": 1,
-            "61-75": 1,
-            "76-90": 1
+            "61-75": 2,
+            "76-90": 2
           },
           "goalsAgainstByInterval": {
+            "46-60": 1,
             "61-75": 1
           },
           "cardsYellowByInterval": {
             "0-15": 1,
             "16-30": 1,
-            "31-45": 2,
+            "31-45": 3,
             "46-60": 1,
+            "61-75": 1,
             "76-90": 2,
             "91-105": 1
           },
           "cardsRedByInterval": null,
-          "goalsForAvg": 1.8,
-          "goalsAgainstAvg": 0.3,
+          "goalsForAvg": 2.4,
+          "goalsAgainstAvg": 0.2,
           "goalsForAvgHome": 2,
-          "goalsForAvgAway": 1.5,
+          "goalsForAvgAway": 2.7,
           "goalsAgainstAvgHome": 0.5,
           "goalsAgainstAvgAway": 0,
-          "cleanSheets": 3,
+          "cleanSheets": 4,
           "cleanSheetsHome": 1,
-          "cleanSheetsAway": 2,
+          "cleanSheetsAway": 3,
           "failedToScore": 1,
           "failedToScoreHome": 0,
           "failedToScoreAway": 1,
-          "penaltyScored": 0,
-          "penaltyScoredPct": 0,
+          "penaltyScored": 1,
+          "penaltyScoredPct": 50,
           "penaltyMissed": 1,
-          "penaltyMissedPct": 100,
+          "penaltyMissedPct": 50,
           "formations": [
             {
               "formation": "4-4-2",
-              "played": 2
+              "played": 3
             },
             {
               "formation": "4-4-1-1",
@@ -5594,15 +5596,15 @@
             "loses": 0
           },
           "biggestWinHome": "3-0",
-          "biggestWinAway": "0-3",
+          "biggestWinAway": "0-5",
           "biggestLossHome": null,
           "biggestLossAway": null,
           "biggestGoalsForHome": 3,
-          "biggestGoalsForAway": 3,
+          "biggestGoalsForAway": 5,
           "biggestGoalsAgainstHome": 1,
           "biggestGoalsAgainstAway": 0,
           "winsHome": 1,
-          "winsAway": 1,
+          "winsAway": 2,
           "drawsHome": 1,
           "drawsAway": 1,
           "losesHome": 0,
@@ -5616,63 +5618,55 @@
       "news": [],
       "newsCandidates": [
         {
+          "title": "Preview: Iceland vs Luxembourg - prediction, team news, lineups",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPM3c1UUxtOW1YMXZDMHFOaFNwLUxwb3VRUGJNVEYzVXVlTkVJQmZMYVk4alM3X1JWUUlIVU1uREY4OUVqbDE0aWk1Qi1WT1R4dXBhaEw1VjFaQmZCNWdtQnpSZnZQZ290b0M2ZUhodHpLNnZod0VpTDlRdWZCaUNGaG1WWmRZYmZ3SmU1RjY1TUZNUE5ObmltUFRKNDg1NG5kalJLRzhEcnhuS0tvcy1zbU5sWXF4MU56aUc2U1FoZnhNZUJBSC1YeDZtMEJWOEtLbkE?oc=5",
+          "source": "Sports Mole",
+          "published": "2026-11-15"
+        },
+        {
+          "title": "Iceland vs. Luxembourg - Live Score - November 16, 2026",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPcEhYVmZwUnhzNjNHNTR5V0N6ZkFWSUplOHpxWURqOWVpNkNMZC1qUnpMeklHaWF2RUZfa1k2N0J6b3QxU1phcEJGcGVRUERYQlpNQjk3OW1mcklhcnF0WDNXMEJjbmUtME1ERF9DT01sTDRmS1hDa2NQUEZiZ2ZfcU9UNG91d2xpZDhUbTlSZ29XelRVUnhXMjVvb2thbjZ0cGh1aw?oc=5",
+          "source": "FOX Sports",
+          "published": "2026-11-15"
+        },
+        {
+          "title": "Iceland vs Luxembourg: UEFA Nations League stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5sNFl4SjhBV0M1RXNuZDljUmxQQldubnNIRGJqOXdqb2RkREg4ZWJZdndRTEJWMWpsSFY5d056dUVfZUlpeDROVU9fVDc3d2ZpOUV3T0NIT1hjdTFDQ1BseW04bw?oc=5",
+          "source": "BBC",
+          "published": "2026-11-15"
+        },
+        {
+          "title": "Iceland vs Luxembourg Betting Odds, Tips, Predictions, Preview 16th November 2026",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxORjh0NnBQY0w1X0FfMmlnWG9nTW1Fa2RvVG5zWTJHRTkwSW1pU2dEM1Z6ejE4NTFtRWdPUzhZMGlYOElNRkFIUkxsY2ZyOXRuOEJnZ0hGV1FWMGNaeUN4QTZ4RlpiSzUwY2h5Z0ZBcllqT0lTTUtOcndJRVh5T1VKcVE0aFE2REpXbzdfUTA0eGZBSkVKVEh0V290QXQwUnU5?oc=5",
+          "source": "Easyodds.com",
+          "published": "2026-11-15"
+        },
+        {
+          "title": "Iceland vs Luxembourg Prediction and Betting Tips | November 16th 2026",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQTlVyNXFZTmdZV3RseWRweV9peHRhNWF1eC1xU1VMa0JzbUdUSzI3VjBjaWhtSUFUMEhtdGk3Z0YwNjJwOFM2aVFEWkx3WGxFc3RPMmR3MllYOFczWkFYOUZidHBybEp5WVQtcGFzRW4teE1EU0JadU13Qk5BMzhwdDhCVVFGSmY4T0xzNS1oWFU4VHd5OU1qa0Q5REU5dkpNOVlj?oc=5",
+          "source": "Sportskeeda",
+          "published": "2026-11-14"
+        },
+        {
           "title": "Bulgaria vs Iceland Prediction, Betting Tips, Lineups & Odds | 13 Nov 2026",
           "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNVGFqRWY1OUstSFRsMGJqRWJSTXlOZUQ2RjFOMlpiU2J5cVNUYmJ4NTU4bVIyVHUyeHZmVjIwWndtTFhJeWtvSXU2SEJ4UURtVy1WWjVERDJQUllNV3FUYzRKV21PNjN3b1pyWWJYNWo3a0Z3WlhYRnh0aGF5QmdmS0s4Z1EydDd5cENBYWJhaGhuMGFBYW94WHcyT0drM0tpTnhIWTE5Y3VRN1k?oc=5",
           "source": "Sportsgambler",
           "published": "2026-11-14"
         },
         {
-          "title": "Iceland vs. Luxembourg - Live Score - November 16, 2026",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPcEhYVmZwUnhzNjNHNTR5V0N6ZkFWSUplOHpxWURqOWVpNkNMZC1qUnpMeklHaWF2RUZfa1k2N0J6b3QxU1phcEJGcGVRUERYQlpNQjk3OW1mcklhcnF0WDNXMEJjbmUtME1ERF9DT01sTDRmS1hDa2NQUEZiZ2ZfcU9UNG91d2xpZDhUbTlSZ29XelRVUnhXMjVvb2thbjZ0cGh1aw?oc=5",
-          "source": "FOX Sports",
+          "title": "Iceland vs Luxembourg Preview & Prediction | 2026-27 UEFA Nations League | League C",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPa05aY2hHa1VubTR3bERkRjNEN0FiMjhtclBObUxZWlNzbUhLSVNONk5OOGJRU2h2eWgxaGM4RV9fczZXNi1ORVIyZDg2NFdNLVFUSnNxcWxEWlptUUpKUDQteVhVV0NSSjhRREVBVXJyZGsta1VoYU9tNTB4OHFUOGZfTDU0cjZxb0JfZWcwMWQtZl8wT0c3OXFGMXF0TTVfcUhYN09aQVVCdGUxSFR4cnRZOA?oc=5",
+          "source": "The Stats Zone",
           "published": "2026-11-14"
         },
         {
-          "title": "‍‍‍~$!【LIVE@FOOTBALL】 Iceland vs Bulgaria 𝐋𝐈𝐕𝐄 𝐒𝐭𝐫𝐞𝐚𝐦 Ｔｖ Ｃｈａｎｎｅｌ 13 November 2026",
-          "url": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxORUQ1QXFDU3FMT0dYLVlORnRJX05ITXZVZUdXTm1VVHhHNm9pWWItM2Vsd1g5bzd4bEl4akZfdmhqNDJNSEREWGxLVHJzajJFUy1aOTczaDhGYjZZeEFHVWFPbFR0V0dsX1ROaUMzR3YwVUdkUU8tZEFoV1pGbFo1aXNBc2ZBZUFqUk1VNG0xQ0oyNjdNSnVSaFIwaFhrOXVXamlYSnBhcUJsUzhjVkhPYlQyVTVjcFhfR3Jpa0drVWdkZV9OUTR4ckU0MGNaWFdlU0haZWhwX0hDMWhQNEd0YjJpTFZBMWM4T3NFVGlUVGNuT1NvRloxSmlPel9HQkZwR1NXSHoteUlKSGZUVmxyZTdKOVJqZ3MwVzlWUUxfWkttNlZtaVdrNURZWHFpOGotbHFxSGtZV01TWkE?oc=5",
-          "source": "日本取引所グループ",
-          "published": "2026-11-13"
-        },
-        {
-          "title": "Iceland international Dagný Brynjarsdóttir announces retirement after 29-year football career",
-          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOSU9URk9ibEdZei1nQVJtRm9kSmxzMnpERXNBUjY3Mlo2WTVRVTdXYWtFQnlCakY0TlZ6YU5fVEZsM1dpUmVna2tXWFpiSk1jQ2xmWERpV3poNGtnTk82TWtvUnZRTXIxRWJmQjluVFhUUi1pY2hoMnBRY0g4Q0M4dUNFV1dRSVpMZXJ6alphMDVQR0JVbXEtbXJNYXc3V09zR3FGX25qNmllc0NHQzFxMFRIT1FFTVQ4ekNWbkJn?oc=5",
-          "source": "Her Football Hub",
-          "published": "2026-11-13"
-        },
-        {
-          "title": "Iceland international Dagný Brynjarsdóttir announces retirement from football",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPLTg5eVhYZGw0dUtMOG5VbzU0X1UyVE16QTJEam94QTF3THVYNXNMQ3JObWpDcXZoZkl6cVQ4ZVR1M2Y2LWY1UlVEQmEwVWowTFFNZkZQYWpDQl8wQTdNek5OS19KSFptT3kycWR0a0dXUWJBZk5Yazl3RFN5TTlFWU9Dc01FV01PQUFSRVByLUl5d2k3VFJLVjFGNkRDZ2RvTVc0YlNOYzFRNEpN?oc=5",
-          "source": "IceNews - Daily News",
-          "published": "2026-11-13"
-        },
-        {
-          "title": "[#LIVESTREAm]+! Bulgaria v Iceland LIVE Score Updates in Football Match - Nov. 13, 2026",
-          "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxNTXlndndLUVBta2ozSGFQR0Vsb1VlRkhtelZHal9jUlRval9ydFFkaGNPZEd0bkN4cHdvTWlVaWNYOUd1RUJwQnlMTDEyS1hTS0FDcWh0SjlXVUNQZUFoUXMyZzhfRnZHWTRGTGs2dHhWaWl3bUZWT01lVl9FUUV5NGlmMHRPSTRrUFZpbkRLWUZvaFIxV1NoWjJSc2VtejRTSm1ROGgzbGhqdlhEYktnQVB5V3ppV3NoZGRzWVdFSHo4MXNkWE81dzY5cEJGMHIzUHpJd1BlcEhNaVdOUkxKckxWb3NhTkYxOWN3MlpJbDVIM19xMTNaWHpZZ3F6T1d6Qm1pZWVTXzEza0JMLTVRbGFpeFBCV1E2dVVRTTV3b3Z3NWtBalE5YUpqUUE2ZzdxTFJoY2JPWE4?oc=5",
-          "source": "日本取引所グループ",
-          "published": "2026-11-13"
-        },
-        {
-          "title": "Bulgaria vs Iceland Preview: Nations League Prediction",
-          "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1iLU1uRnR2emdCdEI4VU95eEtnZVR3cjNfeFNzcWlhaFdaYnphWDFYZlprVlZKRlpPWDVHNWROa0pCWnpIZVd6Yy14QTNjNjJn?oc=5",
-          "source": "Football.com",
-          "published": "2026-11-13"
-        },
-        {
-          "title": "𝚆𝙰𝚃𝙲𝙷 Bulgaria vs Iceland 𝐋𝐈𝐕𝐄 Ｓｔｒｅａｍ Ｆｒｅｅ",
-          "url": "https://news.google.com/rss/articles/CBMiygJBVV95cUxNZFppOS1Pd3dyVzdGRHlLcG0zcVBYTWViUnh2MjRRa1VPbnB6YUVXcW15TDQ5RVNScEJ4NndKUjJNUnVBSy1wam9VdGZIYUJncVI5dzBndm12SHRsV1B3LWxRcDN4TzV6emlsUWYxT21Qai1CLUNneGg2cS0xVU9TckNYOUhGSmlSSnZjSG1mMHFQRGZoX0stMDhsWkFiZG0zM0t2WTdDWGlSeHlZM0NqcUVFWnZNNmhnRzllenBfY1dOMWtGWDVwVldaQVE5eU5pSXV3YWpiTjVFdEdHLTEtYUQycDVZeHRnTUtOemtKTi1zZ05mNjJMOEJqekpaZXpxTnE1Uk5MLTRhYzdvN1pyMGwyYnppTUVILWFaajdyQUVQVUlnU1RvUkRmN3JhSXAxa1hZckFubnJQaHh0ZUQ2cWhubnlSVE9TSEE?oc=5",
-          "source": "日本取引所グループ",
-          "published": "2026-11-13"
+          "title": "Iceland vs Luxembourg prediction: expert analysis, possible lineups, November 16, 2026",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQT0Y2UE1oMWdhOHpRY0MtS3ZMbDd1bEY3dkxqZnB5ZUoycld4c0cyZDNXeFJKY1ZlOHB0clgtQmNlT1BDcEZNYnVORXd0YkVVWGlKZjhrQVY0b1pPUlpxMW1oZWtuS01vemJ4QXgzM19STGpONEtTVm1QNDBEWnlhYXJmNHNvRGQtUVpYRlRRZ0s0X2Rmb1FQY1Fsc2ZmcHJReERfX1JaejFNMDFfeU5tNW5NTDJMZnl3?oc=5",
+          "source": "RatingBet",
+          "published": "2026-11-14"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "Islanda s-a calificat pentru prima dată în istorie la un turneu final major la Euro 2016, din Franța.",
-        "La Euro 2016, Islanda a remizat 1-1 cu Portugalia și cu Ungaria, apoi a învins Austria cu 2-1, terminând pe locul doi în grupă.",
-        "În optimile de finală de la Euro 2016, Islanda a eliminat Anglia, scor 2-1.",
-        "Islanda a fost eliminată în sferturile de finală de la Euro 2016 de Franța, scor 5-2, la Paris, pe 3 iulie 2016.",
-        "În 2018, Islanda a debutat la Campionatul Mondial, în Rusia, prima sa participare vreodată la turneul final al unei Cupe Mondiale.",
-        "La calificarea din 2016, Islanda era cea mai mică națiune, ca populație, care ajunsese vreodată la turneul final al unui Campionat European."
-      ]
+      "stories": []
     },
     "away": {
       "name": "Luxembourg",
@@ -5787,14 +5781,6 @@
             "season": "1995/1996",
             "place": "Winner"
           }
-        ],
-        "funfacts": [
-          "Jeff Strasser (n. 5 octombrie 1974) este fost fotbalist luxemburghez și, din august 2025, selecționerul Luxemburgului.",
-          "Ca jucător a evoluat la FC Metz, 1. FC Kaiserslautern și Borussia Mönchengladbach, adunând 194 de meciuri în Bundesliga.",
-          "A jucat 98 de meciuri pentru Luxemburg, cu 7 goluri, și a fost cel mai selecționat jucător al țării din noiembrie 2008 până în septembrie 2018.",
-          "A debutat ca antrenor principal la CS Fola Esch în 2012, echipă cu care a obținut primele victorii din istoria clubului în Europa League.",
-          "A pregătit și pe 1. FC Kaiserslautern din 2017, dar a părăsit postul în 2018 după o urgență medicală suferită în timpul unui meci cu SV Darmstadt 98.",
-          "Din 19 august 2025 este selecționerul naționalei Luxemburg, succedându-l pe Luc Holtz."
         ]
       },
       "formation": "n/d",
@@ -9244,27 +9230,28 @@
           "goalsAgainstByInterval": {
             "0-15": 2,
             "16-30": 2,
-            "31-45": 2,
+            "31-45": 3,
             "61-75": 1
           },
           "cardsYellowByInterval": {
             "16-30": 1,
             "46-60": 1,
-            "61-75": 2,
-            "76-90": 7
+            "61-75": 3,
+            "76-90": 8,
+            "91-105": 1
           },
           "cardsRedByInterval": null,
-          "goalsForAvg": 0.5,
-          "goalsAgainstAvg": 1.8,
+          "goalsForAvg": 0.4,
+          "goalsAgainstAvg": 1.6,
           "goalsForAvgHome": 0,
           "goalsForAvgAway": 1,
-          "goalsAgainstAvgHome": 2.5,
+          "goalsAgainstAvgHome": 2,
           "goalsAgainstAvgAway": 1,
           "cleanSheets": 0,
           "cleanSheetsHome": 0,
           "cleanSheetsAway": 0,
-          "failedToScore": 3,
-          "failedToScoreHome": 2,
+          "failedToScore": 4,
+          "failedToScoreHome": 3,
           "failedToScoreAway": 1,
           "penaltyScored": 0,
           "penaltyScoredPct": 0,
@@ -9277,6 +9264,10 @@
             },
             {
               "formation": "4-2-3-1",
+              "played": 1
+            },
+            {
+              "formation": "4-4-2",
               "played": 1
             }
           ],
@@ -9297,7 +9288,7 @@
           "winsAway": 1,
           "drawsHome": 0,
           "drawsAway": 0,
-          "losesHome": 2,
+          "losesHome": 3,
           "losesAway": 1
         }
       },
@@ -9308,64 +9299,55 @@
       "news": [],
       "newsCandidates": [
         {
+          "title": "Iceland vs Luxembourg: UEFA Nations League stats & head-to-head",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5sNFl4SjhBV0M1RXNuZDljUmxQQldubnNIRGJqOXdqb2RkREg4ZWJZdndRTEJWMWpsSFY5d056dUVfZUlpeDROVU9fVDc3d2ZpOUV3T0NIT1hjdTFDQ1BseW04bw?oc=5",
+          "source": "BBC",
+          "published": "2026-11-15"
+        },
+        {
+          "title": "Preview: Iceland vs Luxembourg - prediction, team news, lineups",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPM3c1UUxtOW1YMXZDMHFOaFNwLUxwb3VRUGJNVEYzVXVlTkVJQmZMYVk4alM3X1JWUUlIVU1uREY4OUVqbDE0aWk1Qi1WT1R4dXBhaEw1VjFaQmZCNWdtQnpSZnZQZ290b0M2ZUhodHpLNnZod0VpTDlRdWZCaUNGaG1WWmRZYmZ3SmU1RjY1TUZNUE5ObmltUFRKNDg1NG5kalJLRzhEcnhuS0tvcy1zbU5sWXF4MU56aUc2U1FoZnhNZUJBSC1YeDZtMEJWOEtLbkE?oc=5",
+          "source": "Sports Mole",
+          "published": "2026-11-15"
+        },
+        {
+          "title": "Iceland vs. Luxembourg - Live Score - November 16, 2026",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPcEhYVmZwUnhzNjNHNTR5V0N6ZkFWSUplOHpxWURqOWVpNkNMZC1qUnpMeklHaWF2RUZfa1k2N0J6b3QxU1phcEJGcGVRUERYQlpNQjk3OW1mcklhcnF0WDNXMEJjbmUtME1ERF9DT01sTDRmS1hDa2NQUEZiZ2ZfcU9UNG91d2xpZDhUbTlSZ29XelRVUnhXMjVvb2thbjZ0cGh1aw?oc=5",
+          "source": "FOX Sports",
+          "published": "2026-11-15"
+        },
+        {
+          "title": "Iceland vs Luxembourg Betting Odds, Tips, Predictions, Preview 16th November 2026",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxORjh0NnBQY0w1X0FfMmlnWG9nTW1Fa2RvVG5zWTJHRTkwSW1pU2dEM1Z6ejE4NTFtRWdPUzhZMGlYOElNRkFIUkxsY2ZyOXRuOEJnZ0hGV1FWMGNaeUN4QTZ4RlpiSzUwY2h5Z0ZBcllqT0lTTUtOcndJRVh5T1VKcVE0aFE2REpXbzdfUTA0eGZBSkVKVEh0V290QXQwUnU5?oc=5",
+          "source": "Easyodds.com",
+          "published": "2026-11-15"
+        },
+        {
+          "title": "Luxembourg U19 3 - 0 Andorra U19 (14/11) - Match Report",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQOXZhMEpHRzhrSUZvM0ZsV3VZWmhGenlxVy1Wa3ZoT3VKZmlWOURuazlXc3hYN1ZJV0xhcWhPQ1JVb2hDRU9Vd3doTFk3SXdqejY2ekJsN0J1eDZWREtlWnBvdlJxb0pnNTN4Xzc2STZCazdnVXhTVEN4U3VpZUZHa2g1UUV6cDFHbXRVYVN0VjV0TnhaakdPUlJhWW5ubTJ4bWpqaFVaN3ZhU05h?oc=5",
+          "source": "365Scores",
+          "published": "2026-11-14"
+        },
+        {
+          "title": "Iceland vs Luxembourg Prediction and Betting Tips | November 16th 2026",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQTlVyNXFZTmdZV3RseWRweV9peHRhNWF1eC1xU1VMa0JzbUdUSzI3VjBjaWhtSUFUMEhtdGk3Z0YwNjJwOFM2aVFEWkx3WGxFc3RPMmR3MllYOFczWkFYOUZidHBybEp5WVQtcGFzRW4teE1EU0JadU13Qk5BMzhwdDhCVVFGSmY4T0xzNS1oWFU4VHd5OU1qa0Q5REU5dkpNOVlj?oc=5",
+          "source": "Sportskeeda",
+          "published": "2026-11-14"
+        },
+        {
           "title": "Luxembourg vs Estonia Prediction, Betting Tips, Lineups & Odds | 13 Nov 2026",
           "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOVWNTLVRIMkdXbUFjbnlBRmZlUWtGaUpxZUpXdTlrSzI1SWVYS3UyOVRqbjlvWWlUZFdLakUwcG5seWxjLTc4V0N1T21ZR3RlZTFwd1Q3MkJnNmRUUEtjeHMzaDFMdEdpdWNack44WndOMzUyV01kNnJhb0VqT2tVZm5laE54dmY5alREVnRwSjQ3UkpFSHloQ0hlVjU0SWpBbnh5S0pScmVzR3QyYkE?oc=5",
           "source": "Sportsgambler",
           "published": "2026-11-14"
         },
         {
-          "title": "Iceland vs. Luxembourg - Live Score - November 16, 2026",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPcEhYVmZwUnhzNjNHNTR5V0N6ZkFWSUplOHpxWURqOWVpNkNMZC1qUnpMeklHaWF2RUZfa1k2N0J6b3QxU1phcEJGcGVRUERYQlpNQjk3OW1mcklhcnF0WDNXMEJjbmUtME1ERF9DT01sTDRmS1hDa2NQUEZiZ2ZfcU9UNG91d2xpZDhUbTlSZ29XelRVUnhXMjVvb2thbjZ0cGh1aw?oc=5",
-          "source": "FOX Sports",
+          "title": "Iceland vs Luxembourg Preview & Prediction | 2026-27 UEFA Nations League | League C",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPa05aY2hHa1VubTR3bERkRjNEN0FiMjhtclBObUxZWlNzbUhLSVNONk5OOGJRU2h2eWgxaGM4RV9fczZXNi1ORVIyZDg2NFdNLVFUSnNxcWxEWlptUUpKUDQteVhVV0NSSjhRREVBVXJyZGsta1VoYU9tNTB4OHFUOGZfTDU0cjZxb0JfZWcwMWQtZl8wT0c3OXFGMXF0TTVfcUhYN09aQVVCdGUxSFR4cnRZOA?oc=5",
+          "source": "The Stats Zone",
           "published": "2026-11-14"
-        },
-        {
-          "title": "Luxembourg vs Estonia: UEFA Nations League stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBZdkFLRmZoM183SmVsWHFtWGhDekpTb0kxMXFDV0Vzb3JES01sYjN2VUsyWEFxSWVPd1BtRXhGdWU0dlpkTnVtV0NwRXlWaDh5MkppeU1tRE5BQUJ2X2JGSkxTallEQQ?oc=5",
-          "source": "BBC",
-          "published": "2026-11-13"
-        },
-        {
-          "title": "[#LIVESTREAm]+! Luxembourg v Estonia LIVE Score Updates in Football Match - Nov. 13, 2026",
-          "url": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxNcFJEcFFaZmZpSFlON3BCMk9PZEIyUXJLV1duYTdNQ2NCeXZxamdXWEd4NksyeWNZUlYtYjFlUmNGaUhHY0dwX041dm9Sc1JaYVVLczh1azJKa3A2NDdzWFRzS1AzV0FNUEdJRk9PSlY0WkVkR1RHSG1DZTJBOWttT0xDT2lxbG15YWswV2pOaUZEWHI1QW52MkJqakpGWVE1RVh0Z3ZxenVUV0w2c2FkenpfNlpOdE5WVFFFcHN1dE9selNZVW5iSGFXXzRQX1pUeUtWTFVIQ1RTazhKWVZpZkNOSVZNaHpsdl9WbTE4M1YtZ3hiZTJ3Vnp3M3RQOHZBb3Yta2RVSzZrWFZtZjE4V1Vxa29ZYUpaS1pMb29ZN2NJUFlZRTRRSGtPTkhINUVCd1JhQldYMGxXSjA?oc=5",
-          "source": "日本取引所グループ",
-          "published": "2026-11-13"
-        },
-        {
-          "title": "UEFA Nations League: Luxembourg vs Estonia with English commentary at 8.45pm",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOcmk2VTJRZFoxanFFTnQyQjdnSDd2OFVQQ0d6QW1GVFdDQWdDTTEyeE9rX0x2MkwzSXFRWUhsUUthRTdnRHRBejB2bF93RDVtOG1TR25ITTdXc19iRkZLU0M5X3BMaGtnZVVpVmZsZ0lQNHExamxKWVZXd0RUVWoxeTV1TVVjR21MNVcyek5tZ2M2dVZ1ZHZ3NVBDNlQzZW4xd1RBUnJKeHFkTHc?oc=5",
-          "source": "RTL Today",
-          "published": "2026-11-13"
-        },
-        {
-          "title": "WATCH-LIVE* Luxembourg vs Estonia 𝐋𝐈𝐕𝐄 𝐒𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠",
-          "url": "https://news.google.com/rss/articles/CBMizAJBVV95cUxQYlJaLUhsUU1PQ2YzQUxkRHlIS2JKVUxPVFNmeU9MZTBzejUzN0xBYU9QMnVIQmpHNFA3bFpxVlh6ZjhmSXVfOWdLYnl2LUwzR1N4TXZGa0E4TVhvYXVkMmE4ZWdwNWRkU29zblBVZmx2Q01PSkhGbFdFLXZreVl6V2U0bXZzYVFJd1hIVFJKUVdRUHp5RHF6YU9VQzd5UDhHbGw1Rnd5NXVFY2g4em1GT3BKNmVXcE9hbV9pa3RJTE1Qd0ltdFM2bU9mQm5GNWh4d25lOFFaZjh3ZHptOU9Xc1JGeHRtdmhYcE95dE90TjdyMmdxMm1fS0kySS1rQzZzU3dFV1Y1SGNvUTB1OGxpS0pEaTk2RVowRHRRRUp5aHRVXzVtRXNFdi1vdXZfLUl3NV9xSnZHSi1CNzlweUk4UEhuaDlBT3lSdXprNQ?oc=5",
-          "source": "日本取引所グループ",
-          "published": "2026-11-13"
-        },
-        {
-          "title": "【LIVESTREAMS】#FREE!! Luxembourg vs. Estonia International Football Tonight watch Live",
-          "url": "https://news.google.com/rss/articles/CBMixANBVV95cUxPRkFpanlIMnQtdVdRamg3WklMRnVCMFhTYXlROWxOYy1EV3NJWXVjRVlMak5GWE1pamdtUW95Wk9wVDVKYmlvRlY3eU1SN0dCY3JLbzAwWTBaTHlZRldqMHMxWFZxRFVyd3VsUWRfZTNhRnZNeWRHbWtqdW9iLS1IT1BuUVVQa1laT1JjZ3BsZE1YbkNrMnRoRWNnY0tMa1FZZU1xdlFsMFN2Yk44TVRYbGxkandqcDBwSlBONHczMWR6ZU5WWXZ6RnNDeGRXckxUR3lqSkMxRElYakJkdW16by1fclk0czM5TC1xdEUxcERsc1A0X0N5OUMtaDlTRGlZUWtDdF9lcnFmbWkwQXl6bVFwOUFBRGI1NHM3clJYTWJGOVZyR093M0t5OGJKd2RYSkpQcGhTRzZ3WjZTTV9KS2loSjloMTczUGlIVG51dXpyUGRnRjN3a05uamZFZHBsOWJ5RTZrR2VfUG13dGVYeEg4R1piZlN6a3JQUHZIaTA1T0dqNUJOMDVUMDRYN25KUlhTeDEtQndHcVM5UlY2VDFqaHl6dnJCNFRqS2pVOTQtajdMNWlQTVE0TWF1TmFIOXVtaQ?oc=5",
-          "source": "日本取引所グループ",
-          "published": "2026-11-13"
-        },
-        {
-          "title": "【LIVESTREAMS】International Football] Estonia vS Luxembourg 𝐋𝐈𝐕𝐄 ＳＴＲＥＡＭ",
-          "url": "https://news.google.com/rss/articles/CBMimgNBVV95cUxPMy0td0VIMGtuRFMxN0dkWWJyZktuOVBIVFJHME4zaXZHQXZIWllmbVVIV3QzcTVUWWx1V3UtWXIxZVAwUnA3Z3hHUTNxajVrck1oUTJHTjRKSDI4anh4bXNDcHFidndYa054Q2R1VVZ2VTY0YklFSTlhNHB0T2FDOHJKS19oc3VTd08tV1ZzbTUyVnkzQllHS2NMa1dsTk1oR0lmS3lkVDl6dERjSDZkb1ZTN2FQOXhiaUc3VW5fRFo4ei0wblJ1ZVRCX2FyRFctcU16Mk9VQTRWZnhzSmxuN1I4azBrZzd1RkJCOWxBYUlVS0QyVmsxcmY3VXhPNWVsYTU3NkMxV19Vblp5dHRoWGplWk9lRXRDT2d0SERLNWl3RHR5VUk0SDcyV2U4cDVBN2t1V3oweDN3TmNEWmI4dmt2TDhJbTI3SXlpbEV4UlJIV2tWWmNlcU9jZTVrVVo4cndjMU04bzl3ZzhWYTIxaHd2M1lVSGp3cnAxSjU1akJUbVY2MUF5ZHZwMjk1Z2txeWVfNnlvV0xuQQ?oc=5",
-          "source": "日本取引所グループ",
-          "published": "2026-11-13"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "Fotbalul este cel mai popular sport din Luxemburg, iar echipele naționale sunt organizate de Federația Luxemburgheză de Fotbal (FLF), afiliată FIFA din 1910 și UEFA din 1954.",
-        "Selecționata Luxemburgului nu s-a calificat niciodată la un turneu final de Campionat European sau Campionat Mondial, fiind clasată pe locul 91 în clasamentul FIFA din mai 2025.",
-        "Stadionul actual al naționalei, Stade de Luxembourg, a fost inaugurat în septembrie 2021, luând locul vechiului Stade Josy Barthel, dat în folosință în 1931.",
-        "În 2006, Luxemburg a găzduit singurul turneu internațional de până acum pe teren propriu, Campionatul European Under-17, dar nu a trecut de faza grupelor.",
-        "Cel mai titrat club din Luxemburg este Jeunesse Esch, cu 28 de titluri de campion, urmat de F91 Dudelange, cu 14 titluri de campionat și 7 Cupe ale Luxemburgului câștigate de la înființare, în 1991.",
-        "În sezonul 2018-2019 de Europa League, F91 Dudelange a devenit prima echipă din Luxemburg care a ajuns în faza grupelor unei competiții europene majore, după ce a eliminat-o pe CFR Cluj în play-off, scor general 5-2.",
-        "Cel mai vechi club din Luxemburg este Fola Esch, fondat pe 9 decembrie 1906 ca „Football and Lawntennis Club” de profesorul de limba engleză Jean Roeder."
-      ]
+      "stories": []
     }
   },
   "standings": {
