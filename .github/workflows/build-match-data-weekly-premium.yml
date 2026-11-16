@@ -16,7 +16,12 @@ name: Build Match Data (Weekly premium)
 on:
   schedule:
     - cron: "40 8,13,18,23 * * *"   # every day, 4 slots/day (international windows also fall on Sun..Tue)
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: "Optional: build exactly these matches (comma-separated slugs) instead of the picker's next three"
+        required: false
+        default: ""
 
 # One queue at a time: a manual dispatch behind a scheduled run waits instead
 # of re-picking the same matches.
@@ -34,9 +39,18 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Pick the next three weekend matches that still need the deep pass
+      - name: Pick the next three matches that still need the deep pass (or take the slugs given by hand)
         id: pick
-        run: node scripts/pick-weekly-premium.mjs
+        env:
+          SLUGS: ${{ inputs.slugs }}
+        run: |
+          if [ -n "$SLUGS" ]; then
+            JSON=$(node -e "console.log(JSON.stringify(process.env.SLUGS.split(',').map(x=>x.trim()).filter(Boolean)))")
+            echo "slugs=$JSON" >> "$GITHUB_OUTPUT"
+            echo "slugs=$JSON"
+          else
+            node scripts/pick-weekly-premium.mjs
+          fi
 
   build:
     needs: pick
