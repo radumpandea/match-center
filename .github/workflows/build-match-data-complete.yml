@@ -45,6 +45,12 @@ jobs:
         with:
           node-version: 22
 
+      # National-team packs: cut squad[] down to the players really called up (scripts/trim-national-squad.mjs).
+      # Does nothing for club matches; a Wikipedia problem must not stop the pack, so it only warns.
+      - name: Trim a national-team squad to the call-up list
+        continue-on-error: true
+        run: node scripts/trim-national-squad.mjs "$MATCH"
+
       - name: What is missing?
         id: check
         run: node scripts/check-premium-complete.mjs "$MATCH"
@@ -120,7 +126,6 @@ jobs:
         run: node scripts/validate-match.mjs "docs/data/matches/${MATCH}.json"
 
       - name: Commit and push
-        if: steps.check.outputs.missingCount != '0'
         run: |
           git config user.name "complete-premium-bot"
           git config user.email "actions@users.noreply.github.com"

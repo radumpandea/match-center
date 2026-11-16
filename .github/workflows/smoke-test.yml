@@ -14,6 +14,7 @@ on:
       - "tests/**"
       - "supabase/functions/_shared/**"
       - "scripts/pick-weekly-premium.mjs"
+      - "scripts/lib/national-squad.mjs"
   pull_request:
     paths:
       - "docs/app/**"
@@ -40,6 +41,7 @@ jobs:
         run: |
           node tests/live-reconcile.test.mjs
           node tests/pick-weekly-premium.test.mjs
+          node tests/national-squad.test.mjs
       - name: Install Playwright
         run: |
           npm i --no-save playwright@1.49.1
