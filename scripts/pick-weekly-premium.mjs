@@ -2,10 +2,13 @@
 // this run of build-match-data-weekly-premium.yml.
 //
 // The plan: every week, starting Wednesday, prepare the coming weekend
-// (Friday..Monday) of the three leagues the commentator covers most —
-// Ligue 1, Premier League and SuperLiga (Liga 1) — three packs per run, one
-// per league in rotation, soonest kick-off first inside each league, until
-// every weekend match is at the deep level. Each run is meant to fit inside
+// (Friday..Monday) of the six leagues the commentator covers — Ligue 1,
+// Premier League, SuperLiga (Liga 1), Serie A, LaLiga and Bundesliga — three
+// packs per run, soonest kick-off first inside each league, until every
+// weekend match is at the deep level. Each run serves the leagues that are
+// furthest behind (largest share of their weekend still queued), so the six
+// leagues advance together instead of the last three waiting for the first
+// three to finish. Each run is meant to fit inside
 // one Claude Pro 5-hour window; the cron slots in the workflow are the lever
 // for how fast the queue drains. Exits 0 with an empty list when nothing is
 // left to do — the normal outcome from Saturday on.
@@ -17,8 +20,12 @@
 
 import { readFileSync, appendFileSync, existsSync } from 'node:fs';
 
-// Order = rotation order inside a run. `comp` is fixtures.json's `comp` text.
-const LEAGUES = ['Ligue 1', 'Premier League', 'Superliga'];
+// `comp` is fixtures.json's `comp` text. The order only breaks ties between leagues that are equally far behind.
+export const LEAGUES = ['Ligue 1', 'Premier League', 'Superliga', 'Serie A', 'LaLiga', 'Bundesliga', 'UEFA Nations League'];
+// National-team competitions are played in international windows (Thursday..Tuesday), not on the club weekend: their
+// matches are prepared from the next INTERNATIONAL_DAYS days instead of Friday..Monday.
+const NATIONAL = new Set(['UEFA Nations League']);
+const INTERNATIONAL_DAYS = 5;
 const PER_RUN = Number(process.env.PER_RUN) || 3;
 const MIN_LEAD_MS = 3 * 3600000;   // a deep build takes ~1 h; don't start one this close to kick-off
 
@@ -40,6 +47,11 @@ function weekendWindow(today) {
   return { from: start > today ? start : today, to: end };
 }
 
+// The days of `comp` that are prepared in this run.
+export function windowFor(comp, today) {
+  return NATIONAL.has(comp) ? { from: today, to: addDays(today, INTERNATIONAL_DAYS) } : weekendWindow(today);
+}
+
 async function favouriteSlugs() {
   try {
     const src = readFileSync('docs/app/config.js', 'utf8');
@@ -56,18 +68,38 @@ async function favouriteSlugs() {
   } catch { return new Set(); }
 }
 
+// queues: league -> matches still to build (soonest first); totals: league -> matches of its weekend.
+// One per league in turn, the leagues ordered by the share of their weekend still queued (largest first), then round
+// again, until perRun are picked. A league with nothing left drops out of the rotation.
+export function pick(queues, totals, perRun, leagues = LEAGUES) {
+  const share = (l) => (totals[l] ? queues[l].length / totals[l] : 0);
+  const order = leagues.map((l, i) => ({ l, i })).sort((a, b) => share(b.l) - share(a.l) || a.i - b.i).map((x) => x.l);
+  const work = Object.fromEntries(leagues.map((l) => [l, queues[l].slice()]));
+  const picked = [];
+  while (picked.length < perRun && order.some((l) => work[l].length)) {
+    for (const l of order) {
+      if (picked.length >= perRun) break;
+      const next = work[l].shift();
+      if (next) picked.push(next.slug);
+    }
+  }
+  return picked;
+}
+
 async function main() {
-  const today = ymd(new Date());
+  const today = process.env.TODAY || ymd(new Date());   // TODAY=YYYY-MM-DD: dry run for another day
   const { from, to } = weekendWindow(today);
+  const windows = Object.fromEntries(LEAGUES.map((l) => [l, windowFor(l, today)]));
   const fixtures = JSON.parse(readFileSync('docs/data/fixtures.json', 'utf8'));
   const favs = await favouriteSlugs();
   const now = Date.now();
 
   const queues = Object.fromEntries(LEAGUES.map((l) => [l, []]));
+  const totals = Object.fromEntries(LEAGUES.map((l) => [l, 0]));
   let weekendTotal = 0, alreadyDeep = 0;
   for (const f of fixtures) {
-    if (!queues[f.comp] || !f.date || f.date < from || f.date > to) continue;
-    weekendTotal++;
+    if (!queues[f.comp] || !f.date || f.date < windows[f.comp].from || f.date > windows[f.comp].to) continue;
+    weekendTotal++; totals[f.comp]++;
     const path = `docs/data/matches/${f.slug}.json`;
     if (!existsSync(path)) continue;                                  // no Level 1 pack yet — nothing to build on
     let doc;
@@ -79,19 +111,13 @@ async function main() {
   }
   for (const l of LEAGUES) queues[l].sort((a, b) => String(a.kickoff).localeCompare(String(b.kickoff)));
 
-  // One per league in turn, then round again, until PER_RUN are picked. A league
-  // with nothing left just drops out of the rotation.
-  const picked = [];
-  while (picked.length < PER_RUN && LEAGUES.some((l) => queues[l].length)) {
-    for (const l of LEAGUES) {
-      if (picked.length >= PER_RUN) break;
-      const next = queues[l].shift();
-      if (next) picked.push(next.slug);
-    }
-  }
-  const left = LEAGUES.reduce((n, l) => n + queues[l].length, 0);
-  console.log(`Weekend ${from}..${to}: ${weekendTotal} matches in ${LEAGUES.join(' / ')}, ${alreadyDeep} already deep, ${picked.length} picked now, ${left} still queued after this run.`);
+  const picked = pick(queues, totals, PER_RUN);
+  const left = LEAGUES.reduce((n, l) => n + queues[l].length, 0) - picked.length;
+  console.log(`Club weekend ${from}..${to}, national teams ${windows["UEFA Nations League"].from}..${windows["UEFA Nations League"].to}: ${weekendTotal} matches in ${LEAGUES.join(" / ")}, ${alreadyDeep} already deep, ${picked.length} picked now, ${left} still queued after this run.`);
   output('slugs', JSON.stringify(picked));
 }
 
-main().catch((e) => { console.error(e); output('slugs', '[]'); });
+// Only when run as a script, not when the test imports pick().
+if (process.argv[1] && process.argv[1].replace(/\\/g, '/').endsWith('pick-weekly-premium.mjs')) {
+  main().catch((e) => { console.error(e); output('slugs', '[]'); });
+}

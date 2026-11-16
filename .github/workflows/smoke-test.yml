@@ -13,6 +13,7 @@ on:
       - "docs/data/schema.json"
       - "tests/**"
       - "supabase/functions/_shared/**"
+      - "scripts/pick-weekly-premium.mjs"
   pull_request:
     paths:
       - "docs/app/**"
@@ -35,8 +36,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Live event reconciliation tests
-        run: node tests/live-reconcile.test.mjs
+      - name: Unit tests (live events, weekly premium picker)
+        run: |
+          node tests/live-reconcile.test.mjs
+          node tests/pick-weekly-premium.test.mjs
       - name: Install Playwright
         run: |
           npm i --no-save playwright@1.49.1
