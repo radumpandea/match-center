@@ -79,14 +79,23 @@ export function splitSquad(squad, called, keepNames = []) {
   const used = new Set();
   const keep = new Set();
   const notInPack = [];
+  const pending = [];
   for (const w of called) {
     let idx = -1;
     for (let i = 0; i < squad.length; i++) {
       if (used.has(i)) continue;
       if (sameMan(w.name, squad[i].name)) { idx = i; break; }
     }
-    if (idx < 0) { notInPack.push(w.name); continue; }
-    used.add(idx); keep.add(idx);
+    if (idx >= 0) { used.add(idx); keep.add(idx); } else pending.push(w);
+  }
+  // Left over: a different first name (Wikipedia "Willi Orbán", API "Vilmos Tamás Orbán"). Accept when the surname is
+  // shared with exactly one still-unmatched player of the pack and exactly one still-unmatched player of the table.
+  const sur = (name) => tokens(name).slice(-1)[0];
+  for (const w of pending) {
+    const sameSurnameWiki = pending.filter((x) => sur(x.name) === sur(w.name));
+    const cands = squad.map((p, i) => i).filter((i) => !used.has(i) && sur(squad[i].name) === sur(w.name));
+    if (sameSurnameWiki.length === 1 && cands.length === 1) { used.add(cands[0]); keep.add(cands[0]); }
+    else notInPack.push(w.name);
   }
   const kept = new Set([...keep]);
   squad.forEach((p, i) => { if (!kept.has(i) && keepNames.some((k) => k && sameMan(k, p.name))) kept.add(i); });

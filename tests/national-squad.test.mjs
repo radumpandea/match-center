@@ -52,6 +52,13 @@ t('the pool is split into called-up and dropped, the XI is never dropped, called
   assert.deepEqual(r.notInPack, ['Somebody Else']);
 });
 
+t('a different first name is accepted when the surname is unique on both sides (Willi / Vilmos Tamás Orbán)', () => {
+  const squad = [{ name: 'Vilmos Tamás Orbán' }, { name: 'Péter Szabó' }, { name: 'Zoltán Szabó' }];
+  const r = splitSquad(squad, [{ name: 'Willi Orbán' }, { name: 'Dominik Szabó' }], []);
+  assert.deepEqual(r.keep, [0]);               // Orbán kept; Szabó is ambiguous, so not guessed
+  assert.deepEqual(r.notInPack, ['Dominik Szabó']);
+});
+
 t('article titles', () => {
   assert.equal(articleTitle('Denmark'), 'Denmark_national_football_team');
   assert.equal(articleTitle('Rep of Ireland'), 'Republic_of_Ireland_national_football_team');

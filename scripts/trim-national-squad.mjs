@@ -27,9 +27,17 @@ const today = ymd(new Date());
 
 async function wiki(params) {
   const url = API + '?' + new URLSearchParams({ format: 'json', formatversion: '2', redirects: '1', ...params });
-  const res = await fetch(url, { headers: { 'User-Agent': UA } });
-  if (!res.ok) throw new Error('Wikipedia HTTP ' + res.status);
-  return res.json();
+  // Wikipedia answers 429 when asked too fast: wait (its Retry-After, else a growing pause) and try again.
+  for (let attempt = 1; ; attempt++) {
+    const res = await fetch(url, { headers: { 'User-Agent': UA } });
+    if (res.ok) { await new Promise((r) => setTimeout(r, 400)); return res.json(); }
+    if ((res.status === 429 || res.status >= 500) && attempt < 5) {
+      const wait = Math.min(Number(res.headers.get('retry-after')) || 0, 60) || attempt * 8;
+      await new Promise((r) => setTimeout(r, wait * 1000));
+      continue;
+    }
+    throw new Error('Wikipedia HTTP ' + res.status);
+  }
 }
 
 const cache = new Map();   // title -> { section wikitext, note, called } | { error }
