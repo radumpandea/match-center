@@ -27,6 +27,7 @@ export const LEAGUES = ['Ligue 1', 'Premier League', 'Superliga', 'Serie A', 'La
 const NATIONAL = new Set(['UEFA Nations League']);
 const INTERNATIONAL_DAYS = 5;
 const PER_RUN = Number(process.env.PER_RUN) || 3;
+const URGENT_MS = 30 * 3600000;    // a match this close to kick-off is built before any league balancing
 const MIN_LEAD_MS = 3 * 3600000;   // a deep build takes ~1 h; don't start one this close to kick-off
 
 function output(name, value) {
@@ -68,18 +69,25 @@ async function favouriteSlugs() {
   } catch { return new Set(); }
 }
 
-// queues: league -> matches still to build (soonest first); totals: league -> matches of its weekend.
-// One per league in turn, the leagues ordered by the share of their weekend still queued (largest first), then round
-// again, until perRun are picked. A league with nothing left drops out of the rotation.
-export function pick(queues, totals, perRun, leagues = LEAGUES) {
-  const share = (l) => (totals[l] ? queues[l].length / totals[l] : 0);
-  const order = leagues.map((l, i) => ({ l, i })).sort((a, b) => share(b.l) - share(a.l) || a.i - b.i).map((x) => x.l);
-  const work = Object.fromEntries(leagues.map((l) => [l, queues[l].slice()]));
+// queues: league -> matches still to build (soonest first); totals: league -> matches of its window.
+// 1) Urgent first: whatever kicks off within URGENT_MS goes before everything else, soonest first, whichever the
+//    competition (a match tonight must not wait behind weekend matches because its league looks "less behind").
+// 2) Then one per league in turn, the leagues ordered by the share of their window still queued (largest first),
+//    round after round, until perRun are picked. A league with nothing left drops out of the rotation.
+export function pick(queues, totals, perRun, leagues = LEAGUES, now = Date.now(), urgentMs = URGENT_MS) {
   const picked = [];
-  while (picked.length < perRun && order.some((l) => work[l].length)) {
+  const urgent = leagues.flatMap((l) => queues[l])
+    .filter((m) => m.kickoff && Date.parse(m.kickoff) - now < urgentMs)
+    .sort((a, b) => String(a.kickoff).localeCompare(String(b.kickoff)));
+  for (const m of urgent) { if (picked.length >= perRun) break; picked.push(m.slug); }
+  const taken = new Set(picked);
+  const rest = Object.fromEntries(leagues.map((l) => [l, queues[l].filter((m) => !taken.has(m.slug))]));
+  const share = (l) => (totals[l] ? rest[l].length / totals[l] : 0);
+  const order = leagues.map((l, i) => ({ l, i })).sort((x, y) => share(y.l) - share(x.l) || x.i - y.i).map((x) => x.l);
+  while (picked.length < perRun && order.some((l) => rest[l].length)) {
     for (const l of order) {
       if (picked.length >= perRun) break;
-      const next = work[l].shift();
+      const next = rest[l].shift();
       if (next) picked.push(next.slug);
     }
   }

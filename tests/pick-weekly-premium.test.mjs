@@ -64,4 +64,18 @@ t('inside a league the soonest kick-off is taken first', () => {
   assert.deepEqual(pick(queues(c), totals(c), 3), ['Serie A-1', 'Serie A-2', 'Serie A-3']);
 });
 
+t('a match kicking off soon is built before league balancing, soonest first', () => {
+  const now = Date.parse('2026-11-17T08:00:00Z');
+  const q = queues({ 'Ligue 1': 3, 'Premier League': 3, 'UEFA Nations League': 3 });
+  q['UEFA Nations League'][0].kickoff = '2026-11-17T19:45:00Z';   // tonight
+  q['UEFA Nations League'][1].kickoff = '2026-11-17T19:45:00Z';
+  q['UEFA Nations League'][2].kickoff = '2026-11-22T19:45:00Z';   // not urgent
+  q['Ligue 1'][0].kickoff = '2026-11-21T20:00:00Z';
+  const c = { 'Ligue 1': 3, 'Premier League': 3, 'UEFA Nations League': 3 };
+  const p = pick(q, totals(c), 3, LEAGUES, now);
+  assert.deepEqual(p.slice(0, 2), ['UEFA Nations League-1', 'UEFA Nations League-2']);
+  assert.equal(p.length, 3);
+  assert.equal(new Set(p).size, 3);
+});
+
 console.log(n + ' tests passed');
