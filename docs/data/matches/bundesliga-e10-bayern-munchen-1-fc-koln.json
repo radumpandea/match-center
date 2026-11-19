@@ -99,8 +99,8 @@
     "country": null,
     "age": null,
     "apps": null,
-    "ycPerMatch": null,
-    "rcPerMatch": null,
+    "ycPerMatch": 3.33,
+    "rcPerMatch": 0.67,
     "history": null,
     "funfacts": [
       "A promovat în Bundesliga pentru sezonul 2025-26, luând locul record-omului Felix Brych, conform anunțului DFB.de.",
@@ -108,7 +108,15 @@
       "A debutat în Bundesliga în aprilie 2023, intrând pe teren în ultimul moment după ce fusese inițial desemnat al patrulea oficial.",
       "În februarie 2025, la meciul Bayer Leverkusen - TSG Hoffenheim, a fost primul arbitru care a explicat o decizie VAR prin stația de amplificare a stadionului, despre un penalty anulat pentru offside.",
       "Este descris, într-un reportaj din 2026, ca fiind cel mai tânăr arbitru de Bundesliga în activitate."
-    ]
+    ],
+    "season": {
+      "comp": "Bundesliga",
+      "matches": 3,
+      "yellow": 10,
+      "red": 2,
+      "penalties": 0,
+      "withTeams": []
+    }
   },
   "h2h": {
     "recent": [
@@ -1664,8 +1672,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Foot Injury",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -5520,6 +5528,12 @@
           "reason": "injury",
           "detail": "Hamstring Injury",
           "since": "2026-11-16"
+        },
+        {
+          "name": "M. Neuer",
+          "reason": "injury",
+          "detail": "Foot Injury",
+          "since": "2026-11-20"
         }
       ],
       "mercatoIn": [
@@ -5672,27 +5686,33 @@
       ],
       "newsCandidates": [
         {
-          "title": "Live ab 18.45 Uhr - Bayern München zu Gast bei Austria Wien",
-          "url": "https://www.sportschau.de/live-und-ergebnisse/fussball/uefa-champions-league-frauen/ma12537093/austria-wien_bayern-muenchen/liveticker",
-          "source": "Sportschau",
-          "published": "2026-11-19"
-        },
-        {
           "title": "Vincent Kompany returns to lead FC Bayern into the final stretch of the year",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNelFXSDh2NkZRc1R6RkZOLXc3VHRjY01MNGJhUFJSTk1vWHY1b0VyUWh1QW0yUnlIVU92QXpyWDBMOHM1bEtoenYyaERkMHcwdU9VRnBqZHdsd3B6b0FIa3BVOFphRndFc21EdmFWTTdlc1F4Z3FUcjk3MXh2aktUaU5fT3FfaFJDTXN6OHBLMUQ1LVlqMFM2M3RzVGE4U3ZhVlI5aQ?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPTGhvcDdEeDhXLUZWV25xdVg0d1VBRFBNRTdyNkI2LUFObEJQSFhZN3J2R2ZLajl3eFZIY3Q3bGREanI4d29kZkRROFVjbkFjMzM5Wnk4MjBodTRScnVrdkd5MFQtSFlFZDVUTkY3UlNuaG9welgzSjJfQ2NjTnUycWVGOWQ3eDZ3THdzajdPRnRGWlI2Nk12bFMzb1NNQWdSOXR2cFhUa1M5T3VFcXY2dXdrMA?oc=5",
           "source": "FC Bayern",
           "published": "2026-11-19"
         },
         {
-          "title": "Several clubs interested in Bayern Munich’s Kim Min-jae",
-          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNZEZnSDNwc0dwMmJoYjEwcDFsdndxcm45ZWZYWlE0c05JdVFhUjFZclhPMC1mVEhYbFpqWEEzX1B4cWt5ZG9jWXlwbk5BbjNIVXZ0dXdfNW44VjludFNXckI0M0kweS0zdUlwZ1p4ZlNvRkhBVmZPWTdFcUFfVU1vU2JRUGpJZFEzb2ltb0hkVjJOOXZIN0NJSWlub05CRmpaWV9RVjlRU1E4Q205X3BaYmlGYkR4bVBTYkdIUGhHRzFlWUI5U0pZa0gzbnNtOTg?oc=5",
+          "title": "Confirmed UEFA Women's Champions League Lineups: FK Austria Wien vs. FC Bayern",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPMURvODBRVFlVdHB2eDMwSElNVEg1UWc2TGFwOEpldXNNU21OM2VCTHlZSnpaVXljSThTbXRuVjZva05BRlJNc1N4c2NBb0lIcXRLTTZicVR1cUVBNndzMW1CT0pSRVhzc242YWEtX01wMEc4Y2RNVlB5MndpSFhsWVFPOU1wMWJpdVZ2V2RuYi0?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-11-19"
+        },
+        {
+          "title": "How Bayern Munich and Lennart Karl overcame public disagreements",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQM2N6Z3Q1R3NsTk91MEpXQzZKbEE1UHItVHZINkpmNldtV296OGViRmVRc3FYUDFORDA0Rnh3UzlBeHlaLWtlU0Z3ZXVvWFY4LTgwUWJhLTFmR1pNMnh5aDBJUGx4WVVkYzlscHhtS1lZNU84YVZzYS13aXdjVUh6bEl4aFkxS2hmbldFZWJERWlZLTh1VEo4UHRWUlV3TE1HdC14N0JJOUJKWm9laXJRcDRfdW1FSXl5VWhFZTZyTUc0bC1nanFOemZqQzdXRzQ?oc=5",
           "source": "Bavarian Football Works",
           "published": "2026-11-19"
         },
         {
-          "title": "Speaking for the first time: Kompany reveals details of his health crisis at Bayern",
-          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNdUFWRUE2M05JejJWQjYwRjRESE9pZk5CY3BPakhlano2bGpuS2ZhczJvaHlUbTEzSUdHaFF6QkdCTFlBMVVYSzFwcUVHTHZFQUMxMUZkV3NwbmpzZGk4WjAtdnZSTkI2ZDRMbGFlQUdNLUN2ZVhHam5ZZlhGd2N2RXpLQ0kzcFU4dHhRbG9tT28wMHdXSkVUdkZaT2FRQnR2U0VpaFJxMktMZmVfNFg3RWRzb20tMWltMFhrY3FWU1RweXZ6M0FmM0V1NA?oc=5",
-          "source": "Goal.com",
+          "title": "Kompany thanks Bayern medical staff and hails Atletico display",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQRzQ5R0RIX240cWdIOFROVUVIV01oZWZxQjJXcWFDQzl5NHhpTW9hWUhfTFM1Ymd5c3E1TTAyY1hNby1NS3d3WVFRTXdqd2hBNkV6bTMtLUZmelJaTmRLRWdiRWRxZG5xbXVJVWYzd1pMQndjWEhrd1BvSDhLaUFIajNLLVRWb3ZYZGhKZVc2d09Mb09OaU9YYmlaSVpITGVJOEh4YUZjdw?oc=5",
+          "source": "OneFootball",
+          "published": "2026-11-19"
+        },
+        {
+          "title": "With Kompany and momentum against Köln",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPcGFfUkRDR040QnBISUtZck9nRm8tZTZicFhyVnNvSWVkX1RwYmxqVmU1dXdMbkZGS3lJNjhXTVJfdkFLaTVNVlYyS0YtdGNLcjlNcGxFbjZXc1RPd183VE1FdV9GZGFxTFI4VzJZM0hLYU85NG1YNnpSY2NMM3g0NnpFZXB0TGx6U0txVmt4YnkxbTJOTmY1eHExRQ?oc=5",
+          "source": "FC Bayern",
           "published": "2026-11-19"
         },
         {
@@ -5702,21 +5722,15 @@
           "published": "2026-11-19"
         },
         {
-          "title": "Kompany reflects on defining experience during absence from Bayern Munich",
-          "url": "https://news.google.com/rss/articles/CBMikgJBVV95cUxQLTRna0xTcFdOckwzUlJvVlBXTnNSQWFNeXBuVFdGbnNfMG8xZGtsSnppUU10SEw3UnB6eXpKOGc3Z2RSTFBoeVFXNFByMGFURkMyZnZrYmZoS0F3bzJldy1WWmgtb0wtS3NZRzc3ZVExbFN2bnh2dnh1SEJ0bkNCallJUUp3YTA4b1VuZW02Z1dJa2c2MUNzdmMtOTlaTU91TFBIRDhPRUpya1JWSWIyRURFeXlfS0NEMks4SEFNTjU2OWtqLUl2UVRuXzdMY2U5bnc0cnhRTkRmRUVnNEZ5b09qV3NJbE5CekRrYlZZa29vQm5ONzFGYXRHV3ZTdjJxOGJPWl92NXNqQlJfNnVqSVRR?oc=5",
-          "source": "Goal.com",
+          "title": "Several clubs interested in Bayern Munich’s Kim Min-jae",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNZEZnSDNwc0dwMmJoYjEwcDFsdndxcm45ZWZYWlE0c05JdVFhUjFZclhPMC1mVEhYbFpqWEEzX1B4cWt5ZG9jWXlwbk5BbjNIVXZ0dXdfNW44VjludFNXckI0M0kweS0zdUlwZ1p4ZlNvRkhBVmZPWTdFcUFfVU1vU2JRUGpJZFEzb2ltb0hkVjJOOXZIN0NJSWlub05CRmpaWV9RVjlRU1E4Q205X3BaYmlGYkR4bVBTYkdIUGhHRzFlWUI5U0pZa0gzbnNtOTg?oc=5",
+          "source": "Bavarian Football Works",
           "published": "2026-11-19"
         },
         {
-          "title": "Will Loris Karius join Bayern Munich? Schalke chief speaks plainly",
-          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPbWRZOTlodElzWC1XaVl1TGJRd3owN2t3emtpTTlFTzBlSHY0UnBpTU5CM2VLT0dUQ2lkd0lnajI4eGtkeWR1VzEtZmw3aVVySTNsZHJXanV4bHVES3RoSU8yWDh5aHEtOFdlaC10YXVMVnZ0cl9RVU1QSXR6NkhQa1pTVWJ1a2xiWHl6b3VOYlgtNUFCNWZWTmtJT2xSZlkzd08zZ3JhNFBpWnprNE50ZGFlcHZaYUtTQUxEaUxlTlZBZWdIbjdwUEtn?oc=5",
-          "source": "Goal.com",
-          "published": "2026-11-19"
-        },
-        {
-          "title": "Video: Press conference ahead of Köln clash",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNZFkyRE9uRTZ5d3oxYTNZakc5MHV2eW1mSUVhNXFNOGszbTNPV1h6amM0ajBoT1RLdGtpaHVTaFE3b21sU3lvUkkwaWFmUlkxTnBEMmtxa2JoOXZnVC1NYk8tX09GOEo1Y2ozM3JrOHcyZExCa2swaU1UVnZ4RVFtSzZDdkFtRHBjS3pMRy1qYnNYb19oTm5sY2Y3TQ?oc=5",
-          "source": "FC Bayern",
+          "title": "Kompany ringrazia i medici del Bayern ed esalta la gara con l'Atlético",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOcldkTnFTUGp6SHBfcC1mOUZsT0k2S3J2YS03U2hDREw3MXpJYmdvM296QVltaldQcWtVeTR1SlBtOXowRUlVcHFsN1dLOXRNbWhFamxoVDFicmVMbnNtOWJsa2RmY3BYWXBxX2Z3RjQwV2p3NlY1dG96WFlNYW5uVHg5emRHNFc5MHlXRHo1Q19ldFFJckV1RmFVM2xRZGFkUm96VUdPbWNZNHBiYWxCdw?oc=5",
+          "source": "OneFootball",
           "published": "2026-11-19"
         }
       ]
@@ -9669,33 +9683,33 @@
           "published": "2026-11-19"
         },
         {
-          "title": "Kompany thankful for support during illness but wants to shift focus back to football",
-          "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQdThrMVlBVlF3WDVzRlZIb3hzV25BMHhnS3VQa19aWG1wVURJMEVxNXk3MGdadEtZcWFsYTloQjBtanVTc2NWOWFJSnhoanV5NkNsM0lXZ3FjSkxvUmRJbG5CUXZBdzRMcHVNZm5yRW9mblh1X2ZpOF9DRkNkZ294STFwb0ZPMVpDR1Q5M1lYanpSbjljUFpCNFJabXlUNm9RcVVOMUE3MnE3VEdLN1NzRkJzM1hvTkM0YnBGclBNOFZSMk4yUXN5UjI1bjFYNGNIMWcyMEF3Y0V0RC02Y3c?oc=5",
-          "source": "Flashscore.com",
+          "title": "FC Bayern Munich vs. 1. FC Köln preview: Kompany returns as Rekordmeister meet inaugural Bundesliga champions",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxObC0tZFlzT2xlOHRld2NfM3NndWRiZVRLcGdCck1VUzFLT29fZi16dmh0b0pmWmNpYnNHemZWMjNOQkJiWEhLUEtGZVZZTFNmazl1dzRrRTBPZWFOeGpmZ3gta3VVakJiU2tPV2xjRWhsR2lIbVFGS214UDZ4cjY1RVhsRmxhR2tYWnpZZVhvY2s1SlFQbGJVZllCeF9yLXJlOG5IaTZZazdlbmpKaVN6UmxPRzB3QQ?oc=5",
+          "source": "Bulinews",
           "published": "2026-11-19"
         },
         {
-          "title": "Dreesen expects Musiala to return for Bayern’s clash with Koln",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOOVpzSDVQUzE0U29wb25aX25kcG9jN0luVzdfVDU1elB1WGhTT2Q5Y0piZUtJdFd2Z08tRXhQOVh1RDE5VXVDUWRfSk5GMkVmN0NGNmNWdzlfYktpUFI3MnRKdU53WkpJYlVJRS03S3R4b09RbXhjQS1GQlU5ejVoNGZQbHB3YWMwYTJLMUFNbE1rb0ltd0hTWGo4MFB6UWhxRFdUTGZZdzDSAagBQVVfeXFMTjlac0g1UFMxNFNvcG9uWl9uZHBvYzdJblc3X1Q1NXpQdVhoU09kOWNKYmVLSXRXdmdPLUV4UDlYdUQxOVV1Q1FkX0pORjJFZjdDRjZjVnc5X2JLaVBSNzJ0SnVOd1pKSWJVSUUtN0t0eG9PUW14Y0EtRkJVOXo1aDRmUGxwd2FjMGEySzFBTWxNa29JbXdIU1hqODBQelFocURXVExmWXcw?oc=5",
-          "source": "Tribuna.com",
+          "title": "Bayern Munich vs FC Koln Prediction, Betting Tips, Lineups & Odds | 20 Nov 2026",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQa1RQU3UzbXJXLWQ0NENtUnE3UDVIaUlFVUtwWG5zelRLQnR4ZEJ5VEw1akZBcXVzQUFwMDQ1SXNsRUpSY1llU2ZCSjlSRi1QS1U4eGI2WlJNelIyODN1ZWZieXFzSS13UkF2eWxmbF9YTkltbXdMT18tR3Bybk0ySlZrZXpPQm5LN0kyMTJablo5Y29DREphZFNDSDNialI4cDlpbk85RlpXSXdyNTRHOTRR?oc=5",
+          "source": "Sportsgambler",
           "published": "2026-11-19"
         },
         {
-          "title": "Bayern Munich vs. FC Köln - Live Score - November 20, 2026",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNd0dpZjRndVJZQUJ3YmU4RGZsMDQzVkZHbUZxVHlCX0xSVjM1Wm5qdmxiZDlIN1dZX2l1RVZ2dTdLcGktSVp4WXJIdTMyQ2ZlMk1ZSzctOTE4WkVkVDJDb3J6T2Z4VEp4U0MwR3A0cTl5aWRGcGU4TmhtV2d5d2NkcHJwalcwVkx6c0VGLUtXNkhXR2h3WHpkRUhZV3hCVlY5V1VV?oc=5",
-          "source": "FOX Sports",
-          "published": "2026-11-19"
-        },
-        {
-          "title": "Video: Press conference ahead of Köln clash",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNZFkyRE9uRTZ5d3oxYTNZakc5MHV2eW1mSUVhNXFNOGszbTNPV1h6amM0ajBoT1RLdGtpaHVTaFE3b21sU3lvUkkwaWFmUlkxTnBEMmtxa2JoOXZnVC1NYk8tX09GOEo1Y2ozM3JrOHcyZExCa2swaU1UVnZ4RVFtSzZDdkFtRHBjS3pMRy1qYnNYb19oTm5sY2Y3TQ?oc=5",
-          "source": "FC Bayern",
+          "title": "Kompany provides positive injury updates on Musiala and Diaz ahead of Bayern’s Köln clash",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOclloMFpCZEVWY0NpYk1NV3d2NGw0ejh5Mjd5QlE0bVJtdVJtbGdVZkNzOFRlOEc5SVVFV3RPRDlTYmNOX2FKR3FXYXpZTFYzMmI0RnZ5UHJFNHFleWllamdERmVhdktpZE15WUYxODlvX1ZZNURiZFlqaERUMVVldnVsQnBWN3YxM05DOFB3bFJkRmZOSklfYjN3LTVsUk9KVy1Jbg?oc=5",
+          "source": "Bulinews",
           "published": "2026-11-19"
         },
         {
           "title": "FC Bayern München - 1. FC Köln betting tip & best odds | 20.11.2026",
           "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNcDZRYmtzSFpZODBqMEZLWEhkVURIVUNlX0tlQy1RcEFaZ0hid2VKYVNGZ0JPcDdMRVNUYnpFY1h3NjJuYTZGQlc1WXdNNURLMWlNVVo0MWkyVEJadHJuWmZOMUtpemdCd2FOamFvLWZXNnRfUUZYZW1ObHVEbHFDOHR0aWp1NGJlam9ZR1VZNUcyd29lenBvQ0g0czRUUQ?oc=5",
           "source": "Futbol24",
+          "published": "2026-11-19"
+        },
+        {
+          "title": "With Kompany and momentum against Köln",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPcGFfUkRDR040QnBISUtZck9nRm8tZTZicFhyVnNvSWVkX1RwYmxqVmU1dXdMbkZGS3lJNjhXTVJfdkFLaTVNVlYyS0YtdGNLcjlNcGxFbjZXc1RPd183VE1FdV9GZGFxTFI4VzJZM0hLYU85NG1YNnpSY2NMM3g0NnpFZXB0TGx6U0txVmt4YnkxbTJOTmY1eHExRQ?oc=5",
+          "source": "FC Bayern",
           "published": "2026-11-19"
         }
       ]
@@ -10001,5 +10015,109 @@
       "fact": "Leon Goretzka a plecat liber de contract la Aston Villa, iar João Palhinha a fost vândut la Benfica pentru 14 milioane de euro (plus bonusuri, până la 19 milioane) — după ce fusese cumpărat cu aproape 50 de milioane de la Fulham.",
       "source": "presă germană/portugheză, august 2026"
     }
-  ]
+  ],
+  "refresh": {
+    "at": "2026-11-19T20:29:14.020Z",
+    "window": "24h",
+    "done": [
+      "24h"
+    ],
+    "changes": [
+      {
+        "at": "2026-11-19T20:29:14.020Z",
+        "kind": "referee-stats",
+        "text": "Statistici arbitru (Robin Braun, Bundesliga, acest sezon): 3 meciuri, 3.3 galbene/meci, 2 roșii, 0 penalty-uri"
+      },
+      {
+        "at": "2026-11-19T20:29:14.020Z",
+        "kind": "absence",
+        "side": "home",
+        "text": "M. Neuer — accidentat (Foot Injury)"
+      },
+      {
+        "at": "2026-11-19T20:29:14.020Z",
+        "kind": "absence-cleared",
+        "side": "home",
+        "text": "J. Musiala nu mai apare ca indisponibil la API-Football (rămâne în pachet până verifici)"
+      },
+      {
+        "at": "2026-11-19T20:29:14.020Z",
+        "kind": "absence-cleared",
+        "side": "away",
+        "text": "R. Ache nu mai apare ca indisponibil la API-Football (rămâne în pachet până verifici)"
+      },
+      {
+        "at": "2026-11-19T20:29:14.020Z",
+        "kind": "news",
+        "side": "home",
+        "text": "Confirmed UEFA Women's Champions League Lineups: FK Austria Wien vs. FC Bayern",
+        "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPMURvODBRVFlVdHB2eDMwSElNVEg1UWc2TGFwOEpldXNNU21OM2VCTHlZSnpaVXljSThTbXRuVjZva05BRlJNc1N4c2NBb0lIcXRLTTZicVR1cUVBNndzMW1CT0pSRVhzc242YWEtX01wMEc4Y2RNVlB5MndpSFhsWVFPOU1wMWJpdVZ2V2RuYi0?oc=5",
+        "source": "Yahoo Sports",
+        "published": "2026-11-19"
+      },
+      {
+        "at": "2026-11-19T20:29:14.020Z",
+        "kind": "news",
+        "side": "home",
+        "text": "How Bayern Munich and Lennart Karl overcame public disagreements",
+        "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQM2N6Z3Q1R3NsTk91MEpXQzZKbEE1UHItVHZINkpmNldtV296OGViRmVRc3FYUDFORDA0Rnh3UzlBeHlaLWtlU0Z3ZXVvWFY4LTgwUWJhLTFmR1pNMnh5aDBJUGx4WVVkYzlscHhtS1lZNU84YVZzYS13aXdjVUh6bEl4aFkxS2hmbldFZWJERWlZLTh1VEo4UHRWUlV3TE1HdC14N0JJOUJKWm9laXJRcDRfdW1FSXl5VWhFZTZyTUc0bC1nanFOemZqQzdXRzQ?oc=5",
+        "source": "Bavarian Football Works",
+        "published": "2026-11-19"
+      },
+      {
+        "at": "2026-11-19T20:29:14.020Z",
+        "kind": "news",
+        "side": "home",
+        "text": "Kompany thanks Bayern medical staff and hails Atletico display",
+        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQRzQ5R0RIX240cWdIOFROVUVIV01oZWZxQjJXcWFDQzl5NHhpTW9hWUhfTFM1Ymd5c3E1TTAyY1hNby1NS3d3WVFRTXdqd2hBNkV6bTMtLUZmelJaTmRLRWdiRWRxZG5xbXVJVWYzd1pMQndjWEhrd1BvSDhLaUFIajNLLVRWb3ZYZGhKZVc2d09Mb09OaU9YYmlaSVpITGVJOEh4YUZjdw?oc=5",
+        "source": "OneFootball",
+        "published": "2026-11-19"
+      },
+      {
+        "at": "2026-11-19T20:29:14.020Z",
+        "kind": "news",
+        "side": "home",
+        "text": "With Kompany and momentum against Köln",
+        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPcGFfUkRDR040QnBISUtZck9nRm8tZTZicFhyVnNvSWVkX1RwYmxqVmU1dXdMbkZGS3lJNjhXTVJfdkFLaTVNVlYyS0YtdGNLcjlNcGxFbjZXc1RPd183VE1FdV9GZGFxTFI4VzJZM0hLYU85NG1YNnpSY2NMM3g0NnpFZXB0TGx6U0txVmt4YnkxbTJOTmY1eHExRQ?oc=5",
+        "source": "FC Bayern",
+        "published": "2026-11-19"
+      },
+      {
+        "at": "2026-11-19T20:29:14.020Z",
+        "kind": "news",
+        "side": "away",
+        "text": "FC Bayern Munich vs. 1. FC Köln preview: Kompany returns as Rekordmeister meet inaugural Bundesliga champions",
+        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxObC0tZFlzT2xlOHRld2NfM3NndWRiZVRLcGdCck1VUzFLT29fZi16dmh0b0pmWmNpYnNHemZWMjNOQkJiWEhLUEtGZVZZTFNmazl1dzRrRTBPZWFOeGpmZ3gta3VVakJiU2tPV2xjRWhsR2lIbVFGS214UDZ4cjY1RVhsRmxhR2tYWnpZZVhvY2s1SlFQbGJVZllCeF9yLXJlOG5IaTZZazdlbmpKaVN6UmxPRzB3QQ?oc=5",
+        "source": "Bulinews",
+        "published": "2026-11-19"
+      },
+      {
+        "at": "2026-11-19T20:29:14.020Z",
+        "kind": "news",
+        "side": "away",
+        "text": "Bayern Munich vs FC Koln Prediction, Betting Tips, Lineups & Odds | 20 Nov 2026",
+        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQa1RQU3UzbXJXLWQ0NENtUnE3UDVIaUlFVUtwWG5zelRLQnR4ZEJ5VEw1akZBcXVzQUFwMDQ1SXNsRUpSY1llU2ZCSjlSRi1QS1U4eGI2WlJNelIyODN1ZWZieXFzSS13UkF2eWxmbF9YTkltbXdMT18tR3Bybk0ySlZrZXpPQm5LN0kyMTJablo5Y29DREphZFNDSDNialI4cDlpbk85RlpXSXdyNTRHOTRR?oc=5",
+        "source": "Sportsgambler",
+        "published": "2026-11-19"
+      },
+      {
+        "at": "2026-11-19T20:29:14.020Z",
+        "kind": "news",
+        "side": "away",
+        "text": "Kompany provides positive injury updates on Musiala and Diaz ahead of Bayern’s Köln clash",
+        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOclloMFpCZEVWY0NpYk1NV3d2NGw0ejh5Mjd5QlE0bVJtdVJtbGdVZkNzOFRlOEc5SVVFV3RPRDlTYmNOX2FKR3FXYXpZTFYzMmI0RnZ5UHJFNHFleWllamdERmVhdktpZE15WUYxODlvX1ZZNURiZFlqaERUMVVldnVsQnBWN3YxM05DOFB3bFJkRmZOSklfYjN3LTVsUk9KVy1Jbg?oc=5",
+        "source": "Bulinews",
+        "published": "2026-11-19"
+      },
+      {
+        "at": "2026-11-19T20:29:14.020Z",
+        "kind": "news",
+        "side": "away",
+        "text": "With Kompany and momentum against Köln",
+        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPcGFfUkRDR040QnBISUtZck9nRm8tZTZicFhyVnNvSWVkX1RwYmxqVmU1dXdMbkZGS3lJNjhXTVJfdkFLaTVNVlYyS0YtdGNLcjlNcGxFbjZXc1RPd183VE1FdV9GZGFxTFI4VzJZM0hLYU85NG1YNnpSY2NMM3g0NnpFZXB0TGx6U0txVmt4YnkxbTJOTmY1eHExRQ?oc=5",
+        "source": "FC Bayern",
+        "published": "2026-11-19"
+      }
+    ]
+  }
 }
