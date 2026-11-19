@@ -22,6 +22,9 @@ import { readFileSync, appendFileSync, existsSync } from 'node:fs';
 
 // `comp` is fixtures.json's `comp` text. The order only breaks ties between leagues that are equally far behind.
 export const LEAGUES = ['Ligue 1', 'Premier League', 'Superliga', 'Serie A', 'LaLiga', 'Bundesliga', 'UEFA Nations League'];
+// Priority tiers (the commentator's call, Nov 2026): the first tier is built completely before any slot goes to the
+// next one — urgent matches of a later tier included. Later tiers only get the slots the first one leaves free.
+export const TIERS = [['Superliga', 'Premier League', 'Ligue 1'], ['Serie A', 'LaLiga', 'Bundesliga', 'UEFA Nations League']];
 // National-team competitions are played in international windows (Thursday..Tuesday), not on the club weekend: their
 // matches are prepared from the next INTERNATIONAL_DAYS days instead of Friday..Monday.
 const NATIONAL = new Set(['UEFA Nations League']);
@@ -94,6 +97,16 @@ export function pick(queues, totals, perRun, leagues = LEAGUES, now = Date.now()
   return picked;
 }
 
+// pick() tier by tier: a later tier only fills the slots the earlier ones leave empty.
+export function pickTiered(queues, totals, perRun, tiers = TIERS, now = Date.now(), urgentMs = URGENT_MS) {
+  const picked = [];
+  for (const tier of tiers) {
+    if (picked.length >= perRun) break;
+    picked.push(...pick(queues, totals, perRun - picked.length, tier, now, urgentMs));
+  }
+  return picked;
+}
+
 async function main() {
   const today = process.env.TODAY || ymd(new Date());   // TODAY=YYYY-MM-DD: dry run for another day
   const { from, to } = weekendWindow(today);
@@ -119,8 +132,10 @@ async function main() {
   }
   for (const l of LEAGUES) queues[l].sort((a, b) => String(a.kickoff).localeCompare(String(b.kickoff)));
 
-  const picked = pick(queues, totals, PER_RUN);
+  const picked = pickTiered(queues, totals, PER_RUN);
   const left = LEAGUES.reduce((n, l) => n + queues[l].length, 0) - picked.length;
+  const tierLeft = TIERS.map((t) => t.reduce((n, l) => n + queues[l].filter((m) => !picked.includes(m.slug)).length, 0));
+  console.log(`Still queued per priority tier after this run: ${TIERS.map((t, i) => `${t.join('/')} ${tierLeft[i]}`).join(' | ')}`);
   console.log(`Club weekend ${from}..${to}, national teams ${windows["UEFA Nations League"].from}..${windows["UEFA Nations League"].to}: ${weekendTotal} matches in ${LEAGUES.join(" / ")}, ${alreadyDeep} already deep, ${picked.length} picked now, ${left} still queued after this run.`);
   output('slugs', JSON.stringify(picked));
 }

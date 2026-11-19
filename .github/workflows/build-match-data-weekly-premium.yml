@@ -5,7 +5,8 @@ name: Build Match Data (Weekly premium)
 # that is furthest behind — Ligue 1, Premier League, SuperLiga, Serie A, LaLiga,
 # Bundesliga (Friday..Monday weekend, from Wednesday) and the UEFA Nations League
 # (the next 5 days of an international window) — until all of them are premium. See
-# scripts/pick-weekly-premium.mjs for the exact queue rules. Once the queue is
+# scripts/pick-weekly-premium.mjs for the exact queue rules. Priority (Nov 2026): SuperLiga, Premier
+# League and Ligue 1 are built first; the other competitions only get slots they leave free. Once the queue is
 # empty a run is a no-op, so the surplus slots cost nothing.
 #
 # Budget: a deep build is ~2-4 % of the Claude Pro weekly window and all of

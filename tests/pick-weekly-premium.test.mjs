@@ -1,6 +1,6 @@
 // Run: node tests/pick-weekly-premium.test.mjs
 import assert from 'node:assert/strict';
-import { LEAGUES, pick, windowFor } from '../scripts/pick-weekly-premium.mjs';
+import { LEAGUES, TIERS, pick, pickTiered, windowFor } from '../scripts/pick-weekly-premium.mjs';
 
 const mk = (l, n) => Array.from({ length: n }, (_, i) => ({ slug: `${l}-${i + 1}` }));   // soonest first
 const queues = (counts) => Object.fromEntries(LEAGUES.map((l) => [l, mk(l, counts[l] ?? 0)]));
@@ -78,4 +78,25 @@ t('a match kicking off soon is built before league balancing, soonest first', ()
   assert.equal(new Set(p).size, 3);
 });
 
+
+t('priority tiers: Liga 1 / PL / Ligue 1 first, the other leagues only fill free slots', () => {
+  assert.deepEqual(TIERS.flat().slice().sort(), LEAGUES.slice().sort(), 'every league is in exactly one tier');
+  const c = Object.fromEntries(LEAGUES.map((l) => [l, 9]));
+  const p = pickTiered(queues(c), totals(c), 3);
+  assert.ok(p.every((s) => /^(Superliga|Premier League|Ligue 1)-/.test(s)), p.join(', '));
+  const c2 = { Superliga: 1, 'Premier League': 0, 'Ligue 1': 0, 'Serie A': 5, LaLiga: 5 };
+  const p2 = pickTiered(queues(c2), totals(c2), 3);
+  assert.equal(p2[0], 'Superliga-1');
+  assert.equal(p2.length, 3);
+});
+
+t('an urgent match of a later tier does not jump ahead of the first tier', () => {
+  const now = Date.parse('2026-11-20T12:00:00Z');
+  const q = queues({});
+  q['Serie A'] = [{ slug: 'sa-tonight', kickoff: '2026-11-20T19:45:00Z' }];
+  q.Superliga = [{ slug: 'sl-sunday', kickoff: '2026-11-22T17:00:00Z' }];
+  const tot = totals({ 'Serie A': 1, Superliga: 1 });
+  assert.deepEqual(pickTiered(q, tot, 1, TIERS, now), ['sl-sunday']);
+  assert.deepEqual(pickTiered(q, tot, 2, TIERS, now), ['sl-sunday', 'sa-tonight']);
+});
 console.log(n + ' tests passed');
