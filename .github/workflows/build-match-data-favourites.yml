@@ -14,8 +14,11 @@ jobs:
     outputs:
       slugs: ${{ steps.pick.outputs.slugs }}
     steps:
+      # The tip of main, not the commit this run was queued on: a run that waited in the concurrency queue
+      # behind another build would otherwise pick the matches that build has just finished and redo them.
       - uses: actions/checkout@v6
         with:
+          ref: main
           fetch-depth: 1
 
       - name: Find favourited matches that still need the deep pass
