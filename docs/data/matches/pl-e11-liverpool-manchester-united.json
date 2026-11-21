@@ -140,7 +140,7 @@
     "age": null,
     "apps": 65,
     "ycPerMatch": 3.6,
-    "rcPerMatch": null,
+    "rcPerMatch": 0,
     "history": "A arbitrat deja 2 meciuri de acasă ale lui Liverpool în acest sezon de Premier League, iar cel de duminică e al treilea pe Anfield din cele 6 meciuri de Premier League pe care le-a condus până acum. În cele 65 de meciuri de Premier League arbitrate în carieră, comisia de analiză a oficialilor a identificat 14 decizii greșite, printre care un penalty acordat eronat lui Nottingham Forest contra lui Liverpool și un cartonaș roșu omis lui James Tarkowski (Everton), tot într-un meci cu Liverpool.",
     "funfacts": [
       "A început să arbitreze la 15 ani, după o accidentare care i-a curmat cariera de jucător la echipa de tineret a clubului Halifax Town.",
@@ -149,7 +149,23 @@
       "A arbitrat finala play-off-ului din EFL League One din 2024, dintre Bolton Wanderers și Oxford United.",
       "A fost promovat în Select Group la începutul sezonului 2024–2025, după ce în sezonul precedent arbitrase 15 meciuri de Premier League în Select Group 2.",
       "În decembrie 2024 a fost inclus pe lista FIFA a arbitrilor internaționali, luându-i locul lui Craig Pawson."
-    ]
+    ],
+    "season": {
+      "comp": "Premier League",
+      "matches": 7,
+      "yellow": 23,
+      "red": 0,
+      "penalties": 2,
+      "withTeams": [
+        {
+          "team": "Liverpool",
+          "matches": 2,
+          "w": 1,
+          "d": 1,
+          "l": 0
+        }
+      ]
+    }
   },
   "h2h": {
     "recent": [
@@ -5872,6 +5888,18 @@
           "reason": "injury",
           "detail": "Leziune osoasă și de ligamente la genunchiul stâng, suferită pe 8 ianuarie 2026 la Arsenal, urmată de operație; presa a sugerat că revenirea s-ar putea prelungi până în 2027.",
           "since": "2026-01-08"
+        },
+        {
+          "name": "H. Ekitike",
+          "reason": "injury",
+          "detail": "Achilles Tendon Injury",
+          "since": "2026-11-22"
+        },
+        {
+          "name": "A. Nallo",
+          "reason": "injury",
+          "detail": "Leg Injury",
+          "since": "2026-11-22"
         }
       ],
       "mercatoIn": [
@@ -6082,6 +6110,12 @@
       ],
       "newsCandidates": [
         {
+          "title": "Liverpool keeper Keating holds leaders Chelsea at bay in scoreless WSL draw",
+          "url": "https://www.theguardian.com/football/2026/nov/21/liverpool-chelsea-london-city-lionesses-crystal-palace-wsl",
+          "source": "The Guardian",
+          "published": "2026-11-21"
+        },
+        {
           "title": "Mauricio Pochettino built £157m Premier League phenomenon with win at Liverpool",
           "url": "https://talksport.com/football/4721767/mauricio-pochettino-liverpool-anfield-southampton-man-united/",
           "source": "talkSPORT",
@@ -6094,38 +6128,32 @@
           "published": "2026-11-21"
         },
         {
+          "title": "Liverpool 0-0 Chelsea, Women’s Super League: Post-match reaction",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOMkRzd3lHdkNnSFlhMm1RV08wWTNNdWh4c0VucGUxRTZrX1ZIcFlScm82cWk0d2VTMElwZkFlODhqWWhfZUdiWXVHNFY2UHVoS3laVlozU3FPbFZnSlM4R2Zrc1ZzTlA1TkFQR0NOY2NpU3p2VVRfR0FfeWZTWUJRaHRR?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-11-21"
+        },
+        {
+          "title": "Are Man Utd at a lower point than at any moment of Liverpool’s 30-year title drought? - The Athletic",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOYVZFTVE4NGdsd1dzMENwZS1qNF82UVNoUnRDeG91VHJkR3FXZXpUTXdabnQyMU1pSlpTN3BwTm40ZEZiMFYwQk9hS1F4OENnQ2JaTDQxQ0dFQ1JXNURNQ2EtNnNfYTdMbWFyOF8wUU5xbHpfWEFmdHo1WWVVcFE4OFFwZ05MNm5kWEtCTlZ6LVRjdDJqck5Pcw?oc=5",
+          "source": "The New York Times",
+          "published": "2026-11-21"
+        },
+        {
+          "title": "'We know what this game means' - Virgil van Dijk previews Liverpool v Man Utd",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSEQxX1dDOS11UGZ0WGtONmpmbHNzT0ZfUktMWjRjMXV4dDA0ZkdfUEEzVDB1MmstUUV3eENtWWVlU08tTHJ1WHY0Tl9YNW9xbEthdlhfU0RTbDdQNlBCM3NHdjM4ZkNEQXloSlktcFFOV25zY2N4N3ZnM0NLR25Cc0xsS3Y0Z0I2YTNKZlNzQXI1eTFrbS1ERHdCbl8tcHB0bXVORl95VVVuMEhNanpLWGo2aGg?oc=5",
+          "source": "Liverpool FC",
+          "published": "2026-11-21"
+        },
+        {
           "title": "Liverpool vs. Chelsea, Women’s Super League: Confirmed lineups; how to watch",
           "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNT2xfT0IyTE5TckxycEhlWWxwUG5Qd2VaOHZnVmVNcFkyVlFQdjZENGM4YWJaMXVFMU0yUnlrb3pMZUN0cnU4Z3g0X3FfQWFOc1Y3YTFudDRvbUdYMWN3RTZMeXBMVEJTdFNIT28zWkZaa21XVHI4a0VhckpBOUhjaTJ1X3ZPNVd5?oc=5",
           "source": "Yahoo Sports",
           "published": "2026-11-21"
         },
         {
-          "title": "Liverpool vs Chelsea LIVE! WSL match updates, score, stream and free highlights",
-          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQNkU4bHNoNkRWVDRNMV9MRF9xOVFkR0swdWxPb0ZPM3NLQkV0b3c1NklYZUhYY2tudEplemFPOWk5SDM0eThVQWpjdVpVVDU3d0hJcE5XdDVOR05OWWdlY1k4QXk2ckRKTnM2RjlKVjFOeFl6Y2Zmd0FDd1FVS1JyOV9uNTZab01lM3dCNXczTF9sWEdUM0NjQ1o5ME9YaHJsbkVIZG5mTGVYb2JPYS15czZSVC1zelhPaEZCcEo5RmJqdV9sbXVRTWRR?oc=5",
-          "source": "Sky Sports",
-          "published": "2026-11-21"
-        },
-        {
-          "title": "Liverpool FC joins Bigg Boss 20 ‘Professor’ meme trend; watch viral reel",
-          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQd0NiUWpOdjJjblZhUDh5WmN4R19MQVFnWmY1ZHhYaFNVZzhadGpEb0R0WkROTC03MVYxdURDNEJlNzBpX2lCT0tsRERLdTY2VVJpMi1GSldFbW8tRXVQSW1NZGc3Q1FVSFE2bll3cldKeHZuZmdoU1lmV2R2REhMdXQwYmVpaUhybW9ZdnNSYXl5TV9tTjJhRnZqYTZhNWZqUGhDYVdJZWdUVmItN3BSRlhrYnFBTm5Wc1Z0Y2J0NExEYmc4akttcmJJQVRnNjNkNkZBWm9FQdIB3gFBVV95cUxNTk4zSXo3QlVOSVhWV1puTGo4OUViejZTcmVFbEk3OElaNl9tN1lpSjFBeDhOX2pLZTRvbm1acjV5Z0s1UVROMVY1a1JTRlZiVVBPMmFvUkp3ZVMtUFdvai15OFV3cXF1b2x5WHJPWS1qdndsU2FyYk42eVl1UnlZMktCcVZJNHlWZVpIVXZhLVRNVTdYUzhnVmxvY1hNNzlGLWhUT0dpT0tCRGExOFhYY3FydGg0aGc4RFlWdzRXeUZ5WHg2UWtfMjZQaGVsRUlYbG1yYjZSMDU1ZFZKMlE?oc=5",
-          "source": "The Indian Express",
-          "published": "2026-11-21"
-        },
-        {
-          "title": "Hugo Ekitike injury update",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9ENGlxZ0pRVU1VdDlyRXhpV0tkWWI2UExBN1dkUi1LTVlURXQyOGpPWFdSMU01SjZBTUlZYkpGZ0F2VmF4TXV4RERhU0Q5N1NIYWkxLTIzNnBPaHprSGM2WWNjbzBnR2R1eWJLRDNNLTZ2Rk0wTlZV?oc=5",
-          "source": "Liverpool FC",
-          "published": "2026-11-21"
-        },
-        {
-          "title": "Team news: Confirmed Liverpool line-up against Chelsea in the WSL",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOZm8zNm5URW1kSGxqcW16eTNDVnhrbWk3anZBQktUWVhIQ3NzeVdvdzBGcy1kRWIweXQ2NzQ5TDhLWGY5WDBFQnN3UW1IeG9KU1Qtb1VhXzZHRHNabDQ2VDdZbEpTWGRDZzc3YzdGNGh0V0hlblRyVU91N3pOREhCellDUll1aHNBS0dSNWhBTXhEZ0kxcmgxRkRhT085QQ?oc=5",
-          "source": "Liverpool FC",
-          "published": "2026-11-21"
-        },
-        {
-          "title": "'We know what this game means' - Virgil van Dijk previews Liverpool v Man Utd",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSEQxX1dDOS11UGZ0WGtONmpmbHNzT0ZfUktMWjRjMXV4dDA0ZkdfUEEzVDB1MmstUUV3eENtWWVlU08tTHJ1WHY0Tl9YNW9xbEthdlhfU0RTbDdQNlBCM3NHdjM4ZkNEQXloSlktcFFOV25zY2N4N3ZnM0NLR25Cc0xsS3Y0Z0I2YTNKZlNzQXI1eTFrbS1ERHdCbl8tcHB0bXVORl95VVVuMEhNanpLWGo2aGg?oc=5",
+          "title": "U18s match report: Liverpool come back to claim 4-3 victory away at Stoke City",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQZ1RaWHNXMnZRcGJDMUJBTFI0VDBiTU1WT3Q2N1hKaWhScm9PX3JuMnljMFd5eTlnR2Y1YW5lTU10dE1GRGxuQzctWlE0MjdZdHE1Y2pnSWlMTlRBTkI4N1VFRTlkU2JLQ2FTNmpoejNTaWh2eUdFSXlJeWFoMzZTQg?oc=5",
           "source": "Liverpool FC",
           "published": "2026-11-21"
         }
@@ -6401,8 +6429,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Muscle Injury",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -6963,8 +6991,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Injury",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -7318,8 +7346,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Muscle Injury",
           "stats": {
             "goals": 0,
             "assists": 1,
@@ -7608,8 +7636,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Thigh Injury",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -8156,8 +8184,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Knee Injury",
           "stats": {
             "goals": 1,
             "assists": 0,
@@ -8443,8 +8471,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Injury",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -8605,8 +8633,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Hip Injury",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -10405,6 +10433,48 @@
           "reason": "injury",
           "detail": "n/d — API-Football îl listează indisponibil; a avut probleme recurente la genunchi/gambă în ultimul an.",
           "since": null
+        },
+        {
+          "name": "C. Baleba",
+          "reason": "injury",
+          "detail": "Thigh Injury",
+          "since": "2026-11-22"
+        },
+        {
+          "name": "M. Ugarte",
+          "reason": "injury",
+          "detail": "Knee Injury",
+          "since": "2026-11-22"
+        },
+        {
+          "name": "K. Darlow",
+          "reason": "injury",
+          "detail": "Muscle Injury",
+          "since": "2026-11-22"
+        },
+        {
+          "name": "A. Heaven",
+          "reason": "injury",
+          "detail": "Injury",
+          "since": "2026-11-22"
+        },
+        {
+          "name": "S. Lacey",
+          "reason": "injury",
+          "detail": "Injury",
+          "since": "2026-11-22"
+        },
+        {
+          "name": "M. Rashford",
+          "reason": "injury",
+          "detail": "Hip Injury",
+          "since": "2026-11-22"
+        },
+        {
+          "name": "L. Shaw",
+          "reason": "injury",
+          "detail": "Muscle Injury",
+          "since": "2026-11-22"
         }
       ],
       "mercatoIn": [
@@ -10596,8 +10666,14 @@
       ],
       "newsCandidates": [
         {
-          "title": "Liverpool v Manchester United: Predicted Lineup & Match Preview",
-          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQZVhjb0hVcUdIU2xram9RMS1WYkFYcXUzWTB6ZEdTcXdRMTVGdTdxVHE3UEJiakYzbHVBZWNNREMxREdyWUZDUzJPZGI4SWdyMXhFLW5TbC14Mk1raWZ3U2RSQ1BNNWNHdnFwcS16THRFRXNLQjl2UDRrSVN0WVJOSFo0SDdtYm5nOXZBeHBqNHhpQQ?oc=5",
+          "title": "Manchester United’s Mauricio Pochettino payment to U.S. Soccer detailed in financial update - The Athletic",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxObkYtdHJZWHp1MjNZZjdFa1A5QlByajdLaXlkMTZzSFNKNHp1Y0taV0RuekU5blRnaVBaQUgzaG0yU1o2aUFsWVBLS3FIQmk5TWhsN1FMcW1SOFNvRURjYTNKdmVhUDMwR3NyWmhOZkdWZTM2LXl2U010cURQcjltYTZNeXlwUnRBQ1JTbTkwWmZQbW9LVGxPUm9jQQ?oc=5",
+          "source": "The New York Times",
+          "published": "2026-11-21"
+        },
+        {
+          "title": "Berrada insists Manchester United signings made squad 'fundamentally better' despite relegation fight",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxORWpBaUFaZzJaQW9GWjZlOWMtSHRvOC1FUndBeHl1ZEZzS0tWN0ZKMFROeFMtQkFYQjVYTU44SV82d2NPcFpwSTd4MXhGY0FGZ2JxRHZRM2IxdU96RC1oN3F0UlVaZTdlTjN6bUhZNG9OVTR5eS1xLXFheUMtU2lYTG5vODdzSVZZVUxLZWpBT0xoZjFyMlE?oc=5",
           "source": "Yahoo Sports",
           "published": "2026-11-21"
         },
@@ -10608,38 +10684,32 @@
           "published": "2026-11-21"
         },
         {
-          "title": "Premier League schedule for 2026-27 season: Dates, how to watch live, details",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQTnl2b2VvRXpMeEFJTVQtWmMxWG92V3VfSHNqNlg4N0N2QUFkbjRnYU1iTmhCU0xaY21QN1Q2ZU4yUW82OVF5V0dnT0YyWnZWR1A5elVtODFWNk5iVnFnZTlYY2tPWHNFVTU3bXlXdVJwcG5nMGhVOUFkNXNTOWotRkw3ME5TbkE5aUJiekNVaTFJR0E?oc=5",
-          "source": "NBC Sports",
-          "published": "2026-11-21"
-        },
-        {
-          "title": "Can Mauricio Pochettino save Manchester United from Premier League drop?",
+          "title": "Manchester United: Can Mauricio Pochettino stop Premier League relegation?",
           "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQTEpUX0lwOW1QUHVIQzJIczhCenp6RlNNZHNnYWJwQWFTRHhjQzdnS0lzNHBPWUg4cG9KbE9OcEZmWjJ0eG9DQ2pLTVZ4TWZfeUFMTFJlNE9Na1d1R1laLUZ5YlIwUUxOZUx6MUdIYVR0OUU1aTBZNFRncmRqamZva3d0bkRpQ2FpMHV2UHZBZnE5Nk5DUXMwblNaS0tPaUVFQzhRdDNyYWzSAa4BQVVfeXFMTWRNTGhYdm54ZlkzcG9RSVRBN1cyd2NmUHBjeV9oV08xXzFXSmdNR2NyRnUyTUk5N2lIa1ZKUkFOalVzVlZGUEFlcGtsZWRHMGdNeHZOQnotMWk3QlNtUkh4VGpFN29iVHpmNnowVU81Tk9Tcy1HSnNOWnBiVHZiQ255ZmdUdVdfdE5ZZkUwT1JLRDBwNnNtbzlFY3lJRDFhNVp1RVIwMkJTcGtzalVn?oc=5",
           "source": "Al Jazeera",
           "published": "2026-11-21"
         },
         {
-          "title": "Milan considering move for Noussair Mazraoui amid Manchester United shakeup",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQVUl4RTRyaWN3WTFIODRtWnFrenMzTlVYVFFycGVlWHJ1aTVvVWhJa3N6cHFFQWlGREtBaTdJd1dRdUZpTWxJQnNtaGJiQ3NDVjc3LU43UXBxZzU5dmFrRjZULUZteGNJUTZDRTZDVzlBVGY1Mkp1Z0FQNGRYRmFMYzZ2VjA4YkdJRS13N2pQTnF3azQ?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-11-21"
-        },
-        {
-          "title": "Liverpool v Manchester United: Team news",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPVTZYQm5ZTjladXQ0cTRzUzRPNDNQUDJ5VW9jamlMYU1MenplVURDUjhYN0JtdkU2REQxWk5WNGZYZF9HMmtPb01mS3BnRkU0c3J5MVBaNlh3dVFTZ3BfQlVoNE44cXFxUmt4STZiSU5YVTBQS2NFbVU4eklJc3ZubHZzSjVMSUJEOEZ1blVFVHFMalYzZHl0V0NR?oc=5",
-          "source": "Liverpool FC",
-          "published": "2026-11-21"
-        },
-        {
-          "title": "Are Man Utd at a lower point than at any moment of Liverpool’s 30-year title drought?",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOYVZFTVE4NGdsd1dzMENwZS1qNF82UVNoUnRDeG91VHJkR3FXZXpUTXdabnQyMU1pSlpTN3BwTm40ZEZiMFYwQk9hS1F4OENnQ2JaTDQxQ0dFQ1JXNURNQ2EtNnNfYTdMbWFyOF8wUU5xbHpfWEFmdHo1WWVVcFE4OFFwZ05MNm5kWEtCTlZ6LVRjdDJqck5Pcw?oc=5",
+          "title": "Manchester United training drone footage removed after ‘judgement error’",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOMkJ4ZWl3eXo4S0hOeUJwNDFWNURpbEIwSm8xTE5HMWdTZDRVUDBZeC16cHBFcWJKUEFISWVaNkFpODBXanJ0dUd3ckwwYXhqeG1xYm1WTUJnM3VLZG9MX0JXbzltU0ZoWjB2cmlXVUU1YnFhaW5uREo3RXdrN2syZzVUU1lXWnZFZzZsdUJCSy1PejZJNEZMRTY1Q0NOWVdvNGVLWEdWNHE?oc=5",
           "source": "The New York Times",
           "published": "2026-11-21"
         },
         {
-          "title": "Mauricio Pochettino says Manchester United will ‘compete and win’ at Liverpool this Sunday",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQM3RhZXFpY1c3aEpGNncxM29lT294MzBaNWFFdnFMVk5Pcmo2MW5rb3BhUmRhRXRUTnM3QmtfTkNmTHllYlpzaHAyS2ZBZU1oN2x6RWhTbWl5ZXE0dDluMHluN0J6NzBjNnpjZktBWUZpWmNZTy1EWGwwc1d3Y1o2ZmlhNFVSWFVzdkJfTGZJYmlYUkVJNEE?oc=5",
+          "title": "Maguire signs new contract",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQVlVfNWdmMDFCY3YtUURNQ3BsT2pRNFBLWDJCUDZTVjl0V0FXZEtKTW9raHdxUmhtSjRtR3JZeUpGeDNiV0NpM0hXc0lwM3lULTg4MllCak0wODkyTHVXaFJTM3pyZU1pT282ZHJxUDV5RTl3WU82Z084NGFlSHZxbTVXSVlpN0tsYnl2NU1mOG5Zc3l1eWtDQ3k3NzY?oc=5",
+          "source": "Manchester United",
+          "published": "2026-11-21"
+        },
+        {
+          "title": "Man Utd XI vs Liverpool: Confirmed team news and predicted lineup",
+          "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPWUg0Ulg4ZE5LZFQxM01wSnUxWXpDbDIwUnZTMGZPQk9NSWpqc2NUM2lQbzZiMmg4X0E5Z2phSElmSzdJOHNTLURUU0xUT1FMdGFYekprRmxudGtxd215UDE1WEtEazJRZUtMYzZ4emRLenRCUldBM09TeUNKaGNQejZRVm5DSnhWWmJvSmt0bWQxOWEyMnBseXZOb01tejJHakJLZ2hIeGhPVGJ3Y3RQTFhNTmN1cDlmWmFlQXd4Q2xLVW1FYUVTeG1JR24wSDhzRHVBTkNQcTZkekloNGZnN0hjTTFWdjky?oc=5",
+          "source": "London Evening Standard",
+          "published": "2026-11-21"
+        },
+        {
+          "title": "Liverpool v Manchester United: Predicted Lineup & Match Preview",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQZVhjb0hVcUdIU2xram9RMS1WYkFYcXUzWTB6ZEdTcXdRMTVGdTdxVHE3UEJiakYzbHVBZWNNREMxREdyWUZDUzJPZGI4SWdyMXhFLW5TbC14Mk1raWZ3U2RSQ1BNNWNHdnFwcS16THRFRXNLQjl2UDRrSVN0WVJOSFo0SDdtYm5nOXZBeHBqNHhpQQ?oc=5",
           "source": "Yahoo Sports",
           "published": "2026-11-21"
         }
@@ -10975,5 +11045,145 @@
       "fact": "Liverpool l-a adus pe Bradley Barcola de la PSG pentru circa 124 de milioane de lire (sursele diferă în privința structurii exacte a sumei), al doilea cel mai mare transfer din istoria clubului, după cele 125 de milioane plătite lui Newcastle pentru Isak.",
       "source": "AFP / The National, august 2026"
     }
-  ]
+  ],
+  "refresh": {
+    "at": "2026-11-21T17:25:47.866Z",
+    "window": "24h",
+    "done": [
+      "24h"
+    ],
+    "changes": [
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "referee-stats",
+        "text": "Statistici arbitru (Sam Barrott, Premier League, acest sezon): 7 meciuri, 3.3 galbene/meci, 0 roșii, 2 penalty-uri"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "absence",
+        "side": "home",
+        "text": "H. Ekitike — accidentat (Achilles Tendon Injury)"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "absence",
+        "side": "home",
+        "text": "A. Nallo — accidentat (Leg Injury)"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "absence",
+        "side": "away",
+        "text": "C. Baleba — accidentat (Thigh Injury)"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "absence",
+        "side": "away",
+        "text": "M. Ugarte — accidentat (Knee Injury)"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "absence",
+        "side": "away",
+        "text": "K. Darlow — accidentat (Muscle Injury)"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "absence",
+        "side": "away",
+        "text": "A. Heaven — accidentat (Injury)"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "absence",
+        "side": "away",
+        "text": "S. Lacey — accidentat (Injury)"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "absence",
+        "side": "away",
+        "text": "M. Rashford — accidentat (Hip Injury)"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "absence",
+        "side": "away",
+        "text": "L. Shaw — accidentat (Muscle Injury)"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "news",
+        "side": "home",
+        "text": "Liverpool keeper Keating holds leaders Chelsea at bay in scoreless WSL draw",
+        "url": "https://www.theguardian.com/football/2026/nov/21/liverpool-chelsea-london-city-lionesses-crystal-palace-wsl",
+        "source": "The Guardian",
+        "published": "2026-11-21"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "news",
+        "side": "home",
+        "text": "Liverpool 0-0 Chelsea, Women’s Super League: Post-match reaction",
+        "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOMkRzd3lHdkNnSFlhMm1RV08wWTNNdWh4c0VucGUxRTZrX1ZIcFlScm82cWk0d2VTMElwZkFlODhqWWhfZUdiWXVHNFY2UHVoS3laVlozU3FPbFZnSlM4R2Zrc1ZzTlA1TkFQR0NOY2NpU3p2VVRfR0FfeWZTWUJRaHRR?oc=5",
+        "source": "Yahoo Sports",
+        "published": "2026-11-21"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "news",
+        "side": "home",
+        "text": "Are Man Utd at a lower point than at any moment of Liverpool’s 30-year title drought? - The Athletic",
+        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOYVZFTVE4NGdsd1dzMENwZS1qNF82UVNoUnRDeG91VHJkR3FXZXpUTXdabnQyMU1pSlpTN3BwTm40ZEZiMFYwQk9hS1F4OENnQ2JaTDQxQ0dFQ1JXNURNQ2EtNnNfYTdMbWFyOF8wUU5xbHpfWEFmdHo1WWVVcFE4OFFwZ05MNm5kWEtCTlZ6LVRjdDJqck5Pcw?oc=5",
+        "source": "The New York Times",
+        "published": "2026-11-21"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "news",
+        "side": "home",
+        "text": "U18s match report: Liverpool come back to claim 4-3 victory away at Stoke City",
+        "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQZ1RaWHNXMnZRcGJDMUJBTFI0VDBiTU1WT3Q2N1hKaWhScm9PX3JuMnljMFd5eTlnR2Y1YW5lTU10dE1GRGxuQzctWlE0MjdZdHE1Y2pnSWlMTlRBTkI4N1VFRTlkU2JLQ2FTNmpoejNTaWh2eUdFSXlJeWFoMzZTQg?oc=5",
+        "source": "Liverpool FC",
+        "published": "2026-11-21"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "news",
+        "side": "away",
+        "text": "Manchester United’s Mauricio Pochettino payment to U.S. Soccer detailed in financial update - The Athletic",
+        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxObkYtdHJZWHp1MjNZZjdFa1A5QlByajdLaXlkMTZzSFNKNHp1Y0taV0RuekU5blRnaVBaQUgzaG0yU1o2aUFsWVBLS3FIQmk5TWhsN1FMcW1SOFNvRURjYTNKdmVhUDMwR3NyWmhOZkdWZTM2LXl2U010cURQcjltYTZNeXlwUnRBQ1JTbTkwWmZQbW9LVGxPUm9jQQ?oc=5",
+        "source": "The New York Times",
+        "published": "2026-11-21"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "news",
+        "side": "away",
+        "text": "Berrada insists Manchester United signings made squad 'fundamentally better' despite relegation fight",
+        "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxORWpBaUFaZzJaQW9GWjZlOWMtSHRvOC1FUndBeHl1ZEZzS0tWN0ZKMFROeFMtQkFYQjVYTU44SV82d2NPcFpwSTd4MXhGY0FGZ2JxRHZRM2IxdU96RC1oN3F0UlVaZTdlTjN6bUhZNG9OVTR5eS1xLXFheUMtU2lYTG5vODdzSVZZVUxLZWpBT0xoZjFyMlE?oc=5",
+        "source": "Yahoo Sports",
+        "published": "2026-11-21"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "news",
+        "side": "away",
+        "text": "Manchester United: Can Mauricio Pochettino stop Premier League relegation?",
+        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQTEpUX0lwOW1QUHVIQzJIczhCenp6RlNNZHNnYWJwQWFTRHhjQzdnS0lzNHBPWUg4cG9KbE9OcEZmWjJ0eG9DQ2pLTVZ4TWZfeUFMTFJlNE9Na1d1R1laLUZ5YlIwUUxOZUx6MUdIYVR0OUU1aTBZNFRncmRqamZva3d0bkRpQ2FpMHV2UHZBZnE5Nk5DUXMwblNaS0tPaUVFQzhRdDNyYWzSAa4BQVVfeXFMTWRNTGhYdm54ZlkzcG9RSVRBN1cyd2NmUHBjeV9oV08xXzFXSmdNR2NyRnUyTUk5N2lIa1ZKUkFOalVzVlZGUEFlcGtsZWRHMGdNeHZOQnotMWk3QlNtUkh4VGpFN29iVHpmNnowVU81Tk9Tcy1HSnNOWnBiVHZiQ255ZmdUdVdfdE5ZZkUwT1JLRDBwNnNtbzlFY3lJRDFhNVp1RVIwMkJTcGtzalVn?oc=5",
+        "source": "Al Jazeera",
+        "published": "2026-11-21"
+      },
+      {
+        "at": "2026-11-21T17:25:47.866Z",
+        "kind": "news",
+        "side": "away",
+        "text": "Manchester United training drone footage removed after ‘judgement error’",
+        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOMkJ4ZWl3eXo4S0hOeUJwNDFWNURpbEIwSm8xTE5HMWdTZDRVUDBZeC16cHBFcWJKUEFISWVaNkFpODBXanJ0dUd3ckwwYXhqeG1xYm1WTUJnM3VLZG9MX0JXbzltU0ZoWjB2cmlXVUU1YnFhaW5uREo3RXdrN2syZzVUU1lXWnZFZzZsdUJCSy1PejZJNEZMRTY1Q0NOWVdvNGVLWEdWNHE?oc=5",
+        "source": "The New York Times",
+        "published": "2026-11-21"
+      }
+    ]
+  }
 }
