@@ -1,20 +1,7 @@
 {
- "generatedAt": "2026-11-20T20:41:45.176Z",
+ "generatedAt": "2026-11-21T07:39:57.873Z",
  "failing": [],
  "workflows": [
-  {
-   "name": "Deploy Supabase Functions",
-   "file": "deploy-supabase-functions.yml",
-   "manual": true,
-   "last": {
-    "at": "2026-11-13T22:16:23Z",
-    "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/43517903214"
-   },
-   "lastSuccessAt": "2026-11-13T22:16:23Z",
-   "failures7d": 2,
-   "runs7d": 3
-  },
   {
    "name": "Add Fixture (one-off)",
    "file": "add-fixture.yml",
@@ -46,11 +33,11 @@
    "file": "build-match-data-favourites.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-20T20:24:48Z",
+    "at": "2026-11-21T02:18:50Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/44811135364"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/44855189206"
    },
-   "lastSuccessAt": "2026-11-20T20:24:48Z",
+   "lastSuccessAt": "2026-11-21T02:18:50Z",
    "failures7d": 0,
    "runs7d": 20
   },
@@ -59,11 +46,11 @@
    "file": "build-match-data-weekly-premium.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-20T17:14:58Z",
+    "at": "2026-11-21T00:11:07Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/44781446789"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/44842097876"
    },
-   "lastSuccessAt": "2026-11-20T17:14:58Z",
+   "lastSuccessAt": "2026-11-21T00:11:07Z",
    "failures7d": 0,
    "runs7d": 20
   },
@@ -72,11 +59,11 @@
    "file": "build-player-facts.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-20T18:01:54Z",
+    "at": "2026-11-21T00:57:49Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/44788896236"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/44847220390"
    },
-   "lastSuccessAt": "2026-11-20T18:01:54Z",
+   "lastSuccessAt": "2026-11-21T00:57:49Z",
    "failures7d": 0,
    "runs7d": 13
   },
@@ -85,24 +72,37 @@
    "file": "complete-premium-packs.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-20T13:13:32Z",
+    "at": "2026-11-21T02:32:44Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/44742428625"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/44856481249"
    },
-   "lastSuccessAt": "2026-11-20T13:13:32Z",
+   "lastSuccessAt": "2026-11-21T02:32:44Z",
    "failures7d": 0,
    "runs7d": 20
+  },
+  {
+   "name": "Deploy Supabase Functions",
+   "file": "deploy-supabase-functions.yml",
+   "manual": true,
+   "last": {
+    "at": "2026-11-13T22:16:23Z",
+    "conclusion": "success",
+    "url": "https://github.com/radumpandea/match-center/actions/runs/43517903214"
+   },
+   "lastSuccessAt": "2026-11-13T22:16:23Z",
+   "failures7d": 0,
+   "runs7d": 0
   },
   {
    "name": "Fetch Confirmed Lineups",
    "file": "fetch-confirmed-lineups.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-20T13:27:46Z",
+    "at": "2026-11-21T02:43:59Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/44744513079"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/44857470358"
    },
-   "lastSuccessAt": "2026-11-20T13:27:46Z",
+   "lastSuccessAt": "2026-11-21T02:43:59Z",
    "failures7d": 0,
    "runs7d": 20
   },
@@ -111,11 +111,11 @@
    "file": "fetch-delegations.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-20T20:36:13Z",
+    "at": "2026-11-21T07:29:35Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/44812855201"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/44880485690"
    },
-   "lastSuccessAt": "2026-11-20T20:36:13Z",
+   "lastSuccessAt": "2026-11-21T07:29:35Z",
    "failures7d": 0,
    "runs7d": 15
   },
@@ -159,15 +159,28 @@
    "runs7d": 0
   },
   {
+   "name": "Health report",
+   "file": "health.yml",
+   "manual": false,
+   "last": {
+    "at": "2026-11-20T20:41:01Z",
+    "conclusion": "success",
+    "url": "https://github.com/radumpandea/match-center/actions/runs/44813558584"
+   },
+   "lastSuccessAt": "2026-11-20T20:41:01Z",
+   "failures7d": 0,
+   "runs7d": 1
+  },
+  {
    "name": "Import Player Seasons",
    "file": "import-player-seasons.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-20T07:14:28Z",
+    "at": "2026-11-21T07:05:58Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/44693502266"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/44878635681"
    },
-   "lastSuccessAt": "2026-11-20T07:14:28Z",
+   "lastSuccessAt": "2026-11-21T07:05:58Z",
    "failures7d": 0,
    "runs7d": 7
   },
@@ -189,11 +202,11 @@
    "file": "pages-build-deployment",
    "manual": false,
    "last": {
-    "at": "2026-11-20T20:38:02Z",
+    "at": "2026-11-21T07:31:34Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/44813120675"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/44880649123"
    },
-   "lastSuccessAt": "2026-11-20T20:38:02Z",
+   "lastSuccessAt": "2026-11-21T07:31:34Z",
    "failures7d": 0,
    "runs7d": 19
   },
@@ -202,11 +215,11 @@
    "file": "prematch-refresh.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-20T20:03:35Z",
+    "at": "2026-11-21T01:26:07Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/44807876059"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/44850153270"
    },
-   "lastSuccessAt": "2026-11-20T20:03:35Z",
+   "lastSuccessAt": "2026-11-21T01:26:07Z",
    "failures7d": 0,
    "runs7d": 20
   },
@@ -260,7 +273,7 @@
    },
    "lastSuccessAt": "2026-11-20T16:12:21Z",
    "failures7d": 0,
-   "runs7d": 14
+   "runs7d": 13
   },
   {
    "name": "Stamp asset versions",
@@ -286,7 +299,7 @@
    },
    "lastSuccessAt": "2026-11-13T22:14:26Z",
    "failures7d": 0,
-   "runs7d": 2
+   "runs7d": 0
   },
   {
    "name": "Sync Entities",
@@ -306,11 +319,11 @@
    "file": "sync-packs.yml",
    "manual": false,
    "last": {
-    "at": "2026-11-20T20:38:11Z",
+    "at": "2026-11-21T07:31:41Z",
     "conclusion": "success",
-    "url": "https://github.com/radumpandea/match-center/actions/runs/44813140217"
+    "url": "https://github.com/radumpandea/match-center/actions/runs/44880657893"
    },
-   "lastSuccessAt": "2026-11-20T20:38:11Z",
+   "lastSuccessAt": "2026-11-21T07:31:41Z",
    "failures7d": 0,
    "runs7d": 20
   },
