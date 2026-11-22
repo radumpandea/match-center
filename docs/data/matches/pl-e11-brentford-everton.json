@@ -105,7 +105,7 @@
     "age": 47,
     "apps": null,
     "ycPerMatch": 2.9,
-    "rcPerMatch": null,
+    "rcPerMatch": 0.2,
     "history": null,
     "funfacts": [
       "Pawson este arbitru din 1993 și a fost promovat în grupul Select Group Referees din Premier League în 2013.",
@@ -114,7 +114,23 @@
       "A fost al patrulea oficial la semifinala Cupei Angliei dintre Wigan Athletic și Arsenal, în aprilie 2014, și la finalele din 2015 ale Cupei Ligii (Chelsea – Tottenham Hotspur, 2–0) și ale Cupei Angliei (Arsenal – Aston Villa, 30 mai).",
       "La Wembley a condus și finala play-off-ului din League Two, în sezonul 2012–13, dintre Crewe Alexandra și Cheltenham Town, meci după care Crewe a promovat.",
       "În mai 2019 a arbitrat semifinala play-off-ului din Championship dintre Derby County și Leeds United, meci în care a acordat un penalty gazdelor, apoi a revenit asupra deciziei la sfatul asistentului; Leeds a câștigat cu 0–1."
-    ]
+    ],
+    "season": {
+      "comp": "Premier League",
+      "matches": 5,
+      "yellow": 24,
+      "red": 1,
+      "penalties": 1,
+      "withTeams": [
+        {
+          "team": "Brentford",
+          "matches": 1,
+          "w": 0,
+          "d": 1,
+          "l": 0
+        }
+      ]
+    }
   },
   "h2h": {
     "recent": [
@@ -1671,8 +1687,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": "În ultimele 5 dueluri directe cu Everton: 1 gol — 04.01.2026 (min. 50).",
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Knee Injury",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -1866,8 +1882,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Hip Injury",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -1931,8 +1947,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Hamstring Injury",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -2192,8 +2208,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Muscle Injury",
           "stats": {
             "goals": 1,
             "assists": 0,
@@ -4956,6 +4972,30 @@
           "reason": "suspension",
           "detail": "Cartonaș roșu (conduită violentă) la Brighton, 8 noiembrie — suspendat 3 etape: Everton, Manchester United, Arsenal.",
           "since": "2026-11-08"
+        },
+        {
+          "name": "N. Collins",
+          "reason": "injury",
+          "detail": "Knee Injury",
+          "since": "2026-11-23"
+        },
+        {
+          "name": "R. Henry",
+          "reason": "injury",
+          "detail": "Hip Injury",
+          "since": "2026-11-23"
+        },
+        {
+          "name": "A. Hickey",
+          "reason": "injury",
+          "detail": "Hamstring Injury",
+          "since": "2026-11-23"
+        },
+        {
+          "name": "F. Carvalho",
+          "reason": "injury",
+          "detail": "Muscle Injury",
+          "since": "2026-11-23"
         }
       ],
       "mercatoIn": [
@@ -5109,8 +5149,14 @@
       ],
       "newsCandidates": [
         {
-          "title": "Brentford v Everton",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNYTY5WUF0Z2JkUUpGNmp3dUpWOVZRVG9SY1pQd0dFMTA3MU5zX2ZWSmRVT2tmN0E5dWQ4MHRhemh4UHNXcC1RNDBwTGNuMjZlVjA5eVhyM2FqdHNySThHYlhPQ1dFUzlaZHd1MEFqWDdGdXRDeTJNMGZzLUFmT2VQNWhkZVpqc2l1NkZVdmNWeUk?oc=5",
+          "title": "Brentford B 2-1 Hull City U21s: Milambo strikes as Bees seal top spot in Group J",
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOZkpjQWN4Ymc3cndqN21JeklCQkR3Nl9TaW9lMGR3NUhrbzk5bk9FTmdSdEdRck1PQ1RhRktzMXVndzVYaklTVUVIbVVreGFuWkxTQ0tMODlvdDRFbTZJZjJJaEZmX3RvSW84R2xWQUN0T0tKMW42V2NCVmxFVHJhTWo5ZW82Y1hRNF92NHpvekwxYl9KYnR2a0pseVZmTUtBOFV1ZFFwLWlwN1JUNE16ZEtGME5SU3R6bE14YjFKX0VlWi1HcHZzaC0yUQ?oc=5",
+          "source": "Brentford FC",
+          "published": "2026-11-22"
+        },
+        {
+          "title": "Brentford Women 0 Bromley 0: Points shared in LSE Premier top-of-the-table clash",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQZ2Vkd1JLQmRNM2k1Z25RRnowM1pselNZc1ZWR3M2S0ZfQXF5M2RYMVVFSHkxMWZfaDYyZC1WZ1hpMml4WXgwbnBsMjhaRzlkUjB2RkhfRUJFeFFZME1CTnR5dFUwZkJkbF9iaFZYVTJsZ2tJVV9KczNoTjZlLXZnOWtMVXdSVEo1TVEwMnZsUjdBWkRHZ3VVYmI4R25XVjFt?oc=5",
           "source": "Brentford FC",
           "published": "2026-11-22"
         },
@@ -5121,39 +5167,33 @@
           "published": "2026-11-22"
         },
         {
+          "title": "REACTION: Carly Williams on Bromley draw",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPTUR5TlZMMG5sWXIyYmR4TmdJSl9RaTZhTGladFluNkwtWXVPREhQR2h6eXNyaHV2QUthSVhoODVOcndnSWxuamZuT2xzdGlMd1I0NTUwcG05bmd3UVpLejdla2FJLVdsNUI2MnU4Wms2d0N3MkVfZ3J4OUx6dXZmcWJRcTlSSXJXaFhaSW4wZGJGbHdZNEE?oc=5",
+          "source": "Brentford FC",
+          "published": "2026-11-22"
+        },
+        {
+          "title": "Brentford v Everton",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNYTY5WUF0Z2JkUUpGNmp3dUpWOVZRVG9SY1pQd0dFMTA3MU5zX2ZWSmRVT2tmN0E5dWQ4MHRhemh4UHNXcC1RNDBwTGNuMjZlVjA5eVhyM2FqdHNySThHYlhPQ1dFUzlaZHd1MEFqWDdGdXRDeTJNMGZzLUFmT2VQNWhkZVpqc2l1NkZVdmNWeUk?oc=5",
+          "source": "Brentford FC",
+          "published": "2026-11-22"
+        },
+        {
+          "title": "Jack Grealish ready to snap unwanted record vs Brentford as Everton star returns",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQa3R2X2owbVI0T3VYSEJPUGw3WmFjYWRpclhvcG90MzFMS1E5Q1JYc1pYSl9RblVSeDRNcG1kT0FYRUJKV08zc1paSWV4RmVZNHhtR0stdXVCZXJaOXFpTFJmZThsaVJRSkQwem10WWRvZmwzNmlseFFrVzZmb0lSaldDV2MtR2RtenZWZDlRR0pDeGpzdUlpb3FMeG9LV0Q1eDVQbnlfVEJ0dTBXcHZyakdkNUItUQ?oc=5",
+          "source": "Goodison News",
+          "published": "2026-11-22"
+        },
+        {
           "title": "Brentford vs Everton team news latest as Jack Grealish ready but five to miss out",
           "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNRkZiOTdMY0pVeGZkZEZXbllJWnZNRFg3X3JhV1pfWjFJcjZfc3N5MmJrU1U0WDN5NV9MMHE0NnFBb3U1emFQYUF4a3E1SXdYQWtZZ01veGdwYUxWR3IwalMzRmRzVHZaX0VOTHZzclR6QUhTUTFvNzJlQU1rM2NEczVvSTVFVHFnZklmelpJa3d2TklTak5Ickp0M2ZROHFtRW9rQ1Jmd3JMNlU4NlF2bFFYNEFFa2xhZ0Jv?oc=5",
           "source": "Goodison News",
           "published": "2026-11-22"
         },
         {
-          "title": "November 23, 2026: Brentford vs Everton: First Half Winner Soccer Prediction Market",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQRDRlbVRtc0lZUGRmamF1WDNLOW1wZW40MXN3OV80a1BqdG15MlZNRzByZEpEWWVNb1piRWN5Vzl3RkFRbVZ6bFozaV8zcTlQT3VOYnJzNEVJVnhfOEFMem1hRVdpbFd0UE4xdlBPa09yQkhyd0NIM1hZc3hkdERnYnBEZ05fQm1UbThQdGI1Sno1T0l6ZGpWUHJ4X1ozbTBKZVVEc0gwMmlldlYxOGZaejh3?oc=5",
-          "source": "Robinhood",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "Premier League schedule for 2026-27 season: Dates, how to watch live, details",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQTnl2b2VvRXpMeEFJTVQtWmMxWG92V3VfSHNqNlg4N0N2QUFkbjRnYU1iTmhCU0xaY21QN1Q2ZU4yUW82OVF5V0dnT0YyWnZWR1A5elVtODFWNk5iVnFnZTlYY2tPWHNFVTU3bXlXdVJwcG5nMGhVOUFkNXNTOWotRkw3ME5TbkE5aUJiekNVaTFJR0E?oc=5",
-          "source": "NBC Sports",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "Brentford vs Everton: Kalshi Promo Code & $55 Bonus",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPbjd1amRNYUQ4TWQxQXY2OVlYRWp5bEhtQW5OWGVuZEpRczAtSW1yR1pqT0pSMjM1X2ZZUGY1SXlxMC1DTWwyellKdGZKOWFrQkxPUExNWFlpWDdzTUx5WGE0a0lRT1RlTHNUOEJYQWdVd2h4T3JuY05TLVV4VTVFREc0cmNPU25JSkg4NUhuX3QyQnhGS1RoblVfVjdtVUhGWkdoRS1heTBvSEpLNVhv?oc=5",
-          "source": "Squawka",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "Brentford vs Everton predictions for Monday (8pm KO): Bees will edge a tight one at the Gtech",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNQXc3RzJLU1pVdE1IZU9Hc3VrbVRNb3RCWnQzU3lpd19Hak9nelVZa3dZV3lJMFQ2NFpjcUl0S2hXbGQ4SjNObmVyVnByQjh6RW5kQm1rUVRXY3lJbXI2T1A4YVpId1k2N1g4V3h0c0p5dDJ6T3M1dGZiS0dUclFBMHBOdk9MVjA3TXozdkVOSlowZkVsd0lv?oc=5",
-          "source": "Squawka",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "Everton vs Brentford – Match preview and team news",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOVU4xSkE0MF80WDVzemxKT0hfbVNZeXRqdFJONDdsZ2ozLXJPR1NsMjZzb0FNTjVLZHFrelBuUXZ4cE9hdHZDLVg3ZnFHN1JrRkhIenZBc2lEcWZuaHFpbm1hNGFIcTd4Rllrak1EUEZ5d0tsRE5fSWo0YVhKc2VhQ2x2ZEJldDY4b0dLN3lfNWxPbENhNlV3dA?oc=5",
-          "source": "ToffeeWeb",
+          "title": "Brentford vs Everton Prediction, Betting Tips, Lineups & Odds | 23 Nov 2026",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOTXNyN0pJZDZqb0steEdndkV1UURSLUNHTFkxLWJBcTN2U19zeTdOVTZkbWpIY2RfRnBnSnRMNEZOOE12Tmt1QlpnNzRrNFZzdzVQV3BURjREa2FvdXhIbGFiSWpCMWo0czVpUDVMQ3VKdWVkWkhxQ0wxXzBYVDlJUWFwWkJveUIwUXZWb01KMC1VTGdaZ2wyM3hfTWxFWlB1UDdHMVBVU05JWTM2?oc=5",
+          "source": "Sportsgambler",
           "published": "2026-11-22"
         }
       ]
@@ -9361,6 +9401,30 @@
       ],
       "newsCandidates": [
         {
+          "title": "WATCH LIVE: Everton Women 0-0 Brighton",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPcDdNb0JTSmV0d3l0RUpSa2lIbTF6WDlDWWxISWR4QTZYVzVETVZwT2hpdWVEck5LVGxsc1ZWTHVRSVJ5OTlicWtyMnRZSnZUMUJZQXZmSUhabkt0TXdXTEdER0Jnb0RkdHJ5cTRjNzd4UHRkQ3VjZlNNMGJJc2lhNXc2aUJqOGRMa2Fmcg?oc=5",
+          "source": "Everton FC",
+          "published": "2026-11-22"
+        },
+        {
+          "title": "Everton vs Brighton: Defensive mix up leads to own goal",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNUnBJV284Q0dSOFlOUkpTQ1NPbWxzM0U1SVY2aWlJaXBKWEoyUTY0SFg0UFVNRTkwaFBWSnhRbzlxQ1ZyYUdmdkxKLVZ5ZlRycmh6MEVPZlZHc2hHN0dra214djJyUjNaU0xRZExxYUpMZDlPVTI0Tm5fUWZVTkpfUDgwMU5WZy1iRXhCT2FfSGNva2xaVUkzVmxpcXpnM0VoQnA5U3BnUQ?oc=5",
+          "source": "Sky Sports",
+          "published": "2026-11-22"
+        },
+        {
+          "title": "Everton - Lille 1-1",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBzT2dURXRaS1REb2RxMG45N0w0aXJvZnE5aVFldTJZNEJNRXZZMERTVnRaaGdZWkFkZ1U3YzZ0clFfY2xYRHlhM1Z3VkRaNGlpVlh5OUcyZm4yUkZ0b1JjUTlJMWFfUWxvejJSczRvN1FWZ19NQjFhQlpPM2U3VVE?oc=5",
+          "source": "Flashscore.com",
+          "published": "2026-11-22"
+        },
+        {
+          "title": "'They had faith' – Moyes reflects on Everton legacy ahead of milestone match",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOTjhHUGpsNmU3ckdnZmtLeVJLS3RxSXBPVDEwYTRVcnprdkQyWjh5R3FhOWFoUzhEdG1IVnZSb0laSkNOUGNVVXFiNkRacmxzVDQ5ZGhvck4tNFY1TDNoQm5kcXdpYlktM2NyMVpQcUhaUElhSDZISW9tR29TUERSbXZfSWdvbFBTdkt1N1lQakozTmV2QlpGTmgzQmIxWjlyekhzNU1oSHI5SmtqZHlLYncwTldZN1RUdno3VFd6WnMzRmlQSGxTZWF1cGY2LVB3LUo4UDk3RFQ3S1k2WWppYVNoN2w?oc=5",
+          "source": "beIN SPORTS",
+          "published": "2026-11-22"
+        },
+        {
           "title": "Brentford v Everton: Bees fancied at 3/1 and player shots key to 9/4 Bet Builder",
           "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOV2VBcHJJYmd3cm5BWE15Nnl2elFvbXQ5TDVScmM3RXRDRi1kT2UxeTlzbFNtcWFmdmFHbHFRajk2ckV2NjU1OFhjSzR1YTNkenZjVmNrRGE1X1VSS2pNLXl1S3l4N2g4Q0M1Z2NZRjUxMHZ1cFA4ak14T0p1ZnFyQ184TkNQZGdkOU1BWklUOGVBSHNNZWdWanpPN2wtcUMxdkxoX3Fsdk5uZzNpVVpXb1haMmxCTzZmcy00Sm92RTFxYmFvSUw40gHPAUFVX3lxTE0tWWxVN2xscy14Q1JVTEtDa01fcW5VcFhtRENiLWxvQmRLZnJ5V2YwLW91cUQ5M1NvbG1JT1dxTER3dHd0NXFqZHd5WTk0RkthT1VlRHBkMmg3RFlCVWV1LTJFdFRtY1JfUVEyX0FfRVNOZDl6VGxVUlB5d0xybGFacm0xRDB0Q2pBNnY2UlRRQnlaS1k0RVQxUGYyV0J2Yk5XVWh3SDNUUkxpd0w1MEdGc3BLNGVJTFRROVNDY3JhZ3J1QTMwTkxhUWpzZHY4QQ?oc=5",
           "source": "Betfair",
@@ -9373,39 +9437,15 @@
           "published": "2026-11-22"
         },
         {
-          "title": "History points to David Moyes misery on record-breaking Everton occasion vs Brentford",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQY255RDN5dHRsaTFyODdENUh3ZGhMdUxwMy0xUS1jU1BWbzhJS3g4TThULThhNXpCTFRqWnJzNF9DTG03MGVFbWNPQzZFWmJja05BdGlFNkJBSHNnTHdzemZGWlJ2X0E5V2x4NmtBaHFDb3NnblBwTUJkYXVRbkJBZHpod1JzQi1JSTZ1dnNMc04yZ204MEk4QlRLUmY1QlVWdEJROXBudFBKUVhrZUctakJZbk1GR0NuMkFycg?oc=5",
+          "title": "Brentford v Everton Tips: Monday’s 16/1 Bet Builder",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOTXdaU3BaZ24xd0FMalNvVXI4cmFaWnh5VHZKZEo3dHVnOWJCdFJ3bFppMWM5V1ltSFdXbzRIcFF5S005WXEwbWtzUVRXRzZ3NXE0Mk9rTFNHSUktYXBUeWdFVk1NQmtPTDlXdVFYM0FYeDBQVy14UkE3UzJiNWxMejBUQkJwU012Z1dMT0Y4MHJ3b2taQXIyOElnMlRQUVRJYUMtanAzMkZRc2RVMFVMbXBtN0M?oc=5",
+          "source": "Paddy Power News",
+          "published": "2026-11-22"
+        },
+        {
+          "title": "Exclusive: Vitor Roque interest alerts Palmeiras as Everton told what striker they would get",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPOVNMdXNuWElHV2x1N1IwQURnQzA1NTFxMlluSDFlQzlreUMwTm01R1YtV2ZUVTJPZUZ4Z1VtcWxOT1ZBSThyQWlZWjRISjNFVm95ZmxucHdHOTVRMlhSQm1xQjNrQTMyd0FVNlo2Z0JmVk5RelpNTmhHYUpUQjB1RDRnSVRnNE4yMzExNTloTEg1Tko0TXRNclZTNVVRUTNib2ZuWWFRaGJuZjlFM05IMTIzNDROMlA3TXI4MklQZEFwYXRqV0Y5aXdB?oc=5",
           "source": "Goodison News",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "Everton may have found next Anders Limpar as winger talks in progress",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOemhNSHI4anNObDJzQjRyeGJpd2JjU0RGWVNfUTBLenlQNFNjQy03Ui1HR2dSN05BWlRHa1RKVXlkdWJXbGF5OWVUMW5uWFVRQXdmYllnRXllcHgyMHF6eGFWUDZUaC1UWnRCTlVnRzNWTHRQZWdyWmhWVDhNUGtoMEFYQV9VMXFvalZSWnc2Z3hIZ255bmkyS0RFVEdBQnNzRGxsV2FIdVJGX3Bh?oc=5",
-          "source": "Goodison News",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "Everton handed new Christian Norgaard transfer verdict after David Moyes apology",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOZ1FhQk8xYS01a1ZYSlMtZFNQUkdWeFJWVDBhc3NOcjRDZFppS3owSmRjdW1EQmFvMFprY3lfQlVwMFlJOU9iTENRY3ZScGxLaFFJY3U2Y1ZGQmVmOTUzZ1J1M09vS21xb0hvbkhXZGhheGpLbThPSnFtTGNBVnpsVDJ2ajhORTRWOVBrX0ttWDh5aDVoOWtnWWFudXVkT3ZaWEo2Umo4MkxTU3PSAbABQVVfeXFMT1VNU213NmJqRHd1TWZGYWxSb2Z1cUxmTXJiaEZUN2djdGgtYWJ1LXV6ZFpvLTRJY09aM01zX3FkSVU1NWJBMXpIaXlnQWkxd1dPclZHYlB1bWF1c0JGdXdLR3U2ME8xZ2o4Q20xaTIyaVdBZmkzaXVDSmV4RFpvUXBnLTQ3cWVKUmQwM0NXQXJpT2htMTBqTlZWcGwteWRpY1FfYmFRWXBlX1ZsNlVFTnQ?oc=5",
-          "source": "Liverpool Echo",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "Everton’s most likely plan emerges as talks begin with ‘renowned’ club for Zaion Sidibeh Persson",
-          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQLVM2UVdkZ2RJWGg5SEZPQTZLLVMtV29nUzRQQzNrSnF2U2FCUUZOUHA3S3lOYlRxX19OMmpiYTdRcUdrRFFkZHFjTUNzN1NkSV95NWg2aXdKNUx5N1JlTGlGQklhdFNfN2xrVWhLNl9fdVhJQ3dLczNZTURoMkswYVZuRlQ2S3cyY3VqdzB1Mnd2YllncVpZdERvOExyMUduVG5ULVF4R0FDdUcxVUtKc1RrM3p5UWtHZDFtcGF4MlhaNW1qdDhqNmlkcFM?oc=5",
-          "source": "Goodison News",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "David Moyes shares what's 'embarrassed' him about Liverpool ahead of Everton landmark",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPZ0MtT2ZnaEVNck0wX2NkUlRYRHZJNXhtU1A3M1A3V3NyYUQzalVxaGFRNGVDUlQ2RWMwVHNaR2d0Y2cwazFRWUQ0M01uaVJ3Yjg4b2VTNndtV05WRExoc1JIV0tJVVB0clZPNlEzWnVKS29hdVRTNHloU3MxYTBjaHhzVGFlWGlfek50eER3TGhCZlpnc0d2V01ETWxBTU51R043TTZZTlVOODQ1ODduT3NXLXl5cTNK?oc=5",
-          "source": "Goodison News",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "Dejan Lovren answers Manchester United or Everton question and expects Trent Alexander-Arnold return",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQN2dCbURkV3k3Q3RWUnVkZmoyZzlKb2RJM2E3ZUxSN0kzZFBMclpLZ1R5aHJJa196OEtOR241MGdfOFBlSlNEbTlFTnJBbzlsTTJQbVo0eFdueTB2aUpXbmxmckkwT1ZDcWMzRzhDbGhTSU5kbERXcFQxWmh5V1FzTnhlbWxBMkJLMW5nRzNFRDYzNW4xbkM1N1ZhSUpsWEJLYVMw0gGoAUFVX3lxTE9Ed0hRakJyVm14TkJ0WVZVZDlvMDdNTjNkSkVwdVM3VXRhVnlIYkx2WXZyb0Z1T3o1QWF1RjVwVDd2Sm51MzU5ajJ2Rlk2Q3YyZExiVFNMNFFmbjR1SjZWRkdCeXo4MzZDU1JJVVlyYmg1UjRVTU85MzlwaUtRQWp4TVA1b1JUZ1hlWXZzTDVacVRtSFFmMXluSGZaQ0tsNVJ5QXVuMm13Wg?oc=5",
-          "source": "Liverpool Echo",
           "published": "2026-11-22"
         }
       ]
@@ -9740,5 +9780,115 @@
       "fact": "4 din cele 16 goluri marcate de Brentford în campionat (o pătrime) au venit în ultimele 15 minute ale reprizelor, cel mai productiv interval orar al echipei.",
       "source": "API-Football (form.stats)"
     }
-  ]
+  ],
+  "refresh": {
+    "at": "2026-11-22T18:29:09.359Z",
+    "window": "24h",
+    "done": [
+      "24h"
+    ],
+    "changes": [
+      {
+        "at": "2026-11-22T18:29:09.359Z",
+        "kind": "referee-stats",
+        "text": "Statistici arbitru (Craig Pawson, Premier League, acest sezon): 5 meciuri, 4.8 galbene/meci, 1 roșii, 1 penalty-uri"
+      },
+      {
+        "at": "2026-11-22T18:29:09.359Z",
+        "kind": "absence",
+        "side": "home",
+        "text": "N. Collins — accidentat (Knee Injury)"
+      },
+      {
+        "at": "2026-11-22T18:29:09.359Z",
+        "kind": "absence",
+        "side": "home",
+        "text": "R. Henry — accidentat (Hip Injury)"
+      },
+      {
+        "at": "2026-11-22T18:29:09.359Z",
+        "kind": "absence",
+        "side": "home",
+        "text": "A. Hickey — accidentat (Hamstring Injury)"
+      },
+      {
+        "at": "2026-11-22T18:29:09.359Z",
+        "kind": "absence",
+        "side": "home",
+        "text": "F. Carvalho — accidentat (Muscle Injury)"
+      },
+      {
+        "at": "2026-11-22T18:29:09.359Z",
+        "kind": "news",
+        "side": "home",
+        "text": "Brentford B 2-1 Hull City U21s: Milambo strikes as Bees seal top spot in Group J",
+        "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOZkpjQWN4Ymc3cndqN21JeklCQkR3Nl9TaW9lMGR3NUhrbzk5bk9FTmdSdEdRck1PQ1RhRktzMXVndzVYaklTVUVIbVVreGFuWkxTQ0tMODlvdDRFbTZJZjJJaEZmX3RvSW84R2xWQUN0T0tKMW42V2NCVmxFVHJhTWo5ZW82Y1hRNF92NHpvekwxYl9KYnR2a0pseVZmTUtBOFV1ZFFwLWlwN1JUNE16ZEtGME5SU3R6bE14YjFKX0VlWi1HcHZzaC0yUQ?oc=5",
+        "source": "Brentford FC",
+        "published": "2026-11-22"
+      },
+      {
+        "at": "2026-11-22T18:29:09.359Z",
+        "kind": "news",
+        "side": "home",
+        "text": "Brentford Women 0 Bromley 0: Points shared in LSE Premier top-of-the-table clash",
+        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQZ2Vkd1JLQmRNM2k1Z25RRnowM1pselNZc1ZWR3M2S0ZfQXF5M2RYMVVFSHkxMWZfaDYyZC1WZ1hpMml4WXgwbnBsMjhaRzlkUjB2RkhfRUJFeFFZME1CTnR5dFUwZkJkbF9iaFZYVTJsZ2tJVV9KczNoTjZlLXZnOWtMVXdSVEo1TVEwMnZsUjdBWkRHZ3VVYmI4R25XVjFt?oc=5",
+        "source": "Brentford FC",
+        "published": "2026-11-22"
+      },
+      {
+        "at": "2026-11-22T18:29:09.359Z",
+        "kind": "news",
+        "side": "home",
+        "text": "REACTION: Carly Williams on Bromley draw",
+        "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPTUR5TlZMMG5sWXIyYmR4TmdJSl9RaTZhTGladFluNkwtWXVPREhQR2h6eXNyaHV2QUthSVhoODVOcndnSWxuamZuT2xzdGlMd1I0NTUwcG05bmd3UVpLejdla2FJLVdsNUI2MnU4Wms2d0N3MkVfZ3J4OUx6dXZmcWJRcTlSSXJXaFhaSW4wZGJGbHdZNEE?oc=5",
+        "source": "Brentford FC",
+        "published": "2026-11-22"
+      },
+      {
+        "at": "2026-11-22T18:29:09.359Z",
+        "kind": "news",
+        "side": "home",
+        "text": "Jack Grealish ready to snap unwanted record vs Brentford as Everton star returns",
+        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQa3R2X2owbVI0T3VYSEJPUGw3WmFjYWRpclhvcG90MzFMS1E5Q1JYc1pYSl9RblVSeDRNcG1kT0FYRUJKV08zc1paSWV4RmVZNHhtR0stdXVCZXJaOXFpTFJmZThsaVJRSkQwem10WWRvZmwzNmlseFFrVzZmb0lSaldDV2MtR2RtenZWZDlRR0pDeGpzdUlpb3FMeG9LV0Q1eDVQbnlfVEJ0dTBXcHZyakdkNUItUQ?oc=5",
+        "source": "Goodison News",
+        "published": "2026-11-22"
+      },
+      {
+        "at": "2026-11-22T18:29:09.359Z",
+        "kind": "news",
+        "side": "away",
+        "text": "WATCH LIVE: Everton Women 0-0 Brighton",
+        "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPcDdNb0JTSmV0d3l0RUpSa2lIbTF6WDlDWWxISWR4QTZYVzVETVZwT2hpdWVEck5LVGxsc1ZWTHVRSVJ5OTlicWtyMnRZSnZUMUJZQXZmSUhabkt0TXdXTEdER0Jnb0RkdHJ5cTRjNzd4UHRkQ3VjZlNNMGJJc2lhNXc2aUJqOGRMa2Fmcg?oc=5",
+        "source": "Everton FC",
+        "published": "2026-11-22"
+      },
+      {
+        "at": "2026-11-22T18:29:09.359Z",
+        "kind": "news",
+        "side": "away",
+        "text": "Everton vs Brighton: Defensive mix up leads to own goal",
+        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNUnBJV284Q0dSOFlOUkpTQ1NPbWxzM0U1SVY2aWlJaXBKWEoyUTY0SFg0UFVNRTkwaFBWSnhRbzlxQ1ZyYUdmdkxKLVZ5ZlRycmh6MEVPZlZHc2hHN0dra214djJyUjNaU0xRZExxYUpMZDlPVTI0Tm5fUWZVTkpfUDgwMU5WZy1iRXhCT2FfSGNva2xaVUkzVmxpcXpnM0VoQnA5U3BnUQ?oc=5",
+        "source": "Sky Sports",
+        "published": "2026-11-22"
+      },
+      {
+        "at": "2026-11-22T18:29:09.359Z",
+        "kind": "news",
+        "side": "away",
+        "text": "Everton - Lille 1-1",
+        "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBzT2dURXRaS1REb2RxMG45N0w0aXJvZnE5aVFldTJZNEJNRXZZMERTVnRaaGdZWkFkZ1U3YzZ0clFfY2xYRHlhM1Z3VkRaNGlpVlh5OUcyZm4yUkZ0b1JjUTlJMWFfUWxvejJSczRvN1FWZ19NQjFhQlpPM2U3VVE?oc=5",
+        "source": "Flashscore.com",
+        "published": "2026-11-22"
+      },
+      {
+        "at": "2026-11-22T18:29:09.359Z",
+        "kind": "news",
+        "side": "away",
+        "text": "'They had faith' – Moyes reflects on Everton legacy ahead of milestone match",
+        "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOTjhHUGpsNmU3ckdnZmtLeVJLS3RxSXBPVDEwYTRVcnprdkQyWjh5R3FhOWFoUzhEdG1IVnZSb0laSkNOUGNVVXFiNkRacmxzVDQ5ZGhvck4tNFY1TDNoQm5kcXdpYlktM2NyMVpQcUhaUElhSDZISW9tR29TUERSbXZfSWdvbFBTdkt1N1lQakozTmV2QlpGTmgzQmIxWjlyekhzNU1oSHI5SmtqZHlLYncwTldZN1RUdno3VFd6WnMzRmlQSGxTZWF1cGY2LVB3LUo4UDk3RFQ3S1k2WWppYVNoN2w?oc=5",
+        "source": "beIN SPORTS",
+        "published": "2026-11-22"
+      }
+    ]
+  }
 }
