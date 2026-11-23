@@ -1,12 +1,12 @@
 {
   "slug": "uel-e5-nec-nijmegen-rennes",
-  "generatedAt": "2026-11-22T13:43:28.190Z",
+  "generatedAt": "2026-11-23T16:25:27.717Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-11-22"
+      "accessed": "2026-11-23"
     }
   ],
   "competition": {
@@ -24,9 +24,9 @@
     "weather": {
       "tempC": -2,
       "condition": "cer clar",
-      "windKph": 11,
+      "windKph": 9,
       "precipitationMm": 0,
-      "forecastAt": "2026-11-22T13:43:28.201Z"
+      "forecastAt": "2026-11-23T16:25:27.730Z"
     }
   },
   "referee": {
@@ -140,14 +140,6 @@
             "season": "2022/2023",
             "place": "2nd Place"
           }
-        ],
-        "funfacts": [
-          "Născut la Barneveld, în 1971, a jucat ca mijlocaș la PSV Eindhoven, Sparta Rotterdam, Groningen, RKC Waalwijk și, în Anglia, la Stoke City.",
-          "Fratele său, Alfred Schreuder, a fost și el fotbalist profesionist.",
-          "Cariera de antrenor i-a început la clubul amator SDV Barneveld, din 2007, pe care l-a promovat în sezonul 2012–13.",
-          "A antrenat la Barnet și VV Katwijk, a lucrat în stafful tehnic al lui Philadelphia Union, apoi a fost secund la TSG Hoffenheim (2019–20) și la Vitesse.",
-          "L-a promovat pe PEC Zwolle în Eredivisie, în 2022–23, apoi l-a dus pe CD Castellón înapoi în Segunda División, cu un record de 74 de goluri în Primera Federación.",
-          "Din 1 iulie 2025 este antrenorul lui NEC Nijmegen, pe care l-a dus pe locul al treilea în sezonul 2025–26, calificare în preliminariile Champions League."
         ]
       },
       "formation": "n/d",
@@ -388,11 +380,12 @@
           "number": 5,
           "name": "Mitchel Bakker",
           "photo": "https://media.api-sports.io/football/players/530.png",
-          "pos": "DEF",
+          "pos": "MID",
           "positions": [
+            "MID",
             "DEF"
           ],
-          "role": "DEF",
+          "role": "MID",
           "age": 26,
           "height": 185,
           "weight": 85,
@@ -411,28 +404,28 @@
           "stats": {
             "goals": 0,
             "assists": 1,
-            "minutes": 168,
-            "apps": 4,
-            "yellow": 0,
+            "minutes": 258,
+            "apps": 5,
+            "yellow": 1,
             "red": null,
-            "rating": 6.85,
+            "rating": 6.75,
             "conceded": 0,
             "saves": 0,
-            "shotsTotal": 1,
-            "shotsOn": 1,
-            "passesTotal": 91,
-            "passesKey": 9,
-            "passesAccuracy": 79,
+            "shotsTotal": 3,
+            "shotsOn": 2,
+            "passesTotal": 145,
+            "passesKey": 14,
+            "passesAccuracy": 77,
             "tacklesTotal": 2,
             "tacklesBlocks": 0,
-            "tacklesInterceptions": 1,
-            "duelsTotal": 11,
-            "duelsWon": 2,
-            "dribblesAttempts": 3,
-            "dribblesSuccess": 0,
+            "tacklesInterceptions": 2,
+            "duelsTotal": 18,
+            "duelsWon": 4,
+            "dribblesAttempts": 5,
+            "dribblesSuccess": 1,
             "dribblesPast": null,
             "foulsDrawn": 0,
-            "foulsCommitted": 3,
+            "foulsCommitted": 5,
             "penaltyWon": null,
             "penaltyCommitted": null,
             "penaltyScored": 0,
@@ -1186,7 +1179,7 @@
             "apps": 2,
             "yellow": 1,
             "red": null,
-            "rating": 1.91,
+            "rating": 1.68,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 0,
@@ -1447,12 +1440,11 @@
           "number": 19,
           "name": "Adam Tahaui",
           "photo": "https://media.api-sports.io/football/players/480306.png",
-          "pos": "MID",
+          "pos": "ATT",
           "positions": [
-            "MID",
             "ATT"
           ],
-          "role": "MID",
+          "role": "ATT",
           "age": 21,
           "height": 171,
           "weight": null,
@@ -1475,7 +1467,7 @@
             "apps": 9,
             "yellow": 0,
             "red": null,
-            "rating": 6,
+            "rating": 5.46,
             "conceded": 0,
             "saves": 0,
             "shotsTotal": 8,
@@ -1620,11 +1612,12 @@
           "number": 34,
           "name": "Kevin Kers",
           "photo": "https://media.api-sports.io/football/players/635838.png",
-          "pos": "ATT",
+          "pos": "MID",
           "positions": [
+            "MID",
             "ATT"
           ],
-          "role": "ATT",
+          "role": "MID",
           "age": 20,
           "height": null,
           "weight": null,
@@ -3901,28 +3894,40 @@
       "news": [],
       "newsCandidates": [
         {
-          "title": "Eredivisie roundup: Feyenoord stumble again as Heerenveen win derby thriller",
-          "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOQnIyeS0zVmh1TklTb0lqX01DQ0lSdHpBeHc3eUtQUDR4dDdoeGdTTjU4aHdvV1N6eFo0NF9wNEVuaVZsaDVlVE9aaHFjS3JnSHNnTU1uSkFRNS1TWldUUUJ6QUlmVHRidW81VlMwY0Q2SEFCcUZKWkVYWVFwYy1SNDlIZjBWdDBfRUU1TmxwMmNLM2Q1bVdseUEtSnVyU28zUHYtbDh5c29FYmxIc3dDaF9DeWg5WDJsMGFnaWpBcHd2TWVubkMwTXJvek1Ed1hEdnVxTnZVV1ViSXlwa0JGRGNuUXk5TVpvMU5wMDI1NnRMNVN1?oc=5",
-          "source": "TribalFootball",
-          "published": "2026-11-22"
+          "title": "Rennes vs. NEC Nijmegen Live Stream of UEFA Europa League",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9LUi12d2UxRl9tY1RBNnk5cC15RjRfMjJ1eHN6cFdSZl82aUZTaWtheU9kTVl3NUNUQWExNnpjazdyNW5ZZFVjeFVqUnpERWt2NzY1Nk10UjJ0RVBNY2FURHp5SEp4amZhUlZN?oc=5",
+          "source": "CBS Sports",
+          "published": "2026-11-23"
         },
         {
-          "title": "Feyenoord vs Excelsior: Dutch Eredivisie stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE0zVFFwVW9hc2xWdjY3Qmx0NlNKWDZSRlQzeU1Oam5LVDl6X0RmZGxwdFhNNjJ3QTRLUy0xd3NfN1c5S3hiZks2SWl4QlRudzhHTFR1VzJpZXpGVldRd05qT2hDWQ?oc=5",
-          "source": "BBC",
-          "published": "2026-11-22"
+          "title": "Emre Mor's decision that saddened the football world! He has taken a break from his career.",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNQW5pVVl0cGQ0QjlPNzdVSWtVaUVOenB6WjNEWmFnSUg5YzdCTFlnajhHZ0ZSZjJ1TVFkMTd2UERTQ2NPUTYxd1RNRVZ0NTZxYU1SVHVkM0lQWkNzTXZFQ2FweUNNWXdlY0JVZ1FVN1lIVkNZckVid3FYVDZPQWZSMEk3bmF5QQ?oc=5",
+          "source": "Haberler.com",
+          "published": "2026-11-23"
         },
         {
-          "title": "Real Madrid vs PSV Prediction and Betting Tips – 24/11/2026",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxONW5vd01XeDhzSmxoUzVJRFlOOFlkeWd3SVE5aXUtenFmaW03RzRNdmVITEoxRUtDdUhpdVRjNTg2NllaandnUlZEZWdyWFlGc2dDT3U0d05vSElUZVUzc2hsSUNjQVdnYm41d1l0cUVQZGJPUXdSb21kcmdOYlYyLVdwem1NSTFmRU80WFNnMzFad3p1eXU2eUZR?oc=5",
-          "source": "MrFixitsTips",
-          "published": "2026-11-22"
+          "title": "“Devastating for this player”: BVB talent endures nightmare loan and public criticism from coach",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQakhWd2pDcG0zZU5MSG11a2N0MDBjTTEtRG1aRF9mVUlzLWVxekwzOVVRUVJQU05UYzJ0dVAxQTJoT1VVNU1NcHdPSUlnSWZMVkdGc2dNRFNnNVlnOWx6R0dveUZVMlphMTEtR1Jxc0ZBT1o0WHZUV3hJR1k1WGZzRlJ3MkNyWkctUXROaGFLdzBXdmhacjFOVEVJM1h5d0sxbUo3SEp5VVdSdW52OXdNVDlrejBnaVJlQlFfV3Rldlp2S2piVGNOZmVJYmtLckFPemMwZkVVdVhQdw?oc=5",
+          "source": "Goal.com",
+          "published": "2026-11-23"
         },
         {
-          "title": "Groningen vs Heerenveen: Dutch Eredivisie stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9jam1MeXl4Wk9UZjRyWjlsUW5VMW1vU1I3dGtiLTRTa2JURjhFcmpkbjlXQWlkR2dreF9xdDVPNTI1YkU2M1JfaTFRYTFTSzRZSTJFd2FicFpNcDJPT3V3VGNqOE1rQQ?oc=5",
-          "source": "BBC",
-          "published": "2026-11-22"
+          "title": "Retirement at just 29? Former Dortmund wonderkid takes break from professional football",
+          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNWXdJdTVqQVNaQ2E1MXF3TTNWOU5Oc21VVWN6ekt4ZzRRRjdwcEVXWVNsSW0xTEhFekVCVTZZenNRREctdmxhLVF4enNzS016M2ZRZm9DZTJhT0tQcTJ5RUtubWZUU3lqSExOVFVQYm5wRHgtNnl6cjZTOEFTM3JWRUpjaWh2cHhJaUdWRlRzM0hndlkwanlZSlJKWFNHTklaa08zLWw3emJZWFN1alhrMTZTalFWeVRGN21wdGhQVzlwVV9udkVfczB4dHRHUnpNMEU3T3dWY18zMjJQYVhv?oc=5",
+          "source": "LiveScore",
+          "published": "2026-11-23"
+        },
+        {
+          "title": "NEC forward Emre Mor (29) shocks with immediate retirement from professional football",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNQm9qWWd5NmV2ZlMzSTZ0TGVQLXRFaTY0a3M2T1VsZVN0b1RBTlR2RmZBTE1TeFA1dU5QclFvRWZ4cFFoYmU5eGRJZ3RDUFdzOEpEMzN3Y2REZjZkRnNhTGQwSUczU0hBRXl1RzNZdGpITjRkWjNXRG9mT2N3a3NNU2JNeUgxaW1XS0h0LWFQRnhWUzFreWNodVpqWldhck4yYllleHhqclVBaEpvTkRVOXB2N3FWeEJEa1p1TFlfOHYtOHo0X05zN0tpZWpqX2tL?oc=5",
+          "source": "Goal.com",
+          "published": "2026-11-23"
+        },
+        {
+          "title": "Europa League fixtures: midweek schedule and kick-off times (26 November 2026)",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOaWpzbTRPRjI0Z3NGTEV2TUNwRDU3anZiMDIybmpfUjN0T25wODZVRkQ4VGRuLXV4WnJMNHlTVEpzWmIxekJuQ0dyV0pxcGR6b0J1REQ2LUdwWnpxdDFDcGxuZFFUUXpXb0VBYmQyaGl2OHltTWVKNU5HMzBLaUtqVUo1SDRfZjZmSnh6ZVJ6ZXY2ZHZmRjFWUUR4MlJzb0NiY3Z5TlVSVVk5dHBFMUttdlpn?oc=5",
+          "source": "Sport News Africa",
+          "published": "2026-11-23"
         },
         {
           "title": "NEC Nijmegen vs PSV Prediction, Betting Tips, Lineups & Odds | 21 Nov 2026",
@@ -3931,35 +3936,13 @@
           "published": "2026-11-22"
         },
         {
-          "title": "Rennes vs. NEC Nijmegen Live Stream of UEFA Europa League",
-          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9LUi12d2UxRl9tY1RBNnk5cC15RjRfMjJ1eHN6cFdSZl82aUZTaWtheU9kTVl3NUNUQWExNnpjazdyNW5ZZFVjeFVqUnpERWt2NzY1Nk10UjJ0RVBNY2FURHp5SEp4amZhUlZN?oc=5",
-          "source": "CBS Sports",
-          "published": "2026-11-21"
-        },
-        {
-          "title": "PSV keep in control with commanding win over NEC Nijmegen",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPbzNnM3JleVpLUjhCNHVYNENFVUM1cUpiWkJzSy1Yem13N3JJVVFmM2FNcVhlc3NfcmJ5MVRnT0YweU0tNzR6ZmZLc1l0YU80d1RUbnBqX0lKZ1M0eHFadndiUXdIMi1KWnBHNFBLYUROb29uem83bHdoMTZJeGF2S3BzSG1MV1FlTWtPcnhtTmM1NkM5dE9QTHJmX1hiNzNxZ010V3VIdFA1NjhxVVVPSUN2YUVVSkVq?oc=5",
-          "source": "Flashscore.com",
-          "published": "2026-11-21"
-        },
-        {
-          "title": "NEC Nijmegen vs PSV: Dutch Eredivisie stats & head-to-head",
-          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE05VjJqdGtLTEFPU2JTeHpRNnJLZW53MTlUdHp4OXZJb0k2bTczREZzWlc5SDBvOVBUYzVoeWpvenFLaXlIdXBZVnBIa0xfMWhBeEhmTlZZbUNabVVqd2RaVE5MVm45Zw?oc=5",
-          "source": "BBC",
-          "published": "2026-11-21"
+          "title": "NEC vs. Rennes (27 Nov, 2026) Live Score",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5YT2xkdndoTlMtZnN0UkJvVW1JLWtqNXFnRzlZWG12WlZuMWdPZmVtVzlDVVF3bHhDbmF6T2FIbnJsRmF4cWRjRV9PQmZ4LVV4TlhrNlo3QW9TckNEVmxwVmp4ZmdGSnpYeG1mTWdvSTlvbEdJNEJv?oc=5",
+          "source": "ESPN",
+          "published": "2026-11-22"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "NEC s-a format în aprilie 1910 prin fuziunea cluburilor Eendracht (fondat în 1900) și NVV Nijmegen, sub numele Nijmegen Eendracht Combinatie.",
-        "În perioada interbelică, după eșecuri repetate în play-off-urile de promovare, clubul a primit porecla ironică „Nooit eerste classer” („Niciodată în prima ligă”), promovând abia din a cincea încercare, în 1936.",
-        "NEC a ajuns de șase ori în finala Cupei KNVB — în 1973, 1983, 1994, 2000, 2024 și 2026 — dar nu a câștigat niciodată trofeul.",
-        "În 1983, deși retrogradase în liga secundă, NEC a disputat un meci rămas celebru în Cupa Cupelor cu Barcelona lui Diego Maradona, conducând cu 2–0 înainte de a pierde 2–3.",
-        "Stadionul Goffert a fost inaugurat în 1939 de prințul Bernhard al Țărilor de Jos, fiind la data deschiderii al treilea ca mărime din Țările de Jos.",
-        "Clubul a cumpărat stadionul de la primăria orașului în 1992, pentru suma simbolică de un florin.",
-        "Marele rival al NEC este Vitesse Arnhem, cele două cluburi disputând „Derby-ul Gelderlandului”.",
-        "La 29 mai 2003, un gol târziu a adus NEC locul cinci în Eredivisie și prima calificare din istorie în UEFA Cup, sărbătorită de peste 25.000 de suporteri în centrul orașului."
-      ]
+      "stories": []
     },
     "away": {
       "name": "Rennes",
@@ -4030,14 +4013,6 @@
             "season": "2019/2020",
             "place": "2nd Place"
           }
-        ],
-        "funfacts": [
-          "Francez, născut pe 15 aprilie 1971 la Mont-Saint-Aignan (Seine-Maritime), Haise a fost mijlocaș ca jucător, cea mai mare parte a carierei desfășurându-se în Ligue 2.",
-          "A fost antrenorul echipei a doua a lui Lens timp de trei sezoane, înainte de a deveni antrenor principal pe 25 februarie 2020, după demiterea lui Philippe Montanier.",
-          "Pe 27 mai 2023 a dus Lens la victoria cu 3-0 contra lui Ajaccio, în ultima etapă, calificând clubul în Liga Campionilor pentru a treia oară din istorie, după 1998-1999 și 2002-2003, cu 84 de puncte, la un punct în urma lui Paris Saint-Germain.",
-          "Pentru sezonul 2022-2023 a fost numit antrenorul anului în Ligue 1 și antrenorul anului în Franța.",
-          "A fost numit antrenor la Nice pe 6 iunie 2024, dar a fost demis pe 29 decembrie 2025, după un start slab de sezon, fiind înlocuit de Claude Puel.",
-          "Pe 18 februarie 2026 a devenit antrenorul lui Rennes, iar la Lens a folosit de regulă sistemul 3-4-1-2, apelând uneori la 3-5-2 sau 3-4-3."
         ]
       },
       "formation": "n/d",
@@ -4125,7 +4100,7 @@
           "natTeam": null,
           "birthCountry": "France",
           "birthDate": "1997-01-12",
-          "pronunciation": "ni-ko-LA lu-METR",
+          "pronunciation": null,
           "career": "Reims (2014) · Reims II (2015–2019) · Quevilly (2020–2022) · Estac Troyes (2023–2025) · Rennes (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -4254,7 +4229,7 @@
           "natTeam": null,
           "birthCountry": "Morocco",
           "birthDate": "2006-04-16",
-          "pronunciation": "a-IT bud-LAL",
+          "pronunciation": null,
           "career": "Rennes (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -4385,7 +4360,7 @@
           "natTeam": null,
           "birthCountry": "Poland",
           "birthDate": "1995-04-12",
-          "pronunciation": "pshe-MI-swaf fran-KOV-ski",
+          "pronunciation": null,
           "career": "Lechia Gdansk (2012–2013) · Jagiellonia (2014–2018) · Chicago Fire (2019–2020) · Lens (2021–2024) · Rennes (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -4450,7 +4425,7 @@
           "natTeam": null,
           "birthCountry": "France",
           "birthDate": "2002-05-16",
-          "pronunciation": "kahn-TEN mer-LEN",
+          "pronunciation": null,
           "career": "Nantes (2020–2021) · Rennes (2022–prezent) · Marseille (2023)",
           "lastSeason": null,
           "funfact": null,
@@ -4578,7 +4553,7 @@
           "natTeam": null,
           "birthCountry": "Portugal",
           "birthDate": "2006-07-04",
-          "pronunciation": "gon-SA-lu o-li-VEI-ra",
+          "pronunciation": null,
           "career": "Benfica (2024–2025) · Rennes (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -4643,7 +4618,7 @@
           "natTeam": null,
           "birthCountry": "USA",
           "birthDate": "2001-06-28",
-          "pronunciation": "REN-olds",
+          "pronunciation": null,
           "career": "FC Dallas (2017–2019) · AS Roma (2020–2021) · KVC Westerlo (2022–2025) · Rennes (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -4707,7 +4682,7 @@
           "natTeam": null,
           "birthCountry": "France",
           "birthDate": "2001-05-29",
-          "pronunciation": "RUO",
+          "pronunciation": null,
           "career": "Toulouse II (2018) · Toulouse (2019–2022) · VfB Stuttgart (2023) · Rennes (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -4863,7 +4838,7 @@
           "natTeam": null,
           "birthCountry": "France",
           "birthDate": "2004-01-31",
-          "pronunciation": "dja-WI si-SE",
+          "pronunciation": null,
           "career": "Rennes (0–prezent) · Rennes II (2021)",
           "lastSeason": null,
           "funfact": null,
@@ -4990,7 +4965,7 @@
           "natTeam": null,
           "birthCountry": "Poland",
           "birthDate": "1999-05-10",
-          "pronunciation": "și-MAN-ski",
+          "pronunciation": null,
           "career": "Legia Warszawa (2016–2018) · Dynamo (2019–2021) · Feyenoord (2022) · Fenerbahçe (2023–2024) · Rennes (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -5212,7 +5187,7 @@
           "natTeam": null,
           "birthCountry": "France",
           "birthDate": "1996-11-16",
-          "pronunciation": "bu-LAI",
+          "pronunciation": null,
           "career": "Jura Sud Foot (2017) · Reims (2018–2020) · Villarreal (2021) · Salernitana (2022–2023) · Lazio (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -5367,7 +5342,7 @@
           "natTeam": null,
           "birthCountry": null,
           "birthDate": null,
-          "pronunciation": "lă-JAN-dră ki-NYO-nes",
+          "pronunciation": null,
           "career": "Rennes (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -5432,7 +5407,7 @@
           "natTeam": null,
           "birthCountry": "France",
           "birthDate": "2000-04-18",
-          "pronunciation": "le-POL",
+          "pronunciation": null,
           "career": "Olympique Lyonnais II (2017–2019) · Epinal (2020) · Orleans (2021–2022) · Angers (2023–2024) · Rennes (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -5497,7 +5472,7 @@
           "natTeam": null,
           "birthCountry": "Spain",
           "birthDate": "2005-05-08",
-          "pronunciation": "e-li-e-ZER ma-YEN-da",
+          "pronunciation": null,
           "career": "Sochaux (2021–2022) · Sunderland (2023–2025) · Rennes (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -5562,7 +5537,7 @@
           "natTeam": null,
           "birthCountry": "France",
           "birthDate": "1998-06-17",
-          "pronunciation": "ar-NO",
+          "pronunciation": null,
           "career": "Saint-Étienne II (2015) · Saint Etienne (2016–2021) · Nancy (2017) · Montpellier (2022–2023) · FSV Mainz 05 (2024) · Rennes (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -5628,7 +5603,7 @@
           "natTeam": null,
           "birthCountry": "Senegal",
           "birthDate": "2000-10-10",
-          "pronunciation": "su-ma-RE",
+          "pronunciation": null,
           "career": "Orleans (2019–2020) · Quevilly (2021–2022) · Le Havre (2023–2025) · Rennes (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -5763,6 +5738,273 @@
           "points": 6
         },
         "recent": [
+          {
+            "date": "2026-11-22",
+            "opp": "Lorient",
+            "homeAway": "A",
+            "comp": "Ligue 1",
+            "score": "1-1",
+            "result": "D",
+            "referee": "Marc Bollengier",
+            "formation": {
+              "us": "5-3-2",
+              "opp": "3-4-2-1"
+            },
+            "lineups": {
+              "us": [
+                {
+                  "name": "B. Samba",
+                  "number": 30,
+                  "pos": "G"
+                },
+                {
+                  "name": "B. Reynolds",
+                  "number": 14,
+                  "pos": "D"
+                },
+                {
+                  "name": "A. Rouault",
+                  "number": 24,
+                  "pos": "D"
+                },
+                {
+                  "name": "C. Cresswell",
+                  "number": 4,
+                  "pos": "D"
+                },
+                {
+                  "name": "Gonçalo Oliveira",
+                  "number": 5,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Nagida",
+                  "number": 18,
+                  "pos": "D"
+                },
+                {
+                  "name": "S. Szymański",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "V. Rongier",
+                  "number": 21,
+                  "pos": "M"
+                },
+                {
+                  "name": "M. Camara",
+                  "number": 45,
+                  "pos": "M"
+                },
+                {
+                  "name": "Mousa Tamari",
+                  "number": 11,
+                  "pos": "F"
+                },
+                {
+                  "name": "B. Dia",
+                  "number": 22,
+                  "pos": "F"
+                }
+              ],
+              "opp": [
+                {
+                  "name": "Y. Mvogo",
+                  "number": 38,
+                  "pos": "G"
+                },
+                {
+                  "name": "N. Adjei",
+                  "number": 32,
+                  "pos": "D"
+                },
+                {
+                  "name": "M. Talbi",
+                  "number": 3,
+                  "pos": "D"
+                },
+                {
+                  "name": "N. Obaretin",
+                  "number": 55,
+                  "pos": "D"
+                },
+                {
+                  "name": "D. Sylla",
+                  "number": 20,
+                  "pos": "M"
+                },
+                {
+                  "name": "N. Cadiou",
+                  "number": 8,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Avom",
+                  "number": 62,
+                  "pos": "M"
+                },
+                {
+                  "name": "K. Kouassi",
+                  "number": 43,
+                  "pos": "M"
+                },
+                {
+                  "name": "J. Makengo",
+                  "number": 17,
+                  "pos": "M"
+                },
+                {
+                  "name": "G. Bernardeau",
+                  "number": 33,
+                  "pos": "M"
+                },
+                {
+                  "name": "A. Tosin",
+                  "number": 15,
+                  "pos": "F"
+                }
+              ]
+            },
+            "events": [
+              {
+                "minute": 27,
+                "side": "us",
+                "type": "goal",
+                "player": "Boulaye Dia",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 29,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Valentin Rongier",
+                "playerIn": "Djaoui Cissé"
+              },
+              {
+                "minute": 36,
+                "side": "us",
+                "type": "yellow",
+                "player": "Sebastian Szymański",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 45,
+                "side": "opp",
+                "type": "goal",
+                "player": "Montassar Talbi",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 50,
+                "side": "us",
+                "type": "yellow",
+                "player": "Mahamadou Nagida",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 52,
+                "side": "opp",
+                "type": "goal",
+                "player": "Noah Cadiou",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Gabin Bernardeau",
+                "playerIn": "Souleymane Faye"
+              },
+              {
+                "minute": 62,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Aiyegun Tosin",
+                "playerIn": "Mamadou Kone"
+              },
+              {
+                "minute": 66,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Souleymane Faye",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 70,
+                "side": "opp",
+                "type": "yellow",
+                "player": "Noah Cadiou",
+                "playerOut": null,
+                "playerIn": null
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mousa Al-Tamari",
+                "playerIn": "Issa Soumaré"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Boulaye Dia",
+                "playerIn": "Esteban Lepaul"
+              },
+              {
+                "minute": 71,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Sebastian Szymański",
+                "playerIn": "Adrien Thomasson"
+              },
+              {
+                "minute": 71,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Arsène Kouassi",
+                "playerIn": "Théo Le Bris"
+              },
+              {
+                "minute": 82,
+                "side": "us",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Mahamadou Nagida",
+                "playerIn": "Quentin Merlin"
+              },
+              {
+                "minute": 88,
+                "side": "opp",
+                "type": "sub",
+                "player": null,
+                "playerOut": "Dembo Sylla",
+                "playerIn": "Srđan Kuzmić"
+              },
+              {
+                "minute": 90,
+                "side": "us",
+                "type": "red",
+                "player": "Adrien Thomasson",
+                "playerOut": null,
+                "playerIn": null
+              }
+            ]
+          },
           {
             "date": "2026-11-08",
             "opp": "Lille",
@@ -7065,338 +7307,9 @@
                 "playerIn": "Kerim Alajbegovic"
               }
             ]
-          },
-          {
-            "date": "2026-10-18",
-            "opp": "Paris FC",
-            "homeAway": "A",
-            "comp": "Ligue 1",
-            "score": "3-4",
-            "result": "L",
-            "referee": "B. Dechepy",
-            "formation": {
-              "us": "4-3-3",
-              "opp": "4-2-3-1"
-            },
-            "lineups": {
-              "us": [
-                {
-                  "name": "B. Samba",
-                  "number": 30,
-                  "pos": "G"
-                },
-                {
-                  "name": "B. Reynolds",
-                  "number": 14,
-                  "pos": "D"
-                },
-                {
-                  "name": "C. Cresswell",
-                  "number": 4,
-                  "pos": "D"
-                },
-                {
-                  "name": "A. Rouault",
-                  "number": 24,
-                  "pos": "D"
-                },
-                {
-                  "name": "P. Frankowski",
-                  "number": 95,
-                  "pos": "D"
-                },
-                {
-                  "name": "S. Szymański",
-                  "number": 17,
-                  "pos": "M"
-                },
-                {
-                  "name": "D. Cissé",
-                  "number": 6,
-                  "pos": "M"
-                },
-                {
-                  "name": "A. Thomasson",
-                  "number": 28,
-                  "pos": "M"
-                },
-                {
-                  "name": "L. Blas",
-                  "number": 10,
-                  "pos": "F"
-                },
-                {
-                  "name": "E. Lepaul",
-                  "number": 9,
-                  "pos": "F"
-                },
-                {
-                  "name": "I. Soumaré",
-                  "number": 90,
-                  "pos": "F"
-                }
-              ],
-              "opp": [
-                {
-                  "name": "K. Trapp",
-                  "number": 1,
-                  "pos": "G"
-                },
-                {
-                  "name": "A. Camara",
-                  "number": 17,
-                  "pos": "D"
-                },
-                {
-                  "name": "S. Chergui",
-                  "number": 31,
-                  "pos": "D"
-                },
-                {
-                  "name": "D. Coppola",
-                  "number": 42,
-                  "pos": "D"
-                },
-                {
-                  "name": "H. Traoré",
-                  "number": 14,
-                  "pos": "D"
-                },
-                {
-                  "name": "M. Lopez",
-                  "number": 20,
-                  "pos": "M"
-                },
-                {
-                  "name": "P. Lees-Melou",
-                  "number": 33,
-                  "pos": "M"
-                },
-                {
-                  "name": "I. Kebbal",
-                  "number": 10,
-                  "pos": "M"
-                },
-                {
-                  "name": "P. Pagis",
-                  "number": 7,
-                  "pos": "M"
-                },
-                {
-                  "name": "L. Koleosho",
-                  "number": 15,
-                  "pos": "M"
-                },
-                {
-                  "name": "L. Sinayoko",
-                  "number": 9,
-                  "pos": "F"
-                }
-              ]
-            },
-            "events": [
-              {
-                "minute": 14,
-                "side": "opp",
-                "type": "goal",
-                "player": "Maxime López",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 23,
-                "side": "us",
-                "type": "yellow",
-                "player": "Przemysław Frankowski",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 29,
-                "side": "us",
-                "type": "goal",
-                "player": "Esteban Lepaul",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 32,
-                "side": "us",
-                "type": "yellow",
-                "player": "Djaoui Cissé",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 36,
-                "side": "us",
-                "type": "yellow",
-                "player": "Adrien Thomasson",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 36,
-                "side": "us",
-                "type": "yellow",
-                "player": "Anthony Rouault",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 42,
-                "side": "opp",
-                "type": "yellow",
-                "player": "Samir Chergui",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 45,
-                "side": "opp",
-                "type": "goal",
-                "player": "Maxime López",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 45,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Adrien Thomasson",
-                "playerIn": "Valentin Rongier"
-              },
-              {
-                "minute": 45,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Ludovic Blas",
-                "playerIn": "Mousa Al-Tamari"
-              },
-              {
-                "minute": 45,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Przemysław Frankowski",
-                "playerIn": "Mahamadou Nagida"
-              },
-              {
-                "minute": 62,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Djaoui Cissé",
-                "playerIn": "Mahdi Camara"
-              },
-              {
-                "minute": 67,
-                "side": "opp",
-                "type": "yellow",
-                "player": "Ilan Kebbal",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 70,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Pablo Pagis",
-                "playerIn": "Rudy Matondo"
-              },
-              {
-                "minute": 74,
-                "side": "us",
-                "type": "goal",
-                "player": "Esteban Lepaul",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 76,
-                "side": "opp",
-                "type": "goal",
-                "player": "Lassine Sinayoko",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 79,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Hamari Traore",
-                "playerIn": "Otavio"
-              },
-              {
-                "minute": 79,
-                "side": "us",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Issa Soumaré",
-                "playerIn": "Boulaye Dia"
-              },
-              {
-                "minute": 79,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Ilan Kebbal",
-                "playerIn": "Moses Simon"
-              },
-              {
-                "minute": 86,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Luca Koleosho",
-                "playerIn": "Moustapha Mbow"
-              },
-              {
-                "minute": 86,
-                "side": "opp",
-                "type": "sub",
-                "player": null,
-                "playerOut": "Samir Chergui",
-                "playerIn": "Emmanuel Mbemba"
-              },
-              {
-                "minute": 88,
-                "side": "us",
-                "type": "goal",
-                "player": "Esteban Lepaul",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 90,
-                "side": "opp",
-                "type": "yellow",
-                "player": "Hamari Traore",
-                "playerOut": null,
-                "playerIn": null
-              },
-              {
-                "minute": 90,
-                "side": "opp",
-                "type": "goal",
-                "player": "Lassine Sinayoko",
-                "playerOut": null,
-                "playerIn": null
-              }
-            ]
           }
         ],
         "next": [
-          {
-            "date": "2026-11-22",
-            "opp": "Lorient",
-            "homeAway": "A",
-            "comp": "Ligue 1"
-          },
           {
             "date": "2026-11-26",
             "opp": "NEC Nijmegen",
@@ -7407,6 +7320,12 @@
             "date": "2026-11-29",
             "opp": "Toulouse",
             "homeAway": "A",
+            "comp": "Ligue 1"
+          },
+          {
+            "date": "2026-12-06",
+            "opp": "Stade Brestois 29",
+            "homeAway": "H",
             "comp": "Ligue 1"
           }
         ],
@@ -7557,21 +7476,41 @@
           "name": "J. Coulibaly",
           "to": "Nancy",
           "fee": null
-        },
-        {
-          "name": "L. Rosier",
-          "to": "Concarneau (împrumut)",
-          "fee": null
-        },
-        {
-          "name": "M. Faye",
-          "to": "1. FC Nürnberg (împrumut)",
-          "fee": null
         }
       ],
       "preseason": [],
       "news": [],
       "newsCandidates": [
+        {
+          "title": "Abdelhamid Ait-Boudlal set to sign Rennes extension",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxONmNxc19SLXFJQzhQdVdVRjkxRTZxQnF2OWotYjhQOE9rbVBuc1g4MDdQUy1QbTQ5a2NWUkRsYWpnRnZNdkV1bUhEUmd1OThsNWlWem40U1o0QnlQS3lidE94UHBHdTAxZi0xRGF5MTdkRFcwZ1VseHJOVnFCaEJkWk5pdi01UUlvZ3hxODVBNmpQYnFqY3pEUHhObw?oc=5",
+          "source": "Get French Football News",
+          "published": "2026-11-23"
+        },
+        {
+          "title": "Lorient vs Rennes Prediction, Betting Tips, Lineups & Odds | 22 Nov 2026",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxObHF4SW5BQk5rejJmVHJZZWIxeWxXMHFoclZNamRJblNBOWFySUlVSFpRaS1naWdhc2VYMWR1dFc5Vi1nMHo1Vnl6cHRJeFRPZGx5UFZkLUJveWYzMU93bzdoc1Eta3dKbGNyTlN0UmFNdHQ4ajJFWjI0X3RKVnVDc05Ld0wzMEZGY195WWxVODFMZmtsb21iaUdDTkh0NWw1Y3VZU09RaHY?oc=5",
+          "source": "Sportsgambler",
+          "published": "2026-11-23"
+        },
+        {
+          "title": "Rennes vs. NEC Nijmegen Live Stream of UEFA Europa League",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9LUi12d2UxRl9tY1RBNnk5cC15RjRfMjJ1eHN6cFdSZl82aUZTaWtheU9kTVl3NUNUQWExNnpjazdyNW5ZZFVjeFVqUnpERWt2NzY1Nk10UjJ0RVBNY2FURHp5SEp4amZhUlZN?oc=5",
+          "source": "CBS Sports",
+          "published": "2026-11-23"
+        },
+        {
+          "title": "Europa League fixtures: midweek schedule and kick-off times (26 November 2026)",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOaWpzbTRPRjI0Z3NGTEV2TUNwRDU3anZiMDIybmpfUjN0T25wODZVRkQ4VGRuLXV4WnJMNHlTVEpzWmIxekJuQ0dyV0pxcGR6b0J1REQ2LUdwWnpxdDFDcGxuZFFUUXpXb0VBYmQyaGl2OHltTWVKNU5HMzBLaUtqVUo1SDRfZjZmSnh6ZVJ6ZXY2ZHZmRjFWUUR4MlJzb0NiY3Z5TlVSVVk5dHBFMUttdlpn?oc=5",
+          "source": "Sport News Africa",
+          "published": "2026-11-23"
+        },
+        {
+          "title": "Ligue 1 - FC Lorient 1 - 1 Rennes",
+          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5sTzI2REFIZGcxTnNDN2pLc0Q1c2hfLVoxVF9aaE9DNzRUVTl5NFBzUnhKbUdmSWhNMThvbm1XUW80dVpUVVZrcTZoN1Jodk1TZ2JFNlJnWUtiYzhTODhtX01CZUhCVDB0YzhoZHIyWUFkeTBUZnBXdFlxVQ?oc=5",
+          "source": "OneFootball",
+          "published": "2026-11-22"
+        },
         {
           "title": "Lorient vs Rennes prediction, preview & betting tips – 22/11/2026",
           "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFA1aDdtWk1RcHdXYU1KZUthd0UxTEJiQTloTVc4a0VLYkRzdE1SYmFxMF9pVnBWejRSckwwUmVTa3hoTTNCVG1qY054d3VfMkR2MGxNd0oyWnJrZEFQRWwxNTFVbVk4bUQ0OHpDVlRhMlZnNmJNN2lUU3lwbzFmblE?oc=5",
@@ -7585,40 +7524,10 @@
           "published": "2026-11-22"
         },
         {
-          "title": "Lorient vs Rennes Prediction, Betting Tips, Lineups & Odds | 22 Nov 2026",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxObHF4SW5BQk5rejJmVHJZZWIxeWxXMHFoclZNamRJblNBOWFySUlVSFpRaS1naWdhc2VYMWR1dFc5Vi1nMHo1Vnl6cHRJeFRPZGx5UFZkLUJveWYzMU93bzdoc1Eta3dKbGNyTlN0UmFNdHQ4ajJFWjI0X3RKVnVDc05Ld0wzMEZGY195WWxVODFMZmtsb21iaUdDTkh0NWw1Y3VZU09RaHY?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "Rennes vs. NEC Nijmegen Live Stream of UEFA Europa League",
-          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9LUi12d2UxRl9tY1RBNnk5cC15RjRfMjJ1eHN6cFdSZl82aUZTaWtheU9kTVl3NUNUQWExNnpjazdyNW5ZZFVjeFVqUnpERWt2NzY1Nk10UjJ0RVBNY2FURHp5SEp4amZhUlZN?oc=5",
-          "source": "CBS Sports",
-          "published": "2026-11-21"
-        },
-        {
-          "title": "NEC vs. Rennes (26 Nov, 2026) Live Score",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOQmFOdFVwTV9ibzJtWktMQ29nR3ZKbTE3dGMybElKLTVjNlJHaU5BZUdma000LS1rejhvMzc4ajdwdi1EaThIU09fUllMM1Q3cUtPbFBoWndzT293NDBFRHlrT25EMHNza2xOaW9nWkR6VHRpOE5sandfdFMtUXIzTzFYc1lzSWpB?oc=5",
-          "source": "ESPN",
-          "published": "2026-11-21"
-        },
-        {
-          "title": "NEC Nijmegen vs Rennes » Best Odds and Stats",
-          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5kdnhGclNWdDB4VmNXalF0alk0UEZmUFd6OHg1eG0yUWw4d2MxbXVWSUxZWENyejJVbzRkSnp3bld2c0VlbHBNT1BNVVR1WjFtNUs2dlNoQVNQbFc5eVRlTG03YjF5bzQ?oc=5",
-          "source": "Odds Scanner",
-          "published": "2026-11-21"
-        },
-        {
-          "title": "PREVIEW | FC Lorient vs Rennes: team news, lineups, predictions (Ligue 1 22/11)",
-          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNZjdOOE5QejliRFFjRy1IU056LUczS0Ezdko2LThQcUZmd3I5T1U2M1IxQkdmejF3YlNPUFpTSWFXelQzNGV1QzM5Uy1CVGh1S2V5M2ZPYXA4Y0l4b1BiWHh4WkdUUms1eVYxLUdIYks2bUpuUWFrU29vWUZNdng0OHJ3MA?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-11-20"
-        },
-        {
-          "title": "Lorient vs Rennes - Ligue 1 - November 22, 2026 - Match Guide, Data Analysis, Standings - Football",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNTVVRMEhGU3d5Z3JYbHZsaTY2Y04wVDNLZTV5SC1leWdELVFmQmkwaDBMVEdnS0hCbEdGcmhKTGU0RWFTcmpmTlQ5RjFnVXVKNzZRRHlKZERVcUNMYXdrZGl4UnJqcmlaN2k1UDYzSDFBSk1iQ0JUS3RzTEJvTEt4bFVKRnByUHM?oc=5",
+          "title": "Sunday's Ligue 1 predictions including Marseille vs. Le Mans, Paris FC vs. Angers",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxONlRKLTVqUGs3YTlOTnB5cXFzUjhfaG5XTGpiR25wSDlpVUtpYkh6eURFRVpKTnVDcXBoVzJtNGxxME1LZWdDTm5DR3lOVmJ3bWt1dDlaaHEzYmNFOXVOeG1uX19McHk2VzVUOXBZRm9DRk4ycW8yYUN1bW1TYWMzdHlIdTNPWm1XNzQ1c0tRM0M3a1NDZEtYQTdVSkRnZ0RKYkNhOThlMlJFWlhDUkdlckxpODBHSjR3TUJ5YnNIR3c4VXE5dThCaTZLUUdGckV4T0xaM2t1akFGZw?oc=5",
           "source": "Sports Mole",
-          "published": "2026-11-20"
+          "published": "2026-11-22"
         }
       ],
       "stories": [],
@@ -7630,15 +7539,6 @@
           "yellows": 3,
           "apps": 10
         }
-      ],
-      "clubFacts": [
-        "Stade Rennais a fost înființat pe 10 martie 1901 de un grup de foști elevi, iar pe 4 mai 1904 a fuzionat cu FC Rennais, formând Stade Rennais Université Club.",
-        "Culorile roșu și negru ale clubului datează din fuziunea de la 1904.",
-        "Clubul este supranumit „Les Rouge et Noir” sau „Les Rennais”.",
-        "Stade Rennais a câștigat Cupa Franței de trei ori, în 1965, 1971 și 2019.",
-        "Cea mai bună clasare a clubului în Ligue 1 este locul 3, obținută în sezonul 2019–2020.",
-        "Stadionul clubului, cunoscut din 1912 ca Stade de la Route de Lorient, a fost redenumit Roazhon Park în 2015, în urma unui vot al suporterilor la care au participat 60.000 de persoane.",
-        "Roazhon Park, numele actual al stadionului, are o capacitate de 29.778 de locuri."
       ]
     }
   },
