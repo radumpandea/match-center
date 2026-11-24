@@ -1,12 +1,12 @@
 {
   "slug": "uecl-e4-ajax-fc-thun",
-  "generatedAt": "2026-11-23T16:24:06.158Z",
+  "generatedAt": "2026-11-24T16:09:38.113Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-11-23"
+      "accessed": "2026-11-24"
     }
   ],
   "competition": {
@@ -22,11 +22,11 @@
     "city": "Amsterdam",
     "notes": null,
     "weather": {
-      "tempC": 0,
+      "tempC": 1,
       "condition": "cer clar",
-      "windKph": 11,
+      "windKph": 19,
       "precipitationMm": 0,
-      "forecastAt": "2026-11-23T16:24:06.197Z"
+      "forecastAt": "2026-11-24T16:09:38.146Z"
     }
   },
   "referee": {
@@ -886,7 +886,7 @@
           "natTeam": null,
           "birthCountry": "Germany",
           "birthDate": "1996-09-21",
-          "pronunciation": "TI-lo KE-rer",
+          "pronunciation": null,
           "career": "FC Schalke 04 (2014–2017) · Paris Saint Germain (2018–2021) · West Ham (2022) · Monaco (2023–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -1522,7 +1522,7 @@
           "natTeam": null,
           "birthCountry": "Israel",
           "birthDate": "2004-04-01",
-          "pronunciation": "GLOH",
+          "pronunciation": null,
           "career": "Red Bull Salzburg (2022–2024) · Ajax (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -1764,8 +1764,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Lacking Match Fitness",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -1930,13 +1930,13 @@
           "natTeam": null,
           "birthCountry": "Denmark",
           "birthDate": "1997-10-06",
-          "pronunciation": "TUL-per",
+          "pronunciation": null,
           "career": "Ajax (2016–prezent) · Nice (2020–2021) · 1899 Hoffenheim (2022) · Anderlecht (2023–2024)",
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Knee Injury",
           "stats": {
             "goals": 1,
             "assists": 0,
@@ -2228,8 +2228,8 @@
           "lastSeason": null,
           "funfact": null,
           "linkLine": null,
-          "status": "available",
-          "statusNote": null,
+          "status": "out",
+          "statusNote": "Inactive",
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -2280,7 +2280,7 @@
           "natTeam": null,
           "birthCountry": "Netherlands",
           "birthDate": "2003-08-18",
-          "pronunciation": "re-HER",
+          "pronunciation": null,
           "career": "Jong Ajax (2019) · Ajax (2020–2025) · Werder Bremen (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -2345,7 +2345,7 @@
           "natTeam": null,
           "birthCountry": "Belgium",
           "birthDate": "2005-06-07",
-          "pronunciation": "HOTS",
+          "pronunciation": null,
           "career": "Ajax (0–2025) · Paris Saint Germain (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -4096,7 +4096,26 @@
           "losesAway": 1
         }
       },
-      "absences": [],
+      "absences": [
+        {
+          "name": "S. Adingra",
+          "reason": "injury",
+          "detail": "Lacking Match Fitness",
+          "since": "2026-11-22"
+        },
+        {
+          "name": "K. Dolberg",
+          "reason": "injury",
+          "detail": "Knee Injury",
+          "since": "2026-11-22"
+        },
+        {
+          "name": "V. Tsygankov",
+          "reason": "injury",
+          "detail": "Inactive",
+          "since": "2026-11-22"
+        }
+      ],
       "mercatoIn": [
         {
           "name": "Y. Bissouma",
@@ -4215,6 +4234,42 @@
       "news": [],
       "newsCandidates": [
         {
+          "title": "Explained: Why Sofyan Amrabat Did Not Start In Ajax's Win Against ADO Den Haag",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQQ3dJYkcxSHNtS1ZmOWhwMHRmQVRYUWlwbWhvbURfUUVFVjdsVWx4QnI2MXBCVVlHdDFqTVJrSkcwRFl6TFhIcDBJUlMzbFNoYURsbVRzRE5GUXRsVElEZkVwSWxjUzcxWHh6anZIbk1DMEJxaEFJNm9RNVJkLTVkbWFRUEMydFhB?oc=5",
+          "source": "Yahoo Sports",
+          "published": "2026-11-24"
+        },
+        {
+          "title": "FC Groningen immortalise Blokzijl's goal in stadium corridors and 'lost to Ajax because of it'",
+          "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPTlFSTE96QnFDYzFXclBjdFJfSVJvd190ZmN5WGZvYWI0VnZxNmVtdGR1YVpvSlBrQ0gyY2FtMy01LWM0eE1fd1haWVE5LWZiTWJEN0NHeTJOOTc3U2tkMGlna2RtYWZDREJkdU5SQjhNYzQ0ZnFKQTcwVWM0MGtQejBraVlkbG9URHJBS09tMzBGLV8yNnFlSmp5U1pqQl8yTklMYjZ2YV85UlhUWTZYMTA4bDJMMmRxNkNwTFoyMXJ1cnoyeU5ucGx3bGdlVjJoMGJod0YycmxSS1BiZkZpbk13LXpBUQ?oc=5",
+          "source": "LiveScore",
+          "published": "2026-11-24"
+        },
+        {
+          "title": "Liverpool line up 17-year-old Ajax sensation and lifelong Reds fan to provide winter cover for Florian Wirtz",
+          "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxOc3F4VVdkM1JxQUg2MXV3eUEzUTBPZnAtUGJiZm9kMjRoYkFXMDJJZjZCbHVleVJZVC1seW5IU2dKM2g1bmZkVm1XTGhSV000ekdlOXMtalVQeHNLSkpJdzI0VW9Lb083aEtrM2Fkb0RUNFhET2FiZ2wzRmw1Q3NmV3ltVDlGUG5pOVI4cmFWQ0NiNGJNS0FXUGNEbjZ3TTZpWlk4dzBQWUIxUDNER2NXUWYzN2FwMkMtRklMODlpQXl1dTY0X1M5ZWlqT1AyQW1UcDVWV1lQRE0zWjZuWFhrYXpTZzhiUFFvZHRVRW1zN3BESkF6Qkx0ZHdvRjBPbE01Z2c?oc=5",
+          "source": "LiveScore",
+          "published": "2026-11-24"
+        },
+        {
+          "title": "Ajax Amsterdam - FC Thun Berner Oberland betting tip & best odds | 26.11.2026",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPUE5WVkdaNVZpcGk3Y19ZMTcwRm04ZVNNOHhBU01VOWVVV08yckxoUEZMQ1l6RWdtVXExOU5uV2Q5Nk9HRWtJaG84M3JzZ0pxbjRUV0xkQjJUM2tXTXNfQnpuSllZVTE1azhRYkthdlczVS1QR3dyclZ1TzZ1Y3N2cXRJcHlQUUFvbFEzTTMtcHI1NUEtQkRfVUY0T0JZZU9hcDZxLXFQb3MyQ2JQ?oc=5",
+          "source": "Futbol24",
+          "published": "2026-11-24"
+        },
+        {
+          "title": "Dutch-Ghanaian teenager Levi Acheampong scores for Jong Ajax in big win against AZ",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxONlAteGdBeld6blZ0U05WRWROdW1zdjB2WEUyaVhwaUpDWTBPLXhhcWE5N0doMmVUaTNVUkRDbUpPSkpMTmIxMmota1lxYVRFdE9VenRxVTJLMU1BbnVicXhxZFhTajUxR25pcktCZnpfdnlvWjJzWFkzQlF1cEt5MndrTDh6d19XS056dUxTZnQwYnN6VEJ5SkJJTndUcDNHRkdGUzJNZ3l1VVBtQk5mb01FLUgxQQ?oc=5",
+          "source": "GhanaSoccernet",
+          "published": "2026-11-24"
+        },
+        {
+          "title": "Liverpool transfer news: Ajax teen eyed as Wirtz cover",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPMk5YSkoxYkNxb1NwTXdNT3VrNmxlMnIxWkk3eTAxYWRuT19jQ2hkREFFQ0FlMzFwc0l0NDVReWhfeUpsRU1obTc4b2UxOGlNcUs2dmRXVWgxamZWMmFZdjB4aTJrall5NEZLM0d3RC1LcUI1T2pVUlhEczZhcEdJN0JyNHVMUUZndzRHRE5vaW9QelVEUVZF?oc=5",
+          "source": "The Transfer Tavern",
+          "published": "2026-11-24"
+        },
+        {
           "title": "Klaassen's brace as Ajax sweep to Den Haag win, AFC Ajax",
           "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNcHVGbE1IU3I5U3hfcTlGeGJXOVZ6Xzl2UWk1NXNQSnZwMlBxVVV3RkRjVnpBTW1WdF9mcF9vdXlwcWIzNXN3X2tKRG9TN3ZrVk55QjVyaG1Semx5LUhfOG1uZndQaE81REltdEZsbjdFblRkOVctb3pDWWpTakNuWnRxNHVvWjdNcWVxRE5Uaw?oc=5",
           "source": "Forza Football",
@@ -4224,42 +4279,6 @@
           "title": "Ajax vs. FC Thun Live Stream of UEFA Conference League",
           "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5WYlYzeFhsUTE5UlNaeUVpdnlLZW9Td0tCSVN4ZmI0SHBDTU9CSHhKZ0dGVU15TTE1c1d5OHQ3cEpMTDk1bDBZOXFQVm5NajRwbl9jWXpITTZORUw5VlQwNzdaSDQxMnlKdXBmV3pwaGIzQjhTQ2Zv?oc=5",
           "source": "CBS Sports",
-          "published": "2026-11-23"
-        },
-        {
-          "title": "Jorthy Mokio offers hopeful update on severity of his injury",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOYm9sWi0teWdmMkZ5c1l6YnpYSl83TWlDZDRSZWNncXVJSHVsc3dUT1hndUVHQ0pzQ1ZtWmY1OHQ3UmQ1N1dWMnJEZVpFdUVmLUlwV0pjNmRZRUk5bHRqX3FHa3UyTVA5OTliYUF2ZXNWb25EbWp2Z0J5WG9nN3hGSDBlWk9lbUdWanZnbjVDMXNUWUVuWnpoOERSU0U1TDB0NlZtWlZVeHN1TnNoNGNIVDZ3VFc?oc=5",
-          "source": "LiveScore",
-          "published": "2026-11-23"
-        },
-        {
-          "title": "Harry Kane Set to Miss Bayern–Ajax Showdown in Nairobi",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxORXRvUHZEQkNJQXk1dDlmZ3gxNHJ6Y1dleWhKYW53ZDI0anh6N1RsajZYcTZlbzVxdUh2MGdhaC1odGhKbWhPOURhWTRROTlTckxCZ19YWmdNcU9fY0s3dUt2ckN2emRJaWZScXFOUG5fQjVBUnlQblhGaW9vVUlha0xjRVhnQUl0bXp2SnNxNUd0X2ZDUGZRcWtGcGc4ZVdjTlVmWkRB?oc=5",
-          "source": "michezo afrika",
-          "published": "2026-11-23"
-        },
-        {
-          "title": "Michel Sanchez Provides Concerning Injury Update On Ajax Midfielder Jorthy Mokio",
-          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQSGp2X2NlSEZWR1M4RDB2TkdhSm1sMndKdVFyY1Z3MFAyTjFXSXFlQmtHY2tRQ21Zc3hORzVWOWY2OHlXS0lnX2FOOEtfcWY2dzYzeWFnQi0wTWFIS0VHZUpwSTVxMzl4SVlWa2VvZThwSUJzNUJKWnh1UE5QM0E1ckdicnFzbE10MTVKV0lUVFJzM2owWU05V3gwUXJkYjQwTmNtMWM1enRCaVJTZFRFZnd0TUxFc0NVeXdSYkRlc3ZiN2xCTjY0VGJHOU14V1drcHFKTEpLakY?oc=5",
-          "source": "roundtable.io",
-          "published": "2026-11-23"
-        },
-        {
-          "title": "Tolu Arokodare fumes at Ajax boss Míchel in ADO Den Haag win",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBSeGZVbzJ4eUFwMkF1bU9LMmZIX3Z5dVNtekhYYnEtR2UzYjRILW9RVTZ1a2tzZ2FLVDEtZkQ1OG51X1RlTU5PZzZIa0RGOWgzd1BJckVoTzhDcEQxWDJvYVVfRzZSVUxXUWstcXlvZEVMX2lTX1VYX3h5MDNtbGc?oc=5",
-          "source": "Afrik-Foot",
-          "published": "2026-11-23"
-        },
-        {
-          "title": "Ajax vs Thun Preview & Prediction | 2026-27 UEFA Conference League | League Phase",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPYzVkVU42ckFVb2E0bU5Yejc0d00zamtWMEZfUUV1WGpQclNNdzZtUWFrWEhBZWlsMXhSeV9rRFU4d2ZlM2FhZVI0M1pvUWhXV3BYZzJMT3N1ZTgyT29jTzN0RHhmalp5WGYxcGZuVUZCem5XUFZhTjctbVlhV3hxN3lOcUpXTld0aE9BTGxMcXFJaE9DTk9pNk51Z3dGNXlmUGgwZkNEWm1NNFJCdmF3Zg?oc=5",
-          "source": "The Stats Zone",
-          "published": "2026-11-23"
-        },
-        {
-          "title": "Ajax vs ADO Den Haag Prediction, Betting Tips, Lineups & Odds | 22 Nov 2026",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQbnl5QnFDWGc0X3FTeUJoMklXODd4TnEzZTY3U2xVWEZ4amJLMjBPc3FUdjBuZFFMOEpiVWJaZnQwV0FCOGZnWWRvdFlkeEhqOFByNVkzR2dTdTBnSUdJOGYwbEZZRGJQVmNVczVmeEM3N3YyN3Y5OGdNZlRrWjRfWG5udTJ3aWRhMmdlVFB6TmozMkg1em93QXVwRzJLZmVTYmZNVVViUGRUbzVs?oc=5",
-          "source": "Sportsgambler",
           "published": "2026-11-23"
         }
       ],
@@ -4286,16 +4305,6 @@
           "yellows": 3,
           "apps": 14
         }
-      ],
-      "clubFacts": [
-        "Ajax a fost înființat la Amsterdam pe 18 martie 1900, numele clubului făcând trimitere la eroul mitologic grec Ajax.",
-        "Ajax este cel mai titrat club din Țările de Jos, cu 36 de titluri de campion și 20 de cupe ale Olandei, ambele recorduri naționale.",
-        "În sezonul 1994–95, sub conducerea lui Louis van Gaal, Ajax a rămas singura echipă din istoria Eredivisie care a încheiat un sezon întreg neînvinsă, câștigând și finala Champions League cu 1–0 în fața lui Milan, golul decisiv fiind marcat de Patrick Kluivert, în vârstă de 18 ani.",
-        "În sezonul 1971–72, sub Rinus Michels și cu Johan Cruyff pe teren, Ajax a realizat tripla Eredivisie–Cupa Olandei–Cupa Campionilor Europeni, trofeul european fiind apoi apărat încă două sezoane consecutive, între 1971 și 1973.",
-        "Din 1996, Ajax joacă pe actuala arenă, inaugurată sub numele Amsterdam ArenA și redenumită Johan Cruyff Arena în 2018, după ce în trecut evoluase pe De Meer Stadion și pe Stadionul Olimpic din Amsterdam.",
-        "Alături de Feyenoord și PSV Eindhoven, Ajax formează „cele trei mari” cluburi ale Olandei și este singura echipă prezentă neîntrerupt în Eredivisie de la înființarea ligii, în 1956.",
-        "În optimile de finală ale UEFA Champions League 2018–19, Ajax a învins Real Madrid cu 4–1 în deplasare, pe Santiago Bernabéu, calificându-se cu scorul cumulat de 5–3 după ce pierduse primul meci cu 1–2.",
-        "Pe 4 octombrie 2022, Ajax a suferit cea mai mare înfrângere din istoria sa în competițiile europene, 1–6 acasă cu Napoli, în grupele UEFA Champions League."
       ]
     },
     "away": {
@@ -8013,6 +8022,42 @@
           "title": "Ajax vs. FC Thun Live Stream of UEFA Conference League",
           "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5WYlYzeFhsUTE5UlNaeUVpdnlLZW9Td0tCSVN4ZmI0SHBDTU9CSHhKZ0dGVU15TTE1c1d5OHQ3cEpMTDk1bDBZOXFQVm5NajRwbl9jWXpITTZORUw5VlQwNzdaSDQxMnlKdXBmV3pwaGIzQjhTQ2Zv?oc=5",
           "source": "CBS Sports",
+          "published": "2026-11-24"
+        },
+        {
+          "title": "Ajax Amsterdam - FC Thun Berner Oberland betting tip & best odds | 26.11.2026",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPUE5WVkdaNVZpcGk3Y19ZMTcwRm04ZVNNOHhBU01VOWVVV08yckxoUEZMQ1l6RWdtVXExOU5uV2Q5Nk9HRWtJaG84M3JzZ0pxbjRUV0xkQjJUM2tXTXNfQnpuSllZVTE1azhRYkthdlczVS1QR3dyclZ1TzZ1Y3N2cXRJcHlQUUFvbFEzTTMtcHI1NUEtQkRfVUY0T0JZZU9hcDZxLXFQb3MyQ2JQ?oc=5",
+          "source": "Futbol24",
+          "published": "2026-11-24"
+        },
+        {
+          "title": "Paphos FC - FC Midtjylland betting tip & best odds | 26.11.2026",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOcDlfRGY3UlJnUHJYYTUtOHk4WXNZdnFEQzRnOUlINURxMkJ5X2R1LXRiajJnRklld0tDZExLNktGTXZjZ2NFQmZnX09PbjlsRlJrRmVFTUxINEVLSHZZQXYyb184cjNWcjRXbjRrWG1TMkM5Zm9BNFlqOU1xN0swbDFwaTRCRWt5MXV5Y2VuOHdjbWhTOFd4ZGpR?oc=5",
+          "source": "Futbol24",
+          "published": "2026-11-24"
+        },
+        {
+          "title": "SC Freiburg - Twente Enschede betting tip & best odds | 26.11.2026",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOUl9aMXQzUDc3QmpINHFhRnAwT3o4akRMVVFVSTZRbkJiNzZwQTJwbVNVVXVJVy14Y2Q5V0wtcUFiNEE3Y3VsTkRHOU95a2M1OFVoT29MaTdqMnZodEJ4LVNuWU15QndobGt3bkJENEtZTEhUcDZVS0NlcWJTdjBsQ2JoMnFkU1JDLWQ3dWxhU3l2UmJEQjI4SWFmQ2ZtQQ?oc=5",
+          "source": "Futbol24",
+          "published": "2026-11-24"
+        },
+        {
+          "title": "FK Jablonec - FC Lugano betting tip & best odds | 26.11.2026",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNbE5GWW9PTmc0bkFVdy02YmNTNE42ZVdielQ1NWtyZ2dMVDExUWRVOWNtSW50Z3pVMlJ3NTROWk82Wk9uTUZOZTQwaC1FVUF1WU12d21WWDh3RURwQ2NBUERvWFExRWhrM0I3R19YWjhIVXpydnFkdDBmSEx4TktOTWpWOGRrcTROQ0o5aUhPRm4xNmNHVXc?oc=5",
+          "source": "Futbol24",
+          "published": "2026-11-24"
+        },
+        {
+          "title": "Explained: Why Sofyan Amrabat Did Not Start In Ajax's Win Against ADO Den Haag",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNQ0E1YjlTS0RTTTdWSnZjN1ZiVW5uX3ktZUdxU3FSb3FkTUs2bHUyZ1JRSEpSbXN1SW5GanpkdENQSnZDTE5YY2I1Q3Rvb2k0Q2gtaHFvZm13QUtWdHBDMmhzdW5XTzVVaDlib1J4OUNiODA3Y1BlWGlHTDhlbTE0RmsyNS1zOWRKZWtoWTlzaEhXc0dkeXo4M18zb2Q2RTdFdEdOSmxudHdBVnFKRkZBaEJxRlkyX0JiZmF0SWs4Q253X3dZY1FpQ2JKWG1mTzFYZDM0?oc=5",
+          "source": "roundtable.io",
+          "published": "2026-11-24"
+        },
+        {
+          "title": "Ajax Amsterdam - FC Thun Berner Oberland prediction & tips 26.11.2026",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdzZwNXVRdFFkRXNOMEJWZnE0RmI2OXVUR0RheFBYeExRS1RIc1YwVFRLMm05c0lvV0NnRkFZb0h0RjFSV3pwUWhVOTJvR1Y0Y2pqUHFnZktLNjNjMmQ3Rk9RZFozTTRnaFhITERZLTQyM3lLNlY1Zm1OX3ZVUllNbldDZ196aVVoN2daV2xWYWZuMjc4cVRSWXZMVTZ3YmdKbk5rb1laVlZGU1U?oc=5",
+          "source": "Transfermarkt",
           "published": "2026-11-23"
         },
         {
@@ -8020,55 +8065,9 @@
           "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9Bend6VE83R0hFQ0tkOG16M1ExNTNqNE5zcHkwUDdYNkUzc0RYTGVKaVpneDQxVVh3RmxRZTk0eW9LXzNRM01xR21UeGJHLURKRUp5MlZlemlrU3oyQkQ0cA?oc=5",
           "source": "Wood Central",
           "published": "2026-11-23"
-        },
-        {
-          "title": "Jorthy Mokio offers hopeful update on severity of his injury",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOYm9sWi0teWdmMkZ5c1l6YnpYSl83TWlDZDRSZWNncXVJSHVsc3dUT1hndUVHQ0pzQ1ZtWmY1OHQ3UmQ1N1dWMnJEZVpFdUVmLUlwV0pjNmRZRUk5bHRqX3FHa3UyTVA5OTliYUF2ZXNWb25EbWp2Z0J5WG9nN3hGSDBlWk9lbUdWanZnbjVDMXNUWUVuWnpoOERSU0U1TDB0NlZtWlZVeHN1TnNoNGNIVDZ3VFc?oc=5",
-          "source": "LiveScore",
-          "published": "2026-11-23"
-        },
-        {
-          "title": "Michel Sanchez Provides Concerning Injury Update On Ajax Midfielder Jorthy Mokio",
-          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQSGp2X2NlSEZWR1M4RDB2TkdhSm1sMndKdVFyY1Z3MFAyTjFXSXFlQmtHY2tRQ21Zc3hORzVWOWY2OHlXS0lnX2FOOEtfcWY2dzYzeWFnQi0wTWFIS0VHZUpwSTVxMzl4SVlWa2VvZThwSUJzNUJKWnh1UE5QM0E1ckdicnFzbE10MTVKV0lUVFJzM2owWU05V3gwUXJkYjQwTmNtMWM1enRCaVJTZFRFZnd0TUxFc0NVeXdSYkRlc3ZiN2xCTjY0VGJHOU14V1drcHFKTEpLakY?oc=5",
-          "source": "roundtable.io",
-          "published": "2026-11-23"
-        },
-        {
-          "title": "Ajax vs Thun Preview & Prediction | 2026-27 UEFA Conference League | League Phase",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPYzVkVU42ckFVb2E0bU5Yejc0d00zamtWMEZfUUV1WGpQclNNdzZtUWFrWEhBZWlsMXhSeV9rRFU4d2ZlM2FhZVI0M1pvUWhXV3BYZzJMT3N1ZTgyT29jTzN0RHhmalp5WGYxcGZuVUZCem5XUFZhTjctbVlhV3hxN3lOcUpXTld0aE9BTGxMcXFJaE9DTk9pNk51Z3dGNXlmUGgwZkNEWm1NNFJCdmF3Zg?oc=5",
-          "source": "The Stats Zone",
-          "published": "2026-11-23"
-        },
-        {
-          "title": "SC Buochs vs FC Thun Berner Oberland II U21 live score, H2H and lineups",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPYlp0UkZya2VvT0xlRU5RWjIzRWp2SV9DdGcyWWRhejBmOWRpUDhpNmtWOEpGXzhMN1dyeTQxdXpRSTZEQUdIR09oT3JCakt0RkU2M19UeG1mbTlrS1Z0RVota1Z3R2hNc3FzVHhTbjhjNDNCVWRlUlgyaFBqWng3dHhHSWFVZTg1X2V3cWRDVFBDR2c?oc=5",
-          "source": "Sofascore",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "▶️ Watch Ajax vs FC Thun Live Stream | Predictions & Tips - 26 Nov",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1Mb3ZzV1Mzcm0tZGtkVFBBV2hxeFE0U213eWNZRy1MSzF5RjRmS1c0TUFwUFh1aW1oZkpWYVZkU21yQ05QcTdLT3VTNDdXTUdmTUN6TkdNSHhCNGFxSHpRNGd6MEVhYUNnTVU1TlpPMWRzZFltTGpr?oc=5",
-          "source": "FootballPredictions.NET",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "Ajax vs. FC Thun (Nov 26, 2026) Odds and Spread",
-          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFAyYzV4UWNKZ3VDNTN6dGl6SW11Y2dFNE5KeFNmZkt6ZTlZbW5nX3FaSVdlZkJ6emVNY2p1QVMtRE1EY0lkaGtZYlNfQ1M0Rk43d0FXeWVTM2lCMnBUSVVPMA?oc=5",
-          "source": "ESPN",
-          "published": "2026-11-22"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "FC Thun a fost înființat la 1 mai 1898, în orașul Thun, din regiunea Oberland bernez.",
-        "Culorile clubului sunt roșu și alb.",
-        "Echipa joacă pe Stockhorn Arena, cu o capacitate de 10.000 de locuri, așezate și în picioare.",
-        "Pe 3 mai 2026, FC Thun a cucerit pentru prima dată titlul de campion al Elveției, după 128 de ani de la înființarea clubului.",
-        "Înainte de acest titlu, cea mai bună clasare a clubului în campionat fusese locul doi, în sezonul 2004–05, în urma lui FC Basel.",
-        "FC Thun a ajuns de două ori în finala Cupei Elveției, pierzând în 1954–55 cu 1–3 în fața lui La Chaux-de-Fonds și în 2018–19 cu 1–2 în fața lui FC Basel.",
-        "În grupele UEFA Champions League 2005–06, FC Thun a învins campionul ceh Sparta Praga cu 1–0, acasă, grație golului lui Selver Hodžić din minutul 80.",
-        "Între 1945 și 2011, echipa și-a disputat meciurile de acasă pe Stadion Lachen, cu o capacitate de 10.350 de locuri, înainte de a se muta pe noua arenă, inaugurată oficial pe 9 iulie 2011."
-      ]
+      "stories": []
     }
   },
   "standings": {
