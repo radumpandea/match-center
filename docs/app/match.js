@@ -4628,7 +4628,8 @@
           if (parts.length) {
             wrap.appendChild(el('h4', { text: t('crew.title') }));
             wrap.appendChild(ul(parts));
-            wrap.appendChild(el('p', { class: 'season-note', text: t('crew.note') }));
+            // the note describes the FRF delegation list; crews of other leagues come from their own source (see Sources)
+            if (d.competition && d.competition.country === 'RO') wrap.appendChild(el('p', { class: 'season-note', text: t('crew.note') }));
           }
         }
         if (r.season && r.season.matches) {
