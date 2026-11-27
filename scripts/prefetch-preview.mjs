@@ -790,13 +790,16 @@ const WMO_CONDITION = {
   80: 'aversă', 81: 'aversă', 82: 'aversă intensă',
   95: 'furtună', 96: 'furtună cu grindină', 99: 'furtună cu grindină',
 };
-async function geocodeCity(city, cache) {
+// The country matters: without it "Brest" resolves to Brest in Belarus (-3 degrees C printed for a match in Brittany,
+// 27 Nov 2026). Domestic competitions pass their ISO code; European / international ones have none.
+async function geocodeCity(city, cache, country) {
   cache.geo = cache.geo || {};
-  const key = norm(city);
+  const cc = /^(GB|FR|RO|IT|ES|DE|PT)$/.test(country || '') ? country : '';
+  const key = norm(city) + (cc ? '|' + cc : '');
   if (key in cache.geo) return cache.geo[key];
   let coords = null;
   try {
-    const r = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1`);
+    const r = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1${cc ? '&countryCode=' + cc : ''}`);
     if (r.ok) {
       const j = await r.json();
       const hit = j && j.results && j.results[0];
@@ -808,9 +811,9 @@ async function geocodeCity(city, cache) {
 }
 // Forecast accuracy is only meaningful in the last few days before kickoff,
 // which is exactly the window this is called in (see needWeather below).
-async function getWeather(venue, kickoffISO, cache) {
+async function getWeather(venue, kickoffISO, cache, country) {
   if (!venue || !has(venue.city) || !has(kickoffISO)) return null;
-  const coords = await geocodeCity(venue.city, cache);
+  const coords = await geocodeCity(venue.city, cache, country);
   if (!coords) return null;
   const kickoff = new Date(kickoffISO);
   if (Number.isNaN(kickoff.getTime())) return null;
@@ -1700,7 +1703,7 @@ async function buildMatch(fx, season, cache) {
     out.venue.stories = homeSquad.venueStories;
   }
   if (has(out.venue.city) && has(out.kickoff)) {
-    const w = await getWeather(out.venue, out.kickoff, cache);
+    const w = await getWeather(out.venue, out.kickoff, cache, out.competition && out.competition.country);
     if (w) out.venue.weather = w;
   }
 
@@ -1981,7 +1984,7 @@ async function main() {
       if (an.length) { doc.teams.away.newsCandidates = an; touched = true; }
     }
     if (needWeather) {
-      const w = await getWeather(doc.venue, doc.kickoff, cache);
+      const w = await getWeather(doc.venue, doc.kickoff, cache, doc.competition && doc.competition.country);
       if (w) { doc.venue.weather = w; touched = true; }
     }
     if (needMatchDay && f.eventId != null) {
