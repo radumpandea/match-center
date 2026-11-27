@@ -68,9 +68,9 @@
     "weather": {
       "tempC": 5,
       "condition": "cer noros",
-      "windKph": 0,
+      "windKph": 2,
       "precipitationMm": 0,
-      "forecastAt": "2026-11-26T15:32:00.965Z"
+      "forecastAt": "2026-11-27T15:25:20.020Z"
     },
     "cityInfo": "Cluj-Napoca este un oraș din nord-vestul României, situat pe malul râului Someșul Mic, în regiunea istorică Transilvania. Pe acest loc a existat o așezare romană numită Napoca, fondată în jurul anului 106 d.Hr., iar orașul a primit statut urban în 1316. A trecut sub administrație habsburgică în 1699, iar astăzi este un important centru universitar și cultural, sediul Universității Babeș-Bolyai, numit și Oraș European al Sportului în 2018."
   },
@@ -1311,7 +1311,10 @@
       "shortName": "U Cluj",
       "nickname": "Șepcile Roșii",
       "logo": "https://media.api-sports.io/football/teams/2599.png",
-      "colors": null,
+      "colors": {
+        "primary": "#ffffff",
+        "secondary": "#ffffff"
+      },
       "coach": {
         "apiId": 25916,
         "name": "Cristiano Bergodi",
@@ -1505,8 +1508,148 @@
           "pos": "ST"
         }
       ],
-      "confirmedXI": null,
-      "substitutes": null,
+      "confirmedXI": [
+        {
+          "apiId": 170161,
+          "number": 1,
+          "name": "Ștefan Lefter",
+          "pos": "G"
+        },
+        {
+          "apiId": 81756,
+          "number": 24,
+          "name": "Dino Mikanović",
+          "pos": "D"
+        },
+        {
+          "apiId": 86511,
+          "number": 22,
+          "name": "Florent Poulolo",
+          "pos": "D"
+        },
+        {
+          "apiId": 43014,
+          "number": 6,
+          "name": "Iulian Cristea",
+          "pos": "D"
+        },
+        {
+          "apiId": 55967,
+          "number": 27,
+          "name": "Alexandru Chipciu",
+          "pos": "D"
+        },
+        {
+          "apiId": 42918,
+          "number": 8,
+          "name": "Dorin Codrea",
+          "pos": "M"
+        },
+        {
+          "apiId": 43049,
+          "number": 94,
+          "name": "Ovidiu Bic",
+          "pos": "M"
+        },
+        {
+          "apiId": 179429,
+          "number": 19,
+          "name": "Issouf Macalou",
+          "pos": "M"
+        },
+        {
+          "apiId": 323569,
+          "number": 18,
+          "name": "Pedro Pinho",
+          "pos": "M"
+        },
+        {
+          "apiId": 119278,
+          "number": 11,
+          "name": "Marius Ștefănescu",
+          "pos": "M"
+        },
+        {
+          "apiId": 77037,
+          "number": 17,
+          "name": "Jovo Lukić",
+          "pos": "F"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 335541,
+          "number": 21,
+          "name": "Denis Moldovan",
+          "pos": "G"
+        },
+        {
+          "apiId": 396183,
+          "number": 2,
+          "name": "Alin Chinteș",
+          "pos": "D"
+        },
+        {
+          "apiId": 376483,
+          "number": 12,
+          "name": "Adams Friday",
+          "pos": "M"
+        },
+        {
+          "apiId": 396184,
+          "number": 59,
+          "name": "Alin Techereș",
+          "pos": "D"
+        },
+        {
+          "apiId": 30824,
+          "number": 23,
+          "name": "Elio Capradossi",
+          "pos": "D"
+        },
+        {
+          "apiId": 576967,
+          "number": 5,
+          "name": "Luca Szimionaș",
+          "pos": "M"
+        },
+        {
+          "apiId": 179402,
+          "number": 29,
+          "name": "Oucasse Mendy",
+          "pos": "F"
+        },
+        {
+          "apiId": 86819,
+          "number": 7,
+          "name": "Mouhamadou Drammeh",
+          "pos": "M"
+        },
+        {
+          "apiId": 133406,
+          "number": 33,
+          "name": "Jug Stanojev",
+          "pos": "M"
+        },
+        {
+          "apiId": 43192,
+          "number": 10,
+          "name": "Dan Nistor",
+          "pos": "M"
+        },
+        {
+          "apiId": 631630,
+          "number": 96,
+          "name": "Lukas Pall",
+          "pos": "F"
+        },
+        {
+          "apiId": 335520,
+          "number": 77,
+          "name": "Andrei Gheorghiță",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "apiId": 170161,
@@ -3419,7 +3562,7 @@
             "comp": "Liga I",
             "score": "3-2",
             "result": "W",
-            "referee": "Florin Andrei, Romania",
+            "referee": "F. Andrei",
             "formation": null,
             "lineups": {
               "us": [
@@ -3675,7 +3818,7 @@
             "comp": "Liga I",
             "score": "0-0",
             "result": "D",
-            "referee": "Gabriel Mihuleac, Romania",
+            "referee": "G. Mihuleac",
             "formation": {
               "us": "4-1-4-1",
               "opp": "4-1-4-1"
@@ -3886,7 +4029,7 @@
             "comp": "Liga I",
             "score": "1-0",
             "result": "W",
-            "referee": "Iulian Calin, Romania",
+            "referee": "I. Calin",
             "formation": null,
             "lineups": {
               "us": [
@@ -4179,7 +4322,7 @@
             "comp": "Liga I",
             "score": "3-0",
             "result": "W",
-            "referee": "Adrian Viorel Cojocaru, Romania",
+            "referee": "A. Cojocaru",
             "formation": {
               "us": "4-2-3-1",
               "opp": "4-2-3-1"
@@ -4430,7 +4573,7 @@
             "comp": "Liga I",
             "score": "2-2",
             "result": "D",
-            "referee": "George Catalin Roman, Romania",
+            "referee": "G. Catalin",
             "formation": {
               "us": "4-1-4-1",
               "opp": "3-4-1-2"
@@ -5002,16 +5145,28 @@
       ],
       "newsCandidates": [
         {
-          "title": "Cristiano Bergodi a reacționat după venirea lui Nicolae Stanciu la Universitatea Cluj: „Nu mă interesează dacă s-au supărat”",
-          "url": "https://www.fanatik.ro/cristiano-bergodi-vrea-primul-trofeu-cu-u-cluj-dupa-venirea-lui-nicolae-stanciu-are-o-mentalitate-de-invingator-21601597",
-          "source": "Fanatik",
-          "published": "2026-11-26"
+          "title": "Universitatea Cluj a făcut anunțul, după ce s-a scris că Dan Nistor va juca pentru Poli Timișoara",
+          "url": "https://www.digisport.ro/fotbal/liga-1/universitatea-cluj-a-facut-anuntul-dupa-ce-s-a-scris-ca-dan-nistor-va-juca-pentru-poli-timisoara-4628607",
+          "source": "Digi Sport",
+          "published": "2026-11-27"
         },
         {
-          "title": "Universitatea Cluj v ACS Sepsi OSK Odds",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxONzBHOFNQX0RjaTZ2NUJyQ3d2ZHBGNkhkTVVNa3UzeFFhSWhHNDFqVWJfMjR5Qklha2VIVjlhTldHbkVUbm81YnFiZkR0UVExejB2ck5Xc2Z5N1RZM1lRWHYycnJ4VkNLRXlOTWlqZzM1eUhxa2wwMGNrc3EyQ3ptWGNpTEZEd1pQSTBLTEdkZmozTU5oQTBUS2s1bF9UUQ?oc=5",
-          "source": "FanDuel Sportsbook",
-          "published": "2026-11-26"
+          "title": "EXCLUSIVE | November 27, 2026. Online Search Trends / Last 24 Hours",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOdHVGdUk1cXRGZXNyYmw5RWQ4cWo5WFhuWEpDdl9OSU1CLUY3ZXRpTU1lNU9nNFljSlpRRmpteVBNaUY3cU5jbllLUGI4LWEtbXZVd2xtSTdULVZLM3gyaTd2aDdLM05obV9xWmJWanFUYTJQRFA0QWZMUjJGcDJ4bU1zdUJRVl94amE0cXZrS09sSV9QY3EteXljaVdFMWhMV1Z3?oc=5",
+          "source": "Informat.ro",
+          "published": "2026-11-27"
+        },
+        {
+          "title": "Universitatea Cluj vs Sepsi Prediction, Betting Tips, Lineups & Odds | 27 Nov 2026",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNT3BiRURWNGVnNUZmUmtPa0lGOEJUUzFlTFpKRkRTTVVwdF92TXR2ajE2Z1YyQjhzZ3BBM1hNWVFRVWs5NmZaZzNzR0pLMHpxX0NNTjFOblROYkQ5QTBKYlVRVGZSWFpEMEJ5M0FTNUJORXFqOEdPM3RoajEza1FnV2tNay1QQ2tQUlEtSF8taGlMU2xYMHB3S01mY1FDd0RkSEtLZnZkWl9fa1o4TEFTbHVrWTlZZw?oc=5",
+          "source": "Sportsgambler",
+          "published": "2026-11-27"
+        },
+        {
+          "title": "FC Corvinul Hunedoara - Farul Constanța betting tip & best odds | 28.11.2026",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOclRKekhtMUxmbWgxM191bWRyWEwtTW93QXlPUkdXYU80S085eUh1dG5fQUJhRnZaLWdZMXVYRVd1aTFZZTh4ZzZYZGZjMlE0MGRoNklwUXJDV2pYckJENEVpQmhpRjl6MzNGcEhNOGw1ZXBsWXplVXhLdG9IYk1IQTU3VFhBYk5vVk5QV1JTazlWNDhQRWxwcktNTjk5ZDFfVFNhOHNtelpOWTQ?oc=5",
+          "source": "Futbol24",
+          "published": "2026-11-27"
         },
         {
           "title": "Voluntari vs CFR Cluj goals prediction: about 3.0 goals expected",
@@ -5020,8 +5175,14 @@
           "published": "2026-11-26"
         },
         {
-          "title": "Pre-match Csikszereda vs Farul Constanța, Superliga Round 19",
-          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1SWnFwTXZ5RmdPV20xUGNCVVRJMFp0cmh5b0JhTWlIU3NpWEFOTGNyU09BTGFTV25MUlExV1c5M1Jad1FQXzRqeVhxYUxybFdSVUZkM0k5azU2R1cybHNnTXphTHNwV09uekl0aWNib2stMmtKNlNmc19PVzY?oc=5",
+          "title": "TTT Riga Women v CS Universitatea Cluj-Napoca Women Odds",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPSlMySUNpZFlxLTdDeTFmWXJ6Sk1Eek5RZy1vcGhNSU9FUDVRb05DclN0cFc0cUstbzVzY2Q0SS1TT2puakJhaTczRFNGemFVanBnTVgyYnhJQ0lmUW1XOGhWUUJBS0p6aWp3TWl4VGVNN0RjbEdMN0NDRjlCVlQ3dmhLM0dEXy0za0hjNUdnZFROU2FpUTJOaGs2cGlNczV1WDhMWmt4MGR5S0J4aHBValhIeE0tMkpFbUE?oc=5",
+          "source": "FanDuel Sportsbook",
+          "published": "2026-11-26"
+        },
+        {
+          "title": "Pre-match UTA Arad vs Universitatea Cluj, Superliga Round 20",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9iTzlsZEJUNUhjdHlOU3Zqb05Za042TldTckNWSlgxR19HNDlXakR5TVNITGdheDZGU0k2M0JmY1NmSmVPTkJra1RKZXVtWTBRdm5QUEtZYjNnN3gzeDFRdUM1N0p2dVlpemVlbUVPWmFJYjd3VjlGM3dRS20?oc=5",
           "source": "BeSoccer Livescore",
           "published": "2026-11-26"
         },
@@ -5030,24 +5191,6 @@
           "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOclI3T2h3MlZwX3BHb2lzTnBSNEdFcXFpV19OdTdwcUZoNV9vT1JZLUEzazNjaFQ5Ylp0elRZb01keTNKdFdzWGJlYmdjSXNsNXZZQ0tLeWdwcjFSbHFPcVI2cXJIazF5UU1VY2MzdXlRSER1VFVwZWNvOURMSzdHdjJJY2VoRDJyZVA0?oc=5",
           "source": "BeSoccer Livescore",
           "published": "2026-11-26"
-        },
-        {
-          "title": "▶️ Watch Brighton vs Universitatea Craiova Live Stream | Predictions & Tips - 26 Nov",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOc0lkSTRxUHZwRUhuWVVqSTVCaFh4MG1URDJra05iZ1NpZnFvUDRlR2VURjJvTndlUFJFMzF3YlEteEozaG4yNGpEQXlER3FGdFFtdE1YNW12dmdLTG5vSFltcTlOdjlVdGVxWS1QWTZGdTF2eGhkNEtubnR2T21tdkdTU1NqM2tEOHROSmxMNEdFLV9vVjJiYzdJZllROHRzTndF?oc=5",
-          "source": "FootballPredictions.NET",
-          "published": "2026-11-26"
-        },
-        {
-          "title": "TTT Riga Women v CS Universitatea Cluj-Napoca Women Odds",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPSlMySUNpZFlxLTdDeTFmWXJ6Sk1Eek5RZy1vcGhNSU9FUDVRb05DclN0cFc0cUstbzVzY2Q0SS1TT2puakJhaTczRFNGemFVanBnTVgyYnhJQ0lmUW1XOGhWUUJBS0p6aWp3TWl4VGVNN0RjbEdMN0NDRjlCVlQ3dmhLM0dEXy0za0hjNUdnZFROU2FpUTJOaGs2cGlNczV1WDhMWmt4MGR5S0J4aHBValhIeE0tMkpFbUE?oc=5",
-          "source": "FanDuel Sportsbook",
-          "published": "2026-11-25"
-        },
-        {
-          "title": "Universitatea Cluj vs Sepsi Prediction, Betting Tips, Lineups & Odds | 27 Nov 2026",
-          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNT3BiRURWNGVnNUZmUmtPa0lGOEJUUzFlTFpKRkRTTVVwdF92TXR2ajE2Z1YyQjhzZ3BBM1hNWVFRVWs5NmZaZzNzR0pLMHpxX0NNTjFOblROYkQ5QTBKYlVRVGZSWFpEMEJ5M0FTNUJORXFqOEdPM3RoajEza1FnV2tNay1QQ2tQUlEtSF8taGlMU2xYMHB3S01mY1FDd0RkSEtLZnZkWl9fa1o4TEFTbHVrWTlZZw?oc=5",
-          "source": "Sportsgambler",
-          "published": "2026-11-25"
         }
       ]
     },
@@ -5056,7 +5199,10 @@
       "shortName": "Sepsi OSK",
       "nickname": "Secuii",
       "logo": "https://media.api-sports.io/football/teams/2585.png",
-      "colors": null,
+      "colors": {
+        "primary": "#ff0000",
+        "secondary": "#ff0000"
+      },
       "coach": {
         "apiId": 27436,
         "name": "Ovidiu Burca",
@@ -5195,8 +5341,142 @@
           "pos": "ST"
         }
       ],
-      "confirmedXI": null,
-      "substitutes": null,
+      "confirmedXI": [
+        {
+          "apiId": 43098,
+          "number": 91,
+          "name": "David Lazar",
+          "pos": "G"
+        },
+        {
+          "apiId": 41382,
+          "number": 2,
+          "name": "Gustavo Cascardo",
+          "pos": "D"
+        },
+        {
+          "apiId": 302272,
+          "number": 82,
+          "name": "Daniel Vîrtej",
+          "pos": "D"
+        },
+        {
+          "apiId": 129084,
+          "number": 4,
+          "name": "Setigui Karamoko",
+          "pos": "D"
+        },
+        {
+          "apiId": 190487,
+          "number": 3,
+          "name": "Fábio Vianna",
+          "pos": "D"
+        },
+        {
+          "apiId": 281327,
+          "number": 6,
+          "name": "Nicolae Păun",
+          "pos": "M"
+        },
+        {
+          "apiId": 499381,
+          "number": 27,
+          "name": "Raul Cîmpean",
+          "pos": "M"
+        },
+        {
+          "apiId": 281440,
+          "number": 7,
+          "name": "Robert Silaghi",
+          "pos": "M"
+        },
+        {
+          "apiId": 274956,
+          "number": 17,
+          "name": "Doru Andrei",
+          "pos": "M"
+        },
+        {
+          "apiId": 31064,
+          "number": 11,
+          "name": "Dimitri Oberlin",
+          "pos": "M"
+        },
+        {
+          "apiId": 61158,
+          "number": 9,
+          "name": "Boris Cmiljanić",
+          "pos": "F"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 130141,
+          "number": 33,
+          "name": "Szilárd Gyenge",
+          "pos": "G"
+        },
+        {
+          "apiId": 274936,
+          "number": 25,
+          "name": "Bogdan Oteliță",
+          "pos": "D"
+        },
+        {
+          "apiId": 43263,
+          "number": 21,
+          "name": "Alin Dobrosavlevici",
+          "pos": "D"
+        },
+        {
+          "apiId": 68187,
+          "number": 31,
+          "name": "Lindsay Rose",
+          "pos": "D"
+        },
+        {
+          "apiId": 184461,
+          "number": 20,
+          "name": "Nacho Heras",
+          "pos": "F"
+        },
+        {
+          "apiId": 15317,
+          "number": 77,
+          "name": "Adnan Aganović",
+          "pos": "M"
+        },
+        {
+          "apiId": 367867,
+          "number": 19,
+          "name": "Giovani Ghimfuș",
+          "pos": "M"
+        },
+        {
+          "apiId": 174829,
+          "number": 28,
+          "name": "Victor Daguin",
+          "pos": "M"
+        },
+        {
+          "apiId": 466152,
+          "number": 23,
+          "name": "Hunor Batzula",
+          "pos": "M"
+        },
+        {
+          "apiId": 31030,
+          "number": 88,
+          "name": "Carl Davordzie",
+          "pos": "F"
+        },
+        {
+          "apiId": 57236,
+          "number": 14,
+          "name": "Moses Mawa",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "apiId": 556205,
@@ -7554,7 +7834,7 @@
             "comp": "Liga I",
             "score": "1-3",
             "result": "L",
-            "referee": "Andrei Moroita, Romania",
+            "referee": "A. Moroita",
             "formation": null,
             "lineups": {
               "us": [
@@ -7786,7 +8066,7 @@
             "comp": "Liga I",
             "score": "2-1",
             "result": "W",
-            "referee": "Horatiu Fesnic, Romania",
+            "referee": "H. Fesnic",
             "formation": {
               "us": "4-2-3-1",
               "opp": "5-3-2"
@@ -8061,7 +8341,7 @@
             "comp": "Liga I",
             "score": "1-1",
             "result": "D",
-            "referee": "Florin Andrei, Romania",
+            "referee": "F. Andrei",
             "formation": null,
             "lineups": {
               "us": [
@@ -8434,7 +8714,7 @@
             "comp": "Liga I",
             "score": "0-5",
             "result": "L",
-            "referee": "Horia Gabriel Mladinovici, Romania",
+            "referee": "H. Mladinovici",
             "formation": null,
             "lineups": {
               "us": [
@@ -8698,7 +8978,7 @@
             "comp": "Liga I",
             "score": "1-1",
             "result": "D",
-            "referee": "Andrei Florin Chivulete, Romania",
+            "referee": "A. Chivulete",
             "formation": {
               "us": "4-3-3",
               "opp": "4-4-2"
@@ -9143,7 +9423,7 @@
           "name": "Setigui Karamoko",
           "apiId": 129084,
           "yellows": 3,
-          "apps": 14,
+          "apps": 15,
           "threshold": 4,
           "ban": 1,
           "byRound": null,
@@ -9154,7 +9434,7 @@
           "name": "Nicolae Ionuț Păun",
           "apiId": 281327,
           "yellows": 3,
-          "apps": 12,
+          "apps": 13,
           "threshold": 4,
           "ban": 1,
           "byRound": null,
@@ -9165,7 +9445,7 @@
           "name": "Robert Mihai Silaghi",
           "apiId": 281440,
           "yellows": 3,
-          "apps": 15,
+          "apps": 16,
           "threshold": 4,
           "ban": 1,
           "byRound": null,
@@ -9187,6 +9467,12 @@
           "title": "Universitatea Cluj vs Sepsi Prediction, Betting Tips, Lineups & Odds | 27 Nov 2026",
           "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNT3BiRURWNGVnNUZmUmtPa0lGOEJUUzFlTFpKRkRTTVVwdF92TXR2ajE2Z1YyQjhzZ3BBM1hNWVFRVWs5NmZaZzNzR0pLMHpxX0NNTjFOblROYkQ5QTBKYlVRVGZSWFpEMEJ5M0FTNUJORXFqOEdPM3RoajEza1FnV2tNay1QQ2tQUlEtSF8taGlMU2xYMHB3S01mY1FDd0RkSEtLZnZkWl9fa1o4TEFTbHVrWTlZZw?oc=5",
           "source": "Sportsgambler",
+          "published": "2026-11-27"
+        },
+        {
+          "title": "Universitatea Cluj vs Sepsi Lineups - Superliga 2026/27",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPVlg2dDlMWWQ1WldzY0h2aDlMYTlyaTkweFhnZ25RZV9lbEhFV0lQWGxYMWdqRHVHY01rNVhVMFZ0UTVHX29FNkpIb2VBeUVMbnZIV1A2T2ZNdkJ0ZDU1WG00Y29lbWFpRWF5RkprMEdndEI4a1BkSGFVME9QeGVGdEU1MEp1SEI1RkRvT0lJcE5TVHc?oc=5",
+          "source": "BeSoccer Livescore",
           "published": "2026-11-25"
         },
         {
@@ -9194,42 +9480,6 @@
           "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQRWc3dF93dVJ4LXFOZnFydDdfc1dodUJoUFJHWVI5eDlsVnh4MHdaRHFOcDVpQmw2LXlna1l4VjMxOWFFM0lsbmhyU25LMHZMOXhMMExjQ3p5SlhYRFYwOWlzYlp6MzRocXVsTDhTWFVUUDgtcGszLUg3R3psQWZOWnlEYjdXX0dzYUNNdkY2SUtXeWZxUTlCTQ?oc=5",
           "source": "BeSoccer Livescore",
           "published": "2026-11-23"
-        },
-        {
-          "title": "ACS Sepsi OSK Sfantu Gheorghe vs FC Corvinul Hunedoara 1921 prediction – Odds & stats – 7 December 2026",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNZmZxY3FhZTAtTkRFYUs5SE1DOGJHNENQRzQ5OHFvZjB2YUMteGJfbld0Q0g1b3p0SHRXZ0tDb1BacFFVUUw1UGRwT0o1VWtBenJtOG9iNktQM29EOFUzN1YwNGNTWHV2c1Z0QVVBc0RMT0pWaUs2dzUyY1ZFaXE0a1FNbl9RbUo2U0d3eDJwTk4zTW9FS2QycDBqNG0yRlU?oc=5",
-          "source": "Wincomparator",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "Otelul Galati vs FC Uta Arad prediction – Odds & stats – 29 November 2026",
-          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFA1ZzZBcl9nbXBEeFluX3E3WlhWOU9JNzFzUEFRX3RfcHlTZnE0SjlwWVYwRUtDcHB0V3dBcHdFeHp1ZlpsQWg0QUwzdXh3YWZmR0pCNEpnTTI0RXlLT0wwY21manRNUjRKbExUc3BkTnRzVGxod2VQQjd2a1ZIUQ?oc=5",
-          "source": "Wincomparator",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "FC Uta Arad vs SC FC Voluntari prediction – Odds & stats – 6 December 2026",
-          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBXcDZOS2JaaHJHc0hWUkY4UUlmbTVMcE1qTlQ5UVNxN0Z5QlJfeE01dVk5WVlFajI0di1WTXlNVS02cC1CU1FvZHFHblIzcHAwYnNxV0xaZzVHc3E0Q3pwSU1QN1JWTmpGaTg4NXExRE5jTm83N1FGMmxDVDQ?oc=5",
-          "source": "Wincomparator",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "FC Botosani vs Universitatea Cluj prediction – Odds & stats – 6 December 2026",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPY2t1b1VORUVWUW1fTUc3MTNFalUwWG1LdXVvcHBzc0VoVHNVek9IU29UajktZGNBdTFZQXR4Z0FFRHY4aUtMQkdmU3pYQ21aTVlMSjVYOU03dTR0NXF3OXZsaHdZbERyczZ2QWs1cFpLSW80amVVQ3RIelBZUjdjd2RENTFOOFQz?oc=5",
-          "source": "Wincomparator",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "Farul Constanta vs FCSB prediction – Odds & stats – 4 December 2026",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNRXRjcVE2TF94LUFLLU85Um9RUFlOSHVWQ2wwUlRuVmhFdFVqUGFQdG1IQXJpU3BCdnhMZnJDTVVPZXVYam43RVBIaXNtcTV6TU53cWtaMDhNSk83eEM1ZV9wX3plTklDUlNOSTAyY0RlcjhSSUJmZ2FodDYtWDJscG92TmRNcVYzc3pv?oc=5",
-          "source": "Wincomparator",
-          "published": "2026-11-22"
-        },
-        {
-          "title": "Petrolul Ploiesti vs CS Universitatea Craiova prediction – Odds & stats – 6 December 2026",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPNVNOcnNzcUVSSnc2Ty1xZmljbEpHZE9qYXljeUVBdXFYclhHOG4zLVZ2TDFpSXBZWDZ3dWxjaWhiR1hiQS13LWNBbDUxYXBXejNwWFJuOWx5MmtYTVMtcUxMQkhRVHBSdHRIbGUwaEZWTC0zeC1YdGJDbHFIdlQ5cThLbXBRRkpFOC1TRGdIbzkzUXhpajg4aw?oc=5",
-          "source": "Wincomparator",
-          "published": "2026-11-22"
         }
       ]
     }
