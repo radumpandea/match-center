@@ -42,6 +42,7 @@ jobs:
           node tests/live-reconcile.test.mjs
           node tests/pick-weekly-premium.test.mjs
           node tests/national-squad.test.mjs
+          node tests/officials.test.mjs
       - name: Install Playwright
         run: |
           npm i --no-save playwright@1.49.1

@@ -1791,7 +1791,9 @@
     return btn;
   }
   function render(data) {
+    restorePastedCrew(data);
     applyManualOverlay(data);
+    applyPastedCrew(data);
     applyApiLineup(data);
     applyPnum(data);
     applyPname(data);
@@ -4524,6 +4526,71 @@
     document.body.appendChild(back);
     inputs[0].focus();
   }
+  /* ---------- the officials pasted by the user ----------
+     Some leagues publish the full crew only on their own match sheet, whose terms do not allow automatic copying. The
+     user copies the block themselves and pastes it here (app/officials.js reads it). It is kept in `mine`: on this
+     device only, never in the shared state or in the published pack. */
+  function restorePastedCrew(d) {
+    if (d._refP0 !== undefined) { d.referee = d._refP0; delete d._refP0; }
+  }
+  function sameReferee(a, b) {
+    var x = String(a || '').trim().split(/\s+/), y = String(b || '').trim().split(/\s+/);
+    return !!(x[0] && y[0]) && liveNormName(x[x.length - 1]) === liveNormName(y[y.length - 1]) && liveNormName(x[0]).charAt(0) === liveNormName(y[0]).charAt(0);
+  }
+  function applyPastedCrew(d) {
+    var p = mine.refCrew;
+    if (!p) return;
+    var base = d.referee || null;
+    // facts about the referee of the pack are kept only if the pasted one is the same person
+    var same = !!(base && has(base.name) && (!p.name || sameReferee(base.name, p.name)));
+    if (!same && !p.name) return;
+    d._refP0 = base;
+    var out = {};
+    if (same) Object.keys(base).forEach(function (k) { out[k] = base[k]; });
+    else out = { name: null, country: null, age: null, apps: null, ycPerMatch: null, rcPerMatch: null, history: null };
+    if (p.name) out.name = p.name;
+    out.crew = p.crew && Object.keys(p.crew).length ? p.crew : out.crew;
+    out._pasted = true;
+    d.referee = out;
+  }
+  function openCrewPaste(d) {
+    var back = el('div', { class: 'modal-back', onclick: function (e) { if (e.target === back) close(); } });
+    function close() { back.remove(); }
+    var found = el('div', { class: 'crew-found' });
+    var saveBtn = el('button', { class: 'pick', text: t('crew.pasteSave'), onclick: function () {
+      var r = window.MC_OFFICIALS.parse(area.value);
+      if (!r.count) return;
+      mine.refCrew = { name: r.name, crew: r.crew, at: new Date().toISOString() };
+      saveMine();
+      [].forEach.call(document.querySelectorAll('.modal-back'), function (x) { x.remove(); });
+      render(d);
+    } });
+    saveBtn.disabled = true;
+    var area = el('textarea', { class: 'crew-paste', rows: '10', placeholder: 'Ruddy BUQUET\n(Main official)\nJulien HAULBERT\n(Assistant referee)', oninput: function () {
+      var r = window.MC_OFFICIALS.parse(area.value);
+      saveBtn.disabled = !r.count;
+      found.innerHTML = '';
+      if (!area.value.trim()) return;
+      if (!r.count) { found.appendChild(el('p', { class: 'season-note', text: t('crew.pasteNone') })); return; }
+      var rows = [];
+      if (r.name) rows.push(t('pitch.referee') + ': ' + r.name);
+      crewLines(r.crew).forEach(function (x) { rows.push(x); });
+      found.appendChild(ul(rows));
+    } });
+    back.appendChild(el('div', { class: 'modal', style: 'max-width:440px' }, [
+      el('div', { class: 'modal-head' }, [el('h3', { text: t('crew.pasteTitle') }), el('button', { class: 'modal-close', text: '✕', onclick: close })]),
+      el('div', { class: 'modal-body' }, [el('p', { class: 'season-note', text: t('crew.pasteHelp') }), area, found, el('div', { class: 'notes-row' }, [saveBtn])])
+    ]));
+    document.body.appendChild(back);
+    area.focus();
+  }
+  function crewLines(cr) {
+    var out = [];
+    [['assistant1', 'crew.assistant'], ['assistant2', 'crew.assistant'], ['reserve', 'crew.reserve'], ['var', 'crew.var'], ['avar', 'crew.avar'], ['observer', 'crew.observer'], ['delegate', 'crew.delegate']].forEach(function (k) {
+      if (cr && has(cr[k[0]])) out.push(t(k[1]) + ': ' + cr[k[0]]);
+    });
+    return out;
+  }
   function openEditCoach(d, side) {
     quickForm(t('quickAdd.coachTitle', { team: d.teams[side].name }),
       [{ label: t('quickAdd.coachName') }, { label: t('quickAdd.country') }, { label: t('quickAdd.age'), type: 'number' }],
@@ -4541,6 +4608,10 @@
         store.manual.referee = { name: v[0], country: v[1] || null, age: null, apps: null, ycPerMatch: null, rcPerMatch: null, history: null };
         save(); render(d);
       });
+    var bodies = document.querySelectorAll('.modal-back .modal-body');
+    if (bodies.length) bodies[bodies.length - 1].appendChild(el('div', { class: 'notes-row' }, [
+      el('button', { class: 'pick', text: t('crew.pasteBtn'), onclick: function () { openCrewPaste(d); } })
+    ]));
   }
   function openEditVenue(d) {
     quickForm(t('quickAdd.venueTitle'),
@@ -4620,18 +4691,21 @@
         if (has(r.rcPerMatch)) kv.appendChild(el('span', { html: '<b>' + t('referee.rcPerMatch') + '</b>' + esc(r.rcPerMatch) }));
         var wrap = el('div', {}, [kv]);
         if (has(r.history)) wrap.appendChild(el('p', { text: r.history }));
-        if (r.crew) {
-          var cr = r.crew, parts = [];
-          [['assistant1', 'crew.assistant'], ['assistant2', 'crew.assistant'], ['reserve', 'crew.reserve'], ['var', 'crew.var'], ['avar', 'crew.avar'], ['observer', 'crew.observer'], ['delegate', 'crew.delegate']].forEach(function (k) {
-            if (has(cr[k[0]])) parts.push(t(k[1]) + ': ' + cr[k[0]]);
-          });
-          if (parts.length) {
-            wrap.appendChild(el('h4', { text: t('crew.title') }));
-            wrap.appendChild(ul(parts));
-            // the note describes the FRF delegation list; crews of other leagues come from their own source (see Sources)
-            if (d.competition && d.competition.country === 'RO') wrap.appendChild(el('p', { class: 'season-note', text: t('crew.note') }));
-          }
+        var parts = crewLines(r.crew);
+        if (parts.length) {
+          wrap.appendChild(el('h4', { text: t('crew.title') }));
+          wrap.appendChild(ul(parts));
+          // where it comes from: pasted by the user, or (Romanian competitions) the FRF delegation list
+          if (r._pasted) wrap.appendChild(el('p', { class: 'season-note', text: t('crew.pasteNote') }));
+          else if (d.competition && d.competition.country === 'RO') wrap.appendChild(el('p', { class: 'season-note', text: t('crew.note') }));
         }
+        var tools = [el('button', { class: 'pick', text: t('crew.pasteBtn'), onclick: function () { openCrewPaste(d); } })];
+        if (mine.refCrew) tools.push(el('button', { class: 'pick', text: t('crew.pasteRemove'), onclick: function () {
+          delete mine.refCrew; saveMine();
+          [].forEach.call(document.querySelectorAll('.modal-back'), function (x) { x.remove(); });
+          render(d);
+        } }));
+        wrap.appendChild(el('div', { class: 'notes-row' }, tools));
         if (r.season && r.season.matches) {
           var rs = r.season;
           var avg = function (n) { return (n / rs.matches).toFixed(2); };
