@@ -91,8 +91,8 @@ a{color:inherit}
 .line.r{right:-2px}
 
 /* ---------- player card ---------- */
-.card{position:absolute;height:182px;transform:translate(-50%,-50%);display:flex;flex-direction:column;background:#0a0f1a;border:2px solid var(--team);
-  border-radius:8px;box-shadow:0 5px 14px rgba(0,0,0,.45);cursor:pointer;transition:transform .12s;color:#fff}
+.card{position:absolute;height:182px;transform:translate(-50%,-50%);display:flex;flex-direction:column;background:var(--card-bg,#0a0f1a);border:2px solid var(--team);
+  border-radius:8px;box-shadow:0 5px 14px rgba(0,0,0,.45);cursor:pointer;transition:transform .12s;color:var(--card-ink,#fff)}
 .card.compact{height:144px}
 .card:hover,.card:focus-visible{transform:translate(-50%,-50%) scale(1.25);z-index:6;outline:none;border-color:#fcd34d}
 .card-head{display:flex;justify-content:space-between;align-items:stretch;background:var(--team);color:var(--ink);border-radius:5px 5px 0 0;height:46px;padding:2px 2px 2px 5px;overflow:hidden;flex:none}
@@ -104,15 +104,15 @@ a{color:inherit}
 .who .last.xlong{font-size:13.5px}
 .ava{width:36px;height:42px;border-radius:4px;overflow:hidden;background:rgba(0,0,0,.3);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex:none}
 .ava img{width:100%;height:100%;object-fit:cover}
-.meta{display:flex;justify-content:space-between;align-items:center;gap:4px;padding:2px 4px;height:19px;font-size:11px;font-weight:500;color:#d3ddf3;white-space:nowrap;overflow:hidden;flex:none}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:4px;padding:2px 4px;height:19px;font-size:11px;font-weight:500;color:var(--card-soft,#d3ddf3);white-space:nowrap;overflow:hidden;flex:none}
 .nat{background:#263558;color:#fff;border-radius:3px;padding:0 4px;font-weight:700;letter-spacing:.03em}
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;padding:0 2px;flex:none}
-.cell{display:flex;flex-direction:column;align-items:center;background:#172239;border-radius:2px;padding:1px 0;line-height:1.1;min-width:0}
-.cell i{font-style:normal;font-size:8.5px;font-weight:600;color:#a9b9dc;white-space:nowrap}
+.cell{display:flex;flex-direction:column;align-items:center;background:var(--card-cell,#172239);border-radius:2px;padding:1px 0;line-height:1.1;min-width:0}
+.cell i{font-style:normal;font-size:8.5px;font-weight:600;color:var(--card-soft,#a9b9dc);white-space:nowrap}
 .cell b{font:700 16px/17px "Barlow Condensed",sans-serif;font-variant-numeric:tabular-nums;white-space:nowrap}
 .cell.rating{background:#332807}
 .cell.rating b{color:#fcd34d}
-.fact{margin:3px 4px 0;font-size:10.5px;line-height:13px;max-height:39px;color:#eef3ff;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.fact{margin:3px 4px 0;font-size:10.5px;line-height:13px;max-height:39px;color:var(--card-ink,#eef3ff);overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
 .card.compact .fact{display:none}
 .badges{position:absolute;right:-6px;top:-10px;display:flex;gap:2px;z-index:2}
 .badges span{background:#05080f;border:1px solid #fcd34d;border-radius:8px;padding:0 5px;font:700 13px/18px "Barlow Condensed",sans-serif;white-space:nowrap;color:#fff}
@@ -162,6 +162,38 @@ a{color:inherit}
 .drawer th{color:#8392b4;font-weight:600}
 .drawer tr.ours{background:#15233f}
 .drawer .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.recorder{background:#101a31;border:1px solid #2b3a5e;border-radius:10px;padding:10px 12px}
+.rec-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.rec-row label{font-size:13px;color:#b4c3e2}
+.rec-row input{width:70px;margin-left:4px;padding:8px;font:700 18px "Barlow Condensed",sans-serif;background:#090f1c;color:#fff;border:1px solid #475578;border-radius:7px}
+.act{min-height:44px;padding:8px 16px;font-size:15px;font-weight:600;background:#182541;border:1px solid #475578;border-radius:8px}
+.act:hover,.pick-player:hover{border-color:#34d399;background:#14323a}
+.act.yellow{border-color:#b98b00}
+.act.red{border-color:#b3261e}
+.rec-sub{margin-top:10px;display:flex;flex-direction:column;gap:6px;font-size:13px;color:#b4c3e2}
+.rec-picks{display:flex;flex-wrap:wrap;gap:5px}
+.pick-player{min-height:34px;padding:5px 10px;font-size:13px;color:#e8eefc;background:#0e1628;border:1px solid #2b3a5e;border-radius:7px}
+.rec-noted{margin-top:10px;display:flex;flex-direction:column;gap:4px}
+.noted{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid #22304f;padding-top:4px;font-size:13.5px}
+.noted button,.toast button{background:none;border:1px solid #475578;border-radius:6px;padding:3px 9px}
+.ev .ev-del{font-size:9.5px;background:none;border:1px solid #6ee7b7;border-radius:7px;padding:0 5px;color:#6ee7b7}
+.ev .ev-del:hover{border-color:#fbbf24;color:#fbbf24}
+.toast{position:absolute;left:50%;bottom:52px;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:12px;background:#0b1020;border:1px solid #34d399;border-radius:10px;padding:9px 14px;font-size:15px;box-shadow:0 12px 30px rgba(0,0,0,.6);white-space:nowrap}
+/* the "team colour" background: text colour follows the team's own contrast */
+.cards-team .card{background:var(--team);color:var(--ink)}
+.cards-team .card .meta,.cards-team .card .cell i,.cards-team .card .fact{color:var(--ink)}
+.cards-team .card .cell{background:color-mix(in srgb,var(--ink) 15%,transparent)}
+.cards-team .card .card-head{border-bottom:1px solid color-mix(in srgb,var(--ink) 35%,transparent)}
+.card .cell.rating,.cards-team .card .cell.rating{background:#332807}
+.card .cell.rating i,.cards-team .card .cell.rating i{color:#e9d9a6}
+.drawer-back.clear{background:transparent}
+.drawer-back.clear .drawer{width:340px;box-shadow:-14px 0 34px rgba(0,0,0,.5)}
+.swatches{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.swatch{display:flex;align-items:center;gap:9px;min-height:40px;padding:6px 9px;font-size:13px;text-align:left;background:#0e1628;border:1px solid #2b3a5e;border-radius:8px}
+.swatch i{width:28px;height:22px;border-radius:5px;border:1px solid #8392b4;flex:none}
+.swatch.on{border-color:#34d399;box-shadow:0 0 0 1px #34d399}
+.custom{display:flex;align-items:center;gap:10px;font-size:13px}
+.custom input{width:64px;height:36px;background:none;border:1px solid #475578;border-radius:7px}
 .pron{color:#6ee7b7}
 .warn{color:#fbbf24}
 .link-line{border-left:3px solid #fcd34d;padding-left:10px}

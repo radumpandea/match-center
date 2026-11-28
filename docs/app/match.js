@@ -81,6 +81,7 @@
     data._partial = partial;
     render(data);
     connectCollaboration(data);
+    connectTabs(data);
     connectEntities(data, fixture);
     liveStart(data);
   });
@@ -233,6 +234,21 @@
   saveMine();
   try { localStorage.setItem(NKEY, JSON.stringify(store)); } catch (e) {}
   function dropPrivate(st) { PRIVATE_KEYS.forEach(function (k) { if (st) delete st[k]; }); return st; }
+
+  // Another tab of this browser (the cards screen, or this page twice) changed this match: take its state over, so
+  // that the next save from here does not overwrite it with an older copy.
+  function connectTabs(data) {
+    window.addEventListener('storage', function (e) {
+      if (e.key !== NKEY && e.key !== MKEY) return;
+      var next;
+      try { next = JSON.parse(e.newValue || '{}') || {}; } catch (err) { return; }
+      if (e.key === NKEY) store = dropPrivate(next); else mine = next;
+      var open = {}, title = function (x) { var s = x.querySelector('summary'); return s ? s.textContent : ''; };
+      [].forEach.call(document.querySelectorAll('details.panel'), function (x) { open[title(x)] = x.open; });
+      render(data);
+      [].forEach.call(document.querySelectorAll('details.panel'), function (x) { var k = title(x); if (Object.prototype.hasOwnProperty.call(open, k)) x.open = open[k]; });
+    });
+  }
 
   var collaborationStarted = false;
   function connectCollaboration(data) {

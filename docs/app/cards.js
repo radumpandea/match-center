@@ -1,7 +1,9 @@
 /* Match Center — "cards" screen: one broadcast-style board for a live match, everything as cards. The second format of
    the match page (switch "Clasic | Carduri", remembered in localStorage `mc:view`; the classic page stays).
-   It only READS the match pack, the live tables and the user's work on the classic page (line-up changes, bench,
-   formation, numbers, names, noted events, pasted referee crew); it changes none of them. Its quick note has its own key.
+   It reads the match pack, the live tables and the user's work on the classic page (line-up changes, bench, formation,
+   numbers, names, noted events, pasted referee crew). From a card the user can note goals, cards and substitutions: they
+   are written in exactly the same places and shapes as the classic page writes them (events in the shared state, subs in
+   this device's line-up), so both formats always show the same match. Its quick note has its own key.
    Laid out on a canvas 960 px high and 1560-2200 px wide, scaled to the window (desktop / tablet). Romanian only. */
 (function () {
   'use strict';
@@ -111,17 +113,26 @@
   function changedByUser(side) { var x = own().xi; return !!(x && x[side] && Object.keys(x[side]).length); }
   function formationOf(side) { var f = own().formation, a = apiLineup(side); return (f && f[side]) || (a && a.formation) || d.teams[side].formation || '4-4-2'; }
   var xiCache = {};   // rebuilt on every render
-  function xiOf(side) {
-    if (xiCache[side]) return xiCache[side];
+  // the eleven before the user's changes, in the order the classic page counts them (its saved changes are by position
+  // in this list): the lineup taken from the API, else predictedXI, else confirmedXI
+  function baseSlots(side) {
     var t = d.teams[side], a = apiLineup(side);
-    var slots = a ? a.xi : (t.confirmedXI || []).length === 11 ? t.confirmedXI : (t.predictedXI || []).length === 11 ? t.predictedXI : null;
+    var slots = a ? a.xi : (t.predictedXI || []).length === 11 ? t.predictedXI : (t.confirmedXI || []).length === 11 ? t.confirmedXI : null;
     if (!slots) {   // no eleven in the pack: the eleven with the most minutes, so the board is not empty
       var order = { GK: 0, DEF: 1, MID: 2, ATT: 3 };
       slots = (t.squad || []).slice().sort(function (x, y) { return ((y.stats && y.stats.minutes) || 0) - ((x.stats && x.stats.minutes) || 0); }).slice(0, 11)
         .sort(function (x, y) { return (order[x.role] || 0) - (order[y.role] || 0); });
     }
+    return slots;
+  }
+  function xiOf(side) {
+    if (xiCache[side]) return xiCache[side];
     var mine = own().xi, over = (mine && mine[side]) || {};
-    xiCache[side] = slots.map(function (slot, i) { return entry(side, over[i] || slot); });
+    xiCache[side] = baseSlots(side).map(function (slot, i) {
+      var x = entry(side, over[i] || slot);
+      x.index = i; x.change = over[i] || null;
+      return x;
+    });
     return xiCache[side];
   }
   function benchOf(side) {
@@ -162,10 +173,19 @@
 
   /* ---------- live data + what the user noted on the normal page ---------- */
   function sideOf(teamId) { return fx && teamId === fx.homeId ? 'home' : fx && teamId === fx.awayId ? 'away' : null; }
-  function inXI(id) { return id != null && ['home', 'away'].some(function (s) { return xiOf(s).some(function (x) { return x.p.apiId === id; }); }); }
+  // Who started: the official eleven if the pack has it, else the one on screen before any change of the user's. The
+  // API lists the two men of a substitution in no fixed order, so only "who was on the pitch" tells which one left.
+  function starters() {
+    var on = {};
+    ['home', 'away'].forEach(function (s) {
+      var official = d.teams[s].confirmedXI || [];
+      (official.length === 11 ? official : baseSlots(s)).forEach(function (x) { if (x.apiId != null) on[x.apiId] = 1; });
+    });
+    return on;
+  }
   // One flat list: { minute, side, kind: goal|owngoal|miss|yellow|red|sub|var, name, id, inName, inId, mine, removed }
   function events() {
-    var out = [];
+    var out = [], onPitch = starters();   // live.events come in minute order, so the set follows the match
     live.events.forEach(function (e) {
       var side = sideOf(e.team_id), kind = null, ev = { minute: e.minute, extra: e.extra, side: side, name: e.player_name, id: e.player_id, removed: e.present === false, mine: false };
       if (e.type === 'Goal') kind = e.detail === 'Own Goal' ? 'owngoal' : e.detail === 'Missed Penalty' ? 'miss' : 'goal';
@@ -173,25 +193,127 @@
       else if (e.type === 'Var') { kind = 'var'; ev.name = (e.detail || 'VAR') + (e.player_name ? ' · ' + e.player_name : ''); }
       else if (e.type === 'subst') {
         kind = 'sub';
-        // the API's "player" / "assist" are the one going off and the one coming on; if the eleven says otherwise, swap
         var off = { id: e.player_id, name: e.player_name }, on = { id: e.assist_id, name: e.assist_name };
-        if (inXI(on.id) && !inXI(off.id)) { var t = off; off = on; on = t; }
+        if (onPitch[on.id] && !onPitch[off.id]) { var t = off; off = on; on = t; }
+        if (e.present !== false) { delete onPitch[off.id]; if (on.id != null) onPitch[on.id] = 1; }
         ev.name = off.name; ev.id = off.id; ev.inName = on.name; ev.inId = on.id;
       }
       if (!kind) return;
       ev.kind = kind; out.push(ev);
     });
-    var mine = read('mc:' + slug).events || {};
+    var mine = shared().events || {};
     Object.keys(mine).forEach(function (k) {
       var i = k.indexOf(':'), side = k.slice(0, i), ref = k.slice(i + 1);
       if (!d.teams[side]) return;
-      var p = (d.teams[side].squad || []).filter(function (x) { return ref === 'a' + x.apiId || ref === 'n' + x.number || ref === 's' + x.name; })[0];
+      var p = squadOf(side).map(function (x) { return entry(side, x); })
+        .filter(function (x) { return ref === 'a' + x.p.apiId || ref === 'n' + x.number || ref === 's' + x.p.name; })[0];
       (mine[k] || []).forEach(function (e) {
-        out.push({ minute: e.minute, side: side, kind: e.type, name: p ? p.name : ref, id: p ? p.apiId : null, mine: true, removed: false });
+        out.push({ minute: e.minute, side: side, kind: e.type, name: p ? p.p.name : ref.slice(1), id: p ? p.p.apiId : null, mine: true, removed: false, key: k, eid: e.id });
+      });
+    });
+    ['home', 'away'].forEach(function (side) {
+      var base = baseSlots(side);
+      xiOf(side).forEach(function (x) {
+        if (!x.change || x.change.kind !== 'sub' || !base[x.index]) return;
+        var off = entry(side, base[x.index]);
+        out.push({ minute: x.change.minute, side: side, kind: 'sub', name: off.p.name, id: off.p.apiId, inName: x.p.name, inId: x.p.apiId, mine: true, removed: false, index: x.index });
       });
     });
     return out.sort(function (a, b) { return (a.minute == null ? 999 : a.minute) - (b.minute == null ? 999 : b.minute) || (a.extra || 0) - (b.extra || 0); });
   }
+  /* ---------- noting, in the classic page's own shapes ---------- */
+  // the same keys the classic page never shares between users
+  var PRIVATE = ['view', 'pname', 'discColors', 'panelOrder', 'panelWide', 'miniPitchClosed', 'miniPitchWidth', 'xi', 'bench', 'formation', 'lineup', 'confirmed', 'apiLineup', 'miniPitchPos'];
+  var LABEL = { goal: 'Gol', owngoal: 'Autogol', yellow: 'Galben', red: 'Roșu', sub: 'Schimbare' };
+  var lastMinute = '';
+  function store(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch (e) { return false; } }
+  // always read, change and write in one go: another tab may have written since the board was drawn
+  function writeShared(change) {
+    var st = shared(); change(st);
+    if (!store('mc:' + slug, st)) return false;
+    if (window.MC_COLLAB) window.MC_COLLAB.persist(st);
+    return true;
+  }
+  function writeOwn(change) { var m = own(); change(m); return store('mc:' + slug + ':me', m); }
+  function eventKey(side, x) { return side + ':' + (x.p.apiId != null ? 'a' + x.p.apiId : x.number != null ? 'n' + x.number : 's' + x.p.name); }
+  function addNoted(side, x, type, minute) {
+    var key = eventKey(side, x), id = Date.now() + '' + Math.random().toString(36).slice(2, 6), m = parseInt(minute, 10);
+    var ok = writeShared(function (st) {
+      st.events = st.events || {};
+      (st.events[key] = st.events[key] || []).push({ id: id, type: type, minute: isNaN(m) ? null : m });
+    });
+    return ok ? function () { removeNoted(key, id); } : null;
+  }
+  function removeNoted(key, id) {
+    writeShared(function (st) {
+      if (!st.events || !st.events[key]) return;
+      st.events[key] = st.events[key].filter(function (e) { return e.id !== id; });
+      if (!st.events[key].length) delete st.events[key];
+    });
+  }
+  // the player `incoming` takes position `index` of the eleven
+  function substitute(side, index, incoming, minute) {
+    var before = (own().xi && own().xi[side] && own().xi[side][index]) || null, base = baseSlots(side)[index], p = incoming.p, m = parseInt(minute, 10);
+    var ok = writeOwn(function (mine) {
+      mine.xi = mine.xi || {}; mine.xi[side] = mine.xi[side] || {};
+      mine.xi[side][index] = { apiId: p.apiId != null ? p.apiId : null, number: incoming.number != null ? incoming.number : null, name: p.name, pos: base && base.pos != null ? base.pos : p.pos, minute: isNaN(m) ? null : m, kind: 'sub' };
+    });
+    return ok ? function () { setSlot(side, index, before); } : null;
+  }
+  function setSlot(side, index, value) {
+    writeOwn(function (mine) {
+      mine.xi = mine.xi || {}; mine.xi[side] = mine.xi[side] || {};
+      if (value) mine.xi[side][index] = value; else delete mine.xi[side][index];
+    });
+  }
+  function toast(text, undo) {
+    var old = board.querySelector('.toast'); if (old) old.remove();
+    var t = el('div', { class: 'toast', role: 'status' }, [el('span', { text: text }),
+      undo ? el('button', { text: 'Anulează', onclick: function () { undo(); t.remove(); render(); } }) : null,
+      el('button', { text: '✕', title: 'Închide', onclick: function () { t.remove(); } })]);
+    board.appendChild(t);
+    setTimeout(function () { if (t.parentNode) t.remove(); }, 8000);
+  }
+  // after any note: close the panel, draw the board again, say what was done and offer to take it back
+  function done(text, undo) {
+    closeDrawer(); render();
+    if (undo) toast('Notat: ' + text, undo); else toast('Nu am putut salva (spațiul de stocare al browserului).');
+  }
+  function liveMinute() { var f = live.fx; return f && !f.finished && /^(1H|2H|ET)$/.test(f.status) && f.elapsed != null ? String(f.elapsed + (f.extra || 0)) : lastMinute; }
+  // The buttons at the top of a player's panel. x: the entry on the pitch (x.index set) or on the bench.
+  function recorder(side, x) {
+    var onPitch = x.index != null, name = x.renamed || callName(side, x.p, x.number);
+    var minute = el('input', { type: 'number', min: '0', max: '130', inputmode: 'numeric', placeholder: 'min', 'aria-label': 'Minutul' });
+    minute.value = liveMinute();
+    var keep = function () { lastMinute = minute.value; };
+    var what = function () { return (minute.value ? minute.value + "' " : ''); };
+    var buttons = (onPitch ? ['goal', 'owngoal', 'yellow', 'red'] : ['yellow', 'red']).map(function (type) {
+      return el('button', { class: 'act ' + type, text: ICON[type] + ' ' + LABEL[type], onclick: function () { keep(); done(what() + LABEL[type] + ' — ' + name, addNoted(side, x, type, minute.value)); } });
+    });
+    var others = onPitch ? benchOf(side) : xiOf(side);
+    var picks = others.map(function (o) {
+      var label = (o.number != null ? o.number + ' ' : '') + (o.renamed || callName(side, o.p, o.number));
+      return el('button', { class: 'pick-player', text: label, onclick: function () {
+        keep();
+        var index = onPitch ? x.index : o.index, incoming = onPitch ? o : x;
+        var text = what() + 'Schimbare — intră ' + (onPitch ? label : name) + ', iese ' + (onPitch ? name : label);
+        done(text, substitute(side, index, incoming, minute.value));
+      } });
+    });
+    var noted = events().filter(function (e) {
+      return e.mine && e.side === side && (e.kind === 'sub' ? (onPitch && e.index === x.index) : e.key === eventKey(side, x));
+    }).map(function (e) {
+      return el('div', { class: 'noted' }, [el('span', { text: minuteText(e) + ' ' + ICON[e.kind] + ' ' + (e.kind === 'sub' ? 'intrat în locul lui ' + shortOf(e.id, e.name) : LABEL[e.kind]) }),
+        el('button', { text: '✕', title: 'Șterge', onclick: function () { if (e.kind === 'sub') setSlot(side, e.index, null); else removeNoted(e.key, e.eid); closeDrawer(); render(); toast('Șters: ' + (LABEL[e.kind] || e.kind) + ' — ' + name); } })]);
+    });
+    return el('section', { class: 'recorder' }, [
+      el('h3', { text: 'Notează' }),
+      el('div', { class: 'rec-row' }, [el('label', {}, ['Minutul ', minute])].concat(buttons)),
+      el('div', { class: 'rec-sub' }, [el('span', { text: onPitch ? '🔄 Iese, intră în locul lui:' : '🔄 Intră în locul lui:' }), el('div', { class: 'rec-picks' }, picks.length ? picks : [el('span', { class: 'dim', text: 'Niciun jucător disponibil.' })])]),
+      noted.length ? el('div', { class: 'rec-noted' }, noted) : null
+    ]);
+  }
+
   var ICON = { goal: '⚽', owngoal: '⚽', miss: '❌', yellow: '🟨', red: '🟥', sub: '🔄', 'var': '📺' };
   function minuteText(e) { return e.minute == null ? '—' : e.minute + (e.extra ? '+' + e.extra : '') + "'"; }
   var STATUS = { NS: 'Neînceput', '1H': 'Repriza 1', HT: 'Pauză', '2H': 'Repriza 2', ET: 'Prelungiri', BT: 'Pauză', P: 'Penalty-uri', FT: 'Final', AET: 'Final (prel.)', PEN: 'Final (pen.)', SUSP: 'Suspendat', INT: 'Întrerupt', PST: 'Amânat' };
@@ -261,11 +383,12 @@
     pop.style.top = Math.max(4, Math.min(y, H - pop.offsetHeight - 6)) + 'px';
   }
 
-  function openPlayer(side, p, number) {
-    var s = p.stats || {};
+  function openPlayer(side, x) {
+    var p = x.p, number = x.number, s = p.stats || {};
     var facts = [p.age ? p.age + ' ani' : null, p.natTeam || p.nat, p.height ? p.height + ' cm' : null, p.weight ? p.weight + ' kg' : null, p.foot, p.birthCountry].filter(has).join(' · ');
     var rec = recentRows(side, p);
     drawer((number != null ? number + '. ' : '') + p.name, [d.teams[side].name, p.pos || p.role, facts].filter(has).join(' · '), [
+      recorder(side, x),
       has(p.pronunciation) ? el('p', { class: 'pron', text: 'Pronunție: ' + p.pronunciation }) : null,
       has(p.statusNote) || (p.status && p.status !== 'available') ? el('p', { class: 'warn', text: (p.status || '') + (p.statusNote ? ' — ' + p.statusNote : '') }) : null,
       has(p.linkLine) ? el('p', { class: 'link-line', text: p.linkLine }) : null,
@@ -299,6 +422,38 @@
       section('Fapte', list(r.funfacts)),
       has(r.history) ? el('p', { text: r.history }) : null
     ];
+  }
+
+  /* ---------- card background (this device only) ---------- */
+  var BACKGROUNDS = [['', 'Implicit', '#0a0f1a'], ['#000000', 'Negru'], ['#2b2f36', 'Grafit'], ['#12305e', 'Albastru'], ['#0f3d2a', 'Verde'], ['#4a1220', 'Vișiniu'],
+    ['#ffffff', 'Alb'], ['#e6e9ef', 'Gri deschis'], ['#f6efdc', 'Crem'], ['#ffe9a8', 'Galben pal'], ['team', 'Culoarea echipei']];
+  function cardBg() { try { var v = localStorage.getItem('mc:cardsBg') || ''; return v === 'team' || /^#[0-9a-f]{6}$/i.test(v) ? v : ''; } catch (e) { return ''; } }
+  function applyCardBg() {
+    var v = cardBg(), style = board.style;
+    board.classList.toggle('cards-team', v === 'team');
+    ['--card-bg', '--card-ink', '--card-soft', '--card-cell'].forEach(function (p) { style.removeProperty(p); });
+    if (!v || v === 'team') return;
+    var light = ink(v) !== '#fff';
+    style.setProperty('--card-bg', v);
+    style.setProperty('--card-ink', light ? '#0d1220' : '#ffffff');
+    style.setProperty('--card-soft', light ? '#33405e' : '#c5d2ee');
+    style.setProperty('--card-cell', light ? 'rgba(10,20,50,.09)' : 'rgba(255,255,255,.1)');
+  }
+  function setCardBg(v) { try { if (v) localStorage.setItem('mc:cardsBg', v); else localStorage.removeItem('mc:cardsBg'); } catch (e) {} applyCardBg(); }
+  function openColors() {
+    var now = cardBg();
+    var swatches = BACKGROUNDS.map(function (b) {
+      var show = b[0] === 'team' ? 'linear-gradient(90deg,' + color('home') + ' 50%,' + color('away') + ' 50%)' : b[2] || b[0];
+      return el('button', { class: 'swatch' + (now === b[0] ? ' on' : ''), 'aria-pressed': now === b[0] ? 'true' : 'false', onclick: function () { setCardBg(b[0]); openColors(); } },
+        [el('i', { style: 'background:' + show }), el('span', { text: b[1] })]);
+    });
+    var custom = el('input', { type: 'color', 'aria-label': 'Altă culoare' });
+    custom.value = /^#/.test(now) ? now : '#0a0f1a';
+    custom.addEventListener('input', function () { setCardBg(custom.value); });
+    drawer('Culoarea cardurilor', 'Fundalul cardurilor de pe teren. Alegerea se păstrează pe acest dispozitiv.', [
+      el('div', { class: 'swatches' }, swatches), el('label', { class: 'custom' }, ['Altă culoare: ', custom])
+    ]);
+    var back = board.querySelector('.drawer-back'); if (back) back.classList.add('clear');   // the cards stay visible while choosing
   }
 
   /* ---------- top menu ---------- */
@@ -402,7 +557,7 @@
       el('i', { text: '🟨 / 🟥' }), el('b', { text: s.apps != null ? (s.yellow || 0) + ' / ' + (s.red || 0) : '–' })
     ]);
     return el('div', { class: 'card ' + side + (spot.line >= 5 ? ' compact' : ''), style: 'left:' + (left * 100) + '%;top:' + (top * 100) + '%;width:' + cardWidth(spot.cols) + 'px;--team:' + c + ';--ink:' + ink(c), tabindex: '0',
-      onclick: function () { openPlayer(side, p, x.number); }, onkeydown: function (e) { if (e.key === 'Enter') openPlayer(side, p, x.number); } }, [
+      onclick: function () { openPlayer(side, x); }, onkeydown: function (e) { if (e.key === 'Enter') openPlayer(side, x); } }, [
       badges,
       el('div', { class: 'card-head' }, [
         el('div', { class: 'who' }, [el('span', { class: 'no', text: x.number != null ? x.number : '' }), el('span', { class: 'first', text: nm.first }),
@@ -444,7 +599,7 @@
     var row = el('div', { class: 'bench ' + side });
     nodes['bench-' + side] = row;
     benchOf(side).forEach(function (x) {
-      row.appendChild(el('button', { class: 'chip', style: '--team:' + color(side) + ';--ink:' + ink(color(side)), 'data-id': x.p.apiId, onclick: function () { openPlayer(side, x.p, x.number); } }, [
+      row.appendChild(el('button', { class: 'chip', style: '--team:' + color(side) + ';--ink:' + ink(color(side)), 'data-id': x.p.apiId, onclick: function () { openPlayer(side, x); } }, [
         el('b', { text: x.number != null ? x.number : '·' }), el('span', { text: x.renamed || callName(side, x.p, x.number) })
       ]));
     });
@@ -460,13 +615,20 @@
   }
 
   function paintLive() {
+    xiCache = {};
     var f = live.fx, all = events();
     if (nodes.score) {
-      nodes.score.textContent = f && f.home_goals != null ? f.home_goals + ' : ' + f.away_goals : 'vs';
-      nodes.clock.textContent = clockText();
+      var apiScore = !!(f && f.home_goals != null);
+      var noted = all.filter(function (e) { return e.mine && (e.kind === 'goal' || e.kind === 'owngoal'); });
+      var count = function (side) { return noted.filter(function (e) { return e.kind === 'goal' ? e.side === side : e.side !== side; }).length; };
+      nodes.score.textContent = apiScore ? f.home_goals + ' : ' + f.away_goals : noted.length ? count('home') + ' : ' + count('away') : 'vs';
+      var differs = apiScore && noted.length && (count('home') !== f.home_goals || count('away') !== f.away_goals);
+      nodes.clock.textContent = clockText() + (differs ? ' · tu: ' + count('home') + '–' + count('away') : !apiScore && noted.length ? ' · scor notat de tine' : '');
       nodes.clock.className = 'clock' + (f && !f.finished && /^(1H|2H|ET|P|HT|BT|LIVE)$/.test(f.status) ? ' on' : '');
       ['home', 'away'].forEach(function (side) {
-        nodes['goals-' + side].textContent = all.filter(function (e) { return !e.removed && !e.mine && (e.kind === 'goal' || e.kind === 'owngoal') && e.side === side; })
+        // an own goal noted by the user sits on the player who scored it, so it belongs to the other side's list
+        var scoredFor = function (e) { return e.mine && e.kind === 'owngoal' ? (e.side === 'home' ? 'away' : 'home') : e.side; };
+        nodes['goals-' + side].textContent = all.filter(function (e) { return !e.removed && e.mine === !apiScore && (e.kind === 'goal' || e.kind === 'owngoal') && scoredFor(e) === side; })
           .map(function (e) { return (e.name ? shortOf(e.id, e.name) : '(neconfirmat)') + ' ' + minuteText(e) + (e.kind === 'owngoal' ? ' (ag)' : ''); }).join(', ');
       });
     }
@@ -487,6 +649,7 @@
       }
       if (e.kind === 'sub') {
         mark(e.id, e.name, '▼' + minuteText(e));
+        if (e.mine) mark(e.inId, e.inName, '▲' + minuteText(e));
         var chip = e.inId != null ? board.querySelector('.chip[data-id="' + e.inId + '"]') : null;
         if (chip) chip.classList.add('on-pitch');
       } else if (e.kind === 'goal' || e.kind === 'owngoal' || e.kind === 'yellow' || e.kind === 'red') mark(e.id, e.name, ICON[e.kind] + (e.kind === 'owngoal' ? 'ag' : ''));
@@ -499,7 +662,7 @@
         nodes.events.appendChild(el('div', { class: 'ev' + (e.removed ? ' removed' : '') }, [
           el('i', { style: 'background:' + (e.side ? color(e.side) : '#666') }), el('b', { text: minuteText(e) }), el('span', { text: ICON[e.kind] || '•' }),
           el('span', { class: 'nm', text: e.kind === 'sub' ? '▲ ' + (e.inName ? shortOf(e.inId, e.inName) : '?') + '  ▼ ' + (e.name ? shortOf(e.id, e.name) : '?') : (e.name ? (e.kind === 'var' ? e.name : shortOf(e.id, e.name)) : 'fără jucător, neconfirmat') }),
-          e.removed ? el('em', { text: 'anulat' }) : e.mine ? el('em', { text: 'tu' }) : null
+          e.removed ? el('em', { text: 'anulat' }) : e.mine ? el('button', { class: 'ev-del', text: 'tu ✕', title: 'Șterge ce ai notat', onclick: function () { if (e.kind === 'sub') setSlot(e.side, e.index, null); else removeNoted(e.key, e.eid); render(); toast('Șters din notițele tale.'); } }) : null
         ]));
       });
     }
@@ -518,6 +681,9 @@
   }
 
   function render() {
+    applyCardBg();
+    var openPanel = board.querySelector('.drawer-back'), message = board.querySelector('.toast');
+    var area = board.querySelector('textarea'), typing = area && document.activeElement === area ? [area.selectionStart, area.selectionEnd] : null;
     cardByPlayer = {}; nodes = {}; xiCache = {};
     board.textContent = '';
     var comp = d.competition || {};
@@ -530,6 +696,7 @@
       el('a', { class: 'brand', href: 'index.html', title: 'Lista de meciuri' }, [el('strong', { text: 'MATCH CENTER' })]),
       el('div', { class: 'menu-items' }, MENU.map(function (m) { return el('button', { text: m[0], onclick: function () { drawer(m[0], d.teams.home.name + ' – ' + d.teams.away.name, m[1]()); } }); })),
       el('div', { class: 'menu-tools' }, [
+        el('button', { title: 'Culoarea de fundal a cardurilor', text: '🎨', onclick: openColors }),
         el('button', { title: 'Micșorează', text: 'A−', onclick: function () { setZoom(-1); } }),
         el('button', { title: 'Mărește textul și cardurile (apoi derulezi)', text: 'A+', onclick: function () { setZoom(1); } }),
         el('button', { title: 'Reîncarcă datele', text: '↻', onclick: load }),
@@ -548,7 +715,10 @@
     board.appendChild(el('div', { class: 'benches' }, [benchRow('home'), benchRow('away')]));
     board.appendChild(el('div', { class: 'main' }, [leftColumn(), pitch(), rightColumn()]));
     board.appendChild(el('div', { class: 'timeline' }, [el('span', { class: 'tl-label', text: 'CRONOLOGIE' }), nodes.line]));
+    if (openPanel) board.appendChild(openPanel);
+    if (message) board.appendChild(message);
     paintLive();
+    if (typing) { var again = board.querySelector('textarea'); again.focus(); again.setSelectionRange(typing[0], typing[1]); }
   }
 
   /* ---------- fit the canvas to the window ---------- */
@@ -579,6 +749,17 @@
       if (r && r.ok) { live.fx = r.fixture; live.events = r.events || []; paintLive(); }
     }).catch(function () {}).then(again);
   }
+  var syncing = false;
+  function connect() {
+    if (syncing || !window.MC_COLLAB || !window.MC_COLLAB.start) return;
+    syncing = true;
+    window.MC_COLLAB.start(slug, function () { return shared(); }, function (remote) {
+      var st = remote || {};
+      PRIVATE.forEach(function (k) { delete st[k]; });
+      store('mc:' + slug, st);
+      if (d) render();
+    });
+  }
   function message(text) { board.textContent = ''; board.appendChild(el('div', { class: 'loading' }, [text + ' ', el('a', { href: 'index.html', text: 'Lista de meciuri' })])); }
   function load() {
     if (!slug) { message('Lipsește meciul din adresă (cards.html?m=…).'); return; }
@@ -591,6 +772,7 @@
       if (!d) { message('Meciul nu are încă pachet.'); return; }
       document.title = d.teams.home.name + ' – ' + d.teams.away.name + ' · Carduri';
       render();
+      connect();
       poll();
     }).catch(function () { message('Datele nu au putut fi citite.'); });
   }
