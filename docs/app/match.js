@@ -2556,8 +2556,11 @@
         } });
         var email = el('input', { class: 'field', type: 'email', placeholder: t('collab.emailPlaceholder') });
         var sendLink = el('button', { class: 'pick', text: t('collab.sendMagicLink'), onclick: async function () {
+          sendLink.disabled = true;
           try { var to = await window.MC_COLLAB.sendMagicLink(email.value); msg.textContent = t('collab.magicLinkSent', { email: to }); } catch (e) { msg.textContent = e.message || t('collab.magicLinkFailed'); }
+          window.MC_COLLAB.lockLinkButton(sendLink);
         } });
+        if (window.MC_COLLAB) window.MC_COLLAB.lockLinkButton(sendLink);
         var logout = el('button', { class: 'pick', text: t('collab.signOut'), onclick: async function () { await window.MC_COLLAB.signOut(); close(); render(data); } });
         var auth = s.configured && !s.online
           ? el('div', {}, [el('p', { text: t('collab.authIntro') }), email, el('div', { class: 'ev-btns' }, [sendLink])])

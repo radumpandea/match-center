@@ -28,17 +28,49 @@
     return user;
   }
 
+  /* ---------- the sign-in e-mail ----------
+     Supabase limits how many e-mails the whole project may send in an hour, so a few impatient clicks block everybody.
+     One request a minute per browser (kept across reloads), and its refusals said in the reader's language. */
+  var LINK_PAUSE_MS = 60000, LINK_KEY = 'mc:magicLinkAt', linkSentAt = 0;
+  function linkWait() {   // seconds until the next request is allowed
+    var at = linkSentAt;
+    try { at = Math.max(at, Number(localStorage.getItem(LINK_KEY)) || 0); } catch (e) {}
+    var left = at + LINK_PAUSE_MS - Date.now();
+    return left > 0 && left <= LINK_PAUSE_MS ? Math.ceil(left / 1000) : 0;
+  }
+  function linkUsed() { linkSentAt = Date.now(); try { localStorage.setItem(LINK_KEY, String(linkSentAt)); } catch (e) {} }
+  function linkError(error) {
+    var code = String((error && error.code) || ''), text = String((error && error.message) || '');
+    if (code === 'over_email_send_rate_limit' || /email rate limit/i.test(text)) return new Error(t('collab.emailRateLimit'));
+    if (code === 'over_request_rate_limit' || /for security purposes|rate limit|too many requests/i.test(text)) return new Error(t('collab.requestRateLimit'));
+    if (code === 'email_address_not_authorized' || /not authorized/i.test(text)) return new Error(t('collab.emailNotAuthorized'));
+    return error;
+  }
+  // Keeps a "send the link" button disabled, with a countdown, while the pause runs.
+  function lockLinkButton(button) {
+    if (!button) return;
+    clearTimeout(button._linkTimer);
+    if (!button.getAttribute('data-label')) button.setAttribute('data-label', button.textContent);
+    var s = linkWait();
+    button.disabled = s > 0;
+    button.textContent = s > 0 ? t('collab.resendIn', { s: s }) : button.getAttribute('data-label');
+    if (s > 0) button._linkTimer = setTimeout(function () { lockLinkButton(button); }, 1000);
+  }
+
   async function sendMagicLink(email) {
     if (!enabled) throw new Error(t('collab.notConfigured'));
     var clean = String(email || '').trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean)) throw new Error(t('collab.invalidEmail'));
+    var wait = linkWait();
+    if (wait) throw new Error(t('collab.resendIn', { s: wait }));
+    linkUsed();   // before the request: a second click while it is on its way must not send another
     var res = await client.auth.signInWithOtp({
       email: clean,
       // Keep the exact match query too: returning to match.html without ?m=
       // would discard the screen the user was working on after authentication.
       options: { emailRedirectTo: location.origin + location.pathname + location.search }
     });
-    if (res.error) throw res.error;
+    if (res.error) throw linkError(res.error);
     return clean;
   }
 
@@ -469,5 +501,5 @@
     } catch (e) { return { ok: false, reason: 'error' }; }
   }
 
-  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes, getEntity: getEntity, getEntities: getEntities, setEntityOverride: setEntityOverride, fetchApiLineups: fetchApiLineups, requestDelegations: requestDelegations, fetchLive: fetchLive };
+  window.MC_COLLAB = { configured: configured, ready: ready, start: start, persist: persist, setName: setName, sendMagicLink: sendMagicLink, signOut: signOut, status: status, isFavourite: isFavourite, toggleFavourite: toggleFavourite, loadFavourites: loadFavourites, changes: changes, getEntity: getEntity, getEntities: getEntities, setEntityOverride: setEntityOverride, fetchApiLineups: fetchApiLineups, requestDelegations: requestDelegations, fetchLive: fetchLive, lockLinkButton: lockLinkButton };
 })();
