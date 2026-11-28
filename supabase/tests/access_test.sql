@@ -36,30 +36,30 @@ declare
 begin
   perform public._t_as_user(a);
 
-  -- ---------- devices: two slots
+  -- ---------- devices: no limit
   r := public.mc_device_heartbeat('device-0001', 'Chrome, Windows');
   perform public._t_check((r->>'ok')::boolean, 'first device registers');
   r := public.mc_device_heartbeat('device-0002', 'Safari, iPhone');
   perform public._t_check((r->>'ok')::boolean, 'second device registers');
   r := public.mc_device_heartbeat('device-0003', 'Firefox, Mac');
-  perform public._t_check(not (r->>'ok')::boolean and r->>'reason' = 'limit', 'third device is refused');
-  perform public._t_check(jsonb_array_length(r->'devices') = 2, 'the refusal lists the two active devices');
+  perform public._t_check((r->>'ok')::boolean, 'a third device registers too');
+  perform public._t_check(jsonb_array_length(r->'devices') = 3, 'all three active devices are listed');
   r := public.mc_device_heartbeat('device-0001', 'Chrome, Windows');
-  perform public._t_check((r->>'ok')::boolean, 'a registered device keeps its slot on heartbeat');
+  perform public._t_check((r->>'ok')::boolean, 'a registered device stays registered on heartbeat');
 
   -- ---------- takeover
   r := public.mc_device_takeover('device-0003', 'device-0001', 'Firefox, Mac');
   perform public._t_check((r->>'ok')::boolean, 'takeover registers the new device');
   r := public.mc_device_heartbeat('device-0001', 'Chrome, Windows');
-  perform public._t_check(not (r->>'ok')::boolean and r->>'reason' = 'limit', 'the taken-over device is out');
+  perform public._t_check((r->>'ok')::boolean and jsonb_array_length(r->'devices') = 3, 'a dropped device simply registers again');
   r := public.mc_device_takeover('device-0003', 'nope-nope-1', 'Firefox, Mac');
-  perform public._t_check((r->>'ok')::boolean and jsonb_array_length(r->'devices') = 2, 'taking over an unknown device changes nothing');
+  perform public._t_check((r->>'ok')::boolean and jsonb_array_length(r->'devices') = 3, 'taking over an unknown device changes nothing');
 
   -- ---------- release + stale
   r := public.mc_device_release('device-0002');
   perform public._t_check((r->>'ok')::boolean, 'release works');
   r := public.mc_device_heartbeat('device-0001', 'Chrome, Windows');
-  perform public._t_check((r->>'ok')::boolean, 'a freed slot can be used again');
+  perform public._t_check((r->>'ok')::boolean, 'the others keep working after a release');
 end $$;
 
 reset role;
@@ -73,8 +73,8 @@ declare
 begin
   perform public._t_as_user(a);
   r := public.mc_device_heartbeat('device-0004', 'Edge, Windows');
-  perform public._t_check((r->>'ok')::boolean, 'a device silent for 200 s no longer holds a slot');
-  perform public._t_check(jsonb_array_length(r->'devices') = 2, 'only the two live devices remain');
+  perform public._t_check((r->>'ok')::boolean, 'a new device registers after another went silent');
+  perform public._t_check(jsonb_array_length(r->'devices') = 2, 'the silent device is no longer listed');
   r := public.mc_device_heartbeat('x', 'bad');
   perform public._t_check(r->>'reason' = 'bad_device', 'a too-short device id is rejected');
 end $$;

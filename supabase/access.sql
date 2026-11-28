@@ -1,4 +1,4 @@
--- Match Center: access control (who may open which match pack, from how many devices).
+-- Match Center: access control (who may open which match pack).
 -- Idempotent: safe to run again. Applied by .github/workflows/supabase-sql.yml (mode "apply"); the same
 -- workflow can first run supabase/tests/access_test.sql against it inside a transaction that is rolled back.
 --
@@ -6,8 +6,8 @@
 --   * Standard packs: any signed-in user.
 --   * Premium (deep) packs: subscribers; everybody else gets ONE premium match per calendar month
 --     (Europe/Bucharest), reopenable that month.
---   * A user can have at most 2 devices open at the same time (a device counts while its heartbeat is
---     less than 150 s old).
+--   * No limit on the number of devices of a user (the limit of 2 was removed on 2026-11-28). Devices are still
+--     registered by a heartbeat: mc_get_pack() answers only a registered one.
 --   * The packs live in mc_packs, which the API cannot read: only mc_get_pack() hands them out.
 
 -- ---------------------------------------------------------------- subscriptions
@@ -90,15 +90,13 @@ language sql stable security definer set search_path = public as $$
 $$;
 
 -- Heartbeat + registration. Called when the page opens and every ~60 s. Returns
---   {ok:true, devices:[...]}                         this device holds a slot
---   {ok:false, reason:'limit', devices:[...]}        two OTHER devices are active
+--   {ok:true, devices:[...]}                         this device is registered; devices = those active now
 --   {ok:false, reason:'auth' | 'bad_device'}
 create or replace function public.mc_device_heartbeat(p_device text, p_label text default '') returns jsonb
 language plpgsql security definer set search_path = public as $$
 declare
   uid uuid := auth.uid();
   mine boolean;
-  active int;
 begin
   if uid is null then return jsonb_build_object('ok', false, 'reason', 'auth'); end if;
   if p_device is null or length(p_device) < 8 or length(p_device) > 80 then return jsonb_build_object('ok', false, 'reason', 'bad_device'); end if;
@@ -108,10 +106,6 @@ begin
   if mine then
     update public.mc_devices set last_seen = now(), label = coalesce(nullif(left(p_label, 80), ''), label) where user_id = uid and device_id = p_device;
   else
-    select count(*) into active from public.mc_devices where user_id = uid;
-    if active >= 2 then
-      return jsonb_build_object('ok', false, 'reason', 'limit', 'devices', public._mc_devices_json(uid, p_device));
-    end if;
     insert into public.mc_devices (user_id, device_id, label) values (uid, p_device, left(coalesce(p_label, ''), 80));
   end if;
   return jsonb_build_object('ok', true, 'devices', public._mc_devices_json(uid, p_device));
