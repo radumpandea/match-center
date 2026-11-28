@@ -1,13 +1,20 @@
-/* Match Center — "cards" screen (TEST): one broadcast-style board for a live match, everything as cards.
-   A separate page (cards.html?m=<slug>) that only READS the match pack, the live tables and what the user noted on the
-   normal match page; it changes none of them. Its own quick note is kept under its own localStorage key.
-   The board is laid out on a fixed 1680x960 canvas and scaled to the window (desktop / tablet). Romanian only. */
+/* Match Center — "cards" screen: one broadcast-style board for a live match, everything as cards. The second format of
+   the match page (switch "Clasic | Carduri", remembered in localStorage `mc:view`; the classic page stays).
+   It only READS the match pack, the live tables and the user's work on the classic page (line-up changes, bench,
+   formation, numbers, names, noted events, pasted referee crew); it changes none of them. Its quick note has its own key.
+   Laid out on a canvas 960 px high and 1560-2200 px wide, scaled to the window (desktop / tablet). Romanian only. */
 (function () {
   'use strict';
-  var W = 1680, H = 960, PW = 1180, PH = 746;
+  var H = 960, W = 1680, SIDE = 206;   // W follows the window's shape (see fit)
   var board = document.getElementById('board');
   var slug = (new URLSearchParams(location.search).get('m') || '').trim();
   var d = null, fx = null, live = { fx: null, events: [], timer: null }, scale = 1;
+  var ZOOMS = [1, 1.15, 1.3, 1.5], zoom = (function () { try { var z = Number(localStorage.getItem('mc:cardsZoom')); return ZOOMS.indexOf(z) >= 0 ? z : 1; } catch (e) { return 1; } })();
+  function setZoom(step) {
+    zoom = ZOOMS[Math.max(0, Math.min(ZOOMS.length - 1, ZOOMS.indexOf(zoom) + step))];
+    try { localStorage.setItem('mc:cardsZoom', String(zoom)); } catch (e) {}
+    fit(); hidePop();
+  }
   var nodes = {};                      // containers that are refreshed when live data arrives
   var cardByPlayer = {};               // 'home:<apiId|name>' -> badge container on the pitch card
 
@@ -76,32 +83,62 @@
     return box;
   }
 
-  /* ---------- who plays ---------- */
+  /* ---------- who plays: the pack, then everything the user changed on the classic page (read only) ---------- */
+  function shared() { return read('mc:' + slug); }             // numbers, manually added players, noted events
+  function own() { return read('mc:' + slug + ':me'); }        // this device: line-up, bench, formation, names
+  function keyOf(p) { return !p ? 's' : p.apiId != null ? 'a' + p.apiId : p.number != null ? 'n' + p.number : 's' + p.name; }
+  function squadOf(side) { var m = shared().manualSquad; return (d.teams[side].squad || []).concat((m && m[side]) || []); }
   function findPlayer(side, slot) {
-    var sq = d.teams[side].squad || [];
+    var sq = squadOf(side);
     var hit = slot.apiId != null ? sq.filter(function (p) { return p.apiId === slot.apiId; })[0] : null;
     if (!hit && slot.name) hit = sq.filter(function (p) { return norm(p.name) === norm(slot.name); })[0];
+    if (!hit && slot.number != null && slot.name) {
+      var last = norm(slot.name).split(' ').pop();
+      hit = sq.filter(function (p) { return p.number === slot.number && norm(p.name).split(' ').indexOf(last) >= 0; })[0];
+    }
     return hit || { name: slot.name, number: slot.number, apiId: slot.apiId, pos: slot.pos, stats: null };
   }
-  function lineupKind(side) { var t = d.teams[side]; return (t.confirmedXI || []).length === 11 ? 'confirmed' : (t.predictedXI || []).length === 11 ? 'predicted' : 'none'; }
+  // one entry of the eleven or the bench, with the user's number and name overrides
+  function entry(side, slot) {
+    var p = findPlayer(side, slot), numbers = shared().pnum, names = own().pname;
+    var number = slot.number != null ? slot.number : p.number;
+    if (numbers && numbers[side] && Object.prototype.hasOwnProperty.call(numbers[side], p.name)) number = numbers[side][p.name];
+    var renamed = names && names[side] ? names[side][keyOf(p)] || names[side][keyOf(slot)] : null;
+    return { slot: slot, p: p, number: number, renamed: renamed || null };
+  }
+  function apiLineup(side) { var a = own().apiLineup; return a && a[side] && a[side].xi && a[side].xi.length === 11 ? a[side] : null; }
+  function lineupKind(side) { var t = d.teams[side]; return apiLineup(side) || (t.confirmedXI || []).length === 11 ? 'confirmed' : (t.predictedXI || []).length === 11 ? 'predicted' : 'none'; }
+  function changedByUser(side) { var x = own().xi; return !!(x && x[side] && Object.keys(x[side]).length); }
+  function formationOf(side) { var f = own().formation, a = apiLineup(side); return (f && f[side]) || (a && a.formation) || d.teams[side].formation || '4-4-2'; }
+  var xiCache = {};   // rebuilt on every render
   function xiOf(side) {
-    var t = d.teams[side], kind = lineupKind(side);
-    var slots = kind === 'confirmed' ? t.confirmedXI : kind === 'predicted' ? t.predictedXI : null;
+    if (xiCache[side]) return xiCache[side];
+    var t = d.teams[side], a = apiLineup(side);
+    var slots = a ? a.xi : (t.confirmedXI || []).length === 11 ? t.confirmedXI : (t.predictedXI || []).length === 11 ? t.predictedXI : null;
     if (!slots) {   // no eleven in the pack: the eleven with the most minutes, so the board is not empty
       var order = { GK: 0, DEF: 1, MID: 2, ATT: 3 };
-      slots = (t.squad || []).slice().sort(function (a, b) { return ((b.stats && b.stats.minutes) || 0) - ((a.stats && a.stats.minutes) || 0); }).slice(0, 11)
-        .sort(function (a, b) { return (order[a.role] || 0) - (order[b.role] || 0); });
+      slots = (t.squad || []).slice().sort(function (x, y) { return ((y.stats && y.stats.minutes) || 0) - ((x.stats && x.stats.minutes) || 0); }).slice(0, 11)
+        .sort(function (x, y) { return (order[x.role] || 0) - (order[y.role] || 0); });
     }
-    return slots.map(function (s) { var p = findPlayer(side, s); return { slot: s, p: p, number: s.number != null ? s.number : p.number }; });
+    var mine = own().xi, over = (mine && mine[side]) || {};
+    xiCache[side] = slots.map(function (slot, i) { return entry(side, over[i] || slot); });
+    return xiCache[side];
   }
   function benchOf(side) {
-    var t = d.teams[side], inXI = {};
-    xiOf(side).forEach(function (x) { inXI[x.p.apiId != null ? x.p.apiId : x.p.name] = 1; });
-    var list = (t.substitutes || []).length ? t.substitutes.map(function (s) { var p = findPlayer(side, s); return { p: p, number: s.number != null ? s.number : p.number }; })
-      : (t.squad || []).filter(function (p) { return p.status !== 'out' && p.status !== 'suspended'; })
-        .sort(function (a, b) { return ((b.stats && b.stats.minutes) || 0) - ((a.stats && a.stats.minutes) || 0); })
-        .map(function (p) { return { p: p, number: p.number }; });
-    return list.filter(function (x) { return !inXI[x.p.apiId != null ? x.p.apiId : x.p.name]; }).slice(0, 12);
+    var t = d.teams[side], a = apiLineup(side), onPitch = {};
+    xiOf(side).forEach(function (x) { onPitch[keyOf(x.p)] = 1; });
+    var picked = own().bench, list;
+    if (picked && picked[side] && picked[side].length) {
+      var sq = squadOf(side);
+      list = picked[side].map(function (k) { return sq.filter(function (p) { return keyOf(p) === k; })[0]; }).filter(Boolean).map(function (p) { return entry(side, p); });
+    } else {
+      var subs = a && a.subs && a.subs.length ? a.subs : t.substitutes;
+      list = (subs || []).length ? subs.map(function (x) { return entry(side, x); })
+        : squadOf(side).filter(function (p) { return p.status !== 'out' && p.status !== 'suspended'; })
+          .sort(function (x, y) { return ((y.stats && y.stats.minutes) || 0) - ((x.stats && x.stats.minutes) || 0); })
+          .map(function (p) { return entry(side, p); });
+    }
+    return list.filter(function (x) { return !onPitch[keyOf(x.p)]; }).slice(0, 12);
   }
 
   /* ---------- positions: same rules as the normal match page (own left at the top for the team attacking right) ---------- */
@@ -117,7 +154,7 @@
         else idx.reverse();
       }
       var depth = 0.054 + (row / Math.max(1, counts.length - 1)) * 0.39;
-      idx.forEach(function (slot, j) { out[slot] = { d: depth, w: n === 1 ? 0.5 : (j + 0.5) / n }; });
+      idx.forEach(function (slot, j) { out[slot] = { d: depth, w: n === 1 ? 0.5 : (j + 0.5) / n, line: n, cols: counts.length }; });
       start += n;
     });
     return out;
@@ -348,25 +385,34 @@
     ]);
   }
 
-  function statCell(label, value, extra) { return el('span', Object.assign({ class: 'cell' }, extra || {}), [el('i', { text: label }), el('b', { text: String(num(value)) })]); }
+  function statCell(label, value, extra, cls) { return el('span', Object.assign({ class: 'cell' + (cls ? ' ' + cls : '') }, extra || {}), [el('i', { text: label }), el('b', { text: String(num(value)) })]); }
+  // pitch width in canvas pixels, and the card width that leaves a gap between two lines of the same team
+  function pitchWidth() { return W - 12 - 2 * SIDE - 12; }
+  function cardWidth(cols) { return Math.round(Math.max(98, Math.min(136, (0.39 / Math.max(1, cols - 1)) * pitchWidth() - 3))); }
   function playerCard(side, x, spot) {
-    var p = x.p, s = p.stats || {}, nm = { first: nameParts(p.name).first, last: callName(side, p, x.number) }, c = color(side);
+    var p = x.p, s = p.stats || {}, c = color(side);
+    var nm = x.renamed ? { first: '', last: x.renamed } : { first: nameParts(p.name).first, last: callName(side, p, x.number) };
     var badges = el('div', { class: 'badges' });
     cardByPlayer[side + ':' + (p.apiId != null ? p.apiId : p.name)] = badges;
     var hover = function (what) { return { onmouseenter: function (e) { showPop(e.currentTarget, side, p, what); }, onmouseleave: hidePop }; };
     var fact = (p.funfacts && p.funfacts[0]) || p.linkLine || p.funfact;
     var left = side === 'home' ? spot.d : 1 - spot.d, top = side === 'home' ? spot.w : 1 - spot.w;
-    return el('div', { class: 'card ' + side, style: 'left:' + (left * 100) + '%;top:' + (top * 100) + '%;--team:' + c + ';--ink:' + ink(c), tabindex: '0',
+    var len = String(nm.last || '').length;
+    var cards = el('span', { class: 'cell', onmouseenter: function (e) { showPop(e.currentTarget, side, p, 'yellow'); }, onmouseleave: hidePop }, [
+      el('i', { text: '🟨 / 🟥' }), el('b', { text: s.apps != null ? (s.yellow || 0) + ' / ' + (s.red || 0) : '–' })
+    ]);
+    return el('div', { class: 'card ' + side + (spot.line >= 5 ? ' compact' : ''), style: 'left:' + (left * 100) + '%;top:' + (top * 100) + '%;width:' + cardWidth(spot.cols) + 'px;--team:' + c + ';--ink:' + ink(c), tabindex: '0',
       onclick: function () { openPlayer(side, p, x.number); }, onkeydown: function (e) { if (e.key === 'Enter') openPlayer(side, p, x.number); } }, [
       badges,
       el('div', { class: 'card-head' }, [
-        el('div', { class: 'who' }, [el('span', { class: 'no', text: x.number != null ? x.number : '' }), el('span', { class: 'first', text: nm.first }), el('span', { class: 'last', text: nm.last })]),
+        el('div', { class: 'who' }, [el('span', { class: 'no', text: x.number != null ? x.number : '' }), el('span', { class: 'first', text: nm.first }),
+          el('span', { class: 'last' + (len > 13 ? ' xlong' : len > 9 ? ' long' : ''), text: nm.last })]),
         avatar(p.photo, p.name)
       ]),
       el('div', { class: 'meta' }, [el('span', { class: 'nat', text: p.natTeam || p.nat || '—' }), el('span', { text: [p.age ? p.age + ' ani' : null, p.height ? p.height + ' cm' : null].filter(Boolean).join(' · ') })]),
       el('div', { class: 'grid' }, [
-        statCell('M', s.apps), statCell('G', s.goals, hover('goals')), statCell('A', s.assists), statCell('🟨', s.yellow, hover('yellow')), statCell('🟥', s.apps != null ? (s.red || 0) : null),
-        statCell('MIN', s.minutes), p.role === 'GK' ? statCell('PAR', s.saves) : statCell('ȘUT', s.shotsOn), p.role === 'GK' ? statCell('PRI', s.conceded) : statCell('PAS%', s.passesAccuracy), statCell('NOTĂ', s.rating)
+        statCell('MECI', s.apps), statCell('GOL', s.goals, hover('goals')), statCell('PASĂ', s.assists), cards,
+        statCell('MIN', s.minutes), p.role === 'GK' ? statCell('PAR.', s.saves) : statCell('ȘUT', s.shotsOn), p.role === 'GK' ? statCell('PRIM.', s.conceded) : statCell('PAS%', s.passesAccuracy), statCell('NOTĂ', s.rating, null, 'rating')
       ]),
       fact ? el('div', { class: 'fact', text: fact }) : null
     ]);
@@ -380,11 +426,11 @@
     ]);
   }
   function pitch() {
-    var box = el('div', { class: 'pitch', style: 'width:' + PW + 'px;height:' + PH + 'px' }, [
+    var box = el('div', { class: 'pitch' }, [
       el('div', { class: 'line half' }), el('div', { class: 'line circle' }), el('div', { class: 'line area l' }), el('div', { class: 'line area r' }), el('div', { class: 'line goal l' }), el('div', { class: 'line goal r' })
     ]);
     ['home', 'away'].forEach(function (side) {
-      var xi = xiOf(side), at = spots(xi, d.teams[side].formation);
+      var xi = xiOf(side), at = spots(xi, formationOf(side));
       xi.forEach(function (x, i) { if (at[i]) box.appendChild(playerCard(side, x, at[i])); });
       var c = coachCard(side); if (c) box.appendChild(c);
     });
@@ -399,7 +445,7 @@
     nodes['bench-' + side] = row;
     benchOf(side).forEach(function (x) {
       row.appendChild(el('button', { class: 'chip', style: '--team:' + color(side) + ';--ink:' + ink(color(side)), 'data-id': x.p.apiId, onclick: function () { openPlayer(side, x.p, x.number); } }, [
-        el('b', { text: x.number != null ? x.number : '·' }), el('span', { text: callName(side, x.p, x.number) })
+        el('b', { text: x.number != null ? x.number : '·' }), el('span', { text: x.renamed || callName(side, x.p, x.number) })
       ]));
     });
     return row;
@@ -408,7 +454,7 @@
     var t = d.teams[side], kind = lineupKind(side);
     var bits = [
       t.logo ? el('img', { class: 'crest', src: t.logo, alt: '' }) : null,
-      el('div', { class: 'tn' }, [el('strong', { text: t.name }), el('span', { text: [t.formation, kind === 'confirmed' ? 'echipă oficială' : kind === 'predicted' ? 'echipă probabilă' : 'după minute jucate'].filter(has).join(' · ') })])
+      el('div', { class: 'tn' }, [el('strong', { text: t.name }), el('span', { text: [formationOf(side), kind === 'confirmed' ? 'echipă oficială' : kind === 'predicted' ? 'echipă probabilă' : 'după minute jucate', changedByUser(side) ? 'modificată de tine' : null].filter(has).join(' · ') })])
     ];
     return el('div', { class: 'team-head ' + side, style: '--team:' + color(side) }, side === 'home' ? bits : bits.reverse());
   }
@@ -472,7 +518,7 @@
   }
 
   function render() {
-    cardByPlayer = {}; nodes = {};
+    cardByPlayer = {}; nodes = {}; xiCache = {};
     board.textContent = '';
     var comp = d.competition || {};
     nodes.score = el('div', { class: 'score', text: 'vs' });
@@ -481,12 +527,17 @@
     nodes['goals-away'] = el('div', { class: 'scorers away' });
     nodes.line = el('div', { class: 'line-track' });
     board.appendChild(el('nav', { class: 'menu' }, [
-      el('div', { class: 'brand' }, [el('strong', { text: 'MATCH CENTER' }), el('span', { text: 'carduri · test' })]),
+      el('a', { class: 'brand', href: 'index.html', title: 'Lista de meciuri' }, [el('strong', { text: 'MATCH CENTER' })]),
       el('div', { class: 'menu-items' }, MENU.map(function (m) { return el('button', { text: m[0], onclick: function () { drawer(m[0], d.teams.home.name + ' – ' + d.teams.away.name, m[1]()); } }); })),
       el('div', { class: 'menu-tools' }, [
+        el('button', { title: 'Micșorează', text: 'A−', onclick: function () { setZoom(-1); } }),
+        el('button', { title: 'Mărește textul și cardurile (apoi derulezi)', text: 'A+', onclick: function () { setZoom(1); } }),
         el('button', { title: 'Reîncarcă datele', text: '↻', onclick: load }),
         el('button', { title: 'Ecran complet', text: '⛶', onclick: function () { if (document.fullscreenElement) document.exitFullscreen(); else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen(); } }),
-        el('a', { href: 'match.html?m=' + encodeURIComponent(slug), text: 'Pagina clasică' })
+        el('div', { class: 'switch', role: 'group', 'aria-label': 'Format' }, [
+          el('button', { text: 'Clasic', title: 'Pagina clasică a meciului (reține alegerea)', onclick: function () { try { localStorage.setItem('mc:view', 'classic'); } catch (e) {} location.href = 'match.html?m=' + encodeURIComponent(slug); } }),
+          el('button', { class: 'on', text: 'Carduri', 'aria-pressed': 'true', onclick: function () { try { localStorage.setItem('mc:view', 'cards'); } catch (e) {} } })
+        ])
       ])
     ]));
     board.appendChild(el('div', { class: 'scorebar' }, [
@@ -501,12 +552,19 @@
   }
 
   /* ---------- fit the canvas to the window ---------- */
+  // Height is always 960; the width follows the window (1560..2200), so a wide screen gets a wider pitch, not bars.
   function fit() {
-    scale = Math.max(0.45, Math.min(window.innerWidth / W, window.innerHeight / H));
+    var w = Math.round(Math.max(1560, Math.min(2200, H * window.innerWidth / Math.max(1, window.innerHeight))));
+    var changed = Math.abs(w - W) > 24;
+    if (changed) W = w;
+    // the zoom is the user's: above 100 % the board is larger than the window and scrolls
+    scale = Math.max(0.45, Math.min(window.innerWidth / W, window.innerHeight / H)) * zoom;
+    board.style.width = W + 'px';
     board.style.transform = 'scale(' + scale + ')';
     var st = document.getElementById('stage');
     st.style.width = (W * scale) + 'px';
     st.style.height = (H * scale) + 'px';
+    return changed;
   }
 
   /* ---------- data ---------- */
@@ -531,15 +589,17 @@
       fx = res[0].filter(function (f) { return f.slug === slug; })[0] || null;
       d = res[1];
       if (!d) { message('Meciul nu are încă pachet.'); return; }
-      document.title = d.teams.home.name + ' – ' + d.teams.away.name + ' · Carduri (test)';
+      document.title = d.teams.home.name + ' – ' + d.teams.away.name + ' · Carduri';
       render();
       poll();
     }).catch(function () { message('Datele nu au putut fi citite.'); });
   }
 
-  window.addEventListener('resize', fit);
+  var resizeTimer = null;
+  window.addEventListener('resize', function () { if (fit() && d) { clearTimeout(resizeTimer); resizeTimer = setTimeout(render, 150); } });
   window.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeDrawer(); hidePop(); } });
-  window.addEventListener('storage', function () { if (d) paintLive(); });   // events noted in the other tab
+  // something changed on the classic page in another tab (line-up, numbers, noted events): draw it again
+  window.addEventListener('storage', function (e) { if (d && e.key && e.key.indexOf('mc:' + slug) === 0) render(); });
   fit();
   load();
 })();

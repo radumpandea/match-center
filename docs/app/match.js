@@ -1954,7 +1954,7 @@
       metaWrap,
       (data._skeleton || data._partial) ? skeletonBanner(data) : null,
       el('div', { class: 'mc-toolbar' }, [
-        el('button', { text: t('toolbar.cards'), title: t('toolbar.cardsTitle'), onclick: function () { location.href = 'cards.html?m=' + encodeURIComponent(slug); } }),
+        el('button', { text: t('toolbar.cards'), title: t('toolbar.cardsTitle'), onclick: function () { try { localStorage.setItem('mc:view', 'cards'); } catch (e) {} location.href = 'cards.html?m=' + encodeURIComponent(slug); } }),
         lineupsBtn,
         lineupStatusEl,
         translateBtn,
