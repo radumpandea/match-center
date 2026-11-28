@@ -16,12 +16,28 @@
   function configured() { return enabled; }
   function json(v) { try { return JSON.stringify(v || {}); } catch (e) { return '{}'; } }
   function emit() { window.dispatchEvent(new CustomEvent('mc-collab', { detail: status() })); }
-  function status() { return { configured: enabled, online: !!user, name: name, favourites: Object.keys(favs) }; }
+  function status() { return { configured: enabled, online: !!user, guest: !!(user && user.is_anonymous), name: name, favourites: Object.keys(favs) }; }
+
+  // Guest access: until GUEST_UNTIL nobody needs the e-mail link, a visitor without a session gets an anonymous one and
+  // what they note is saved and shared like for anyone signed in. Needs "Allow anonymous sign-ins" in Supabase Auth;
+  // while that is off the attempt is refused and the site behaves as before. After the time is up no new guest session
+  // is made and existing ones are signed out. Favourites stay for e-mail accounts (supabase/guests.sql).
+  var GUEST_UNTIL = Date.parse('2026-11-29T06:00:00+02:00');
+  var guestTried = null;
+  function guestOpen() { return Date.now() < GUEST_UNTIL; }
+  function signInGuest() {
+    if (!guestTried) {
+      guestTried = client.auth.signInAnonymously().then(function (r) { return (r && r.data && r.data.user) || null; }).catch(function () { return null; });
+    }
+    return guestTried;
+  }
 
   async function ensureUser() {
     if (!enabled) return null;
     var got = await client.auth.getUser();
     user = got.data && got.data.user;
+    if (user && user.is_anonymous && !guestOpen()) { await client.auth.signOut(); user = null; }
+    if (!user && guestOpen() && client.auth.signInAnonymously) user = await signInGuest();
     try { var sess = await client.auth.getSession(); token = (sess.data && sess.data.session && sess.data.session.access_token) || ''; } catch (e) { token = ''; }
     name = localName() || (user && user.user_metadata && user.user_metadata.display_name) || (user && user.email ? user.email.split('@')[0] : '');
     emit();
@@ -335,6 +351,7 @@
     }
     await ensureUser();
     if (!user) throw new Error(t('collab.loginRequired'));
+    if (user.is_anonymous) throw new Error(t('collab.guestNoFavourites'));
     if (favs[slug]) {
       var del = await client.from('mc_favourites').delete().eq('user_id', user.id).eq('match_slug', slug);
       if (del.error) throw del.error;
