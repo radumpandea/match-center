@@ -15,6 +15,8 @@ on:
       - "supabase/functions/_shared/**"
       - "scripts/pick-weekly-premium.mjs"
       - "scripts/lib/national-squad.mjs"
+      - "scripts/lib/career.mjs"
+      - "scripts/lib/enrich-pack.mjs"
   pull_request:
     paths:
       - "docs/app/**"
@@ -43,6 +45,7 @@ jobs:
           node tests/pick-weekly-premium.test.mjs
           node tests/national-squad.test.mjs
           node tests/officials.test.mjs
+          node tests/career.test.mjs
       - name: Install Playwright
         run: |
           npm i --no-save playwright@1.49.1

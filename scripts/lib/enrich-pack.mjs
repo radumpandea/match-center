@@ -6,6 +6,8 @@
 //  - formatHonours(rows) / formatInjuries(rows): compact player extras from trophies?player=
 //    and sidelined?player= responses.
 
+import { cleanCareerString, isNationalName } from './career.mjs';
+
 const strip = (s) => String(s || '')
   .normalize('NFD').replace(/[̀-ͯ]/g, '')
   .toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
@@ -292,11 +294,17 @@ export function careerFromTransfers(baseCareer, transfers, isNational = () => fa
     .map((t) => ({ y: +String(t.d).slice(0, 4), d: String(t.d).slice(0, 10), ty: String(t.ty || ''), i: t.i && t.i.name ? t.i.name : null, o: t.o && t.o.name ? t.o.name : null }))
     .filter((t) => Number.isInteger(t.y) && t.y > 1950)
     .sort((a, b) => a.d.localeCompare(b.d));
-  if (!evs.length) return baseCareer || null;
+  if (!evs.length) return cleanCareerString(baseCareer) || null;
 
   const spells = [];                 // { name, start, end, loan }
   const open = new Map();            // team key -> its open spell
-  const opened = (name, start, loan) => { const s = { name, start, end: null, loan }; spells.push(s); open.set(keyOf(name), s); return s; };
+  // a second move into a club he is already at (loan made permanent, a duplicated row) continues that spell: opening
+  // another one would leave the first without an end year ("Manchester United (2025–null)")
+  const opened = (name, start, loan) => {
+    const cur = open.get(keyOf(name));
+    if (cur) { if (!loan) cur.loan = false; if (cur.start == null) cur.start = start; return cur; }
+    const s = { name, start, end: null, loan }; spells.push(s); open.set(keyOf(name), s); return s;
+  };
   const closed = (name, y) => { const s = open.get(keyOf(name)); if (s) { s.end = y; open.delete(keyOf(name)); } return s; };
 
   for (const e of evs) {
@@ -323,11 +331,11 @@ export function careerFromTransfers(baseCareer, transfers, isNational = () => fa
     if (b && s.start == null) s.start = b.min;
   }
   for (const b of base) {
-    if (isNational(b.name)) continue;
+    if (isNational(b.name) || isNationalName(b.name)) continue;
     if (!spells.some((s) => keyOf(s.name) === keyOf(b.name))) spells.push({ name: b.name, start: b.min, end: b.max, loan: false });
   }
 
-  const clean = spells.filter((s) => s.name && !isNational(s.name));
+  const clean = spells.filter((s) => s.name && !isNational(s.name) && !isNationalName(s.name));
   const sortYear = (s) => (s.start != null ? s.start : (typeof s.end === 'number' ? s.end - 0.5 : 0));
   clean.sort((a, b) => sortYear(a) - sortYear(b) || (a.loan ? 1 : 0) - (b.loan ? 1 : 0));
 
@@ -337,5 +345,5 @@ export function careerFromTransfers(baseCareer, transfers, isNational = () => fa
     if (s.end === 'prezent') return `${s.name} (${s.start}–prezent${loan})`;
     return s.start === s.end ? `${s.name} (${s.start}${loan})` : `${s.name} (${s.start}–${s.end}${loan})`;
   });
-  return parts.length ? parts.slice(-maxParts).join(' · ') : (baseCareer || null);
+  return cleanCareerString(parts.length ? parts.slice(-maxParts).join(' · ') : baseCareer) || null;
 }

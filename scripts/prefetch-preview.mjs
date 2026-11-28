@@ -58,6 +58,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { NEWS_SOURCES } from './news-sources.mjs';
+import { cleanCareerString, isNationalName } from './lib/career.mjs';
 import { computeWatch } from './lib/watch.mjs';
 import { computeLinkLines, formatHonours, formatInjuries, xiPlayers, applyAges, decodeDeep, applyAbsenceStatus, applyLineupNumbers, careerFromTransfers } from './lib/enrich-pack.mjs';
 
@@ -229,7 +230,7 @@ const COUNTRY_NAMES = new Set(Object.keys(CC3));
 function looksNational(teamName) {
   const k = String(teamName || '').toLowerCase().trim();
   if (/\bu-?\d{2}\b/.test(k) || /\bolympic|olympics\b/.test(k)) return true;
-  return COUNTRY_NAMES.has(k);
+  return COUNTRY_NAMES.has(k) || isNationalName(teamName);
 }
 
 /* ---------- role mapping ---------- */
@@ -1153,7 +1154,7 @@ async function getCareer(playerId, cache, needClub = false, needNat = false) {
       ? `${c.name} (${c.min})`
       : `${c.name} (${c.min}–${end})`;
   });
-  const career = parts.length ? parts.slice(0, 10).join(' · ') : null;
+  const career = parts.length ? cleanCareerString(parts.slice(0, 10).join(' · ')) : null;
   // The senior national team he last played for (players/teams lists national
   // sides as rows too, youth/Olympic ones carry U21/Olympic in the name). The
   // API's nationality field is the citizenship (a Ivory Coast international born
