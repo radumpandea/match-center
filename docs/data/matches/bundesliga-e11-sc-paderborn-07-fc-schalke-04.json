@@ -1,12 +1,12 @@
 {
   "slug": "bundesliga-e11-sc-paderborn-07-fc-schalke-04",
-  "generatedAt": "2026-11-27T15:31:09.937Z",
+  "generatedAt": "2026-11-28T14:28:56.394Z",
   "partial": true,
   "sources": [
     {
       "name": "API-Football (api-sports.io)",
       "url": "https://www.api-football.com/",
-      "accessed": "2026-11-27"
+      "accessed": "2026-11-28"
     }
   ],
   "competition": {
@@ -20,7 +20,14 @@
     "name": "Home Deluxe Arena",
     "capacity": null,
     "city": "Paderborn",
-    "notes": null
+    "notes": null,
+    "weather": {
+      "tempC": 1,
+      "condition": "cer noros",
+      "windKph": 15,
+      "precipitationMm": 0,
+      "forecastAt": "2026-11-28T14:28:56.523Z"
+    }
   },
   "referee": {
     "name": "Florian Exner",
@@ -1422,20 +1429,201 @@
             "period": "2021–2024",
             "note": null
           }
-        ],
-        "funfacts": [
-          "Ralf Kettemann s-a născut la 20 august 1986 în Crailsheim, Germania, și a jucat ca fotbalist la TSV Crailsheim, apoi, din 2007, la SpVgg Greuther Fürth II, cu 34 de meciuri și 6 goluri în liga echipei secunde.",
-          "A început cariera de antrenor la TSV Ilshofen în 2011, ajutând clubul să promoveze din liga a șasea în liga a cincea.",
-          "În vara anului 2019 a fost numit antrenor secund la echipa a doua a lui TSG 1899 Hoffenheim.",
-          "Doi ani mai târziu a devenit antrenor la echipele de juniori ale lui Karlsruher SC.",
-          "Înainte de sezonul 2025-2026 a fost numit principal la SC Paderborn, pe care l-a dus la promovarea din liga secundă în Bundesliga.",
-          "Site-ul german Bundesliga scria în 2026 că pune accent pe un fotbal atractiv, bazat pe posesia mingii, dar și pe muncă și dezvoltarea tinerilor."
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
-      "confirmedXI": null,
-      "substitutes": null,
+      "formation": "3-4-2-1",
+      "predictedXI": [
+        {
+          "apiId": 203329,
+          "number": 15,
+          "name": "N. Noll",
+          "pos": "G"
+        },
+        {
+          "apiId": 203132,
+          "number": 21,
+          "name": "J. ter Horst",
+          "pos": "D"
+        },
+        {
+          "apiId": 203015,
+          "number": 25,
+          "name": "T. Scheller",
+          "pos": "D"
+        },
+        {
+          "apiId": 334331,
+          "number": 22,
+          "name": "M. Hansen",
+          "pos": "D"
+        },
+        {
+          "apiId": 163078,
+          "number": 17,
+          "name": "L. Curda",
+          "pos": "M"
+        },
+        {
+          "apiId": 25059,
+          "number": 6,
+          "name": "T. Baack",
+          "pos": "M"
+        },
+        {
+          "apiId": 363156,
+          "number": 5,
+          "name": "S. Castañeda",
+          "pos": "M"
+        },
+        {
+          "apiId": 7592,
+          "number": 23,
+          "name": "R. Obermair",
+          "pos": "M"
+        },
+        {
+          "apiId": 380512,
+          "number": 2,
+          "name": "Ruben Müller",
+          "pos": "M"
+        },
+        {
+          "apiId": 328235,
+          "number": 30,
+          "name": "S. Marino",
+          "pos": "M"
+        },
+        {
+          "apiId": 26343,
+          "number": 27,
+          "name": "S. Tigges",
+          "pos": "F"
+        }
+      ],
+      "confirmedXI": [
+        {
+          "apiId": 203329,
+          "number": 15,
+          "name": "N. Noll",
+          "pos": "G"
+        },
+        {
+          "apiId": 203132,
+          "number": 21,
+          "name": "J. ter Horst",
+          "pos": "D"
+        },
+        {
+          "apiId": 203015,
+          "number": 25,
+          "name": "T. Scheller",
+          "pos": "D"
+        },
+        {
+          "apiId": 334331,
+          "number": 22,
+          "name": "M. Hansen",
+          "pos": "D"
+        },
+        {
+          "apiId": 163078,
+          "number": 17,
+          "name": "L. Curda",
+          "pos": "M"
+        },
+        {
+          "apiId": 25059,
+          "number": 6,
+          "name": "T. Baack",
+          "pos": "M"
+        },
+        {
+          "apiId": 363156,
+          "number": 5,
+          "name": "S. Castañeda",
+          "pos": "M"
+        },
+        {
+          "apiId": 7592,
+          "number": 23,
+          "name": "R. Obermair",
+          "pos": "M"
+        },
+        {
+          "apiId": 380512,
+          "number": 2,
+          "name": "Ruben Müller",
+          "pos": "M"
+        },
+        {
+          "apiId": 328235,
+          "number": 30,
+          "name": "S. Marino",
+          "pos": "M"
+        },
+        {
+          "apiId": 26343,
+          "number": 27,
+          "name": "S. Tigges",
+          "pos": "F"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 25289,
+          "number": 20,
+          "name": "F. Götze",
+          "pos": "D"
+        },
+        {
+          "apiId": 24826,
+          "number": 11,
+          "name": "S. Michel",
+          "pos": "F"
+        },
+        {
+          "apiId": 526403,
+          "number": 24,
+          "name": "N. Mohr",
+          "pos": "M"
+        },
+        {
+          "apiId": 129693,
+          "number": 9,
+          "name": "R. Philippe",
+          "pos": "F"
+        },
+        {
+          "apiId": 178106,
+          "number": 18,
+          "name": "M. Pieringer",
+          "pos": "F"
+        },
+        {
+          "apiId": 25114,
+          "number": 1,
+          "name": "M. Schubert",
+          "pos": "G"
+        },
+        {
+          "apiId": 334146,
+          "number": 3,
+          "name": "Jonah Benedict Sticker",
+          "pos": "D"
+        },
+        {
+          "apiId": 280334,
+          "number": 40,
+          "name": "G. Vidović",
+          "pos": "F"
+        },
+        {
+          "apiId": 407043,
+          "number": 38,
+          "name": "D. Zeitler",
+          "pos": "F"
+        }
+      ],
       "squad": [
         {
           "apiId": 203329,
@@ -1455,7 +1643,7 @@
           "natTeam": null,
           "birthCountry": "Germany",
           "birthDate": "2003-03-17",
-          "pronunciation": "na-WEL",
+          "pronunciation": null,
           "career": "1899 Hoffenheim (2020–2023) · SpVgg Greuther Fürth (2024) · Hannover 96 (2025) · SC Paderborn 07 (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -1751,7 +1939,7 @@
           "natTeam": null,
           "birthCountry": "Germany",
           "birthDate": "2002-01-12",
-          "pronunciation": "TIARC ȘE-ler",
+          "pronunciation": null,
           "career": "Schalke 04 II (2020–2021) · St. Pauli II (2022) · SC Paderborn 07 (2023–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -1871,7 +2059,7 @@
           "natTeam": null,
           "birthCountry": "Germany",
           "birthDate": "2002-06-19",
-          "pronunciation": "IA-no",
+          "pronunciation": null,
           "career": "Preußen Münster (2021–2025) · SC Paderborn 07 (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -1996,7 +2184,7 @@
           "natTeam": null,
           "birthCountry": "USA",
           "birthDate": "2004-11-13",
-          "pronunciation": "cas-ta-NYE-da",
+          "pronunciation": null,
           "career": "Tampa Bay Rowdies (2022) · MSV Duisburg (2023) · SC Paderborn 07 (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -2444,7 +2632,7 @@
           "natTeam": null,
           "birthCountry": "Germany",
           "birthDate": "2005-01-31",
-          "pronunciation": "UL-rih",
+          "pronunciation": null,
           "career": "VfB Stuttgart (2022) · Stuttgart II (2023) · SSV Ulm 1846 (2024) · 1. FC Magdeburg (2025) · SC Paderborn 07 (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -2746,7 +2934,7 @@
           "natTeam": null,
           "birthCountry": "France",
           "birthDate": "2000-10-23",
-          "pronunciation": "fi-LIP",
+          "pronunciation": null,
           "career": "Dijon II (2017–2018) · Dijon (2019–2020) · Swift Hesperange (2021–2022) · Eintracht Braunschweig (2023) · Hamburger SV (2024–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -2810,7 +2998,7 @@
           "natTeam": null,
           "birthCountry": "Germany",
           "birthDate": "1999-10-04",
-          "pronunciation": "PI-rin-gher",
+          "pronunciation": null,
           "career": "1. FC Heidenheim (0–prezent) · Freiburg II (2018–2019) · Würzburger Kickers (2020) · Schalke 04 II (2021)",
           "lastSeason": null,
           "funfact": null,
@@ -2874,7 +3062,7 @@
           "natTeam": null,
           "birthCountry": "Germany",
           "birthDate": "1998-07-31",
-          "pronunciation": "TI-ghes",
+          "pronunciation": null,
           "career": "VfL Osnabrück (2015–2018) · Borussia Dortmund (2019–2021) · 1. FC Köln (2022–2024) · SC Paderborn 07 (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -2940,7 +3128,7 @@
           "natTeam": null,
           "birthCountry": "Germany",
           "birthDate": "2003-12-01",
-          "pronunciation": "VI-do-vici",
+          "pronunciation": null,
           "career": "Bayern München (2021–2022) · Dinamo Zagreb (2023–2025) · SC Paderborn 07 (2026–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -4572,64 +4760,55 @@
       "news": [],
       "newsCandidates": [
         {
+          "title": "Live hören: SC Paderborn 07 gegen FC Schalke 04 - Bundesliga",
+          "url": "https://www.sportschau.de/fussball/bundesliga/sc-paderborn-07-gegen-fc-schalke-04,audiostream-sc-paderborn-07-gegen-fc-schalke-04-106.html",
+          "source": "Sportschau",
+          "published": "2026-11-28"
+        },
+        {
+          "title": "How to watch Schalke 04 vs. SC Paderborn 07 in the U.S.: TV channel and streaming options for November 28",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQVWpOZzJlTExhSFJFU0lKWGRWZzE2QmkwUDUwcVVwUGktVFB3M0NRb1hJdlVGMEs4NWRLeGhRUnk5SFJuX1pOWXpIR2pyNHZtV3V2R1NmTFBFaGtrbUpoVHM3aXFoWlpGalNOMnRPcXJNSVJodHBVWHlId0YwX1U3REI3SzBiU3JxSUlPY3pRZFdLbTZBWW1IUWZlWm1EZHM5OTR5R3RhY3NmZjBNbWNEekxPRWpVaUxZUkhkVA?oc=5",
+          "source": "The New York Times",
+          "published": "2026-11-28"
+        },
+        {
+          "title": "SC Paderborn 07 vs. Schalke 04 Prediction, Picks, Live Odds – Nov. 28",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPemJ6TFoxWldKU1RrTEpCOTNvcFpTRVJYWDR4bzYtaEF4X3o5QUUzSGNydThuSXNEVG1sZGFUTjd0Rk83RGp6akFURFVSRnVvVnk0UjUxVVFmTnU4NGk4SVlXbFFnMURucFVvekN2Y0FCZlVRZXJVZGtPTUE3NEFpS2lPMzRLUjhDTXMxWjd6NGxQSjJZQkNsY3dxM3B4c2RSWFVOOWxjcGlMNHo0OTd3Q1NR?oc=5",
+          "source": "Bleacher Nation",
+          "published": "2026-11-28"
+        },
+        {
+          "title": "Paderborn vs Schalke: Lineups, Prediction, Odds & Bet Builder Tip",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQY2RIWGNGem9pWF9EYWhORUFOQmhBM244LUozNmhjeUVneVVIM1lSYnJOTXRVMkJrR2tLektudjVDdUtaaklaUXpScWFJZXRKc3lyVFhNSmNRdWhraTFEa3pPODhGWXZaYW83ekZXY2hSakpIQ3JfQnVZZUdMMUNHaHBtMjQ0ekhHMjZVQ2F2OV9JWU00dkpqUDFZVlB4Y1lzRWI2SVlNdnMyZnVDUUlOeGR1WEVKQWtHa0RyakVB?oc=5",
+          "source": "WhoScored.com",
+          "published": "2026-11-28"
+        },
+        {
+          "title": "Paderborn vs Schalke 04 Prediction & Betting Tips | 28/11/2026",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNSmlOWlhfRkpWYUdoRTI1ZXRHV3NZbFdJcFViaUQ2UUlxV05WcTJSQ3ViTXM0M3FrbXQwLXNZM0dDVnI5WUhKRE5uZFQ4OXBNQ2dKR3pRU2dNTzA0aXhLZXlhcTdYZzVEb1RmS3BvNDJ5VTBzR25RaERaMExoOXBwWE1pUEVFTHBwb1U2eWZnRmpZVURLREJpRl9yZ3hva1hvLXZTLU1abm1CN2FTa0JjTVQxb1hHVmotenpUVA?oc=5",
+          "source": "FootballPredictions.com",
+          "published": "2026-11-28"
+        },
+        {
           "title": "Paderborn vs Schalke Prediction and Betting Tips | 28th November 2026",
           "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNTm50dVdOUXA5cU5fZXd0dEhVQkQ2MHNObVNaZ3dpQlhKVFZReFVpb0FXS3gwb0VuTGdPLTlnbmFyZ2lmRXRrUldUNGpJN0ZwV21PRnlpbmNfczl2RGZqOFBqVnMyZF9HdG5xNDVlSy1GeGRBdGQyWkxRQ1AzUVJfOUlkc0JZRnhsOE43aVAwVVpIc29yOFFHWDFNdjF0NkRZd0E?oc=5",
           "source": "Sportskeeda",
-          "published": "2026-11-27"
+          "published": "2026-11-28"
         },
         {
-          "title": "SC Paderborn vs. FC Schalke 04 preview: Promoted sides aim to escape relegation zone",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxONFc0ZWZiVTJWMlQzU0c2TEZFLW11YXZwSnVqYUc3SFlRUXhIOUlqRDJvMldOLUFDQlZQX09rN3FmUGp5ZFRTWlhQTllNX25Jd25laDA1czBieFlNSFZJZFRJWld6Rnh0eXFySkswSU1nLWpQNjF6MkQ2eDEwVFYxVjdZYW5USlJRZlE?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-11-27"
+          "title": "Paderborn vs Schalke Prediction, Betting Tips, Lineups & Odds | 28 Nov 2026",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOcS1mS1o3UlVPQVRvQ1B1UWlScHZla0tBb1hCLTBQTkphSTg1TUVNazNvN0pIUkpxX0N4WVB3MFJJNkdZSmtvTmt4UzFaM0cxZklraEM0bTFkbWtCMTBxeFlzWFp2a2p1UXduQWM1clVvY1RraHdJRzNfWWhLV3BDMTM3elBSNDBZOWl4Wl9mbHpObzZqZnVpeEtMWVN1MHRnSWhBQlF0ZEJCT1ZB?oc=5",
+          "source": "Sportsgambler",
+          "published": "2026-11-28"
         },
         {
-          "title": "Freiburg extend remarkable European home run with 14th consecutive win",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZ0Q3MndjN09qLUNfTTI2dHJIcFhRNko4UE1aT3BUU19KS0pYQjBPU1J4ZDlROFFMTTR0WGo0ZTJ4Ykt6NE9YdVE5YTQ3SXZjUGdRU0cwaDY5VGF6THNjTGVOdEJOVEU0Nzcta3pFXzZZYW1QbGdZS3NUREhqa0F1eUtDeXlJUGNINzBhdUp2VHliSkxDd1I2cnp0elVFd1YzcDlVTlduMEtRWHJKSDBB?oc=5",
-          "source": "Bundesliga | official website",
-          "published": "2026-11-27"
-        },
-        {
-          "title": "Super Sunday Showdown: Leaders Borussia Dortmund welcome Bayer Leverkusen and Freiburg face RB Leipzig as title race heats up",
-          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNdEh3MFFTeXc3ekhleTNVeEF6RWFUaXpnemRNMFUyR19YcjdYSjR3eWpjbmtfUmFodVYyU2Y5QTU4anpEOU5PN2pYVnlReEZaRm5nRXBFNHNIUHZIbVd5ell5Z29BUjF1SkMzaE9NbUg2OVFZYjVjbk1QVThFTHU3cGFTeEN1RkFzVWFZWW1vWjNjYkdrTngyZjd1R3c2anplbG1FcUhYUEJqcWlZUGlwTWFTd0hJUjJTSTN2eU9IVG1KYzRveVRhcHN3NkxadXVwSHZz?oc=5",
-          "source": "Bundesliga | official website",
-          "published": "2026-11-27"
-        },
-        {
-          "title": "PREVIEW | SC Paderborn 07 vs Schalke 04: team news, lineups, predictions (Bundesliga 28/11)",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNTEMyUUlNcWxxdjdETHdhVVVrTENiVGVFY2tUMDJmQTVfNk5tREFFZFpKWU1xUXliRWtnOXYxOXluYVVLWWNsVEdiS3NnMkZTTDlua1ZoeVNRdTZoVEdGdmg1RlVzeEM3Q0F0Vk5ySm9LcHhCYk9HVkF6WGxGaGNlVEJKalIxY3E5dXc?oc=5",
-          "source": "Yahoo Sports",
-          "published": "2026-11-26"
-        },
-        {
-          "title": "'We've got to stick together': Paderborn's Santiago Castañeda eyes Schalke win after 'crazy' USMNT debut",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOTFJkbWNxR1R5MS15NDdnY2d0am5VcmVrX3pfQVluY1ZoNUo3ZHI4eVR4WDdZOTM3VGtwaXFpWjAzcWY3X1Y2UU1tVFJYM2p4MDliVlNsWUtOOUtkZi1hdmh3d3g5LWxPU3JlRzNQQ28xUUhnZ2JiQXRJVFRtS0hWS2UzOHl2QnNyT0t4QkVKUUVUZzZ0X2k2MXJzWU9KR2ZBeXhFREgwX0hqT1NZNWFCVw?oc=5",
-          "source": "Bundesliga | official website",
-          "published": "2026-11-26"
-        },
-        {
-          "title": "Dinamo Zagreb vs Bayer Leverkusen Preview: Kick-off, Venue & Where It Is Played",
-          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNd2lsZDhib3ZSakNFN2RFQXdia05hR0NjZVo3dGZEeHBUM1BIdGVXWjdjdF9HcE9BU0FtUVd2eVdlR0FrbnlyNTZzcFNfU3dwN0s2QjJUaTZPa0pzeDgwWUlaQW5DaG1NX3J3VHVqZmpDY251Nm9kd0VycG5VV1owN3lnVGhJOGY0Ti1ld1JNSQ?oc=5",
-          "source": "TechnoSports Media Group",
-          "published": "2026-11-26"
-        },
-        {
-          "title": "Bundesliga fixtures: weekend schedule and kick-off times (27-29 November 2026)",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPVlJudXRzejNPdWduTGVQV2JnR08ycG5SSDJCeUlDWjNOS05jUXNEZ3dVQ09keERpUWRhNEVOTnpBUE1GMklwZ3pSTWU0RENkVllrOVR2Nm9TNGRGNGtQa1ZfZC1GUVVtczg2YUdoUzBjLU9kaVQ4Sm1WcVB1ZUVzNGxkbFhQVEhldUo5aTNuRkxmMmtubW9vWDBoWktVSnNvZ0V5Q0VGMHFieWt0bmdKTVdR?oc=5",
-          "source": "Sport News Africa",
-          "published": "2026-11-26"
+          "title": "Analysis — Bayern München vs SC Paderborn 07 | 04/12/2026",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPZFZIcm1yQ1Nsb2R3aFBKM01ETzNaLWpnaGEyUXI0YmNlNmlYcGNIaGd1d0huZWt3TTc4b0ZUQUFBcE0zRUhHLWstUlAxS0pxRW1VV0Z4eXN2b25HS3dfZkYyUHdmdGRpaGpVSGx0Vk9zeW9VcExNY0FkVjhIZnZ1cGxqdWhqLVlN?oc=5",
+          "source": "The Daily Star Lebanon",
+          "published": "2026-11-28"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "Clubul actual, SC Paderborn 07, a luat naștere în 1997, după ce în 1985 cluburile TuS Neuhaus și FC Paderborn fuzionaseră sub numele TuS Paderborn/Neuhaus.",
-        "Echipa joacă pe Home Deluxe Arena, un stadion cu o capacitate de 15.000 de locuri.",
-        "Paderborn a promovat pentru prima dată în Bundesliga în sezonul 2013-14.",
-        "În sezonul 2018-19, clubul a terminat pe locul al doilea în 2. Bundesliga și a obținut o nouă promovare.",
-        "Mijlocașul Moritz Stoppelkamp a marcat pentru Paderborn, într-un meci cu Hannover 96, un gol considerat cel mai îndepărtat din istoria Bundesligii, de la circa 83 de metri.",
-        "În sezonul 2004-05, Paderborn a eliminat din Cupa Germaniei (DFB-Pokal) echipa de Bundesliga Hamburger SV, meci în care arbitrul Robert Hoyzer a recunoscut că a fost mituit pentru a favoriza victoria gazdelor, unul dintre cele mai mari scandaluri de pariuri din fotbalul german.",
-        "Printre jucătorii formați sau trecuți pe la Paderborn se numără Marvin Ducksch, Mario Vrančić și Lukas Rupp, iar pe banca tehnică s-au aflat antrenori ca André Breitenreiter și Steffen Baumgart."
-      ]
+      "stories": []
     },
     "away": {
       "name": "FC Schalke 04",
@@ -4681,20 +4860,201 @@
             "period": "2017–2018",
             "note": null
           }
-        ],
-        "funfacts": [
-          "Miron Muslić s-a născut la 14 septembrie 1982, în Bosnia și Herțegovina (pe atunci RSF Iugoslavia), iar familia sa a fugit ca refugiați la Innsbruck în 1992, când el avea nouă ani.",
-          "Ca jucător a evoluat mai ales în ligile inferioare austriece (Wörgl, Hall, SVG Reichenau, Gmunden, Sattledt, Union Weißkirchen), cu un scurt episod la SV Ried în Bundesliga în 2007, retrăgându-se după sezonul 2016-17.",
-          "A început drumul spre antrenorat ca asistent la Union Weißkirchen în 2014, apoi la SV Ried, unde a fost și antrenor principal interimar în 2018 și titular din ianuarie până în martie 2021.",
-          "La Cercle Brugge, promovat antrenor principal în septembrie 2022, a dus echipa pe locul 4 în sezonul 2023-24, cea mai bună clasare a clubului din 2008 și prima calificare europeană în 14 ani.",
-          "La Plymouth Argyle a provocat o surpriză majoră pe 9 februarie 2025, eliminând Liverpool, liderul Premier League, cu 1-0 în turul al patrulea al FA Cup.",
-          "De la Schalke 04, echipă pe care a preluat-o în mai 2025, a obținut promovarea în Bundesliga pe 2 mai 2026, ca lider al sezonului 2025-26 de 2. Bundesliga."
         ]
       },
-      "formation": "n/d",
-      "predictedXI": [],
-      "confirmedXI": null,
-      "substitutes": null,
+      "formation": "4-2-3-1",
+      "predictedXI": [
+        {
+          "apiId": 1972,
+          "number": 1,
+          "name": "L. Karius",
+          "pos": "G"
+        },
+        {
+          "apiId": 90594,
+          "number": 29,
+          "name": "J. Dina Ebimbe",
+          "pos": "D"
+        },
+        {
+          "apiId": 1741,
+          "number": 25,
+          "name": "N. Katić",
+          "pos": "D"
+        },
+        {
+          "apiId": 81164,
+          "number": 4,
+          "name": "H. Kuruçay",
+          "pos": "D"
+        },
+        {
+          "apiId": 361411,
+          "number": 33,
+          "name": "Vitalie  Becker",
+          "pos": "D"
+        },
+        {
+          "apiId": 280090,
+          "number": 23,
+          "name": "S. El-Faouzi",
+          "pos": "M"
+        },
+        {
+          "apiId": 1725,
+          "number": 21,
+          "name": "D. Ljubičić",
+          "pos": "M"
+        },
+        {
+          "apiId": 125173,
+          "number": 20,
+          "name": "J. Adamu",
+          "pos": "M"
+        },
+        {
+          "apiId": 25466,
+          "number": 19,
+          "name": "K. Karaman",
+          "pos": "M"
+        },
+        {
+          "apiId": 137129,
+          "number": 24,
+          "name": "A. Aouchiche",
+          "pos": "M"
+        },
+        {
+          "apiId": 790,
+          "number": 10,
+          "name": "E. Džeko",
+          "pos": "F"
+        }
+      ],
+      "confirmedXI": [
+        {
+          "apiId": 1972,
+          "number": 1,
+          "name": "L. Karius",
+          "pos": "G"
+        },
+        {
+          "apiId": 90594,
+          "number": 29,
+          "name": "J. Dina Ebimbe",
+          "pos": "D"
+        },
+        {
+          "apiId": 1741,
+          "number": 25,
+          "name": "N. Katić",
+          "pos": "D"
+        },
+        {
+          "apiId": 81164,
+          "number": 4,
+          "name": "H. Kuruçay",
+          "pos": "D"
+        },
+        {
+          "apiId": 361411,
+          "number": 33,
+          "name": "Vitalie  Becker",
+          "pos": "D"
+        },
+        {
+          "apiId": 280090,
+          "number": 23,
+          "name": "S. El-Faouzi",
+          "pos": "M"
+        },
+        {
+          "apiId": 1725,
+          "number": 21,
+          "name": "D. Ljubičić",
+          "pos": "M"
+        },
+        {
+          "apiId": 125173,
+          "number": 20,
+          "name": "J. Adamu",
+          "pos": "M"
+        },
+        {
+          "apiId": 25466,
+          "number": 19,
+          "name": "K. Karaman",
+          "pos": "M"
+        },
+        {
+          "apiId": 137129,
+          "number": 24,
+          "name": "A. Aouchiche",
+          "pos": "M"
+        },
+        {
+          "apiId": 790,
+          "number": 10,
+          "name": "E. Džeko",
+          "pos": "F"
+        }
+      ],
+      "substitutes": [
+        {
+          "apiId": 33142,
+          "number": 13,
+          "name": "S. Tanaka",
+          "pos": "M"
+        },
+        {
+          "apiId": 115,
+          "number": 9,
+          "name": "M. Sylla",
+          "pos": "F"
+        },
+        {
+          "apiId": 26525,
+          "number": 27,
+          "name": "F. Porath",
+          "pos": "M"
+        },
+        {
+          "apiId": 24893,
+          "number": 22,
+          "name": "K. Müller",
+          "pos": "G"
+        },
+        {
+          "apiId": 24888,
+          "number": 7,
+          "name": "Hwang Hee-Chan",
+          "pos": "F"
+        },
+        {
+          "apiId": 30422,
+          "number": 8,
+          "name": "R. Gosens",
+          "pos": "D"
+        },
+        {
+          "apiId": 266192,
+          "number": 17,
+          "name": "A. Gantenbein",
+          "pos": "D"
+        },
+        {
+          "apiId": 26397,
+          "number": 14,
+          "name": "J. Bachmann",
+          "pos": "M"
+        },
+        {
+          "apiId": 361362,
+          "number": 43,
+          "name": "M. Ayhan",
+          "pos": "D"
+        }
+      ],
       "squad": [
         {
           "apiId": 1972,
@@ -5142,7 +5502,7 @@
           "natTeam": null,
           "birthCountry": "Bosnia and Herzegovina",
           "birthDate": "1996-10-10",
-          "pronunciation": "KA-tici",
+          "pronunciation": null,
           "career": "NK Slaven Belupo (2015–2017) · Rangers (2018–2021) · FC Zurich (2022–2023) · Plymouth (2024) · FC Schalke 04 (2025–prezent)",
           "lastSeason": null,
           "funfact": null,
@@ -5319,7 +5679,7 @@
           "weight": 72,
           "foot": null,
           "nat": "FRA",
-          "natTeam": null,
+          "natTeam": "ALG",
           "birthCountry": "France",
           "birthDate": "2002-07-15",
           "pronunciation": null,
@@ -5434,7 +5794,7 @@
           "weight": 76,
           "foot": null,
           "nat": "FRA",
-          "natTeam": null,
+          "natTeam": "CMR",
           "birthCountry": "France",
           "birthDate": "2000-11-21",
           "pronunciation": null,
@@ -5491,7 +5851,7 @@
           "weight": 68,
           "foot": null,
           "nat": "GER",
-          "natTeam": null,
+          "natTeam": "MAR",
           "birthCountry": "Germany",
           "birthDate": "2002-07-13",
           "pronunciation": null,
@@ -7942,65 +8302,55 @@
       "news": [],
       "newsCandidates": [
         {
+          "title": "Live hören: SC Paderborn 07 gegen FC Schalke 04 - Bundesliga",
+          "url": "https://www.sportschau.de/fussball/bundesliga/sc-paderborn-07-gegen-fc-schalke-04,audiostream-sc-paderborn-07-gegen-fc-schalke-04-106.html",
+          "source": "Sportschau",
+          "published": "2026-11-28"
+        },
+        {
+          "title": "Emil Højlund FC 27 Rating: 61 OVR, Stats & PlayStyles | All Football",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE8xWHgwQWQ3b1Ayc3dtOXRaSk9YVXVSdW14ZUViOGJxd1JMNTFGQlJaY0FwMFVuc1NXVjctaUhLX2o3eTZYWlFRMVBlem5WbVlTUzlKUm5HNk9Wc1VPZWtPaHFfN3lEMl93dXc?oc=5",
+          "source": "懂球帝",
+          "published": "2026-11-28"
+        },
+        {
+          "title": "Confirmed lineups: SC Paderborn vs. FC Schalke 04",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9EcVdLM1NvMGJJbnUwUk8xem1XbHdXbU5KRGQ3dVYtTnl1Q3NrNXZ1WkdHa2l6NlZfazNvTE5JWWt4cENKbW5zc1BGODNuRlhCN0JsbGRKYVRPMW81YmZCN1pJbEUyVnRFVlZR?oc=5",
+          "source": "Bulinews",
+          "published": "2026-11-28"
+        },
+        {
+          "title": "Paderborn vs Schalke Prediction and Betting Tips | 28th November 2026",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNTm50dVdOUXA5cU5fZXd0dEhVQkQ2MHNObVNaZ3dpQlhKVFZReFVpb0FXS3gwb0VuTGdPLTlnbmFyZ2lmRXRrUldUNGpJN0ZwV21PRnlpbmNfczl2RGZqOFBqVnMyZF9HdG5xNDVlSy1GeGRBdGQyWkxRQ1AzUVJfOUlkc0JZRnhsOE43aVAwVVpIc29yOFFHWDFNdjF0NkRZd0E?oc=5",
+          "source": "Sportskeeda",
+          "published": "2026-11-28"
+        },
+        {
+          "title": "Paderborn vs Schalke Prediction, Betting Tips, Lineups & Odds | 28 Nov 2026",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOcS1mS1o3UlVPQVRvQ1B1UWlScHZla0tBb1hCLTBQTkphSTg1TUVNazNvN0pIUkpxX0N4WVB3MFJJNkdZSmtvTmt4UzFaM0cxZklraEM0bTFkbWtCMTBxeFlzWFp2a2p1UXduQWM1clVvY1RraHdJRzNfWWhLV3BDMTM3elBSNDBZOWl4Wl9mbHpObzZqZnVpeEtMWVN1MHRnSWhBQlF0ZEJCT1ZB?oc=5",
+          "source": "Sportsgambler",
+          "published": "2026-11-28"
+        },
+        {
+          "title": "Match Centre",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9VOG9fM2t1aDRjN3pWcnVUQjY5MUdxeDMxSGNPNzZpek1jRW9Ea1Y0VlIxdE9OTk5ES05VcjFxRGRpeU1hY3R1OFBKZjlsY0FfbGNCelowbmM3cXJGWFlIbVZYWk5oSmRpelZv?oc=5",
+          "source": "Transfermarkt",
+          "published": "2026-11-28"
+        },
+        {
           "title": "SC Paderborn II - FC Schalke 04 II Live - Regionalliga West: Football Scores & Highlights - 29/11/2026",
           "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxONlhkVHZiWnh4aHBTLWt5YjQwbzJSSGhBeXlJNGNLb0FLdmx1MHpGQjJmM1UwaUUzR3RWUDNZZFlKaV9WYnU1ZFNNWHRUTEs1UlBBZEpJcW5rUjhuOV96NzdlRExseUxZWFhQaWJocUhJS0NJRkprczNhZTJqdTgyRzZrRDU0N0N0bUtfM2p0NDk5V1c0Ynd5S2N2Q0VNc19GR2hjZUdRd0VzZXlaNHBkQ3RLVkVPOGFjZmU1OA?oc=5",
           "source": "TNT Sports",
           "published": "2026-11-27"
         },
         {
-          "title": "SC Paderborn vs. FC Schalke 04 preview: Promoted sides aim to escape relegation zone",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNUHZoLVlwOTZNaFNxMGtJUjRWZTQ4VFpLVU15X1F2V1NmQ2ZjblNFeWpIZEtMd1Z6dUU3Y3hUUUk0VnBkQ29tOFlieDdLWDZzOFk0Vlk1TUdPNFhianJ2ZzItRlF2U0JodkZQdXgzWXV0MHdIN2NJTGstVEk2LXpURkFxWk5qcEs4dERvWTRmdXR0Q09nYkE?oc=5",
-          "source": "Bulinews",
+          "title": "Paderborn vs Schalke 04: Where to watch live on TV and online",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOOG5TVHR0cmNqVTVyekp4ZEFPUklPQ1JqeHdtbWNKb2RETEo0YW44dU0tTlBOTUlPRzc3OXY1QVFFYkphd2c1UExuR3kxdmxIZldkRXJiV2ZCeGdZSFJCRXFDSnhZamJuRTJOdUlfUzh5NTVqX290NUxhQUJ5NDhJTXpWQ1VpOHdKbHp0NEdrbk5IblltS05JVGlGX1Y4eEY5NU5oX0VMU0xyRGFTX2d0cWZoX3dSNm8xNGJLNg?oc=5",
+          "source": "Goal.com",
           "published": "2026-11-27"
-        },
-        {
-          "title": "Paderborn vs Schalke Prediction and Betting Tips | 28th November 2026",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNTm50dVdOUXA5cU5fZXd0dEhVQkQ2MHNObVNaZ3dpQlhKVFZReFVpb0FXS3gwb0VuTGdPLTlnbmFyZ2lmRXRrUldUNGpJN0ZwV21PRnlpbmNfczl2RGZqOFBqVnMyZF9HdG5xNDVlSy1GeGRBdGQyWkxRQ1AzUVJfOUlkc0JZRnhsOE43aVAwVVpIc29yOFFHWDFNdjF0NkRZd0E?oc=5",
-          "source": "Sportskeeda",
-          "published": "2026-11-27"
-        },
-        {
-          "title": "Fantasy Bundesliga: Scout squads for Matchday 11",
-          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9GM2ZWN0dtWUljYURWNzJOOG8xQ2ExY2VBN0tGMWlKMjNJNmQ5eFpnLUNqOXJSQVlQRE5XbGtHbllEMW83WUVEYkhFWF84LXJLb09uSFpYZ0dYSGFPWE40N0UzRnJuTXE1UWRzT3hqYmJid1B0OTVzNHdB?oc=5",
-          "source": "Bulinews",
-          "published": "2026-11-27"
-        },
-        {
-          "title": "Freiburg extend remarkable European home run with 14th consecutive win",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZ0Q3MndjN09qLUNfTTI2dHJIcFhRNko4UE1aT3BUU19KS0pYQjBPU1J4ZDlROFFMTTR0WGo0ZTJ4Ykt6NE9YdVE5YTQ3SXZjUGdRU0cwaDY5VGF6THNjTGVOdEJOVEU0Nzcta3pFXzZZYW1QbGdZS3NUREhqa0F1eUtDeXlJUGNINzBhdUp2VHliSkxDd1I2cnp0elVFd1YzcDlVTlduMEtRWHJKSDBB?oc=5",
-          "source": "Bundesliga | official website",
-          "published": "2026-11-27"
-        },
-        {
-          "title": "Super Sunday Showdown: Leaders Borussia Dortmund welcome Bayer Leverkusen and Freiburg face RB Leipzig as title race heats up",
-          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNdEh3MFFTeXc3ekhleTNVeEF6RWFUaXpnemRNMFUyR19YcjdYSjR3eWpjbmtfUmFodVYyU2Y5QTU4anpEOU5PN2pYVnlReEZaRm5nRXBFNHNIUHZIbVd5ell5Z29BUjF1SkMzaE9NbUg2OVFZYjVjbk1QVThFTHU3cGFTeEN1RkFzVWFZWW1vWjNjYkdrTngyZjd1R3c2anplbG1FcUhYUEJqcWlZUGlwTWFTd0hJUjJTSTN2eU9IVG1KYzRveVRhcHN3NkxadXVwSHZz?oc=5",
-          "source": "Bundesliga | official website",
-          "published": "2026-11-27"
-        },
-        {
-          "title": "Dortmund go top as Bayern Munich aim to bounce back.",
-          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOenc4QUo1aGlpZ0RodVQ3T1BRQnhEekhnTFBEUnZVSkZSZ1o1WkJwN0l4WEJHbUJrM0FaSEp2VU9FV1A2ZFJQYmVYRzFvLTNRS2p1bkZFVktoYTZvcFo2aEJPanhKVXd5RjU0UThlN3d5VTBTQ3FMaF9Hb01kY0xjQQ?oc=5",
-          "source": "Fullview",
-          "published": "2026-11-27"
-        },
-        {
-          "title": "Tickets: Schalke 04 vs Borussia Dortmund in Gelsenkirchen",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNdmk1QXJRRXpQcTRKSVFHOXVPbjI1V1c0SnRKeU5yUWlfLWZMZTBQSkd2YjBZRm1INWg0cm04Zk1YV0p6a19EUHg1cHFvREw3cXk4Qi02OWdhejk4MGYtSkVzTlNrel9Tcll3ZkxITEduN2VVOWlPSm1id0t2ODlmcThSVWk0YkJVYUR2WnhaRlJaVlJPY3l3LTR5TEJReUk?oc=5",
-          "source": "KarloBag.eu",
-          "published": "2026-11-26"
         }
       ],
-      "stories": [],
-      "clubFacts": [
-        "FC Schalke 04 a fost fondat la 4 mai 1904, sub numele Westfalia Schalke, de un grup de elevi; în 1924, secția de fotbal s-a separat de cea de gimnastică și a adoptat numele FC Schalke 04 și culorile albastru cu alb.",
-        "Schalke a cucerit de șapte ori titlul de campion al Germaniei, ultima dată în 1958, și a câștigat de cinci ori Cupa Germaniei (DFB-Pokal), cea mai recentă victorie fiind în 2010-11.",
-        "În 1937, Schalke a devenit primul club german care a realizat dubla campionat-cupă.",
-        "Clubul a cucerit Cupa UEFA în sezonul 1996-97, învingând Inter Milano la loviturile de departajare.",
-        "Echipa joacă pe Veltins-Arena, folosită din 2001, cu o capacitate de 62.273 de locuri.",
-        "Porecla „Die Knappen” (Minerii) vine de la faptul că mulți jucători și suporteri ai clubului erau mineri de cărbune din Gelsenkirchen.",
-        "Ernst Kuzorra și Fritz Szepan sunt considerați cei mai mari jucători din istoria clubului.",
-        "Cea mai importantă rivalitate a clubului este cu vecinii din Ruhr, Borussia Dortmund, în cadrul derby-ului numit Revierderby."
-      ]
+      "stories": []
     }
   },
   "standings": {
@@ -8081,15 +8431,15 @@
         "rank": 6,
         "teamId": 162,
         "team": "Werder Bremen",
-        "played": 10,
+        "played": 11,
         "win": 5,
-        "draw": 3,
+        "draw": 4,
         "loss": 2,
-        "gf": 21,
-        "ga": 15,
+        "gf": 24,
+        "ga": 18,
         "gd": 6,
-        "points": 18,
-        "form": "WLWWD"
+        "points": 19,
+        "form": "DWLWW"
       },
       {
         "rank": 7,
@@ -8249,15 +8599,15 @@
         "rank": 18,
         "teamId": 163,
         "team": "Borussia Mönchengladbach",
-        "played": 10,
+        "played": 11,
         "win": 1,
-        "draw": 1,
+        "draw": 2,
         "loss": 8,
-        "gf": 12,
-        "ga": 26,
+        "gf": 15,
+        "ga": 29,
         "gd": -14,
-        "points": 4,
-        "form": "LLDWL"
+        "points": 5,
+        "form": "DLLDW"
       }
     ]
   }
