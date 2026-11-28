@@ -1,0 +1,162 @@
+/* Match Center — cards screen (test). Fixed 1680x960 canvas, scaled to the window by app/cards.js. */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#05080f;min-height:100%}
+body{display:flex;align-items:flex-start;justify-content:center;overflow:auto;font-family:"Inter",system-ui,sans-serif;color:#e8eefc}
+#stage{position:relative;overflow:hidden;flex:none}
+#board{position:absolute;left:0;top:0;width:1680px;height:960px;transform-origin:0 0;display:flex;flex-direction:column;gap:6px;padding:6px;
+  background:radial-gradient(1200px 700px at 50% 40%,#101a30,#070b15 70%)}
+.loading{margin:auto;font-size:18px;color:#9fb0d4}
+.loading a{color:#6ee7b7}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:inherit}
+.dim{color:#8392b4}
+
+/* ---------- menu ---------- */
+.menu{height:40px;display:flex;align-items:center;gap:14px;padding:0 10px;background:#0c1322;border:1px solid #1d2943;border-radius:8px}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand strong{font:700 17px/1 "Barlow Condensed",sans-serif;letter-spacing:.12em}
+.brand span{font-size:9px;color:#6ee7b7;letter-spacing:.14em;text-transform:uppercase}
+.menu-items{flex:1;display:flex;justify-content:center;gap:4px}
+.menu button,.menu-tools a{background:#111b30;border:1px solid #22304f;border-radius:6px;padding:5px 9px;font-size:12px;text-decoration:none;white-space:nowrap}
+.menu button:hover,.menu-tools a:hover{border-color:#34d399;background:#12253a}
+.menu-tools{display:flex;gap:5px;align-items:center}
+
+/* ---------- score bar ---------- */
+.scorebar{height:68px;display:grid;grid-template-columns:330px 1fr 230px 1fr 330px;align-items:center;gap:10px;padding:0 12px;background:#0c1322;border:1px solid #1d2943;border-radius:8px}
+.team-head{display:flex;align-items:center;gap:10px;border-bottom:3px solid var(--team);height:54px}
+.team-head.away{justify-content:flex-end;text-align:right}
+.crest{width:42px;height:42px;object-fit:contain}
+.tn strong{display:block;font:700 25px/1.05 "Barlow Condensed",sans-serif;text-transform:uppercase;white-space:nowrap}
+.tn span{font-size:11px;color:#9fb0d4}
+.scorers{font-size:12px;line-height:1.35;color:#cfd9ef;max-height:50px;overflow:hidden}
+.scorers.home{text-align:right}
+.center{text-align:center}
+.comp{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8392b4}
+.score{font:700 34px/1.05 "Barlow Condensed",sans-serif;font-variant-numeric:tabular-nums}
+.clock{font-size:11px;color:#9fb0d4}
+.clock.on{color:#34d399;font-weight:700}
+.clock.on::before{content:"● "}
+
+/* ---------- benches ---------- */
+.benches{height:56px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bench{display:flex;flex-wrap:wrap;gap:3px;align-content:flex-start;overflow:hidden}
+.bench.away{justify-content:flex-end}
+.chip{display:flex;align-items:center;gap:5px;width:134px;height:25px;background:#0e1628;border:1px solid #22304f;border-radius:5px;overflow:hidden;font-size:11px;text-align:left}
+.chip b{align-self:stretch;min-width:26px;display:flex;align-items:center;justify-content:center;background:var(--team);color:var(--ink);font:700 13px "Barlow Condensed",sans-serif}
+.chip span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip:hover{border-color:#34d399}
+.chip.on-pitch{border-color:#34d399;box-shadow:0 0 0 1px #34d399}
+.chip.on-pitch span::before{content:"▲ ";color:#34d399}
+
+/* ---------- middle: side columns + pitch ---------- */
+.main{flex:1;display:grid;grid-template-columns:236px 1180px 1fr;gap:6px;min-height:0}
+.col{display:flex;flex-direction:column;gap:6px;min-height:0}
+.widget{background:#0c1322;border:1px solid #1d2943;border-radius:8px;display:flex;flex-direction:column;min-height:0;flex:none}
+.widget.grow{flex:1}
+.widget h5{font:600 12px/1 "Barlow Condensed",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6ee7b7;padding:7px 9px 5px;border-bottom:1px solid #18223a}
+.widget-body{padding:6px 9px 8px;font-size:11.5px;line-height:1.45;overflow:auto;min-height:0;display:flex;flex-direction:column;gap:3px;flex:1}
+.widget textarea{flex:1;min-height:80px;resize:none;background:#090f1c;color:inherit;border:1px solid #1d2943;border-radius:6px;padding:7px;font:12px/1.5 "Inter",sans-serif}
+.weather{color:#fcd34d}
+.mini-row{display:flex;align-items:center;gap:6px}
+.mini-row i{width:4px;height:14px;border-radius:2px;flex:none}
+.mini-row .rk{width:16px;color:#8392b4;font-variant-numeric:tabular-nums}
+.mini-row .nm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mini-row b{font-variant-numeric:tabular-nums}
+.mini-row.ours{background:#15233f;border-radius:4px}
+.cmp{margin-bottom:2px}
+.cmp-top{display:flex;justify-content:space-between;font-size:11px}
+.cmp-top span{color:#8392b4}
+.cmp-bar{display:flex;gap:2px;height:4px;background:#17203a;border-radius:2px;overflow:hidden}
+.cmp-bar i{display:block;height:100%}
+.ev-list{display:flex;flex-direction:column;gap:3px}
+.ev{display:flex;align-items:center;gap:5px}
+.ev i{width:4px;height:14px;border-radius:2px;flex:none}
+.ev b{width:34px;font-variant-numeric:tabular-nums}
+.ev .nm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev em{font-size:9.5px;font-style:normal;border:1px solid #475578;border-radius:7px;padding:0 5px;color:#9fb0d4}
+.ev.removed .nm{text-decoration:line-through;opacity:.6}
+.ev.removed em{color:#fbbf24;border-color:#fbbf24}
+
+/* ---------- pitch ---------- */
+.pitch{position:relative;border-radius:8px;overflow:hidden;border:1px solid #2c6b45;
+  background:repeating-linear-gradient(90deg,#10432b 0 98.3px,#0e3b26 98.3px 196.6px)}
+.line{position:absolute;border:2px solid rgba(255,255,255,.28);pointer-events:none}
+.line.half{left:50%;top:0;bottom:0;border-width:0 0 0 2px}
+.line.circle{left:50%;top:50%;width:170px;height:170px;margin:-85px 0 0 -85px;border-radius:50%}
+.line.area{top:21%;bottom:21%;width:170px}
+.line.goal{top:37%;bottom:37%;width:62px}
+.line.l{left:-2px}
+.line.r{right:-2px}
+
+/* ---------- player card ---------- */
+.card{position:absolute;width:114px;height:142px;transform:translate(-50%,-50%);display:flex;flex-direction:column;background:#0b101c;border:1px solid var(--team);
+  border-radius:7px;box-shadow:0 5px 14px rgba(0,0,0,.45);cursor:pointer;transition:transform .12s}
+.card:hover,.card:focus-visible{transform:translate(-50%,-50%) scale(1.32);z-index:6;outline:none;border-color:#fcd34d}
+.card-head{display:flex;justify-content:space-between;align-items:stretch;background:var(--team);color:var(--ink);border-radius:5px 5px 0 0;height:40px;padding:2px 2px 2px 5px;overflow:hidden}
+.who{display:grid;grid-template-columns:auto 1fr;grid-template-rows:15px 20px;column-gap:4px;min-width:0;flex:1}
+.who .no{grid-row:1 / 2;font:700 17px/15px "Barlow Condensed",sans-serif}
+.who .first{font-size:8.5px;opacity:.85;align-self:end;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.who .last{grid-column:1 / 3;font:700 15px/19px "Barlow Condensed",sans-serif;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ava{width:34px;height:36px;border-radius:4px;overflow:hidden;background:rgba(0,0,0,.3);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex:none}
+.ava img{width:100%;height:100%;object-fit:cover}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:4px;padding:2px 4px;font-size:8.5px;color:#9fb0d4;white-space:nowrap}
+.nat{background:#1b2742;color:#e8eefc;border-radius:3px;padding:0 4px;font-weight:700;letter-spacing:.04em}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;padding:0 2px}
+.cell{display:flex;flex-direction:column;align-items:center;background:#121b2f;border-radius:2px;padding:1px 0;line-height:1.15}
+.cell i{font-style:normal;font-size:7px;color:#8392b4}
+.cell b{font:700 11px "Barlow Condensed",sans-serif;font-variant-numeric:tabular-nums}
+.grid .cell:nth-child(n+6){grid-column:span 1}
+.grid .cell:last-child{grid-column:span 2;background:#2a2108}
+.grid .cell:last-child b{color:#fcd34d}
+.fact{margin:2px 4px 0;font-size:8px;line-height:1.28;color:#cbd5ee;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.badges{position:absolute;right:-5px;top:-9px;display:flex;gap:2px;z-index:2}
+.badges span{background:#05080f;border:1px solid #fcd34d;border-radius:8px;padding:0 4px;font:700 11px/15px "Barlow Condensed",sans-serif;white-space:nowrap}
+.badges span.mine{border-color:#6ee7b7}
+
+.coach,.ref{position:absolute;display:flex;align-items:center;gap:6px;background:#0b101c;border:1px solid #475578;border-radius:7px;cursor:pointer;z-index:1}
+.coach{top:6px;width:116px;padding:4px 5px;justify-content:space-between;border-color:var(--team)}
+.coach.home{left:4px}
+.coach.away{right:4px;flex-direction:row-reverse;text-align:right}
+.coach div:not(.ava),.ref{min-width:0}
+.coach div:not(.ava){display:flex;flex-direction:column}
+.coach .role,.ref .role{font-size:7.5px;letter-spacing:.14em;color:#6ee7b7}
+.coach .last{font:700 13px/1.15 "Barlow Condensed",sans-serif;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:66px}
+.coach .dim{font-size:8px}
+.ref{left:50%;bottom:6px;transform:translateX(-50%);flex-direction:column;gap:0;padding:4px 12px}
+.ref .last{font:700 13px/1.2 "Barlow Condensed",sans-serif;text-transform:uppercase;white-space:nowrap}
+.coach:hover,.ref:hover{border-color:#fcd34d}
+
+/* ---------- timeline ---------- */
+.timeline{height:46px;display:flex;align-items:center;gap:14px;padding:0 16px;background:#0c1322;border:1px solid #1d2943;border-radius:8px}
+.tl-label{font:600 11px "Barlow Condensed",sans-serif;letter-spacing:.14em;color:#8392b4}
+.line-track{position:relative;flex:1;height:34px}
+.line-track::before{content:"";position:absolute;left:0;right:0;top:16px;height:2px;background:#22304f}
+.progress{position:absolute;left:0;top:16px;height:2px;background:#34d399}
+.tick{position:absolute;top:21px;font-size:8.5px;color:#66759a;transform:translateX(-50%)}
+.dot{position:absolute;top:1px;transform:translateX(-50%);font-size:10px;line-height:14px;border-bottom:2px solid var(--team);cursor:default}
+.dot.away{top:18px;border-bottom:0;border-top:2px solid var(--team)}
+.dot.removed{opacity:.35;filter:grayscale(1)}
+
+/* ---------- popover and drawer ---------- */
+.pop{position:absolute;width:330px;z-index:12;background:#0b1020;border:1px solid #fcd34d;border-radius:9px;padding:10px 12px;font-size:12px;box-shadow:0 12px 30px rgba(0,0,0,.6);pointer-events:none}
+.pop>strong{font:700 17px "Barlow Condensed",sans-serif;text-transform:uppercase}
+.pop-head{display:flex;justify-content:space-between;margin:4px 0 6px;color:#fcd34d}
+.pop-row{display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-top:1px solid #1d2943}
+.drawer-back{position:absolute;inset:0;background:rgba(3,5,10,.55);z-index:20;display:flex;justify-content:flex-end}
+.drawer{width:760px;height:100%;display:flex;flex-direction:column;background:#0c1322;border-left:4px solid var(--accent,#34d399)}
+.drawer header{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid #1d2943}
+.drawer h2{font:700 28px/1.1 "Barlow Condensed",sans-serif;text-transform:uppercase}
+.drawer header p{font-size:12px;color:#9fb0d4}
+.drawer .x{background:none;border:1px solid #2b3a5e;border-radius:6px;width:30px;height:30px}
+.drawer-body{overflow:auto;padding:14px 18px 24px;font-size:14px;line-height:1.55;display:flex;flex-direction:column;gap:14px}
+.drawer h3{font:600 14px "Barlow Condensed",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6ee7b7;margin-bottom:4px}
+.drawer h4{font-size:13px;margin-bottom:4px}
+.drawer ul{padding-left:18px;display:flex;flex-direction:column;gap:5px}
+.drawer table{width:100%;border-collapse:collapse;font-size:12.5px}
+.drawer th,.drawer td{padding:4px 6px;border-bottom:1px solid #1d2943;text-align:left}
+.drawer th{color:#8392b4;font-weight:600}
+.drawer tr.ours{background:#15233f}
+.drawer .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pron{color:#6ee7b7}
+.warn{color:#fbbf24}
+.link-line{border-left:3px solid #fcd34d;padding-left:10px}

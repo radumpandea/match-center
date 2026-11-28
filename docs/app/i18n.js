@@ -449,6 +449,8 @@
       // coach / referee modals
       'coach.tabCareer': 'Carieră',
       'coach.tabTrophies': 'Trofee',
+      'toolbar.cards': '🃏 Carduri (test)',
+      'toolbar.cardsTitle': 'Ecranul de meci pe bază de carduri (variantă de test)',
       'toolbar.refreshLineups': '🔄 Aliniere din API',
       'toolbar.refreshLineupsTitle': 'Actualizează primul 11 și rezervele din API-Football (api-sports.io). Înlocuiește modificările manuale ale alinierii.',
       'lineup.loading': 'Se interoghează API-Football…',
@@ -997,6 +999,8 @@
 
       'coach.tabCareer': 'Career',
       'coach.tabTrophies': 'Trophies',
+      'toolbar.cards': '🃏 Cards (test)',
+      'toolbar.cardsTitle': 'Card-based match screen (test version)',
       'toolbar.refreshLineups': '🔄 Lineup from API',
       'toolbar.refreshLineupsTitle': 'Update the starting XI and bench from API-Football (api-sports.io). Replaces manual lineup edits.',
       'lineup.loading': 'Asking API-Football…',
@@ -1501,6 +1505,8 @@
 
       'coach.tabCareer': 'Carrière',
       'coach.tabTrophies': 'Trophées',
+      'toolbar.cards': '🃏 Cartes (test)',
+      'toolbar.cardsTitle': 'Écran de match en cartes (version d’essai)',
       'toolbar.refreshLineups': '🔄 Composition via API',
       'toolbar.refreshLineupsTitle': 'Met à jour le onze de départ et les remplaçants depuis API-Football (api-sports.io). Remplace les modifications manuelles.',
       'lineup.loading': 'Interrogation d\'API-Football…',
@@ -2043,6 +2049,8 @@
 
       'coach.tabCareer': 'Karriere',
       'coach.tabTrophies': 'Titel',
+      'toolbar.cards': '🃏 Karten (Test)',
+      'toolbar.cardsTitle': 'Spielansicht mit Karten (Testversion)',
       'toolbar.refreshLineups': '🔄 Aufstellung per API',
       'toolbar.refreshLineupsTitle': 'Aktualisiert Startelf und Bank von API-Football (api-sports.io). Ersetzt manuelle Änderungen.',
       'lineup.loading': 'API-Football wird abgefragt…',
@@ -2587,6 +2595,8 @@
 
       'coach.tabCareer': 'Carriera',
       'coach.tabTrophies': 'Trofei',
+      'toolbar.cards': '🃏 Schede (test)',
+      'toolbar.cardsTitle': 'Schermata partita a schede (versione di prova)',
       'toolbar.refreshLineups': '🔄 Formazione da API',
       'toolbar.refreshLineupsTitle': 'Aggiorna la formazione titolare e la panchina da API-Football (api-sports.io). Sostituisce le modifiche manuali.',
       'lineup.loading': 'Interrogazione di API-Football…',
