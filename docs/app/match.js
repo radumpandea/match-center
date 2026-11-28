@@ -1377,10 +1377,34 @@
   // predicted XI for a side with the user's manual swaps applied. Padded to 11
   // blank slots so a skeleton / partial-prefetch match still shows a full pitch
   // to build the lineup on (real packs already carry exactly 11).
+  // The changes to the eleven, by position: this user's own line-up corrections (mine.xi, private) and the substitutions
+  // made during the match (store.subs, shared with everyone like goals and cards; they win over a correction at the same
+  // position). A shared entry is shown with the name and number this user's squad has for that player.
+  function xiChanges(d, side) {
+    var out = {}, own = (mine.xi && mine.xi[side]) || {}, shared = (store.subs && store.subs[side]) || {};
+    Object.keys(own).forEach(function (k) { out[k] = own[k]; });
+    Object.keys(shared).forEach(function (k) {
+      var e = shared[k];
+      if (!e) return;
+      var ref = effSquad(d, side).filter(function (p) { return e.apiId != null ? p.apiId === e.apiId : (p._name0 || p.name) === e.name; })[0];
+      var copy = {};
+      Object.keys(e).forEach(function (f) { copy[f] = e[f]; });
+      if (ref) { copy.name = ref.name; if (ref._name0 !== undefined) copy._name0 = ref._name0; if (ref.number != null) copy.number = ref.number; }
+      out[k] = copy;
+    });
+    return out;
+  }
+  function dropSharedSub(side, idx) {
+    if (!(store.subs && store.subs[side] && store.subs[side][idx])) return;
+    delete store.subs[side][idx];
+    if (!Object.keys(store.subs[side]).length) delete store.subs[side];
+    if (!Object.keys(store.subs).length) delete store.subs;
+    save();
+  }
   function effXI(d, side) {
     var pred = baseXI(d, side).slice();
     while (pred.length < 11) pred.push({ number: null, name: null, pos: null });
-    var ov = (mine.xi && mine.xi[side]) || {};
+    var ov = xiChanges(d, side);
     return pred.map(function (slot, i) { return ov[i] || slot; });
   }
   // matchday bench: an explicit list of squad keys in mine.bench[side]; when
@@ -1443,9 +1467,7 @@
   function applySub(d, side, idx, player, minute, kind) {
     var pred = baseXI(d, side);
     var m = parseInt(minute, 10);
-    mine.xi = mine.xi || {};
-    mine.xi[side] = mine.xi[side] || {};
-    mine.xi[side][idx] = {
+    var change = {
       apiId: player.apiId != null ? player.apiId : null,
       number: player.number != null ? player.number : null,
       name: player._name0 !== undefined ? player._name0 : player.name,   // researched name; the display override is re-applied on render
@@ -1453,12 +1475,26 @@
       minute: isNaN(m) ? null : m,
       kind: kind === 'sub' ? 'sub' : 'xi'
     };
+    mine.xi = mine.xi || {};
+    mine.xi[side] = mine.xi[side] || {};
+    if (change.kind === 'sub') {   // a fact of the match: shared
+      delete mine.xi[side][idx];
+      store.subs = store.subs || {};
+      store.subs[side] = store.subs[side] || {};
+      store.subs[side][idx] = change;
+      save();
+    } else {                       // a correction of the eleven: this user's own
+      mine.xi[side][idx] = change;
+      dropSharedSub(side, idx);
+    }
     saveMine();
     rerenderPitch(d);
     rerenderPanels(d);
   }
   function clearSub(d, side, idx) {
-    if (mine.xi && mine.xi[side]) { delete mine.xi[side][idx]; saveMine(); rerenderPitch(d); rerenderPanels(d); }
+    if (mine.xi && mine.xi[side]) { delete mine.xi[side][idx]; saveMine(); }
+    dropSharedSub(side, idx);
+    rerenderPitch(d); rerenderPanels(d);
   }
 
   /* ---------- goals & cards per player (store.events) ---------- */
@@ -1553,11 +1589,10 @@
         });
       });
     });
-    // in-match substitutions (mine.xi entries flagged kind === 'sub')
-    var xi = mine.xi || {};
+    // in-match substitutions (changes flagged kind === 'sub')
     ['home', 'away'].forEach(function (side) {
       var pred = baseXI(d, side);
-      var ov = xi[side] || {};
+      var ov = xiChanges(d, side);
       Object.keys(ov).forEach(function (i) {
         var cur = ov[i], orig = pred[i];
         if (!cur || cur.kind !== 'sub') return;
@@ -2925,7 +2960,7 @@
     var evRows = collectEvents(d).filter(function (r) { return r.type !== 'sub'; });
     ['home', 'away'].forEach(function (side) {
       var pred = baseXI(d, side);
-      var ov = (mine.xi && mine.xi[side]) || {};
+      var ov = xiChanges(d, side);
       var items = [];
       pred.forEach(function (orig, i) {
         var cur = ov[i];
@@ -4397,7 +4432,7 @@
 
     if (slotIdx >= 0) {
       var origName = pred[slotIdx] ? pred[slotIdx].name : null;
-      var swapped = !!(mine.xi && mine.xi[side] && mine.xi[side][slotIdx]);
+      var swapped = !!xiChanges(d, side)[slotIdx];
       wrap.appendChild(el('p', { class: 'sub-head', text: t('sub.whoComesOn', { name: p.name }) }));
       wrap.appendChild(kindToggle);
       wrap.appendChild(minRow);

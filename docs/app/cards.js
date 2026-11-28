@@ -112,6 +112,12 @@
   function lineupKind(side) { var t = d.teams[side]; return apiLineup(side) || (t.confirmedXI || []).length === 11 ? 'confirmed' : (t.predictedXI || []).length === 11 ? 'predicted' : 'none'; }
   function changedByUser(side) { var x = own().xi; return !!(x && x[side] && Object.keys(x[side]).length); }
   function formationOf(side) { var f = own().formation, a = apiLineup(side); return (f && f[side]) || (a && a.formation) || d.teams[side].formation || '4-4-2'; }
+  // the changes to the eleven, by position, as on the classic page: own line-up corrections, then the shared substitutions
+  function changesOf(side) {
+    var out = {}, mine = own().xi, subs = shared().subs;
+    [(mine && mine[side]) || {}, (subs && subs[side]) || {}].forEach(function (src) { Object.keys(src).forEach(function (i) { if (src[i]) out[i] = src[i]; }); });
+    return out;
+  }
   var xiCache = {};   // rebuilt on every render
   // the eleven before the user's changes, in the order the classic page counts them (its saved changes are by position
   // in this list): the lineup taken from the API, else predictedXI, else confirmedXI
@@ -127,7 +133,7 @@
   }
   function xiOf(side) {
     if (xiCache[side]) return xiCache[side];
-    var mine = own().xi, over = (mine && mine[side]) || {};
+    var over = changesOf(side);
     xiCache[side] = baseSlots(side).map(function (slot, i) {
       var x = entry(side, over[i] || slot);
       x.index = i; x.change = over[i] || null;
@@ -251,20 +257,27 @@
       if (!st.events[key].length) delete st.events[key];
     });
   }
-  // the player `incoming` takes position `index` of the eleven
-  function substitute(side, index, incoming, minute) {
-    var before = (own().xi && own().xi[side] && own().xi[side][index]) || null, base = baseSlots(side)[index], p = incoming.p, m = parseInt(minute, 10);
-    var ok = writeOwn(function (mine) {
-      mine.xi = mine.xi || {}; mine.xi[side] = mine.xi[side] || {};
-      mine.xi[side][index] = { apiId: p.apiId != null ? p.apiId : null, number: incoming.number != null ? incoming.number : null, name: p.name, pos: base && base.pos != null ? base.pos : p.pos, minute: isNaN(m) ? null : m, kind: 'sub' };
-    });
-    return ok ? function () { setSlot(side, index, before); } : null;
+  // The player `incoming` takes position `index` of the eleven. A substitution is a fact of the match: shared.
+  function slotNow(side, index) {
+    var s = shared().subs, m = own().xi;
+    return { sub: (s && s[side] && s[side][index]) || null, own: (m && m[side] && m[side][index]) || null };
   }
-  function setSlot(side, index, value) {
-    writeOwn(function (mine) {
-      mine.xi = mine.xi || {}; mine.xi[side] = mine.xi[side] || {};
-      if (value) mine.xi[side][index] = value; else delete mine.xi[side][index];
+  function setSlot(side, index, sub, mineValue) {
+    var ok = writeShared(function (st) {
+      st.subs = st.subs || {}; st.subs[side] = st.subs[side] || {};
+      if (sub) st.subs[side][index] = sub; else delete st.subs[side][index];
+      if (!Object.keys(st.subs[side]).length) delete st.subs[side];
+      if (!Object.keys(st.subs).length) delete st.subs;
     });
+    return writeOwn(function (mine) {
+      mine.xi = mine.xi || {}; mine.xi[side] = mine.xi[side] || {};
+      if (mineValue) mine.xi[side][index] = mineValue; else delete mine.xi[side][index];
+    }) && ok;
+  }
+  function substitute(side, index, incoming, minute) {
+    var before = slotNow(side, index), base = baseSlots(side)[index], p = incoming.p, m = parseInt(minute, 10);
+    var ok = setSlot(side, index, { apiId: p.apiId != null ? p.apiId : null, number: incoming.number != null ? incoming.number : null, name: p.name, pos: base && base.pos != null ? base.pos : p.pos, minute: isNaN(m) ? null : m, kind: 'sub' }, null);
+    return ok ? function () { setSlot(side, index, before.sub, before.own); } : null;
   }
   function toast(text, undo) {
     var old = board.querySelector('.toast'); if (old) old.remove();
@@ -304,7 +317,7 @@
       return e.mine && e.side === side && (e.kind === 'sub' ? (onPitch && e.index === x.index) : e.key === eventKey(side, x));
     }).map(function (e) {
       return el('div', { class: 'noted' }, [el('span', { text: minuteText(e) + ' ' + ICON[e.kind] + ' ' + (e.kind === 'sub' ? 'intrat în locul lui ' + shortOf(e.id, e.name) : LABEL[e.kind]) }),
-        el('button', { text: '✕', title: 'Șterge', onclick: function () { if (e.kind === 'sub') setSlot(side, e.index, null); else removeNoted(e.key, e.eid); closeDrawer(); render(); toast('Șters: ' + (LABEL[e.kind] || e.kind) + ' — ' + name); } })]);
+        el('button', { text: '✕', title: 'Șterge', onclick: function () { if (e.kind === 'sub') setSlot(side, e.index, null, null); else removeNoted(e.key, e.eid); closeDrawer(); render(); toast('Șters: ' + (LABEL[e.kind] || e.kind) + ' — ' + name); } })]);
     });
     return el('section', { class: 'recorder' }, [
       el('h3', { text: 'Notează' }),
@@ -662,7 +675,7 @@
         nodes.events.appendChild(el('div', { class: 'ev' + (e.removed ? ' removed' : '') }, [
           el('i', { style: 'background:' + (e.side ? color(e.side) : '#666') }), el('b', { text: minuteText(e) }), el('span', { text: ICON[e.kind] || '•' }),
           el('span', { class: 'nm', text: e.kind === 'sub' ? '▲ ' + (e.inName ? shortOf(e.inId, e.inName) : '?') + '  ▼ ' + (e.name ? shortOf(e.id, e.name) : '?') : (e.name ? (e.kind === 'var' ? e.name : shortOf(e.id, e.name)) : 'fără jucător, neconfirmat') }),
-          e.removed ? el('em', { text: 'anulat' }) : e.mine ? el('button', { class: 'ev-del', text: 'tu ✕', title: 'Șterge ce ai notat', onclick: function () { if (e.kind === 'sub') setSlot(e.side, e.index, null); else removeNoted(e.key, e.eid); render(); toast('Șters din notițele tale.'); } }) : null
+          e.removed ? el('em', { text: 'anulat' }) : e.mine ? el('button', { class: 'ev-del', text: 'tu ✕', title: 'Șterge ce ai notat', onclick: function () { if (e.kind === 'sub') setSlot(e.side, e.index, null, null); else removeNoted(e.key, e.eid); render(); toast('Șters din notițele tale.'); } }) : null
         ]));
       });
     }
