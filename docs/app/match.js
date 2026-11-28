@@ -4002,7 +4002,12 @@
   var panelsEl = null;
   var _pdrag = null;
   function rerenderPanels(d) {
+    // what the user has opened or closed stays that way: a rebuild can happen on its own (live data arriving)
+    var wasOpen = {};
+    var title = function (x) { var s = x.querySelector('summary'); return s ? s.textContent : ''; };
+    if (panelsEl) [].forEach.call(panelsEl.querySelectorAll('details.panel'), function (x) { wasOpen[title(x)] = x.open; });
     var next = panels(d);
+    [].forEach.call(next.querySelectorAll('details.panel'), function (x) { var k = title(x); if (Object.prototype.hasOwnProperty.call(wasOpen, k)) x.open = wasOpen[k]; });
     if (panelsEl) panelsEl.replaceWith(next);
     panelsEl = next;
   }
